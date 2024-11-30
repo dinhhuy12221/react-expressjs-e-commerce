@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "commonjs",
+  "moduleResolution": "node",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dinhhuy12221",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "2.0.2",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "5.0.1",
+    "fix-esm": "^1.0.1",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.0",
+    "nodemon": "^3.1.7",
+    "p-limit": "3.0.0",
+    "server": "file:"
+  }
+}
