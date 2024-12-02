@@ -118,7 +118,6 @@ export default function Products() {
           >
             <Breadcrumbs aria-label="breadcrumb">
               <StyledBreadcrumb
-                component="a"
                 href="/dashboard"
                 label="Dashboard"
                 icon={<HomeIcon fontSize="small" />}
@@ -127,12 +126,9 @@ export default function Products() {
                 }}
               />
               <StyledBreadcrumb
-                component="a"
-                href="/products"
+                href="#"
                 label="Products"
-                style={{
-                  cursor: "pointer",
-                }}
+                icon={<HomeIcon fontSize="small" />}
               />
             </Breadcrumbs>
           </div>

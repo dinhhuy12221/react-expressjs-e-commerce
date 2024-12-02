@@ -24,6 +24,7 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { MyContext } from "../../App";
+import UserAvatarImg from "../UserAvatarImg";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -355,11 +356,11 @@ export default function Header() {
                     className="myAcc d-flex align-items-center"
                     onClick={handleOpenMyAccDrop}
                   >
-                    <div className="userImg">
-                      <span className="rounded-circle">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                      </span>
-                    </div>
+                    <UserAvatarImg
+                      imgUrl={
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ"
+                      }
+                    />
 
                     <div className="userInfo">
                       <h4>aLue</h4>

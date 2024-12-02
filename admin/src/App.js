@@ -14,7 +14,7 @@ const MyContext = createContext();
 
 function App() {
   const [isToggleSidebar, setIsToggleSidebar] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [isHideSidebarAndHeader, setIsHideSidebarAndHeader] = useState(false);
   const [themeMode, setThemeMode] = useState(false);
 
@@ -70,7 +70,10 @@ function App() {
                 <Route path={"/login"} element={<Login />} />
                 <Route path={"/signup"} element={<SignUp />} />
                 <Route path={"/products"} element={<Products />} />
-                <Route path={"/product/details"} element={<ProductDetails />} />
+                <Route
+                  path={"/products/details"}
+                  element={<ProductDetails />}
+                />
               </Routes>
             </div>
           </div>
