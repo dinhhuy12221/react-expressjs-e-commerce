@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+import "./responsive.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
@@ -9,12 +10,13 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import ProductUpload from "./pages/ProductUpload";
 
 const MyContext = createContext();
 
 function App() {
   const [isToggleSidebar, setIsToggleSidebar] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [isHideSidebarAndHeader, setIsHideSidebarAndHeader] = useState(false);
   const [themeMode, setThemeMode] = useState(false);
 
@@ -70,10 +72,8 @@ function App() {
                 <Route path={"/login"} element={<Login />} />
                 <Route path={"/signup"} element={<SignUp />} />
                 <Route path={"/products"} element={<Products />} />
-                <Route
-                  path={"/products/details"}
-                  element={<ProductDetails />}
-                />
+                <Route path={"/product/details"} element={<ProductDetails />} />
+                <Route path={"/product/upload"} element={<ProductUpload />} />
               </Routes>
             </div>
           </div>
