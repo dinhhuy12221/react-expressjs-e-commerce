@@ -83,7 +83,7 @@ export default function Dashboard() {
       <div className="right-content">
         <div className="row dashboardBoxWrapperRow">
           <div className="col-md-8">
-            <div className="dashboardBoxWrapper d-flex">
+            <div className="dashboardBoxWrapper d-flex ">
               <DashboardBox
                 color={["#1da256", "#48d483"]}
                 icon={<FaUserCircle />}
@@ -107,7 +107,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 topPart2">
             <div className="box graphBox">
               <div className="d-flex align-items-center w-100 bottomEle">
                 <h6 className="text-white mb-0 mt-0">Total Sales</h6>

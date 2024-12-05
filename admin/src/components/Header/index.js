@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { MdMenu } from "react-icons/md";
+import { IoMenu } from "react-icons/io5";
 import { MdOutlineMenuOpen } from "react-icons/md";
 import SearchBox from "../SearchBox";
 import { MdOutlineLightMode } from "react-icons/md";
@@ -51,7 +52,7 @@ export default function Header() {
     <>
       <header className="d-flex align-items-center">
         <div className="container-fluid w-100">
-          <div className="row d-flex align-items-center">
+          <div className="row d-flex flex-row align-items-center w-100 ">
             <div className="col-sm-2 part1">
               <Link to={"/"} className="logo d-flex align-items-center">
                 <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" />
@@ -59,38 +60,44 @@ export default function Header() {
               </Link>
             </div>
 
-            <div className="col-sm-3 d-flex align-items-center part2">
-              <Button
-                className="rounded-circle"
-                onClick={() =>
-                  context.setIsToggleSidebar(!context.isToggleSidebar)
-                }
-              >
-                {context.isToggleSidebar === false ? (
-                  <MdOutlineMenuOpen />
-                ) : (
-                  <MdMenu />
-                )}
-              </Button>
-              <SearchBox />
-            </div>
+            {context.windowWidth > 750 && (
+              <div className="col-sm-3 d-flex align-items-center part2 res-hide">
+                <Button
+                  className="rounded-circle"
+                  onClick={() =>
+                    context.setIsToggleSidebar(!context.isToggleSidebar)
+                  }
+                >
+                  {context.isToggleSidebar === false ? (
+                    <MdOutlineMenuOpen />
+                  ) : (
+                    <MdMenu />
+                  )}
+                </Button>
+                <SearchBox />
+              </div>
+            )}
 
-            <div className="col-sm-7 d-flex align-items-center justify-content-end part3">
+            <div className="col-sm-7 d-flex align-items-center justify-content-end part3 pe-0">
               <Button
                 className="rounded-circle"
                 onClick={() => context.setThemeMode(!context.themeMode)}
               >
                 <MdOutlineLightMode />
               </Button>
-              <Button className="rounded-circle">
-                <IoGlobeOutline />
-              </Button>
-              <Button className="rounded-circle">
-                <LuShoppingCart />
-              </Button>
-              <Button className="rounded-circle">
-                <MdMailOutline />
-              </Button>
+              {context.windowWidth > 750 && (
+                <>
+                  <Button className="rounded-circle">
+                    <IoGlobeOutline />
+                  </Button>
+                  <Button className="rounded-circle">
+                    <LuShoppingCart />
+                  </Button>
+                  <Button className="rounded-circle">
+                    <MdMailOutline />
+                  </Button>
+                </>
+              )}
               <div className="dropDownWrapper">
                 <Button
                   className="rounded-circle"
@@ -98,6 +105,14 @@ export default function Header() {
                 >
                   <GoBell />
                 </Button>
+                {context.windowWidth <= 750 && (
+                  <Button
+                    className="rounded-circle"
+                    onClick={() => context.openNav()}
+                  >
+                    <IoMenu />
+                  </Button>
+                )}
                 <Menu
                   anchorEl={isOpenNotificationDrop}
                   className="notifications dropdown_list"
@@ -362,7 +377,7 @@ export default function Header() {
                       }
                     />
 
-                    <div className="userInfo">
+                    <div className="userInfo res-hide">
                       <h4>aLue</h4>
                       <p className="mb-0">@aLue35</p>
                     </div>

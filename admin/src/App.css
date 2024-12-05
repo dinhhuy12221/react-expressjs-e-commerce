@@ -414,15 +414,35 @@ body.dark .dropdown_list li.MuiButtonBase-root {
 
 .main .sidebarWrapper {
   width: 30%;
-  flex: 0 0 19%;
+  flex: 0 0 18%;
+  transition: all 0.3s ease-in-out;
 }
 
 .main .sidebarWrapper.toggle {
   flex: 0 0 0%;
 }
 
+.main .sidebarWrapper.open {
+  left: 0px !important;
+  opacity: 1 !important;
+}
+
+.sidebarOverlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebarOverlay.show {
+  display: block !important;
+}
+
 .main .sidebarWrapper .sidebar {
-  width: 20vw;
+  width: 18vw;
   height: 100vh;
   max-height: calc(100% - 70px);
   position: fixed;
@@ -657,7 +677,7 @@ body.dark .logoutWrapper .logoutBox {
 .main .content {
   overflow: hidden;
   width: 100%;
-  flex: 0 0 81%;
+  flex: 0 0 82%;
   transition: all 0.3s ease-in-out;
 }
 
@@ -669,12 +689,18 @@ body.dark .logoutWrapper .logoutBox {
   padding: 70px 15px 75px 30px;
   flex: 0 0 80%;
   max-width: 100%;
-  /* max-width: 94%; */
-  /* overflow-x: hidden !important; */
+}
+
+.dashboardBoxWrapperRow {
+  gap: 15px;
+}
+
+.right-content .col-md-8 {
+  padding-right: 0px;
 }
 
 .dashboardBoxWrapper {
-  gap: 15px;
+  gap: 8px;
   width: 100%;
   flex-wrap: wrap;
 }
@@ -684,7 +710,7 @@ body.dark .logoutWrapper .logoutBox {
   height: 170px;
   background: #ccc;
   border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 20px;
   padding-bottom: 8px;
   text-transform: capitalize;
