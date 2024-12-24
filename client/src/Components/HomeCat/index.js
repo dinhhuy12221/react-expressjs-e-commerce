@@ -46,7 +46,7 @@ export default function HomeCat() {
         >
           {itemBg?.map((item, index) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <div className="item text-center cursor" style={{ background: item }}>
                   <img src="https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-13.png"></img>
                   <h6>Cafe & Milk</h6>
