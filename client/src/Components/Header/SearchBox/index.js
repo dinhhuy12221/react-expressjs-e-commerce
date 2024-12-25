@@ -1,6 +1,8 @@
 import Button from '@mui/material/Button'
 import { CiSearch } from "react-icons/ci";
 
+import './index.css';
+
 export default function SearchBox() {
   return (
     <div className='headerSearch ms-3 me-3'>
