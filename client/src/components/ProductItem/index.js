@@ -5,6 +5,8 @@ import Rating from "@mui/material/Rating";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { MyContext } from "../../App";
 
+import './index.css'
+
 export default function ProductItem(props) {
   const context = useContext(MyContext);
 
