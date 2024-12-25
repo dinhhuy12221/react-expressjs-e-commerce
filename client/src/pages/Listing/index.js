@@ -13,6 +13,8 @@ import { TfiLayoutGrid4Alt } from "react-icons/tfi";
 import { FaAngleDown } from "react-icons/fa6";
 import ProductItem from "../../components/ProductItem";
 
+import './index.css'
+
 export default function Listing() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [productView, setProductView] = useState("four");
