@@ -1,1 +1,1 @@
-Ecommerce Web Frontend
+E-commerce Web Frontend
