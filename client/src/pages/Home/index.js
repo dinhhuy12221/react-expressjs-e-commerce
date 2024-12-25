@@ -10,6 +10,8 @@ import { Navigation } from "swiper/modules";
 import ProductItem from "../../components/ProductItem";
 import HomeCat from "../../components/HomeCat";
 
+import './index.css'
+
 export default function Home() {
   return (
     <>
