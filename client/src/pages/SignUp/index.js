@@ -8,6 +8,8 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import google_logo from "../../assets/images/google-logo.png";
 
+import './index.css'
+
 export default function SignUp() {
   const context = useContext(MyContext);
 
