@@ -1,0 +1,12 @@
+
+
+.productModal .MuiPaper-elevation {
+    padding: 25px;
+    position: relative;
+    max-width: 900px !important;
+    width: 900px !important;
+  }
+  .productModal h4 {
+    font-size: 22px !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+  }
