@@ -115,40 +115,6 @@ button {
 
 
 
-.homeBannerSection {
-  position: relative;
-}
-.homeBannerSection .swiper {
-  overflow: inherit !important;
-}
-.homeBannerSection * {
-  outline: none !important;
-}
-
-.homeBannerSection .swiper-button-prev {
-  left: 3px !important;
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  border-radius: 50%;
-  background: rgba(255, 0, 0, 0.61);
-}
-.homeBannerSection .swiper-button-next {
-  right: 3px !important;
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  border-radius: 50%;
-  background: rgba(255, 0, 0, 0.61);
-}
-.homeBannerSection .swiper-button-prev::after {
-  font-size: 16px !important;
-  color: #fff !important;
-}
-.homeBannerSection .swiper-button-next::after {
-  font-size: 16px !important;
-  color: #fff !important;
-}
 
 .homeProducts {
   padding: 25px 0px;
