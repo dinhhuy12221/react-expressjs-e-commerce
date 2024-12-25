@@ -6,9 +6,10 @@ import CountryDropDown from "../CountryDropdown/index";
 import SearchBox from "./SearchBox/index";
 import Navigation from "./Navigation/index";
 import { MyContext } from "../../App";
-
 import { FaRegUserCircle } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
+
+import './index.css'
 
 function Header() {
   const context = useContext(MyContext);
