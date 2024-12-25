@@ -4,6 +4,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 
+import './index.css'
+
 export default function HomeBanner() {
   return (
     <div className="container mt-2">
