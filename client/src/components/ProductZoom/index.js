@@ -7,6 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
+import './index.css'
+
 export default function ProductZoom() {
   const [slideIndex, setSlideIndex] = useState(0);
   const zoomSliderBig = useRef();
