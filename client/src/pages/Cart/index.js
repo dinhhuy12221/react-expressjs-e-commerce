@@ -6,6 +6,8 @@ import QuantityBox from "../../components/QuantityBox";
 import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
+import './index.css'
+
 export default function Cart() {
   return (
     <>
