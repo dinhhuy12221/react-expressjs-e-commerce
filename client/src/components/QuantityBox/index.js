@@ -3,6 +3,8 @@ import { FaPlus } from "react-icons/fa6";
 import Button from "@mui/material/Button";
 import { FaMinus } from "react-icons/fa";
 
+import './index.css'
+
 export default function QuantityBox() {
 
     const [inputVal, setInputVal] = useState(1);
