@@ -7,6 +7,8 @@ import { FaAngleRight } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
 import { useState } from "react";
 
+import './index.css'
+
 export default function Navigation() {
 
     const [isOpenSidebarVal, setIsOpenSidebarVal] = useState(false);
