@@ -4,6 +4,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
+import './index.css'
+
 export default function HomeCat() {
   const [itemBg, setItemBg] = useState([
     "#fffceb",
