@@ -1,0 +1,106 @@
+.newsLetterSection {
+  width: 100%;
+  height: 400px;
+  background: #f3624c;
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0px;
+}
+.newsLetterSection .col-md-6 {
+  position: static !important;
+}
+.newsLetterSection p {
+  font-size: 18px;
+  margin: 10px 0px !important;
+}
+.newsLetterSection h3 {
+  font-size: 35px;
+  font-weight: bold;
+}
+.newsLetterSection p.text-light {
+  color: #fff !important;
+  opacity: 0.5;
+  font-size: 15px;
+}
+.newsLetterSection img {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.newsLetterSection form {
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  padding: 10px 5px;
+  position: relative;
+  border-radius: 4px;
+}
+.newsLetterSection form svg {
+  position: absolute;
+  font-size: 25px;
+  opacity: 0.4;
+  left: 7px;
+}
+.newsLetterSection form input {
+  width: 100%;
+  height: 100%;
+  background: #fff !important;
+  outline: none !important;
+  border: 0px !important;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 15px !important;
+}
+.newsLetterSection form button {
+  background: #ea2b0f !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  padding: 9px 25px !important;
+  text-transform: capitalize !important;
+  font-weight: 600 !important;
+}
+
+footer {
+  width: 100%;
+  height: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 35px 0px;
+}
+footer .topInfo {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 25px;
+}
+footer .topInfo .col {
+  padding: 0px;
+  padding-left: 35px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+footer .topInfo .col:last-child {
+  border-right: none;
+}
+footer .topInfo .col svg {
+  font-size: 24px;
+}
+footer .topInfo .col span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+footer .linksWrap h5 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-transform: uppercase !important;
+}
+footer .linksWrap ul {
+  padding-left: 0;
+}
+footer .linksWrap ul li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+footer .linksWrap ul li a {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  font-size: 14px;
+}
