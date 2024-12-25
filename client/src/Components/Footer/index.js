@@ -11,6 +11,8 @@ import { FaInstagram } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import Button from "@mui/material/Button";
 
+import './index.css';
+
 export default function Footer() {
   return (
     <footer>
