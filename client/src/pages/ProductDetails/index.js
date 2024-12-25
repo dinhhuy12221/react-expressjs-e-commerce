@@ -9,6 +9,8 @@ import { MdOutlineCompareArrows } from "react-icons/md";
 import Tooltip from "@mui/material/Tooltip";
 import RelatedProducts from "./RelatedProducts";
 
+import './index.css'
+
 export default function ProductDetails() {
   const [activeSize, setActiveSize] = useState(null);
 
