@@ -112,76 +112,8 @@ button {
   background: transparent !important;
 }
 
-.headerWrapper {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 10px;
-}
-
-.container {
-  max-width: 85%;
-}
-
-.headerWrapper .top-strip {
-  padding: 8px 0px;
-}
-
-.headerWrapper .top-strip p {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.headerWrapper .header {
-  width: 100%;
-  height: auto;
-}
-
-.logoWrapper img {
-  width: 160px;
-}
 
 
-/* header .part3 {gap: 12px;} */
-
-header .part3 .circle {
-  align-items: center;
-  justify-content: center;
-  min-width: 40px !important;
-  height: 40px !important;
-  width: 40px !important;
-  border-radius: 50% !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  color: #000;
-}
-
-header .part3 .circle svg {
-  font-size: 25px;
-}
-
-.cartTab .price {
-  font-size: 18px;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: 700;
-}
-
-.cartTab button {
-  background: #fff1ee !important;
-}
-
-.cartTab button svg {
-  color: rgba(255, 0, 0, 0.61) !important;
-}
-
-.cartTab .count {
-  position: absolute;
-  top: -6px;
-  right: -4px;
-  background: rgba(255, 0, 0, 0.61);
-  border-radius: 50%;
-  color: #fff;
-  width: 20px;
-  height: 20px;
-}
 
 .homeBannerSection {
   position: relative;
