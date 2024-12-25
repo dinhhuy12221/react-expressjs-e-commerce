@@ -16,7 +16,7 @@ export default function ProductItem(props) {
     <>
       <div className={`item productItem ${props.itemView}`}>
         <div className="imgWrapper">
-          <img
+          <img 
             src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg"
             className="w-100"
           />

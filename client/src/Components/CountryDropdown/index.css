@@ -1,0 +1,90 @@
+.countryDrop {
+    width: 170px;
+    height: 50px;
+    min-width: 150px;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 7px !important;
+    padding: 10px 15px !important;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.countryDrop {
+    text-align: left;
+  }
+  
+.countryDrop .label {
+    font-size: 12px !important;
+    text-transform: capitalize !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+    line-height: 16px;
+}
+  
+.countryDrop .name {
+    font-size: 14px !important;
+    text-transform: capitalize !important;
+    color: rgba(255, 0, 0, 0.61) !important;
+    font-weight: 700;
+    line-height: 16px;
+}
+  
+.countryDrop span svg {
+    opacity: 0.3;
+}
+  
+.headerSearch {
+    width: 58%;
+    height: 50px;
+    background: #f3f4f7;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    position: relative;
+}  
+
+.locationModal .MuiPaper-elevation {
+    padding: 25px;
+    position: relative;
+}
+
+  .locationModal .countryList {
+    margin-bottom: 0;
+    max-height: 400px;
+    overflow-y: scroll;
+    padding: 0;
+}
+.locationModal .countryList li {
+    width: 100%;
+    list-style: none;
+}
+.locationModal .countryList li button {
+    width: 100%;
+    text-transform: capitalize !important;
+    color: #000 !important;
+    justify-content: flex-start !important;
+    padding: 15px 20px !important;
+}
+
+.locationModal .countryList li button:hover {
+    background: #f1f1f1 !important;
+}
+
+.locationModal .countryList li button.active {
+    background: #ccc !important;
+}
+
+
+.close_ {
+    position: absolute !important;
+    top: 20px;
+    right: 20px;
+    color: #000 !important;
+    min-width: 40px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+  }
+  
+  .close_ svg {
+    font-size: 22px;
+  }

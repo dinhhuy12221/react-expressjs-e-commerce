@@ -10,6 +10,7 @@ import Dialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
 import { MyContext } from '../../App';
 
+import './index.css';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {

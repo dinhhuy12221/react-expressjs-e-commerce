@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SideBar from "../../Components/SideBar";
+import SideBar from "../../components/SideBar";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -11,7 +11,7 @@ import { BsGridFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { TfiLayoutGrid4Alt } from "react-icons/tfi";
 import { FaAngleDown } from "react-icons/fa6";
-import ProductItem from "../../Components/ProductItem";
+import ProductItem from "../../components/ProductItem";
 
 export default function Listing() {
   const [anchorEl, setAnchorEl] = useState(null);

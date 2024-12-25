@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 
-import ProductItem from '../../../Components/ProductItem';
+import ProductItem from '../../../components/ProductItem';
 export default function RelatedProducts(props) {
   return (
     <>

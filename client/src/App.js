@@ -2,17 +2,17 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./Pages/Home";
-import Listing from "./Pages/Listing";
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
-import ProductModal from "./Components/ProductModal";
-import ProductDetails from "./Pages/ProductDetails";
-import Cart from "./Pages/Cart";
-import SignIn from "./Pages/SignIn";
+import Home from "./pages/Home";
+import Listing from "./pages/Listing";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ProductModal from "./components/ProductModal";
+import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
+import SignIn from "./pages/SignIn";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import SignUp from "./Pages/SignUp";
+import SignUp from "./pages/SignUp";
 
 const MyContext = createContext();
 

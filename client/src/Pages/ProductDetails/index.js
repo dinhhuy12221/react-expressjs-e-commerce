@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ProductZoom from "../../Components/ProductZoom";
+import ProductZoom from "../../components/ProductZoom";
 import Rating from "@mui/material/Rating";
-import QuantityBox from "../../Components/QuantityBox";
+import QuantityBox from "../../components/QuantityBox";
 import Button from "@mui/material/Button";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";

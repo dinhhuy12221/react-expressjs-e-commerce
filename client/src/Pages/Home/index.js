@@ -1,5 +1,5 @@
 import React from "react";
-import HomeBanner from "../../Components/HomeBanner";
+import HomeBanner from "../../components/HomeBanner";
 import Button from "@mui/material/Button";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,8 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
-import ProductItem from "../../Components/ProductItem/";
-import HomeCat from "../../Components/HomeCat/";
+import ProductItem from "../../components/ProductItem";
+import HomeCat from "../../components/HomeCat";
 
 export default function Home() {
   return (
