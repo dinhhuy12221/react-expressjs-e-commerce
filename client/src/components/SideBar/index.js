@@ -5,6 +5,8 @@ import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import { Link } from "react-router-dom";
 
+import './index.css'
+
 export default function SideBar() {
   const [value, setValue] = useState([100, 60000]);
   const [value2, setValue2] = useState(0);
