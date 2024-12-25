@@ -276,41 +276,6 @@ button {
 .swiper {
   padding-right: 2px !important;
 }
-.homeCat {
-  padding: 35px 0px;
-}
-.homeCat .swiper {
-  overflow: inherit !important;
-}
-.homeCat .swiper .item {
-  padding: 15px;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-.homeCat .swiper .item img {
-  width: 90%;
-  transition: all 0.2s ease !important;
-}
-.homeCat .swiper .item:hover img {
-  transform: scale(1.3);
-}
-
-.homeCat .swiper-button-prev,
-.homeCat .swiper-button-next {
-  top: -30px !important;
-  width: 30px I !important;
-  height: 30px !important;
-}
-.homeCat .swiper-button-prev {
-  right: 68px !important;
-  left: inherit;
-}
-
-.homeCat .swiper-button-prev::after,
-.homeCat .swiper-button-next::after {
-  font-size: 12px !important;
-}
 
 .productRow2 {
   flex-wrap: wrap;
