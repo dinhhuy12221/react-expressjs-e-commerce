@@ -1,17 +1,14 @@
-
-
 .productModal .MuiPaper-elevation {
-    padding: 25px;
-    position: relative;
-    max-width: 900px !important;
-    width: 900px !important;
-  }
-  .productModal h4 {
-    font-size: 22px !important;
-    color: rgba(0, 0, 0, 0.7) !important;
-  }
+  padding: 25px;
+  position: relative;
+  max-width: 900px !important;
+  width: 900px !important;
+}
+.productModal h4 {
+  font-size: 22px !important;
+  color: rgba(0, 0, 0, 0.7) !important;
+}
 
-  
 .productModal .actions button {
   color: #000 !important;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -20,7 +17,6 @@
 .productModal .actions button svg {
   font-size: 15px !important;
 }
-
 
 .productZoom {
   width: 100%;
@@ -38,7 +34,6 @@
 .productZoom .badge-primary {
   background: #2bbef9 !important;
 }
-
 
 .zoomSliderBig {
   width: 100% !important;
