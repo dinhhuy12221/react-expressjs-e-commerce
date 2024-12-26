@@ -5,9 +5,9 @@ import { FaMinus } from "react-icons/fa";
 
 import './index.css'
 
-export default function QuantityBox() {
+export default function QuantityBox(props) {
 
-    const [inputVal, setInputVal] = useState(1);
+    const [inputVal, setInputVal] = useState(props.quantity);
 
     const minus = () => {
         if (inputVal > 0)
@@ -19,7 +19,7 @@ export default function QuantityBox() {
     }
     
   return (
-    <div className="quantityDrop d-flex align-items-center">
+    <div className="quantityDrop d-flex justify-content-center">
       <Button onClick={minus}>
       <FaMinus />
       </Button>
