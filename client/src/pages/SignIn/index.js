@@ -16,6 +16,7 @@ export default function SignIn() {
   useEffect(() => {
     context.setIsHeaderFooterShow(false);
   }, []);
+  
   return (
     <>
       <section className="section signInPage">
