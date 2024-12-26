@@ -22,7 +22,7 @@ export default function Navigation() {
                         <Button className='allCatTab align-items-center' onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}>
                             <span className='text'>
                                 <span className="icon1 me-2"><MdMenu /></span>
-                                ALL CATEGORIES
+                                CATEGORIES
                                 <span className="icon2 ms-2"><FaAngleDown /></span>
                                 </span>
                         </Button>
