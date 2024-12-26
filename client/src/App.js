@@ -1,18 +1,13 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Home from "./pages/Home";
-import Listing from "./pages/Listing";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { createContext, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductModal from "./components/ProductModal";
-import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
-import SignIn from "./pages/SignIn";
-import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import SignUp from "./pages/SignUp";
+import ScrollToTop from "./utils/ScrollToTop";
+import routes from "./route";
 
 const MyContext = createContext();
 
@@ -50,20 +45,22 @@ function App() {
       <MyContext.Provider value={values}>
         {isHeaderFooterShow === true && <Header />}
         <Routes>
-          <Route path="/" exact={true} element={<Home />}></Route>
-          <Route path="/cat/:id" exact={true} element={<Listing />}></Route>
-          <Route
-            path="/product/:id"
-            exact={true}
-            element={<ProductDetails />}
-          ></Route>
-          <Route path="/cart" exact={true} element={<Cart />}></Route>
-          <Route path="/signIn" exact={true} element={<SignIn />}></Route>
-          <Route path="/signUp" exact={true} element={<SignUp />}></Route>
+          {
+            routes && routes.map((route, index) => {
+              return(
+                <Route key={index} 
+                  path={route.path}
+                  exact={route.exact}
+                  element={route.element}>
+                </Route>
+              )
+            })
+          }
         </Routes>
         {isHeaderFooterShow === true && <Footer />}
         {isOpenProductModal === true && <ProductModal />}
       </MyContext.Provider>
+      <ScrollToTop/>
     </BrowserRouter>
   );
 }
