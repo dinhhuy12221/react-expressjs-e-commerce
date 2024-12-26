@@ -10,9 +10,11 @@ import { Navigation } from "swiper/modules";
 import ProductItem from "../../components/ProductItem";
 import HomeCat from "../../components/HomeCat";
 
-import './index.css'
+import "./index.css";
 
 export default function Home() {
+  const products = Array(20).fill(<ProductItem />)
+
   return (
     <>
       <HomeBanner />
@@ -62,33 +64,15 @@ export default function Home() {
                   }}
                   className="mySwiper"
                 >
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <ProductItem></ProductItem>
-                  </SwiperSlide>
+                  {
+                    products && products.map((product, index) => {
+                      return(
+                        <SwiperSlide key={index}>
+                          {product}
+                        </SwiperSlide>
+                      )
+                    })
+                  }
                 </Swiper>
               </div>
 
@@ -106,22 +90,16 @@ export default function Home() {
                 </Button>
               </div>
 
-              <div className="product_row productRow2 w-100 mt-4 d-flex">
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
+              <div className="row w-100 mt-4">
+                {
+                  products && products.map((product, index) => {
+                  return(
+                    <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-3">
+                      {product}
+                    </div>
+                  )
+                  })  
+                }
               </div>
 
               <div className="d-flex mt-4 mb-5 bannerSec">
@@ -142,7 +120,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </>
   );
 }
