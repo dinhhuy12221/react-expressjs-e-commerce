@@ -1,8 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation, Autoplay } from "swiper/modules";
 
 import './index.css'
 
@@ -14,10 +14,10 @@ export default function HomeBanner() {
           slidesPerView={1}
           spaceBetween={20}
           navigation={true}
-          loop={false}
+          loop={true}
           modules={[Navigation, Autoplay]}
           autoplay={{
-            delay: 2500,
+            delay: 1500,
             disableOnInteraction: false,
           }}
           className="mySwiper"
