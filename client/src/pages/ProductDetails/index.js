@@ -65,7 +65,7 @@ export default function ProductDetails() {
             <div className="col-md-5">
               <ProductZoom />
             </div>
-            <div className="col-md-4 ps-3">
+            <div className="col-md-7 ps-3">
               <div className="d-flex info mb-3">
                 <span className="oldPrice">$20.00</span>
                 <span className="netPrice text-danger ms-2">$14.00</span>
@@ -128,7 +128,7 @@ export default function ProductDetails() {
               <div className="d-flex align-items-center mt-3">
                 <QuantityBox />
                 <Button className="bg-red btn-big btn-round ms-1">
-                  <IoCartOutline className="me-1" />
+                  <IoCartOutline className="me-2" />
                   <span>Add to cart</span>
                 </Button>
               </div>
