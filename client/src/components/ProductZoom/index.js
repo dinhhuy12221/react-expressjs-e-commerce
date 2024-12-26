@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
-import './index.css'
+import "./index.css";
 
 export default function ProductZoom() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -56,6 +56,49 @@ export default function ProductZoom() {
               zoomType="hover"
               zoomScale={1}
               src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-34.jpg"
+            />
+          </div>
+        </SwiperSlide>
+      </Swiper>
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={0}
+        navigation={true}
+        slidesPerGroup={1}
+        modules={[Navigation]}
+        className="zoomSlider"
+        ref={zoomSlider}
+      >
+        <SwiperSlide>
+          <div className={`item ${slideIndex === 0 && "item_active"}`}>
+            <img
+              zoomType="hover"
+              zoomScale={1}
+              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg"
+              className="w-100"
+              onClick={() => goto(0)}
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={`item ${slideIndex === 1 && "item_active"}`}>
+            <img
+              zoomType="hover"
+              zoomScale={1}
+              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-46.jpg"
+              className="w-100"
+              onClick={() => goto(1)}
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={`item ${slideIndex === 2 && "item_active"}`}>
+            <img
+              zoomType="hover"
+              zoomScale={1}
+              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-34.jpg"
+              className="w-100"
+              onClick={() => goto(2)}
             />
           </div>
         </SwiperSlide>
