@@ -6,6 +6,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { MyContext } from "../../App";
 
 import './index.css'
+import { Link } from "react-router-dom";
 
 export default function ProductItem(props) {
   const context = useContext(MyContext);
@@ -18,10 +19,12 @@ export default function ProductItem(props) {
     <>
       <div className={`item productItem ${props.itemView}`}>
         <div className="imgWrapper">
-          <img 
-            src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg"
-            className="w-100"
-          />
+          <Link to={'/product/1'}>
+            <img
+              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg"
+              className="w-100"
+            />
+          </Link>
           <div className="actions">
             <Button onClick={() => viewProductDetails(1)}>
               <AiOutlineFullscreen />
@@ -35,7 +38,9 @@ export default function ProductItem(props) {
         <span className="badge bg-primary">28%</span>
 
         <div className="info">
-          <h4>Angie’s Boomchickapop Sweet & Salty Kettle Corn</h4>
+          <Link to={'/product/1'} style={{color: '#333'}}>
+            <h4>Angie’s Boomchickapop Sweet & Salty Kettle Corn</h4>
+          </Link> 
           <span className="text-success d-block">In Stock</span>
           <Rating
             className="mt-2 mb-2"
