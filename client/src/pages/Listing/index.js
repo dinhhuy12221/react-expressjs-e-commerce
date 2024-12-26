@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SideBar from "../../components/SideBar";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -12,13 +12,21 @@ import { CgMenuGridR } from "react-icons/cg";
 import { TfiLayoutGrid4Alt } from "react-icons/tfi";
 import { FaAngleDown } from "react-icons/fa6";
 import ProductItem from "../../components/ProductItem";
+import { MyContext } from "../../App";
 
 import './index.css'
 
 export default function Listing() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [productView, setProductView] = useState("four");
+  const context = useContext(MyContext);
+
   const openDropdown = Boolean(anchorEl);
+
+  useEffect(() => {
+    context.setIsHeaderFooterShow(true);
+  }, []);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };

@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
 import QuantityBox from "../../components/QuantityBox";
 import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
+import { MyContext } from "../../App";
 
 import './index.css'
 
 export default function Cart() {
+  const context = useContext(MyContext);
+
+  useEffect(() => {
+    context.setIsHeaderFooterShow(true);
+  }, []);
+
   return (
     <>
       <section className="section cartPage">

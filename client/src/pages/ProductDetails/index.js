@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductZoom from "../../components/ProductZoom";
 import Rating from "@mui/material/Rating";
 import QuantityBox from "../../components/QuantityBox";
@@ -8,15 +8,21 @@ import { CiHeart } from "react-icons/ci";
 import { MdOutlineCompareArrows } from "react-icons/md";
 import Tooltip from "@mui/material/Tooltip";
 import RelatedProducts from "./RelatedProducts";
+import { MyContext } from "../../App";
 
-import './index.css'
+import "./index.css";
 
 export default function ProductDetails() {
   const [activeSize, setActiveSize] = useState(null);
+  const context = useContext(MyContext);
 
   const isActive = (index) => {
     setActiveSize(index);
   };
+
+  useEffect(() => {
+    context.setIsHeaderFooterShow(true);
+  }, []);
 
   return (
     <>
@@ -142,11 +148,11 @@ export default function ProductDetails() {
             </div>
           </div>
 
-          <br/>
+          <br />
 
-          <RelatedProducts title="RELATED PRODUCTS"/>
-          
-          <RelatedProducts title="RECENTLY VIEWED PRODUCTS"/>
+          <RelatedProducts title="RELATED PRODUCTS" />
+
+          <RelatedProducts title="RECENTLY VIEWED PRODUCTS" />
         </div>
       </section>
     </>

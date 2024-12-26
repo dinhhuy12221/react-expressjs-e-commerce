@@ -21,7 +21,7 @@ nav .navPart1 .catWrapper .sidebarNav {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 0px;
   transition: all 0.2;
-  z-index: 100;
+  z-index: 1000;
   visibility: hidden;
 }
 
