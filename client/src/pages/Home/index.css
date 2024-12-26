@@ -42,17 +42,6 @@
 }
 
 .bannerSec {
-    gap: 15px;
-  }
-  
-  
-.productRow2 {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .productRow2 .productItem {
-    width: 23%;
-    overflow: hidden;
-    border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
-  }
-  
+  gap: 15px;
+}
+

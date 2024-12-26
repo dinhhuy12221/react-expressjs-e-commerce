@@ -16,9 +16,9 @@
 .productItem .actions button {
   display: flex;
   align-items: center;
-  min-width: 40px !important;
-  height: 40px !important;
-  width: 40px !important;
+  min-width: 35px !important;
+  height: 35px !important;
+  width: 35px !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
   border-radius: 50% !important;
   background: #fff !important;
