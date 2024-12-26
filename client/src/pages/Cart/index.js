@@ -7,7 +7,18 @@ import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 import { MyContext } from "../../App";
 
-import './index.css'
+import "./index.css";
+
+const cartProduct = {
+  img: "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg",
+  info: "Angie's Boomchickapop Sweet & Salty Kettle Corn",
+  rating: 3.5,
+  unitPrice: 3.29,
+  quantity: 1,
+  subtotal: 3.29,
+};
+
+const cartProducts = Array(10).fill(cartProduct);
 
 export default function Cart() {
   const context = useContext(MyContext);
@@ -25,12 +36,12 @@ export default function Cart() {
             There are <b className="text-red">3</b> products in your cart
           </p>
           <div className="row">
-            <div className="col-md-9 pe-5">
+            <div className="col-md-9">
               <div className="table-responsive">
                 <table className="table">
                   <thead>
-                    <tr>
-                      <th width="45%">Product</th>
+                    <tr className="text-center">
+                      <th width="35%">Product</th>
                       <th width="15%">Unit Price</th>
                       <th width="25%">Quantity</th>
                       <th width="15%">Subtotal</th>
@@ -38,206 +49,43 @@ export default function Cart() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td width="45%">
-                        <Link to="/product/1">
-                          <div className="d-flex align-items-center cartItemImgWrapper">
-                            <div className="imgWrapper">
-                              <img
-                                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg"
-                                className="w-100"
-                              />
+                    {cartProducts && cartProducts.map((cartProduct, index) => (
+                      <tr className="text-center" key={index}>
+                        <td width="35%">
+                          <Link to="/product/1">
+                            <div className="d-flex align-items-center cartItemImgWrapper">
+                              <div className="imgWrapper">
+                                <img src={cartProduct.img} className="w-100" />
+                              </div>
+                              <div className="info text-start">
+                                <h6>{cartProduct.info}</h6>
+                                <Rating
+                                  className="rating"
+                                  name="read-only"
+                                  defaultValue={cartProduct.rating}
+                                  precision={0.5}
+                                  readOnly
+                                />
+                              </div>
                             </div>
-
-                            <div className="info">
-                              <h6>
-                                Angie's Boomchickapop Sweet & Salty Kettle Corn
-                              </h6>
-                              <Rating
-                                name="read-only"
-                                defaultValue={3.5}
-                                precision={0.5}
-                                readOnly
-                              />
-                            </div>
-                          </div>
-                        </Link>
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="25%">
-                        <QuantityBox />
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="10%">
-                        <span className="remove">
-                          <IoClose />
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td width="45%">
-                        <Link to="/product/1">
-                          <div className="d-flex align-items-center cartItemImgWrapper">
-                            <div className="imgWrapper">
-                              <img
-                                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg"
-                                className="w-100"
-                              />
-                            </div>
-
-                            <div className="info">
-                              <h6>
-                                Angie's Boomchickapop Sweet & Salty Kettle Corn
-                              </h6>
-                              <Rating
-                                name="read-only"
-                                defaultValue={3.5}
-                                precision={0.5}
-                                readOnly
-                              />
-                            </div>
-                          </div>
-                        </Link>
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="25%">
-                        <QuantityBox />
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="10%">
-                        <span className="remove">
-                          <IoClose />
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td width="45%">
-                        <Link to="/product/1">
-                          <div className="d-flex align-items-center cartItemImgWrapper">
-                            <div className="imgWrapper">
-                              <img
-                                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg"
-                                className="w-100"
-                              />
-                            </div>
-
-                            <div className="info">
-                              <h6>
-                                Angie's Boomchickapop Sweet & Salty Kettle Corn
-                              </h6>
-                              <Rating
-                                name="read-only"
-                                defaultValue={3.5}
-                                precision={0.5}
-                                readOnly
-                              />
-                            </div>
-                          </div>
-                        </Link>
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="25%">
-                        <QuantityBox />
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="10%">
-                        <span className="remove">
-                          <IoClose />
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td width="45%">
-                        <Link to="/product/1">
-                          <div className="d-flex align-items-center cartItemImgWrapper">
-                            <div className="imgWrapper">
-                              <img
-                                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg"
-                                className="w-100"
-                              />
-                            </div>
-
-                            <div className="info">
-                              <h6>
-                                Angie's Boomchickapop Sweet & Salty Kettle Corn
-                              </h6>
-                              <Rating
-                                name="read-only"
-                                defaultValue={3.5}
-                                precision={0.5}
-                                readOnly
-                              />
-                            </div>
-                          </div>
-                        </Link>
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="25%">
-                        <QuantityBox />
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="10%">
-                        <span className="remove">
-                          <IoClose />
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td width="45%">
-                        <Link to="/product/1">
-                          <div className="d-flex align-items-center cartItemImgWrapper">
-                            <div className="imgWrapper">
-                              <img
-                                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg"
-                                className="w-100"
-                              />
-                            </div>
-
-                            <div className="info">
-                              <h6>
-                                Angie's Boomchickapop Sweet & Salty Kettle Corn
-                              </h6>
-                              <Rating
-                                name="read-only"
-                                defaultValue={3.5}
-                                precision={0.5}
-                                readOnly
-                              />
-                            </div>
-                          </div>
-                        </Link>
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="25%">
-                        <QuantityBox />
-                      </td>
-                      <td width="15%">
-                        <span>$3.29</span>
-                      </td>
-                      <td width="10%">
-                        <span className="remove">
-                          <IoClose />
-                        </span>
-                      </td>
-                    </tr>
+                          </Link>
+                        </td>
+                        <td className="unitPrice" width="15%">
+                          <span>{cartProduct.unitPrice}</span>
+                        </td>
+                        <td className="quantity" width="25%">
+                          <QuantityBox quantity={cartProduct.quantity} />
+                        </td>
+                        <td className="subtotal" width="15%">
+                          <span>{cartProduct.subtotal}</span>
+                        </td>
+                        <td className="remove" width="10%">
+                          <span>
+                            <IoClose />
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -258,7 +106,9 @@ export default function Cart() {
                 </div>
                 <div className="d-flex align-items-center mb-2">
                   <span>Estimated for</span>
-                  <span className="ms-auto text-red">United Kingdom</span>
+                  <span className="ms-auto text-end text-red">
+                    United Kingdom
+                  </span>
                 </div>
                 <div className="d-flex align-items-center">
                   <span>Total</span>
@@ -267,7 +117,7 @@ export default function Cart() {
 
                 <Button className="bg-red btn-lg btn-big btn-round mt-3">
                   <IoCartOutline className="me-2" />
-                  Proceed To Checkout
+                  Checkout
                 </Button>
               </div>
             </div>
