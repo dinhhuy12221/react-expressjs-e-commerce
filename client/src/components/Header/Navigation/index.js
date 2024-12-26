@@ -21,9 +21,8 @@ export default function Navigation() {
                     <div className="catWrapper">
                         <Button className='allCatTab align-items-center' onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}>
                             <span className='text'>
-                                <span className="icon1 me-2"><MdMenu /></span>
+                                <MdMenu className="icon"/>
                                 CATEGORIES
-                                <span className="icon2 ms-2"><FaAngleDown /></span>
                                 </span>
                         </Button>
                         <div className={`sidebarNav ${isOpenSidebarVal === true ? 'open' : ''}`}>
