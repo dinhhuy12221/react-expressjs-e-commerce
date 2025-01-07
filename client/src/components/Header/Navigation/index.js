@@ -8,24 +8,46 @@ import { Link } from 'react-router-dom'
 import { useState } from "react";
 
 import './index.css'
+import { useRef } from "react";
+import { useEffect } from "react";
 
 export default function Navigation() {
 
     const [isOpenSidebarVal, setIsOpenSidebarVal] = useState(false);
+    const sideBarRef = useRef(null);
+
+    useEffect(() => {
+        /**
+         * Alert if clicked on outside of element
+         */
+        function handleClickOutside(event) {
+          if (sideBarRef.current && !sideBarRef.current.contains(event.target)) {
+            setIsOpenSidebarVal(false);
+          }
+        }
+        // Bind the event listener
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener("click", handleClickOutside);
+        };
+      }, [sideBarRef]);
 
   return (
     <nav>
         <div className='container'>
             <div className='row'>
                 <div className='col-sm-2 navPart1'>
-                    <div className="catWrapper">
-                        <Button className='allCatTab align-items-center' onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}>
+                    <div ref={sideBarRef} className="catWrapper">
+                        <Button className='allCatTab' 
+                        onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}>
                             <span className='text'>
                                 <MdMenu className="icon"/>
                                 CATEGORIES
                                 </span>
                         </Button>
-                        <div className={`sidebarNav ${isOpenSidebarVal === true ? 'open' : ''}`}>
+                        <div className={`sidebarNav ${isOpenSidebarVal === true ? 'open' : ''}`} 
+                            onAbort={() => setIsOpenSidebarVal(false)}>
                             <ul>
                                 <li><Link to='/'><Button>Men<FaAngleRight className="ms-auto"/></Button></Link>
                                     <div className="submenu">
