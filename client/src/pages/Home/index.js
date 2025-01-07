@@ -11,9 +11,18 @@ import ProductItem from "../../components/ProductItem";
 import HomeCat from "../../components/HomeCat";
 
 import "./index.css";
+import { useContext } from "react";
+import { MyContext } from "../../App";
+import { useEffect } from "react";
+
 
 export default function Home() {
+  const context = useContext(MyContext);
   const products = Array(20).fill(<ProductItem />)
+
+  useEffect(() => {
+      context.setIsHeaderFooterShow(true);
+    }, []);
 
   return (
     <>
