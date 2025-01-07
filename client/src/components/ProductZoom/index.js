@@ -28,6 +28,7 @@ export default function ProductZoom() {
         spaceBetween={0}
         navigation={false}
         slidesPerGroup={1}
+        loop
         modules={[Navigation]}
         className="zoomSliderBig"
         ref={zoomSliderBig}
