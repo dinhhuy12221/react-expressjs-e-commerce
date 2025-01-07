@@ -10,7 +10,7 @@ export default function QuantityBox(props) {
     const [inputVal, setInputVal] = useState(props.quantity);
 
     const minus = () => {
-        if (inputVal > 0)
+        if (inputVal > 1)
             setInputVal(i => i - 1);
     }
 
