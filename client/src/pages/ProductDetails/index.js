@@ -126,7 +126,7 @@ export default function ProductDetails() {
               </div>
 
               <div className="d-flex align-items-center mt-3">
-                <QuantityBox />
+                <QuantityBox quantity={1}/>
                 <Button className="bg-red btn-big btn-round ms-1">
                   <IoCartOutline className="me-2" />
                   <span>Add to cart</span>

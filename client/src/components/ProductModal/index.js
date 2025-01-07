@@ -3,18 +3,14 @@ import Dialog from "@mui/material/Dialog";
 import { IoClose } from "react-icons/io5";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
-import Slider from "react-slick";
-import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import QuantityBox from "../QuantityBox";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
 import { MyContext } from "../../App";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
 
 import './index.css'
 import ProductZoom from "../ProductZoom";
@@ -82,7 +78,7 @@ export default function ProductModal(props) {
             </p>
 
             <div className="d-flex align-items-center">
-              <QuantityBox />
+              <QuantityBox quantity={1}/>
               <Button className="bg-red btn-lg btn-big btn-round ms-2">
               <IoCartOutline className="me-2"/>Add to cart
               </Button>
