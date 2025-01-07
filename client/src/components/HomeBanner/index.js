@@ -26,7 +26,6 @@ export default function HomeBanner() {
             <div className="item">
               <img
                 src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-1.jpg"
-                className="w-100"
               />
             </div>
           </SwiperSlide>
@@ -34,7 +33,6 @@ export default function HomeBanner() {
             <div className="item">
               <img
                 src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-2.jpg"
-                className="w-100"
               />
             </div>
           </SwiperSlide>
@@ -42,7 +40,6 @@ export default function HomeBanner() {
             <div className="item">
               <img
                 src="https://klbtheme.com/bacola/wp-content/uploads/2021/05/slider-3.jpg"
-                className="w-100"
               />
             </div>
           </SwiperSlide>
@@ -50,7 +47,6 @@ export default function HomeBanner() {
             <div className="item">
               <img
                 src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-2.jpg"
-                className="w-100"
               />
             </div>
           </SwiperSlide>
