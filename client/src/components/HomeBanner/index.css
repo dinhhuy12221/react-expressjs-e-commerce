@@ -8,7 +8,7 @@
   .homeBannerSection * {
     outline: none !important;
   }
-  
+
   .homeBannerSection .swiper-button-prev {
     left: 3px !important;
     width: 40px !important;
@@ -33,3 +33,8 @@
     font-size: 16px !important;
     color: #fff !important;
   }
+
+  .homeBannerSection .item img {
+    height: 400px;
+    width: 100%;
+  } 
