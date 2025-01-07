@@ -94,11 +94,14 @@ nav .allCatTab:hover {
 }
 
 nav .allCatTab .text {
+  display: flex;
+  align-items: center;
   font-weight: 600;
 }
 
 nav .allCatTab svg.icon {
-  font-size: 20px !important;
+    height: 100%;
+    font-size: 20px !important;
 }
 nav .navPart2 ul {
   margin-bottom: 0px;
