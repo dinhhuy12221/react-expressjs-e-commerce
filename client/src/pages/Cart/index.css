@@ -33,12 +33,12 @@ a {
   color: #ed174a !important;
 }
 
-.remove:hover {
+.remove svg {
+    font-size: 30px;
+}
+.remove svg:hover {
   cursor: pointer;
   color: #ed174a !important;
-}
-.remove svg {
-  font-size: 30px;
 }
 .cartPage .quantityDrop button {
   scale: 0.75;

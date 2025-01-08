@@ -18,7 +18,9 @@ const cartProduct = {
   subtotal: 3.29,
 };
 
-const cartProducts = Array(10).fill(cartProduct);
+const amount = 10;
+
+const cartProducts = Array(amount).fill(cartProduct);
 
 export default function Cart() {
   const context = useContext(MyContext);
@@ -33,7 +35,7 @@ export default function Cart() {
         <div className="container">
           <h2 className="hd">Your Cart</h2>
           <p>
-            There are <b className="text-red">3</b> products in your cart
+            There are <b className="text-red">{amount}</b> products in your cart
           </p>
           <div className="row">
             <div className="col-md-9">
@@ -79,7 +81,7 @@ export default function Cart() {
                         <td className="subtotal" width="15%">
                           <span>{cartProduct.subtotal}</span>
                         </td>
-                        <td className="remove" width="10%">
+                        <td className="remove">
                           <span>
                             <IoClose />
                           </span>
