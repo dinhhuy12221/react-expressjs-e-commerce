@@ -4,7 +4,6 @@ import { AiOutlineFullscreen } from "react-icons/ai";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { MyContext } from "../../../../App";
 import "./index.css";
-import { Link } from "react-router-dom";
 import LinkTo from "../../../../utils/LinkTo";
 function ResultItem(props) {
   const context = useContext(MyContext);
