@@ -28,26 +28,24 @@ export default function Home() {
     <>
       <HomeBanner />
       <HomeCat />
-      <section className="homeProducts">
+      <section className="home-products">
         <div className="container">
           <div className="row">
             <div className="col-md-3">
-              <div className="sticky-top">
+              <div className="side-banner">
                 <div className="banner">
                   <img
                     src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/banner-box.jpg"
-                    className="cursor"
                   ></img>
                 </div>
                 <div className="banner mt-4">
                   <img
                     src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-banner-04.jpg"
-                    className="cursor"
                   ></img>
                 </div>
               </div>
             </div>
-            <div className="col-md-9 productrow">
+            <div className="col-md-9">
               <div className="d-flex align-items-center">
                 <div className="info w-75">
                   <h3 className="mb-0 hd">BEST SELLERS</h3>
@@ -56,13 +54,13 @@ export default function Home() {
                   </p>
                 </div>
 
-                <Button className="viewAllBtn ms-auto">
+                <Button className="view-all-btn ms-auto">
                   View all
                   <IoArrowForwardOutline />
                 </Button>
               </div>
 
-              <div className="product_row w-100 mt-4">
+              <div className="product-row w-100 mt-4">
                 <Swiper
                   slidesPerView={4}
                   spaceBetween={0}
@@ -85,7 +83,7 @@ export default function Home() {
                 </Swiper>
               </div>
 
-              <div className="d-flex align-items-center mt-5">
+              <div className="d-flex align-items-center mt-5 mb-3">
                 <div className="info w-75">
                   <h3 className="mb-0 hd">NEW PRODUCTS</h3>
                   <p className="text-sml mb-0">
@@ -93,13 +91,13 @@ export default function Home() {
                   </p>
                 </div>
 
-                <Button className="viewAllBtn ms-auto">
+                <Button className="view-all-btn ms-auto">
                   View all
                   <IoArrowForwardOutline />
                 </Button>
               </div>
 
-              <div className="row w-100 mt-4">
+              <div className="row mt-4">
                 {
                   products && products.map((product, index) => {
                   return(
@@ -111,17 +109,15 @@ export default function Home() {
                 }
               </div>
 
-              <div className="d-flex mt-4 mb-5 bannerSec">
+              <div className="banner-section">
                 <div className="banner">
                   <img
                     src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-01.jpg"
-                    className="cursor"
                   ></img>
                 </div>
                 <div className="banner">
                   <img
                     src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-02.jpg"
-                    className="cursor"
                   ></img>
                 </div>
               </div>
