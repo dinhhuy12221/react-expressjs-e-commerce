@@ -9,7 +9,7 @@ import './index.css'
 export default function HomeBanner() {
   return (
     <div className="container mt-2">
-      <div className="homeBannerSection">
+      <div className="home-banner-section">
         <Swiper
           slidesPerView={1}
           spaceBetween={20}
@@ -43,13 +43,13 @@ export default function HomeBanner() {
               />
             </div>
           </SwiperSlide>
-          <SwiperSlide>
+          {/* <SwiperSlide>
             <div className="item">
               <img
-                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-2.jpg"
+                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-4.jpg"
               />
             </div>
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </div>
     </div>
