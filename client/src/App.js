@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductModal from "./components/ProductModal";
 import axios from "axios";
-import ScrollToTop from "./utils/ScrollToTop";
+import ScrollToTop from "./utils/ScrollToTop/index.js";
 import routes from "./route";
 
 const MyContext = createContext();

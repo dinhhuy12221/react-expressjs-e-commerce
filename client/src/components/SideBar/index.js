@@ -9,10 +9,10 @@ import './index.css'
 
 export default function SideBar() {
   const [value, setValue] = useState([100, 60000]);
-  const [value2, setValue2] = useState(0);
-  const [brandFilters, setBrandFilters] = useState([]);
-  const [ratingsArr, setRatings] = useState([]);
-  const [totalLength, setTotalLength] = useState([]);
+  // const [value2, setValue2] = useState(0);
+  // const [brandFilters, setBrandFilters] = useState([]);
+  // const [ratingsArr, setRatings] = useState([]);
+  // const [totalLength, setTotalLength] = useState([]);
 
   return (
     <>

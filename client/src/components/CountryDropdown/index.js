@@ -66,7 +66,7 @@ export default function CountryDropDown() {
         <h3 className='mb-0'>Choose your Delivery Location</h3>
         <p>Enter your address and we will specify the offer for your area.</p>
         <Button className='close_' onClick={() => setIsOpenModal(false)}><IoClose /></Button>
-        <div className='headerSearch w-100'>
+        <div className='header-country-search w-100'>
           <input type='text' placeholder='Search your area...' onChange={filterList}/>
           <Button><CiSearch /></Button>
         </div>
