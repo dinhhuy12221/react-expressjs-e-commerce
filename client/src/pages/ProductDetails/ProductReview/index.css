@@ -1,0 +1,40 @@
+.product-reviews  {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    
+    .review {
+        display: flex;
+        align-items: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 15px;
+    }
+}
+
+.product-reviews .review .info {
+    display: flex;
+    flex-direction: column;
+
+    .image {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .username {
+        display: inline;
+        font-size: 1rem;
+        font-weight: 500;
+        width: 70px;
+        max-width: 70px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+}
+
+.product-reviews .review .content {
+    margin-left: 20px;
+    align-self: flex-start;
+}
