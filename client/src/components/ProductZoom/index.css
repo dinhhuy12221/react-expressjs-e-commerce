@@ -38,6 +38,11 @@
 
 .zoomSlider {
   padding-top: 30px;
+
+  .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+  }
 }
 .zoomSlider .slick-slide {
   padding-right: 20px !important;
