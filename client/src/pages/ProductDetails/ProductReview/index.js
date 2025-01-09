@@ -1,23 +1,42 @@
 import reviews_list from "./reviews_list";
-import { Rating } from "@mui/material";
-import './index.css'
+import {
+  MdKeyboardDoubleArrowDown,
+  MdKeyboardDoubleArrowUp,
+} from "react-icons/md";
+import "./index.css";
+import Review from "./Review";
+import { useState } from "react";
+import { Button } from "@mui/material";
 function ProductReview({ title }) {
+  const [show, setShow] = useState(false);
+
+  const ShowMore = () => {
+    return (
+      <>
+        <MdKeyboardDoubleArrowDown />Show more
+      </>
+    );
+  };
+  const ShowLess = () => {
+    return (
+      <>
+        <MdKeyboardDoubleArrowUp />Show less
+      </>
+    );
+  };
+
   return (
     <div className="row product-reviews">
       <h5 className="p-3">{title}</h5>
 
-      {reviews_list.map((review, index) => (
-        <div className="review">
-          <div className="info">
-            <img className="image" src={review.profile_image} />
-            <span className="username">{review.username}</span>
-          </div>
-          <div className="content">
-            <Rating value={review.rating} precision={0.5} readOnly/>
-            <p>{review.review}</p>
-          </div>
-        </div>
+      {reviews_list.map((review, index) => index < 3 && (
+        <Review index={index} review={review} />
       ))}
+      <div className="show-more">
+        <Button className="btn-round btn-red">
+          {show ? ShowLess() : ShowMore()}
+        </Button>
+      </div>
     </div>
   );
 }

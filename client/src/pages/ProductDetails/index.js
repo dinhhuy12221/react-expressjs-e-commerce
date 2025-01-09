@@ -11,6 +11,7 @@ import RelatedProducts from "./RelatedProducts";
 import { MyContext } from "../../App";
 
 import "./index.css";
+import ProductReview from "./ProductReview";
 
 export default function ProductDetails() {
   const [activeSize, setActiveSize] = useState(null);
@@ -149,6 +150,8 @@ export default function ProductDetails() {
           </div>
 
           <br />
+
+          <ProductReview title="REVIEWS"/>
 
           <RelatedProducts title="RELATED PRODUCTS" />
 

@@ -9,7 +9,7 @@ import ProductItem from '../../../components/ProductItem';
 export default function RelatedProducts(props) {
   return (
     <>
-      <div className="product_row w-100 mt-4">
+      <div className="product-row w-100 mt-4">
       <div className="d-flex align-items-center">
                 <div className="info w-75">
                   <h5 className="mb-2">{props.title}</h5>
