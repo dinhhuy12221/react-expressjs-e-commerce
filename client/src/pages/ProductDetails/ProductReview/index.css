@@ -4,18 +4,10 @@
     box-sizing: border-box;
 }
 
-.show-more {
+.page {
     padding: 10px;
     font-size: 1.1rem;
     display: flex;
     justify-content: center;
     
-    button {
-        display: inline-flex;
-        align-items: center;
-
-        svg {
-            font-size: 1.1rem;
-        }
-    }
 }

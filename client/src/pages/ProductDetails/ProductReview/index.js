@@ -1,41 +1,44 @@
 import reviews_list from "./reviews_list";
-import {
-  MdKeyboardDoubleArrowDown,
-  MdKeyboardDoubleArrowUp,
-} from "react-icons/md";
+import Pagination from '@mui/material/Pagination';
 import "./index.css";
 import Review from "./Review";
-import { useState } from "react";
-import { Button } from "@mui/material";
+import ReviewFilter from "./ReviewFilter";
 function ProductReview({ title }) {
-  const [show, setShow] = useState(false);
 
-  const ShowMore = () => {
-    return (
-      <>
-        <MdKeyboardDoubleArrowDown />Show more
-      </>
-    );
-  };
-  const ShowLess = () => {
-    return (
-      <>
-        <MdKeyboardDoubleArrowUp />Show less
-      </>
-    );
-  };
+  // const ShowMore = () => {
+  //   return (
+  //     <>
+  //       <MdKeyboardDoubleArrowDown />Show more
+  //     </>
+  //   );
+  // };
+  // const ShowLess = () => {
+  //   return (
+  //     <>
+  //       <MdKeyboardDoubleArrowUp />Show less
+  //     </>
+  //   );
+  // };
+
+  // const showReviewNumber = () => {
+  //   return (show ? 10 : 3);
+  // }
+
+  // const handleShow = () => {
+  //   setShow(!show);
+  // }
 
   return (
     <div className="row product-reviews">
       <h5 className="p-3">{title}</h5>
+      
+      <ReviewFilter />
 
-      {reviews_list.map((review, index) => index < 3 && (
+      {reviews_list.map((review, index) => (
         <Review index={index} review={review} />
       ))}
-      <div className="show-more">
-        <Button className="btn-round btn-red">
-          {show ? ShowLess() : ShowMore()}
-        </Button>
+      <div className="page">
+        <Pagination count={10} color="primary" />
       </div>
     </div>
   );
