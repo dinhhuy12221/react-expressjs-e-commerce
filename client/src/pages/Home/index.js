@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import HomeBanner from "../../components/HomeBanner";
 import Button from "@mui/material/Button";
 import { IoArrowForwardOutline } from "react-icons/io5";
@@ -9,20 +9,18 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import ProductItem from "../../components/ProductItem";
 import HomeCat from "../../components/HomeCat";
-
 import "./index.css";
-import { useContext } from "react";
 import { MyContext } from "../../App";
-import { useEffect } from "react";
+import LoadingAnimation from "../../components/LoadingAnimation";
 
+const products = Array(10).fill(<ProductItem />);
 
 export default function Home() {
   const context = useContext(MyContext);
-  const products = Array(20).fill(<ProductItem />)
 
   useEffect(() => {
-      context.setIsHeaderFooterShow(true);
-    }, []);
+    context.setIsHeaderFooterShow(true);
+  }, []);
 
   return (
     <>
@@ -34,14 +32,10 @@ export default function Home() {
             <div className="col-md-3">
               <div className="side-banner">
                 <div className="banner">
-                  <img
-                    src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/banner-box.jpg"
-                  ></img>
+                  <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/banner-box.jpg"></img>
                 </div>
                 <div className="banner mt-4">
-                  <img
-                    src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-banner-04.jpg"
-                  ></img>
+                  <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-banner-04.jpg"></img>
                 </div>
               </div>
             </div>
@@ -71,15 +65,16 @@ export default function Home() {
                   }}
                   className="mySwiper"
                 >
-                  {
-                    products && products.map((product, index) => {
-                      return(
+                  {products &&
+                    products.map((product, index) => {
+                      return (
                         <SwiperSlide key={index}>
-                          {product}
+                          <LoadingAnimation>
+                            {product}
+                          </LoadingAnimation>
                         </SwiperSlide>
-                      )
-                    })
-                  }
+                      );
+                    })}
                 </Swiper>
               </div>
 
@@ -98,27 +93,27 @@ export default function Home() {
               </div>
 
               <div className="row mt-4">
-                {
-                  products && products.map((product, index) => {
-                  return(
-                    <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-3">
-                      {product}
-                    </div>
-                  )
-                  })  
-                }
+                {products &&
+                  products.map((product, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="col-lg-3 col-md-4 col-sm-6 mb-3"
+                      >
+                        <LoadingAnimation>
+                            {product}
+                          </LoadingAnimation>
+                      </div>
+                    );
+                  })}
               </div>
 
               <div className="banner-section">
                 <div className="banner">
-                  <img
-                    src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-01.jpg"
-                  ></img>
+                  <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-01.jpg"></img>
                 </div>
                 <div className="banner">
-                  <img
-                    src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-02.jpg"
-                  ></img>
+                  <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-02.jpg"></img>
                 </div>
               </div>
             </div>
