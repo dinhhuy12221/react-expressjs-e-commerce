@@ -1,3 +1,14 @@
+.productItem {
+  height: 333px;
+
+  .loading {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .productItem .imgWrapper {
   position: relative;
 }

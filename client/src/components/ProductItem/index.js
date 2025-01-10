@@ -1,14 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { MyContext } from "../../App";
 
-import './index.css'
 import { Link } from "react-router-dom";
+import { MyContext } from "../../App";
+import "./index.css";
+import LoadingAnimation from "../LoadingAnimation";
 
-export default function ProductItem(props) {
+export default function ProductItem() {
   const context = useContext(MyContext);
 
   const viewProductDetails = (id) => {
@@ -16,10 +17,10 @@ export default function ProductItem(props) {
   };
 
   return (
-    <>
-      <div className={`item productItem ${props.itemView}`}>
+    <div className="item productItem">
+      <LoadingAnimation>
         <div className="imgWrapper">
-          <Link to={'/product/1'}>
+          <Link to={"/product/1"}>
             <img
               src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg"
               className="w-100"
@@ -34,13 +35,13 @@ export default function ProductItem(props) {
             </Button>
           </div>
         </div>
-
+  
         <span className="badge bg-primary">28%</span>
-
+  
         <div className="info">
-          <Link to={'/product/1'} style={{color: '#333'}}>
+          <Link to={"/product/1"} style={{ color: "#333" }}>
             <h4>Angie’s Boomchickapop Sweet & Salty Kettle Corn</h4>
-          </Link> 
+          </Link>
           <span className="text-success d-block">In Stock</span>
           <Rating
             className="mt-2 mb-2"
@@ -55,7 +56,7 @@ export default function ProductItem(props) {
             <span className="onetPrice text-danger ms-2">$14.00</span>
           </div>
         </div>
-      </div>
-    </>
+      </LoadingAnimation>
+    </div>
   );
 }
