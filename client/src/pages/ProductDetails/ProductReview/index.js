@@ -38,7 +38,8 @@ function ProductReview({ title }) {
         <Review index={index} review={review} />
       ))}
       <div className="page">
-        <Pagination count={10} color="primary" />
+        <Pagination count={10}variant="outlined"
+      />
       </div>
     </div>
   );
