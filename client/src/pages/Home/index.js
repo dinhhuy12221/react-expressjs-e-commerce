@@ -69,9 +69,7 @@ export default function Home() {
                     products.map((product, index) => {
                       return (
                         <SwiperSlide key={index}>
-                          <LoadingAnimation>
-                            {product}
-                          </LoadingAnimation>
+                          {product}
                         </SwiperSlide>
                       );
                     })}
@@ -100,9 +98,7 @@ export default function Home() {
                         key={index}
                         className="col-lg-3 col-md-4 col-sm-6 mb-3"
                       >
-                        <LoadingAnimation>
-                            {product}
-                          </LoadingAnimation>
+                        {product}
                       </div>
                     );
                   })}
