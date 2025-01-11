@@ -11,7 +11,6 @@ import ProductItem from "../../components/ProductItem";
 import HomeCat from "../../components/HomeCat";
 import "./index.css";
 import { MyContext } from "../../App";
-import LoadingAnimation from "../../components/LoadingAnimation";
 
 const products = Array(10).fill(<ProductItem />);
 
@@ -34,7 +33,7 @@ export default function Home() {
                 <div className="banner">
                   <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/banner-box.jpg"></img>
                 </div>
-                <div className="banner mt-4">
+                <div className="banner">
                   <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-banner-04.jpg"></img>
                 </div>
               </div>
@@ -90,13 +89,13 @@ export default function Home() {
                 </Button>
               </div>
 
-              <div className="row mt-4">
+              <div className="row new-products-list">
                 {products &&
                   products.map((product, index) => {
                     return (
                       <div
                         key={index}
-                        className="col-lg-3 col-md-4 col-sm-6 mb-3"
+                        className="col-lg-3 col-md-4 col-sm-6 new-product"
                       >
                         {product}
                       </div>
