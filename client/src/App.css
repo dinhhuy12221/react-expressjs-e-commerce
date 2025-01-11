@@ -148,49 +148,6 @@ button {
   font-size: 20px;
 }
 
-.productItem {
-  width: 100%;
-  height: auto;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-/*.productItem*/
-.productItem .badge {
-  display: inline-block;
-  padding: 7px 10px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 100;
-}
-.productItem .bg-primary {
-  background: #2bbef9 !important;
-}
-
-.productItem .info h4 {
-  font-size: 16px;
-  font-weight: 600;
-}
-.productItem .info {
-  padding: 15px;
-}
-
-.info .oldPrice {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.3);
-  text-decoration: line-through;
-}
-.info .oldPrice.lg {
-  font-size: 20px;
-}
-.info .netPrice {
-  font-size: 18px;
-  font-weight: bold;
-}
-.info .netPrice.lg {
-  font-size: 20px;
-}
 
 .swiper {
   padding-right: 2px !important;
