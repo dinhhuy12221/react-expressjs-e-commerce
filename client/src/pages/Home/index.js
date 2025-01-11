@@ -11,6 +11,7 @@ import ProductItem from "../../components/ProductItem";
 import HomeCat from "../../components/HomeCat";
 import "./index.css";
 import { MyContext } from "../../App";
+import ProductSwiper from "../../components/ProductSwiper";
 
 const products = Array(10).fill(<ProductItem />);
 
@@ -53,27 +54,7 @@ export default function Home() {
                 </Button>
               </div>
 
-              <div className="product-row w-100 mt-4">
-                <Swiper
-                  slidesPerView={4}
-                  spaceBetween={0}
-                  navigation={true}
-                  modules={[Navigation]}
-                  pagination={{
-                    clickable: true,
-                  }}
-                  className="mySwiper"
-                >
-                  {products &&
-                    products.map((product, index) => {
-                      return (
-                        <SwiperSlide key={index}>
-                          {product}
-                        </SwiperSlide>
-                      );
-                    })}
-                </Swiper>
-              </div>
+              <ProductSwiper />
 
               <div className="d-flex align-items-center mt-5 mb-3">
                 <div className="info w-75">
