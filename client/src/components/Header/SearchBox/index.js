@@ -1,9 +1,8 @@
 import Button from '@mui/material/Button'
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useRef, useState } from 'react';
-
-import './index.css';
 import DropDown from './DropDown';
+import './index.css';
 
 export default function SearchBox() {
   const [input, setInput] = useState('');
@@ -48,7 +47,7 @@ export default function SearchBox() {
         </div>
         
           {
-            resultShow &&
+            (input !== '' && resultShow) &&
             <div>
               <DropDown />
             </div>
