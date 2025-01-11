@@ -1,13 +1,13 @@
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 
-function LoadingAnimation({ children }) {
+function LoadingAnimation({ time, children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1200);
+    }, time);
   }, []);
   return (
     <>
