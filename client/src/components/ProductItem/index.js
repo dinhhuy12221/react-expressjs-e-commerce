@@ -35,7 +35,7 @@ export default function ProductItem() {
           </div>
         </div>
   
-        <span className="badge bg-primary">28%</span>
+        <span className="badge bg-primary">-28%</span>
   
         <div className="info">
           <Link to={"/product/1"} style={{ color: "#333" }}>
