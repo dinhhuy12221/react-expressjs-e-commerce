@@ -18,7 +18,7 @@ export default function ProductItem() {
 
   return (
     <div className="item productItem">
-      <LoadingAnimation>
+      <LoadingAnimation time={1200}>
         <div className="imgWrapper">
           <Link to={"/product/1"}>
             <img
