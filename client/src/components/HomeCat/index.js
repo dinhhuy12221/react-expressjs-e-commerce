@@ -34,7 +34,6 @@ export default function HomeCat() {
 
   useEffect(() => {
     const handleNumberOfItems = () => {
-      console.log(window.innerWidth);
       const windowWidth = window.innerWidth;
 
       if (windowWidth > 1300) {
