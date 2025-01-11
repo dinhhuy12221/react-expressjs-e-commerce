@@ -12,7 +12,7 @@ const list = Array(10).fill({
 function DropDown({ ref }) {
   return (
     <div ref={ref} className="search-result">
-      <LoadingAnimation>
+      <LoadingAnimation time={800}>
         {list.map((item, index) => (
           <ResultItem key={index} item={item}></ResultItem>
         ))}
