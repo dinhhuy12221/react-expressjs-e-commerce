@@ -23,7 +23,6 @@ export default function ProductItem() {
           <Link to={"/product/1"}>
             <img
               src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg"
-              className="w-100"
             />
           </Link>
           <div className="actions">
@@ -53,7 +52,7 @@ export default function ProductItem() {
           />
           <div className="d-flex">
             <span className="oldPrice">$20.00</span>
-            <span className="onetPrice text-danger ms-2">$14.00</span>
+            <span className="netPrice text-danger">$14.00</span>
           </div>
         </div>
       </LoadingAnimation>
