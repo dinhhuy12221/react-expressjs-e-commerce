@@ -7,11 +7,11 @@ import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineCompareArrows } from "react-icons/md";
 import Tooltip from "@mui/material/Tooltip";
-import RelatedProducts from "./RelatedProducts";
 import { MyContext } from "../../App";
 
 import "./index.css";
 import ProductReview from "./ProductReview";
+import ProductSwiper from "../../components/ProductSwiper";
 
 export default function ProductDetails() {
   const [activeSize, setActiveSize] = useState(null);
@@ -69,7 +69,7 @@ export default function ProductDetails() {
             <div className="col-md-7 ps-3">
               <div className="d-flex info mb-3">
                 <span className="oldPrice">$20.00</span>
-                <span className="netPrice text-danger ms-2">$14.00</span>
+                <span className="netPrice">$14.00</span>
               </div>
               <span className="badge badge-success">IN STOCK</span>
               <p className="mt-3">
@@ -153,9 +153,9 @@ export default function ProductDetails() {
 
           <ProductReview title="REVIEWS"/>
 
-          <RelatedProducts title="RELATED PRODUCTS" />
+          <ProductSwiper title="RELATED PRODUCTS" />
 
-          <RelatedProducts title="RECENTLY VIEWED PRODUCTS" />
+          <ProductSwiper title="RECENTLY VIEWED PRODUCTS" />
         </div>
       </section>
     </>
