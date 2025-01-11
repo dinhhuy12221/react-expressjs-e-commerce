@@ -15,6 +15,10 @@ body {
   overflow-x: hidden;
 }
 
+.container {
+  max-width: 85%;
+}
+
 img {
   user-select: none;
 }
@@ -92,7 +96,7 @@ button {
 }
 
 .btn-round {
-  border-radius: 20px !important;
+  border-radius: 13px !important;
 }
 
 .btn-sml {
