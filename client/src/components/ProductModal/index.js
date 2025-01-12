@@ -53,11 +53,10 @@ export default function ProductModal(props) {
           </div>
 
           <Rating
-            name="disabled"
             defaultValue={3}
             precision={0.5}
             size="small"
-            disabled
+            readOnly
           />
         </div>
         <hr />
