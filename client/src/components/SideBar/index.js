@@ -17,7 +17,7 @@ export default function SideBar() {
   return (
     <>
       <div className="sidebar">
-        <div className="sticky-top pt-4">
+        <div className="sticky-top">
           <div className="filterBox">
             <h6>PRODUCT CATEGORIES</h6>
 
@@ -183,10 +183,10 @@ export default function SideBar() {
 
             <div className="d-flex pt-2 pb-2 priceRange">
               <span>
-                From: <strong className="text-dark">Rs: {value[0]}</strong>
+                From: <strong className="text-dark">{value[0]}</strong>
               </span>
               <span className="ms-auto">
-                From: <strong className="text-dark">Rs: {value[1]}</strong>
+                To: <strong className="text-dark">{value[1]}</strong>
               </span>
             </div>
           </div>
