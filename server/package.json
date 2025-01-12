@@ -5,7 +5,7 @@
   "type": "commonjs",
   "moduleResolution": "node",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon --inspect app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dinhhuy12221",
@@ -19,9 +19,9 @@
     "express": "5.0.1",
     "fix-esm": "^1.0.1",
     "mongodb": "^6.10.0",
-    "mongoose": "^8.8.0",
-    "nodemon": "^3.1.7",
-    "p-limit": "3.0.0",
+    "mongoose": "8.9.4",
+    "nodemon": "3.1.9",
+    "p-limit": "6.2.0",
     "server": "file:"
   }
 }
