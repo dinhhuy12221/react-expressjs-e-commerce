@@ -13,7 +13,7 @@ import "./index.css";
 import { MyContext } from "../../App";
 import ProductSwiper from "../../components/ProductSwiper";
 
-const products = Array(10).fill(<ProductItem />);
+const products = Array(9).fill(<ProductItem />);
 
 export default function Home() {
   const context = useContext(MyContext);
@@ -42,7 +42,7 @@ export default function Home() {
             <div className="col-md-9">
               <div className="d-flex align-items-center">
                 <div className="info w-75">
-                  <h3 className="mb-0 hd">BEST SELLERS</h3>
+                  <h3 className="hd">BEST SELLERS</h3>
                   <p className="text-sml mb-0">
                     Do not miss the current offers until the end of March
                   </p>
@@ -76,7 +76,7 @@ export default function Home() {
                     return (
                       <div
                         key={index}
-                        className="col-lg-3 col-md-4 col-sm-6 new-product"
+                        className="col-lg-3 col-md-4 col-sm-6 col-6 new-product"
                       >
                         {product}
                       </div>
