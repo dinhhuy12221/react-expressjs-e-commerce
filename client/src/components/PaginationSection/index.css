@@ -1,0 +1,35 @@
+
+.page {
+    padding: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+  
+    ul {
+      .MuiPaginationItem-root {
+        color: rgba(255, 0, 0, 0.61);
+        background-color: #fff;
+        span {
+            border: 1px solid rgba(255, 0, 0, 0.61);
+        }
+  
+        &:hover {
+          color: #fff;
+          background-color: rgba(255, 0, 0, 0.61);
+          span {
+            border: 1px solid transparent;
+          }
+        }
+  
+      }
+  
+      & .Mui-selected {
+        color: #fff;
+        background-color: rgba(255, 0, 0, 0.61);
+        span {
+          border: 1px solid transparent;
+        }
+      }
+    }
+  }
+  

@@ -1,9 +1,9 @@
 import Home from "./pages/Home";
-import Listing from "./pages/Listing";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Category from "./pages/Category";
 
 const routes = [
     {
@@ -14,7 +14,7 @@ const routes = [
     {
         path: '/cat/:id',
         exact: true,
-        element: <Listing />,
+        element: <Category />,
     }, 
     {
         path: '/product/:id',
