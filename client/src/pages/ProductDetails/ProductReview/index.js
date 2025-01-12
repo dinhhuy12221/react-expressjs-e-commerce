@@ -1,8 +1,8 @@
 import reviews_list from "./reviews_list";
-import Pagination from '@mui/material/Pagination';
 import "./index.css";
 import Review from "./Review";
 import ReviewFilter from "./ReviewFilter";
+import PaginationSection from "../../../components/PaginationSection";
 function ProductReview({ title }) {
 
   // const ShowMore = () => {
@@ -37,10 +37,9 @@ function ProductReview({ title }) {
       {reviews_list.map((review, index) => (
         <Review index={index} review={review} />
       ))}
-      <div className="page">
-        <Pagination count={10}variant="outlined"
-      />
-      </div>
+      
+      <PaginationSection />
+
     </div>
   );
 }
