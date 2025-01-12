@@ -49,28 +49,28 @@ export default function Navigation() {
                         <div className={`sidebarNav ${isOpenSidebarVal === true ? 'open' : ''}`} 
                             onAbort={() => setIsOpenSidebarVal(false)}>
                             <ul>
-                                <li><Link to='/'><Button>Men<FaAngleRight className="ms-auto"/></Button></Link>
+                                <li><Link to='#'><Button>Men<FaAngleRight className="ms-auto"/></Button></Link>
                                     <div className="submenu">
-                                        <Link to='/'><Button>clothing</Button></Link>
-                                        <Link to='/'><Button>footwear</Button></Link>
-                                        <Link to='/'><Button>watches</Button></Link>
-                                        <Link to='/'><Button>clothing</Button></Link>
-                                        <Link to='/'><Button>footwear</Button></Link>
+                                        <Link to='#'><Button>clothing</Button></Link>
+                                        <Link to='#'><Button>footwear</Button></Link>
+                                        <Link to='#'><Button>watches</Button></Link>
+                                        <Link to='#'><Button>clothing</Button></Link>
+                                        <Link to='#'><Button>footwear</Button></Link>
                                     </div>
                                 </li>
-                                <li><Link to='/'><Button>Women<FaAngleRight className="ms-auto"/></Button></Link>
+                                <li><Link to='#'><Button>Women<FaAngleRight className="ms-auto"/></Button></Link>
                                     <div className="submenu">
-                                        <Link to='/'><Button>clothing</Button></Link>
-                                        <Link to='/'><Button>footwear</Button></Link>
-                                        <Link to='/'><Button>watches</Button></Link>
-                                        <Link to='/'><Button>clothing</Button></Link>
-                                        <Link to='/'><Button>footwear</Button></Link>
+                                        <Link to='#'><Button>clothing</Button></Link>
+                                        <Link to='#'><Button>footwear</Button></Link>
+                                        <Link to='#'><Button>watches</Button></Link>
+                                        <Link to='#'><Button>clothing</Button></Link>
+                                        <Link to='#'><Button>footwear</Button></Link>
                                     </div>
                                 </li>
-                                <li><Link to='/'><Button>Beauty</Button></Link></li>
-                                <li><Link to='/'><Button>Watches</Button></Link></li>
-                                <li><Link to='/'><Button>Kids</Button></Link></li>
-                                <li><Link to='/'><Button>Gifts</Button></Link></li>
+                                <li><Link to='#'><Button>Beauty</Button></Link></li>
+                                <li><Link to='#'><Button>Watches</Button></Link></li>
+                                <li><Link to='#'><Button>Kids</Button></Link></li>
+                                <li><Link to='#'><Button>Gifts</Button></Link></li>
                             </ul>
                         </div>
                     </div>
@@ -78,73 +78,73 @@ export default function Navigation() {
                 <div className='col-sm-9 navPart2 d-flex align-items-center'>
                     <ul className="list list-inline ms-auto">
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Home</Button></Link>
+                            <Link to='#'><Button>Home</Button></Link>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Men</Button></Link>
+                            <Link to='#'><Button>Men</Button></Link>
                             <div className="submenu shadow">
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
-                                <Link to='/'><Button>watches</Button></Link>
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>watches</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Women</Button></Link>
+                            <Link to='#'><Button>Women</Button></Link>
                             <div className="submenu shadow">
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
-                                <Link to='/'><Button>watches</Button></Link>
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>watches</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Beauty</Button></Link>
+                            <Link to='#'><Button>Beauty</Button></Link>
                             <div className="submenu shadow">
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
-                                <Link to='/'><Button>watches</Button></Link>
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>watches</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Watches</Button></Link>
+                            <Link to='#'><Button>Watches</Button></Link>
                             <div className="submenu shadow">
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
-                                <Link to='/'><Button>watches</Button></Link>
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>watches</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Kids</Button></Link>
+                            <Link to='#'><Button>Kids</Button></Link>
                             <div className="submenu shadow">
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
-                                <Link to='/'><Button>watches</Button></Link>
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>watches</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Gift</Button></Link>
+                            <Link to='#'><Button>Gift</Button></Link>
                             <div className="submenu shadow">
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
-                                <Link to='/'><Button>watches</Button></Link>
-                                <Link to='/'><Button>clothing</Button></Link>
-                                <Link to='/'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
+                                <Link to='#'><Button>watches</Button></Link>
+                                <Link to='#'><Button>clothing</Button></Link>
+                                <Link to='#'><Button>footwear</Button></Link>
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Blog</Button></Link>
+                            <Link to='#'><Button>Blog</Button></Link>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='/'><Button>Contact</Button></Link>
+                            <Link to='#'><Button>Contact</Button></Link>
                         </li>
                     </ul>
                 </div>
