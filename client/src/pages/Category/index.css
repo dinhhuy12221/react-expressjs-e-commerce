@@ -18,6 +18,8 @@
 
             .layout-options {
                 button {
+                    border-radius: 15px;
+
                     font-size: 25px;
 
                     background: transparent;
@@ -26,6 +28,15 @@
                     &:hover {
                         color: #fff;
                         background-color: var(--theme-1);
+                    }
+
+                    &.active {
+                        color: #fff;
+                        background-color: var(--theme-1);
+                    }
+
+                    + button {
+                        margin-left: 8px;
                     }
                 }
             }
