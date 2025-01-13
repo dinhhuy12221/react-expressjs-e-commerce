@@ -1,11 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "type": "commonjs",
   "moduleResolution": "node",
   "scripts": {
-    "start": "nodemon --inspect app.js",
+    "start": "nodemon --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dinhhuy12221",
