@@ -1,31 +1,36 @@
 const express = require("express");
-const app = express();
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+// const morgan = require("morgan");
 const cors = require("cors");
+const route = require('./routes')
+const fs = require("fs");
+var path = require("path");
 
-const db = require('./config/db')
 require("dotenv/config");
 
-
+const app = express();
 app.use(cors());
 app.options("/", cors());
 
 app.use(bodyParser.json());
 
 // Database
+const db = require("./config/db");
 db.connect();
 
-// Routes
-const categoryRoutes = require("./routes/categories");
-const productRoutes = require("./routes/products");
+// //Logger
+// var accessLogStream = fs.createWriteStream(
+//   path.join(__dirname, './log/access.log'), 
+//   {
+//     flags: 'a',
+//   }
+// );
 
-app.use(`/api/category`, categoryRoutes);
-app.use(`/api/product`, productRoutes);
+// app.use(morgan('combined', { stream: accessLogStream }));
 
-
+route(app)
 
 // server
 app.listen(process.env.PORT, () => {
-  console.log(`server is running http://localhost:${process.env.PORT}`);
+  console.log(`Server is running http://localhost:${process.env.PORT}`);
 });
