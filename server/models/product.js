@@ -9,17 +9,19 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  images: [
-    {
-      type: String,
-      required: true,
-    },
-  ],
+  image: {
+    type: String,
+    required: true,
+  },
   brand: {
     type: String,
     default: "",
   },
   price: {
+    type: Number,
+    default: 0,
+  },
+  discount: {
     type: Number,
     default: 0,
   },
