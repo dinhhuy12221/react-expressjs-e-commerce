@@ -37,8 +37,15 @@
     }
   }
 
+  .hd {
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+
 
   .new-products-list {
+    display: flex;
+    
     padding: 10px;
     
     .new-product {

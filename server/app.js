@@ -1,36 +1,36 @@
 const express = require("express");
-const app = express();
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+// const morgan = require("morgan");
 const cors = require("cors");
+const route = require('./routes')
+const fs = require("fs");
+var path = require("path");
+
 require("dotenv/config");
 
+const app = express();
 app.use(cors());
 app.options("/", cors());
 
-// midleware
 app.use(bodyParser.json());
 
-// Routes
-const categoryRoutes = require("./routes/categories");
-const productRoutes = require("./routes/products");
-
-app.use(`/api/category`, categoryRoutes);
-app.use(`/api/product`, productRoutes);
 // Database
-mongoose
-  .connect(process.env.CONNECTION_STRING, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Database Connection is ready...");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+const db = require("./config/db");
+db.connect();
+
+// //Logger
+// var accessLogStream = fs.createWriteStream(
+//   path.join(__dirname, './log/access.log'), 
+//   {
+//     flags: 'a',
+//   }
+// );
+
+// app.use(morgan('combined', { stream: accessLogStream }));
+
+route(app)
 
 // server
 app.listen(process.env.PORT, () => {
-  console.log(`server is running http://localhost:${process.env.PORT}`);
+  console.log(`Server is running http://localhost:${process.env.PORT}`);
 });
