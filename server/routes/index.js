@@ -1,9 +1,9 @@
-const categoryRouter = require('./category')
-const productRouter = require('./product');
+import categoryRouter from './categoryRoutes'
+import productRouter from './productRoutes'
 
-function route(app) {
+route = (app) => {
     app.use('/api/category', categoryRouter);
     app.use('/api/product', productRouter);
 }
 
-module.exports = route;
+export default route;

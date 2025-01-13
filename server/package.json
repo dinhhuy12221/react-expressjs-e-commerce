@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "moduleResolution": "node",
   "scripts": {
     "start": "nodemon --inspect index.js",
@@ -19,7 +19,7 @@
     "express": "5.0.1",
     "fix-esm": "^1.0.1",
     "mongodb": "^6.10.0",
-    "mongoose": "8.9.4",
+    "mongoose": "8.9.5",
     "morgan": "^1.10.0",
     "nodemon": "3.1.9",
     "server": "file:"

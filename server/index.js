@@ -1,21 +1,21 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-// const morgan = require("morgan");
-const cors = require("cors");
-const route = require('./routes')
-const fs = require("fs");
-var path = require("path");
+import express from "express";
+import bodyParser from "body-parser"
+// import morgan from "morgan"
+import cors from "cors"
+import route from './routes'
+import fs from "fs"
+import path from "path"
 
-require("dotenv/config");
+import "dotenv/config";
 
 const app = express();
 app.use(cors());
 app.options("/", cors());
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Database
-const db = require("./config/db");
+import db from "./config/db";
 db.connect();
 
 // //Logger

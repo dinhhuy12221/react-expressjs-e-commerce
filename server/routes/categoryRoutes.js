@@ -1,6 +1,6 @@
-const express = require("express");
+import express from 'express'
 const router = express.Router();
-const categoryController = require("../controllers/categoryController");
+import categoryController from '../controllers/categoryController'
 
 router.post("/create", categoryController.createCategory);
 router.get("/:id", categoryController.getCategory);
@@ -8,6 +8,5 @@ router.put("/:id", categoryController.updateCategory);
 router.delete("/:id", categoryController.deleteCategory);
 router.get(`/`, categoryController.getCategoryList);
 
-module.exports = router;
+export default router;
 
-//dinhhuy574-oi3dHIZ6XJ7V6h6X

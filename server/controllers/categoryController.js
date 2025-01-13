@@ -1,5 +1,5 @@
-const Category = require("../models/category");
-const cloudinary = require("cloudinary");
+import Category from '../models/category'
+import cloudinary from 'cloudinary'
 
 cloudinary.config({
   cloud_name: process.env.cloudinary_Config_Cloud_Name,
@@ -112,4 +112,4 @@ class categoryController {
   }
 }
 
-module.exports = new categoryController();
+export default new categoryController();
