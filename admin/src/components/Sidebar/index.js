@@ -82,7 +82,7 @@ export default function Sidebar() {
             </div>
           </li>
           <li>
-            <Link to="/category">
+            <Link to="/categories">
               <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}>
                 <span className="icon">
                 <BiSolidCategory />
