@@ -1,7 +1,7 @@
-import categoryRouter from './categoryRoutes'
-import productRouter from './productRoutes'
+import categoryRouter from './categoryRoutes.js'
+import productRouter from './productRoutes.js'
 
-route = (app) => {
+const route = (app) => {
     app.use('/api/category', categoryRouter);
     app.use('/api/product', productRouter);
 }

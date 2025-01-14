@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser"
 // import morgan from "morgan"
 import cors from "cors"
-import route from './routes'
+import route from './routes/index.js'
 import fs from "fs"
 import path from "path"
 
@@ -15,8 +15,8 @@ app.options("/", cors());
 app.use(express.json());
 
 // Database
-import db from "./config/db";
-db.connect();
+import { connect } from "./config/db/index.js";
+connect();
 
 // //Logger
 // var accessLogStream = fs.createWriteStream(
