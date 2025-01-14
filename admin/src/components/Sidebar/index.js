@@ -10,6 +10,9 @@ import { IoMdSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
 import { MyContext } from "../../App";
+import { BiSolidCategory } from "react-icons/bi";
+
+import './index.css'
 
 export default function Sidebar() {
   const [activeTab, setActiveTab] = useState(0);
@@ -46,7 +49,7 @@ export default function Sidebar() {
           <li>
             <Button
               className={`w-100 ${
-                activeTab === 1 && isToggleSubmenu === true ? "active" : ""
+                activeTab === 1 && isToggleSubmenu ? "active" : ""
               }`}
               onClick={() => isOpenSubmenu(1)}
             >
@@ -77,6 +80,19 @@ export default function Sidebar() {
                 </li>
               </ul>
             </div>
+          </li>
+          <li>
+            <Link to="/category">
+              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}>
+                <span className="icon">
+                <BiSolidCategory />
+                </span>
+                Categories
+                <span className="arrow">
+                  <IoIosArrowForward />
+                </span>
+              </Button>
+            </Link>
           </li>
           <li>
             <Link to="/">
@@ -120,84 +136,6 @@ export default function Sidebar() {
           <li>
             <Link to="/">
               <Button className={`w-100 ${activeTab === 4 ? "active" : ""}`}>
-                <span className="icon">
-                  <IoMdSettings />
-                </span>
-                Settings
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 5 ? "active" : ""}`}>
-                <span className="icon">
-                  <MdDashboard />
-                </span>
-                Dashboard
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 6 ? "active" : ""}`}>
-                <span className="icon">
-                  <BsFillXDiamondFill />
-                </span>
-                Products
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 7 ? "active" : ""}`}>
-                <span className="icon">
-                  <IoCartSharp />
-                </span>
-                Orders
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 8 ? "active" : ""}`}>
-                <span className="icon">
-                  <RiMessage2Fill />
-                </span>
-                Messages
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 9 ? "active" : ""}`}>
-                <span className="icon">
-                  <IoMdNotifications />
-                </span>
-                Notifications
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 10 ? "active" : ""}`}>
                 <span className="icon">
                   <IoMdSettings />
                 </span>
