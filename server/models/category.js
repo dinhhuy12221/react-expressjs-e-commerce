@@ -1,28 +1,43 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
+import slug from "mongoose-slug-updater";
+import mongooseDelete from "mongoose-delete";
+import Inc from "mongoose-sequence";
 
-const categorySchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  images: [
-    {
-      type: String,
-      required: false,
+const AutoIncrement = Inc(mongoose);
+
+// const mongoose = require("mongoose");
+// const slug = require("mongoose-slug-updater");
+// const mongooseDelete = require("mongoose-delete");
+// const AutoIncrement = ("mongoose-sequence");
+
+mongoose.plugin(slug);
+
+const categorySchema = mongoose.Schema(
+  {
+    _id: {
+      type: Number,
     },
-  ],
-  color: {
-    type: String,
-    required: true,
+    name: {
+      type: String,
+      required: true,
+    },
+    slug: {
+      type: String,
+      slug: "name",
+      unique: true,
+    },
   },
-});
+  {
+    _id: false,
+    timestamps: true,
+  }
+);
 
-categorySchema.virtual("id").get(function () {
-  return this._id.toHexString();
-});
+categorySchema.plugin(AutoIncrement, { id: "category_id_counter" });
 
-categorySchema.set("toJSON", {
-  virtuals: true,
+categorySchema.plugin(mongooseDelete, {
+  deletedAt: true,
+  overrideMethods: "all",
 });
 
 export default mongoose.model("Category", categorySchema);
