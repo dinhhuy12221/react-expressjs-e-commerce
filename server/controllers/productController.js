@@ -1,5 +1,6 @@
 import Product from "../models/product.js";
-import cloudinary from 'cloudinary'
+import Category from "../models/category.js";
+import cloudinary from "cloudinary";
 
 cloudinary.config({
   cloud_name: process.env.cloudinary_Config_Cloud_Name,
@@ -8,104 +9,110 @@ cloudinary.config({
 });
 
 class productController {
+  // GET product list
   async getProductList(req, res) {
     try {
       const productList = await Product.find({});
-
-      if (!productList) {
-        res.status(500).json({ success: false });
-      }
-      res.send(productList);
+      res.status(200).send(productList);
     } catch (error) {
-      res.status(404).json(error);
+      res.status(404).json({ 
+        success: false,
+        message: error,
+      });
     }
   }
 
-  // GET product by id
+  // GET product by slug
   async getProduct(req, res) {
     try {
-      const product = await Product.findById(req.params.id);
+      const product = await Product.find({ slug: req.params.slug });
 
-      if (!product) {
-        res.status(400).json({
-          message: "The product with the given ID was not found!",
-          success: false,
-        });
-      }
       return res.status(200).send(product);
     } catch (error) {
-      res.status(400).json({
+      res.status(404).json({
+        success: false,
         message: error,
-        success: false,
       });
     }
   }
 
+  // POST create product
   async createProduct(req, res) {
-    const imagesToUpload = req.body.images.map((image) => {
-      return async () => {
-        const result = await cloudinary.uploader.upload(image);
-        return result;
-      };
-    });
-    const uploadStatus = await Promise.all(imagesToUpload);
+    try {
+      // const imagesToUpload = req.body.images.map((image) => {
+      //   return async () => {
+      //     const result = await cloudinary.uploader.upload(image);
+      //     return result;
+      //   };
+      // });
+      // const uploadStatus = await Promise.all(imagesToUpload);
 
-    const imgurl = uploadStatus.map((item) => {
-      return item.secure_url;
-    });
+      // const imgurl = uploadStatus.map((item) => {
+      //   return item.secure_url;
+      // });
 
-    if (!uploadStatus) {
-      return res.status(500).json({
-        error: "images cannot upload",
-        status: false,
+      // if (!uploadStatus) {
+      //   return res.status(500).json({
+      //     error: "images cannot upload",
+      //     status: false,
+      //   });
+      // }
+
+      const category = await Category.findById(req.body.category);
+
+      // if (!category) {
+      //   return res.status(400).send("Invalid Category!");
+      // }
+
+      let product = new Product({
+        name: req.body.name,
+        description: req.body.description,
+        image: req.body.image,
+        brand: req.body.brand,
+        price: req.body.price,
+        discount: req.body.discount,
+        // category: req.body.category,
+        countInStock: req.body.countInStock,
+        rating: req.body.rating,
+        numReviews: req.body.numReviews,
+        isFeatured: req.body.isFeatured,
       });
+
+      product = await product.save();
+
+      // if (!product) {
+      //   res.status(500).join({
+      //     error: error,
+      //     success: false,
+      //   });
+      // }
+
+      res.status(200).send(product);
+    } catch (error) {
+      res
+        .status(404)
+        .send({
+          success: false,
+          message: error,
+        });
     }
-
-    const category = await Category.findById(req.body.category);
-
-    if (!category) {
-      return res.status(400).send("Invalid Category!");
-    }
-
-    let product = new Product({
-      name: req.body.name,
-      description: req.body.description,
-      images: req.body.images,
-      brand: req.body.brand,
-      price: req.body.price,
-      category: req.body.category,
-      countInStock: req.body.countInStock,
-      rating: req.body.rating,
-      numReivews: req.body.numReivews,
-      isFeatured: req.body.isFeatured,
-    });
-
-    product = await product.save();
-
-    if (!product) {
-      res.status(500).join({
-        error: error,
-        success: false,
-      });
-    }
-
-    res.status(201).json(product);
   }
 
+  //[DELETE] delete product
   async deleteProduct(req, res) {
-    const deleteProduct = await Product.findByIdAndDelete(req.params.id);
-
-    if (!deleteProduct) {
-      return res.status(404).json({
-        message: "Product not found!",
-        status: false,
+    try {
+      const deleteProduct = await Product.delete({ _id: req.params.id });
+  
+      res.status(200).send({
+        message: "The product is deleted!",
+        status: true,
       });
+    } catch (error) {
+      res.status(404).json({
+        success: false,
+        message: error,
+      })
     }
-
-    res.status(200).send({
-      message: "The product is deleted!",
-      status: true,
-    });
   }
 
   async updateProduct(req, res) {

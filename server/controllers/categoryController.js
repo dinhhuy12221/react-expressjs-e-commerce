@@ -1,5 +1,5 @@
-import Category from '../models/category.js'
-import cloudinary from 'cloudinary'
+import Category from "../models/category.js";
+import cloudinary from "cloudinary";
 
 cloudinary.config({
   cloud_name: process.env.cloudinary_Config_Cloud_Name,
@@ -8,108 +8,101 @@ cloudinary.config({
 });
 
 class categoryController {
-
-    // Get category list
+  // Get category list
   async getCategoryList(req, res) {
-    const categoryList = await Category.find();
-
-    if (!categoryList) {
-      res.status(500).join({ success: false });
+    try {
+      const categoryList = await Category.find();
+      res.status(200).send(categoryList);
+    } catch (error) {
+      res
+        .status(404)
+        .json({
+          success: false,
+          message: error,
+        });
     }
-    res.send(categoryList);
   }
 
-  // Get category by id
+  // Get category by slug
   async getCategory(req, res) {
-    const category = await Category.findById(req.params.id);
+    try {
+      
+      const category = await Category.findOne({ slug: req.params.slug });
 
-    if (!category) {
+      res.status(200).send(category);
+    } catch (error) {
       res
-        .status(500)
-        .join({ message: "The category with the given ID was not found." });
+        .status(404)
+        .json({
+          success: false,
+          message: error,
+        });
     }
-    return res.status(200).send(category);
+  }
+
+  // POST create category
+  async createCategory(req, res) {
+
+    try {
+      let category = new Category({
+        name: req.body.name,
+      });
+  
+      category = await category.save();
+      res.status(202).send(category);
+      
+    } catch (error) {
+      res
+        .status(404)
+        .join({
+          success: false,
+          message: error,
+        });
+    }
+
   }
 
   // Delete category by id
   async deleteCategory(req, res) {
-    const deletedCategory = await Category.findByIdAndDelete(req.params.id);
-
-    if (!deletedCategory) {
+    try {
+      const deletedCategory = await Category.delete({ _id: req.params.id });
+  
+      res.status(200).json({
+        message: "Category Deleted!",
+        success: true,
+      });
+      
+    } catch (error) {
       res.status(404).json({
-        message: "Category not found",
         success: false,
+        message: error,
       });
     }
-
-    res.status(200).json({
-      message: "Category Deleted!",
-      success: true,
-    });
   }
 
   // Update category
   async updateCategory(req, res) {
-    const category = await Category.findByIdAndUpdate(req.params.id, {
-      name: req.body.name,
-      images: req.body.images,
-      color: req.body.color,
-    });
-
-    if (!category) {
-      return res.status(500).json(
-        {
-          message: "Category cannot be updated!",
-          success: false,
-        },
-        { new: true }
-      );
-    }
-
-    res.status(200).json({
-      message: "Category Updated",
-      success: true,
-    });
-  }
-
-  async createCategory(req, res) {
-    const imagesToUpload = req.body.images.map((image) => {
-        return async () => {
-          const result = await cloudinary.uploader.upload(image);
-          return result;
-        };
-      });
     
-      const uploadStatus = await Promise.all(imagesToUpload);
-    
-      const imgurl = uploadStatus.map((item) => {
-        return item.secure_url;
-      });
-    
-      if (!uploadStatus) {
-        return res.status(500).json({
-          error: "images cannot upload",
-          status: false,
-        });
-      }
-    
-      let category = new Category({
+    try {
+      const category = await Category.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         images: req.body.images,
         color: req.body.color,
       });
-    
-      if (!category) {
-        res.status(500).json({
-          error: error,
-          success: false,
-        });
-      }
-    
-      category = await category.save();
-    
-      res.status(201).json(category);
+  
+      res.status(200).json({
+        message: "Category Updated",
+        success: true,
+      });
+    } catch (error) {
+      res.status(404).json({
+        success: false,
+        message: error,
+      });
+    }
   }
+
+  
 }
 
 export default new categoryController();
