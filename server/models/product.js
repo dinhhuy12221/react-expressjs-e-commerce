@@ -10,7 +10,9 @@ import Inc from "mongoose-sequence";
 const AutoIncrement = Inc(mongoose);
 mongoose.plugin(slug);
 
-const productSchema = mongoose.Schema(
+const Schema = mongoose.Schema;
+
+const productSchema = Schema(
   {
     _id: {
       type: Number,
@@ -64,6 +66,10 @@ const productSchema = mongoose.Schema(
     dateCreated: {
       type: Date,
       default: Date.now,
+    },
+    categoryId: {
+      type: Schema.Types.Int32,
+      ref: "Category",
     },
     slug: {
       type: String,

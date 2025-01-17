@@ -38,7 +38,7 @@ export default function HomeCat() {
 
       if (windowWidth > 1300) {
         setNumberOfItems(10)
-      } else if (windowWidth > 700) {
+      } else if (windowWidth > 800) {
         setNumberOfItems(6)
       } else {
         setNumberOfItems(4)

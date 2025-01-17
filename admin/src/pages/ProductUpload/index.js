@@ -31,7 +31,7 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
       backgroundColor: emphasize(backgroundColor, 0.12),
     },
   };
-}); // TypeScript only: need a type cast here because https://github.com/Microsoft/TypeScript/issues/26591
+}); 
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

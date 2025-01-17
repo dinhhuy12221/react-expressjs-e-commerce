@@ -7,10 +7,10 @@ import { Navigation } from "swiper/modules";
 import ProductItem from "../ProductItem";
 import "./index.css";
 
-const productList = Array(10).fill(<ProductItem />);
-
 export default function ProductSwiper(props) {
   const [numberOfProductSwiper, setNumberOfProductSwiper] = useState(4);
+
+  const productList = props.productList;
 
   useEffect(() => {
     const handleResize = () => {
@@ -49,7 +49,7 @@ export default function ProductSwiper(props) {
       >
         {productList &&
           productList.map((product, index) => {
-            return <SwiperSlide key={index}>{product}</SwiperSlide>;
+            return <SwiperSlide key={index}><ProductItem info={product}/></SwiperSlide>;
           })}
       </Swiper>
     </div>

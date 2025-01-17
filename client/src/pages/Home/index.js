@@ -1,19 +1,18 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import HomeBanner from "../../components/HomeBanner";
 import Button from "@mui/material/Button";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation } from "swiper/modules";
 import ProductItem from "../../components/ProductItem";
 import HomeCat from "../../components/HomeCat";
 import "./index.css";
 import { MyContext } from "../../App";
 import ProductSwiper from "../../components/ProductSwiper";
+import { getProductList } from "../../api/product";
 
-const products = Array(9).fill(<ProductItem />);
+const productList = await getProductList();
 
 export default function Home() {
   const context = useContext(MyContext);
@@ -54,7 +53,7 @@ export default function Home() {
                 </Button>
               </div>
 
-              <ProductSwiper />
+              <ProductSwiper productList={productList}/>
 
               <div className="d-flex align-items-center mt-5 mb-3">
                 <div className="info w-75">
@@ -71,14 +70,14 @@ export default function Home() {
               </div>
 
               <div className="row new-products-list">
-                {products &&
-                  products.map((product, index) => {
+                {productList &&
+                  productList.map((info, index) => {
                     return (
                       <div
                         key={index}
                         className="col-lg-3 col-md-4 col-sm-6 col-6 new-product"
                       >
-                        {product}
+                        <ProductItem info={info}/>
                       </div>
                     );
                   })}

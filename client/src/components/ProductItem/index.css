@@ -1,18 +1,21 @@
 .productItem {
   position: relative;
 
+  display: flex;
+  flex-direction: column;
+
   height: 333px;
   width: 100%;
 
   border: 1px solid rgba(0, 0, 0, 0.1);
 
-  .loading {
+  /* .loading {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     height: 100%;
-  }
+  } */
 
   .badge {
     position: absolute;
@@ -21,7 +24,7 @@
     padding: 7px 10px;
     top: 10px;
     left: 10px;
-    
+
     z-index: 100;
   }
 
@@ -103,30 +106,45 @@
   }
 
   .info {
-    padding: 0 10px;
+    flex: 1;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding: 0 10px;
+    
     h4 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      
+      overflow: hidden;
+      text-overflow: ellipsis;
+
       font-size: 16px;
       font-weight: 600;
     }
 
-    .oldPrice {
-      display: flex;
-      align-items: center;
-      
-      font-size: 16px;
-      text-decoration: line-through;
-
-      color: rgba(0, 0, 0, 0.3);
-    }
-
-    .netPrice {
-      margin-left: 7px;
-
-      font-size: 18px;
-      font-weight: 500;
-
-      color: red;
+    .status {
+      .oldPrice {
+        display: flex;
+        align-items: center;
+  
+        font-size: 16px;
+        text-decoration: line-through;
+  
+        color: rgba(0, 0, 0, 0.3);
+      }
+  
+      .netPrice {
+        margin-left: 7px;
+  
+        font-size: 18px;
+        font-weight: 500;
+  
+        color: red;
+      }
     }
   }
 }

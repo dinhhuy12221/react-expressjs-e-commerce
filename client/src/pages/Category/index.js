@@ -11,8 +11,10 @@ import { MyContext } from "../../App";
 import PaginationSection from "../../components/PaginationSection";
 
 import "./index.css";
+import { getProductList } from "../../api/product";
 
-const product_views = Array(20).fill(<ProductItem />);
+const productList = await getProductList();
+
 let productLayoutOptions = [
   {
     index: 1,
@@ -110,13 +112,13 @@ export default function Category() {
             </div>
 
             <div className="products-view row">
-              {product_views &&
-                product_views.map((product, index) => (
+              {productList &&
+                productList.map((info, index) => (
                   <div
                     className={`product-item ${layouts}`}
                     key={index}
                   >
-                    {product}
+                    <ProductItem info={info} />
                   </div>
                 ))}
             </div>

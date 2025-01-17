@@ -78,10 +78,10 @@ export default function Navigation() {
                 <div className='col-sm-9 navPart2 d-flex align-items-center'>
                     <ul className="list list-inline ms-auto">
                         <li className="list-inline-item">
-                            <Link to='#'><Button>Home</Button></Link>
+                            <Link to='/'><Button>Home</Button></Link>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='#'><Button>Men</Button></Link>
+                            <Link to='/cat/men'><Button>Men</Button></Link>
                             <div className="submenu shadow">
                                 <Link to='#'><Button>clothing</Button></Link>
                                 <Link to='#'><Button>footwear</Button></Link>
@@ -91,7 +91,7 @@ export default function Navigation() {
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='#'><Button>Women</Button></Link>
+                            <Link to='/cat/women'><Button>Women</Button></Link>
                             <div className="submenu shadow">
                                 <Link to='#'><Button>clothing</Button></Link>
                                 <Link to='#'><Button>footwear</Button></Link>
@@ -101,7 +101,7 @@ export default function Navigation() {
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='#'><Button>Beauty</Button></Link>
+                            <Link to='/cat/beauty'><Button>Beauty</Button></Link>
                             <div className="submenu shadow">
                                 <Link to='#'><Button>clothing</Button></Link>
                                 <Link to='#'><Button>footwear</Button></Link>
@@ -111,7 +111,7 @@ export default function Navigation() {
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='#'><Button>Watches</Button></Link>
+                            <Link to='/cat/watches'><Button>Watches</Button></Link>
                             <div className="submenu shadow">
                                 <Link to='#'><Button>clothing</Button></Link>
                                 <Link to='#'><Button>footwear</Button></Link>
@@ -121,7 +121,7 @@ export default function Navigation() {
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='#'><Button>Kids</Button></Link>
+                            <Link to='/cat/kids'><Button>Kids</Button></Link>
                             <div className="submenu shadow">
                                 <Link to='#'><Button>clothing</Button></Link>
                                 <Link to='#'><Button>footwear</Button></Link>
@@ -131,7 +131,7 @@ export default function Navigation() {
                             </div>
                         </li>
                         <li className="list-inline-item">
-                            <Link to='#'><Button>Gift</Button></Link>
+                            <Link to='/cat/gift'><Button>Gift</Button></Link>
                             <div className="submenu shadow">
                                 <Link to='#'><Button>clothing</Button></Link>
                                 <Link to='#'><Button>footwear</Button></Link>

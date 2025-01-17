@@ -21,7 +21,7 @@ export default function Sidebar() {
   const context = useContext(MyContext);
 
   const isOpenSubmenu = (index) => {
-    setActiveTab((a) => (a = index));
+    setActiveTab(index);
     setIsToggleSubmenu(!isToggleSubmenu);
   };
   return (
@@ -83,20 +83,20 @@ export default function Sidebar() {
           </li>
           <li>
             <Link to="/categories">
-              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}>
+              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(2)}>
                 <span className="icon">
                 <BiSolidCategory />
                 </span>
                 Categories
                 <span className="arrow">
-                  <IoIosArrowForward />
                 </span>
               </Button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}>
+              <Button className={`w-100 ${activeTab === 3 ? "active" : ""}`}>
                 <span className="icon">
                   <IoCartSharp />
                 </span>
@@ -109,7 +109,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}>
+              <Button className={`w-100 ${activeTab === 4 ? "active" : ""}`}>
                 <span className="icon">
                   <RiMessage2Fill />
                 </span>
@@ -122,7 +122,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 3 ? "active" : ""}`}>
+              <Button className={`w-100 ${activeTab === 5 ? "active" : ""}`}>
                 <span className="icon">
                   <IoMdNotifications />
                 </span>
@@ -135,7 +135,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 4 ? "active" : ""}`}>
+              <Button className={`w-100 ${activeTab === 6 ? "active" : ""}`}>
                 <span className="icon">
                   <IoMdSettings />
                 </span>

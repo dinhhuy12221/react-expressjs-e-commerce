@@ -19,7 +19,7 @@
     "express": "5.0.1",
     "fix-esm": "^1.0.1",
     "mongodb": "^6.10.0",
-    "mongoose": "8.9.0",
+    "mongoose": "8.9.5",
     "mongoose-delete": "^1.0.2",
     "mongoose-sequence": "^6.0.1",
     "mongoose-slug-updater": "^3.3.0",

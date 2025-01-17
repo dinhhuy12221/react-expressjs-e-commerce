@@ -15,7 +15,7 @@ class productController {
       const productList = await Product.find({});
       res.status(200).send(productList);
     } catch (error) {
-      res.status(404).json({ 
+      res.status(404).json({
         success: false,
         message: error,
       });
@@ -23,7 +23,7 @@ class productController {
   }
 
   // GET product by slug
-  async getProduct(req, res) {
+  async getProductBySlug(req, res) {
     try {
       const product = await Product.find({ slug: req.params.slug });
 
@@ -58,7 +58,7 @@ class productController {
       //   });
       // }
 
-      const category = await Category.findById(req.body.category);
+      // const category = await Category.findById(req.body.category);
 
       // if (!category) {
       //   return res.status(400).send("Invalid Category!");
@@ -71,7 +71,7 @@ class productController {
         brand: req.body.brand,
         price: req.body.price,
         discount: req.body.discount,
-        // category: req.body.category,
+        categoryId: req.body.categoryId,
         countInStock: req.body.countInStock,
         rating: req.body.rating,
         numReviews: req.body.numReviews,
@@ -87,14 +87,14 @@ class productController {
       //   });
       // }
 
-      res.status(200).send(product);
+      return res.status(200).send(product);
     } catch (error) {
-      res
-        .status(404)
-        .send({
-          success: false,
-          message: error,
-        });
+      console.log(error);
+
+      return res.status(404).send({
+        success: false,
+        message: error,
+      });
     }
   }
 
@@ -102,7 +102,7 @@ class productController {
   async deleteProduct(req, res) {
     try {
       const deleteProduct = await Product.delete({ _id: req.params.id });
-  
+
       res.status(200).send({
         message: "The product is deleted!",
         status: true,
@@ -111,7 +111,7 @@ class productController {
       res.status(404).json({
         success: false,
         message: error,
-      })
+      });
     }
   }
 

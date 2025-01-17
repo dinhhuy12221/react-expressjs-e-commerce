@@ -22,7 +22,7 @@ export default function ProductZoom() {
 
   return (
     <div className="productZoom position-relative">
-      <div className="badge badge-primary">28%</div>
+      <div className="badge badge-primary">-28%</div>
       <Swiper
         slidesPerView={1}
         spaceBetween={0}

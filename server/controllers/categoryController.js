@@ -24,10 +24,26 @@ class categoryController {
   }
 
   // Get category by slug
-  async getCategory(req, res) {
+  async getCategoryBySlug(req, res) {
     try {
       
       const category = await Category.findOne({ slug: req.params.slug });
+
+      res.status(200).send(category);
+    } catch (error) {
+      res
+        .status(404)
+        .json({
+          success: false,
+          message: error,
+        });
+    }
+  }
+
+  // Get category by id
+  async getCategoryById(req, res) {
+    try {
+      const category = await Category.findOne({ _id: req.params.id });
 
       res.status(200).send(category);
     } catch (error) {

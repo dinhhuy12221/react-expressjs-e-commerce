@@ -2,6 +2,7 @@ import { Breadcrumbs, Chip, emphasize, styled } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 
 import "./index.css";
+import { Link } from "react-router-dom";
 
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
   const backgroundColor = (theme.palette.mode = "#112143");
@@ -43,13 +44,14 @@ function Breadcrumb(props) {
           {path &&
             path.map((item, index) => {
               return (
-                <StyledBreadcrumb
-                  key={index}
-                  label={item}
-                  style={{
-                    cursor: "pointer",
-                  }}
-                />
+                <Link to={item.to} key={index}>
+                    <StyledBreadcrumb
+                      label={item.name}
+                      style={{
+                        cursor: "pointer",
+                      }}
+                    />
+                </Link>
               );
             })}
         </Breadcrumbs>

@@ -32,7 +32,7 @@ export default function Footer() {
 
               <form className="d-flex align-items-center">
                 <CiMail />
-                <input type="text" placeholder="Your email address"></input>
+                <input type="email" placeholder="Your email address"></input>
                 <Button>Subscribe</Button>
               </form>
             </div>
