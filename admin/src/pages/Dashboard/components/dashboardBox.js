@@ -6,6 +6,8 @@ import { FaArrowTrendDown } from "react-icons/fa6";
 import { IoTimerOutline } from "react-icons/io5";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+
+
 export default function DashboardBox(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -21,7 +23,7 @@ export default function DashboardBox(props) {
 
   return (
     <>
-      <Button
+      <div
         className="dashboardBox"
         style={{
           backgroundImage: `linear-gradient(to right, ${props.color?.[0]} , ${props.color?.[1]})`,
@@ -85,7 +87,7 @@ export default function DashboardBox(props) {
             </Menu>
           </div>
         </div>
-      </Button>
+      </div>
     </>
   );
 }
