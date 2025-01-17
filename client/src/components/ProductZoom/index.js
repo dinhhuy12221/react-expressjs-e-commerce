@@ -9,7 +9,7 @@ import { Navigation } from "swiper/modules";
 
 import "./index.css";
 
-export default function ProductZoom() {
+export default function ProductZoom({ images }) {
   const [slideIndex, setSlideIndex] = useState(0);
   const zoomSliderBig = useRef();
   const zoomSlider = useRef();
@@ -38,7 +38,7 @@ export default function ProductZoom() {
             <InnerImageZoom
               zoomType="hover"
               zoomScale={1}
-              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg"
+              src={images}
             />
           </div>
         </SwiperSlide>
@@ -47,7 +47,7 @@ export default function ProductZoom() {
             <InnerImageZoom
               zoomType="hover"
               zoomScale={1}
-              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-46.jpg"
+              src={images}
             />
           </div>
         </SwiperSlide>
@@ -56,7 +56,7 @@ export default function ProductZoom() {
             <InnerImageZoom
               zoomType="hover"
               zoomScale={1}
-              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-34.jpg"
+              src={images}
             />
           </div>
         </SwiperSlide>
@@ -75,7 +75,7 @@ export default function ProductZoom() {
             <img
               zoomType="hover"
               zoomScale={1}
-              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg"
+              src={images}
               className="w-100"
               onClick={() => goto(0)}
             />
