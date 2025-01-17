@@ -1,11 +1,4 @@
 import Category from "../models/category.js";
-import cloudinary from "cloudinary";
-
-cloudinary.config({
-  cloud_name: process.env.cloudinary_Config_Cloud_Name,
-  api_key: process.env.cloudinary_Config_api_key,
-  api_secret: process.env.cloudinary_Config_api_secret,
-});
 
 class categoryController {
   // Get category list
