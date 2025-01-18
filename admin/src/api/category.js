@@ -4,8 +4,7 @@ const getCategoryList = async () => {
 
         return await categoryList.json();
     } catch (error) {
-        console.log(error);
-        
+        console.error(error);
     }
 }
 

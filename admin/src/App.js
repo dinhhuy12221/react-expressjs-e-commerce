@@ -64,53 +64,51 @@ function App() {
   useEffect(() => {}, [isToggleSidebar]);
 
   return (
-    <>
-      <BrowserRouter>
-        <MyContext.Provider value={values}>
-          <div className="main d-flex">
-            {isHideSidebarAndHeader === false && <Header />}
-            {isHideSidebarAndHeader === false && (
-              <>
-                <div
-                  className={`sidebarOverlay d-none ${
-                    isOpenNav === true && "show"
-                  }`}
-                  onClick={() => setIsOpenNav(!isOpenNav)}
-                ></div>
-                <div
-                  className={`sidebarWrapper ${
-                    isToggleSidebar === true ? "toggle" : ""
-                  } ${isOpenNav === true ? "open" : ""}`}
-                >
-                  <Sidebar />
-                </div>
-              </>
-            )}
+    <BrowserRouter>
+      <MyContext.Provider value={values}>
+        <div className="main d-flex">
+          {isHideSidebarAndHeader === false && <Header />}
+          {isHideSidebarAndHeader === false && (
+            <>
+              <div
+                className={`sidebarOverlay d-none ${
+                  isOpenNav === true && "show"
+                }`}
+                onClick={() => setIsOpenNav(!isOpenNav)}
+              ></div>
+              <div
+                className={`sidebarWrapper ${
+                  isToggleSidebar === true ? "toggle" : ""
+                } ${isOpenNav === true ? "open" : ""}`}
+              >
+                <Sidebar />
+              </div>
+            </>
+          )}
 
-            <div
-              className={`content ${
-                isHideSidebarAndHeader === true && "full"
-              } ${isToggleSidebar === true ? "toggle" : ""}
+          <div
+            className={`content ${isHideSidebarAndHeader === true && "full"} ${
+              isToggleSidebar === true ? "toggle" : ""
+            }
              `}
-            >
-              <Routes>
-                {
-                  routes && routes.map((route, index) => {
-                    return (
-                      <Route 
-                        key={index}
-                        path={route.path}
-                        exact={route.exact}
-                        element={route.element} />
-                    )
-                  })
-                }
-              </Routes>
-            </div>
+          >
+            <Routes>
+              {routes &&
+                routes.map((route, index) => {
+                  return (
+                    <Route
+                      key={index}
+                      path={route.path}
+                      exact={route.exact}
+                      element={route.element}
+                    />
+                  );
+                })}
+            </Routes>
           </div>
-        </MyContext.Provider>
-      </BrowserRouter>
-    </>
+        </div>
+      </MyContext.Provider>
+    </BrowserRouter>
   );
 }
 

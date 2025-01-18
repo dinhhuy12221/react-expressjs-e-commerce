@@ -371,11 +371,11 @@ export default function Header() {
                     className="myAcc d-flex align-items-center"
                     onClick={handleOpenMyAccDrop}
                   >
-                    <UserAvatarImg
+                    {/* <UserAvatarImg
                       imgUrl={
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ"
                       }
-                    />
+                    /> */}
 
                     <div className="userInfo res-hide">
                       <h4>aLue</h4>

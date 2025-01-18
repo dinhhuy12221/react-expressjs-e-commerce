@@ -32,12 +32,15 @@ class productController {
   // POST create product
   async createProduct(req, res) {
     try {
-      // const imagesToUpload = req.body.images.map((image) => {
-      //   return async () => {
-      //     const result = await cloudinary.uploader.upload(image);
-      //     return result;
-      //   };
-      // });
+      const imagesToUpload = req.body.images.map((image) => {
+        return async () => {
+          const result = await cloudinary.uploader.upload(image, {
+            upload_preset: 'e-commerce',
+          });
+          return result;
+        };
+      });
+
       // const uploadStatus = await Promise.all(imagesToUpload);
 
       // const imgurl = uploadStatus.map((item) => {
@@ -51,27 +54,32 @@ class productController {
       //   });
       // }
 
-      // const category = await Category.findById(req.body.category);
+      if (imagesToUpload) {
+        const category = await Category.findById(req.body.category);
+  
+        if (!category) {
+          return res.status(400).send("Invalid Category!");
+        }
+  
+        let product = new Product({
+          name: req.body.name,
+          description: req.body.description,
+          images: imagesToUpload,
+          brand: req.body.brand,
+          price: req.body.price,
+          discount: req.body.discount,
+          categoryId: req.body.categoryId,
+          countInStock: req.body.countInStock,
+          rating: req.body.rating,
+          numReviews: req.body.numReviews,
+          isFeatured: req.body.isFeatured,
+        });
+  
+        product = await product.save();
 
-      // if (!category) {
-      //   return res.status(400).send("Invalid Category!");
-      // }
+        return res.status(200).send(product);
+      }
 
-      let product = new Product({
-        name: req.body.name,
-        description: req.body.description,
-        image: req.body.image,
-        brand: req.body.brand,
-        price: req.body.price,
-        discount: req.body.discount,
-        categoryId: req.body.categoryId,
-        countInStock: req.body.countInStock,
-        rating: req.body.rating,
-        numReviews: req.body.numReviews,
-        isFeatured: req.body.isFeatured,
-      });
-
-      product = await product.save();
 
       // if (!product) {
       //   res.status(500).join({
@@ -80,7 +88,6 @@ class productController {
       //   });
       // }
 
-      return res.status(200).send(product);
     } catch (error) {
       console.log(error);
 

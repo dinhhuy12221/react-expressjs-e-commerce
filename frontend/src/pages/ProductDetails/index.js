@@ -23,10 +23,13 @@ const getProductInfo = async () => {
       .then((result) => result[0])
       .catch((error) => console.error(error));
 
-    const categoryId = product.categoryId;
-    const category = await getCategoryById(categoryId);
-
-    return { product, category };
+    if (product) {
+      const categoryId = product.categoryId;
+      const category = await getCategoryById(categoryId);
+  
+      return { product, category };
+    }
+     return {}
   } catch (error) {
     console.error(error);
   }
@@ -37,7 +40,7 @@ const { product, category } = await getProductInfo();
 export default function ProductDetails() {
   const [activeSize, setActiveSize] = useState(null);
 
-  const currentPrice = getDiscountPrice(product.price, product.discount);
+  const currentPrice = getDiscountPrice(product?.price, product?.discount);
 
   const context = useContext(MyContext);
 
@@ -87,7 +90,7 @@ export default function ProductDetails() {
       <div className="container">
         <div className="row">
           <div className="col-md-5">
-            <ProductZoom />
+            <ProductZoom images={product?.image}/>
           </div>
           <div className="col-md-7 ps-3">
             <div className="d-flex info mb-3">

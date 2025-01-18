@@ -26,8 +26,8 @@ const productSchema = Schema(
       type: String,
       required: true,
     },
-    image: {
-      type: String,
+    images: {
+      type: Object,
       required: true,
     },
     brand: {

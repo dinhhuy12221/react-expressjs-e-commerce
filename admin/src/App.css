@@ -52,6 +52,14 @@ body.dark span {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
 p {
   font-weight: 400;
   font-size: 15px;
@@ -1196,89 +1204,4 @@ body.dark .reviewForm textarea {
   background-color: #132345 !important;
   color: rgba(255, 255, 255, 0.6) !important;
   border: 1px solid #0b1a3a !important;
-}
-
-/* -------------- Product View -------------- */
-
-
-.imagesUploadSec .imgUploadBox .uploadBox {
-  position: relative;
-  width: 148px;
-  height: 148px;
-  border: 1px dashed #55637f;
-  border-radius: 10px;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .box {
-  width: fit-content;
-  height: auto;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .remove {
-  position: absolute;
-  top: -13px;
-  right: -9px;
-  cursor: pointer;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .remove svg {
-  width: 18px;
-  height: 18px;
-  border-radius: 100%;
-  background: red;
-  color: #fff !important;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .fileChooser {
-  position: absolute;
-  background: transparent;
-  color: transparent;
-  opacity: 0.7;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  cursor: pointer;
-}
-
-.imagesUploadSec
-  .imgUploadBox
-  .uploadBox
-  .fileChooser::-webkit-file-upload-button {
-  display: none;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .info {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #fafafa !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.2s ease-in;
-
-  svg {
-    color: #69758e !important;
-    font-size: 35px;
-  }
-  h5 {
-    font-size: 15px;
-    color: #69758e !important;
-    opacity: 0.5 !important;
-  }
-}
-
-body.dark .imagesUploadSec .imgUploadBox .uploadBox .info {
-  background: #2c3c5e !important;
 }

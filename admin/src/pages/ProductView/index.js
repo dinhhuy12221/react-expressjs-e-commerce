@@ -30,7 +30,7 @@ function handleClick(event) {
   console.info("You clicked a breadcrumb.");
 }
 
-export default function ProductDetails() {
+export default function ProductView() {
   const productSliderBig = useRef();
   const productSliderSmall = useRef();
 
@@ -67,7 +67,7 @@ export default function ProductDetails() {
             },
             {
               name: "Product View",
-              to: "/product/details",
+              to: "/product/view",
             },
           ]}
         />

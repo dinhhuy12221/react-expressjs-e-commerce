@@ -2,7 +2,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Products from "./pages/Products";
-import ProductDetails from "./pages/ProductDetails";
+import ProductView from "./pages/ProductView";
 import ProductUpload from "./pages/ProductUpload";
 import Category from "./pages/Category";
 
@@ -38,9 +38,9 @@ const routes = [
     element: <ProductUpload />,
   },
   {
-    path: "/product/details",
+    path: "/product/view",
     exact: true,
-    element: <ProductDetails />,
+    element: <ProductView />,
   },
   {
     path: "/categories",

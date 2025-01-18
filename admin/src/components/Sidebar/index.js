@@ -73,7 +73,7 @@ export default function Sidebar() {
                   <Link to="/products">Product List</Link>
                 </li>
                 <li>
-                  <Link to="/product/details">Product View</Link>
+                  <Link to="/product/view">Product View</Link>
                 </li>
                 <li>
                   <Link to="/product/upload">Product Upload</Link>

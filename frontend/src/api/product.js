@@ -2,7 +2,7 @@ import { base_url } from ".";
 
 const getProductList = async () => {
   try {
-    var productList = await fetch(base_url + "/product").then((result) =>
+    const productList = await fetch(base_url + "/product").then((result) =>
       result.json()
     );
     return productList;
