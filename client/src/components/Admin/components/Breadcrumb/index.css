@@ -1,0 +1,18 @@
+
+.path ol li div {
+    color: #616161 !important;
+    background: #fafafa !important;
+  }
+  
+  .path ol li svg {
+    color: #616161 !important;
+  }
+  
+  body.dark .path ol li div {
+    color: #b8bdc8 !important;
+    background: #112143 !important;
+  }
+  
+  body.dark .path ol li svg {
+    color: #b8bdc8 !important;
+  }

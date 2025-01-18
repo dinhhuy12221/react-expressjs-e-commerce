@@ -1,0 +1,136 @@
+@media only screen and (min-width: 320px) and (max-width: 990px) {
+  .res-hide {
+    display: none !important;
+  }
+  /* .res-show {
+    display: block !important;
+  } */
+  header {
+    padding: 10px 3px;
+    height: auto;
+  }
+  header .part1,
+  header .part3 {
+    padding: 0px !important;
+  }
+
+  header .part1 {
+    max-width: 40%;
+    flex: 0 0 40%;
+  }
+
+  header .logo img {
+    width: 35px !important;
+  }
+
+  header .logo span {
+    font-size: 18px;
+  }
+
+  header .part3 {
+    max-width: 60%;
+    flex: 0 0 60%;
+  }
+
+  .main .sidebarWrapper {
+    width: 80% !important;
+    height: 100vh !important;
+    position: fixed;
+    top: 0px;
+    left: -100%;
+    z-index: 1000;
+  }
+
+  .main .content {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+
+  .right-content {
+    padding: 70px 10px !important;
+  }
+
+  .dashboardBoxWrapper {
+    white-space: nowrap !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    display: block !important;
+    flex-wrap: nowrap !important;
+    padding-right: 12px !important;
+  }
+
+  .dashboardBoxWrapper::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .dashboardBoxWrapper .dashboardBox {
+    display: inline-block !important;
+    width: 280px !important;
+    min-width: 280px !important;
+    height: 160px !important;
+  }
+
+  .topPart2 {
+    padding-left: 12px !important;
+  }
+
+  .tableFooter {
+    flex-direction: column;
+  }
+
+  .tableFooter nav {
+    margin-top: 25px;
+  }
+
+  .tableFooter nav ul {
+    white-space: nowrap !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    /* display: block !important; */
+    /* flex-wrap: nowrap !important; */
+    margin-bottom: 20px !important;
+  }
+
+  .tableFooter nav ul li {
+    display: inline-block !important;
+    width: max-content !important;
+    min-width: max-content !important;
+    height: auto !important;
+  }
+
+  .card.shadow.border-0.w-100.flex-row {
+    padding: 5px !important;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 550px) {
+  header .userInfo.res-hide {
+    display: none !important;
+  }
+
+  header .userImg {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+  }
+
+  header .myAccWrapper button {
+    padding: 0px !important;
+  }
+
+  header .row {
+    margin: auto !important;
+  }
+
+  header .part3 button.rounded-circle {
+    width: 35px !important;
+    height: 35px !important;
+    min-width: 35px !important;
+    margin-right: 5px !important;
+  }
+
+  header .btn-blue {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+  }
+}

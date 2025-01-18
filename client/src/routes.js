@@ -1,10 +1,10 @@
-import Home from "./pages/Home";
-import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import Category from "./pages/Category";
-
+import Home from "./components/Client/pages/Home";
+import ProductDetails from "./components/Client/pages/ProductDetails";
+import Cart from "./components/Client/pages/Cart";
+import SignIn from "./components/Client/pages/SignIn";
+import SignUp from "./components/Client/pages/SignUp";
+import Category from "./components/Client/pages/Category";
+import Admin from './components/Admin'
 const routes = [
     {
         path: '/',
@@ -35,6 +35,11 @@ const routes = [
         path: '/signup',
         exact: true,
         element: <SignUp />,
+    }, 
+    {
+        path: '/admin',
+        exact: true,
+        element: <Admin />,
     }, 
 ]
 

@@ -1,12 +1,12 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
-import Header from "./components/Header/index.js";
-import Footer from "./components/Footer/index.js";
-import ProductModal from "./components/ProductModal/index.js";
+import Header from "./components/Client/components/Header/index.js";
+import Footer from "./components/Client/components/Footer/index.js";
+import ProductModal from "./components/Client/components/ProductModal/index.js";
 import axios from "axios";
-import ScrollToTop from "./utils/ScrollToTop/index.js";
+import ScrollToTop from "./components/Client/utils/ScrollToTop/index.js";
 import routes from "./routes.js";
 
 const MyContext = createContext();
