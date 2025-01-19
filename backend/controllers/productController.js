@@ -10,7 +10,7 @@ class productController {
     } catch (error) {
       res.status(404).json({
         success: false,
-        message: error,
+        message: JSON.stringify(error),
       });
     }
   }
@@ -22,9 +22,9 @@ class productController {
 
       return res.status(200).send(product);
     } catch (error) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
-        message: error,
+        message: JSON.stringify(error),
       });
     }
   }
@@ -93,7 +93,7 @@ class productController {
 
       return res.status(404).send({
         success: false,
-        message: error,
+        message: JSON.stringify(error),
       });
     }
   }
@@ -110,7 +110,7 @@ class productController {
     } catch (error) {
       res.status(404).json({
         success: false,
-        message: error,
+        message: JSON.stringify(error),
       });
     }
   }

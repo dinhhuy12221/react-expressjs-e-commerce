@@ -1,17 +1,20 @@
+import { log } from "console";
 import Category from "../models/category.js";
 
 class categoryController {
   // Get category list
   async getCategoryList(req, res) {
     try {
-      const categoryList = await Category.find();
+      const categoryList = await Category.find({});
       res.status(200).send(categoryList);
     } catch (error) {
+      console.log(error);
+      
       res
         .status(404)
         .json({
           success: false,
-          message: error,
+          message: JSON.stringify(error),
         });
     }
   }
@@ -28,7 +31,7 @@ class categoryController {
         .status(404)
         .json({
           success: false,
-          message: error,
+          message: JSON.stringify(error),
         });
     }
   }
@@ -44,7 +47,7 @@ class categoryController {
         .status(404)
         .json({
           success: false,
-          message: error,
+          message: JSON.stringify(error),
         });
     }
   }
@@ -65,7 +68,7 @@ class categoryController {
         .status(404)
         .join({
           success: false,
-          message: error,
+          message: JSON.stringify(error),
         });
     }
 
@@ -84,7 +87,7 @@ class categoryController {
     } catch (error) {
       res.status(404).json({
         success: false,
-        message: error,
+        message: JSON.stringify(error),
       });
     }
   }
@@ -106,7 +109,7 @@ class categoryController {
     } catch (error) {
       res.status(404).json({
         success: false,
-        message: error,
+        message: JSON.stringify(error),
       });
     }
   }
