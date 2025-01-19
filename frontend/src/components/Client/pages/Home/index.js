@@ -1,15 +1,15 @@
 import React, { useContext, useEffect } from "react";
-import HomeBanner from "../../components/Client/components/HomeBanner";
+import HomeBanner from "../../components/HomeBanner";
 import Button from "@mui/material/Button";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import ProductItem from "../../components/Client/components/ProductItem";
-import HomeCat from "../../components/Client/components/HomeCat";
+import ProductItem from "../../components/ProductItem";
+import HomeCat from "../../components/HomeCat";
 import "./index.css";
-import { MyContext } from "../../App";
-import ProductSwiper from "../../components/Client/components/ProductSwiper";
+import { MyContext } from "../../../../App";
+import ProductSwiper from "../../components/ProductSwiper";
 import { getProductList } from "../../api/product";
 
 const productList = await getProductList();

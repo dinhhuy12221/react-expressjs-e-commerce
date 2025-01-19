@@ -2,7 +2,7 @@ import reviews_list from "./reviews_list";
 import "./index.css";
 import Review from "./Review";
 import ReviewFilter from "./ReviewFilter";
-import PaginationSection from "../../../components/Client/components/PaginationSection";
+import PaginationSection from "../../../components/PaginationSection";
 function ProductReview({ title }) {
 
   // const ShowMore = () => {

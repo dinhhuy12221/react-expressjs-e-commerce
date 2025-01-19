@@ -2,19 +2,24 @@ import express from "express";
 // import morgan from "morgan"
 import cors from "cors"
 import route from './routes/index.js'
-import fs from "fs"
-import path from "path"
-
+import corsOptions from "./config/corsOptions.js";
+import cookieParser from "cookie-parser";
+// import fs from "fs"
+// import path from "path"
+import { connect } from "./config/db/index.js";
 import "dotenv/config";
 
-import { connect } from "./config/db/index.js";
+connect();
+
 const app = express();
 
-app.use(cors());
-app.options("/", cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
+app.use(cors(corsOptions));
 
+app.use(express.json());
+
+app.use(cookieParser())
+
+app.use(express.urlencoded({ extended: true }))
 
 // Database
 
@@ -33,6 +38,5 @@ app.use(express.urlencoded({ extended: true }))
     // server
     app.listen(process.env.PORT, () => {
       console.log(`Server is running http://localhost:${process.env.PORT}`);
-      connect();
     });
     

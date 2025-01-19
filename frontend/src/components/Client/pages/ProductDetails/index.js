@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import ProductZoom from "../../components/Client/components/ProductZoom";
+import ProductZoom from "../../components/ProductZoom";
 import Rating from "@mui/material/Rating";
-import QuantityBox from "../../components/Client/components/QuantityBox";
+import QuantityBox from "../../components/QuantityBox";
 import Button from "@mui/material/Button";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineCompareArrows } from "react-icons/md";
 import Tooltip from "@mui/material/Tooltip";
-import { MyContext } from "../../App";
+import { MyContext } from "../../../../App";
 
 import "./index.css";
 import ProductReview from "./ProductReview";
-import ProductSwiper from "../../components/Client/components/ProductSwiper";
+import ProductSwiper from "../../components/ProductSwiper";
 import { getProductBySlug } from "../../api/product";
 import { getCategoryById } from "../../api/category";
 import { getDiscountPrice } from "../../utils/getDiscountPrice";

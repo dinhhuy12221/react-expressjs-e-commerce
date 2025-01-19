@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
 
-import { MyContext } from "../../App";
+// import { MyContext } from "../../../../App";
 
 const AdminContext = createContext();
 
@@ -18,7 +18,7 @@ function Admin() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const [themeMode, setThemeMode] = useState(false);
-  const context = useContext(MyContext)
+  // const context = useContext(MyContext)
 
   useEffect(() => {
     if (themeMode === true) {
@@ -45,9 +45,9 @@ function Admin() {
     };
   }, []);
 
-  useEffect(() => {
-    context.setIsHeaderFooterShow(false);
-  }, [])
+  // useEffect(() => {
+  //   context.setIsHeaderFooterShow(false);
+  // }, [])
 
   const openNav = () => {
     setIsOpenNav(!isOpenNav);

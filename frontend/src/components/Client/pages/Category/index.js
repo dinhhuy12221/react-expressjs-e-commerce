@@ -1,14 +1,14 @@
 import React, { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useState } from "react";
-import SideBar from "../../components/Client/components/SideBar";
+import SideBar from "../../components/SideBar";
 import Button from "@mui/material/Button";
 import Pagination from "@mui/material/Pagination";
 
 import { BsGridFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { TfiLayoutGrid4Alt } from "react-icons/tfi";
-import ProductItem from "../../components/Client/components/ProductItem";
-import { MyContext } from "../../App";
-import PaginationSection from "../../components/Client/components/PaginationSection";
+import ProductItem from "../../components/ProductItem";
+import { MyContext } from "../../../../App";
+import PaginationSection from "../../components/PaginationSection";
 
 import "./index.css";
 import { getProductList } from "../../api/product";

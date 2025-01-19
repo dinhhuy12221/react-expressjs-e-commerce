@@ -1,6 +1,6 @@
 import { memo } from "react";
 import ResultItem from "../ResultItem";
-import LoadingAnimation from "../../../../LoadingAnimation";
+import LoadingAnimation from "../../../LoadingAnimation";
 import "./index.css";
 
 const list = Array(10).fill({

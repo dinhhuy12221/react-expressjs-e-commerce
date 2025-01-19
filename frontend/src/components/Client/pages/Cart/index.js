@@ -2,10 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
-import QuantityBox from "../../components/Client/components/QuantityBox";
+import QuantityBox from "../../components/QuantityBox";
 import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
-import { MyContext } from "../../App";
+import { MyContext } from "../../../../App";
 
 import "./index.css";
 
