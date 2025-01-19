@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import mongooseDelete from "mongoose-delete";
 import Inc from "mongoose-sequence";
-
 const AutoIncrement = Inc(mongoose);
 
 const Schema = mongoose.Schema;
@@ -14,6 +13,9 @@ const userSchema = Schema(
     username: {
       type: String,
       required: true,
+      trim: true,
+      unique: true,
+      sparse: true,
     },
     password: {
       type: String,

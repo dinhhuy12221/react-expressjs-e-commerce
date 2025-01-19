@@ -42,11 +42,11 @@ const productSchema = Schema(
       type: Number,
       default: 0,
     },
-    category: {
-      type: mongoose.Schema.Types.Int32,
-      ref: "Category",
-      required: false,
-    },
+    // category: {
+    //   type: mongoose.Schema.Types.Int32,
+    //   ref: "Category",
+    //   required: true,
+    // },
     countInStock: {
       type: Number,
       required: true,
@@ -62,10 +62,6 @@ const productSchema = Schema(
     isFeatured: {
       type: Boolean,
       default: false,
-    },
-    dateCreated: {
-      type: Date,
-      default: Date.now,
     },
     categoryId: {
       type: Schema.Types.Int32,
