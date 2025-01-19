@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "backend": "file:",
     "body-parser": "2.0.2",
     "cloudinary": "^2.5.1",
     "cors": "^2.8.5",
