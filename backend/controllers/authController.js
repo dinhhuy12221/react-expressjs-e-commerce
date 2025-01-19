@@ -4,7 +4,6 @@ class authController {
   async register(req, res) {
     try {
       const { username, password } = req.body;
-      console.log(username, password);
       let user = new User({
         username,
         password,
@@ -14,9 +13,7 @@ class authController {
 
       res.status(200).send(user);
     } catch (error) {
-        console.log(error);
-        
-      res.send(error);
+      res.status(409).send(error);
     }
   }
 }
