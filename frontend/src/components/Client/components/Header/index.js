@@ -43,7 +43,7 @@ function Header() {
 
                 <div className="part3 d-flex align-items-center ml-auto">
                   {context.isLogin === false ? (
-                    <Link to="/signin">
+                    <Link to="/login">
                       <Button className="btn-red btn-round signin">
                         Sign In
                       </Button>
