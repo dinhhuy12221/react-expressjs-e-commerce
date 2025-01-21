@@ -7,7 +7,15 @@ import Footer from "./components/Client/components/Footer/index.js";
 import ProductModal from "./components/Client/components/ProductModal/index.js";
 import axios from "axios";
 import ScrollToTop from "./components/Client/utils/ScrollToTop/index.js";
-import routes from "./routes.js";
+import { AuthProvider } from "./context/AuthProvider.js";
+import RequireAuth from "./components/Client/components/RequireAuth/index.js";
+import Home from "./components/Client/pages/Home/index.js";
+import Category from "./components/Client/pages/Category/index.js";
+import ProductDetails from "./components/Client/pages/ProductDetails/index.js";
+import Login from "./components/Client/pages/Login/index.js";
+import Register from "./components/Client/pages/Register/index.js";
+import Cart from "./components/Client/pages/Cart/index.js";
+import Profile from "./components/Client/pages/Profile/index.js";
 
 const MyContext = createContext();
 
@@ -23,9 +31,7 @@ function App() {
   }, []);
 
   const getCountry = async (url) => {
-    const responsive = await axios
-      .get(url)
-      .then((res) => setCountryList(res.data.data));
+    await axios.get(url).then((res) => setCountryList(res.data.data));
   };
 
   const values = {
@@ -42,25 +48,59 @@ function App() {
 
   return (
     <BrowserRouter>
-      <MyContext.Provider value={values}>
-        {isHeaderFooterShow === true && <Header />}
-        <Routes>
-          {
-            routes && routes.map((route, index) => {
-              return(
-                <Route key={index} 
-                  path={route.path}
-                  exact={route.exact}
-                  element={route.element}>
-                </Route>
-              )
-            })
-          }
-        </Routes>
-        {isHeaderFooterShow === true && <Footer />}
-        {isOpenProductModal === true && <ProductModal />}
-      </MyContext.Provider>
-      <ScrollToTop/>
+      <AuthProvider>
+        <MyContext.Provider value={values}>
+          {isHeaderFooterShow === true && <Header />}
+          <Routes>
+            {/* {routes &&
+              routes.map((route, index) => {
+                if (route.path === "/profile") {
+                  return (
+                    <Route element={<RequireAuth />}>
+                      <Route
+                        key={index}
+                        path={route.path}
+                        exact={route.exact}
+                        element={route.element}
+                      ></Route>
+                    </Route>
+                  );
+                } else {
+                  return (
+                    <Route
+                      key={index}
+                      path={route.path}
+                      exact={route.exact}
+                      element={route.element}
+                    ></Route>
+                  );
+                }
+              }
+              )} */}
+            <Route path="/" element={<Home />} exact={true} />
+            <Route path="/cat/:id" element={<Category />} exact={true} />
+            <Route
+              path="/product/:slug"
+              element={<ProductDetails />}
+              exact={true}
+            />
+            <Route path="/login" element={<Login />} exact={true} />
+            <Route path="/register" element={<Register />} exact={true} />
+            <Route element={<RequireAuth />}>
+              <Route path="/profile" element={<Profile />} exact={true} />
+              <Route path="/cart" element={<Cart />} exact={true} />
+            </Route>
+            <Route
+              path="/*"
+              element={<div>404 Error. No Page Found</div>}
+              exact={true}
+            />
+          </Routes>
+          {isHeaderFooterShow === true && <Footer />}
+          {isOpenProductModal === true && <ProductModal />}
+        </MyContext.Provider>
+        <ScrollToTop />
+      </AuthProvider>
     </BrowserRouter>
   );
 }

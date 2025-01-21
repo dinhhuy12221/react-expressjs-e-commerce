@@ -1,10 +1,10 @@
 import Home from "./components/Client/pages/Home";
 import ProductDetails from "./components/Client/pages/ProductDetails";
 import Cart from "./components/Client/pages/Cart";
-import SignIn from "./components/Client/pages/SignIn";
+import Login from "./components/Client/pages/Login";
 import Category from "./components/Client/pages/Category";
-import Admin from './components/Admin'
 import Register from "./components/Client/pages/Register";
+import Profile from "./components/Client/pages/Profile";
 const routes = [
     // Public routes
     {
@@ -23,14 +23,9 @@ const routes = [
         element: <ProductDetails />,
     }, 
     {
-        path: '/cart',
+        path: '/login',
         exact: true,
-        element: <Cart />,
-    }, 
-    {
-        path: '/signin',
-        exact: true,
-        element: <SignIn />,
+        element: <Login />,
     }, 
     {
         path: '/register',
@@ -40,16 +35,21 @@ const routes = [
 
     // Private routes
     {
-        path: '/admin',
+        path: '/profile',
         exact: true,
-        element: <Admin />,
+        element: <Profile />,
+    }, 
+    {
+        path: '/cart',
+        exact: true,
+        element: <Cart />,
     }, 
 
     // Catch all
     {
         path: '*',
         exact: true,
-        element: <></>,
+        element: <div>404 Error. No Page Found</div>,
     },
 ]
 

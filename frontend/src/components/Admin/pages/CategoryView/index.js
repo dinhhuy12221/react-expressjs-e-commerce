@@ -10,7 +10,7 @@ import { getCategoryList } from "../../api/category";
 
 const categories = await getCategoryList();
 
-export default function Category() {
+export default function CategoryView() {
   const [category, setCategory] = useState();
 
   // const handleSubmit = (e) => {

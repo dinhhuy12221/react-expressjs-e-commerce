@@ -13,7 +13,8 @@ import Logo from "../../assets/images/logo.png";
 import "./index.css";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 
-const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
+const FULLNAME_REGEX = /^[a-zA-Z][a-zA-Z]{3,23}$/;
+const USERNAME_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,24}$/;
 const REGISTER_URL = "/auth/register";
@@ -21,8 +22,13 @@ const REGISTER_URL = "/auth/register";
 export default function Register() {
   const context = useContext(MyContext);
 
+  const fullnameRef = useRef();
   const userRef = useRef();
   const errRef = useRef();
+
+  const [fullname, setFullname] = useState("");
+  const [validFullname, setValidFullname] = useState(false);
+  const [fullnameFocus, setFullnameFocus] = useState(false);
 
   const [username, setUsername] = useState("");
   const [validUsername, setValidUsername] = useState(false);
@@ -41,11 +47,16 @@ export default function Register() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    userRef?.current.focus();
+    fullnameRef?.current.focus();
   }, []);
 
   useEffect(() => {
-    const result = USER_REGEX.test(username);
+    const result = FULLNAME_REGEX.test(fullname)
+    setValidFullname(result);
+  }, [fullname])
+
+  useEffect(() => {
+    const result = USERNAME_REGEX.test(username);
     // console.log(result);
     // console.log(username);
     setValidUsername(result);
@@ -69,16 +80,17 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // if button enabled with JS hack
-    const v1 = USER_REGEX.test(username);
-    const v2 = PWD_REGEX.test(pwd);
-    if (!v1 || !v2) {
+    const v1 = FULLNAME_REGEX.test(fullname);
+    const v2 = USERNAME_REGEX.test(username);
+    const v3 = PWD_REGEX.test(pwd);
+    if (!v1 || !v2 || !v3) {
       setErrMsg("Invalid Entry");
       return;
     }
     try {
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify({ username: username, password: pwd }),
+        JSON.stringify({ fullname: fullname, username: username, password: pwd }),
         {
           headers: {
             "Content-Type": "application/json",
@@ -86,9 +98,9 @@ export default function Register() {
           withCredentials: false,
         }
       );
-      // console.log(response.data);
-      // console.log(response.accessToken);
-      // console.log(JSON.stringify(response));
+      console.log(response.data);
+      console.log(response.accessToken);
+      console.log(JSON.stringify(response));
       setSuccess(true);
       // Clear input fields
     } catch (error) {
@@ -111,7 +123,7 @@ export default function Register() {
             <h2 className="message">Successfully Registered!</h2>
             <span className="icon valid"><IoCheckmarkCircleOutline  /></span>
             <span className="action">
-              <a href="/signin">Sign In</a>
+              <a href="/login">Sign In</a>
             </span>
           </div>
         </section>
@@ -160,6 +172,49 @@ export default function Register() {
                     />
                   </div>
                 </div> */}
+                  <div className="form-group">
+                    <TextField
+                      label={
+                        <>
+                          Fullname:
+                          <span className={validFullname ? "valid" : "hide"}>
+                            <FaCheck />
+                          </span>
+                          <span
+                            className={
+                              validFullname || !fullname ? "hide" : "invalid"
+                            }
+                          >
+                            <FaTimes />
+                          </span>
+                        </>
+                      }
+                      className="w-100"
+                      variant="standard"
+                      type="text"
+                      id="fullname"
+                      ref={fullnameRef}
+                      autoComplete="off"
+                      onChange={(e) => setFullname(e.target.value)}
+                      required
+                      aria-invalid={validFullname ? "false" : "true"}
+                      aria-describedby="fullnamenote"
+                      onFocus={() => setFullnameFocus(true)}
+                      onBlur={() => setFullnameFocus(false)}
+                    />
+                    <p
+                      id="fullnamenote"
+                      className={
+                        fullnameFocus && fullname && !validFullname
+                          ? "instructions"
+                          : "offscreen"
+                      }
+                    >
+                      <FaInfoCircle />
+                      &nbsp; 4 to 24 characters.<br/>
+                      Not allowed numbers and special characters.
+                    </p>
+                  </div>
                   <div className="form-group">
                     <TextField
                       label={

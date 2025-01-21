@@ -5,16 +5,24 @@ const AutoIncrement = Inc(mongoose);
 
 const Schema = mongoose.Schema;
 
-const customerSchema = Schema(
+const userAccountSchema = Schema(
   {
     _id: {
       type: Number,
     },
-    fullname: {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
       type: String,
       required: true,
     },
-    
+    isActive: {
+      type: Boolean,
+      required: true,
+    },
   },
   {
     _id: false,
@@ -22,11 +30,11 @@ const customerSchema = Schema(
   }
 );
 
-customerSchema.plugin(AutoIncrement, { id: "customer_id_counter" });
+userAccountSchema.plugin(AutoIncrement, { id: "user_account_counter" });
 
-customerSchema.plugin(mongooseDelete, {
+userAccountSchema.plugin(mongooseDelete, {
   deletedAt: true,
   overrideMethods: "all",
 });
 
-export default mongoose.model("Customer", customerSchema);
+export default mongoose.model("UserAccount", userAccountSchema);
