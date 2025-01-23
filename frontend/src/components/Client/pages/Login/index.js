@@ -12,7 +12,7 @@ import useAuth from "../../../../hooks/useAuth";
 import "./index.css";
 
 import axios from "../../api/axios";
-const LOGIN_URL = "/auth/login";
+const LOGIN_URL = "/auth/customer/login";
 
 export default function Login() {
   const context = useContext(MyContext);
@@ -29,8 +29,8 @@ export default function Login() {
   const usernameRef = useRef();
   const errRef = useRef();
 
-  const [username, setUsername] = useState("Abcd");
-  const [pwd, setPwd] = useState("!Abcd1234");
+  const [username, setUsername] = useState("abcd");
+  const [pwd, setPwd] = useState("!1234Abc");
   const [errMsg, setErrMsg] = useState(false);
 
   useEffect(() => {

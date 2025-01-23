@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import CustomerAccount from "../../models/customerAccount.js";
+import CustomerAccount from "../../models/account/customerAccount.js";
 
 class authCustomerController {
   login = async (req, res) => {
@@ -28,14 +28,11 @@ class authCustomerController {
 
       const accessToken = jwt.sign(
         {
-          UserInfo: {
-            id: account._id,
-            username: account.username,
-          },
+          username: account.username,
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
-          expiresIn: "15m",
+          expiresIn: "1d",
         }
       );
 
@@ -82,19 +79,16 @@ class authCustomerController {
         }).exec();
 
         if (!account) return res.status(401).json({ message: "Unauthorized" });
+      }
+    );
 
-        const accessToken = jwt.sign(
-          {
-            UserInfo: {
-              id: account._id,
-              username: account.username,
-            },
-          },
-          process.env.ACCESS_TOKEN_SECRET,
-          {
-            expiresIn: "15m",
-          }
-        );
+    const accessToken = jwt.sign(
+      {
+        username: account.username,
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: "1d",
       }
     );
 
@@ -106,10 +100,10 @@ class authCustomerController {
     if (!cookies?.jwt) return res.sendStatus(204);
     res.clearCookie("jwt", {
       httpOnly: true,
-      sameSite: 'none',
+      sameSite: "none",
       secure: true,
     });
-    res.json({ message: "Cookie cleared" })
+    res.json({ message: "Cookie cleared" });
   };
 }
 

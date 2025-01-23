@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import CustomerAccount from "../../models/customerAccount.js";
+import CustomerAccount from "../../models/account/customerAccount.js";
 
 class customerAccountController {
   async create(req, res) {
