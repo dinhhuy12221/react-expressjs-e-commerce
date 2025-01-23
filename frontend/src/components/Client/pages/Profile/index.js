@@ -1,36 +1,38 @@
 import { useEffect, useState } from "react";
-import axios from "../../api/axios";
 import "./index.css";
-import { isMuiElement } from "@mui/material";
-import useAuth from "../../../../hooks/useAuth";
+import useAxiosPrivate from "../../../../hooks/useAxiosPrivate";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Profile() {
-  const [user, setUser] = useState()
-  const { auth } = useAuth();
+  const [info, setInfo] = useState();
+  const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // useEffect(() => {
-  //   let isMounted = true;
-  //   const controller = new AbortController();
+  useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+    
+    const getInformation = async () => {
+      try {
 
-  //   const getUser = async () => {
-  //     try {
-  //       const response = await axios.get('/user/', {
-  //         signal: controller.signal
-  //       });
-  //       console.log(response.data);
-  //       isMounted && setUser(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
+        const response = await axiosPrivate.get("/product", {
+          signal: controller.signal,
+        });
+        console.log(response.data);
+        isMounted && setInfo(response.data);
+      } catch (error) {
+        console.log(error);
+        navigate("/login", { state: { from: location }, replace: true });
+      }
+    };
+    getInformation();
 
-  //     getUser();
-
-  //     return () => {
-  //       isMounted = false;
-  //       controller.abort();
-  //     }
-  //   }
-  // }, [])
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, []);
 
   return (
     <div className="profile container">
@@ -45,13 +47,13 @@ function Profile() {
               alt="avatar"
             />
           </div>
-          <div className="username">{auth.username}</div>
-          <div className="description">Description</div>
+          <div className="username"></div>
+          <div className="description"></div>
         </section>
       </div>
       <section className="order">
         <div className="col">
-            <h3>Orders</h3>
+          <h3>Orders</h3>
           <ul>
             <li>Toothbrush</li>
             <li>Toothbrush</li>

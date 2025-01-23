@@ -54,13 +54,11 @@ export default function Login() {
       );
       console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ username, pwd, accessToken, roles });
+      setAuth({ username, accessToken, });
 
       setUsername("");
       setPwd("");
       navigate(from, { replace: true });
-      console.log(1);
       
     } catch (error) {
       console.log(error);

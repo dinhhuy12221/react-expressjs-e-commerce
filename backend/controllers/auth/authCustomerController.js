@@ -13,7 +13,6 @@ class authCustomerController {
 
       const account = await CustomerAccount.findOne({
         username: username,
-        isActive: true,
       });
 
       if (!account) {
@@ -32,7 +31,7 @@ class authCustomerController {
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
-          expiresIn: "1d",
+          expiresIn: "10s",
         }
       );
 
@@ -42,15 +41,20 @@ class authCustomerController {
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
-          expiresIn: "7d",
+          expiresIn: "15s",
         }
       );
+
+      account.refreshToken = refreshToken;
+      const result = await account.save();
+      console.log(result);
 
       res.cookie("jwt", refreshToken, {
         httpOnly: true,
         secure: true,
         sameSite: "None",
-        maxAge: 7 * 24 * 60 * 60 * 1000,
+        // maxAge: 7 * 24 * 60 * 60 * 1000,
+        maxAge: 15 * 1000,
       });
 
       res.json({ accessToken });
@@ -63,7 +67,7 @@ class authCustomerController {
     const cookies = req.cookies;
 
     if (!cookies?.jwt) {
-      return res.status(401).json({ message: "Unauthorized " });
+      return res.status(401).json({ message: "Unauthorized" });
     }
 
     const refreshToken = cookies.jwt;
@@ -79,20 +83,20 @@ class authCustomerController {
         }).exec();
 
         if (!account) return res.status(401).json({ message: "Unauthorized" });
+
+        const accessToken = jwt.sign(
+          {
+            username: account.username,
+          },
+          process.env.ACCESS_TOKEN_SECRET,
+          {
+            expiresIn: "10s",
+          }
+        );
+
+        res.json({ accessToken });
       }
     );
-
-    const accessToken = jwt.sign(
-      {
-        username: account.username,
-      },
-      process.env.ACCESS_TOKEN_SECRET,
-      {
-        expiresIn: "1d",
-      }
-    );
-
-    res.json({ accessToken });
   };
 
   logout = (req, res) => {
@@ -105,6 +109,36 @@ class authCustomerController {
     });
     res.json({ message: "Cookie cleared" });
   };
+
+  // handleRefreshToken = (req, res) => {
+  //   try {
+  //     const cookies = req.cookies;
+  //     if (!cookies?.jwt) return res.sendStatus(401);
+  //     const refreshToken = cookies.jwt;
+
+  //     const account = CustomerAccount.find({ refreshToken: refreshToken });
+  //     if (!account) return res.sendStatus(403);
+
+  //     jwt.verify(
+  //       refreshToken,
+  //       process.env.REFRESH_TOKEN_SECRET,
+  //       (err, decoded) => {
+  //         if (err || account.username !== decoded.username)
+  //           return res.sendStatus(403);
+
+  //         const accessToken = jwt.sign(
+  //           { username: decoded.username },
+  //           process.env.ACCESS_TOKEN_SECRET,
+  //           { expiresIn: "15s" }
+  //         );
+
+  //         res.json({ accessToken });
+  //       }
+  //     );
+  //   } catch (error) {
+  //     res.json(error);
+  //   }
+  // };
 }
 
 export default new authCustomerController();

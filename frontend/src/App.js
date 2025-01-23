@@ -48,59 +48,32 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <MyContext.Provider value={values}>
-          {isHeaderFooterShow === true && <Header />}
-          <Routes>
-            {/* {routes &&
-              routes.map((route, index) => {
-                if (route.path === "/profile") {
-                  return (
-                    <Route element={<RequireAuth />}>
-                      <Route
-                        key={index}
-                        path={route.path}
-                        exact={route.exact}
-                        element={route.element}
-                      ></Route>
-                    </Route>
-                  );
-                } else {
-                  return (
-                    <Route
-                      key={index}
-                      path={route.path}
-                      exact={route.exact}
-                      element={route.element}
-                    ></Route>
-                  );
-                }
-              }
-              )} */}
-            <Route path="/" element={<Home />} exact={true} />
-            <Route path="/cat/:id" element={<Category />} exact={true} />
-            <Route
-              path="/product/:slug"
-              element={<ProductDetails />}
-              exact={true}
-            />
-            <Route path="/login" element={<Login />} exact={true} />
-            <Route path="/register" element={<Register />} exact={true} />
-            <Route element={<RequireAuth />}>
-              <Route path="/profile" element={<Profile />} exact={true} />
-              <Route path="/cart" element={<Cart />} exact={true} />
-            </Route>
-            <Route
-              path="/*"
-              element={<div>404 Error. No Page Found</div>}
-              exact={true}
-            />
-          </Routes>
-          {isHeaderFooterShow === true && <Footer />}
-          {isOpenProductModal === true && <ProductModal />}
-        </MyContext.Provider>
-        <ScrollToTop />
-      </AuthProvider>
+      <MyContext.Provider value={values}>
+        {isHeaderFooterShow === true && <Header />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cat/:id" element={<Category />} />
+          <Route
+            path="/product/:slug"
+            element={<ProductDetails />}
+            exact={true}
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route element={<RequireAuth />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/cart" element={<Cart />} />
+          </Route>
+          <Route
+            path="/*"
+            element={<div>404 Error. No Page Found</div>}
+            exact={true}
+          />
+        </Routes>
+        {isHeaderFooterShow === true && <Footer />}
+        {isOpenProductModal === true && <ProductModal />}
+      </MyContext.Provider>
+      <ScrollToTop />
     </BrowserRouter>
   );
 }
