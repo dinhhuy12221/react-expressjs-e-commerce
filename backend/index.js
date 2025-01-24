@@ -9,6 +9,7 @@ import credentials from './middlewares/credentials.js'
 // import path from "path"
 import dbConnect from "./config/dbConnect.js";
 import "dotenv/config";
+import verifyJWT from "./middlewares/verifyJWT.js";
 
 dbConnect();
 
@@ -35,7 +36,6 @@ app.use(express.urlencoded({ extended: true }));
 // );
 
 // app.use(morgan('combined', { stream: accessLogStream }));
-
 route(app);
 
 // server

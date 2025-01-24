@@ -19,7 +19,7 @@ function Profile() {
         const response = await axiosPrivate.get("/product", {
           signal: controller.signal,
         });
-        console.log(response.data);
+        console.log(1);
         isMounted && setInfo(response.data);
       } catch (error) {
         console.log(error);

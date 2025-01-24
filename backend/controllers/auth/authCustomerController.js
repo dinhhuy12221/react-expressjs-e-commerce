@@ -47,7 +47,6 @@ class authCustomerController {
 
       account.refreshToken = refreshToken;
       const result = await account.save();
-      console.log(result);
 
       res.cookie("jwt", refreshToken, {
         httpOnly: true,

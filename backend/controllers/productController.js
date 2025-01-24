@@ -1,10 +1,12 @@
 import Product from "../models/product.js";
 import Category from "../models/category.js";
+import verifyJWT from "../middlewares/verifyJWT.js";
 
 class productController {
   // GET product list
-  async getProductList(req, res) {
+  async getProductList(req, res, next) {
     try {
+      // verifyJWT(req, res, next)
       const productList = await Product.find({});
       res.status(200).send(productList);
     } catch (error) {

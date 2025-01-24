@@ -1,21 +1,28 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "../components/Client/api/axios";
 import useAuth from "./useAuth";
 
-function useRefreshToken() {
+const useRefreshToken = () => {
   const { setAuth } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const refresh = async () => {
-    const response = await axios.get("/auth/customer/refresh", {
-      withCredentials: true,
-    });
-    setAuth((prev) => {
-      console.log(JSON.stringify(prev));
-      console.log(response.data.accessToken);
-      return { ...prev, accessToken: response.data.accessToken };
-    });
-    return response.data.accessToken;
+    try {
+      const response = await axios.get("/auth/customer/refresh", {
+        withCredentials: true,
+      });
+      setAuth((prev) => {
+        console.log(JSON.stringify(prev));
+        console.log(response.data.accessToken);
+        return { ...prev, accessToken: response.data.accessToken };
+      });
+      return response?.data?.accessToken;
+    } catch (error) {
+      navigate("/login", { state: { from: location }, replace: true });
+    }
   };
   return refresh;
-}
+};
 
 export default useRefreshToken;

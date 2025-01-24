@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import HomeBanner from "../../components/HomeBanner";
 import Button from "@mui/material/Button";
 import { IoArrowForwardOutline } from "react-icons/io5";
@@ -11,15 +11,38 @@ import "./index.css";
 import { MyContext } from "../../../../App";
 import ProductSwiper from "../../components/ProductSwiper";
 import { getProductList } from "../../api/product";
+import axios, { axiosPrivate } from "../../api/axios";
 
-const productList = await getProductList();
 
 export default function Home() {
+  const [productList, setProductList] = useState([])
   const context = useContext(MyContext);
 
   useEffect(() => {
     context.setIsHeaderFooterShow(true);
   }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+    
+    const getProductList = async () => {
+      try {
+
+        const response = await axios.get("/product")
+        console.log(response.data);
+        isMounted && setProductList(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProductList();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, [])
 
   return (
     <>
