@@ -9,6 +9,7 @@ import google_logo from "../../assets/images/google-logo.png";
 
 import { MyContext } from "../../../../App";
 import useAuth from "../../../../hooks/useAuth";
+import useLocalStorage from "../../../../hooks/useLocalStorage";
 import "./index.css";
 
 import axios from "../../api/axios";
@@ -29,7 +30,7 @@ export default function Login() {
   const usernameRef = useRef();
   const errRef = useRef();
 
-  const [username, setUsername] = useState("abcd");
+  const [username, setUsername] = useLocalStorage('username', '')//useState("abcd");
   const [pwd, setPwd] = useState("!1234Abc");
   const [errMsg, setErrMsg] = useState(false);
 

@@ -9,6 +9,8 @@ const PersistLogin = () => {
   const { auth } = useAuth();
 
   useEffect(() => {
+    let isMounted = true;
+
     const verityRefreshToken = async () => {
       try {
         console.log(123);
@@ -22,6 +24,8 @@ const PersistLogin = () => {
     };
 
     !auth?.accessToken ? verityRefreshToken() : setIsLoading(false);
+
+    return () => isMounted = false;
   }, []);
 
   useEffect(() => {
