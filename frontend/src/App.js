@@ -7,8 +7,8 @@ import Footer from "./components/Client/components/Footer/index.js";
 import ProductModal from "./components/Client/components/ProductModal/index.js";
 import axios from "axios";
 import ScrollToTop from "./components/Client/utils/ScrollToTop/index.js";
-import { AuthProvider } from "./context/AuthProvider.js";
 import RequireAuth from "./components/Client/components/RequireAuth/index.js";
+import PersistLogin from "./components/Client/components/PersistLogin/index.js";
 import Home from "./components/Client/pages/Home/index.js";
 import Category from "./components/Client/pages/Category/index.js";
 import ProductDetails from "./components/Client/pages/ProductDetails/index.js";
@@ -51,6 +51,8 @@ function App() {
       <MyContext.Provider value={values}>
         {isHeaderFooterShow === true && <Header />}
         <Routes>
+
+          {/* Pulic Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/cat/:id" element={<Category />} />
           <Route
@@ -60,10 +62,16 @@ function App() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route element={<RequireAuth />}>
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/cart" element={<Cart />} />
+
+          {/* Protected Routes */}
+          <Route element={<PersistLogin />}>
+            <Route element={<RequireAuth />}>
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/cart" element={<Cart />} />
+            </Route>
           </Route>
+
+          {/* Catch All */}
           <Route
             path="/*"
             element={<div>404 Error. No Page Found</div>}

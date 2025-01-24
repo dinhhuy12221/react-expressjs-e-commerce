@@ -98,9 +98,17 @@ class authCustomerController {
     );
   };
 
-  logout = (req, res) => {
+  logout = async (req, res) => {
     const cookies = req.cookies;
     if (!cookies?.jwt) return res.sendStatus(204);
+
+    const refreshToken = cookies.jwt;
+    const account = await CustomerAccount.findOneAndUpdate({ refreshToken: refreshToken }, { refreshToken: '' });
+    if (!account) {
+      res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+      return res.sendStatus(204);
+    }
+    
     res.clearCookie("jwt", {
       httpOnly: true,
       sameSite: "none",
@@ -108,36 +116,6 @@ class authCustomerController {
     });
     res.json({ message: "Cookie cleared" });
   };
-
-  // handleRefreshToken = (req, res) => {
-  //   try {
-  //     const cookies = req.cookies;
-  //     if (!cookies?.jwt) return res.sendStatus(401);
-  //     const refreshToken = cookies.jwt;
-
-  //     const account = CustomerAccount.find({ refreshToken: refreshToken });
-  //     if (!account) return res.sendStatus(403);
-
-  //     jwt.verify(
-  //       refreshToken,
-  //       process.env.REFRESH_TOKEN_SECRET,
-  //       (err, decoded) => {
-  //         if (err || account.username !== decoded.username)
-  //           return res.sendStatus(403);
-
-  //         const accessToken = jwt.sign(
-  //           { username: decoded.username },
-  //           process.env.ACCESS_TOKEN_SECRET,
-  //           { expiresIn: "15s" }
-  //         );
-
-  //         res.json({ accessToken });
-  //       }
-  //     );
-  //   } catch (error) {
-  //     res.json(error);
-  //   }
-  // };
 }
 
 export default new authCustomerController();
