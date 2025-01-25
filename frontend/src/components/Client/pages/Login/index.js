@@ -8,8 +8,13 @@ import { FaInstagram } from "react-icons/fa";
 import google_logo from "../../assets/images/google-logo.png";
 
 import { MyContext } from "../../../../App";
+
+// Hooks imported
 import useAuth from "../../../../hooks/useAuth";
 import useLocalStorage from "../../../../hooks/useLocalStorage";
+import useInput from "../../../../hooks/useInput";
+
+// Styles
 import "./index.css";
 
 import axios from "../../api/axios";
@@ -30,7 +35,7 @@ export default function Login() {
   const usernameRef = useRef();
   const errRef = useRef();
 
-  const [username, setUsername] = useLocalStorage('username', '')//useState("abcd");
+  const [username, resetUsername, usernameAttrbs] = useInput('username', 'abcd')//useState("abcd");
   const [pwd, setPwd] = useState("!1234Abc");
   const [errMsg, setErrMsg] = useState(false);
 
@@ -57,7 +62,8 @@ export default function Login() {
       const accessToken = response?.data?.accessToken;
       setAuth({ username, accessToken, });
 
-      setUsername("");
+      // setUsername("");
+      resetUsername('')
       setPwd("");
       navigate(from, { replace: true });
       
@@ -106,8 +112,7 @@ export default function Login() {
                 type="text"
                 ref={usernameRef}
                 autoComplete="off"
-                onChange={(e) => setUsername(e.target.value)}
-                value={username}
+                { ...usernameAttrbs }
                 required
               />
             </div>

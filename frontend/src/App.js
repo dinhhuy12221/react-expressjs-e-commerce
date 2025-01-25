@@ -7,7 +7,7 @@ import Footer from "./components/Client/components/Footer/index.js";
 import ProductModal from "./components/Client/components/ProductModal/index.js";
 import axios from "axios";
 import ScrollToTop from "./components/Client/utils/ScrollToTop/index.js";
-import RequireAuth from "./components/Client/components/RequireAuth/index.js";
+import RequireAuth from "./components/Client/features/auth/index.js";
 import PersistLogin from "./components/Client/components/PersistLogin/index.js";
 import Home from "./components/Client/pages/Home/index.js";
 import Category from "./components/Client/pages/Category/index.js";
