@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { MyContext } from "../../../../App";
+import React, { useEffect, useRef, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
@@ -20,7 +19,6 @@ const PWD_REGEX =
 const REGISTER_URL = "/auth/register";
 
 export default function Register() {
-  const context = useContext(MyContext);
 
   const fullnameRef = useRef();
   const userRef = useRef();
@@ -72,10 +70,6 @@ export default function Register() {
   useEffect(() => {
     setErrMsg("");
   }, [username, pwd, matchPwd]);
-
-  useEffect(() => {
-    context.setIsHeaderFooterShow(false);
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -378,7 +372,6 @@ export default function Register() {
                   <span className="ms-auto">
                     <Link
                       to="/"
-                      onClick={() => context.setIsHeaderFooterShow(true)}
                       className="border-effect"
                     >
                       Home

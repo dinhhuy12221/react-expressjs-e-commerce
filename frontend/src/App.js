@@ -7,7 +7,7 @@ import Footer from "./components/Client/components/Footer/index.js";
 import ProductModal from "./components/Client/components/ProductModal/index.js";
 import axios from "axios";
 import ScrollToTop from "./components/Client/utils/ScrollToTop/index.js";
-import RequireAuth from "./components/Client/features/auth/index.js";
+import RequireAuth from "./components/Client/features/auth/RequireAuth.js";
 import PersistLogin from "./components/Client/components/PersistLogin/index.js";
 import Home from "./components/Client/pages/Home/index.js";
 import Category from "./components/Client/pages/Category/index.js";
@@ -23,7 +23,6 @@ function App() {
   const [countryList, setCountryList] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isOpenProductModal, setIsOpenProductModal] = useState(false);
-  const [isHeaderFooterShow, setIsHeaderFooterShow] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
@@ -40,8 +39,6 @@ function App() {
     setSelectedCountry,
     isOpenProductModal,
     setIsOpenProductModal,
-    isHeaderFooterShow,
-    setIsHeaderFooterShow,
     isLogin,
     setIsLogin,
   };
@@ -49,7 +46,6 @@ function App() {
   return (
     <BrowserRouter>
       <MyContext.Provider value={values}>
-        {isHeaderFooterShow === true && <Header />}
         <Routes>
 
           {/* Pulic Routes */}
@@ -78,7 +74,6 @@ function App() {
             exact={true}
           />
         </Routes>
-        {isHeaderFooterShow === true && <Footer />}
         {isOpenProductModal === true && <ProductModal />}
       </MyContext.Provider>
       <ScrollToTop />

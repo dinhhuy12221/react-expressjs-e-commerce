@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials, logOut } from "../../features/auth/authSlice";
 
 const baseQuery = fetchBaseQuery({
@@ -14,29 +14,31 @@ const baseQuery = fetchBaseQuery({
 });
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
-    let result = await baseQuery(args, api, extraOptions)
+  let result = await baseQuery(args, api, extraOptions);
 
-    if (result?.error?.originStatus === 403) {
-        console.log('sending refresh token');
-        // Send refresh token to get new access token
-        const refreshResult = await baseQuery('/auth/customer/refresh', api, extraOptions);
-        console.log(refreshResult);
-        if (refreshResult?.data) {
-            const username = api.getState().auth.username
-            // store the new token
-            api.dispatch(setCredentials({ ...refreshResult.data, username }))
-            // retry the original query with new access token
-            result = await baseQuery(args, api, extraOptions)
-        } else {
-            api.dispatch(logOut())
-        }
+  if (result?.error?.originalStatus === 403) {
+    console.log("sending refresh token");
+    // Send refresh token to get new access token
+    const refreshResult = await baseQuery(
+      "/auth/customer/refresh",
+      api,
+      extraOptions,
+    );
+    console.log(refreshResult);
+    if (refreshResult?.data) {
+      const username = api.getState().auth.username;
+      // store the new token
+      api.dispatch(setCredentials({ ...refreshResult.data, username }));
+      // retry the original query with new access token
+      result = await baseQuery(args, api, extraOptions);
+    } else {
+      api.dispatch(logOut());
     }
-    return result;
-}
+  }
+  return result;
+};
 
 export const apiSlice = createApi({
-    baseQuery: baseQueryWithReauth,
-    endPoints: builder => ({
-        
-    })
-})
+  baseQuery: baseQueryWithReauth,
+  endpoints: (builder) => ({}),
+});

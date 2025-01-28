@@ -6,9 +6,10 @@ class authCustomerController {
   login = async (req, res) => {
     try {
       const { username, password } = req.body;
-
+      console.log(username, password);
+      
       if (!username || !password) {
-        return res.status(400).json({ message: "All fields are required " });
+        return res.status(400).json({ message: "All fields are required" });
       }
 
       const account = await CustomerAccount.findOne({

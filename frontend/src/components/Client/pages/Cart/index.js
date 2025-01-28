@@ -5,9 +5,10 @@ import Rating from "@mui/material/Rating";
 import QuantityBox from "../../components/QuantityBox";
 import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
-import { MyContext } from "../../../../App";
 
 import "./index.css";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const cartProduct = {
   img: "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg",
@@ -23,14 +24,10 @@ const amount = 10;
 const cartProducts = Array(amount).fill(cartProduct);
 
 export default function Cart() {
-  const context = useContext(MyContext);
-
-  useEffect(() => {
-    context.setIsHeaderFooterShow(true);
-  }, []);
 
   return (
     <>
+    <Header />
       <section className="section cartPage">
         <div className="container">
           <h2 className="hd">Your Cart</h2>
@@ -126,6 +123,7 @@ export default function Cart() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

@@ -8,19 +8,15 @@ import "swiper/css/pagination";
 import ProductItem from "../../components/ProductItem";
 import HomeCat from "../../components/HomeCat";
 import "./index.css";
-import { MyContext } from "../../../../App";
 import ProductSwiper from "../../components/ProductSwiper";
-import { getProductList } from "../../api/product";
+// import { getProductList } from "../../api/product";
 import axios, { axiosPrivate } from "../../api/axios";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 
 export default function Home() {
   const [productList, setProductList] = useState([])
-  const context = useContext(MyContext);
-
-  useEffect(() => {
-    context.setIsHeaderFooterShow(true);
-  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -46,6 +42,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <HomeBanner />
       <HomeCat />
       <section className="home-products">
@@ -118,6 +115,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
