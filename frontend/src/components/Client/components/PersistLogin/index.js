@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useRefreshToken from "../../../../hooks/useRefreshToken";
-import useAuth from "../../../../hooks/useAuth";
+import { useSelector } from "react-redux";
+import { selectCurrentToken } from "../../features/auth/authSlice";
 
 const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
   const refresh = useRefreshToken();
-  const { auth } = useAuth();
+  const token = useSelector(selectCurrentToken);
 
   useEffect(() => {
     let isMounted = true;
@@ -14,7 +15,7 @@ const PersistLogin = () => {
     const verityRefreshToken = async () => {
       try {
         console.log(123);
-        
+
         await refresh();
       } catch (error) {
         console.error(error);
@@ -23,14 +24,16 @@ const PersistLogin = () => {
       }
     };
 
-    !auth?.accessToken ? verityRefreshToken() : setIsLoading(false);
+    !token ? verityRefreshToken() : setIsLoading(false);
 
-    return () => isMounted = false;
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
     console.log(`isLoading: ${isLoading}`);
-    console.log(`accessToken: ${JSON.stringify(auth?.accessToken)}`);
+    console.log(`accessToken: ${JSON.stringify(token)}`);
   }, [isLoading]);
 
   return <>{isLoading ? <p>Loading...</p> : <Outlet />}</>;

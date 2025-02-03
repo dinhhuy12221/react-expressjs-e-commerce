@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -12,13 +12,11 @@ import google_logo from "../../assets/images/google-logo.png";
 // import useAuth from "../../../../hooks/useAuth";
 import useInput from "../../../../hooks/useInput";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "../../features/auth/authSlice";
 import { useLoginMutation } from "../../features/auth/authApi";
 
 // Styles
 import "./index.css";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import { setCredentials } from "../../features/auth/authSlice";
 
 // import axios from "../../api/axios";
 // const LOGIN_URL = "/auth/customer/login";
@@ -66,7 +64,7 @@ export default function Login() {
       // setAuth({ username, accessToken, });
 
       const userData = await login({ username, password }).unwrap();
-      
+
       dispatch(setCredentials({ ...userData, username }));
 
       // setUsername("");
@@ -152,10 +150,7 @@ export default function Login() {
                   </Link>
                 </span>
                 <span className="ms-auto">
-                  <Link
-                    to="/"
-                    className="border-effect"
-                  >
+                  <Link to="/" className="border-effect">
                     Home
                   </Link>
                 </span>
