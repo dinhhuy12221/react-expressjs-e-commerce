@@ -1,0 +1,18 @@
+.profile-sidebar {
+    padding-top: 15px;
+
+    height: fit-content;
+
+    ul {
+        list-style: none;
+        li {
+            padding: 5px;
+            margin-bottom: 10px;
+
+            &:hover {
+                background-color: aliceblue;
+                cursor: pointer;
+            }
+        }
+    }
+}
