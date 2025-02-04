@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import "./index.css";
-import useAxiosPrivate from "../../../../hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 function Profile() {
   const [info, setInfo] = useState();
-  const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -15,18 +13,18 @@ function Profile() {
     let isMounted = true;
     const controller = new AbortController();
 
-    const getInformation = async () => {
-      try {
-        const response = await axiosPrivate.get("/product", {
-          signal: controller.signal,
-        });
-        isMounted && setInfo(response.data);
-      } catch (error) {
-        console.log(error);
-        navigate("/login", { state: { from: location }, replace: true });
-      }
-    };
-    getInformation();
+    // const getInformation = async () => {
+    //   try {
+    //     const response = await axiosPrivate.get("/product", {
+    //       signal: controller.signal,
+    //     });
+    //     isMounted && setInfo(response.data);
+    //   } catch (error) {
+    //     console.error(error);
+    //     navigate("/login", { state: { from: location }, replace: true });
+    //   }
+    // };
+    // getInformation();
 
     return () => {
       isMounted = false;

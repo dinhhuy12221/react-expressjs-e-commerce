@@ -14,7 +14,13 @@ const customerSchema = Schema(
       type: String,
       required: true,
     },
-    
+    phone_number: {
+      type: Number,
+      required: true,
+    },
+    address: {
+      type: String,
+    },
   },
   {
     _id: false,
