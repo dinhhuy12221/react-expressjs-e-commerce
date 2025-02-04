@@ -6,12 +6,20 @@
     ul {
         list-style: none;
         li {
+            display: flex;
+            align-items: center;
+
             padding: 5px;
             margin-bottom: 10px;
 
             &:hover {
                 background-color: aliceblue;
                 cursor: pointer;
+            }
+
+
+            span {
+                margin-left: 4px;
             }
         }
     }

@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../features/auth/authSlice";
-import ProfileSidebar from "./Sidebar";
+import ProfileSidebar from "./components/Sidebar";
 
 function Profile() {
   const [info, setInfo] = useState();
@@ -41,10 +41,10 @@ function Profile() {
       <Header />
       <div className="profile container-fluid">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-2">
             <ProfileSidebar />
           </div>
-          <div className="col-md-8">
+          <div className="col-md-10">
             <section className="info">
               <div className="avatar">
                 {/* <img src={"https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256"} alt="avatar"/> */}
@@ -57,17 +57,6 @@ function Profile() {
               </div>
               <div className="username">{user}</div>
               <div className="description"></div>
-            </section>
-            <section className="order">
-              <div className="col">
-                <h3>Orders</h3>
-                <ul>
-                  <li>Toothbrush</li>
-                  <li>Toothbrush</li>
-                  <li>Toothbrush</li>
-                  <li>Toothbrush</li>
-                </ul>
-              </div>
             </section>
           </div>
         </div>
