@@ -5,7 +5,7 @@ import Logo from "../../assets/images/logo.png";
 import CountryDropDown from "../CountryDropdown/index";
 import SearchBox from "./SearchBox/index";
 import Navigation from "./Navigation/index";
-import { MyContext } from "../../../../App";
+import { MyContext } from "../../App";
 import { FaRegUserCircle } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
 

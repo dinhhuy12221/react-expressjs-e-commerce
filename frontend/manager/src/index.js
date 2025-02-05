@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
 
-// import { MyContext } from "../../../../App";
+// import { MyContext } from "../../App";
 
 const AdminContext = createContext();
 

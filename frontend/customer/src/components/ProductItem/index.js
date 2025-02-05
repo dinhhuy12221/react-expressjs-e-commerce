@@ -5,7 +5,7 @@ import Rating from "@mui/material/Rating";
 import { IoMdHeartEmpty } from "react-icons/io";
 
 import { Link } from "react-router-dom";
-import { MyContext } from "../../../../App";
+import { MyContext } from "../../App";
 import "./index.css";
 import LoadingAnimation from "../LoadingAnimation";
 import { getDiscountPrice } from "../../utils/getDiscountPrice";

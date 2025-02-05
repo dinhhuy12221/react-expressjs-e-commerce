@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { MyContext } from "../../../../../../App";
+import { MyContext } from "../../../../App";
 import "./index.css";
 import LinkTo from "../../../../utils/LinkTo/index";
 

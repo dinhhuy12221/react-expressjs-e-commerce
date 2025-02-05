@@ -8,7 +8,7 @@ import { IoClose } from "react-icons/io5";
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
-import { MyContext } from '../../../../App';
+import { MyContext } from '../../App';
 
 import './index.css';
 

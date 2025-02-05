@@ -10,7 +10,7 @@ import google_logo from "../../assets/images/google-logo.png";
 // Hooks imported
 // import useLocalStorage from "../../../../hooks/useLocalStorage";
 // import useAuth from "../../../../hooks/useAuth";
-import useInput from "../../../../hooks/useInput";
+import useInput from "../../hooks/useInput";
 import { useDispatch } from "react-redux";
 import { useLoginMutation } from "../../features/auth/authApi";
 // Styles
