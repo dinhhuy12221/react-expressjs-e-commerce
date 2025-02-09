@@ -14,31 +14,36 @@ const baseQuery = fetchBaseQuery({
 });
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
-  let result = await baseQuery(args, api, extraOptions);
+  try {
+    console.log(api);
+    
+    let result = await baseQuery(args, api, extraOptions);
 
-  console.log(result);
-  
+    console.log(result);
 
-  if (result?.error?.originalStatus === 401) {
-    console.log("sending refresh token");
-    // Send refresh token to get new access token
-    const refreshResult = await baseQuery(
-      "/auth/customer/refresh",
-      api,
-      extraOptions,
-    );
-    console.log(refreshResult);
-    if (refreshResult?.data) {
-      const username = api.getState().auth.username;
-      // store the new token
-      api.dispatch(setCredentials({ ...refreshResult.data, username }));
-      // retry the original query with new access token
-      result = await baseQuery(args, api, extraOptions);
-    } else {
-      api.dispatch(logOut());
+    if (result?.error?.originalStatus === 401) {
+      console.log("sending refresh token");
+      // Send refresh token to get new access token
+      const refreshResult = await baseQuery(
+        "/auth/customer/refresh",
+        api,
+        extraOptions
+      );
+      console.log(refreshResult);
+      if (refreshResult?.data) {
+        const username = api.getState().auth.username;
+        // store the new token
+        api.dispatch(setCredentials({ ...refreshResult.data, username }));
+        // retry the original query with new access token
+        result = await baseQuery(args, api, extraOptions);
+      } else {
+        api.dispatch(logOut());
+      }
     }
+    return result;
+  } catch (error) {
+    console.log(error);
   }
-  return result;
 };
 
 export const apiSlice = createApi({

@@ -10,13 +10,18 @@ const customerSchema = Schema(
     _id: {
       type: Number,
     },
+    username: {
+      type: String,
+      ref: "customerAccount",
+      required: true,
+    },
     fullname: {
       type: String,
       required: true,
     },
     phone_number: {
       type: Number,
-      required: true,
+      // required: true,
     },
     address: {
       type: String,

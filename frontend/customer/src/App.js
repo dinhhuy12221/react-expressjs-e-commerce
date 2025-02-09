@@ -14,7 +14,10 @@ import Login from "./pages/Login/index.js";
 import Register from "./pages/Register/index.js";
 import Cart from "./pages/Cart/index.js";
 import Profile from "./pages/Profile/index.js";
-
+import Account from "./pages/Profile/components/Account/index.js";
+import Orders from "./pages/Profile/components/Orders/index.js";
+import Reviews from "./pages/Profile/components/Reviews/index.js";
+import Settings from './pages/Profile/components/Settings/index.js'
 const MyContext = createContext();
 
 function App() {
@@ -61,7 +64,10 @@ function App() {
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth />}>
               <Route path="/profile" element={<Profile />}>
-              
+                <Route path="/profile/account" element={<Account />} />
+                <Route path="/profile/orders" element={<Orders />} />
+                <Route path="/profile/reviews" element={<Reviews />} />
+                <Route path="/profile/settings" element={<Settings />} />
               </Route>
               <Route path="/cart" element={<Cart />} />
             </Route>

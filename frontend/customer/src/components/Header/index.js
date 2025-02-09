@@ -10,9 +10,12 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
 
 import './index.css'
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../features/auth/authSlice";
 
 function Header() {
   const context = useContext(MyContext);
+  const username = useSelector(selectCurrentUser);
 
   return (
     <>
@@ -42,14 +45,14 @@ function Header() {
                 {/* Header Search ends here  */}
 
                 <div className="part3 d-flex align-items-center ml-auto">
-                  {context.isLogin === false ? (
+                  { !username ? (
                     <Link to="/login">
                       <Button className="btn-red btn-round signin">
                         Sign In
                       </Button>
                     </Link>
                   ) : (
-                    <Link to="">
+                    <Link to="/profile">
                       <Button className="circle me-3">
                         <FaRegUserCircle />
                       </Button>

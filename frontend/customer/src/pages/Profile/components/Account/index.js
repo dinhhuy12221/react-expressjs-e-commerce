@@ -1,4 +1,9 @@
-function Account({ user }) {
+
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../../../features/auth/authSlice";
+function Account() {
+  const user = useSelector(selectCurrentUser);
+
   return (
     <div>
       <section className="info">

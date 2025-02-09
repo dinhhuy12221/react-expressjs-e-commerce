@@ -3,13 +3,14 @@ import { CgProfile } from "react-icons/cg";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdOutlineRateReview } from "react-icons/md";
 import { CiSettings } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 function ProfileSidebar() {
     return ( <div className="profile-sidebar">
         <ul>
-            <li><CgProfile /><span>Profile</span></li>
-            <li><FiShoppingCart /><span>Orders</span></li>
-            <li><MdOutlineRateReview /><span>Reviews</span></li>
-            <li><CiSettings /><span>Settings</span></li>
+            <Link to={'/profile/account'}><CgProfile /><span>Profile</span></Link>
+            <Link to={'/profile/orders'}><FiShoppingCart /><span>Orders</span></Link>
+            <Link to={'/profile/reviews'}><MdOutlineRateReview /><span>Reviews</span></Link>
+            <Link to={'/profile/settings'}><CiSettings /><span>Settings</span></Link>
         </ul>
     </div> );
 }

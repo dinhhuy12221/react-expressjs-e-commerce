@@ -34,7 +34,7 @@ export default function Login() {
 
   const [username, resetUsername, usernameAttrbs] = useInput(
     "username",
-    "abcd"
+    "dinhhuy12221"
   ); //useState("abcd");
   const [password, setPassword] = useState("!1234Abc");
   const [errorMessage, setErrorMessage] = useState(false);

@@ -3,16 +3,12 @@ import "./index.css";
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../features/auth/authSlice";
 import ProfileSidebar from "./components/Sidebar";
-import Account from "./components/Account";
 
 function Profile() {
   const [info, setInfo] = useState();
   const navigate = useNavigate();
   const location = useLocation();
-  const user = useSelector(selectCurrentUser);
 
   useEffect(() => {
     let isMounted = true;

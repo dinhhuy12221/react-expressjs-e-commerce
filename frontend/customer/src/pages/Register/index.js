@@ -6,8 +6,8 @@ import { FaCheck, FaFacebookF, FaTimes } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram, FaInfoCircle } from "react-icons/fa";
 import google_logo from "../../assets/images/google-logo.png";
-import axios from "../../api/axios";
-
+// import axios from "../../api/axios";
+import { useRegisterMutation } from '../../features/auth/authApi'
 import Logo from "../../assets/images/logo.png";
 import "./index.css";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
@@ -32,8 +32,8 @@ export default function Register() {
   const [validUsername, setValidUsername] = useState(false);
   const [usernameFocus, setUsernameFocus] = useState(false);
 
-  const [pwd, setPwd] = useState("");
-  const [validPwd, setValidPwd] = useState(false);
+  const [password, setPwd] = useState("");
+  const [validPassword, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
   const [matchPwd, setMatchPwd] = useState(false);
 
@@ -43,6 +43,8 @@ export default function Register() {
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const [register, { isLoading }] = useRegisterMutation(); 
 
   useEffect(() => {
     fullnameRef?.current.focus();
@@ -61,50 +63,61 @@ export default function Register() {
   }, [username]);
 
   useEffect(() => {
-    const result = PWD_REGEX.test(pwd);
+    const result = PWD_REGEX.test(password);
     setValidPwd(result);
-    const match = pwd === matchPwd;
+    const match = password === matchPwd;
     setValidMatch(match);
-  }, [pwd, matchPwd]);
+  }, [password, matchPwd]);
 
   useEffect(() => {
     setErrMsg("");
-  }, [username, pwd, matchPwd]);
+  }, [username, password, matchPwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // if button enabled with JS hack
     const v1 = FULLNAME_REGEX.test(fullname);
     const v2 = USERNAME_REGEX.test(username);
-    const v3 = PWD_REGEX.test(pwd);
+    const v3 = PWD_REGEX.test(password);
     if (!v1 || !v2 || !v3) {
       setErrMsg("Invalid Entry");
       return;
     }
     try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({ fullname: fullname, username: username, password: pwd }),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: false,
-        }
-      );
+      // const response = await axios.post(
+      //   REGISTER_URL,
+      //   JSON.stringify({ fullname: fullname, username: username, password: password }),
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     withCredentials: false,
+      //   }
+      // );
+
+      const response = await register({ fullname, username, password }).unwrap();
+
       console.log(response.data);
       console.log(response.accessToken);
       console.log(JSON.stringify(response));
+
+
       setSuccess(true);
       // Clear input fields
     } catch (error) {
-      if (!error?.response) {
-        setErrMsg("No Server Response");
-      } else if (error.response?.status === 409) {
-        setErrMsg("Username Taken");
+      if (!error?.status) {
+        setErrMsg("No Server Response!");
       } else {
-        setErrMsg("Registration Failed");
+        setErrMsg(error.data?.message);
       }
+      
+      // else if (error?.status === 409) {
+      //   setErrMsg(error.data.message);
+      // } else if (error?.status === 400) {
+      //   setErrMsg("All fields are required!");
+      // } else {
+      //   setErrMsg("Registration Failed!");
+      // }
       errRef.current.focus();
     }
   };
@@ -260,11 +273,11 @@ export default function Register() {
                       label={
                         <>
                           Password:
-                          <span className={validPwd ? "valid" : "hide"}>
+                          <span className={validPassword ? "valid" : "hide"}>
                             <FaCheck />
                           </span>
                           <span
-                            className={validPwd || !pwd ? "hide" : "invalid"}
+                            className={validPassword || !password ? "hide" : "invalid"}
                           >
                             <FaTimes />
                           </span>
@@ -275,7 +288,7 @@ export default function Register() {
                       autoComplete="off"
                       onChange={(e) => setPwd(e.target.value)}
                       required
-                      aria-invalid={validPwd ? "false" : "true"}
+                      aria-invalid={validPassword ? "false" : "true"}
                       aria-describedby="pwdnote"
                       onFocus={() => setPwdFocus(true)}
                       onBlur={() => setPwdFocus(false)}
@@ -285,7 +298,7 @@ export default function Register() {
                     <p
                       id="pwdnote"
                       className={
-                        pwdFocus && pwd && !validPwd
+                        pwdFocus && password && !validPassword
                           ? "instructions"
                           : "offscreen"
                       }
@@ -365,7 +378,7 @@ export default function Register() {
                 <div className="d-flex mt-3 w-100 txt">
                   <span>
                     Already Registered?{" "}
-                    <Link to="/signin" className="border-effect">
+                    <Link to="/login" className="border-effect">
                       Sign In
                     </Link>
                   </span>

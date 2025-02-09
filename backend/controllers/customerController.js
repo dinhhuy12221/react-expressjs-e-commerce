@@ -1,12 +1,15 @@
-import User from "../models/user.js";
+import Customer from "../models/customer";
 
-class userController {
-  async getCustomerById(req, res) {
+class customerController {
+
+  getCustomerById = async(req, res) => {
     try {
-      const user = await User.findOne({ _id: req.params.id });
+      const user = await Customer.findOne({ _id: req.params.id });
       res.status(200).send(user);
     } catch (error) {
       res.status(400).send(error);
     }
   }
 }
+
+export default new customerController();
