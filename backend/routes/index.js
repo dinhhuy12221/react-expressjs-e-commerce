@@ -3,13 +3,13 @@ import productRouter from "./productRoutes.js";
 import orderRouter from "./orderRoutes.js";
 import authCustomerRoutes from "./auth/authCustomerRoutes.js";
 import customerAccountRoutes from "./account/customerAccountRoutes.js";
-import verifyJWT from "../middlewares/verifyJWT.js";
+import verifyRoutes from './verifyRoutes.js'
 
 import express from "express";
 const router = express.Router();
 
 const route = (app) => {
-  router.post("/api/auth/verify", verifyJWT);
+  app.use("/api/auth/verify", verifyRoutes)
   app.use("/api/auth/customer", authCustomerRoutes);
   app.use("/api/account/customer", customerAccountRoutes);
   app.use("/api/category", categoryRouter);

@@ -20,6 +20,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: '/auth/verify',
                 method: 'POST',
+                body: {},
             })
         })
     })
