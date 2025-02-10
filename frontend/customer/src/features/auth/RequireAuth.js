@@ -19,39 +19,43 @@
 
 // export default RequireAuth;
 
-import { useLocation, Navigate, Outlet } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useLocation, Navigate, Outlet } from "react-router";
 import { useVerifyMutation } from "./authApi";
-import { useSelector } from "react-redux";
-import { selectCurrentToken } from "./authSlice";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 const RequireAuth = () => {
-  const token = useSelector(selectCurrentToken);
+  // const token = useSelector(selectCurrentToken);
   const [verify, { isLoading }] = useVerifyMutation();
-  const dispatch = useDispatch();
+  const [allowed, setAllowed] = useState(false);
   const location = useLocation();
-  const [result, setResult] = useState(false);
 
-  const doVerify = async () => {
+  const isVerified = async () => {
     try {
       const result = await verify({}).unwrap();
-      console.log(result);
 
-      if (result) setResult(true);
+      if (result?.status === 200) return true;
+      else return false;
     } catch (error) {
       console.error(error);
     }
   };
 
-  useEffect(() => {
-    doVerify();
+  useMemo(() => {
+    if (isVerified()) {
+      setAllowed(true);
+    } else {
+      setAllowed(false);
+    }
   }, []);
 
-  return result ? (
-    <Outlet />
-  ) : (
-    <Navigate to="/login" state={{ from: location }} replace />
+  return (
+    <>
+      {allowed ? (
+        <Outlet />
+      ) : (
+        <Navigate to="/login" state={{ from: location }} replace />
+      )}
+    </>
   );
 };
 

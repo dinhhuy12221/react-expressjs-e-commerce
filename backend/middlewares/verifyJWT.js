@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 const verifyJWT = (req, res, next) => {
   try {
     const authHeader = req?.headers["authorization"];
-    console.log(req.headers);
 
     if (!authHeader) return res.sendStatus(401);
     const token = authHeader.split(" ")[1];
@@ -14,7 +13,7 @@ const verifyJWT = (req, res, next) => {
       if (err) return res.sendStatus(403);
       req.username = decoded.username;
       // next();
-      return res.status(200).json({ message: "Success" });
+      return res.status(200).json({ status: 200, message: "Success", "username": req.username || "" });
     });
   } catch (error) {
     console.log(error);
