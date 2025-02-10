@@ -20,17 +20,41 @@
 // export default RequireAuth;
 
 import { useLocation, Navigate, Outlet } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useVerifyMutation  } from './authApi'
 import { useSelector } from 'react-redux'
 import { selectCurrentToken } from './authSlice'
+import { useEffect, useState } from 'react'
 
 const RequireAuth = () => {
   const token = useSelector(selectCurrentToken)
+  const [verify, { isLoading }] = useVerifyMutation();
+  const dispatch = useDispatch();
   const location = useLocation()
+  const [result, setResult] = useState(false);
+
+
+  const doVerify = async () => {
+    try {
+      const result = await dispatch(verify()).unwrap();
+    console.log(result);
+
+    if (result)
+      setResult(true)
+    
+    } catch (error) {
+      console.error(error)  
+    }
+  }
+
+  useEffect(() => {
+    doVerify();
+  }, [])
 
   return (
-    token
+    result
       ? <Outlet />
-      : <Navigate to='/login' state={{ from: location }} replace />
+      : <Navigate to='/login' state={{ from: location }} replace/>
   )
 }
 

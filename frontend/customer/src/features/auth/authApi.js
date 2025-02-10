@@ -15,6 +15,12 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: "POST",
                 body: { ...registerInfo },
             })
+        }),
+        verify: builder.mutation({
+            query: () => ({
+                url: '/auth/verify',
+                method: 'POST',
+            })
         })
     })
 })
@@ -22,4 +28,5 @@ export const authApiSlice = apiSlice.injectEndpoints({
 export const {
     useLoginMutation,
     useRegisterMutation,
+    useVerifyMutation,
 } = authApiSlice;

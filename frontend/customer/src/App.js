@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import { createContext, useEffect, useState } from "react";
 import ProductModal from "./components/ProductModal/index.js";
 import axios from "axios";
@@ -17,7 +17,7 @@ import Profile from "./pages/Profile/index.js";
 import Account from "./pages/Profile/components/Account/index.js";
 import Orders from "./pages/Profile/components/Orders/index.js";
 import Reviews from "./pages/Profile/components/Reviews/index.js";
-import Settings from './pages/Profile/components/Settings/index.js'
+import Settings from "./pages/Profile/components/Settings/index.js";
 const MyContext = createContext();
 
 function App() {
@@ -48,7 +48,6 @@ function App() {
     <BrowserRouter>
       <MyContext.Provider value={values}>
         <Routes>
-
           {/* Pulic Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/cat/:id" element={<Category />} />
@@ -61,17 +60,17 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           {/* Protected Routes */}
-          <Route element={<PersistLogin />}>
-            <Route element={<RequireAuth />}>
-              <Route path="/profile" element={<Profile />}>
-                <Route path="/profile/account" element={<Account />} />
-                <Route path="/profile/orders" element={<Orders />} />
-                <Route path="/profile/reviews" element={<Reviews />} />
-                <Route path="/profile/settings" element={<Settings />} />
-              </Route>
-              <Route path="/cart" element={<Cart />} />
+          {/* <Route element={<PersistLogin />}> */}
+          <Route element={<RequireAuth />}>
+            <Route path="/profile" element={<Profile />}>
+              <Route path="account" element={<Account />} index={true} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="reviews" element={<Reviews />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
+            <Route path="/cart" element={<Cart />} />
           </Route>
+          {/* </Route> */}
 
           {/* Catch All */}
           <Route

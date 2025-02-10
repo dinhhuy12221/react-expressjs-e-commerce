@@ -62,9 +62,11 @@ function Header() {
                   <div className="ms-auto cartTab d-flex align-items-center">
                     <span className="price">$55.5</span>
                     <div className="position-relative me-2">
-                      <Button href={'/cart'} className="circle ms-3">
-                        <TiShoppingCart />
-                      </Button>
+                      <Link to={'/cart'}>
+                        <Button className="circle ms-3">
+                          <TiShoppingCart />
+                        </Button>
+                      </Link>
                       <span className="count d-flex align-items-center justify-content-center">
                         1
                       </span>
