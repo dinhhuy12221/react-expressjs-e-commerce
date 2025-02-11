@@ -18,6 +18,8 @@ import Account from "./pages/Profile/components/Account/index.js";
 import Orders from "./pages/Profile/components/Orders/index.js";
 import Reviews from "./pages/Profile/components/Reviews/index.js";
 import Settings from "./pages/Profile/components/Settings/index.js";
+import Header from "./components/Header/index.js";
+import Footer from "./components/Footer/index.js";
 const MyContext = createContext();
 
 function App() {
@@ -63,7 +65,7 @@ function App() {
           {/* <Route element={<PersistLogin />}> */}
           <Route element={<RequireAuth />}>
             <Route path="/profile" element={<Profile />}>
-              <Route path="account" element={<Account />} index={true} />
+              <Route path="info" element={<Account />} index={true} />
               <Route path="orders" element={<Orders />} />
               <Route path="reviews" element={<Reviews />} />
               <Route path="settings" element={<Settings />} />
@@ -75,7 +77,11 @@ function App() {
           {/* Catch All */}
           <Route
             path="/*"
-            element={<div>404 Error. No Page Found</div>}
+            element={<>
+              <Header />
+              <div>404 Error. No Page Found</div>
+              <Footer />
+            </>}
             exact={true}
           />
         </Routes>

@@ -11,11 +11,12 @@ import { TiShoppingCart } from "react-icons/ti";
 
 import './index.css'
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../features/auth/authSlice";
+import { selectCurrentUsername } from "../../features/auth/authSlice";
+import Profile from "./Profile";
 
 function Header() {
   const context = useContext(MyContext);
-  const username = useSelector(selectCurrentUser);
+  const username = useSelector(selectCurrentUsername);
 
   return (
     <>
@@ -52,11 +53,7 @@ function Header() {
                       </Button>
                     </Link>
                   ) : (
-                    <Link to="/profile">
-                      <Button className="circle me-3">
-                        <FaRegUserCircle />
-                      </Button>
-                    </Link>
+                    <Profile />
                   )}
 
                   <div className="ms-auto cartTab d-flex align-items-center">

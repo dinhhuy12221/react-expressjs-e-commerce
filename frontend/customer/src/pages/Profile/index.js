@@ -38,10 +38,10 @@ function Profile() {
       <Header />
       <div className="profile container-fluid">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-sm-2">
             <ProfileSidebar />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-10">
             <Outlet />
           </div>
         </div>
