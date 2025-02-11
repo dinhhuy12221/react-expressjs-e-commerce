@@ -1,0 +1,15 @@
+
+.default-input {
+    outline: none;
+  
+    width: 100%;
+  
+    border: 1px solid black;
+    border-radius: 4px;
+  
+    padding: 4px 12px;
+  
+    &:focus {
+      border: 1px solid blue;
+    }
+  }

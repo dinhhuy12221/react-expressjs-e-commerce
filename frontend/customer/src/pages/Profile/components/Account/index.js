@@ -7,39 +7,55 @@ function Account() {
 
   const submitChange = (e) => {
     e.prevenDefault();
-  }
+  };
 
   return (
     <div className="profile">
-      <section className="top-info">
-        <div className="avatar">
-          {/* <img src={"https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256"} alt="avatar"/> */}
-          <img
-            src={
-              "https://images.pexels.com/photos/2364633/pexels-photo-2364633.jpeg?cs=srgb&dl=pexels-hiwatalaei-2364633.jpg&fm=jpg"
-            }
-            alt="avatar"
-          />
-        </div>
-        <div className="username">{username}</div>
-        <div className="description"></div>
-      </section>
+      <section className="top-info"></section>
       <section className="main-info">
-        <form>
-          <div className="row">
-            <div className="mb-3 col-sm-12">
-              <label for="fullname" className="form-label">
-                Fullname
-              </label>
-              <input type="text" className="form-control" id="fullname" />
-            </div>
-            <div className="mb-3 col-sm-12">
+        <form className="row">
+          <div className="col-md-6">
+            <div className="row mb-3">
+              <div className="avatar-container col-sm-4">
+                <div className="avatar">
+                  {/* <img src={"https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256"} alt="avatar"/> */}
+                  <input className="avatar-chooser" type="file" />
+                  <img
+                    src={
+                      "https://images.pexels.com/photos/2364633/pexels-photo-2364633.jpeg?cs=srgb&dl=pexels-hiwatalaei-2364633.jpg&fm=jpg"
+                    }
+                    alt="avatar"
+                  />
+                </div>
+              </div>
+              <div className="col-sm-8">
+                <div className="form-group mb-3">
+                  <label for="username" className="form-label">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="username"
+                    value={username}
+                    disabled
+                  />
+                </div>
+                <div className="form-group mb-3">
+                  <label for="fullname" className="form-label">
+                    Fullname
+                  </label>
+                  <input type="text" className="default-input" id="fullname" />
+                </div>
+              </div>
+              </div>
+            <div className="form-group mb-3 col-sm-12">
               <label for="phone-number" className="form-label">
                 Phone number
               </label>
               <input type="number" className="form-control" id="phone-number" />
             </div>
-            <div className="mb-3 col-sm-12">
+            <div className="form-group mb-3 col-sm-12">
               <label for="address" className="form-label">
                 Address
               </label>
@@ -59,16 +75,20 @@ function Account() {
               We'll never share your email with anyone else.
             </div>
             </div> */}
-            <div className="mb-3 col-sm-12">
+            <div className="form-group mb-3 col-sm-12">
               <label for="password" className="form-label">
                 Password
               </label>
               <input type="password" className="form-control" id="password" />
             </div>
+            <button
+              type="submit"
+              className="btn btn-primary col-md-2 col-sm-12"
+              onClick={submitChange}
+            >
+              Change
+            </button>
           </div>
-          <button type="submit" className="btn btn-primary col-md-2 col-sm-12" onClick={submitChange}>
-            Change
-          </button>
         </form>
       </section>
     </div>
