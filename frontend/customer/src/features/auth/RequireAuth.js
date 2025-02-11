@@ -21,36 +21,39 @@
 
 import { useLocation, Navigate, Outlet } from "react-router";
 import { useVerifyMutation } from "./authApi";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectCurrentToken } from "./authSlice";
 
 const RequireAuth = () => {
-  // const token = useSelector(selectCurrentToken);
+  const location = useLocation();
+  const token = useSelector(selectCurrentToken);
   const [verify, { isLoading }] = useVerifyMutation();
   const [allowed, setAllowed] = useState(false);
-  const location = useLocation();
+  const [pathname, setPathname] = useState(location.pathname);
 
   const isVerified = async () => {
     try {
       const result = await verify({}).unwrap();
-
+      
       if (result?.status === 200) return true;
-      else return false;
+      return false;
     } catch (error) {
-      console.error(error);
+      return false;      
     }
   };
 
   useMemo(() => {
-    if (isVerified()) {
-      setAllowed(true);
-    } else {
-      setAllowed(false);
-    }
-  }, []);
+    isVerified() ? setAllowed(true) : setAllowed(false);
 
+  }, [window.location.href]);
+
+  // console.log(allowed, token);
+  // console.log(window.location.href);
+  
   return (
     <>
-      {allowed ? (
+      {(allowed && token !== null) ? (
         <Outlet />
       ) : (
         <Navigate to="/login" state={{ from: location }} replace />

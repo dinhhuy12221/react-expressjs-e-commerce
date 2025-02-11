@@ -32,7 +32,7 @@ class authCustomerController {
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
-          expiresIn: "10s",
+          expiresIn: "30s",
         }
       );
 
@@ -42,7 +42,7 @@ class authCustomerController {
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
-          expiresIn: "15s",
+          expiresIn: "60s",
         }
       );
 
@@ -54,7 +54,7 @@ class authCustomerController {
         secure: true,
         sameSite: "None",
         // maxAge: 7 * 24 * 60 * 60 * 1000,
-        maxAge: 15 * 1000,
+        maxAge: 60 * 1000,
       });
 
       res.json({ accessToken });
@@ -67,7 +67,7 @@ class authCustomerController {
     const cookies = req.cookies;
 
     if (!cookies?.jwt) {
-      return res.status(401).json({ message: "Unauthorized" });
+      return res.status(401).json({ message: "Unauthorized (jwt not existed)" });
     }
 
     const refreshToken = cookies.jwt;
@@ -76,13 +76,13 @@ class authCustomerController {
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET,
       async (err, decoded) => {
-        if (err) return res.status(403).json({ message: "Forbidden" });
+        if (err) return res.status(403).json({ message: "Forbidden (error)" });
 
         const account = await CustomerAccount.findOne({
           username: decoded.username,
         }).exec();
 
-        if (!account) return res.status(401).json({ message: "Unauthorized" });
+        if (!account) return res.status(401).json({ message: "Unauthorized (account is not existed)" });
 
         const accessToken = jwt.sign(
           {
@@ -90,7 +90,7 @@ class authCustomerController {
           },
           process.env.ACCESS_TOKEN_SECRET,
           {
-            expiresIn: "10s",
+            expiresIn: "30s",
           }
         );
 

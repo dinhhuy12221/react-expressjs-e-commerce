@@ -25,21 +25,24 @@ class orderController {
     }
 
     getOrderByCustomer = async(req, res) => {
-        try {
-            const order = await Order.find({
-                customer_id: req.params.id,
-            })
+        // try {
+        //     const order = await Order.find({
+        //         customer_id: req.params.id,
+        //     })
 
-            if (order) {
-                return res.status(200).json(order)
-            }
-            return res.status(400).json({
-                message: 'failed'
-            })
-        } catch (error) {
-            console.log(error);
+        //     console.log(order);
             
-        }
+
+        //     if (order) {
+        //         return res.status(200).json(order)
+        //     }
+        //     return res.status(400).json({
+        //         message: 'failed'
+        //     })
+        // } catch (error) {
+        //     console.log(error);
+            
+        // }
     }
 }
 
