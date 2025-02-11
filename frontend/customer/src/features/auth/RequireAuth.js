@@ -21,16 +21,15 @@
 
 import { useLocation, Navigate, Outlet } from "react-router";
 import { useVerifyMutation } from "./authApi";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectCurrentToken } from "./authSlice";
+import { selectCurrentAccessToken } from "./authSlice";
 
 const RequireAuth = () => {
   const location = useLocation();
-  const token = useSelector(selectCurrentToken);
+  const accessToken = useSelector(selectCurrentAccessToken);
   const [verify, { isLoading }] = useVerifyMutation();
   const [allowed, setAllowed] = useState(false);
-  const [pathname, setPathname] = useState(location.pathname);
 
   const isVerified = async () => {
     try {
@@ -45,15 +44,14 @@ const RequireAuth = () => {
 
   useMemo(() => {
     isVerified() ? setAllowed(true) : setAllowed(false);
+  }, [location]);
 
-  }, [window.location.href]);
-
-  // console.log(allowed, token);
+  console.log(allowed, accessToken);
   // console.log(window.location.href);
   
   return (
     <>
-      {(allowed && token !== null) ? (
+      {(allowed && accessToken !== null) ? (
         <Outlet />
       ) : (
         <Navigate to="/login" state={{ from: location }} replace />
