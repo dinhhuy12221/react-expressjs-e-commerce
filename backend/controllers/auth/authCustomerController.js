@@ -3,6 +3,9 @@ import jwt from "jsonwebtoken";
 import CustomerAccount from "../../models/account/customerAccount.js";
 import Customer from '../../models/customer.js'
 
+const REFRESH_TOKEN_EXPIRATION = '1h'
+const ACCESS_TOKEN_EXPIRATION = '30m'
+
 class authCustomerController {
   login = async (req, res) => {
     try {
@@ -41,7 +44,7 @@ class authCustomerController {
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
-          expiresIn: "30m",
+          expiresIn: ACCESS_TOKEN_EXPIRATION,
         }
       );
 
@@ -51,7 +54,7 @@ class authCustomerController {
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
-          expiresIn: "60m",
+          expiresIn: REFRESH_TOKEN_EXPIRATION,
         }
       );
 
@@ -99,7 +102,7 @@ class authCustomerController {
           },
           process.env.ACCESS_TOKEN_SECRET,
           {
-            expiresIn: "30m",
+            expiresIn: ACCESS_TOKEN_EXPIRATION,
           }
         );
 
