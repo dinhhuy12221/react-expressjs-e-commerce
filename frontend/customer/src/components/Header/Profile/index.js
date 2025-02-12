@@ -3,7 +3,7 @@ import { logOut } from "../../../features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { FaRegUserCircle } from "react-icons/fa";
-function Profile() {
+function Profile({ customer }) {
     const dispatch = useDispatch();
   return (
     <div>

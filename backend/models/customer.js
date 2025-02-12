@@ -13,7 +13,9 @@ const customerSchema = Schema(
     username: {
       type: String,
       ref: "customerAccount",
-      required: true,
+    },
+    avatar: {
+      type: String,
     },
     fullname: {
       type: String,

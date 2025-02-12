@@ -64,7 +64,7 @@ export default function Login() {
 
       const userData = await login({ username, password }).unwrap();
 
-      dispatch(setCredentials({ ...userData, username }));
+      dispatch(setCredentials({ ...userData }));
 
       // setUsername("");
       resetUsername("");
@@ -84,6 +84,8 @@ export default function Login() {
       errRef.current.focus();
     }
   };
+
+  
 
   return (
     <>

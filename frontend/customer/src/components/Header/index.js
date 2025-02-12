@@ -11,12 +11,12 @@ import { TiShoppingCart } from "react-icons/ti";
 
 import './index.css'
 import { useSelector } from "react-redux";
-import { selectCurrentUsername } from "../../features/auth/authSlice";
+import { selectCurrentCustomer } from "../../features/auth/authSlice";
 import Profile from "./Profile";
 
 function Header() {
   const context = useContext(MyContext);
-  const username = useSelector(selectCurrentUsername);
+  const customer = useSelector(selectCurrentCustomer);
 
   return (
     <>
@@ -46,14 +46,14 @@ function Header() {
                 {/* Header Search ends here  */}
 
                 <div className="part3 d-flex align-items-center ml-auto">
-                  { !username ? (
+                  { !customer ? (
                     <Link to="/login">
                       <Button className="btn-red btn-round signin">
                         Sign In
                       </Button>
                     </Link>
                   ) : (
-                    <Profile />
+                    <Profile customer={customer}/>
                   )}
 
                   <div className="ms-auto cartTab d-flex align-items-center">

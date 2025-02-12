@@ -1,96 +1,122 @@
 import { useSelector } from "react-redux";
-import { selectCurrentUsername } from "../../../../features/auth/authSlice";
+import { selectCurrentCustomer } from "../../../../features/auth/authSlice";
 
 import "./index.css";
+import InputField from "../../../../components/InputField";
+import { useState } from "react";
 function Account() {
-  const username = useSelector(selectCurrentUsername);
+  const customer = useSelector(selectCurrentCustomer);
+  console.log(customer);
+  const [image, setImage] = useState(customer.avatar);
+  const [fullname, setFullname] = useState(customer.fullname);
+  const [phoneNumber, setPhoneNumber] = useState(customer.phone_number);
+  const [address, setAddress] = useState(customer.address);
+
+
+
+  const handleImageUpload = (e) => {
+    const files = e.target.files;
+    transformFile(files[0]);
+  };
+
+  const transformFile = (file) => {
+    const reader = new FileReader();
+
+    if (file) {
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+    }
+  };
 
   const submitChange = (e) => {
     e.prevenDefault();
   };
 
   return (
-    <div className="profile">
-      <section className="top-info"></section>
-      <section className="main-info">
-        <form className="row">
-          <div className="col-md-6">
-            <div className="row mb-3">
-              <div className="avatar-container col-sm-4">
-                <div className="avatar">
-                  {/* <img src={"https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256"} alt="avatar"/> */}
-                  <input className="avatar-chooser" type="file" />
-                  <img
-                    src={
-                      "https://images.pexels.com/photos/2364633/pexels-photo-2364633.jpeg?cs=srgb&dl=pexels-hiwatalaei-2364633.jpg&fm=jpg"
-                    }
-                    alt="avatar"
-                  />
-                </div>
+    <div className="profile-info">
+      <form className="row">
+        <div className="col-md-6">
+          <div className="row mb-3">
+            <div className="avatar-container col-sm-4">
+              <div className="avatar">
+                {/* <img src={"https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256"} alt="avatar"/> */}
+                <input
+                  className="avatar-chooser"
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  onChange={handleImageUpload}
+                />
+                <img src={image} alt="avatar" />
               </div>
-              <div className="col-sm-8">
-                <div className="form-group mb-3">
-                  <label for="username" className="form-label">
-                    Username
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="username"
-                    value={username}
-                    disabled
-                  />
-                </div>
-                <div className="form-group mb-3">
-                  <label for="fullname" className="form-label">
-                    Fullname
-                  </label>
-                  <input type="text" className="default-input" id="fullname" />
-                </div>
+            </div>
+            <div className="col-sm-8">
+              <div className="form-group mb-3">
+                <label htmlFor="customer" className="form-label">
+                  Username
+                </label>
+                <InputField
+                  type="text"
+                  id="customer"
+                  value={customer.username}
+                  disabled
+                />
               </div>
+              <div className="form-group mb-3">
+                <label htmlFor="fullname" className="form-label">
+                  Fullname
+                </label>
+                <InputField
+                  type="text"
+                  id="fullname"
+                  value={fullname}
+                  onChange={(e) => setFullname(e.target.value)}
+                />
               </div>
-            <div className="form-group mb-3 col-sm-12">
-              <label for="phone-number" className="form-label">
-                Phone number
-              </label>
-              <input type="number" className="form-control" id="phone-number" />
             </div>
-            <div className="form-group mb-3 col-sm-12">
-              <label for="address" className="form-label">
-                Address
-              </label>
-              <input type="text" className="form-control" id="address" />
-            </div>
-            {/* <div className="mb-3 col-sm-12">
-              <label for="exampleInputEmail1" className="form-label">
-                Email address
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-              />
-              <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div>
-            </div> */}
-            <div className="form-group mb-3 col-sm-12">
-              <label for="password" className="form-label">
-                Password
-              </label>
-              <input type="password" className="form-control" id="password" />
-            </div>
-            <button
-              type="submit"
-              className="btn btn-primary col-md-2 col-sm-12"
-              onClick={submitChange}
-            >
-              Change
-            </button>
           </div>
-        </form>
-      </section>
+          <div className="form-group mb-3 col-sm-12">
+            <label htmlFor="phone-number" className="form-label">
+              Phone number
+            </label>
+            <InputField
+              type="number"
+              id="phone-number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+          </div>
+          <div className="form-group mb-3 col-sm-12">
+            <label htmlFor="address" className="form-label">
+              Address
+            </label>
+            <InputField
+              type="text"
+              id="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </div>
+          <div className="form-group mb-3 col-sm-12">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <InputField
+              type="password"
+              id="password"
+              className="form-control"
+            />
+          </div>
+          <button
+            type="submit"
+            className="btn btn-primary col-md-2 col-sm-12"
+            onClick={submitChange}
+          >
+            Save change
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

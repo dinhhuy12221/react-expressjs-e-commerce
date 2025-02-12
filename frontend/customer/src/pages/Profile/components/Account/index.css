@@ -1,34 +1,39 @@
-.main-info {
-  .avatar-container {
-    position: relative;
+.profile-info {
+  padding: 20px;
+  
+  background-color: #fff;
 
+  .avatar-container {
     display: flex;
     align-items: center;
     justify-content: center;
 
     .avatar-chooser {
       position: absolute;
-      display: inline-block;
-      box-sizing: border-box;
-      
+
       border-radius: 50%;
-      border: 2px solid black;
-      
+      border: 3px solid var(--theme-2);
+
       width: 110px;
       height: 110px;
-      
-      opacity: 0.8;
-      
+
+      /* background-image: url("https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256");
+      background-size: cover; */
+
+      opacity: 0.4;
       cursor: pointer;
-      
       overflow: hidden;
+
       &::-webkit-file-upload-button {
-        display: none;
-        content: "" !important;
+        visibility: hidden;
       }
     }
-    
+
     .avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       width: 100px;
       height: 100px;
       box-sizing: border-box;
@@ -49,10 +54,5 @@
   }
 
   form {
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
   }
 }

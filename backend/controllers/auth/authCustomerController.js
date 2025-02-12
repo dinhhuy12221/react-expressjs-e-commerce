@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import CustomerAccount from "../../models/account/customerAccount.js";
+import Customer from '../../models/customer.js'
 
 class authCustomerController {
   login = async (req, res) => {
@@ -17,13 +18,21 @@ class authCustomerController {
       });
 
       if (!account) {
-        return res.status(401).json({ message: "Unauthorized" });
+        return res.status(401).json({ message: "Unauthorized (Account not found)" });
       }
-
+      
       const match = await bcrypt.compare(password, account.password);
-
+      
       if (!match) {
-        return res.status(401).json({ message: "Unauthorized" });
+        return res.status(401).json({ message: "Unauthorized (Password is incorrect)" });
+      }
+      
+      const customer = await Customer.findOne({
+        username: username,
+      })
+      
+      if (!customer) {
+        return res.status(401).json({ message: "Unauthorized (Customer not found)" });
       }
 
       const accessToken = jwt.sign(
@@ -57,7 +66,7 @@ class authCustomerController {
         maxAge: 60 * 60 * 1000,
       });
 
-      res.json({ accessToken });
+      res.status(200).json({ accessToken, customer });
     } catch (error) {
       console.log(error);
     }

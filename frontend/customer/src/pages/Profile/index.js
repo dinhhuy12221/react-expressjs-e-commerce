@@ -36,13 +36,15 @@ function Profile() {
   return (
     <>
       <Header />
-      <div className="profile container">
-        <div className="row">
-          <div className="col-sm-3">
-            <ProfileSidebar />
-          </div>
-          <div className="col-sm-9">
-            <Outlet />
+      <div className="profile">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-3">
+              <ProfileSidebar />
+            </div>
+            <div className="col-sm-9">
+              <Outlet />
+            </div>
           </div>
         </div>
       </div>
