@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./index.css";
+import { memo, useState } from "react";
+import "./index.scss";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 
@@ -19,7 +19,7 @@ function InputField({ className, type, value, onChange, disabled }) {
     setIsShowed(!isShowed);
   };
 
-  console.log(isShowed);
+  console.log(22);
   
 
   return (
@@ -38,4 +38,4 @@ function InputField({ className, type, value, onChange, disabled }) {
   );
 }
 
-export default InputField;
+export default memo(InputField);

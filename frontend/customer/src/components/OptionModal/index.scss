@@ -1,0 +1,71 @@
+.background {
+  position: fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+  margin: 0;
+
+  background: rgba(128, 128, 128, 0.3);
+
+  z-index: 1000;
+}
+
+.option-modal {
+  display: flex;
+  flex-direction: column;
+
+  padding: 15px;
+
+  width: 500px;
+  height: 250px;
+
+  border-radius: 12px;
+
+  background-color: #fff;
+
+  animation: grow 0.3s;
+
+  @keyframes grow {
+    from {
+      width: 450px;
+      height: 200px;
+
+      opacity: 0.5;
+    }
+    to {
+        width: 500px;
+        height: 250px;
+
+        opacity: 1;
+    }
+  }
+
+  .title {
+    flex: 0 0;
+
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  .content {
+    flex-grow: 3;
+
+    font-size: 1.1em;
+  }
+
+  .button {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+        flex: 0 0 5em;
+    }
+  }
+}

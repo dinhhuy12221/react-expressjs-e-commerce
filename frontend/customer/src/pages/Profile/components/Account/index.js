@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { selectCurrentCustomer } from "../../../../features/auth/authSlice";
 import { FaImages } from "react-icons/fa";
 import InputField from "../../../../components/InputField";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUpdateCustomerMutation } from "../../../../features/customer/customerApi";
-import Notification from "../../../../components/Notification";
+import OptionModal from "../../../../components/OptionModal";
 
 function Account() {
   const customer = useSelector(selectCurrentCustomer);
@@ -15,6 +15,8 @@ function Account() {
   const [fullname, setFullname] = useState(customer?.fullname);
   const [phoneNumber, setPhoneNumber] = useState(customer?.phone_number);
   const [address, setAddress] = useState(customer?.address);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [option, setOption] = useState({ isClicked: false, option: false });
 
   const handleImageUpload = (e) => {
     const files = e.target.files;
@@ -32,35 +34,44 @@ function Account() {
     }
   };
 
-  const handleChangeSubmit = async (e) => {
+  const handleOption = (isClicked, option) => {
+    setOption({ isClicked, option })
+  }
+
+  const handleChangeSubmit = async () => {
     try {
-      e.preventDefault();
+      const updatedCustomer = {
+        ...customer,
+        avatar,
+        fullname,
+        address,
+        phoneNumber,
+      };
 
-    const updatedCustomer = {
-      ...customer,
-      avatar,
-      fullname,
-      address,
-      phoneNumber,
-    };
+      console.log(updatedCustomer);
 
-    console.log(updatedCustomer);
-
-    const result = await updateCustomer({ ...updatedCustomer });
-
-    if (result) {
-
-    }
-
+      // const result = await updateCustomer({ ...updatedCustomer });
+      // if (result) {
+      // }
+      
     } catch (error) {
       console.error(error);
-      
     }
   };
 
+  useEffect(() => {
+    if (option.isClicked) {
+      setIsModalOpen(false);
+      if (option.option) {
+        handleChangeSubmit();
+      }
+    }
+  }, [option])
+
   return (
     <>
-    <Notification />
+      
+
       <div className="profile-info">
         <form className="row">
           <div className="col-md-6">
@@ -127,15 +138,27 @@ function Account() {
               />
             </div>
             <button
-              type="submit"
+              type="button"
               className="btn btn-primary col-md-2 col-sm-12"
-              onClick={handleChangeSubmit}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsModalOpen(true)
+              }}
             >
               Save change
             </button>
           </div>
         </form>
       </div>
+
+      {isModalOpen && (
+        <OptionModal
+          title="Save change"
+          content="Are you sure to save these recently changes?"
+          optionType={"yes_no"}
+          handleOption={handleOption}
+        />
+      )}
     </>
   );
 }
