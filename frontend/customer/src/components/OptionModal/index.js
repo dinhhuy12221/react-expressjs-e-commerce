@@ -33,7 +33,7 @@ function OptionModal({
         default:
         return (
           <>
-            <Button className="medium"  onClick={() => handleOption(true, false)}>Cancel</Button>
+            <Button className="medium" onClick={() => handleOption(true, false)}>Close</Button>
           </>
         );
 

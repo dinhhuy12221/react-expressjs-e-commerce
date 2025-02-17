@@ -1,6 +1,6 @@
 import "./index.scss";
-import { useSelector } from "react-redux";
-import { selectCurrentCustomer } from "../../../../features/auth/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentCustomer, setCredentials } from "../../../../features/auth/authSlice";
 import { FaImages } from "react-icons/fa";
 import Input from "../../../../components/Input";
 import { useEffect, useState } from "react";
@@ -8,7 +8,8 @@ import { useUpdateCustomerMutation } from "../../../../features/customer/custome
 import OptionModal from "../../../../components/OptionModal";
 
 function Account() {
-  const customer = useSelector(selectCurrentCustomer);
+  let customer = useSelector(selectCurrentCustomer);
+  const dispatch = useDispatch();
   const [updateCustomer, { isLoading }] = useUpdateCustomerMutation();
 
   const [avatar, setAvatar] = useState(customer?.avatar);
@@ -16,7 +17,6 @@ function Account() {
   const [phoneNumber, setPhoneNumber] = useState(customer?.phone_number);
   const [address, setAddress] = useState(customer?.address);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [isModalNotifyOpen, setIsModalNotifyOpen] = useState(false);
   const [optionState, setOptionState] = useState({
     isClicked: false,
     state: false,
@@ -49,16 +49,22 @@ function Account() {
         phoneNumber,
       };
 
-      console.log(updatedCustomer);
+      console.log(1, updatedCustomer);
 
       const result = await updateCustomer({ ...updatedCustomer });
+      console.log(result);
+      
       if (result) {
         setIsModalOpen(true);
         setOption({
           title: "Success",
           content: "Your changes are saved!",
-          type: "cancel",
+          type: "close",
         });
+        console.log(2, result);
+        
+        customer = result?.data?.message;
+        dispatch(setCredentials({ ...customer}))
       }
     } catch (error) {
       console.error(error);
@@ -67,14 +73,14 @@ function Account() {
 
   const handleOption = (isClicked, state) => {
     setOptionState({ isClicked, state });
-    if (optionState.state) {
-      handleChangeSubmit();
-    }
   };
 
   useEffect(() => {
     if (optionState.isClicked) {
       setIsModalOpen(false);
+      if (optionState.state) {
+        handleChangeSubmit();
+      }
     }
   }, [optionState]);
 

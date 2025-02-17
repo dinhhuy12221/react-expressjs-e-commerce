@@ -1,12 +1,14 @@
 import Customer from "../models/customer.js";
 
 class customerController {
-  getCustomerById = async (req, res) => {
+  getCustomer = async (req, res) => {
     try {
-      const user = await Customer.findOne({ _id: req.params.id });
-      res.status(200).send(user);
+      console.log(req.body);
+      
+      const user = await Customer.findOne({ _id: req.body.id });
+      return res.status(200).json(user);
     } catch (error) {
-      res.status(400).send(error);
+      return res.status(400).json(error);
     }
   };
 
@@ -27,7 +29,7 @@ class customerController {
       if (result) {
         return res.status(200).json({ message: result });
       }
-      return res.status(400).json({ message: "Unauthorized" });
+      res.status(400).json({ message: "Unauthorized" });
     } catch (error) {
       console.log(error);
     }
