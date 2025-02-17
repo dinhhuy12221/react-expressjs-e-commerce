@@ -69,7 +69,7 @@ class authCustomerController {
         maxAge: 60 * 60 * 1000,
       });
 
-      res.status(200).json({ accessToken, customer });
+      res.status(200).json({ "accessToken": accessToken, "customer": customer });
     } catch (error) {
       console.log(error);
     }

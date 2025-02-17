@@ -2,8 +2,9 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-
     gap: 6px;
+
+    box-sizing: border-box;
 
     width: auto;
 
@@ -26,19 +27,19 @@ button {
 }
 
 .small {
-    padding: 4px;
+    padding: 6px;
+    
+    font-size: 1em;
+}
+
+.medium {
+    padding: 8px;
     
     font-size: 1.1em;
 }
 
-.medium {
-    padding: 6px;
+.large {
+    padding: 10px;
     
     font-size: 1.2em;
-}
-
-.large {
-    padding: 8px;
-    
-    font-size: 1.3em;
 }

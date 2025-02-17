@@ -27,7 +27,7 @@ class customerController {
       );
 
       if (result) {
-        return res.status(200).json({ message: result });
+        return res.status(200).json({ "customer": result });
       }
       res.status(400).json({ message: "Unauthorized" });
     } catch (error) {

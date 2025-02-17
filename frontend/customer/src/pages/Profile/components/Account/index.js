@@ -1,21 +1,22 @@
 import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCurrentCustomer, setCredentials } from "../../../../features/auth/authSlice";
+import { selectCurrentCustomer, setCustomer } from "../../../../features/auth/authSlice";
 import { FaImages } from "react-icons/fa";
 import Input from "../../../../components/Input";
+import Button from "../../../../components/Button";
 import { useEffect, useState } from "react";
 import { useUpdateCustomerMutation } from "../../../../features/customer/customerApi";
 import OptionModal from "../../../../components/OptionModal";
 
 function Account() {
-  let customer = useSelector(selectCurrentCustomer);
   const dispatch = useDispatch();
+  const customer = useSelector(selectCurrentCustomer);
   const [updateCustomer, { isLoading }] = useUpdateCustomerMutation();
 
-  const [avatar, setAvatar] = useState(customer?.avatar);
-  const [fullname, setFullname] = useState(customer?.fullname);
-  const [phoneNumber, setPhoneNumber] = useState(customer?.phone_number);
-  const [address, setAddress] = useState(customer?.address);
+  const [avatar, setAvatar] = useState(customer?.avatar || "");
+  const [fullname, setFullname] = useState(customer?.fullname || "");
+  const [phoneNumber, setPhoneNumber] = useState(customer?.phone_number || "");
+  const [address, setAddress] = useState(customer?.address || "");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [optionState, setOptionState] = useState({
     isClicked: false,
@@ -41,30 +42,35 @@ function Account() {
 
   const handleChangeSubmit = async () => {
     try {
+      const _id = customer?._id
       const updatedCustomer = {
-        ...customer,
+        _id,
         avatar,
         fullname,
         address,
         phoneNumber,
       };
 
-      console.log(1, updatedCustomer);
-
       const result = await updateCustomer({ ...updatedCustomer });
       console.log(result);
       
-      if (result) {
-        setIsModalOpen(true);
+      setIsModalOpen(true);
+      if (result?.data) {
         setOption({
           title: "Success",
           content: "Your changes are saved!",
           type: "close",
         });
-        console.log(2, result);
         
-        customer = result?.data?.message;
-        dispatch(setCredentials({ ...customer}))
+        await dispatch(setCustomer({ customer: result?.data?.customer }))
+
+      } else if (result?.error){
+        setOption({
+          title: "Failed",
+          content: "There is something wrong when saving your changes! Please try again",
+          type: "close",
+        });
+
       }
     } catch (error) {
       console.error(error);
@@ -112,7 +118,7 @@ function Account() {
                   <Input
                     type="text"
                     id="customer"
-                    value={customer?.username}
+                    value={customer?.username || ""}
                     disabled
                   />
                 </div>
@@ -151,9 +157,9 @@ function Account() {
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
-            <button
+            <Button
               type="button"
-              className="btn btn-primary col-md-2 col-sm-12"
+              className="small col-md-2 col-sm-12"
               onClick={(e) => {
                 e.preventDefault();
                 setIsModalOpen(true);
@@ -165,7 +171,7 @@ function Account() {
               }}
             >
               Save change
-            </button>
+            </Button>
           </div>
         </form>
       </div>

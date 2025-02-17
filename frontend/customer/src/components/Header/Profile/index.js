@@ -1,18 +1,20 @@
+import './index.scss'
 import { useDispatch } from "react-redux";
 import { logOut } from "../../../features/auth/authSlice";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
 import { FaRegUserCircle } from "react-icons/fa";
-function Profile({ customer }) {
-    const dispatch = useDispatch();
+import Button from "../../Button";
+
+function Profile() {
+  const dispatch = useDispatch();
   return (
-    <div>
-        <Link to="/profile/info">
-      <Button className="circle me-3">
+    <div className="header-profile">
+      <Link className='profile-link' to="/profile/info">
         <FaRegUserCircle />
+      </Link>
+      <Button className="small" onClick={() => dispatch(logOut())}>
+        Logout
       </Button>
-    </Link>
-    <Button  onClick={() => dispatch(logOut())}>Logout</Button>
     </div>
   );
 }

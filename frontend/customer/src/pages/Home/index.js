@@ -26,7 +26,6 @@ export default function Home() {
       try {
 
         const response = await axios.get("/product")
-        console.log(response.data);
         isMounted && setProductList(response.data);
       } catch (error) {
         console.log(error);
