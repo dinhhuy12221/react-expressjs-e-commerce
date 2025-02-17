@@ -3,7 +3,7 @@ import "./index.scss";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 
-function InputField({ className, type, value, onChange, disabled }) {
+function Input({ className, type, value, onChange, disabled }) {
   const [isShowed, setIsShowed] = useState(false);
   let EyeIcon = isShowed ? IoEye : IoEyeOff;
 
@@ -19,14 +19,12 @@ function InputField({ className, type, value, onChange, disabled }) {
     setIsShowed(!isShowed);
   };
 
-  console.log(22);
   
-
   return (
     <div className="input-field">
       {type === "password" ? (
         <>
-          <input {...props}  type={isShowed ? 'text' : 'password'} />
+          <input {...props} type={isShowed ? 'text' : 'password'} />
           <span className="password-icon">
             <EyeIcon onClick={handleShow} />
           </span>
@@ -38,4 +36,4 @@ function InputField({ className, type, value, onChange, disabled }) {
   );
 }
 
-export default memo(InputField);
+export default memo(Input);

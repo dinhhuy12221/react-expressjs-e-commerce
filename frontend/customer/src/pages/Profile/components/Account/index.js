@@ -1,8 +1,8 @@
-import "./index.css";
+import "./index.scss";
 import { useSelector } from "react-redux";
 import { selectCurrentCustomer } from "../../../../features/auth/authSlice";
 import { FaImages } from "react-icons/fa";
-import InputField from "../../../../components/InputField";
+import Input from "../../../../components/Input";
 import { useEffect, useState } from "react";
 import { useUpdateCustomerMutation } from "../../../../features/customer/customerApi";
 import OptionModal from "../../../../components/OptionModal";
@@ -16,7 +16,12 @@ function Account() {
   const [phoneNumber, setPhoneNumber] = useState(customer?.phone_number);
   const [address, setAddress] = useState(customer?.address);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [option, setOption] = useState({ isClicked: false, option: false });
+  // const [isModalNotifyOpen, setIsModalNotifyOpen] = useState(false);
+  const [optionState, setOptionState] = useState({
+    isClicked: false,
+    state: false,
+  });
+  const [option, setOption] = useState({ title: "", content: "", type: "" });
 
   const handleImageUpload = (e) => {
     const files = e.target.files;
@@ -34,10 +39,6 @@ function Account() {
     }
   };
 
-  const handleOption = (isClicked, option) => {
-    setOption({ isClicked, option })
-  }
-
   const handleChangeSubmit = async () => {
     try {
       const updatedCustomer = {
@@ -50,28 +51,35 @@ function Account() {
 
       console.log(updatedCustomer);
 
-      // const result = await updateCustomer({ ...updatedCustomer });
-      // if (result) {
-      // }
-      
+      const result = await updateCustomer({ ...updatedCustomer });
+      if (result) {
+        setIsModalOpen(true);
+        setOption({
+          title: "Success",
+          content: "Your changes are saved!",
+          type: "cancel",
+        });
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
-  useEffect(() => {
-    if (option.isClicked) {
-      setIsModalOpen(false);
-      if (option.option) {
-        handleChangeSubmit();
-      }
+  const handleOption = (isClicked, state) => {
+    setOptionState({ isClicked, state });
+    if (optionState.state) {
+      handleChangeSubmit();
     }
-  }, [option])
+  };
+
+  useEffect(() => {
+    if (optionState.isClicked) {
+      setIsModalOpen(false);
+    }
+  }, [optionState]);
 
   return (
     <>
-      
-
       <div className="profile-info">
         <form className="row">
           <div className="col-md-6">
@@ -95,7 +103,7 @@ function Account() {
                   <label htmlFor="customer" className="form-label">
                     Username
                   </label>
-                  <InputField
+                  <Input
                     type="text"
                     id="customer"
                     value={customer?.username}
@@ -106,7 +114,7 @@ function Account() {
                   <label htmlFor="fullname" className="form-label">
                     Fullname
                   </label>
-                  <InputField
+                  <Input
                     type="text"
                     id="fullname"
                     value={fullname}
@@ -119,7 +127,7 @@ function Account() {
               <label htmlFor="phone-number" className="form-label">
                 Phone number
               </label>
-              <InputField
+              <Input
                 type="number"
                 id="phone-number"
                 value={phoneNumber}
@@ -130,7 +138,7 @@ function Account() {
               <label htmlFor="address" className="form-label">
                 Address
               </label>
-              <InputField
+              <Input
                 type="text"
                 id="address"
                 value={address}
@@ -142,7 +150,12 @@ function Account() {
               className="btn btn-primary col-md-2 col-sm-12"
               onClick={(e) => {
                 e.preventDefault();
-                setIsModalOpen(true)
+                setIsModalOpen(true);
+                setOption({
+                  title: "Save change",
+                  content: "Are you sure to save these recently changes?",
+                  type: "yes_no",
+                });
               }}
             >
               Save change
@@ -153,9 +166,9 @@ function Account() {
 
       {isModalOpen && (
         <OptionModal
-          title="Save change"
-          content="Are you sure to save these recently changes?"
-          optionType={"yes_no"}
+          title={option.title}
+          content={option.content}
+          optionType={option.type}
           handleOption={handleOption}
         />
       )}
