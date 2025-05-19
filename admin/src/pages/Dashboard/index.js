@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import DashboardBox from "./components/dashboardBox";
+import DashboardBox from "./components/DashboardBox";
 import { FaUserCircle } from "react-icons/fa";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { IoBagHandleSharp } from "react-icons/io5";
@@ -14,12 +14,10 @@ import { FaEye } from "react-icons/fa";
 import { IoPencil } from "react-icons/io5";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
-import InputLabel from "@mui/material/InputLabel";
-import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
-import { MyContext } from "../../App";
+import { AdminContext } from "../..";
 
 const data = [
   ["Year", "Sales", "Expenses"],
@@ -60,7 +58,7 @@ export default function Dashboard() {
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
 
-  const context = useContext(MyContext);
+  const context = useContext(AdminContext);
 
   useEffect(() => {
     context.setIsHideSidebarAndHeader(false);

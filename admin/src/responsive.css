@@ -41,13 +41,6 @@
     z-index: 1000;
   }
 
-  .main .sidebarWrapper .sidebar {
-    width: 100% !important;
-    position: relative !important;
-    top: 0px !important;
-    max-height: inherit !important;
-  }
-
   .main .content {
     width: 100% !important;
     flex: 0 0 100% !important;

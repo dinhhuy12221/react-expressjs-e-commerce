@@ -3,47 +3,19 @@ import DashboardBox from "./components/dashboardBox";
 import { FaUserCircle } from "react-icons/fa";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { IoBagHandleSharp } from "react-icons/io5";
-import { MdOutlineStar } from "react-icons/md";
-import { IoTimerOutline } from "react-icons/io5";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Button from "@mui/material/Button";
-import { HiOutlineDotsVertical } from "react-icons/hi";
-import { Chart } from "react-google-charts";
 import { FaEye } from "react-icons/fa";
 import { IoPencil } from "react-icons/io5";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-
-import InputLabel from "@mui/material/InputLabel";
-import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
-import { MyContext } from "../../App";
-import { emphasize, styled } from "@mui/material/styles";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Chip from "@mui/material/Chip";
-import HomeIcon from "@mui/icons-material/Home";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { AdminContext } from "../..";
+
 
 import { Link } from "react-router-dom";
-
-const StyledBreadcrumb = styled(Chip)(({ theme }) => {
-  const backgroundColor = (theme.palette.mode = "#112143");
-  return {
-    backgroundColor,
-    height: theme.spacing(3),
-    color: "rgba(255,255,255,0.7)",
-    fontWeight: theme.typography.fontWeightRegular,
-    "&:hover, &:focus": {
-      backgroundColor: emphasize(backgroundColor, 0.06),
-    },
-    "&:active": {
-      boxShadow: theme.shadows[1],
-      backgroundColor: emphasize(backgroundColor, 0.12),
-    },
-  };
-}); // TypeScript only: need a type cast here because https://github.com/Microsoft/TypeScript/issues/26591
+import Breadcrumb from "../../components/Breadcrumb";
+import { MenuItem } from "@mui/material";
+import { Button } from "bootstrap";
 
 function handleClick(event) {
   event.preventDefault();
@@ -84,11 +56,7 @@ export default function Products() {
   const [showBy, setShowBy] = useState("");
   const [showByCat, setShowByCat] = useState("");
 
-  const options1 = ["Last Day", "Last Week", "Last Month", "Last Year"];
-  const ITEM_HEIGHT = 48;
-  const open = Boolean(anchorEl);
-
-  const context = useContext(MyContext);
+  const context = useContext(AdminContext);
 
   useEffect(() => {
     context.setIsHideSidebarAndHeader(false);
@@ -116,7 +84,7 @@ export default function Products() {
             role="presentation"
             onClick={handleClick}
           >
-            <Breadcrumbs aria-label="breadcrumb">
+            {/* <Breadcrumbs aria-label="breadcrumb">
               <StyledBreadcrumb
                 href="/dashboard"
                 label="Dashboard"
@@ -130,7 +98,20 @@ export default function Products() {
                 label="Products"
                 icon={<HomeIcon fontSize="small" />}
               />
-            </Breadcrumbs>
+            </Breadcrumbs> */}
+            <Breadcrumb
+              title="Product List"
+              path={[
+                {
+                  name: "Dashboard",
+                  to: "/dashboard",
+                },
+                {
+                  name: "Product List",
+                  to: "/product/",
+                },
+              ]}
+            />
           </div>
         </div>
         <div className="row dashboardBoxWrapperRow dashboardBoxWrapperRowV2">

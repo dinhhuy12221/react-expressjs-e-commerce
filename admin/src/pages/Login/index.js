@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { MyContext } from "../../App";
+import { AdminContext } from "../..";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
@@ -7,10 +7,10 @@ import { BiSolidHide } from "react-icons/bi";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function AdminLogin() {
   const [inputIndex, setInputIndex] = useState(null);
   const [isShowPassword, setIsShowPassword] = useState(false);
-  const context = useContext(MyContext);
+  const context = useContext(AdminContext);
 
   useEffect(() => {
     context.setIsHideSidebarAndHeader(true);

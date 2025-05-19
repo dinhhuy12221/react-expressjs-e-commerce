@@ -1,0 +1,45 @@
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    box-sizing: border-box;
+
+    width: auto;
+
+    border-radius: 8px;
+
+    background-color: var(--theme-2);
+    color: rgba(255, 255, 255);
+
+    font-weight: 600;
+
+    user-select: none;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
+
+.small {
+    padding: 6px;
+    
+    font-size: 1em;
+}
+
+.medium {
+    padding: 8px;
+    
+    font-size: 1.1em;
+}
+
+.large {
+    padding: 10px;
+    
+    font-size: 1.2em;
+}

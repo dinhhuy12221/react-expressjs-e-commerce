@@ -52,6 +52,14 @@ body.dark span {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
 p {
   font-weight: 400;
   font-size: 15px;
@@ -441,180 +449,6 @@ body.dark .dropdown_list li.MuiButtonBase-root {
   display: block !important;
 }
 
-.main .sidebarWrapper .sidebar {
-  width: 18vw;
-  height: 100vh;
-  max-height: calc(100% - 70px);
-  position: fixed;
-  top: 70px;
-  left: 0px;
-  background: #fff;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding-bottom: 40px;
-  transition: all 0.3s ease-in-out;
-}
-
-body.dark .main .sidebarWrapper .sidebar {
-  background: #12254e !important;
-}
-
-.main .sidebarWrapper.toggle .sidebar {
-  left: -100%;
-  opacity: 0;
-}
-
-.main .sidebarWrapper .sidebar::-webkit-scrollbar {
-  width: 3px !important;
-}
-
-.main .sidebarWrapper .sidebar::-webkit-scrollbar-thumb {
-  background: transparent !important;
-}
-
-.main .sidebarWrapper:hover .sidebar::-webkit-scrollbar {
-  background: #0858f7 !important;
-}
-
-.main .sidebarWrapper .sidebar ul {
-  margin-bottom: 0px;
-  padding: 10px 15px;
-}
-
-.main .sidebarWrapper .sidebar ul li {
-  list-style: none;
-}
-
-.main .sidebarWrapper .sidebar ul li button {
-  color: #5e5d72 !important;
-  background: #fff !important;
-  border-radius: 5px !important;
-  padding: 12px 0px 12px 15px !important;
-  font-weight: 700 !important;
-  font-size: 15px !important;
-  text-transform: capitalize !important;
-  font-family: "Open Sans", sans-serif !important;
-}
-
-body.dark .main .sidebarWrapper .sidebar ul li button {
-  background: #12254e !important;
-  color: #fff !important;
-  opacity: 0.9 !important;
-}
-
-.main .sidebarWrapper .sidebar ul li button * {
-  color: #5e5d72 !important;
-}
-.main .sidebarWrapper .sidebar ul li button .icon {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
-  font-weight: 600 !important;
-}
-/* 
-.main .sidebarWrapper .sidebar ul li button .icon svg {
-  color: #000;
-  opacity: 0.7;
-  font-size: 20px !important;
-} */
-
-body.dark .main .sidebarWrapper .sidebar ul li button * {
-  color: #fff !important;
-}
-
-.main .sidebarWrapper .sidebar ul li button .arrow {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  transition: all 0.3s ease-in-out;
-  transform: rotate(0deg);
-}
-
-.main .sidebarWrapper .sidebar ul li button .arrow svg {
-  color: #000;
-  opacity: 0.7;
-  font-size: 14px !important;
-}
-
-.main .sidebarWrapper .sidebar ul li button:hover {
-  background: #f1f1f1 !important;
-}
-
-body.dark .main .sidebarWrapper .sidebar ul li button:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-}
-
-.main .sidebarWrapper .sidebar ul li button.active {
-  background: #f1f1f1 !important;
-}
-
-body.dark .main .sidebarWrapper .sidebar ul li button.active {
-  background: rgba(255, 255, 255, 0.1) !important;
-}
-
-.main .sidebarWrapper .sidebar ul li button.active .arrow {
-  transform: rotate(90deg);
-}
-
-.main .sidebarWrapper .sidebar ul li .submenu {
-  padding: 0px 0px 0px 27px !important;
-  overflow: hidden;
-}
-.main .sidebarWrapper .sidebar ul li .submenu li {
-  width: 100%;
-  list-style: none;
-  padding: 10px 0px !important;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 5px 5px 25px !important;
-}
-
-.main .sidebarWrapper .sidebar ul li .submenu li a {
-  color: #5e5d72 !important;
-  text-decoration: none;
-  display: block;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  transition: all 0.3s ease-in-out;
-}
-
-body.dark .main .sidebarWrapper .sidebar ul li .submenu li a {
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-
-.main .sidebarWrapper .sidebar ul li .submenu li:hover {
-  border-left: 1px solid #0858f7 !important;
-  a {
-    color: #0858f7 !important;
-  }
-}
-
-body.dark .main .sidebarWrapper .sidebar ul li .submenu li:hover a {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-.main .sidebarWrapper .sidebar ul .submenuWrapper .submenu {
-  transition: 0.3s ease-in-out !important;
-}
-.main .sidebarWrapper .sidebar ul li .submenuWrapper.colapsed .submenu {
-  height: 0px;
-}
-.main .sidebarWrapper .sidebar ul li .submenuWrapper.colapsed .submenu {
-  opacity: 0;
-}
-
-.main .sidebarWrapper .sidebar ul li .submenuWrapper.colapse .submenu {
-  height: auto;
-}
-.main .sidebarWrapper .sidebar ul li .submenuWrapper.colapse .submenu {
-  opacity: 1;
-}
-
 .logoutWrapper {
   padding: 0px 25px;
 }
@@ -686,8 +520,7 @@ body.dark .logoutWrapper .logoutBox {
 }
 
 .right-content {
-  padding: 70px 15px 75px 30px;
-  flex: 0 0 80%;
+  padding: 70px 45px 0px 30px;
   max-width: 100%;
 }
 
@@ -1193,25 +1026,7 @@ body.dark .signUpSection .box .wrapper .MuiFormControlLabel-label {
   color: #fff !important;
 }
 
-/* -------------- Products -------------- */
 
-.path ol li div {
-  color: #616161 !important;
-  background: #fafafa !important;
-}
-
-.path ol li svg {
-  color: #616161 !important;
-}
-
-body.dark .path ol li div {
-  color: #b8bdc8 !important;
-  background: #112143 !important;
-}
-
-body.dark .path ol li svg {
-  color: #b8bdc8 !important;
-}
 
 /* -------------- Product Details -------------- */
 
@@ -1389,135 +1204,4 @@ body.dark .reviewForm textarea {
   background-color: #132345 !important;
   color: rgba(255, 255, 255, 0.6) !important;
   border: 1px solid #0b1a3a !important;
-}
-
-/* -------------- Product View -------------- */
-
-.form .form-group {
-  margin-bottom: 25px;
-}
-
-.form .form-group h6 {
-  margin-bottom: 8px;
-  font-size: 13px;
-}
-
-.form .form-group input,
-.form .form-group textarea {
-  background: #fafafa;
-  width: 100%;
-  outline: none !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  height: 58px;
-  padding-left: 15px;
-  border-radius: 5px;
-  font-size: 15px;
-}
-
-.form .form-group textarea {
-  height: 140px !important;
-  padding: 7px 10px !important;
-}
-
-body.dark .form .form-group input,
-body.dark .form .form-group textarea {
-  background: #132345 !important;
-  border: 1px solid #434f68 !important;
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-.form .MuiSelect-select {
-  border: 1px solid #c4c4c4 !important;
-  color: #4d4b62 !important;
-}
-
-body.dark .form .MuiSelect-select {
-  border: 1px solid #0b1a3a !important;
-  color: #d2d5db !important;
-}
-
-.form .form-group .MuiRating-root span {
-  color: #faaf00 !important;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox {
-  position: relative;
-  width: 148px;
-  height: 148px;
-  border: 1px dashed #55637f;
-  border-radius: 10px;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .box {
-  width: fit-content;
-  height: auto;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .remove {
-  position: absolute;
-  top: -13px;
-  right: -9px;
-  cursor: pointer;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .remove svg {
-  width: 18px;
-  height: 18px;
-  border-radius: 100%;
-  background: red;
-  color: #fff !important;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .fileChooser {
-  position: absolute;
-  background: transparent;
-  color: transparent;
-  opacity: 0.7;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  cursor: pointer;
-}
-
-.imagesUploadSec
-  .imgUploadBox
-  .uploadBox
-  .fileChooser::-webkit-file-upload-button {
-  display: none;
-}
-
-.imagesUploadSec .imgUploadBox .uploadBox .info {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #fafafa !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.2s ease-in;
-
-  svg {
-    color: #69758e !important;
-    font-size: 35px;
-  }
-  h5 {
-    font-size: 15px;
-    color: #69758e !important;
-    opacity: 0.5 !important;
-  }
-}
-
-body.dark .imagesUploadSec .imgUploadBox .uploadBox .info {
-  background: #2c3c5e !important;
 }

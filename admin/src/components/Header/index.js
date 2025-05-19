@@ -24,7 +24,7 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { MyContext } from "../../App";
+import { AdminContext } from "../..";
 import UserAvatarImg from "../UserAvatarImg";
 
 export default function Header() {
@@ -33,7 +33,7 @@ export default function Header() {
   const openMyAcc = Boolean(anchorEl);
   const openNotifications = Boolean(isOpenNotificationDrop);
 
-  const context = useContext(MyContext);
+  const context = useContext(AdminContext);
 
   const handleOpenMyAccDrop = (event) => {
     setAnchorEl(event.currentTarget);
@@ -371,11 +371,11 @@ export default function Header() {
                     className="myAcc d-flex align-items-center"
                     onClick={handleOpenMyAccDrop}
                   >
-                    <UserAvatarImg
+                    {/* <UserAvatarImg
                       imgUrl={
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ"
                       }
-                    />
+                    /> */}
 
                     <div className="userInfo res-hide">
                       <h4>aLue</h4>

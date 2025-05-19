@@ -9,16 +9,19 @@ import { IoMdNotifications } from "react-icons/io";
 import { IoMdSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
-import { MyContext } from "../../App";
+import { AdminContext } from "../..";
+import { BiSolidCategory } from "react-icons/bi";
+
+import './index.css'
 
 export default function Sidebar() {
   const [activeTab, setActiveTab] = useState(0);
   const [isToggleSubmenu, setIsToggleSubmenu] = useState(false);
 
-  const context = useContext(MyContext);
+  const context = useContext(AdminContext);
 
   const isOpenSubmenu = (index) => {
-    setActiveTab((a) => (a = index));
+    setActiveTab(index);
     setIsToggleSubmenu(!isToggleSubmenu);
   };
   return (
@@ -46,7 +49,7 @@ export default function Sidebar() {
           <li>
             <Button
               className={`w-100 ${
-                activeTab === 1 && isToggleSubmenu === true ? "active" : ""
+                activeTab === 1 && isToggleSubmenu ? "active" : ""
               }`}
               onClick={() => isOpenSubmenu(1)}
             >
@@ -70,7 +73,7 @@ export default function Sidebar() {
                   <Link to="/products">Product List</Link>
                 </li>
                 <li>
-                  <Link to="/product/details">Product View</Link>
+                  <Link to="/product/view">Product View</Link>
                 </li>
                 <li>
                   <Link to="/product/upload">Product Upload</Link>
@@ -79,27 +82,14 @@ export default function Sidebar() {
             </div>
           </li>
           <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}>
+            <Link to="/categories">
+              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(2)}>
                 <span className="icon">
-                  <IoCartSharp />
+                <BiSolidCategory />
                 </span>
-                Orders
+                Categories
                 <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}>
-                <span className="icon">
-                  <RiMessage2Fill />
-                </span>
-                Messages
-                <span className="arrow">
-                  <IoIosArrowForward />
                 </span>
               </Button>
             </Link>
@@ -108,9 +98,9 @@ export default function Sidebar() {
             <Link to="/">
               <Button className={`w-100 ${activeTab === 3 ? "active" : ""}`}>
                 <span className="icon">
-                  <IoMdNotifications />
+                  <IoCartSharp />
                 </span>
-                Notifications
+                Orders
                 <span className="arrow">
                   <IoIosArrowForward />
                 </span>
@@ -121,58 +111,6 @@ export default function Sidebar() {
             <Link to="/">
               <Button className={`w-100 ${activeTab === 4 ? "active" : ""}`}>
                 <span className="icon">
-                  <IoMdSettings />
-                </span>
-                Settings
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 5 ? "active" : ""}`}>
-                <span className="icon">
-                  <MdDashboard />
-                </span>
-                Dashboard
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 6 ? "active" : ""}`}>
-                <span className="icon">
-                  <BsFillXDiamondFill />
-                </span>
-                Products
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 7 ? "active" : ""}`}>
-                <span className="icon">
-                  <IoCartSharp />
-                </span>
-                Orders
-                <span className="arrow">
-                  <IoIosArrowForward />
-                </span>
-              </Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <Button className={`w-100 ${activeTab === 8 ? "active" : ""}`}>
-                <span className="icon">
                   <RiMessage2Fill />
                 </span>
                 Messages
@@ -184,7 +122,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 9 ? "active" : ""}`}>
+              <Button className={`w-100 ${activeTab === 5 ? "active" : ""}`}>
                 <span className="icon">
                   <IoMdNotifications />
                 </span>
@@ -197,7 +135,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 10 ? "active" : ""}`}>
+              <Button className={`w-100 ${activeTab === 6 ? "active" : ""}`}>
                 <span className="icon">
                   <IoMdSettings />
                 </span>

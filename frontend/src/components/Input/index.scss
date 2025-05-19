@@ -1,0 +1,45 @@
+.input-field {
+  position: relative;
+
+  height: 35px;
+
+  input {
+    position: absolute;
+
+    outline: none;
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    padding: 5px 12px;
+
+    &:focus {
+      border: 1px solid blue;
+    }
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .password-icon {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+
+    width: 35px;
+    height: 100%;
+
+    right: 0;
+
+    svg {
+      width: fit-content;
+      cursor: pointer;
+    }
+  }
+}
