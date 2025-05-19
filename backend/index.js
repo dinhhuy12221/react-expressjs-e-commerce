@@ -5,11 +5,8 @@ import route from "./routes/index.js";
 import corsOptions from "./config/corsOptions.js";
 import cookieParser from "cookie-parser";
 import credentials from './middlewares/credentials.js'
-// import fs from "fs"
-// import path from "path"
 import dbConnect from "./config/dbConnect.js";
 import "dotenv/config";
-import verifyJWT from "./middlewares/verifyJWT.js";
 
 dbConnect();
 

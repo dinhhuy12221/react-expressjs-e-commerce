@@ -39,7 +39,7 @@ export default function Navigation() {
             <div className='row'>
                 <div className='col-sm-2 navPart1'>
                     <div ref={sideBarRef} className="catWrapper">
-                        <Button className='allCatTab' 
+                        <Button className='allCatTab'
                         onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}>
                             <span className='text'>
                                 <MdMenu className="icon"/>
