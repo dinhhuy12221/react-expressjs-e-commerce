@@ -80,29 +80,32 @@ nav .navPart1 .catWrapper .sidebarNav ul li:hover .submenu button {
 }
 
 nav .allCatTab {
-  background: rgba(255, 0, 0, 0.61);
   padding: 10px 15px !important;
   border-radius: 30px !important;
-}
 
-nav .allCatTab * {
   color: #fff;
+  background: rgba(255, 0, 0, 0.61);
+
+  .text {
+    display: flex;
+    align-items: center;
+
+    font-weight: 600;
+
+    .icon {
+      box-sizing: content-box;
+
+      padding-bottom: 2px;
+
+      font-size: 20px;
+    }
+
+    &:hover {
+      background: rgba(255, 0, 0, 0.81);
+    }
+  }
 }
 
-nav .allCatTab:hover {
-  background: rgba(255, 0, 0, 0.81);
-}
-
-nav .allCatTab .text {
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-}
-
-nav .allCatTab svg.icon {
-    height: 100%;
-    font-size: 20px !important;
-}
 nav .navPart2 ul {
   margin-bottom: 0px;
 }
