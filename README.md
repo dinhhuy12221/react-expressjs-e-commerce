@@ -7,7 +7,9 @@ A full-featured E-commerce web application built with the **MERN Stack** (MongoD
 ## 📚 Tutorial Source
 
 This project was built for learning purposes by following the YouTube tutorial series by **Advanced UI Techniques** (https://www.youtube.com/@rinkuv37):
+
 🔗 [E-Commerce Website Playlist (2024)](https://www.youtube.com/playlist?list=PLhFBHuT4t3aBL59pIGo13H4tUVzS_GlYm)
+
 🔗 [React  Js Dashboard Tutorial | React Responsive Admin Dashboard with Material UI](https://www.youtube.com/playlist?list=PLhFBHuT4t3aApRKcTgTi3Sfu6zudkg7bW)
 
 ---
