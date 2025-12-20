@@ -8,8 +8,8 @@ import './index.css'
 
 export default function HomeBanner() {
   return (
-    <div className="container mt-2">
-      <div className="home-banner-section">
+    <div className="home-banner-section mt-3">
+      <div className="container">
         <Swiper
           slidesPerView={1}
           spaceBetween={20}

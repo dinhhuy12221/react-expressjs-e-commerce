@@ -30,14 +30,14 @@ export default function HomeCat() {
     "#f2fce4",
     "#feefea",
   ]);
-  const [numberOfItems, setNumberOfItems] = useState(10);
+  const [numberOfItems, setNumberOfItems] = useState(8);
 
   useEffect(() => {
     const handleNumberOfItems = () => {
       const windowWidth = window.innerWidth;
 
       if (windowWidth > 1300) {
-        setNumberOfItems(10)
+        setNumberOfItems(8)
       } else if (windowWidth > 800) {
         setNumberOfItems(6)
       } else {
@@ -54,7 +54,6 @@ export default function HomeCat() {
   return (
     <section className="homeCat">
       <div className="container">
-        <h3 className="mb-3 hd">Featured Categories</h3>
         <Swiper
           slidesPerView={numberOfItems}
           slidesPerGroup={1}
@@ -64,7 +63,6 @@ export default function HomeCat() {
           pagination={{
             clickable: true,
           }}
-          className="mySwiper"
         >
           {itemBg?.map((item, index) => {
             return (

@@ -5,7 +5,7 @@
   .side-banner {
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: 1000px;
 
     .banner {
       overflow: hidden;
