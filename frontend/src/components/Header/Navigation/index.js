@@ -6,10 +6,10 @@ import { FaAngleRight } from "react-icons/fa6";
 
 import { Link } from 'react-router-dom'
 import { useState } from "react";
-
-import './index.css'
 import { useRef } from "react";
 import { useEffect } from "react";
+
+import './index.css'
 
 export default function Navigation() {
 
@@ -75,8 +75,8 @@ export default function Navigation() {
                         </div>
                     </div>
                 </div>
-                <div className='col-sm-9 navPart2 d-flex align-items-center'>
-                    <ul className="list list-inline ms-auto">
+                <div className='col-sm-8 navPart2 d-flex justify-content-center'>
+                    <ul className="list list-inline">
                         <li className="list-inline-item">
                             <Link to='/'><Button>Home</Button></Link>
                         </li>

@@ -1,40 +1,42 @@
-
 .home-banner-section {
-    position: relative;
+  .container {
+    width: 884px;
+    margin-left: 630px;
   }
-  .home-banner-section .swiper {
-    overflow: inherit !important;
+  .item {
+    overflow: hidden;
   }
-  .home-banner-section * {
-    outline: none !important;
-  }
+}
 
-  .home-banner-section .swiper-button-prev {
-    left: 3px !important;
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    border-radius: 50%;
-    background: rgba(255, 0, 0, 0.61);
-  }
-  .home-banner-section .swiper-button-next {
-    right: 3px !important;
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    border-radius: 50%;
-    background: rgba(255, 0, 0, 0.61);
-  }
-  .home-banner-section .swiper-button-prev::after {
-    font-size: 16px !important;
-    color: #fff !important;
-  }
-  .home-banner-section .swiper-button-next::after {
-    font-size: 16px !important;
-    color: #fff !important;
-  }
+.home-banner-section .swiper {
+  border-radius: 25px;
+  overflow: hidden !important;
+}
+.home-banner-section * {
+  outline: none !important;
+}
 
-  .home-banner-section .item img {
-    height: auto;
-    width: 100%;
-  } 
+.home-banner-section .swiper-button-prev {
+  left: 10px !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.61);
+}
+.home-banner-section .swiper-button-next {
+  right: 10px !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.61);
+}
+.home-banner-section .swiper-button-prev::after {
+  font-size: 16px !important;
+  color: #fff !important;
+}
+.home-banner-section .swiper-button-next::after {
+  font-size: 16px !important;
+  color: #fff !important;
+}
