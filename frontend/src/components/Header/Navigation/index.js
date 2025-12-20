@@ -75,7 +75,7 @@ export default function Navigation() {
                         </div>
                     </div>
                 </div>
-                <div className='col-sm-8 navPart2 d-flex justify-content-center'>
+                <div className='col-sm-9 navPart2 d-flex justify-content-center'>
                     <ul className="list list-inline">
                         <li className="list-inline-item">
                             <Link to='/'><Button>Home</Button></Link>
