@@ -106,8 +106,10 @@ nav .allCatTab {
 nav .navPart2 ul {
   margin-bottom: 0px;
   display: flex;
-  justify-content: center;
+  gap: 15px;
   align-items: center;
+
+  margin-right: 10px;
 }
 nav .navPart2 ul li a {
   text-decoration: none;

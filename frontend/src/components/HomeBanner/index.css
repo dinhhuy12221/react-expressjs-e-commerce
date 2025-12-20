@@ -1,10 +1,13 @@
 .home-banner-section {
   .container {
-    width: 884px;
-    margin-left: 630px;
+    width: 50%;
   }
   .item {
     overflow: hidden;
+
+    img {
+      width: 100%;
+    }
   }
 }
 
