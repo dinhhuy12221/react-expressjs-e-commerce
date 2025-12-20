@@ -1,6 +1,5 @@
 nav .navPart1 {
   max-width: 20%;
-  flex: 0 0 20%;
 }
 nav .navPart2 {
   max-width: 80%;
@@ -8,6 +7,8 @@ nav .navPart2 {
 
 nav .navPart1 .catWrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 nav .navPart1 .catWrapper .sidebarNav {
   width: 200px;
@@ -105,11 +106,10 @@ nav .allCatTab {
 nav .navPart2 ul {
   margin-bottom: 0px;
   display: flex;
-  justify-content: center;
+  gap: 15px;
   align-items: center;
-}
-nav .navPart2 ul li {
-  /* padding-bottom: 20px; */
+
+  margin-right: 10px;
 }
 nav .navPart2 ul li a {
   text-decoration: none;
