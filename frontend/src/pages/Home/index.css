@@ -2,6 +2,16 @@
   padding: 25px 0px 0px;
   width: 100%;
 
+  .view-all-btn {
+    color: rgba(0, 0, 0, 0.5) !important;
+
+    transition: 0.3s ease;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.9) !important;
+    }
+  }
+
   .side-banner {
     position: sticky;
     top: 0;

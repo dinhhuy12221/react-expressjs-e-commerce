@@ -2,6 +2,19 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 10px;
 
+  .header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .middle_header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 50%;
+  }
+
   .top-strip {
     padding: 8px 0px;
 
@@ -16,15 +29,9 @@
     width: 160px;
   }
 
-  .header {
-    width: 100%;
-    height: auto;
-  }
-
-  .part3 {
     .circle {
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       min-width: 40px !important;
       height: 40px !important;
       width: 40px !important;
@@ -74,5 +81,4 @@
 
       font-weight: 600;
     }
-  }
 }

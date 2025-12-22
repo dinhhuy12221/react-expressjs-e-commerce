@@ -9,7 +9,7 @@ import { MyContext } from "../../App";
 import { FaRegUserCircle } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
 
-import './index.css'
+import "./index.css";
 import { useSelector } from "react-redux";
 import { selectCurrentCustomer } from "../../features/auth/authSlice";
 import Profile from "./Profile";
@@ -19,7 +19,6 @@ function Header() {
   const customer = useSelector(selectCurrentCustomer);
 
   console.log(customer);
-  
 
   return (
     <>
@@ -32,49 +31,40 @@ function Header() {
             </p>
           </div>
         </div>
-
+        
         <header className="header">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="logoWrapper d-flex col-sm-2">
-                <Link to={"/"}>
-                  <img src={Logo} alt="Logo"></img>
-                </Link>
-              </div>
-
-              <div className="col-sm-10 d-flex align-items-center part2">
-                {context.countryList.length !== 0 && <CountryDropDown />}
-                {/* Header Search start here  */}
-                <SearchBox />
-                {/* Header Search ends here  */}
-
-                <div className="part3 d-flex align-items-center ml-auto">
-                  { !customer ? (
-                    <Link to="/login">
-                      <Button className="btn-red btn-round signin">
-                        Sign In
+          <div className="middle_header">
+            <div className="logoWrapper">
+              <Link to={"/"}>
+                <img src={Logo} alt="Logo"></img>
+              </Link>
+            </div>
+              {context.countryList.length !== 0 && <CountryDropDown />}
+              {/* Header Search start here  */}
+              <SearchBox />
+              {/* Header Search ends here  */}
+                {!customer ? (
+                  <Link to="/login">
+                    <Button className="btn-red btn-round signin">Sign In</Button>
+                  </Link>
+                ) : (
+                  <Profile customer={customer} />
+                )}
+  
+                <div className="ms-auto cartTab d-flex align-items-center">
+                  <span className="price">$55.5</span>
+                  <div className="position-relative me-2">
+                    <Link to={"/cart"}>
+                      <Button className="circle ms-3">
+                        <TiShoppingCart />
                       </Button>
                     </Link>
-                  ) : (
-                    <Profile customer={customer}/>
-                  )}
-
-                  <div className="ms-auto cartTab d-flex align-items-center">
-                    <span className="price">$55.5</span>
-                    <div className="position-relative me-2">
-                      <Link to={'/cart'}>
-                        <Button className="circle ms-3">
-                          <TiShoppingCart />
-                        </Button>
-                      </Link>
-                      <span className="count d-flex align-items-center justify-content-center">
-                        1
-                      </span>
-                    </div>
+                    <span className="count d-flex align-items-center justify-content-center">
+                      1
+                    </span>
                   </div>
                 </div>
-              </div>
-            </div>
+              
           </div>
         </header>
 

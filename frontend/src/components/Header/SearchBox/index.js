@@ -37,8 +37,8 @@ export default function SearchBox() {
     <div className='header-search ms-3 me-3'
       ref={searchResultRef}>
         <div className='search-bar'>
-          <input 
-            type='text' 
+          <input
+            type='text'
             placeholder='Search for products...'
             spellCheck={false}
             value={input}
