@@ -36,13 +36,13 @@ function Header() {
         <header className="header">
           <div className="container-fluid">
             <div className="row">
-              <div className="logoWrapper d-flex col-sm-2">
+              <div className="logoWrapper">
                 <Link to={"/"}>
                   <img src={Logo} alt="Logo"></img>
                 </Link>
               </div>
 
-              <div className="col-sm-10 d-flex align-items-center part2">
+              <div className="d-flex align-items-center part2">
                 {context.countryList.length !== 0 && <CountryDropDown />}
                 {/* Header Search start here  */}
                 <SearchBox />
