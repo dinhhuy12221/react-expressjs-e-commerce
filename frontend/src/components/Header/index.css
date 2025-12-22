@@ -5,9 +5,14 @@
   .header {
     display: flex;
     justify-content: center;
+  }
+
+  .middle_header {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
 
-    width: 75%;
+    width: 50%;
   }
 
   .top-strip {
@@ -24,10 +29,9 @@
     width: 160px;
   }
 
-  .part3 {
     .circle {
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       min-width: 40px !important;
       height: 40px !important;
       width: 40px !important;
@@ -77,5 +81,4 @@
 
       font-weight: 600;
     }
-  }
 }
