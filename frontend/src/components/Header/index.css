@@ -2,10 +2,12 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 10px;
 
-  .row {
+  .header {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    width: 75%;
   }
 
   .top-strip {
@@ -20,11 +22,6 @@
 
   .logoWrapper img {
     width: 160px;
-  }
-
-  .header {
-    width: 100%;
-    height: auto;
   }
 
   .part3 {
