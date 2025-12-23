@@ -16,9 +16,10 @@ nav .navPart1 .catWrapper .sidebarNav {
   opacity: 0;
   background: #fff;
   position: absolute;
-  top: 115%;
+  top: 125%;
   left: 0px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
   padding: 15px 0px;
   transition: all 0.2;
   z-index: 1000;
