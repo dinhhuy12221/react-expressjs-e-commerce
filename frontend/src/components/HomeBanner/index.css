@@ -1,6 +1,7 @@
 .home-banner-section {
   .container {
     width: 50%;
+    margin-left: 600px;
   }
   .item {
     overflow: hidden;
