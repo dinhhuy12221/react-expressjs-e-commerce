@@ -78,17 +78,17 @@ export default function ProductModal(props) {
 
             <div className="d-flex align-items-center">
               <QuantityBox quantity={1}/>
-              <Button className="bg-red btn-lg btn-big btn-round ms-2">
+              <Button className="bg-red btn--lg btn-round ms-2">
               <IoCartOutline className="me-2"/>Add to cart
               </Button>
             </div>
 
             <div className="d-flex align-items-center mt-5 actions">
-              <Button className="btn-round btn-sml" variant="outlined">
+              <Button className="btn-round btn--sm" variant="outlined">
                 <CiHeart />
                 &nbsp;ADD TO WISHSLIST
               </Button>
-              <Button className="btn-round btn-sml" variant="outlined">
+              <Button className="btn-round btn--sm" variant="outlined">
                 <MdCompareArrows />
                 &nbsp;COMPARE
               </Button>
