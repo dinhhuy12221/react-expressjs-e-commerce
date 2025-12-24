@@ -12,17 +12,19 @@
 :root {
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Lato", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-  --theme-1: rgba(255, 0, 0, 0.61);
+  --theme-1: #ff00009c;
   --theme-2: #ea2b0f;
+  --text-primary: #000000cc;
+  --text-md: 14px;
 }
 
 body {
   margin: 0;
   padding: 0;
+  color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.8);
-  overflow-x: hidden;
+  font-size: var(--text-md);
+  /* overflow-x: hidden; */
 }
 
 .container {
@@ -34,12 +36,12 @@ img {
 }
 
 .bg-red {
-  background-color: rgba(255, 0, 0, 0.61);
+  background: var(--theme-1);
   color: #fff;
   font-weight: bold;
 }
 .text-red {
-  color: #ea2b0f;
+  color: var(--theme-2);
 }
 
 .text-blue {
