@@ -107,8 +107,16 @@ img {
 }
 
 button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+
+    font-family: inherit;
+    font-weight: 500;
     text-transform: capitalize;
-    border: 1px solid transparent;
+    cursor: pointer;
+    border: none;
 }
 
 .btn--outlined {
@@ -129,10 +137,7 @@ button {
     text-transform: capitalize;
 }
 
-.btn-big {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
+.btn--lg {
     font-size: var(--font-md);
     padding: var(--space-sm) var(--space-2xl);
 

@@ -147,7 +147,7 @@ export default function ProductDetails() {
 
               <div className="d-flex align-items-center mt-3">
                 <QuantityBox quantity={1} />
-                <Button className="bg-red btn-big btn-round ms-1">
+                <Button className="bg-red btn--lg btn-round ms-1">
                   <IoCartOutline className="me-2" />
                   <span>Add to cart</span>
                 </Button>
@@ -155,12 +155,12 @@ export default function ProductDetails() {
 
               <div className="d-flex align-items-center mt-3">
                 <Tooltip title="Add to wishlist" placement="bottom">
-                  <Button className="bg-red btn-big btn-circle me-2">
+                  <Button className="bg-red btn--lg btn-circle me-2">
                     <CiHeart />
                   </Button>
                 </Tooltip>
                 <Tooltip title="Add to compare" placement="bottom">
-                  <Button className="bg-red btn-big btn-circle">
+                  <Button className="bg-red btn--lg btn-circle">
                     <MdOutlineCompareArrows />
                   </Button>
                 </Tooltip>
