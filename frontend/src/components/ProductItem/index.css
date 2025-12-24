@@ -80,7 +80,7 @@
         border: 1px solid rgba(0, 0, 0, 0.1) !important;
         border-radius: 50% !important;
 
-        background: #fff !important;
+        background: var(--color-on-primary);
 
         transition: all 0.1s ease !important;
 
@@ -89,17 +89,17 @@
 
           pointer-events: none;
 
-          font-size: 15px !important;
+          font-size: var(--font-md);
 
-          color: #000 !important;
+          color: #000;
         }
       }
 
       button:hover {
-        background: rgba(255, 0, 0, 0.61) !important;
+        background: var(--color-bg-primary);
 
         svg {
-          color: #fff !important;
+          color: var(--color-on-primary);
         }
       }
     }
