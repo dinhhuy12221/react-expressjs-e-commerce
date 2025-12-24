@@ -363,7 +363,7 @@ export default function Register() {
                 <a className="border-effect cursor">Forgot Password?</a>
                 <div className="d-flex align-items-center mt-2 mb-3">
                   <Button
-                    className="btn-red btn-lg btn--lg mt-3 w-100"
+                    className="btn-red btn--lg mt-3 w-100"
                     type="submit"
                     disabled={
                       !validUsername || !validMatch || !validMatch

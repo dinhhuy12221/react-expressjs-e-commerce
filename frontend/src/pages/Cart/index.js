@@ -114,7 +114,7 @@ export default function Cart() {
                   <span className="ms-auto text-red">$3.29</span>
                 </div>
 
-                <Button className="bg-red btn-lg btn--lg btn-round mt-3">
+                <Button className="bg-red btn--lg btn-round mt-3">
                   <IoCartOutline className="me-2" />
                   Checkout
                 </Button>

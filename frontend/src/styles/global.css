@@ -26,8 +26,8 @@ muted → variant
     --color-bg-primary-muted: #ea2b0f;
     --color-bg-success: #e5f8ed;
     --color-on-primary: #fff;
-    --color-on-success: #16b858;
     --color-text-primary: #000000cc;
+    --color-text-success: #16b858;
 
     --font-sm: 10px;
     --font-md: 14px;
@@ -96,12 +96,12 @@ img {
 
 .badge.bg-success {
     background: var(--color-bg-success);
-    color: var(--color-on-success);
+    color: var(--color-text-success);
 }
 
 .badge-success {
     background: var(--color-bg-success);
-    color: var(--color-on-success);
+    color: var(--color-text-success);
     font-weight: 500;
     font-size: var(--font-md);
 }
@@ -150,10 +150,8 @@ button {
     border-radius: var(--radius-md);
 }
 
-.btn-sml {
+.btn--sm {
     font-size: var(--font-md);
-    color: #000;
-    text-transform: capitalize;
 
     svg {
         font-size: var(--font-lg);
@@ -193,7 +191,7 @@ button {
 }
 
 .view-all-btn {
-    padding: 5px 25px;
+    padding: var(--space-xs) var(--space-xl);
     background-color: var(--color-on-primary);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: var(--radius-lg);
