@@ -41,7 +41,7 @@ export default function ProductItem({ info }) {
   
         <div className="info">
           <Link 
-            to={"/product/" + info.slug} 
+            to={"/product/" + info.slug}
             style={{ color: "#333" }}>
             <h4>{info.name}</h4>
           </Link>
