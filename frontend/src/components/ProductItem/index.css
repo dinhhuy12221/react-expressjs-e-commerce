@@ -96,10 +96,10 @@
       }
 
       button:hover {
-        background: rgba(255, 0, 0, 0.61) !important;
+        background: var(--color-bg-primary);
 
         svg {
-          color: #fff !important;
+          color: var(--color-on-primary);
         }
       }
     }
