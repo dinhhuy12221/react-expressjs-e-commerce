@@ -33,6 +33,14 @@ muted → variant
     --font-md: 14px;
     --font-lg: 18px;
 
+    --space-2xs: 2px;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+
     --radius-sm: 10px;
     --radius-md: 15px;
     --radius-lg: 20px;
@@ -80,7 +88,7 @@ img {
 
 .badge {
     display: inline-block;
-    padding: 7px 10px;
+    padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-lg);
 }
 
@@ -124,7 +132,7 @@ button {
     flex-shrink: 0;
     align-items: center;
     font-size: var(--font-md);
-    padding: 8px 30px;
+    padding: var(--space-sm) var(--space-2xl);
 
     svg {
         font-size: var(--font-lg);
@@ -132,7 +140,7 @@ button {
 }
 
 .btn-round {
-    border-radius: 13px;
+    border-radius: var(--radius-md);
 }
 
 .btn-sml {
