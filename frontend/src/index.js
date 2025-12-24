@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./styles/global.css";
 import App from "./App";
 // import { AuthProvider } from "./context/AuthProvider";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
