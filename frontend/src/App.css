@@ -6,7 +6,6 @@
   5. Utilities       → helpers
 */
 
-
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css");
 
@@ -17,12 +16,9 @@
   --theme-2: #ea2b0f;
 }
 
-html {
+body {
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: var(--font-sans);
   font-size: 14px;
   color: rgba(0, 0, 0, 0.8);
