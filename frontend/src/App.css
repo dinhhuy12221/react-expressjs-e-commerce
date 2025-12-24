@@ -1,8 +1,11 @@
+:root {
+  --theme-1: rgba(255, 0, 0, 0.61);
+  --theme-2: #ea2b0f;
+}
+
 * {
   margin: 0;
   padding: 0;
-  --theme-1: rgba(255, 0, 0, 0.61);
-  --theme-2: #ea2b0f;
 }
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
