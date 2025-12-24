@@ -89,7 +89,7 @@ button {
 }
 
 .btn-red {
-  background: var(--color-primary-muted-bg);
+  background-color: var(--color-primary-muted-bg);
   color: var(--color-on-primary);
   text-transform: capitalize;
 }
@@ -123,8 +123,6 @@ button {
     font-size: 20px;
   }
 }
-
-
 
 .text-sml {
   font-size: 14px;
