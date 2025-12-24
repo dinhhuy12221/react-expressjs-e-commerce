@@ -15,7 +15,7 @@ function ReviewFilter() {
     }
 
     const addFilter = (index) => {
-        return (indexes.includes(index) ? 'btn-red' : 'btn-outlined');
+        return (indexes.includes(index) ? 'btn-red' : 'btn--outlined');
     }
 
 
