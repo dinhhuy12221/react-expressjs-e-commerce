@@ -12,10 +12,13 @@
 :root {
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Lato", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-  --theme-1: #ff00009c;
-  --theme-2: #ea2b0f;
+  --color-primary-bg: #ff00009c;
+  --color-primary-muted-bg: #ea2b0f;
+  --color-on-primary: #fff;
   --text-primary: #000000cc;
+  --text-sm: 10px;
   --text-md: 14px;
+  --text-lg: 18px;
 }
 
 body {
@@ -36,12 +39,12 @@ img {
 }
 
 .bg-red {
-  background: var(--theme-1);
-  color: #fff;
+  background: var(--color-primary-bg);
+  color: var(--color-on-primary);
   font-weight: bold;
 }
 .text-red {
-  color: var(--theme-2);
+  color: var(--color-primary-muted-bg);
 }
 
 .text-blue {
@@ -80,20 +83,20 @@ button {
 }
 
 .btn-outlined {
-  background-color: #fff;
-  border: 1px solid #ea2b0f;
-  color: #ea2b0f;
+  background-color: var(--color-on-primary);
+  border: 1px solid var(--color-primary-muted-bg);
+  color: var(--color-primary-muted-bg);
 }
 
 .btn-red {
-  background: #ea2b0f;
-  color: #fff;
+  background: var(--color-primary-muted-bg);
+  color: var(--color-on-primary);
   text-transform: capitalize;
 }
 
 .btn-blue {
   background: #233a95;
-  color: #fff;
+  color: var(--color-on-primary);
   text-transform: capitalize;
 }
 .btn-big {
@@ -153,7 +156,7 @@ button {
 
 .view-all-btn {
   padding: 5px 25px;
-  background-color: #fff;
+  background-color: var(--color-on-primary);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   color: #424040;
@@ -189,10 +192,10 @@ button {
   color: rgba(0, 0, 0, 0.8);
 }
 .socials ul li a:hover {
-  background: rgba(255, 0, 0, 0.61);
+  background: var(--color-primary-bg);
 }
 .socials ul li a:hover svg {
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .section {
@@ -201,7 +204,7 @@ button {
 
 .border-effect {
   position: relative;
-  color: var(--theme-1);
+  color: var(--color-primary-bg);
   text-decoration: none;
 }
 .border-effect::after {
