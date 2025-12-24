@@ -1,18 +1,30 @@
-* {
-  margin: 0;
-  padding: 0;
-  --theme-1: rgba(255, 0, 0, 0.61);
-  --theme-2: #ea2b0f;
-}
+/*
+  1. Design tokens   → values
+  2. Base styles     → defaults
+  3. Layout          → structure
+  4. Components      → UI pieces
+  5. Utilities       → helpers
+*/
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css");
 
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Lato", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --theme-1: #ff00009c;
+  --theme-2: #ea2b0f;
+  --text-primary: #000000cc;
+  --text-md: 14px;
+}
+
 body {
-  font-family: "Lato", sans-serif;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.8);
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  /* overflow-x: hidden; */
 }
 
 .container {
@@ -24,16 +36,16 @@ img {
 }
 
 .bg-red {
-  background-color: rgba(255, 0, 0, 0.61) !important;
-  color: #fff !important;
-  font-weight: bold !important;
+  background: var(--theme-1);
+  color: #fff;
+  font-weight: bold;
 }
 .text-red {
-  color: #ea2b0f !important;
+  color: var(--theme-2);
 }
 
 .text-blue {
-  color: #53348c !important;
+  color: #53348c;
 }
 
 @media (min-width: 1300px) {
@@ -52,57 +64,57 @@ img {
   border-radius: 20px;
 }
 .badge.bg-success {
-  background: #e5f8ed !important;
-  color: #16b858 !important;
+  background: #e5f8ed;
+  color: #16b858;
 }
 .badge-success {
-  color: #00b853 !important;
-  background: #e5f8ed !important;
-  font-weight: 500 !important;
-  font-size: 12px !important;
+  color: #00b853;
+  background: #e5f8ed;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 button {
-  text-transform: capitalize !important;
-  border: 1px solid transparent !important;
+  text-transform: capitalize;
+  border: 1px solid transparent;
 }
 
 .btn-outlined {
-  background-color: #fff !important;
-  border: 1px solid #ea2b0f !important;
-  color: #ea2b0f !important;
+  background-color: #fff;
+  border: 1px solid #ea2b0f;
+  color: #ea2b0f;
 }
 
 .btn-red {
-  background: #ea2b0f !important;
-  color: #fff !important;
-  text-transform: capitalize !important;
+  background: #ea2b0f;
+  color: #fff;
+  text-transform: capitalize;
 }
 
 .btn-blue {
-  background: #233a95 !important;
-  color: #fff !important;
-  text-transform: capitalize !important;
+  background: #233a95;
+  color: #fff;
+  text-transform: capitalize;
 }
 .btn-big {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  font-size: 14px !important;
-  padding: 8px 30px !important;
+  font-size: 14px;
+  padding: 8px 30px;
   svg {
-    font-size: 20px !important;
+    font-size: 20px;
   }
 }
 
 .btn-round {
-  border-radius: 13px !important;
+  border-radius: 13px;
 }
 
 .btn-sml {
-  font-size: 12px !important;
+  font-size: 12px;
   color: #000;
-  text-transform: capitalize !important;
+  text-transform: capitalize;
 
   svg {
     font-size: 20px;
@@ -118,19 +130,19 @@ button {
   cursor: pointer;
 }
 .text-light {
-  color: #8b8888 !important;
+  color: #8b8888;
   font-size: 12px;
 }
 
 ::-webkit-scrollbar {
-  width: 8px !important;
-  height: 8px !important;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccc !important;
+  background: #ccc;
 }
 ::-webkit-scrollbar-track {
-  background: transparent !important;
+  background: transparent;
 }
 
 .hd {
@@ -140,13 +152,13 @@ button {
 }
 
 .view-all-btn {
-  padding: 5px 25px !important;
+  padding: 5px 25px;
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  border-radius: 30px !important;
-  color: #424040 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  color: #424040;
   font-weight: 600;
-  text-transform: capitalize !important;
+  text-transform: capitalize;
 }
 .view-all-btn svg {
   font-size: 20px;
@@ -154,11 +166,11 @@ button {
 
 
 .swiper {
-  padding-right: 2px !important;
+  padding-right: 2px;
 }
 
 .sticky-top {
-  top: 10px !important;
+  top: 10px;
   z-index: 100;
 }
 
@@ -177,10 +189,10 @@ button {
   color: rgba(0, 0, 0, 0.8);
 }
 .socials ul li a:hover {
-  background: rgba(255, 0, 0, 0.61) !important;
+  background: rgba(255, 0, 0, 0.61);
 }
 .socials ul li a:hover svg {
-  color: #fff !important;
+  color: #fff;
 }
 
 .section {
