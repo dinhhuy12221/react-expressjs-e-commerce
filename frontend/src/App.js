@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { createContext, useEffect, useState } from "react";
 import ProductModal from "./components/ProductModal/index.js";

@@ -8,8 +8,6 @@ import Navigation from "./Navigation/index";
 import { MyContext } from "../../App";
 import { FaRegUserCircle } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
-
-import "./index.css";
 import { useSelector } from "react-redux";
 import { selectCurrentCustomer } from "../../features/auth/authSlice";
 import Profile from "./Profile";
@@ -45,7 +43,7 @@ function Header() {
               {/* Header Search ends here  */}
                 {!customer ? (
                   <Link to="/login">
-                    <Button className="btn-red btn-round signin">Sign In</Button>
+                    <button className="btn btn-red btn-round signin">Sign In</button>
                   </Link>
                 ) : (
                   <Profile customer={customer} />
@@ -55,7 +53,7 @@ function Header() {
                   <span className="price">$55.5</span>
                   <div className="position-relative me-2">
                     <Link to={"/cart"}>
-                      <Button className="circle ms-3">
+                      <Button className="btn circle ms-3">
                         <TiShoppingCart />
                       </Button>
                     </Link>
