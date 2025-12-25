@@ -111,6 +111,7 @@ img {
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
+    border-radius: var(--radius-md);
 
     font-family: inherit;
     font-weight: 500;
@@ -121,17 +122,21 @@ img {
 
 .btn--outlined {
     background-color: transparent;
-    border: var(--border-width-hairline) var(--color-bg-primary-muted);
+    border: var(--border-width-hairline) var(--color-bg-primary);
     color: var(--color-bg-primary-muted);
 }
 
-.btn-red {
-    background-color: var(--color-bg-primary-muted);
+.btn--primary {
+    background-color: var(--color-bg-primary);
     color: var(--color-on-primary);
     text-transform: capitalize;
 }
+.btn--primary:hover {
+    background-color: var(--color-bg-primary);
+    color: var(--color-on-primary);
+}
 
-.btn.btn-blue {
+.btn-blue {
     background: #233a95;
     color: var(--color-on-primary);
     text-transform: capitalize;
@@ -144,10 +149,6 @@ img {
     svg {
         font-size: var(--font-lg);
     }
-}
-
-.btn.btn-round {
-    border-radius: var(--radius-md);
 }
 
 .btn.btn--sm {

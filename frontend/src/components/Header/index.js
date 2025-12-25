@@ -44,7 +44,7 @@ function Header() {
               {/* Header Search ends here  */}
                 {!customer ? (
                   <Link to="/login">
-                    <button className="btn btn-red btn-round signin">Sign In</button>
+                    <button className="btn btn--primary signin">Sign In</button>
                   </Link>
                 ) : (
                   <Profile customer={customer} />
