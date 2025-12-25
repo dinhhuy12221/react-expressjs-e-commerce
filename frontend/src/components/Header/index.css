@@ -37,13 +37,6 @@
   } */
 
   .cartTab {
-    .price {
-      font-size: var(--font-lg);
-      font-weight: 700;
-
-      color: rgba(0, 0, 0, 0.8);
-    }
-
     button {
       background: #fff1ee;
 
@@ -51,29 +44,33 @@
         color: var(--color-bg-primary);
       }
     }
-
-    .count {
-      position: absolute;
-      top: -6px;
-      right: -4px;
-
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      
-      color: #fff;
-      background: var(--color-bg-primary-muted);
-    }
   }
 }
+.cart-price {
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
 
-.btn--cart {
+.cart-button {
   min-width: 40px;
   height: 40px;
   width: 40px;
   color: #000;
+}
 
-  svg {
-    font-size: 25px;
-  }
+.cart-button svg {
+  font-size: 25px;
+}
+
+.count {
+  position: absolute;
+  top: -6px;
+  right: -4px;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  color: #fff;
+  background: var(--color-bg-primary-muted);
 }

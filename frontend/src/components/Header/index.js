@@ -9,7 +9,7 @@ import { TiShoppingCart } from "react-icons/ti";
 import { useSelector } from "react-redux";
 import { selectCurrentCustomer } from "../../features/auth/authSlice";
 import Profile from "./Profile";
-import "./index.css"
+import "./index.css";
 
 function Header() {
   const context = useContext(MyContext);
@@ -28,7 +28,7 @@ function Header() {
             </p>
           </div>
         </div>
-        
+
         <header className="header">
           <div className="middle_header">
             <div className="logoWrapper">
@@ -36,30 +36,30 @@ function Header() {
                 <img src={Logo} alt="Logo"></img>
               </Link>
             </div>
-              {context.countryList.length !== 0 && <CountryDropDown />}
-              {/* Header Search start here  */}
-              <SearchBox />
-              {/* Header Search ends here  */}
-                {!customer ? (
-                  <Link to="/login" className="btn btn--primary btn--signin">Sign In
-                  </Link>
-                ) : (
-                  <Profile customer={customer} />
-                )}
-  
-                <div className="cartTab d-flex align-items-center justify-content-between">
-                  <span className="price">$55.5</span>
-                  <div className="position-relative me-2">
-                    <a href="/cart" className="btn btn--circle btn--outlined btn--cart">
-                        <TiShoppingCart />
-                    </a>
-                    <span className="count d-flex align-items-center justify-content-center">
-                      1
-                    </span>
-                  </div>
-                </div>
-              
-          </div>
+            {context.countryList.length !== 0 && <CountryDropDown />}
+            {/* Header Search start here  */}
+            <SearchBox />
+            {/* Header Search ends here  */}
+            {!customer ? (
+              <Link to="/login" className="btn btn--primary btn--signin">
+                Sign In
+              </Link>
+            ) : (
+              <Profile customer={customer} />
+            )}
+            <span className="cart-price">$55.5</span>
+              <div className="position-relative me-2">
+                <a
+                  href="/cart"
+                  className="btn btn--circle btn--outlined cart-button"
+                >
+                  <TiShoppingCart />
+                </a>
+                <span className="count d-flex align-items-center justify-content-center">
+                  1
+                </span>
+              </div>
+            </div>
         </header>
 
         <Navigation />
