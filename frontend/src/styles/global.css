@@ -111,19 +111,28 @@ img {
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
+    padding: var(--space-sm);
     border-radius: var(--radius-md);
+    transition: 0.5s ease;
 
     font-family: inherit;
     font-weight: 500;
     text-transform: capitalize;
     cursor: pointer;
-    outline: none;
+    border: none;
+}
+
+.btn--circle {
+    border-radius: 50%;
 }
 
 .btn--outlined {
     background-color: transparent;
     border: var(--border-width-hairline) var(--color-bg-primary);
-    color: var(--color-bg-primary-muted);
+}
+.btn--outlined:hover {
+    background-color: transparent;
+    border: var(--border-width-hairline) var(--color-bg-primary-muted);
 }
 
 .btn--primary {
@@ -132,8 +141,9 @@ img {
     text-transform: capitalize;
 }
 .btn--primary:hover {
-    background-color: var(--color-bg-primary);
+    background-color: var(--color-bg-primary-muted);
     color: var(--color-on-primary);
+    opacity: 1;
 }
 
 .btn-blue {
@@ -151,7 +161,7 @@ img {
     }
 }
 
-.btn.btn--sm {
+.btn--sm {
     font-size: var(--font-md);
 
     svg {
