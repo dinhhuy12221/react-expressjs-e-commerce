@@ -111,13 +111,18 @@ img {
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
+    padding: var(--space-sm);
     border-radius: var(--radius-md);
 
     font-family: inherit;
     font-weight: 500;
     text-transform: capitalize;
     cursor: pointer;
-    outline: none;
+    border: none;
+}
+
+.btn--circle {
+    border-radius: 50%;
 }
 
 .btn--outlined {
@@ -132,8 +137,9 @@ img {
     text-transform: capitalize;
 }
 .btn--primary:hover {
-    background-color: var(--color-bg-primary);
+    background-color: var(--color-bg-primary-muted);
     color: var(--color-on-primary);
+    opacity: 1;
 }
 
 .btn-blue {
@@ -151,7 +157,7 @@ img {
     }
 }
 
-.btn.btn--sm {
+.btn--sm {
     font-size: var(--font-md);
 
     svg {

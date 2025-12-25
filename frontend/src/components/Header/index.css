@@ -29,20 +29,12 @@
     width: 160px;
   }
 
-  .circle {
+  /* .circle {
     align-items: center;
     justify-content: space-around;
-    min-width: 40px;
-    height: 40px;
-    width: 40px;
+    
     border-radius: 50%;
-    border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
-    color: #000;
-
-    svg {
-      font-size: 25px;
-    }
-  }
+  } */
 
   .cartTab {
     .price {
@@ -73,9 +65,15 @@
       background: var(--color-bg-primary-muted);
     }
   }
+}
 
-  .signin {
-    white-space: nowrap;
-    font-weight: 600;
+.btn--cart {
+  min-width: 40px;
+  height: 40px;
+  width: 40px;
+  color: #000;
+
+  svg {
+    font-size: 25px;
   }
 }
