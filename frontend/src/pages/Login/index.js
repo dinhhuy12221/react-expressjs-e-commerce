@@ -138,7 +138,7 @@ export default function Login() {
               <a className="border-effect cursor">Forgot Password?</a>
               <br />
               <Button
-                className="btn-red btn--lg mt-3 w-100"
+                className="btn--primary btn--lg mt-3 w-100"
                 type="submit"
               >
                 Sign In

@@ -106,29 +106,34 @@ img {
     font-size: var(--font-md);
 }
 
-button {
+.btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
+    border-radius: var(--radius-md);
 
     font-family: inherit;
     font-weight: 500;
     text-transform: capitalize;
     cursor: pointer;
-    border: none;
+    outline: none;
 }
 
 .btn--outlined {
     background-color: transparent;
-    border: var(--border-width-hairline) var(--color-bg-primary-muted);
+    border: var(--border-width-hairline) var(--color-bg-primary);
     color: var(--color-bg-primary-muted);
 }
 
-.btn-red {
-    background-color: var(--color-bg-primary-muted);
+.btn--primary {
+    background-color: var(--color-bg-primary);
     color: var(--color-on-primary);
     text-transform: capitalize;
+}
+.btn--primary:hover {
+    background-color: var(--color-bg-primary);
+    color: var(--color-on-primary);
 }
 
 .btn-blue {
@@ -146,11 +151,7 @@ button {
     }
 }
 
-.btn-round {
-    border-radius: var(--radius-md);
-}
-
-.btn--sm {
+.btn.btn--sm {
     font-size: var(--font-md);
 
     svg {

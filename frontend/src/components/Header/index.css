@@ -1,5 +1,5 @@
 .headerWrapper {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   padding-bottom: 10px;
 
   .header {
@@ -32,11 +32,11 @@
   .circle {
     align-items: center;
     justify-content: space-around;
-    min-width: 40px !important;
-    height: 40px !important;
-    width: 40px !important;
-    border-radius: 50% !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    min-width: 40px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
     color: #000;
 
     svg {
@@ -46,17 +46,17 @@
 
   .cartTab {
     .price {
-      font-size: 18px;
+      font-size: var(--font-lg);
       font-weight: 700;
 
       color: rgba(0, 0, 0, 0.8);
     }
 
     button {
-      background: #fff1ee !important;
+      background: #fff1ee;
 
       svg {
-        color: var(--color-primary-bg);
+        color: var(--color-bg-primary);
       }
     }
 
@@ -70,7 +70,7 @@
       border-radius: 50%;
       
       color: #fff;
-      background: var(--theme-2);
+      background: var(--color-bg-primary-muted);
     }
   }
 
