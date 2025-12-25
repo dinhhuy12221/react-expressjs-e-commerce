@@ -48,18 +48,19 @@ function Header() {
               <Profile customer={customer} />
             )}
             <span className="cart-price">$55.5</span>
-              <div className="position-relative me-2">
-                <a
-                  href="/cart"
-                  className="btn btn--circle btn--outlined cart-button"
-                >
-                  <TiShoppingCart />
-                </a>
-                <span className="count d-flex align-items-center justify-content-center">
-                  1
-                </span>
-              </div>
+            <div className="cart">
+              
+              <span className="cart-count btn--circle">
+                1
+              </span>
+              <a
+                href="/cart"
+                className="cart-button btn btn--circle btn--outlined"
+              >
+                <TiShoppingCart />
+              </a>
             </div>
+          </div>
         </header>
 
         <Navigation />

@@ -113,6 +113,7 @@ img {
     gap: var(--space-sm);
     padding: var(--space-sm);
     border-radius: var(--radius-md);
+    transition: 0.5s ease;
 
     font-family: inherit;
     font-weight: 500;
@@ -128,7 +129,10 @@ img {
 .btn--outlined {
     background-color: transparent;
     border: var(--border-width-hairline) var(--color-bg-primary);
-    color: var(--color-bg-primary-muted);
+}
+.btn--outlined:hover {
+    background-color: transparent;
+    border: var(--border-width-hairline) var(--color-bg-primary-muted);
 }
 
 .btn--primary {

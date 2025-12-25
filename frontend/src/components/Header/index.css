@@ -51,26 +51,32 @@
   font-weight: 700;
 }
 
-.cart-button {
+.cart {
+  position: relative;
+}
+
+.cart .cart-button {
   min-width: 40px;
   height: 40px;
   width: 40px;
   color: #000;
 }
 
-.cart-button svg {
+.cart .cart-button svg {
   font-size: 25px;
 }
 
-.count {
+.cart .cart-count {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   top: -6px;
   right: -4px;
-
   width: 20px;
   height: 20px;
-  border-radius: 50%;
 
-  color: #fff;
+  color: var(--color-on-primary);
   background: var(--color-bg-primary-muted);
 }
