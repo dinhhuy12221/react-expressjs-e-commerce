@@ -119,7 +119,7 @@ img {
     outline: none;
 }
 
-.btn.btn--outlined {
+.btn--outlined {
     background-color: transparent;
     border: var(--border-width-hairline) var(--color-bg-primary-muted);
     color: var(--color-bg-primary-muted);
@@ -137,7 +137,7 @@ img {
     text-transform: capitalize;
 }
 
-.btn.btn--lg {
+.btn--lg {
     font-size: var(--font-md);
     padding: var(--space-sm) var(--space-2xl);
 

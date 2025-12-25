@@ -11,6 +11,7 @@ import { TiShoppingCart } from "react-icons/ti";
 import { useSelector } from "react-redux";
 import { selectCurrentCustomer } from "../../features/auth/authSlice";
 import Profile from "./Profile";
+import "./index.css"
 
 function Header() {
   const context = useContext(MyContext);
