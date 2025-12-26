@@ -28,13 +28,13 @@ function Header() {
           <a href="/" className="logo">
             <img src={Logo} alt="Logo"></img>
           </a>
-          {context.countryList.length !== 0 && <CountryDropDown />}
           {/* Header Search start here  */}
+          {context.countryList.length !== 0 && <CountryDropDown />}
           <SearchBox />
           {/* Header Search ends here  */}
           {!customer ? (
-            <a to="/login" className="btn btn--primary signin-button">
-              Sign In
+            <a href="/login" className="btn btn--primary btn--lg signin-button">
+              Signin
             </a>
           ) : (
             <Profile customer={customer} />
