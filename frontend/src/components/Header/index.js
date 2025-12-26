@@ -19,49 +19,42 @@ function Header() {
 
   return (
     <>
-      <div className="header">
-        <div className="top-strip bg-red">
-          <p className="mb-0 mt-0 text-center">
-            Due to the COVID 19 epidemic, orders may be processed with a
-            slight delay
-            </p>
+      <header className="header">
+        <div className="banner-strip">
+          <p>
+            Due to the COVID 19 epidemic, orders may be processed with a slight
+            delay
+          </p>
         </div>
 
-        <header className="header-content">
-          <div className="middle_header">
-            <div className="logoWrapper">
-              <Link to={"/"}>
-                <img src={Logo} alt="Logo"></img>
-              </Link>
-            </div>
-            {context.countryList.length !== 0 && <CountryDropDown />}
-            {/* Header Search start here  */}
-            <SearchBox />
-            {/* Header Search ends here  */}
-            {!customer ? (
-              <Link to="/login" className="btn btn--primary btn--signin">
-                Sign In
-              </Link>
-            ) : (
-              <Profile customer={customer} />
-            )}
-            <span className="cart-price">$55.5</span>
-            <div className="cart">
-              <span className="cart-count btn--circle">
-                1
-              </span>
-              <a
-                href="/cart"
-                className="cart-button btn btn--circle btn--outlined"
-              >
-                <TiShoppingCart />
-              </a>
-            </div>
+        <div className="header-content">
+          <a href="/" className="logo">
+            <img src={Logo} alt="Logo"></img>
+          </a>
+          {context.countryList.length !== 0 && <CountryDropDown />}
+          {/* Header Search start here  */}
+          <SearchBox />
+          {/* Header Search ends here  */}
+          {!customer ? (
+            <Link to="/login" className="btn btn--primary btn--signin">
+              Sign In
+            </Link>
+          ) : (
+            <Profile customer={customer} />
+          )}
+          <span className="cart-price">$55.5</span>
+          <div className="cart">
+            <span className="cart-count btn--circle">1</span>
+            <a
+              href="/cart"
+              className="cart-button btn btn--circle btn--outlined"
+            >
+              <TiShoppingCart />
+            </a>
           </div>
-        </header>
-
-        <Navigation />
-      </div>
+        </div>
+      </header>
+      <Navigation />
     </>
   );
 }
