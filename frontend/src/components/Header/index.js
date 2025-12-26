@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import Logo from "../../assets/images/logo.png";
 import CountryDropDown from "../CountryDropdown/index";
 import SearchBox from "./SearchBox/index";
@@ -20,12 +19,10 @@ function Header() {
   return (
     <>
       <header className="header">
-        <div className="banner-strip">
-          <p>
+        <p className="banner-strip">
             Due to the COVID 19 epidemic, orders may be processed with a slight
             delay
-          </p>
-        </div>
+        </p>
 
         <div className="header-content">
           <a href="/" className="logo">
@@ -36,9 +33,9 @@ function Header() {
           <SearchBox />
           {/* Header Search ends here  */}
           {!customer ? (
-            <Link to="/login" className="btn btn--primary btn--signin">
+            <a to="/login" className="btn btn--primary signin-button">
               Sign In
-            </Link>
+            </a>
           ) : (
             <Profile customer={customer} />
           )}
