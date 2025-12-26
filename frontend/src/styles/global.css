@@ -29,7 +29,9 @@ muted → variant
     --color-text-primary: #000000cc;
     --color-text-success: #16b858;
 
+    --font-2sm: 10px;
     --font-sm: 10px;
+    --font-2md: 12px;
     --font-md: 14px;
     --font-lg: 18px;
 
