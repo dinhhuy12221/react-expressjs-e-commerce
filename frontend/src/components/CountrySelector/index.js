@@ -60,7 +60,7 @@ export default function CountrySelector() {
               <span className='label'>Your Location</span>
               <span className='name'>{context.selectedCountry !== '' ? (context.selectedCountry.length > 10 ? context.selectedCountry.substring(0, 10) + '...' : context.selectedCountry) : 'Select a location'}</span>
           </div>
-          <span className='ms-auto'><FaAngleDown /></span>
+          <FaAngleDown />
       </button>
       <Dialog open={isOpenModal} onClose={() => setIsOpenModal(false)} TransitionComponent={Transition} className='locationModal'>
         <h3 className='mb-0'>Choose your Delivery Location</h3>
