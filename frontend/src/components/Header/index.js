@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Logo from "../../assets/images/logo.png";
-import CountryDropDown from "../CountryDropdown/index";
+import CountrySelector from "../CountrySelector/index";
 import SearchBox from "./SearchBox/index";
 import Navigation from "./Navigation/index";
 import { MyContext } from "../../App";
@@ -29,7 +29,7 @@ function Header() {
             <img src={Logo} alt="Logo"></img>
           </a>
           {/* Header Search start here  */}
-          {context.countryList.length !== 0 && <CountryDropDown />}
+          {context.countryList.length !== 0 && <CountrySelector />}
           <SearchBox />
           {/* Header Search ends here  */}
           {!customer ? (

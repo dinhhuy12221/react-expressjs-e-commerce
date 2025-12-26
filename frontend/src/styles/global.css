@@ -155,10 +155,6 @@ img {
 .btn--lg {
     font-size: var(--font-lg);
     padding: var(--space-md) var(--space-xl);
-
-    svg {
-        font-size: var(--font-lg);
-    }
 }
 
 .btn--sm {
