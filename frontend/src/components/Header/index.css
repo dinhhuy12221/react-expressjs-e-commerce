@@ -1,18 +1,15 @@
 .header {
   display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
 .banner-strip {
+  background-color: var(--color-bg-primary);
+  color: var(--color-on-primary);
   padding: var(--space-sm) 0px;
-
-  p {
-    color: var(--color-on-primary);
-    font-size: var(--font-md);
-    font-weight: 500;
-  }
+  font-size: var(--font-md);
+  font-weight: 500;
+  text-align: center;
 }
 
 .logo img {
@@ -23,7 +20,6 @@
   padding-bottom: 10px;
   display: flex;
   justify-content: center;
-  justify-content: space-around;
   width: 50%;
 }
 .cart-price {
