@@ -25,9 +25,6 @@
   padding-bottom: 10px;
 }
 
-.button-signin {
-  flex: 0 0;
-}
 .cart-price {
   font-size: var(--font-lg);
   font-weight: 700;

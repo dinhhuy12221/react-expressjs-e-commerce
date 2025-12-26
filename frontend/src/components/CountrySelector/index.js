@@ -21,7 +21,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function CountryDropDown() {
+export default function CountrySelector() {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedTab, setSelectedtab] = useState(null);
@@ -55,13 +55,13 @@ export default function CountryDropDown() {
 
   return (
     <>
-      <Button className='countryDrop' onClick={() => setIsOpenModal(true)}>
-          <div className='info d-flex flex-column'>
+      <button className='country-selector' onClick={() => setIsOpenModal(true)}>
+          <div className='info'>
               <span className='label'>Your Location</span>
               <span className='name'>{context.selectedCountry !== '' ? (context.selectedCountry.length > 10 ? context.selectedCountry.substring(0, 10) + '...' : context.selectedCountry) : 'Select a location'}</span>
           </div>
-          <span className='ms-auto'><FaAngleDown /></span>
-      </Button>
+          <FaAngleDown />
+      </button>
       <Dialog open={isOpenModal} onClose={() => setIsOpenModal(false)} TransitionComponent={Transition} className='locationModal'>
         <h3 className='mb-0'>Choose your Delivery Location</h3>
         <p>Enter your address and we will specify the offer for your area.</p>
