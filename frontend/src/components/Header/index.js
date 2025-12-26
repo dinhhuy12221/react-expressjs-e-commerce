@@ -19,17 +19,15 @@ function Header() {
 
   return (
     <>
-      <div className="headerWrapper">
+      <div className="header">
         <div className="top-strip bg-red">
-          <div className="container">
-            <p className="mb-0 mt-0 text-center">
-              Due to the COVID 19 epidemic, orders may be processed with a
-              slight delay
+          <p className="mb-0 mt-0 text-center">
+            Due to the COVID 19 epidemic, orders may be processed with a
+            slight delay
             </p>
-          </div>
         </div>
 
-        <header className="header">
+        <header className="header-content">
           <div className="middle_header">
             <div className="logoWrapper">
               <Link to={"/"}>
@@ -49,7 +47,6 @@ function Header() {
             )}
             <span className="cart-price">$55.5</span>
             <div className="cart">
-              
               <span className="cart-count btn--circle">
                 1
               </span>
