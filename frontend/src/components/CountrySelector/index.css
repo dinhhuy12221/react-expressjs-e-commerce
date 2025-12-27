@@ -16,18 +16,18 @@
   box-shadow: 1.5px 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.1);
 }
 
-.country-selector .info {
+.country-selector .country-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.country-selector .info .label {
+.country-selector .country-info .country-label {
   font-size: var(--font-sm);
   color: var(--color-text-primary);
   opacity: 0.6;
 }
 
-.country-selector .info .name {
+.country-selector .country-info .country-name {
   font-size: var(--font-md);
   color: var(--color-bg-primary-muted);
 }
