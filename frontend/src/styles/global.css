@@ -33,7 +33,9 @@ muted → variant
     --font-sm: 10px;
     --font-2md: 12px;
     --font-md: 14px;
+    --font-2lg: 16px;
     --font-lg: 18px;
+    --font-xl: 24px;
 
     --space-2xs: 2px;
     --space-xs: 4px;

@@ -105,17 +105,14 @@
   background: #ccc !important;
 }
 
-.close_ {
-  position: absolute !important;
-  top: 20px;
-  right: 20px;
-  color: #000 !important;
-  min-width: 40px !important;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50% !important;
+.close-button {
+  position: absolute;
+  top: var(--space-xl);
+  right: var(--space-xl);
+  color: var(--color-text-primary);
+  padding: 0px 0px;
 }
 
-.close_ svg {
-  font-size: 22px;
+.close-button svg {
+  font-size: var(--font-xl);
 }
