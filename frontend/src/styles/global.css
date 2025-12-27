@@ -45,6 +45,7 @@ muted → variant
     --space-xl: 24px;
     --space-2xl: 32px;
 
+    --radius-xs: 5px;
     --radius-sm: 10px;
     --radius-md: 15px;
     --radius-lg: 20px;
@@ -125,6 +126,9 @@ img {
     cursor: pointer;
     border: none;
 }
+/* .btn:hover {
+    background-color: ;
+} */
 
 .btn--circle {
     border-radius: 50%;

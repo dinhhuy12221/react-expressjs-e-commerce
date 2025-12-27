@@ -65,10 +65,10 @@ export default function CountrySelector() {
       <Dialog open={isOpenModal} onClose={() => setIsOpenModal(false)} TransitionComponent={Transition} className='country-modal'>
         <h5 className='country-modal-label'>Choose your Delivery Country</h5>
         <p>Enter your address and we will specify the offer for your area.</p>
-        <button className='close-button btn' onClick={() => setIsOpenModal(false)}><IoClose /></button>
-        <div className='header-country-search w-100'>
+        <button className='btn close-button' onClick={() => setIsOpenModal(false)}><IoClose /></button>
+        <div className='country-search'>
+          <CiSearch />
           <input type='text' placeholder='Search your area...' onChange={filterList}/>
-          <Button><CiSearch /></Button>
         </div>
 
         <ul className='countryList mt-3'>
