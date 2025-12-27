@@ -16,18 +16,18 @@
   box-shadow: 1.5px 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.1);
 }
 
-.country-selector .info {
+.country-selector .country-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.country-selector .info .label {
+.country-selector .country-info .country-label {
   font-size: var(--font-sm);
   color: var(--color-text-primary);
   opacity: 0.6;
 }
 
-.country-selector .info .name {
+.country-selector .country-info .country-name {
   font-size: var(--font-md);
   color: var(--color-bg-primary-muted);
 }
@@ -74,22 +74,22 @@
   opacity: 0.8;
 }
 
-.locationModal .MuiPaper-elevation {
+.country-modal .MuiPaper-elevation {
   padding: 25px;
   position: relative;
 }
 
-.locationModal .countryList {
+.country-modal .countryList {
   margin-bottom: 0;
   max-height: 400px;
   overflow-y: scroll;
   padding: 0;
 }
-.locationModal .countryList li {
+.country-modal .countryList li {
   width: 100%;
   list-style: none;
 }
-.locationModal .countryList li button {
+.country-modal .countryList li button {
   width: 100%;
   text-transform: capitalize !important;
   color: #000 !important;
@@ -97,25 +97,22 @@
   padding: 15px 20px !important;
 }
 
-.locationModal .countryList li button:hover {
+.country-modal .countryList li button:hover {
   background: #f1f1f1 !important;
 }
 
-.locationModal .countryList li button.active {
+.country-modal .countryList li button.active {
   background: #ccc !important;
 }
 
-.close_ {
-  position: absolute !important;
-  top: 20px;
-  right: 20px;
-  color: #000 !important;
-  min-width: 40px !important;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50% !important;
+.close-button {
+  position: absolute;
+  top: var(--space-xl);
+  right: var(--space-xl);
+  color: var(--color-text-primary);
+  padding: 0px 0px;
 }
 
-.close_ svg {
-  font-size: 22px;
+.close-button svg {
+  font-size: var(--font-xl);
 }
