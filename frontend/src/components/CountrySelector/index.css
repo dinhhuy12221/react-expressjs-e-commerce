@@ -74,22 +74,22 @@
   opacity: 0.8;
 }
 
-.locationModal .MuiPaper-elevation {
+.country-modal .MuiPaper-elevation {
   padding: 25px;
   position: relative;
 }
 
-.locationModal .countryList {
+.country-modal .countryList {
   margin-bottom: 0;
   max-height: 400px;
   overflow-y: scroll;
   padding: 0;
 }
-.locationModal .countryList li {
+.country-modal .countryList li {
   width: 100%;
   list-style: none;
 }
-.locationModal .countryList li button {
+.country-modal .countryList li button {
   width: 100%;
   text-transform: capitalize !important;
   color: #000 !important;
@@ -97,11 +97,11 @@
   padding: 15px 20px !important;
 }
 
-.locationModal .countryList li button:hover {
+.country-modal .countryList li button:hover {
   background: #f1f1f1 !important;
 }
 
-.locationModal .countryList li button.active {
+.country-modal .countryList li button.active {
   background: #ccc !important;
 }
 
