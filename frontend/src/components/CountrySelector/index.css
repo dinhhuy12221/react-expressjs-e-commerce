@@ -33,17 +33,19 @@
 }
 
 
-.header-country-search {
-  width: 58%;
+.country-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: 50px;
   background: #f3f4f7;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  position: relative;
+  padding: var(--space-md);
+  border-radius: var(--radius-xs);
+  border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
 }
 
-.header-country-search input {
+.country-search input {
   background: transparent;
   outline: none;
   font-size: 16px;
@@ -53,28 +55,11 @@
   padding: 0px 15px !important;
 }
 
-.header-country-search input::-webkit-input-placeholder {
+.country-search input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.6);
 }
 
-.header-country-search button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 100;
-  min-width: 40px !important;
-  height: 40px !important;
-  width: 40px !important;
-  border-radius: 50% !important;
-  color: #000;
-}
-
-.header-country-search .search-bar button svg {
-  font-size: 45px;
-  opacity: 0.8;
-}
-
-.country-modal .MuiPaper-elevation {
+.country-modal {
   padding: 25px;
   position: relative;
 }
