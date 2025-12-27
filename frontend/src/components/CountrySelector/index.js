@@ -56,9 +56,9 @@ export default function CountrySelector() {
   return (
     <>
       <button className='country-selector' onClick={() => setIsOpenModal(true)}>
-          <div className='info'>
-              <span className='label'>Your Location</span>
-              <span className='name'>{context.selectedCountry !== '' ? (context.selectedCountry.length > 10 ? context.selectedCountry.substring(0, 10) + '...' : context.selectedCountry) : 'Select a location'}</span>
+          <div className='country-info'>
+              <span className='country-label'>Your Location</span>
+              <span className='country-name'>{context.selectedCountry !== '' ? (context.selectedCountry.length > 10 ? context.selectedCountry.substring(0, 10) + '...' : context.selectedCountry) : 'Select a location'}</span>
           </div>
           <FaAngleDown />
       </button>
