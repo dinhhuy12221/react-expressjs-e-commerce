@@ -64,30 +64,37 @@
   position: relative;
 }
 
-.country-modal .countryList {
+.country-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: var(--space-md);
+}
+
+.country-modal .country-list {
   margin-bottom: 0;
   max-height: 400px;
   overflow-y: scroll;
   padding: 0;
-}
-.country-modal .countryList li {
-  width: 100%;
   list-style: none;
+  list-style-type: none;
 }
-.country-modal .countryList li button {
+.country-modal .country-list li {
   width: 100%;
-  text-transform: capitalize !important;
-  color: #000 !important;
-  justify-content: flex-start !important;
-  padding: 15px 20px !important;
+}
+.country-modal .country-list li button {
+  width: 100%;
+  justify-content: start;
+  color: var(--color-text-primary);
+  padding: var(--space-md) var(--space-lg);
 }
 
-.country-modal .countryList li button:hover {
-  background: #f1f1f1 !important;
+.country-modal .country-list li button:hover {
+  background: #f1f1f1;
 }
 
-.country-modal .countryList li button.active {
-  background: #ccc !important;
+.country-modal .country-list li button.active {
+  background: #ccc;
 }
 
 .close-button {
