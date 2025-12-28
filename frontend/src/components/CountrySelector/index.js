@@ -72,10 +72,10 @@ export default function CountrySelector() {
           <input type='text' placeholder='Search your area...' onChange={filterList}/>
         </div>
 
-        <ul className='countryList mt-3'>
+        <ul className='country-list'>
           {
             countryList.length !== 0 && countryList?.map((item, index) => {
-              return (<li key={index}><Button onClick={() => selectCountry(index, item.country)} className={`${selectedTab === index ? 'active' : ''}`}>{item.country}</Button></li>);
+              return (<li key={index}><button onClick={() => selectCountry(index, item.country)} className={`btn ${selectedTab === index ? 'active' : ''}`}>{item.country}</button></li>);
             })
           }
         </ul>

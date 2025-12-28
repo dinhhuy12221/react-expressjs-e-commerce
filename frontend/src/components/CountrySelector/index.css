@@ -64,29 +64,29 @@
   position: relative;
 }
 
-.country-modal .countryList {
+.country-modal .country-list {
   margin-bottom: 0;
   max-height: 400px;
   overflow-y: scroll;
   padding: 0;
-}
-.country-modal .countryList li {
-  width: 100%;
   list-style: none;
+  list-style-type: none;
 }
-.country-modal .countryList li button {
+.country-modal .country-list li {
   width: 100%;
-  text-transform: capitalize !important;
-  color: #000 !important;
-  justify-content: flex-start !important;
-  padding: 15px 20px !important;
+}
+.country-modal .country-list li button {
+  width: 100%;
+  color: var(--color-text-primary);
+  justify-content: flex-start;
+  padding: 15px 20px;
 }
 
-.country-modal .countryList li button:hover {
+.country-modal .country-list li button:hover {
   background: #f1f1f1 !important;
 }
 
-.country-modal .countryList li button.active {
+.country-modal .country-list li button.active {
   background: #ccc !important;
 }
 
