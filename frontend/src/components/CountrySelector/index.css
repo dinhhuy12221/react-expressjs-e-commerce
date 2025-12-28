@@ -64,6 +64,13 @@
   position: relative;
 }
 
+.country-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: var(--space-md);
+}
+
 .country-modal .country-list {
   margin-bottom: 0;
   max-height: 400px;
@@ -77,17 +84,17 @@
 }
 .country-modal .country-list li button {
   width: 100%;
+  justify-content: start;
   color: var(--color-text-primary);
-  justify-content: flex-start;
-  padding: 15px 20px;
+  padding: var(--space-md) var(--space-lg);
 }
 
 .country-modal .country-list li button:hover {
-  background: #f1f1f1 !important;
+  background: #f1f1f1;
 }
 
 .country-modal .country-list li button.active {
-  background: #ccc !important;
+  background: #ccc;
 }
 
 .close-button {

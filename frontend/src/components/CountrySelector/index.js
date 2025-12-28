@@ -67,18 +67,20 @@ export default function CountrySelector() {
           <h5 className='country-modal-label'>Choose your Delivery Country</h5>
         <p>Enter your address and we will specify the offer for your area.</p>
         <button className='btn close-button' onClick={() => setIsOpenModal(false)}><IoClose /></button>
-        <div className='country-search'>
-          <CiSearch />
-          <input type='text' placeholder='Search your area...' onChange={filterList}/>
-        </div>
-
-        <ul className='country-list'>
-          {
-            countryList.length !== 0 && countryList?.map((item, index) => {
-              return (<li key={index}><button onClick={() => selectCountry(index, item.country)} className={`btn ${selectedTab === index ? 'active' : ''}`}>{item.country}</button></li>);
-            })
-          }
-        </ul>
+        <div className='country-container'>
+          <div className='country-search'>
+            <CiSearch />
+            <input type='text' placeholder='Search your area...' onChange={filterList}/>
+          </div>
+  
+          <ul className='country-list'>
+            {
+              countryList.length !== 0 && countryList?.map((item, index) => {
+                return (<li key={index}><button onClick={() => selectCountry(index, item.country)} className={`btn ${selectedTab === index ? 'active' : ''}`}>{item.country}</button></li>);
+              })
+            }
+          </ul>
+          </div>
         </div>
       </Dialog>
   </>
