@@ -32,6 +32,11 @@
   color: var(--color-bg-primary-muted);
 }
 
+.country-modal {
+  padding: 25px;
+  overflow-y: hidden;
+}
+
 
 .country-search {
   display: flex;
@@ -59,11 +64,6 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.country-modal {
-  padding: 25px;
-  position: relative;
-}
-
 .country-container {
   display: flex;
   flex-direction: column;
@@ -85,14 +85,14 @@
   color: var(--color-text-primary);
   padding: var(--space-md) var(--space-lg);
   cursor: pointer;
+  font-size: var(--font-2lg);
   font-weight: 500;
-  /* border-bottom: var(--border-width-hairline); */
 }
 .country-modal .country-list li:hover {
-  background: #f1f1f1;
+  color: var(--color-text-accent);
 }
 .country-modal .country-list li.active {
-  background: #ccc;
+  color: var(--color-text-accent);
 }
 
 .close-button {
