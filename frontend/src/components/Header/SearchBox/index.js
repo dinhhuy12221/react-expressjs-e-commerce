@@ -1,4 +1,3 @@
-import Button from "@mui/material/Button";
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useRef, useState } from "react";
 import DropDown from "./DropDown";
@@ -46,7 +45,7 @@ export default function SearchBox() {
         value={input}
         onChange={(e) => handleInput(e.currentTarget.value)}
       />
-        <CiSearch className="btn"/>
+        <CiSearch className="btn search-button"/>
 
       {input !== "" && resultShow && (
         <div>

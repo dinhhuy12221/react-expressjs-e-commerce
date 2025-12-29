@@ -6,7 +6,7 @@
 
   border-radius: 5px;
 
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   background: #f3f4f7;
 }
 
@@ -21,15 +21,14 @@
 }
 
 .search-wrapper input::-webkit-input-placeholder {
-    color: rgba(0, 0, 0, 0.6);
-  }
+  color: rgba(0, 0, 0, 0.6);
+}
 
 .search-wrapper .search-button {
   position: absolute;
 
   top: 5px;
   right: 5px;
-  z-index: 100;
 
   width: 40px;
   min-width: 40px;
@@ -37,8 +36,8 @@
 
   border-radius: 50%;
 
-  color: var(--color-text-primary);
-
+  color: var(--color-text-muted);
+  
   svg {
     font-size: 45px;
     opacity: 0.8;
