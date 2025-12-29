@@ -10,7 +10,7 @@
   background: #f3f4f7;
 }
 
-input {
+.search-wrapper input {
   outline: none;
 
   width: 100%;
@@ -27,7 +27,7 @@ input {
   }
 }
 
-.search-button {
+.search-wrapper .search-button {
   position: absolute;
 
   top: 5px;
