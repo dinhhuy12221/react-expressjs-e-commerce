@@ -102,6 +102,8 @@
   top: var(--space-xl);
   right: var(--space-xl);
   color: var(--color-text-primary);
+  border-bottom: var(--border-width-hairline);
+  border-radius: 0px;
   padding: 0px 0px;
 }
 
