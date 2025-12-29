@@ -1,11 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-
-import Button from "@mui/material/Button";
 import { FaAngleDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
-import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { MyContext } from "../../App";
@@ -22,15 +19,15 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function CountrySelector() {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [selectedTab, setSelectedtab] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
   const [countryList, setCountryList] = useState([]);
 
   const context = useContext(MyContext);
 
   const selectCountry = (index, country) => {
-    setSelectedtab(index);
-    setIsOpenModal(false);
+    setSelectedOption(index);
+    setIsModalOpen(false);
     context.setSelectedCountry(country);
   };
 
@@ -53,13 +50,13 @@ export default function CountrySelector() {
 
   return (
     <>
-      <button className="country-selector" onClick={() => setIsOpenModal(true)}>
+      <button className="country-selector" onClick={() => setIsModalOpen(true)}>
         <div className="country-info">
-          <span className="country-label">Your Location</span>
+          <span className="country-label">Your Country</span>
           <span className="country-name">
-            {context.selectedCountry !== ""
-              ? context.selectedCountry.length > 10
-                ? context.selectedCountry.substring(0, 10) + "..."
+            {context.selectedCountry
+              ? context.selectedCountry.length > 15
+                ? context.selectedCountry.substring(0, 15) + "..."
                 : context.selectedCountry
               : "Select a location"}
           </span>
@@ -67,8 +64,8 @@ export default function CountrySelector() {
         <FaAngleDown />
       </button>
       <Dialog
-        open={isOpenModal}
-        onClose={() => setIsOpenModal(false)}
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         TransitionComponent={Transition}
       >
         <div className="country-modal">
@@ -76,7 +73,7 @@ export default function CountrySelector() {
           <p>Enter your address and we will specify the offer for your area.</p>
           <button
             className="btn close-button"
-            onClick={() => setIsOpenModal(false)}
+            onClick={() => setIsModalOpen(false)}
           >
             <IoClose />
           </button>
@@ -97,7 +94,7 @@ export default function CountrySelector() {
                     <li
                       key={index}
                       onClick={() => selectCountry(index, item.country)}
-                      className={`${selectedTab === index ? "active" : ""}`}
+                      className={`${selectedOption === index ? "active" : ""}`}
                     >
                       {item.country}
                     </li>

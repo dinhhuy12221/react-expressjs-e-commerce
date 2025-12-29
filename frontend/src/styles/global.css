@@ -28,6 +28,8 @@ muted → variant
     --color-on-primary: #fff;
     --color-text-primary: #000000cc;
     --color-text-success: #16b858;
+    --color-text-accent: var(--color-bg-primary);
+    --color-text-accent-muted: var(--color-bg-primary-muted);
 
     --font-2sm: 10px;
     --font-sm: 10px;
@@ -81,16 +83,6 @@ img {
 
 .text-blue {
     color: #53348c;
-}
-
-@media (min-width: 1300px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl {
-        max-width: 1200px;
-    }
 }
 
 .badge {

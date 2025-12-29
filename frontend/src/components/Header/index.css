@@ -13,7 +13,7 @@
 }
 
 .logo img {
-    width: 160px;
+  width: 160px;
 }
 .header-content {
   display: flex;
@@ -58,4 +58,23 @@
 
   color: var(--color-on-primary);
   background: var(--color-bg-primary-muted);
+}
+
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (max-width: 480px) {
+
+
+}
+
+/* TABLETS PORTRAIT */
+@media only screen and (max-width: 768px) {
+
+
+}
+
+
+/* TABLET LANDSCAPE / DESKTOP */
+@media only screen and (max-width: 1024px) {
+
+
 }

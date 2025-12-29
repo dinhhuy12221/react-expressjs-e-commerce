@@ -28,10 +28,8 @@ function Header() {
           <a href="/" className="logo">
             <img src={Logo} alt="Logo"></img>
           </a>
-          {/* Header Search start here  */}
           {context.countryList.length !== 0 && <CountrySelector />}
           <SearchBox />
-          {/* Header Search ends here  */}
           {!customer ? (
             <a href="/login" className="btn btn--primary btn--lg signin-button">
               Signin
