@@ -85,16 +85,6 @@ img {
     color: #53348c;
 }
 
-@media (min-width: 1300px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl {
-        max-width: 1200px;
-    }
-}
-
 .badge {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
