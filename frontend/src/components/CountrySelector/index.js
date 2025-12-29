@@ -1,11 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-
-import Button from "@mui/material/Button";
 import { FaAngleDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
-import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { MyContext } from "../../App";
@@ -57,9 +54,9 @@ export default function CountrySelector() {
         <div className="country-info">
           <span className="country-label">Your Location</span>
           <span className="country-name">
-            {context.selectedCountry !== ""
-              ? context.selectedCountry.length > 10
-                ? context.selectedCountry.substring(0, 10) + "..."
+            {context.selectedCountry
+              ? context.selectedCountry.length > 15
+                ? context.selectedCountry.substring(0, 15) + "..."
                 : context.selectedCountry
               : "Select a location"}
           </span>
