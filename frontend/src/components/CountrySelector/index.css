@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   width: 170px;
   height: 50px;
   min-width: 150px;
@@ -36,7 +36,6 @@
   padding: 25px;
   overflow-y: hidden;
 }
-
 
 .country-search {
   display: flex;
@@ -108,7 +107,27 @@
 }
 
 /* SMARTPHONES PORTRAIT */
-@media only screen and (min-width: 300px) {
+/* @media only screen and (max-width: 300px) {
+  .country-selector {
+    width: 50px;
+    height: 35px;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .country-selector .country-info .country-label {
+    font-size: var(--font-sm);
+    color: var(--color-text-primary);
+    opacity: 0.6;
+  }
+
+  .country-selector .country-info .country-name {
+    font-size: var(--font-sm);
+    color: var(--color-bg-primary-muted);
+  }
+} */
+
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (max-width: 480px) {
   .country-selector {
     width: 50px;
     height: 35px;
@@ -127,21 +146,10 @@
   }
 }
 
-/* SMARTPHONES LANDSCAPE */
-@media only screen and (min-width: 480px) {
-
-
-}
-
 /* TABLETS PORTRAIT */
-@media only screen and (min-width: 768px) {
-
-
+@media only screen and (max-width: 768px) {
 }
-
 
 /* TABLET LANDSCAPE / DESKTOP */
-@media only screen and (min-width: 1024px) {
-
-
+@media only screen and (max-width: 1024px) {
 }

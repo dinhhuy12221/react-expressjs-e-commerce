@@ -60,27 +60,21 @@
   background: var(--color-bg-primary-muted);
 }
 
-/* SMARTPHONES PORTRAIT */
-@media only screen and (min-width: 300px) {
-
-
-}
-
 /* SMARTPHONES LANDSCAPE */
-@media only screen and (min-width: 480px) {
+@media only screen and (max-width: 480px) {
 
 
 }
 
 /* TABLETS PORTRAIT */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
 
 
 }
 
 
 /* TABLET LANDSCAPE / DESKTOP */
-@media only screen and (min-width: 1024px) {
+@media only screen and (max-width: 1024px) {
 
 
 }
