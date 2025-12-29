@@ -22,15 +22,15 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function CountrySelector() {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [selectedTab, setSelectedtab] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
   const [countryList, setCountryList] = useState([]);
 
   const context = useContext(MyContext);
 
   const selectCountry = (index, country) => {
-    setSelectedtab(index);
-    setIsOpenModal(false);
+    setSelectedOption(index);
+    setIsModalOpen(false);
     context.setSelectedCountry(country);
   };
 
@@ -53,7 +53,7 @@ export default function CountrySelector() {
 
   return (
     <>
-      <button className="country-selector" onClick={() => setIsOpenModal(true)}>
+      <button className="country-selector" onClick={() => setIsModalOpen(true)}>
         <div className="country-info">
           <span className="country-label">Your Location</span>
           <span className="country-name">
@@ -67,8 +67,8 @@ export default function CountrySelector() {
         <FaAngleDown />
       </button>
       <Dialog
-        open={isOpenModal}
-        onClose={() => setIsOpenModal(false)}
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         TransitionComponent={Transition}
       >
         <div className="country-modal">
@@ -76,7 +76,7 @@ export default function CountrySelector() {
           <p>Enter your address and we will specify the offer for your area.</p>
           <button
             className="btn close-button"
-            onClick={() => setIsOpenModal(false)}
+            onClick={() => setIsModalOpen(false)}
           >
             <IoClose />
           </button>
@@ -97,7 +97,7 @@ export default function CountrySelector() {
                     <li
                       key={index}
                       onClick={() => selectCountry(index, item.country)}
-                      className={`${selectedTab === index ? "active" : ""}`}
+                      className={`${selectedOption === index ? "active" : ""}`}
                     >
                       {item.country}
                     </li>
