@@ -7,7 +7,7 @@
   height: 50px;
   min-width: 150px;
   padding: var(--space-md) var(--space-lg);
-  border: var(--border-width-hairline) rgba(0, 0, 0, 0.2);
+  border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-sm);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   color: var(--color-bg-primary);
