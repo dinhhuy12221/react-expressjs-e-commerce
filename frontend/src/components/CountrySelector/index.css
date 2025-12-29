@@ -79,21 +79,19 @@
   list-style: none;
   list-style-type: none;
 }
+
 .country-modal .country-list li {
-  width: 100%;
-}
-.country-modal .country-list li button {
-  width: 100%;
   justify-content: start;
   color: var(--color-text-primary);
   padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  font-weight: 500;
+  /* border-bottom: var(--border-width-hairline); */
 }
-
-.country-modal .country-list li button:hover {
+.country-modal .country-list li:hover {
   background: #f1f1f1;
 }
-
-.country-modal .country-list li button.active {
+.country-modal .country-list li.active {
   background: #ccc;
 }
 
@@ -102,8 +100,6 @@
   top: var(--space-xl);
   right: var(--space-xl);
   color: var(--color-text-primary);
-  border-bottom: var(--border-width-hairline);
-  border-radius: 0px;
   padding: 0px 0px;
 }
 
