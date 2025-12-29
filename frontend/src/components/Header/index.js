@@ -14,8 +14,6 @@ function Header() {
   const context = useContext(MyContext);
   const customer = useSelector(selectCurrentCustomer);
 
-  console.log(customer);
-
   return (
     <>
       <header className="header">
