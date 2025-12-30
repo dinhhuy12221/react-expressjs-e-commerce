@@ -19,10 +19,10 @@ function ResultItem(props) {
     <div className="result-item">
       <div className="result-info">
         <LinkTo path={"/product/1"}>
-          <img src={item.image} alt="image" />
+          <img className="result-image" src={item.image} alt="image" />
         </LinkTo>
-        <LinkTo path={"/product/1"}>
-          <p>{item.title}</p>
+        <LinkTo path={"/product/1"} className="result-name">
+          {item.title}
         </LinkTo>
       </div>
       <div className="actions">
