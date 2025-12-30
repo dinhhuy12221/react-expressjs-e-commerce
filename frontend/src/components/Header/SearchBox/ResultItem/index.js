@@ -20,7 +20,7 @@ function ResultItem(props) {
         <LinkTo path={"/product/1"}>
           <img src={item.image} alt="image" />
         </LinkTo>
-        <LinkTo path={"/product/1"}>
+        <LinkTo path={"/product/1"} className="result-name">
           {item.title}
         </LinkTo>
       </div>
