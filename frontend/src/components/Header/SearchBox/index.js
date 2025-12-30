@@ -50,9 +50,7 @@ export default function SearchBox() {
       </div>
 
       {input !== "" && resultShow && (
-        <div>
           <DropDown />
-        </div>
       )}
     </div>
   );
