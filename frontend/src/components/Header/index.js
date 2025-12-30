@@ -26,8 +26,8 @@ function Header() {
           <a href="/" className="logo">
             <img src={Logo} alt="Logo"></img>
           </a>
-          {context.countryList.length !== 0 && <CountrySelector />}
-          <SearchBox />
+          {context.countryList.length !== 0 && <CountrySelector className="country-selector"/>}
+          <SearchBox className="search-box"/>
           {!customer ? (
             <a href="/login" className="btn btn--primary btn--lg signin-button">
               Signin
@@ -40,7 +40,7 @@ function Header() {
             <span className="cart-count btn--circle">1</span>
             <a
               href="/cart"
-              className="cart-button btn btn--circle btn--outlined"
+              className="btn btn--circle btn--outlined cart-button"
             >
               <TiShoppingCart />
             </a>
