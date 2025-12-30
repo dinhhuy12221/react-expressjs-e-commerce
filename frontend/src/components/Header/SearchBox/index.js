@@ -37,7 +37,7 @@ export default function SearchBox() {
 
   return (
     <>
-      <div className="search-wrapper">
+      <div className="search-box">
         <div className="search-input">
           <input
             ref={searchResultRef}

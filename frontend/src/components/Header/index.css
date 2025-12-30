@@ -12,6 +12,10 @@
   text-align: center;
 }
 
+.menu-button {
+  display: none;
+}
+
 .logo img {
   width: 160px;
 }
@@ -73,42 +77,45 @@
     font-size: var(--font-sm);
   }
 
-  .logo img {
-    width: 80px;
-  }
-
   .header-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
   }
+  
+.menu-button {
+  display: block;
+  font-size: var(--font-lg);
+}
+  .logo img {
+    width: 120px;
+    height: 80px;
+  }
+
 
   .search-box,
   .country-selector,
-  .signin-button {
+  .signin-button,
+  .cart-price {
     display: none;
   }
 
-  .cart-price {
-  font-size: var(--font-sm);
-  font-weight: 500;
-}
-.cart-button {
-  min-width: 20px;
-  height: 20px;
-  width: 20px;
-  color: var(--color-text-primary);
-}
+  .cart-button {
+    min-width: 10px;
+    height: 10px;
+    width: 10px;
+    color: var(--color-text-primary);
+  }
+  .cart-button svg {
+    font-size: var(--font-sm);
+  }
 
-.cart .cart-button svg {
-  font-size: var(--font-lg);
-}
-
-.cart .cart-count {
-  top: -6px;
-  right: -4px;
-  width: 20px;
-  height: 20px;
-}
+  .cart-count {
+    top: -6px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+  }
 }
 /* TABLETS PORTRAIT */
 @media only screen and (max-width: 768px) {
