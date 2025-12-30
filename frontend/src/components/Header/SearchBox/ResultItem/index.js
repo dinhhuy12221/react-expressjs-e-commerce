@@ -1,10 +1,9 @@
-import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { MyContext } from "../../../../App";
-import "./index.css";
 import LinkTo from "../../../../utils/LinkTo/index";
+import "./index.css";
 
 function ResultItem(props) {
   const context = useContext(MyContext);
@@ -17,21 +16,21 @@ function ResultItem(props) {
 
   return (
     <div className="result-item">
-      <div className="info">
+      <div className="result-info">
         <LinkTo path={"/product/1"}>
           <img src={item.image} alt="image" />
         </LinkTo>
         <LinkTo path={"/product/1"}>
-          <p>{item.title}</p>
+          {item.title}
         </LinkTo>
       </div>
       <div className="actions">
-        <Button onClick={() => viewProductDetails(1)}>
+        <button className="btn" onClick={() => viewProductDetails(1)}>
           <AiOutlineFullscreen />
-        </Button>
-        <Button>
+        </button>
+        <button className="btn">
           <IoMdHeartEmpty />
-        </Button>
+        </button>
       </div>
     </div>
   );

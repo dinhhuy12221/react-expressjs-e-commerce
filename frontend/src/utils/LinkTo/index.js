@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import "./index.css"
 
 function LinkTo({ path, children }) {
   return (
-    <Link to={path} style={{ color: "#333" }}>
+    <Link className="link" to={path}>
       {children}
     </Link>
   );

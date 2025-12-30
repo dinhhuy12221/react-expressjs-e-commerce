@@ -22,9 +22,7 @@
   width: 100px;
   overflow: hidden;
 }
-a {
-  text-decoration: none !important;
-}
+
 .cartItemImgWrapper .info h6 {
   color: #343434;
   font-weight: bold;
