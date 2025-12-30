@@ -32,7 +32,7 @@ muted → variant
     --color-text-accent: var(--color-bg-primary);
     --color-text-accent-muted: var(--color-bg-primary-muted);
 
-    --font-2sm: 10px;
+    --font-2sm: 8px;
     --font-sm: 10px;
     --font-2md: 12px;
     --font-md: 14px;
