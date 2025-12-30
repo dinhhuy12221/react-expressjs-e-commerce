@@ -1,6 +1,7 @@
 .result-item {
   display: flex;
   align-items: center;
+  justify-content: start;
   padding: var(--space-2xs);
   user-select: none;
   transition: 1s ease;
@@ -9,6 +10,7 @@
 .result-item .result-info {
   display: flex;
   align-items: center;
+  gap: var(--space-sm);
   width: 80%;
   padding: var(--space-xs);
   margin-left: var(--space-md);
@@ -20,14 +22,10 @@
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.2);
 }
 
-.result-item .result-info .result-name:hover {
-  text-decoration: underline;
-}
-
 .result-item .actions {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: var(--space-sm);
 }
 
 .result-item .actions button {

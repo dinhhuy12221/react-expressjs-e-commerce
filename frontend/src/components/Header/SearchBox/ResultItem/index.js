@@ -1,4 +1,3 @@
-import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -19,9 +18,9 @@ function ResultItem(props) {
     <div className="result-item">
       <div className="result-info">
         <LinkTo path={"/product/1"}>
-          <img className="result-image" src={item.image} alt="image" />
+          <img src={item.image} alt="image" />
         </LinkTo>
-        <LinkTo path={"/product/1"} className="result-name">
+        <LinkTo path={"/product/1"}>
           {item.title}
         </LinkTo>
       </div>
