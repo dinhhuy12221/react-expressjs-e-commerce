@@ -37,15 +37,17 @@ export default function SearchBox() {
 
   return (
     <div className="search-wrapper">
-      <input
-        ref={searchResultRef}
-        type="text"
-        placeholder="Search for products..."
-        spellCheck={false}
-        value={input}
-        onChange={(e) => handleInput(e.currentTarget.value)}
-      />
-        <CiSearch className="btn search-button"/>
+      <div className="search-input">
+        <input
+          ref={searchResultRef}
+          type="text"
+          placeholder="Search for products..."
+          spellCheck={false}
+          value={input}
+          onChange={(e) => handleInput(e.currentTarget.value)}
+        />
+          <CiSearch className="btn search-button"/>
+      </div>
 
       {input !== "" && resultShow && (
         <div>
