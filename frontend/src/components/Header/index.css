@@ -12,9 +12,14 @@
   text-align: center;
 }
 
+.menu-button {
+  display: none;
+}
+
 .logo img {
   width: 160px;
 }
+
 .header-content {
   display: flex;
   justify-content: center;
@@ -60,28 +65,62 @@
   background: var(--color-bg-primary-muted);
 }
 
+.signin-button {
+  font-size: var(--font-2lg);
+  padding: var(--space-md) var(--space-lg);
+}
+
 /* SMARTPHONES LANDSCAPE */
 @media only screen and (max-width: 480px) {
   .banner-strip {
-  padding: var(--space-xs) 0px;
-  font-size: var(--font-sm);
-}
+    padding: var(--space-xs) 0px;
+    font-size: var(--font-sm);
+  }
 
-.logo img {
-  width: 80px;
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+.menu-button {
+  display: block;
+  font-size: var(--font-lg);
 }
+  .logo img {
+    width: 120px;
+    height: 80px;
+  }
 
+
+  .search-box,
+  .country-selector,
+  .signin-button,
+  .cart-price {
+    display: none;
+  }
+
+  .cart-button {
+    min-width: 10px;
+    height: 10px;
+    width: 10px;
+    color: var(--color-text-primary);
+  }
+  .cart-button svg {
+    font-size: var(--font-sm);
+  }
+
+  .cart-count {
+    top: -6px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+  }
 }
-
 /* TABLETS PORTRAIT */
 @media only screen and (max-width: 768px) {
-
-
 }
 
-
 /* TABLET LANDSCAPE / DESKTOP */
-/* @media only screen and (max-width: 1024px) {
-
-
-} */
+@media only screen and (max-width: 1024px) {
+}

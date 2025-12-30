@@ -5,42 +5,51 @@ import SearchBox from "./SearchBox/index";
 import Navigation from "./Navigation/index";
 import { MyContext } from "../../App";
 import { TiShoppingCart } from "react-icons/ti";
-import { useSelector } from "react-redux";
-import { selectCurrentCustomer } from "../../features/auth/authSlice";
-import Profile from "./Profile";
+import { IoIosMenu } from "react-icons/io";
+// import { useSelector } from "react-redux";
+// import { selectCurrentCustomer } from "../../features/auth/authSlice";
+// import Profile from "./Profile";
 import "./index.css";
 
 function Header() {
   const context = useContext(MyContext);
-  const customer = useSelector(selectCurrentCustomer);
+  // const customer = useSelector(selectCurrentCustomer);
 
   return (
     <>
       <header className="header">
         <p className="banner-strip">
-            Due to the COVID 19 epidemic, orders may be processed with a slight
-            delay
+          Due to the COVID 19 epidemic, orders may be processed with a slight
+          delay
         </p>
 
         <div className="header-content">
+          <button className="btn menu-button">
+            <IoIosMenu />
+          </button>
           <a href="/" className="logo">
             <img src={Logo} alt="Logo"></img>
           </a>
-          {context.countryList.length !== 0 && <CountrySelector />}
-          <SearchBox />
-          {!customer ? (
-            <a href="/login" className="btn btn--primary btn--lg signin-button">
+          {context.countryList.length !== 0 && (
+            <CountrySelector className="country-selector" />
+          )}
+          <SearchBox className="search-box" />
+          <a href="/login" className="btn btn--primary signin-button">
+            Signin
+          </a>
+          {/* {!customer ? (
+            <a href="/login" className="btn btn--primary signin-button">
               Signin
             </a>
           ) : (
             <Profile customer={customer} />
-          )}
+          )} */}
           <span className="cart-price">$55.5</span>
           <div className="cart">
             <span className="cart-count btn--circle">1</span>
             <a
               href="/cart"
-              className="cart-button btn btn--circle btn--outlined"
+              className="btn btn--circle btn--outlined cart-button"
             >
               <TiShoppingCart />
             </a>

@@ -110,7 +110,7 @@ img {
     justify-content: center;
     gap: var(--space-sm);
     padding: var(--space-sm);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     transition: 0.5s ease;
 
     font-family: inherit;
