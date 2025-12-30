@@ -1,26 +1,27 @@
 .result-item {
   display: flex;
   align-items: center;
-  padding: 3px;
+  padding: var(--space-2xs);
   user-select: none;
 }
 
 .result-item:hover {
-  background-color: #f3f4f7;
+  text-decoration: underline;
 }
 
 .result-item .result-info {
   display: flex;
   align-items: center;
-  padding: 5px;
-  margin-left: 10px;
   width: 80%;
+  padding: var(--space-xs);
+  margin-left: var(--space-md);
   cursor: pointer;
 }
 
 .result-item .result-info img {
   width: 40px;
   height: 40px;
+  border: var(--border-width-hairline) rgba(0, 0, 0, 0.2);
 }
 
 .result-item .result-info p {
