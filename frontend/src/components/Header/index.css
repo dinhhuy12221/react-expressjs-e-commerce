@@ -61,6 +61,11 @@
   background: var(--color-bg-primary-muted);
 }
 
+.signin-button {
+  font-size: var(--font-2lg);
+  padding: var(--space-md) var(--space-lg);
+}
+
 /* SMARTPHONES LANDSCAPE */
 @media only screen and (max-width: 480px) {
   .banner-strip {
@@ -77,13 +82,17 @@
     justify-content: center;
   }
 
-  .header-content .search-box,
-  .country-selector {
+  .search-box,
+  .country-selector,
+  .signin-button {
     display: none;
   }
 
-  
-.cart .cart-button {
+  .cart-price {
+  font-size: var(--font-sm);
+  font-weight: 500;
+}
+.cart-button {
   min-width: 20px;
   height: 20px;
   width: 20px;
@@ -91,7 +100,7 @@
 }
 
 .cart .cart-button svg {
-  font-size: 15px;
+  font-size: var(--font-lg);
 }
 
 .cart .cart-count {
