@@ -1,8 +1,18 @@
 .site-canvas {
-    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-primary);
+
+    transform: translate(-375px, 0px);
+    transition: all 2s ease-in-out;
 }
 /* SMARTPHONES LANDSCAPE */
 @media only screen and (max-width: 480px) {
+    .site-canvas {
+        position: sticky;
+        transform: translate(375px, 0px);
+    }
   
 }
 /* TABLETS PORTRAIT */
