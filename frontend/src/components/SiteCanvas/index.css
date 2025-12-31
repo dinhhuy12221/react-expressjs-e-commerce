@@ -1,0 +1,31 @@
+.site-canvas {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #fff;
+
+    transform: translate(-375px, 0px);
+    transition: all 2s ease-in-out;
+
+    z-index: 1000;
+    overflow-y: auto;
+    
+}
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (max-width: 480px) {
+    .site-canvas {
+        display: block;
+        transform: translate(0px, 0px);
+    }
+  
+}
+/* TABLETS PORTRAIT */
+@media only screen and (max-width: 768px) {
+}
+
+
+/* TABLET LANDSCAPE / DESKTOP */
+@media only screen and (max-width: 1024px) {
+}

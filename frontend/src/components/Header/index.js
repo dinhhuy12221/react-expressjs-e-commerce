@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Logo from "../../assets/images/logo.png";
 import CountrySelector from "../CountrySelector/index";
 import SearchBox from "./SearchBox/index";
+import SiteCanvas from "../SiteCanvas";
 import Navigation from "./Navigation/index";
 import { MyContext } from "../../App";
 import { TiShoppingCart } from "react-icons/ti";
@@ -13,18 +14,19 @@ import "./index.css";
 
 function Header() {
   const context = useContext(MyContext);
+  const [open, setOpen] = useState(false);
   // const customer = useSelector(selectCurrentCustomer);
 
   return (
     <>
+      <SiteCanvas />
       <header className="header">
         <p className="banner-strip">
           Due to the COVID 19 epidemic, orders may be processed with a slight
           delay
         </p>
-
         <div className="header-content">
-          <button className="btn menu-button">
+          <button className="btn menu-button" onClick={() => setOpen(true)}>
             <IoIosMenu />
           </button>
           <a href="/" className="logo">
