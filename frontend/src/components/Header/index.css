@@ -94,10 +94,10 @@
     height: 80px;
   }
 
-  .search-box,
-  .country-selector,
-  .signin-button,
-  .cart-price {
+  .header .search-box,
+  .header .country-selector,
+  .header .signin-button,
+  .header .cart-price {
     display: none;
   }
 
