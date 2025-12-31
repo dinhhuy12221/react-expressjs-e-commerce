@@ -42,7 +42,7 @@
 .canvas-main .country-selector .country-name {
     font-size: var(--font-2md);
 }
-.canvas-main .country-selector .country-modal {
+.canvas-main .country-modal {
     width: 300px;
     height: 500px;
 }
