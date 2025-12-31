@@ -1,8 +1,10 @@
 .site-canvas {
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    width: 100vw;
     height: 100%;
+    overflow-y:scroll;
     display: none;
     background-color: #fff;
 
@@ -15,6 +17,9 @@
 }
 /* SMARTPHONES LANDSCAPE */
 @media only screen and (max-width: 480px) {
+    body {
+        overflow: hidden;
+    }
     .site-canvas {
         display: block;
         transform: translate(0px, 0px);
