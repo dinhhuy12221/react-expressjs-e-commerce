@@ -2,10 +2,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 375px;
     height: 100%;
-    overflow-y:scroll;
+    overflow-y: auto;
     display: none;
+
     background-color: #fff;
 
     transform: translate(-375px, 0px);
@@ -13,7 +14,16 @@
 
     z-index: 1000;
     overflow-y: auto;
-    
+}
+
+.canvas-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px var(--space-md);
+}
+.canvas-header img {
+    font: var(--font-md);
+    width: 100px;
 }
 /* SMARTPHONES LANDSCAPE */
 @media only screen and (max-width: 480px) {
@@ -21,7 +31,8 @@
         overflow: hidden;
     }
     .site-canvas {
-        display: block;
+        display: flex;
+        flex-direction: column;
         transform: translate(0px, 0px);
     }
   
