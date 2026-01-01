@@ -26,7 +26,7 @@ function Header() {
           delay
         </p>
         <div className="header-content">
-          <button className="btn menu-button" onOpen={() => setOpen(true)}>
+          <button className="btn menu-button" onClick={() => setOpen(true)}>
             <IoIosMenu />
           </button>
           <a href="/" className="logo">

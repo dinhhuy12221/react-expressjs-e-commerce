@@ -9,7 +9,7 @@ function SiteCanvas({ open, onClose }) {
   if (!open) return null;
 
   return (
-    <div className='site-canvas'>
+    <div className={`site-canvas ${open && 'site-canvas-display'}`}>
       <div className='canvas-header'>
         <a href='/'><img src={Logo} alt='Logo'></img></a>
         <button className='btn close-button' onClick={onClose}><IoClose /></button>
