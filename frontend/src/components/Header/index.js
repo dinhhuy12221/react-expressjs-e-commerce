@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <>
-      <SiteCanvas />
+      <SiteCanvas open={open} onClose={() => setOpen(false)}/>
       <header className="header">
         <p className="banner-strip">
           Due to the COVID 19 epidemic, orders may be processed with a slight

@@ -69,8 +69,8 @@ export default function CountrySelector() {
         TransitionComponent={Transition}
       >
         <div className="country-modal">
-          <h5 className="country-modal-label">Choose your Delivery Country</h5>
-          <p>Enter your address and we will specify the offer for your area.</p>
+          <h5 className="country-label">Choose your Delivery Country</h5>
+          <p className="country-description">Enter your address and we will specify the offer for your area.</p>
           <button
             className="btn close-button"
             onClick={() => setIsModalOpen(false)}

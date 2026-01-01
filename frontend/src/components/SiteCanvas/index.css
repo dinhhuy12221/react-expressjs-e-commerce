@@ -1,16 +1,19 @@
 .site-canvas {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     position: fixed;
     top: 0;
     left: 0;
     width: 375px;
     height: 100%;
     overflow-y: auto;
-    display: none;
 
     background-color: #fff;
+    border: var(--border-width-hairline) rgba(0, 0, 0, 0.2);
 
     transform: translate(-375px, 0px);
-    transition: all 2s ease-in-out;
+    transition: transform 0.5s ease;
 
     z-index: 1000;
     overflow-y: auto;
@@ -29,9 +32,6 @@
 }
 
 .canvas-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 0px var(--space-xl);
 }
 
@@ -42,7 +42,14 @@
 .canvas-main .country-selector .country-name {
     font-size: var(--font-2md);
 }
-.canvas-main .country-modal {
+.country-modal .country-label {
+    font-size: var(--font-lg);
+}
+.country-modal .country-description {
+    font-size: var(--font-2md);
+}
+
+.country-modal {
     width: 300px;
     height: 500px;
 }
@@ -52,13 +59,10 @@
     body {
         overflow: hidden;
     }
-    .site-canvas {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
+    .site-canvas-display {
         transform: translate(0px, 0px);
+        
     }
-  
 }
 /* TABLETS PORTRAIT */
 @media only screen and (max-width: 768px) {
