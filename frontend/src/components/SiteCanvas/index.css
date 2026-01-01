@@ -10,7 +10,6 @@
     background-color: #fff;
 
     transform: translate(-375px, 0px);
-    transition: all 2s ease-in-out;
 
     z-index: 1000;
     overflow-y: auto;
@@ -46,7 +45,7 @@
     font-size: var(--font-lg);
 }
 .country-modal .country-description {
-    font-size: var(--font-md);
+    font-size: var(--font-2md);
 }
 
 .country-modal {
