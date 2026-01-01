@@ -1,16 +1,19 @@
 .site-canvas {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     position: fixed;
     top: 0;
     left: 0;
     width: 375px;
     height: 100%;
     overflow-y: auto;
-    display: none;
 
     background-color: #fff;
+    border: var(--border-width-hairline) rgba(0, 0, 0, 0.2);
 
     transform: translate(-375px, 0px);
-    transition: transform 1s ease;
+    transition: transform 0.5s ease;
 
     z-index: 1000;
     overflow-y: auto;
@@ -59,9 +62,6 @@
     .site-canvas-display {
         transform: translate(0px, 0px);
         
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
     }
 }
 /* TABLETS PORTRAIT */

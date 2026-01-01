@@ -6,7 +6,6 @@ import { useContext, useState } from 'react'
 import { MyContext } from '../../App'
 function SiteCanvas({ open, onClose }) {
   const context = useContext(MyContext);
-  if (!open) return null;
 
   return (
     <div className={`site-canvas ${open && 'site-canvas-display'}`}>
