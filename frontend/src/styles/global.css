@@ -44,6 +44,7 @@ muted → variant
     --space-2xs: 2px;
     --space-xs: 4px;
     --space-sm: 8px;
+    --space-2md: 10px;
     --space-md: 12px;
     --space-lg: 16px;
     --space-xl: 24px;
@@ -111,7 +112,7 @@ img {
     justify-content: center;
     gap: var(--space-sm);
     padding: var(--space-sm);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     transition: 0.5s ease;
 
     font-family: inherit;
@@ -120,8 +121,9 @@ img {
     cursor: pointer;
     border: none;
 }
+
 /* .btn:hover {
-    background-color: ;
+    background-color: var(--color-bg-primary);
 } */
 
 .btn--circle {
@@ -145,7 +147,10 @@ img {
 .btn--primary:hover {
     background-color: var(--color-bg-primary-muted);
     color: var(--color-on-primary);
-    opacity: 1;
+}
+.btn--primary:active {
+    background-color: var(--color-bg-primary-muted);
+    color: var(--color-on-primary);
 }
 
 .btn-blue {
