@@ -1,6 +1,7 @@
 .news-letter {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
   height: 400px;
   background: #f3624c;
@@ -8,8 +9,12 @@
   overflow: hidden;
   padding: 70px 0px;
 }
-.news-letter .col-md-6 {
+.news-letter .email-label {
   position: static !important;
+}
+
+.news-letter .email-form {
+
 }
 .news-letter p {
   font-size: 18px;
@@ -43,7 +48,7 @@
   opacity: 0.4;
   left: 7px;
 }
-.news-letter form input {
+.news-letter .email-form input {
   width: 100%;
   height: 100%;
   background: #fff !important;
@@ -53,7 +58,7 @@
   padding-right: 50px;
   font-size: 15px !important;
 }
-.news-letter form button {
+.news-letter .email-form button {
   background: #ea2b0f !important;
   color: #fff !important;
   font-size: 14px !important;

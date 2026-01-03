@@ -17,19 +17,19 @@ export default function Footer() {
   return (
     <footer>
       <section className="news-letter">
-        <div className="col-md-6">
-          <p className="text-white mb-1">$20 discount for your first order</p>
-          <h3 className="text-white">Join our newsletter and get...</h3>
-          <p className="text-light">
+        <div className="email-label">
+          <p className="">$20 discount for your first order</p>
+          <h3 className="">Join our newsletter and get...</h3>
+          <p className="">
             Join our email subscription now
             <br />
             to get updates on promotions and coupons.
           </p>
 
-          <form className="d-flex align-items-center">
+          <form className="email-form">
             <CiMail />
             <input type="email" placeholder="Your email address"></input>
-            <Button>Subscribe</Button>
+            <button className="btn">Subscribe</button>
           </form>
         </div>
 
