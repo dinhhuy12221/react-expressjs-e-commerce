@@ -111,7 +111,7 @@ img {
     justify-content: center;
     gap: var(--space-sm);
     padding: var(--space-sm);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xs);
     transition: 0.5s ease;
 
     font-family: inherit;
@@ -120,8 +120,9 @@ img {
     cursor: pointer;
     border: none;
 }
+
 /* .btn:hover {
-    background-color: ;
+    background-color: var(--color-bg-primary);
 } */
 
 .btn--circle {
@@ -143,9 +144,7 @@ img {
     text-transform: capitalize;
 }
 .btn--primary:hover {
-    background-color: var(--color-bg-primary-muted);
-    color: var(--color-on-primary);
-    opacity: 1;
+    background-color: var(--color-bg-primary);
 }
 
 .btn-blue {

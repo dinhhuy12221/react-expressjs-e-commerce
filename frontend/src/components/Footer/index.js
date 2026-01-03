@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 import { RiShirtLine } from "react-icons/ri";
@@ -9,7 +8,6 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
-import Button from "@mui/material/Button";
 
 import "./index.css";
 
@@ -27,9 +25,9 @@ export default function Footer() {
           </p>
 
           <form className="email-form">
-            <CiMail />
+            <CiMail className="icon"/>
             <input type="email" placeholder="Your email address"></input>
-            <button className="btn">Subscribe</button>
+            <button className="btn btn--primary">Subscribe</button>
           </form>
         </div>
 
