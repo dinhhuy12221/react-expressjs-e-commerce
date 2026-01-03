@@ -18,9 +18,9 @@ export default function Footer() {
     <footer>
       <section className="news-letter">
         <div className="email-label">
-          <p className="">$20 discount for your first order</p>
-          <h3 className="">Join our newsletter and get...</h3>
-          <p className="">
+          <p>$20 discount for your first order</p>
+          <h1>Join our newsletter and get...</h1>
+          <p>
             Join our email subscription now
             <br />
             to get updates on promotions and coupons.
