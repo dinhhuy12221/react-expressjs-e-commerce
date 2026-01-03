@@ -16,9 +16,9 @@ export default function Footer() {
     <footer>
       <section className="news-letter">
         <div className="email-label">
-          <p>$20 discount for your first order</p>
+          <p className="text">$20 discount for your first order</p>
           <h1>Join our newsletter and get...</h1>
-          <p>
+          <p className="text">
             Join our email subscription now
             <br />
             to get updates on promotions and coupons.
@@ -31,7 +31,7 @@ export default function Footer() {
           </form>
         </div>
 
-        <div className="col-md-6">
+        <div>
           <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/coupon.png" />
         </div>
       </section>
@@ -62,7 +62,6 @@ export default function Footer() {
             <span className="ms-2">Best price on the market</span>
           </div>
         </div>
-
         <div className="row mt-5 linksWrap">
           <div className="col">
             <h5>FRUIT & VEGETABLES</h5>

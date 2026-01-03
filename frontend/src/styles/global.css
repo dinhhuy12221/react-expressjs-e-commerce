@@ -44,6 +44,7 @@ muted → variant
     --space-2xs: 2px;
     --space-xs: 4px;
     --space-sm: 8px;
+    --space-2md: 10px;
     --space-md: 12px;
     --space-lg: 16px;
     --space-xl: 24px;
@@ -144,7 +145,12 @@ img {
     text-transform: capitalize;
 }
 .btn--primary:hover {
-    background-color: var(--color-bg-primary);
+    background-color: var(--color-bg-primary-muted);
+    color: var(--color-on-primary);
+}
+.btn--primary:active {
+    background-color: var(--color-bg-primary-muted);
+    color: var(--color-on-primary);
 }
 
 .btn-blue {
