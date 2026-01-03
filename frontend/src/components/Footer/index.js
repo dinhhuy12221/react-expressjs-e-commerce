@@ -11,36 +11,30 @@ import { FaInstagram } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import Button from "@mui/material/Button";
 
-import './index.css';
+import "./index.css";
 
 export default function Footer() {
   return (
     <footer>
-      <section className="newsLetterSection mt-3 mb-3 d-flex align-items-center">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <p className="text-white mb-1">
-                $20 discount for your first order
-              </p>
-              <h3 className="text-white">Join our newsletter and get...</h3>
-              <p className="text-light">
-                Join our email subscription now
-                <br />
-                to get updates on promotions and coupons.
-              </p>
+      <section className="news-letter">
+        <div className="email-label">
+          <p>$20 discount for your first order</p>
+          <h1>Join our newsletter and get...</h1>
+          <p>
+            Join our email subscription now
+            <br />
+            to get updates on promotions and coupons.
+          </p>
 
-              <form className="d-flex align-items-center">
-                <CiMail />
-                <input type="email" placeholder="Your email address"></input>
-                <Button>Subscribe</Button>
-              </form>
-            </div>
+          <form className="email-form">
+            <CiMail />
+            <input type="email" placeholder="Your email address"></input>
+            <button className="btn">Subscribe</button>
+          </form>
+        </div>
 
-            <div className="col-md-6">
-              <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/coupon.png" />
-            </div>
-          </div>
+        <div className="col-md-6">
+          <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/coupon.png" />
         </div>
       </section>
       <div className="container">
