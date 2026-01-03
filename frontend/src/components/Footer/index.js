@@ -25,7 +25,7 @@ export default function Footer() {
           </p>
 
           <form className="email-form">
-            <CiMail className="icon"/>
+            <CiMail className="icon" />
             <input type="email" placeholder="Your email address"></input>
             <button className="btn btn--primary">Subscribe</button>
           </form>
@@ -35,31 +35,23 @@ export default function Footer() {
           <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/coupon.png" />
         </div>
       </section>
-      <div className="container">
-        <div className="topInfo row">
-          <div className="col d-flex align-items-center">
-            <span>
-              <RiShirtLine />
-            </span>
-            <span className="ms-2">Everyday fresh products</span>
+      <section className="footer-content">
+        <div className="footer-label">
+          <div>
+            <RiShirtLine />
+            <span>Everyday fresh products</span>
           </div>
-          <div className="col d-flex align-items-center">
-            <span>
-              <CiDeliveryTruck />
-            </span>
-            <span className="ms-2">Free delivery for order over $70</span>
+          <div>
+            <CiDeliveryTruck />
+            <span>Free delivery for order over $70</span>
           </div>
-          <div className="col d-flex align-items-center">
-            <span>
-              <RiDiscountPercentLine />
-            </span>
-            <span className="ms-2">Daily Mega Discounts</span>
+          <div>
+            <RiDiscountPercentLine />
+            <span>Daily Mega Discounts</span>
           </div>
-          <div className="col d-flex align-items-center">
-            <span>
-              <CiDollar />
-            </span>
-            <span className="ms-2">Best price on the market</span>
+          <div>
+            <CiDollar />
+            <span>Best price on the market</span>
           </div>
         </div>
         <div className="row mt-5 linksWrap">
@@ -215,7 +207,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-      </div>
+      </section>
     </footer>
   );
 }
