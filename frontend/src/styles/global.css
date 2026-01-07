@@ -26,12 +26,12 @@ muted → variant
     --color-bg-primary-muted: #ea2b0f;
     --color-bg-primary-1: #f3624c;
     --color-bg-success: #e5f8ed;
-    --color-on-primary: #fff;
-    --color-text-primary: #000000;
-    --color-text-muted: rgba(0, 0, 0, 0.7);
+    --color-text-white: #fff;
+    --color-text-black: #000000;
+    --color-text-black-muted: rgba(0, 0, 0, 0.7);
     --color-text-success: #16b858;
-    --color-text-accent: var(--color-bg-primary);
-    --color-text-accent-muted: var(--color-bg-primary-muted);
+    --color-text-red: var(--color-bg-primary);
+    --color-text-red-muted: var(--color-bg-primary-muted);
 
     --font-2sm: 8px;
     --font-sm: 10px;
