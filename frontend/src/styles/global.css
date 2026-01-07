@@ -15,6 +15,8 @@ primary → role
 muted → variant
 */
 
+@layer reset, base, layout, components, utilities;
+
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css");
 
