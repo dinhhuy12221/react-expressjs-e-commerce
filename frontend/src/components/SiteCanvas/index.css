@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 375px;
-    height: 667px;
+    bottom: 0;
+    /* width: 375px;
+    height: 667px; */
 
     background-color: var(--color-bg-white);
     border: var(--border-width-hairline) rgba(0, 0, 0, 0.2);
