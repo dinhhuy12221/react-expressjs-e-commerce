@@ -12,23 +12,23 @@ export default function HomeCat() {
     "#ecffec",
     "#feefea",
     "#fff3ff",
-    // "#f2fce4",
-    // "#feefea",
-    // "#ecffec",
-    // "#feefea",
-    // "#fff3ff",
-    // "#f2fce4",
-    // "#feefea",
-    // "#ecffec",
-    // "#feefea",
-    // "#fff3ff",
-    // "#f2fce4",
-    // "#feefea",
-    // "#ecffec",
-    // "#feefea",
-    // "#fff3ff",
-    // "#f2fce4",
-    // "#feefea",
+    "#f2fce4",
+    "#feefea",
+    "#ecffec",
+    "#feefea",
+    "#fff3ff",
+    "#f2fce4",
+    "#feefea",
+    "#ecffec",
+    "#feefea",
+    "#fff3ff",
+    "#f2fce4",
+    "#feefea",
+    "#ecffec",
+    "#feefea",
+    "#fff3ff",
+    "#f2fce4",
+    "#feefea",
   ]);
   const [numberOfItems, setNumberOfItems] = useState(8);
 
@@ -37,11 +37,11 @@ export default function HomeCat() {
       const windowWidth = window.innerWidth;
 
       if (windowWidth > 1300) {
-        setNumberOfItems(8)
+        setNumberOfItems(8);
       } else if (windowWidth > 800) {
-        setNumberOfItems(6)
+        setNumberOfItems(6);
       } else {
-        setNumberOfItems(4)
+        setNumberOfItems(4);
       }
     };
     window.addEventListener("resize", handleNumberOfItems);
@@ -52,8 +52,7 @@ export default function HomeCat() {
   }, []);
 
   return (
-    <section className="homeCat">
-      <div className="container">
+      <section className="home-category">
         <Swiper
           slidesPerView={numberOfItems}
           slidesPerGroup={1}
@@ -63,12 +62,13 @@ export default function HomeCat() {
           pagination={{
             clickable: true,
           }}
+           
         >
           {itemBg?.map((item, index) => {
             return (
               <SwiperSlide key={index}>
                 <div
-                  className="item text-center cursor"
+                  className="category-item"
                   style={{ background: item }}
                 >
                   <img src="https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-13.png"></img>
@@ -78,7 +78,6 @@ export default function HomeCat() {
             );
           })}
         </Swiper>
-      </div>
-    </section>
+      </section>
   );
 }

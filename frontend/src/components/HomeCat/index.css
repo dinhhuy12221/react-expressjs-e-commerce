@@ -1,40 +1,38 @@
-.homeCat {
+.home-category {
   position: relative;
-  margin-top: 50px;
-  
-  .swiper {
-    overflow: visible;
+}
 
-    .item {
-      padding: 15px;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
+.home-category .swiper {
+  overflow: visible;
+}
+.home-category .swiper-button-prev,
+.home-category .swiper-button-next {
+  top: -10px;
+  width: 30px;
+  height: 30px;
+}
 
-      img {
-        width: 90%;
-        transition: all 0.2s ease;
-      }
+.home-category .swiper-button-prev {
+  right: 68px;
+  left: inherit;
+}
+.home-category .swiper-button-prev::after,
+.home-category .swiper-button-next::after {
+  font-size: 16px;
+}
+.home-category .category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-      &:hover img {
-        transform: scale(1.3);
-      }
-    }
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-    .swiper-button-prev,
-    .swiper-button-next {
-      top: -10px;
-      width: 30px;
-      height: 30px;
-    }
-
-    .swiper-button-prev {
-      right: 68px;
-      left: inherit;
-    }
-    .swiper-button-prev::after,
-    .swiper-button-next::after {
-      font-size: 16px;
-    }
-  }
+.home-category .category-item img {
+  width: 50%;
+  transition: all 0.2s ease;
+}
+.home-category .category-item img:hover {
+  scale: 1.3;
 }
