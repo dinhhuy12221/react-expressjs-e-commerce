@@ -23,12 +23,15 @@
 }
 
 .home-category .category-item {
-  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .home-category .category-item img {
-  width: 100%;
+  width: 50%;
   transition: all 0.2s ease;
 }
 .home-category .category-item img:hover {

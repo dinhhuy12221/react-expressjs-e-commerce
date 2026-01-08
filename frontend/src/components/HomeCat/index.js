@@ -67,7 +67,7 @@ export default function HomeCat() {
           return (
             <SwiperSlide key={index}>
               <div
-                className="category-item text-center cursor"
+                className="category-item"
                 style={{ background: item }}
               >
                 <img src="https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-13.png"></img>
