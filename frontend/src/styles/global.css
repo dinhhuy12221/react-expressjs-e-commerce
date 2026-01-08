@@ -28,6 +28,7 @@ muted → variant
     --color-bg-primary-muted: #ea2b0f;
     --color-bg-primary-1: #f3624c;
     --color-bg-success: #e5f8ed;
+    --color-bg-white: #fff;
     --color-text-white: #fff;
     --color-text-black: #000000;
     --color-text-black-muted: rgba(0, 0, 0, 0.7);
@@ -78,7 +79,7 @@ img {
 
 .bg-red {
     background: var(--color-bg-primary);
-    color: var(--color-on-primary);
+    color: var(--color-text-white);
     font-weight: bold;
 }
 
@@ -143,21 +144,21 @@ img {
 
 .btn--primary {
     background-color: var(--color-bg-primary);
-    color: var(--color-on-primary);
+    color: var(--color-text-white);
     text-transform: capitalize;
 }
 .btn--primary:hover {
     background-color: var(--color-bg-primary-muted);
-    color: var(--color-on-primary);
+    color: var(--color-text-white);
 }
 .btn--primary:active {
     background-color: var(--color-bg-primary-muted);
-    color: var(--color-on-primary);
+    color: var(--color-text-white);
 }
 
 .btn-blue {
     background: #233a95;
-    color: var(--color-on-primary);
+    color: var(--color-text-white);
     text-transform: capitalize;
 }
 
@@ -208,7 +209,7 @@ img {
 
 .view-all-btn {
     padding: var(--space-xs) var(--space-xl);
-    background-color: var(--color-on-primary);
+    background-color: var(--color-text-white);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: var(--radius-lg);
     color: #424040;
@@ -250,7 +251,7 @@ img {
 }
 
 .socials ul li a:hover svg {
-    color: var(--color-on-primary);
+    color: var(--color-text-white);
 }
 
 .section {
