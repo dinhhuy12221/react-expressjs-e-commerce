@@ -1,4 +1,5 @@
 .home-category {
+  display: flex;
 
   .swiper {
     overflow: visible;
@@ -22,20 +23,14 @@
 }
 
 .home-category .category-item {
-  /* width: 100%; */
-  height: auto;
+  padding: var(--space-sm) var(--space-md);
   border-radius: 10px;
-  
-  img {
-    width: 100%;
-    transition: all 0.2s ease;
-  }
 }
 
 .home-category .category-item img {
-    width: 100%;
-    transition: all 0.2s ease;
-  }
+  width: 100%;
+  transition: all 0.2s ease;
+}
 .home-category .category-item img:hover {
-    scale: 1.3;
-  }
+  scale: 1.3;
+}

@@ -12,23 +12,23 @@ export default function HomeCat() {
     "#ecffec",
     "#feefea",
     "#fff3ff",
-    // "#f2fce4",
-    // "#feefea",
-    // "#ecffec",
-    // "#feefea",
-    // "#fff3ff",
-    // "#f2fce4",
-    // "#feefea",
-    // "#ecffec",
-    // "#feefea",
-    // "#fff3ff",
-    // "#f2fce4",
-    // "#feefea",
-    // "#ecffec",
-    // "#feefea",
-    // "#fff3ff",
-    // "#f2fce4",
-    // "#feefea",
+    "#f2fce4",
+    "#feefea",
+    "#ecffec",
+    "#feefea",
+    "#fff3ff",
+    "#f2fce4",
+    "#feefea",
+    "#ecffec",
+    "#feefea",
+    "#fff3ff",
+    "#f2fce4",
+    "#feefea",
+    "#ecffec",
+    "#feefea",
+    "#fff3ff",
+    "#f2fce4",
+    "#feefea",
   ]);
   const [numberOfItems, setNumberOfItems] = useState(8);
 
@@ -37,11 +37,11 @@ export default function HomeCat() {
       const windowWidth = window.innerWidth;
 
       if (windowWidth > 1300) {
-        setNumberOfItems(8)
+        setNumberOfItems(8);
       } else if (windowWidth > 800) {
-        setNumberOfItems(6)
+        setNumberOfItems(6);
       } else {
-        setNumberOfItems(4)
+        setNumberOfItems(4);
       }
     };
     window.addEventListener("resize", handleNumberOfItems);
@@ -52,33 +52,30 @@ export default function HomeCat() {
   }, []);
 
   return (
-    <section className="home-category">
-      <div className="container">
-        <Swiper
-          slidesPerView={numberOfItems}
-          slidesPerGroup={1}
-          spaceBetween={10}
-          navigation={true}
-          modules={[Navigation]}
-          pagination={{
-            clickable: true,
-          }}
-        >
-          {itemBg?.map((item, index) => {
-            return (
-              <SwiperSlide key={index}>
-                <div
-                  className="category-item text-center cursor"
-                  style={{ background: item }}
-                >
-                  <img src="https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-13.png"></img>
-                  <h6>Cafe & Milk</h6>
-                </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </div>
-    </section>
+      <Swiper
+        slidesPerView={numberOfItems}
+        slidesPerGroup={1}
+        spaceBetween={10}
+        navigation={true}
+        modules={[Navigation]}
+        pagination={{
+          clickable: true,
+        }}
+         className="home-category"
+      >
+        {itemBg?.map((item, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <div
+                className="category-item text-center cursor"
+                style={{ background: item }}
+              >
+                <img src="https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-13.png"></img>
+                <h6>Cafe & Milk</h6>
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
   );
 }
