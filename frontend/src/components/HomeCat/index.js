@@ -52,30 +52,32 @@ export default function HomeCat() {
   }, []);
 
   return (
-      <Swiper
-        slidesPerView={numberOfItems}
-        slidesPerGroup={1}
-        spaceBetween={10}
-        navigation={true}
-        modules={[Navigation]}
-        pagination={{
-          clickable: true,
-        }}
-         className="home-category"
-      >
-        {itemBg?.map((item, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <div
-                className="category-item"
-                style={{ background: item }}
-              >
-                <img src="https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-13.png"></img>
-                <h6>Cafe & Milk</h6>
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      <section className="home-category">
+        <Swiper
+          slidesPerView={numberOfItems}
+          slidesPerGroup={1}
+          spaceBetween={10}
+          navigation={true}
+          modules={[Navigation]}
+          pagination={{
+            clickable: true,
+          }}
+           
+        >
+          {itemBg?.map((item, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div
+                  className="category-item"
+                  style={{ background: item }}
+                >
+                  <img src="https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-13.png"></img>
+                  <h6>Cafe & Milk</h6>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </section>
   );
 }

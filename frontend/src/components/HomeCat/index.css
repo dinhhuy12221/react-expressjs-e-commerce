@@ -1,31 +1,30 @@
 .home-category {
-  display: flex;
-
-  .swiper {
-    overflow: visible;
-
-    .swiper-button-prev,
-    .swiper-button-next {
-      top: -10px;
-      width: 30px;
-      height: 30px;
-    }
-
-    .swiper-button-prev {
-      right: 68px;
-      left: inherit;
-    }
-    .swiper-button-prev::after,
-    .swiper-button-next::after {
-      font-size: 16px;
-    }
-  }
+  position: relative;
 }
 
+.home-category .swiper {
+  overflow: visible;
+}
+.home-category .swiper-button-prev,
+.home-category .swiper-button-next {
+  top: -10px;
+  width: 30px;
+  height: 30px;
+}
+
+.home-category .swiper-button-prev {
+  right: 68px;
+  left: inherit;
+}
+.home-category .swiper-button-prev::after,
+.home-category .swiper-button-next::after {
+  font-size: 16px;
+}
 .home-category .category-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   border-radius: 10px;
   cursor: pointer;
 }
