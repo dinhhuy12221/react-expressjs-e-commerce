@@ -6,7 +6,7 @@
 .banner-strip {
   margin: 0px;
   background-color: var(--color-bg-primary);
-  color: var(--color-on-primary);
+  color: var(--color-text-white);
   padding: var(--space-sm) 0px;
   font-size: var(--font-md);
   font-weight: 500;
@@ -62,7 +62,7 @@
   width: 20px;
   height: 20px;
 
-  color: var(--color-on-primary);
+  color: var(--color-text-white);
   background: var(--color-bg-primary-muted);
 }
 
