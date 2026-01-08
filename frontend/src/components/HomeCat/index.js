@@ -52,7 +52,7 @@ export default function HomeCat() {
   }, []);
 
   return (
-    <section className="homeCat">
+    <section className="home-category">
       <div className="container">
         <Swiper
           slidesPerView={numberOfItems}
@@ -68,7 +68,7 @@ export default function HomeCat() {
             return (
               <SwiperSlide key={index}>
                 <div
-                  className="item text-center cursor"
+                  className="category-item text-center cursor"
                   style={{ background: item }}
                 >
                   <img src="https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-13.png"></img>

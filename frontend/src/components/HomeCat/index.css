@@ -1,25 +1,7 @@
-.homeCat {
-  position: relative;
-  margin-top: 50px;
-  
+.home-category {
+
   .swiper {
     overflow: visible;
-
-    .item {
-      padding: 15px;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-
-      img {
-        width: 90%;
-        transition: all 0.2s ease;
-      }
-
-      &:hover img {
-        transform: scale(1.3);
-      }
-    }
 
     .swiper-button-prev,
     .swiper-button-next {
@@ -38,3 +20,22 @@
     }
   }
 }
+
+.home-category .category-item {
+  /* width: 100%; */
+  height: auto;
+  border-radius: 10px;
+  
+  img {
+    width: 100%;
+    transition: all 0.2s ease;
+  }
+}
+
+.home-category .category-item img {
+    width: 100%;
+    transition: all 0.2s ease;
+  }
+.home-category .category-item img:hover {
+    scale: 1.3;
+  }
