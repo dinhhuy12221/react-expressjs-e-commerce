@@ -3,7 +3,7 @@ import axios from "../api/axios";
 // import useAuth from "./useAuth";
 
 import { useDispatch } from "react-redux";
-import { setCredentials } from "../components/Client/features/auth/authSlice";
+import { setCredentials } from "../features/auth/authSlice.js";
 
 const useRefreshToken = () => {
   // const { setAuth } = useAuth();
