@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-export function lazy (path, namedExport) {
+export function lazyLoad (path, namedExport) {
     const promise = lazy.import(path)
     if (namedExport == null) {
         return promise;
