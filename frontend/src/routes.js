@@ -1,10 +1,10 @@
-import Home from "./components/Client/pages/Home";
-import ProductDetails from "./components/Client/pages/ProductDetails";
-import Cart from "./components/Client/pages/Cart";
-import Login from "./components/Client/pages/Login";
-import Category from "./components/Client/pages/Category";
-import Register from "./components/Client/pages/Register";
-import Profile from "./components/Client/pages/Profile";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import Category from "./pages/Category";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 const routes = [
     // Public routes
     {
