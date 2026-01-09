@@ -35,7 +35,6 @@ function Profile() {
 
   return (
     <>
-      <Header />
       <div className="profile">
         <div className="container">
           <div className="row">
@@ -48,7 +47,6 @@ function Profile() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

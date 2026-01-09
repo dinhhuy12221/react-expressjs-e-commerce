@@ -49,7 +49,6 @@ export default function ProductDetails() {
 
   return (
     <>
-      <Header />
       <section className="productDetails section">
         <div className="container">
           <div className="row mb-3">
@@ -177,7 +176,6 @@ export default function ProductDetails() {
           <ProductSwiper title="RECENTLY VIEWED PRODUCTS" />
         </div>
       </section>
-      <Footer />
     </>
   );
 }

@@ -27,7 +27,6 @@ export default function Cart() {
 
   return (
     <>
-    <Header />
       <section className="section cartPage">
         <div className="container">
           <h2 className="hd">Your Cart</h2>
@@ -123,7 +122,6 @@ export default function Cart() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
