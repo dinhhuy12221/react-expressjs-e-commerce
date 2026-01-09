@@ -41,7 +41,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <HomeBanner />
       <HomeCat />
       <section className="home-products">
@@ -114,7 +113,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

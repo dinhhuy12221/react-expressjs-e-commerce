@@ -79,7 +79,6 @@ export default function Category() {
 
   return (
     <>
-      <Header />
       <section className="category">
         <div className="container">
           <div className="row">
@@ -135,7 +134,6 @@ export default function Category() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

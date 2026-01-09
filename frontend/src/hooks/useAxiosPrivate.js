@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { axiosPrivate } from "../components/Client/api/axios";
+import { axiosPrivate } from "../api/axios";
 import useRefreshToken from "./useRefreshToken";
 import { useSelector } from "react-redux";
-import { selectCurrentToken } from "../components/Client/features/auth/authSlice";
+import { selectCurrentToken } from "../features/auth/authSlice.js";
 
 const useAxiosPrivate = () => {
     const refresh = useRefreshToken();

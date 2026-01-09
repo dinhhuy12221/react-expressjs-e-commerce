@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "../components/Client/api/axios";
+import axios from "../api/axios";
 // import useAuth from "./useAuth";
 
 import { useDispatch } from "react-redux";
