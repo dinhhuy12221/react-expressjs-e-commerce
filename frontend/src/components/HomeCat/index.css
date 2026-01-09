@@ -18,7 +18,11 @@
 }
 .home-category .swiper-button-prev::after,
 .home-category .swiper-button-next::after {
-  font-size: 16px;
+  font-size: var(--font-2lg);
+}
+
+.home-category .category-item-wrapper {
+  min-width: min-content !important;
 }
 .home-category .category-item {
   display: flex;
@@ -27,6 +31,10 @@
 
   border-radius: 10px;
   cursor: pointer;
+}
+
+.home-category .category-item > * {
+  flex-shrink: 0;
 }
 
 .home-category .category-item img {

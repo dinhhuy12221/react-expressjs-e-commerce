@@ -66,7 +66,7 @@ export default function HomeCat() {
         >
           {itemBg?.map((item, index) => {
             return (
-              <SwiperSlide key={index}>
+              <SwiperSlide className="category-item-wrapper" key={index}>
                 <div
                   className="category-item"
                   style={{ background: item }}
