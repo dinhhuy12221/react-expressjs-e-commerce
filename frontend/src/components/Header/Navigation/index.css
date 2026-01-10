@@ -8,56 +8,57 @@
   display: flex;
   justify-content: center;
 }
-.categories-wrapper .sidebarNav {
-  width: 200px;
-  height: 0;
-  opacity: 0;
-  background: #fff;
+.categories-wrapper .sub-categories-section {
   position: absolute;
+  flex-grow: 1;
+
+  background: var(--color-bg-white);
   top: 125%;
   left: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: none;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding: 15px 0px;
-  transition: all 0.2;
+  border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
+  border-bottom-right-radius: var(--radius-sm);
+  border-bottom-left-radius: var(--radius-sm);
+  /* padding: var(--space-lg) var(--space-sm);
+  margin: 0; */
+  transition: all 0.2 ease-in-out;
   z-index: 1000;
   visibility: hidden;
+  opacity: 0;
 }
 
-.categories-wrapper .sidebarNav.open {
+.categories-wrapper .sub-categories-section.open {
   height: auto;
   opacity: 1;
   visibility: inherit;
 }
-
-.categories-wrapper .sidebarNav ul {
-  li {
-    width: 100%;
-    list-style: none;
-    padding: 0px 15px;
-  }
+.categories-wrapper .sub-categories-section ul {
+  width: 100%;
+  height: 100%;
 }
-.categories-wrapper .sidebarNav ul li button {
-  color: #000;
+.categories-wrapper .sub-categories-section ul li {
+  width: 100%;
+  list-style: none;
+  padding: 0px 15px;
+}
+.categories-wrapper .sub-categories-section ul li button {
+  color: var(--color-text-black);
   width: 100%;
   justify-content: flex-start;
   text-transform: capitalize !important;
 }
-.categories-wrapper .sidebarNav ul li button svg {
+.categories-wrapper .sub-categories-section ul li button svg {
   font-size: 14px;
   opacity: 0.5;
 }
-.categories-wrapper .sidebarNav ul li button:hover {
+.categories-wrapper .sub-categories-section ul li button:hover {
   background: transparent !important;
 }
 
-.categories-wrapper .sidebarNav ul li {
+.categories-wrapper .sub-categories-section ul li {
   position: static;
 }
 
-.categories-wrapper .sidebarNav ul li .sub-categories {
+.categories-wrapper .sub-categories-section ul li .sub-categories {
   position: absolute;
   top: 0px;
   left: 105%;
@@ -74,14 +75,14 @@
   padding: 20px;
 }
 
-.categories-wrapper .sidebarNav ul li:hover .sub-categories {
+.categories-wrapper .sub-categories-section ul li:hover .sub-categories {
   opacity: 1;
   visibility: inherit;
   left: 100%;
   transition: all 0.2s ease-in-out;
 }
 
-.categories-wrapper .sidebarNav ul li:hover .sub-categories button {
+.categories-wrapper .sub-categories-section ul li:hover .sub-categories button {
   border-radius: 0px !important;
 }
 
@@ -105,7 +106,6 @@ nav .categories-button {
 
       font-size: 20px;
     }
-    
   }
 }
 
@@ -174,7 +174,6 @@ nav .navPart2 ul li:hover .sub-categories {
   top: 100%;
 }
 
-
 /* nav {
   .navPart1 {
     max-width: 20%;
@@ -183,7 +182,7 @@ nav .navPart2 ul li:hover .sub-categories {
     .categories-wrapper {
       position: relative;
 
-      .sidebarNav {
+      .sub-categories-section {
         width: 200px;
         height: 0;
         opacity: 0;

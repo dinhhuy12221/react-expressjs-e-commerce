@@ -42,7 +42,7 @@ export default function Navigation() {
             <span className="text">CATEGORIES</span>
           </button>
           <div
-            className={`sidebarNav ${isOpenSidebarVal === true ? "open" : ""}`}
+            className={`sub-categories-section ${isOpenSidebarVal === true ? "open" : ""}`}
             onAbort={() => setIsOpenSidebarVal(false)}
           >
             <ul>
@@ -75,7 +75,7 @@ export default function Navigation() {
                 <Link to="#">
                   <button className="btn">
                     Women
-                    <FaAngleRight className="ms-auto" />
+                    <FaAngleRight/>
                   </button>
                 </Link>
                 <div className="sub-categories">
