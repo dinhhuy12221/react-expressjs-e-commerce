@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router";
+// import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import { createContext, Suspense, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 import ProductModal from "./components/ProductModal/index.jsx";
 import axios from "axios";
 import ScrollToTop from "./utils/ScrollToTop/index.jsx";
@@ -40,15 +40,6 @@ function App() {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isOpenProductModal, setIsOpenProductModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const location = useLocation();
-
-  useEffect(() => {
-    const path = location.pathname;
-    const list = ["/login", "/signin"];
-    
-    setIsVisible(!list.includes(path))
-  }, [location.pathname])
 
   useEffect(() => {
     getCountry("https://countriesnow.space/api/v0.1/countries/");
@@ -69,63 +60,65 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <MyContext.Provider value={values}>
-        <Routes>
-          <Route path="/" element={<Wrapper />}>
-            {/* Pulic Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/cat/:id" element={<Category />} />
-            <Route
-              path="/product/:slug"
-              element={<ProductDetails />}
-              exact={true}
-            />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-
-            {/* Protected Routes */}
-            {/* <Route element={<PersistLogin />}> */}
-            <Route element={<RequireAuth />}>
-              <Route path="/profile" element={<Profile />}>
-                <Route path="info" element={<Account />} index={true} />
-                <Route path="orders" element={<Orders />} />
-                <Route path="reviews" element={<Reviews />} />
-                <Route path="settings" element={<Settings />} />
+      <>
+        <MyContext.Provider value={values}>
+          <Routes>
+            <Route path="/" element={<Wrapper />}>
+              {/* Pulic Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/cat/:id" element={<Category />} />
+              <Route
+                path="/product/:slug"
+                element={<ProductDetails />}
+                exact={true}
+              />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+  
+              {/* Protected Routes */}
+              {/* <Route element={<PersistLogin />}> */}
+              <Route element={<RequireAuth />}>
+                <Route path="/profile" element={<Profile />}>
+                  <Route path="info" element={<Account />} index={true} />
+                  <Route path="orders" element={<Orders />} />
+                  <Route path="reviews" element={<Reviews />} />
+                  <Route path="settings" element={<Settings />} />
+                </Route>
+                <Route path="/cart" element={<Cart />} />
               </Route>
-              <Route path="/cart" element={<Cart />} />
+              {/* </Route> */}
+  
+              {/* Catch All */}
+              <Route
+                path="/*"
+                element={
+                  <>
+                    <div>404 Error. No Page Found</div>
+                  </>
+                }
+                exact={true}
+              />
             </Route>
-            {/* </Route> */}
-
-            {/* Catch All */}
-            <Route
-              path="/*"
-              element={
-                <>
-                  {isVisible && <Header />}
-                  <div>404 Error. No Page Found</div>
-                  {isVisible && <Footer />}
-                </>
-              }
-              exact={true}
-            />
-          </Route>
-        </Routes>
-        {isOpenProductModal === true && <ProductModal />}
-      </MyContext.Provider>
-      <ScrollToTop />
-    </BrowserRouter>
+          </Routes>
+          {isOpenProductModal === true && <ProductModal />}
+        </MyContext.Provider>
+        <ScrollToTop />
+      </>
   );
 }
 
 function Wrapper() {
+  const { pathname } = useLocation();
+  const list = ["/login", "/register"];
+  const isVisible = !list.some(p => pathname.startsWith(p))
+  
   return (
     <>
-      <Header />
+      {isVisible && <Header />}
       <Suspense>
         <Outlet />
       </Suspense>
-      <Footer />
+      {isVisible && <Footer />}
     </>
   );
 }
