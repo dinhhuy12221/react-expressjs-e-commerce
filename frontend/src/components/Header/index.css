@@ -1,3 +1,8 @@
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
 .header {
   display: flex;
   flex-direction: column;

@@ -34,8 +34,8 @@ export default function Navigation() {
   return (
     <nav className="navigate-wrapper">
       <div className="category">
-        <div ref={sideBarRef} className="catWrapper">
-          <button className="btn allCatTab"
+        <div ref={sideBarRef} className="categories-wrapper">
+          <button className="btn categories-button"
             onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}
           >
             <MdMenu className="icon" />
@@ -50,10 +50,10 @@ export default function Navigation() {
                 <Link to="#">
                   <button className="btn">
                     Men
-                    <FaAngleRight className="ms-auto" />
+                    <FaAngleRight/>
                   </button>
                 </Link>
-                <div className="submenu">
+                <div className="sub-categories">
                   <Link to="#">
                     <button className="btn">clothing</button>
                   </Link>
@@ -78,7 +78,7 @@ export default function Navigation() {
                     <FaAngleRight className="ms-auto" />
                   </button>
                 </Link>
-                <div className="submenu">
+                <div className="sub-categories">
                   <Link to="#">
                     <button className="btn">clothing</button>
                   </Link>
@@ -131,7 +131,7 @@ export default function Navigation() {
             <Link to="/cat/men">
               <button className="btn">Men</button>
             </Link>
-            <div className="submenu shadow">
+            <div className="sub-categories shadow">
               <Link to="#">
                 <button className="btn">clothing</button>
               </Link>
@@ -153,7 +153,7 @@ export default function Navigation() {
             <Link to="/cat/women">
               <button className="btn">Women</button>
             </Link>
-            <div className="submenu shadow">
+            <div className="sub-categories shadow">
               <Link to="#">
                 <button className="btn">clothing</button>
               </Link>
@@ -175,7 +175,7 @@ export default function Navigation() {
             <Link to="/cat/beauty">
               <button className="btn">Beauty</button>
             </Link>
-            <div className="submenu shadow">
+            <div className="sub-categories shadow">
               <Link to="#">
                 <button className="btn">clothing</button>
               </Link>
@@ -197,7 +197,7 @@ export default function Navigation() {
             <Link to="/cat/watches">
               <button className="btn">Watches</button>
             </Link>
-            <div className="submenu shadow">
+            <div className="sub-categories shadow">
               <Link to="#">
                 <button className="btn">clothing</button>
               </Link>
@@ -219,7 +219,7 @@ export default function Navigation() {
             <Link to="/cat/kids">
               <button className="btn">Kids</button>
             </Link>
-            <div className="submenu shadow">
+            <div className="sub-categories shadow">
               <Link to="#">
                 <button className="btn">clothing</button>
               </Link>
@@ -241,7 +241,7 @@ export default function Navigation() {
             <Link to="/cat/gift">
               <button className="btn">Gift</button>
             </Link>
-            <div className="submenu shadow">
+            <div className="sub-categories shadow">
               <Link to="#">
                 <button className="btn">clothing</button>
               </Link>
