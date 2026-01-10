@@ -1,5 +1,4 @@
 import { MdMenu } from "react-icons/md";
-import Button from "@mui/material/Button";
 // import { FaAngleDown } from "react-icons/fa";
 // import { HiOutlineHome } from "react-icons/hi2";
 import { FaAngleRight } from "react-icons/fa6";
@@ -33,18 +32,15 @@ export default function Navigation() {
   }, [sideBarRef]);
 
   return (
-    <nav>
-      <div className="navPart1">
+    <nav className="navigate-wrapper">
+      <div className="category">
         <div ref={sideBarRef} className="catWrapper">
-          <Button
-            className="allCatTab"
+          <button className="btn allCatTab"
             onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}
           >
-            <span className="text">
-              <MdMenu className="icon" />
-              CATEGORIES
-            </span>
-          </Button>
+            <MdMenu className="icon" />
+            <span className="text">CATEGORIES</span>
+          </button>
           <div
             className={`sidebarNav ${isOpenSidebarVal === true ? "open" : ""}`}
             onAbort={() => setIsOpenSidebarVal(false)}
@@ -52,72 +48,72 @@ export default function Navigation() {
             <ul>
               <li>
                 <Link to="#">
-                  <Button>
+                  <button className="btn">
                     Men
                     <FaAngleRight className="ms-auto" />
-                  </Button>
+                  </button>
                 </Link>
                 <div className="submenu">
                   <Link to="#">
-                    <Button>clothing</Button>
+                    <button className="btn">clothing</button>
                   </Link>
                   <Link to="#">
-                    <Button>footwear</Button>
+                    <button className="btn">footwear</button>
                   </Link>
                   <Link to="#">
-                    <Button>watches</Button>
+                    <button className="btn">watches</button>
                   </Link>
                   <Link to="#">
-                    <Button>clothing</Button>
+                    <button className="btn">clothing</button>
                   </Link>
                   <Link to="#">
-                    <Button>footwear</Button>
+                    <button className="btn">footwear</button>
                   </Link>
                 </div>
               </li>
               <li>
                 <Link to="#">
-                  <Button>
+                  <button className="btn">
                     Women
                     <FaAngleRight className="ms-auto" />
-                  </Button>
+                  </button>
                 </Link>
                 <div className="submenu">
                   <Link to="#">
-                    <Button>clothing</Button>
+                    <button className="btn">clothing</button>
                   </Link>
                   <Link to="#">
-                    <Button>footwear</Button>
+                    <button className="btn">footwear</button>
                   </Link>
                   <Link to="#">
-                    <Button>watches</Button>
+                    <button className="btn">watches</button>
                   </Link>
                   <Link to="#">
-                    <Button>clothing</Button>
+                    <button className="btn">clothing</button>
                   </Link>
                   <Link to="#">
-                    <Button>footwear</Button>
+                    <button className="btn">footwear</button>
                   </Link>
                 </div>
               </li>
               <li>
                 <Link to="#">
-                  <Button>Beauty</Button>
+                  <button className="btn">Beauty</button>
                 </Link>
               </li>
               <li>
                 <Link to="#">
-                  <Button>Watches</Button>
+                  <button className="btn">Watches</button>
                 </Link>
               </li>
               <li>
                 <Link to="#">
-                  <Button>Kids</Button>
+                  <button className="btn">Kids</button>
                 </Link>
               </li>
               <li>
                 <Link to="#">
-                  <Button>Gifts</Button>
+                  <button className="btn">Gifts</button>
                 </Link>
               </li>
             </ul>
@@ -128,149 +124,149 @@ export default function Navigation() {
         <ul className="list list-inline">
           <li className="list-inline-item">
             <Link to="/">
-              <Button>Home</Button>
+              <button className="btn">Home</button>
             </Link>
           </li>
           <li className="list-inline-item">
             <Link to="/cat/men">
-              <Button>Men</Button>
+              <button className="btn">Men</button>
             </Link>
             <div className="submenu shadow">
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
               <Link to="#">
-                <Button>watches</Button>
+                <button className="btn">watches</button>
               </Link>
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
             </div>
           </li>
           <li className="list-inline-item">
             <Link to="/cat/women">
-              <Button>Women</Button>
+              <button className="btn">Women</button>
             </Link>
             <div className="submenu shadow">
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
               <Link to="#">
-                <Button>watches</Button>
+                <button className="btn">watches</button>
               </Link>
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
             </div>
           </li>
           <li className="list-inline-item">
             <Link to="/cat/beauty">
-              <Button>Beauty</Button>
+              <button className="btn">Beauty</button>
             </Link>
             <div className="submenu shadow">
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
               <Link to="#">
-                <Button>watches</Button>
+                <button className="btn">watches</button>
               </Link>
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
             </div>
           </li>
           <li className="list-inline-item">
             <Link to="/cat/watches">
-              <Button>Watches</Button>
+              <button className="btn">Watches</button>
             </Link>
             <div className="submenu shadow">
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
               <Link to="#">
-                <Button>watches</Button>
+                <button className="btn">watches</button>
               </Link>
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
             </div>
           </li>
           <li className="list-inline-item">
             <Link to="/cat/kids">
-              <Button>Kids</Button>
+              <button className="btn">Kids</button>
             </Link>
             <div className="submenu shadow">
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
               <Link to="#">
-                <Button>watches</Button>
+                <button className="btn">watches</button>
               </Link>
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
             </div>
           </li>
           <li className="list-inline-item">
             <Link to="/cat/gift">
-              <Button>Gift</Button>
+              <button className="btn">Gift</button>
             </Link>
             <div className="submenu shadow">
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
               <Link to="#">
-                <Button>watches</Button>
+                <button className="btn">watches</button>
               </Link>
               <Link to="#">
-                <Button>clothing</Button>
+                <button className="btn">clothing</button>
               </Link>
               <Link to="#">
-                <Button>footwear</Button>
+                <button className="btn">footwear</button>
               </Link>
             </div>
           </li>
           <li className="list-inline-item">
             <Link to="#">
-              <Button>Blog</Button>
+              <button className="btn">Blog</button>
             </Link>
           </li>
           <li className="list-inline-item">
             <Link to="#">
-              <Button>Contact</Button>
+              <button className="btn">Contact</button>
             </Link>
           </li>
         </ul>
