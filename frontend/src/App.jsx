@@ -1,46 +1,54 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import { createContext, Suspense, useEffect, useState } from "react";
-import ProductModal from "./components/ProductModal/index.js";
+import { useLocation } from "react-router-dom";
+import ProductModal from "./components/ProductModal/index.jsx";
 import axios from "axios";
-import ScrollToTop from "./utils/ScrollToTop/index.js";
-import RequireAuth from "./features/auth/RequireAuth.js";
-// import PersistLogin from "./components/PersistLogin/index.js";
-// import Home from "./pages/Home/index.js";
-// import Category from "./pages/Category/index.js";
-// import ProductDetails from "./pages/ProductDetails/index.js";
-// import Login from "./pages/Login/index.js";
-// import Register from "./pages/Register/index.js";
-// import Cart from "./pages/Cart/index.js";
-// import Profile from "./pages/Profile/index.js";
-// import Account from "./pages/Profile/components/Account/index.js";
-// import Orders from "./pages/Profile/components/Orders/index.js";
-// import Reviews from "./pages/Profile/components/Reviews/index.js";
-// import Settings from "./pages/Profile/components/Settings/index.js";
-import Header from "./components/Header/index.js";
-import Footer from "./components/Footer/index.js";
+import ScrollToTop from "./utils/ScrollToTop/index.jsx";
+import RequireAuth from "./features/auth/RequireAuth.jsx";
+// import PersistLogin from "./components/PersistLogin/index.jsx";
+// import Home from "./pages/Home/index.jsx";
+// import Category from "./pages/Category/index.jsx";
+// import ProductDetails from "./pages/ProductDetails/index.jsx";
+// import Login from "./pages/Login/index.jsx";
+// import Register from "./pages/Register/index.jsx";
+// import Cart from "./pages/Cart/index.jsx";
+// import Profile from "./pages/Profile/index.jsx";
+// import Account from "./pages/Profile/components/Account/index.jsx";
+// import Orders from "./pages/Profile/components/Orders/index.jsx";
+// import Reviews from "./pages/Profile/components/Reviews/index.jsx";
+// import Settings from "./pages/Profile/components/Settings/index.jsx";
+import Header from "./components/Header/index.jsx";
+import Footer from "./components/Footer/index.jsx";
 import { lazyLoad } from "./utils/lazyLoad.js";
 
 const MyContext = createContext();
 
-const Home = lazyLoad("pages/Home/index.js");
-const Category = lazyLoad("pages/Category/index.js");
-const ProductDetails = lazyLoad("pages/ProductDetails/index.js");
-const Login = lazyLoad("pages/Login/index.js");
-const Register = lazyLoad("pages/Register/index.js");
-const Cart = lazyLoad("pages/Cart/index.js");
-const Profile = lazyLoad("pages/Profile/index.js");
-const Account = lazyLoad("pages/Account/index.js");
-const Orders = lazyLoad("pages/Orders/index.js");
-const Reviews = lazyLoad("pages/Reviews/index.js");
-const Settings = lazyLoad("pages/Settings/index.js");
-// const Header = lazyLoad("components/Header/index.js");
-// const Footer = lazyLoad("components/Footer/index.js");
+const Home = lazyLoad("pages/Home/index.jsx");
+const Category = lazyLoad("pages/Category/index.jsx");
+const ProductDetails = lazyLoad("pages/ProductDetails/index.jsx");
+const Login = lazyLoad("pages/Login/index.jsx");
+const Register = lazyLoad("pages/Register/index.jsx");
+const Cart = lazyLoad("pages/Cart/index.jsx");
+const Profile = lazyLoad("pages/Profile/index.jsx");
+const Account = lazyLoad("pages/Account/index.jsx");
+const Orders = lazyLoad("pages/Orders/index.jsx");
+const Reviews = lazyLoad("pages/Reviews/index.jsx");
+const Settings = lazyLoad("pages/Settings/index.jsx");
 
 function App() {
   const [countryList, setCountryList] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isOpenProductModal, setIsOpenProductModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    const list = ["/login", "/signin"];
+    
+    setIsVisible(!list.includes(path))
+  }, [location.pathname])
 
   useEffect(() => {
     getCountry("https://countriesnow.space/api/v0.1/countries/");
@@ -94,9 +102,9 @@ function App() {
               path="/*"
               element={
                 <>
-                  <Header />
+                  {isVisible && <Header />}
                   <div>404 Error. No Page Found</div>
-                  <Footer />
+                  {isVisible && <Footer />}
                 </>
               }
               exact={true}

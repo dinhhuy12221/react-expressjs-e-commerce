@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/global.css";
 import App from "./App";
 // import { AuthProvider } from "./context/AuthProvider";
-import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+// import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 
 import { store, persistor } from "./app/store";
 import { PersistGate } from "redux-persist/integration/react";

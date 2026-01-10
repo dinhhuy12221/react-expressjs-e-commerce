@@ -4,17 +4,13 @@ import { FaAngleDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import Dialog from "@mui/material/Dialog";
+import { TransitionProps } from "@mui/material/transitions";
 import Slide from "@mui/material/Slide";
 import { MyContext } from "../../App";
 
 import "./index.css";
 
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement<any, any>,
-  },
-  ref: React.Ref<unknown>
-) {
+const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
