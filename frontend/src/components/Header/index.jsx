@@ -18,7 +18,7 @@ function Header() {
   // const customer = useSelector(selectCurrentCustomer);
 
   return (
-    <>
+    <div className="header-wrapper">
       <SiteCanvas open={open} onClose={() => setOpen(false)}/>
       <header className="header">
         <p className="banner-strip">
@@ -59,7 +59,7 @@ function Header() {
         </div>
       </header>
       <Navigation />
-    </>
+    </div>
   );
 }
 

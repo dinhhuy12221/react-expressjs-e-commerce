@@ -1,3 +1,8 @@
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
 .header {
   display: flex;
   flex-direction: column;
@@ -72,7 +77,7 @@
 }
 
 /* SMARTPHONES LANDSCAPE */
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .banner-strip {
     padding: var(--space-xs) 0px;
     font-size: var(--font-sm);
