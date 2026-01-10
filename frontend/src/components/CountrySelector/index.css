@@ -93,10 +93,10 @@
   cursor: pointer;
 }
 .country-modal .country-list li:hover {
-  color: var(--color-text-accent);
+  color: var(--color-text-black-muted);
 }
 .country-modal .country-list li.active {
-  color: var(--color-text-accent);
+  color: var(--color-text-black-muted);
 }
 
 .close-button {
@@ -132,7 +132,7 @@
 } */
 
 /* SMARTPHONES LANDSCAPE */
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .country-selector {
     width: 50px;
     height: 35px;
@@ -152,9 +152,9 @@
 }
 
 /* TABLETS PORTRAIT */
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
 }
 
 /* TABLET LANDSCAPE / DESKTOP */
-@media only screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
 }
