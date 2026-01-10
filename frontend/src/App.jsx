@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import ProductModal from "./components/ProductModal/index.jsx";
 import axios from "axios";
 import ScrollToTop from "./utils/ScrollToTop/index.jsx";
-import RequireAuth from "./features/auth/RequireAuth.js";
+import RequireAuth from "./features/auth/RequireAuth.jsx";
 // import PersistLogin from "./components/PersistLogin/index.jsx";
 // import Home from "./pages/Home/index.jsx";
 // import Category from "./pages/Category/index.jsx";

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./index.css"
 
-function LinkTo({ path, children }) {
+const LinkTo = ({ path, children }) => {
   return (
     <Link className="link" to={path}>
       {children}

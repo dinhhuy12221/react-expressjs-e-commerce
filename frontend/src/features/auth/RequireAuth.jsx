@@ -38,7 +38,7 @@ const RequireAuth = () => {
       if (result?.status === 200) return true;
       return false;
     } catch (error) {
-      return false;      
+      return false;
     }
   };
 
