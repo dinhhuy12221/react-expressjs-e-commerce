@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import { createContext, Suspense, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import ProductModal from "./components/ProductModal/index.js";
 import axios from "axios";
 import ScrollToTop from "./utils/ScrollToTop/index.js";
@@ -33,14 +34,21 @@ const Account = lazyLoad("pages/Account/index.js");
 const Orders = lazyLoad("pages/Orders/index.js");
 const Reviews = lazyLoad("pages/Reviews/index.js");
 const Settings = lazyLoad("pages/Settings/index.js");
-// const Header = lazyLoad("components/Header/index.js");
-// const Footer = lazyLoad("components/Footer/index.js");
 
 function App() {
   const [countryList, setCountryList] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isOpenProductModal, setIsOpenProductModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    const list = ["/login", "/signin"];
+    
+    setIsVisible(!list.includes(path))
+  }, [location.pathname])
 
   useEffect(() => {
     getCountry("https://countriesnow.space/api/v0.1/countries/");
@@ -94,9 +102,9 @@ function App() {
               path="/*"
               element={
                 <>
-                  <Header />
+                  {isVisible && <Header />}
                   <div>404 Error. No Page Found</div>
-                  <Footer />
+                  {isVisible && <Footer />}
                 </>
               }
               exact={true}
