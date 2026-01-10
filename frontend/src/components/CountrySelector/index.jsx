@@ -4,7 +4,6 @@ import { FaAngleDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import Dialog from "@mui/material/Dialog";
-import { TransitionProps } from "@mui/material/transitions";
 import Slide from "@mui/material/Slide";
 import { MyContext } from "../../App";
 
