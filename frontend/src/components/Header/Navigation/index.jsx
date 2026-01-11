@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 
 import "./index.css";
+import { ArrowDownwardRounded } from "@mui/icons-material";
 
 export default function Navigation() {
   const [isOpenSidebarVal, setIsOpenSidebarVal] = useState(false);
@@ -39,6 +40,7 @@ export default function Navigation() {
           >
             <MdMenu className="icon" />
             <span className="text">CATEGORIES</span>
+            <ArrowDownwardRounded />
           </button>
           <div
             className={`sub-categories-section ${isOpenSidebarVal === true ? "open" : ""}`}
@@ -118,8 +120,8 @@ export default function Navigation() {
             </ul>
           </div>
         </div>
-      <div className="categories-section">
-        <ul className="categories-menu">
+      {/* <div className="categories-section"> */}
+        <ul className="categories-section">
           <li>
             <Link to="/">
               <button className="btn">Home</button>
@@ -268,7 +270,7 @@ export default function Navigation() {
             </Link>
           </li>
         </ul>
-      </div>
+      {/* </div> */}
     </nav>
   );
 }

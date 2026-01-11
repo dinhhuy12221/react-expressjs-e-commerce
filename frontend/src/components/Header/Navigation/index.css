@@ -8,7 +8,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  flex-grow: 1;
+  flex-shrink: 0;
 }
 .categories-wrapper .categories-button {
   padding: var(--space-2md) var(--space-2xl);
@@ -16,9 +16,6 @@
 }
 .categories-wrapper .sub-categories-section {
   position: absolute;
-  flex-grow: 1;
-  
-  flex-shrink: 1;
 
   background: var(--color-bg-white);
   top: 125%;
@@ -97,19 +94,21 @@
 
 .categories-section {
   display: flex;
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-
-.categories-section .categories-menu {
-  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   list-style-type: none;
 }
-.categories-section ul li a {
+
+/* .categories-section .categories-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.categories-section li a {
   text-decoration: none;
 }
-.categories-section ul li a button {
+.categories-section li a button {
   font-size: 14px !important;
   font-weight: 500;
   text-decoration: none;
@@ -122,15 +121,15 @@
   border-radius: 20px;
 }
 
-.categories-section ul li a:hover {
+.categories-section li a:hover {
   background: #f0faff;
   color: #2bbef9;
 }
 
-.categories-section ul li {
+.categories-section li {
   position: relative;
 }
-.categories-section ul li .sub-categories {
+.categories-section li .sub-categories {
   position: absolute;
   top: 150%;
   left: 0px;
@@ -141,11 +140,11 @@
   transition: all 0.2s ease-in-out;
   z-index: 100;
 }
-.categories-section ul li .sub-categories a {
+.categories-section li .sub-categories a {
   display: block;
   width: 100%;
 }
-.categories-section ul li .sub-categories a button {
+.categories-section li .sub-categories a button {
   width: 100%;
   justify-content: flex-start !important;
   border-radius: 0px !important;
@@ -153,7 +152,7 @@
   font-weight: 500 !important;
 }
 
-.categories-section ul li .sub-categories a button:hover {
+.categories-section li .sub-categories a button:hover {
   background: #f1f1f1 !important;
 }
 
