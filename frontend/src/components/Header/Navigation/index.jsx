@@ -120,14 +120,14 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-      <div className="navPart2 d-flex justify-content-end">
+      <div className="categories-section">
         <ul className="list list-inline">
-          <li className="list-inline-item">
+          <li>
             <Link to="/">
               <button className="btn">Home</button>
             </Link>
           </li>
-          <li className="list-inline-item">
+          <li>
             <Link to="/cat/men">
               <button className="btn">Men</button>
             </Link>
@@ -149,7 +149,7 @@ export default function Navigation() {
               </Link>
             </div>
           </li>
-          <li className="list-inline-item">
+          <li>
             <Link to="/cat/women">
               <button className="btn">Women</button>
             </Link>
@@ -171,7 +171,7 @@ export default function Navigation() {
               </Link>
             </div>
           </li>
-          <li className="list-inline-item">
+          <li>
             <Link to="/cat/beauty">
               <button className="btn">Beauty</button>
             </Link>
@@ -193,7 +193,7 @@ export default function Navigation() {
               </Link>
             </div>
           </li>
-          <li className="list-inline-item">
+          <li>
             <Link to="/cat/watches">
               <button className="btn">Watches</button>
             </Link>
@@ -215,7 +215,7 @@ export default function Navigation() {
               </Link>
             </div>
           </li>
-          <li className="list-inline-item">
+          <li>
             <Link to="/cat/kids">
               <button className="btn">Kids</button>
             </Link>
@@ -237,7 +237,7 @@ export default function Navigation() {
               </Link>
             </div>
           </li>
-          <li className="list-inline-item">
+          <li>
             <Link to="/cat/gift">
               <button className="btn">Gift</button>
             </Link>
@@ -259,12 +259,12 @@ export default function Navigation() {
               </Link>
             </div>
           </li>
-          <li className="list-inline-item">
+          <li>
             <Link to="#">
               <button className="btn">Blog</button>
             </Link>
           </li>
-          <li className="list-inline-item">
+          <li>
             <Link to="#">
               <button className="btn">Contact</button>
             </Link>

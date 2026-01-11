@@ -21,6 +21,7 @@
   top: 125%;
   left: 0px;
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
+  border-top: none;
   border-bottom-right-radius: var(--radius-sm);
   border-bottom-left-radius: var(--radius-sm);
   /* padding: var(--space-lg) var(--space-sm);
@@ -91,18 +92,18 @@
   border-radius: 0px !important;
 }
 
-nav .navPart2 ul {
-  margin-bottom: 0px;
+.categories-section {
   display: flex;
-  gap: 15px;
-  align-items: center;
-
-  margin-right: 10px;
 }
-nav .navPart2 ul li a {
+
+.categories-section ul {
+  display: flex;
+  
+}
+.categories-section ul li a {
   text-decoration: none;
 }
-nav .navPart2 ul li a button {
+.categories-section ul li a button {
   font-size: 14px !important;
   font-weight: 500;
   text-decoration: none;
@@ -115,15 +116,15 @@ nav .navPart2 ul li a button {
   border-radius: 20px;
 }
 
-nav .navPart2 ul li a:hover {
+.categories-section ul li a:hover {
   background: #f0faff;
   color: #2bbef9;
 }
 
-nav .navPart2 ul li {
+.categories-section ul li {
   position: relative;
 }
-nav .navPart2 ul li .sub-categories {
+.categories-section ul li .sub-categories {
   position: absolute;
   top: 150%;
   left: 0px;
@@ -134,11 +135,11 @@ nav .navPart2 ul li .sub-categories {
   transition: all 0.2s ease-in-out;
   z-index: 100;
 }
-nav .navPart2 ul li .sub-categories a {
+.categories-section ul li .sub-categories a {
   display: block;
   width: 100%;
 }
-nav .navPart2 ul li .sub-categories a button {
+.categories-section ul li .sub-categories a button {
   width: 100%;
   justify-content: flex-start !important;
   border-radius: 0px !important;
@@ -146,17 +147,17 @@ nav .navPart2 ul li .sub-categories a button {
   font-weight: 500 !important;
 }
 
-nav .navPart2 ul li .sub-categories a button:hover {
+.categories-section ul li .sub-categories a button:hover {
   background: #f1f1f1 !important;
 }
 
-nav .navPart2 ul li:hover .sub-categories {
+.categories-section ul li:hover .sub-categories {
   opacity: 1;
   visibility: inherit;
   top: 100%;
 }
 
-/* nav {
+/* {
   .navPart1 {
     max-width: 20%;
     flex: 0 0 20%;
@@ -240,7 +241,7 @@ nav .navPart2 ul li:hover .sub-categories {
     }
   }
 
-  .navPart2 {
+  .categories-section {
     max-width: 80%;
     flex: 0 0 80%;
 
