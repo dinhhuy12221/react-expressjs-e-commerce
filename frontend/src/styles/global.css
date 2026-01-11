@@ -77,20 +77,6 @@ img {
     user-select: none;
 }
 
-.bg-red {
-    background: var(--color-bg-primary);
-    color: var(--color-text-white);
-    font-weight: bold;
-}
-
-.text-red {
-    color: var(--color-bg-primary-muted);
-}
-
-.text-blue {
-    color: #53348c;
-}
-
 .badge {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
@@ -151,7 +137,7 @@ img {
     background-color: var(--color-bg-primary-muted);
     color: var(--color-text-white);
 }
-.btn--primary:active {
+.btn--primary:focus {
     background-color: var(--color-bg-primary-muted);
     color: var(--color-text-white);
 }
