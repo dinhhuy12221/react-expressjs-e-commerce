@@ -1,21 +1,27 @@
 .navigate-wrapper {
   display: flex;
   justify-content: center;
+  /* gap: 220px; */
 }
 
 .categories-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
+}
+.categories-wrapper .categories-button {
+  padding: var(--space-2md) var(--space-2xl);
+  border-radius: var(--radius-lg);
 }
 .categories-wrapper .sub-categories-section {
   position: absolute;
-  flex-grow: 1;
 
   background: var(--color-bg-white);
   top: 125%;
   left: 0px;
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
+  border-top: none;
   border-bottom-right-radius: var(--radius-sm);
   border-bottom-left-radius: var(--radius-sm);
   /* padding: var(--space-lg) var(--space-sm);
@@ -86,41 +92,23 @@
   border-radius: 0px !important;
 }
 
-nav .categories-button {
-  padding: 10px 15px !important;
-  border-radius: 30px !important;
-
-  color: #fff;
-  background: rgba(255, 0, 0, 0.61);
-
-  .text {
-    display: flex;
-    align-items: center;
-
-    font-weight: 600;
-
-    .icon {
-      box-sizing: content-box;
-
-      padding-bottom: 2px;
-
-      font-size: 20px;
-    }
-  }
-}
-
-nav .navPart2 ul {
-  margin-bottom: 0px;
+.categories-section {
   display: flex;
-  gap: 15px;
+  justify-content: center;
   align-items: center;
-
-  margin-right: 10px;
+  flex-wrap: wrap;
+  list-style-type: none;
 }
-nav .navPart2 ul li a {
+
+/* .categories-section .categories-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.categories-section li a {
   text-decoration: none;
 }
-nav .navPart2 ul li a button {
+.categories-section li a button {
   font-size: 14px !important;
   font-weight: 500;
   text-decoration: none;
@@ -133,15 +121,15 @@ nav .navPart2 ul li a button {
   border-radius: 20px;
 }
 
-nav .navPart2 ul li a:hover {
+.categories-section li a:hover {
   background: #f0faff;
   color: #2bbef9;
 }
 
-nav .navPart2 ul li {
+.categories-section li {
   position: relative;
 }
-nav .navPart2 ul li .sub-categories {
+.categories-section li .sub-categories {
   position: absolute;
   top: 150%;
   left: 0px;
@@ -152,11 +140,11 @@ nav .navPart2 ul li .sub-categories {
   transition: all 0.2s ease-in-out;
   z-index: 100;
 }
-nav .navPart2 ul li .sub-categories a {
+.categories-section li .sub-categories a {
   display: block;
   width: 100%;
 }
-nav .navPart2 ul li .sub-categories a button {
+.categories-section li .sub-categories a button {
   width: 100%;
   justify-content: flex-start !important;
   border-radius: 0px !important;
@@ -164,17 +152,17 @@ nav .navPart2 ul li .sub-categories a button {
   font-weight: 500 !important;
 }
 
-nav .navPart2 ul li .sub-categories a button:hover {
+.categories-section li .sub-categories a button:hover {
   background: #f1f1f1 !important;
 }
 
-nav .navPart2 ul li:hover .sub-categories {
+.categories-section ul li:hover .sub-categories {
   opacity: 1;
   visibility: inherit;
   top: 100%;
 }
 
-/* nav {
+/* {
   .navPart1 {
     max-width: 20%;
     flex: 0 0 20%;
@@ -258,7 +246,7 @@ nav .navPart2 ul li:hover .sub-categories {
     }
   }
 
-  .navPart2 {
+  .categories-section {
     max-width: 80%;
     flex: 0 0 80%;
 
