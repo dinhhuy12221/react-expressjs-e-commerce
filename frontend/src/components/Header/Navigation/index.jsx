@@ -33,7 +33,6 @@ export default function Navigation() {
 
   return (
     <nav className="navigate-wrapper">
-      <div className="category">
         <div ref={sideBarRef} className="categories-wrapper">
           <button className="btn btn--primary categories-button"
             onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}
@@ -119,9 +118,8 @@ export default function Navigation() {
             </ul>
           </div>
         </div>
-      </div>
       <div className="categories-section">
-        <ul className="list list-inline">
+        <ul className="categories-menu">
           <li>
             <Link to="/">
               <button className="btn">Home</button>
