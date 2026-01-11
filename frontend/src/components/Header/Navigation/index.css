@@ -9,6 +9,10 @@
   display: flex;
   justify-content: center;
 }
+.categories-wrapper .categories-button {
+  padding: var(--space-2md) var(--space-2xl);
+  border-radius: var(--radius-lg);
+}
 .categories-wrapper .sub-categories-section {
   position: absolute;
   flex-grow: 1;
@@ -85,29 +89,6 @@
 
 .categories-wrapper .sub-categories-section ul li:hover .sub-categories button {
   border-radius: 0px !important;
-}
-
-nav .categories-button {
-  padding: 10px 15px !important;
-  border-radius: 30px !important;
-
-  color: #fff;
-  background: rgba(255, 0, 0, 0.61);
-
-  .text {
-    display: flex;
-    align-items: center;
-
-    font-weight: 600;
-
-    .icon {
-      box-sizing: content-box;
-
-      padding-bottom: 2px;
-
-      font-size: 20px;
-    }
-  }
 }
 
 nav .navPart2 ul {
