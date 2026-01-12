@@ -70,10 +70,12 @@
 
 .categories-wrapper .sub-categories-section ul li .sub-categories {
   position: absolute;
+  box-sizing: border-box;
   top: 0px;
   left: 261px;
   width: 250px;
-  min-height: 250px;
+  min-height: 251px;
+  padding-top: var(--space-12);
   background: var(--color-bg-white);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
