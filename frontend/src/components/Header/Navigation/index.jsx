@@ -1,15 +1,12 @@
 import { MdMenu } from "react-icons/md";
-// import { FaAngleDown } from "react-icons/fa";
-// import { HiOutlineHome } from "react-icons/hi2";
 import { FaAngleRight } from "react-icons/fa6";
-
+import { FaAngleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 
 import "./index.css";
-import { ArrowDownwardRounded } from "@mui/icons-material";
 
 export default function Navigation() {
   const [isOpenSidebarVal, setIsOpenSidebarVal] = useState(false);
@@ -40,7 +37,7 @@ export default function Navigation() {
           >
             <MdMenu className="icon" />
             <span className="text">CATEGORIES</span>
-            <ArrowDownwardRounded />
+            <FaAngleDown className="icon"/>
           </button>
           <div
             className={`sub-categories-section ${isOpenSidebarVal === true ? "open" : ""}`}
