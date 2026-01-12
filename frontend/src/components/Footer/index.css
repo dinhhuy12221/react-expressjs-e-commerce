@@ -20,7 +20,7 @@ footer {
 }
 
 .news-letter .text {
-  font-size: var(--font-lg);
+  font-size: var(--font-18);
   color: var(--color-text-white);
 }
 .news-letter h1 {
@@ -36,16 +36,16 @@ footer {
   display: flex;
   align-items: center;
 
-  gap: var(--space-sm);
+  gap: var(--space-8);
   width: 100%;
   height: 50px;
   background: var(--color-text-white);
-  padding: var(--space-md) var(--space-xs);
+  padding: var(--space-12) var(--space-4);
   border-radius: var(--radius-5);
 }
 .news-letter .email-form .icon {
   width: 40px;
-  font-size: var(--font-xl);
+  font-size: var(--font-20);
   opacity: 0.5;
 }
 .news-letter .email-form input {
@@ -53,10 +53,10 @@ footer {
   background: var(--color-text-white);
   outline: none;
   border: 0px;
-  font-size: var(--font-md);
+  font-size: var(--font-14);
 }
 .news-letter .email-form button {
-  padding: var(--space-sm) var(--space-xl);
+  padding: var(--space-8) var(--space-32);
   font-weight: 600;
 }
 
@@ -68,7 +68,7 @@ footer {
   align-items: center;
 
   border-bottom: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
-  font-size: var(--font-2lg);
+  font-size: var(--font-16);
 }
 
 .footer-content .footer-label svg {
@@ -77,7 +77,7 @@ footer {
 
 .footer-content .footer-label > * {
   border-left: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
-  padding-left: var(--space-md);
+  padding-left: var(--space-12);
 }
 .footer-content .footer-label > *:first-child {
   border-left: none;

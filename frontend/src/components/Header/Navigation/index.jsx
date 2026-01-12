@@ -45,73 +45,71 @@ export default function Navigation() {
           >
             <ul>
               <li>
-                <Link to="#">
-                  <button className="btn">
+                <Link to="#" className="btn">
                     Men
                     <FaAngleRight/>
-                  </button>
                 </Link>
                 <div className="sub-categories">
-                  <Link to="#">
-                    <button className="btn">clothing</button>
+                  <Link to="#" className="btn">
+                    clothing
                   </Link>
-                  <Link to="#">
-                    <button className="btn">footwear</button>
+                  <Link to="#" className="btn">
+                    footwear
                   </Link>
-                  <Link to="#">
-                    <button className="btn">watches</button>
+                  <Link to="#" className="btn">
+                    watches
                   </Link>
-                  <Link to="#">
-                    <button className="btn">clothing</button>
+                  <Link to="#" className="btn">
+                    clothing
                   </Link>
-                  <Link to="#">
-                    <button className="btn">footwear</button>
+                  <Link to="#" className="btn">
+                    footwear
                   </Link>
                 </div>
               </li>
               <li>
-                <Link to="#">
-                  <button className="btn">
+                <Link to="#" className="btn">
+                  
                     Women
                     <FaAngleRight/>
-                  </button>
+                  
                 </Link>
                 <div className="sub-categories">
-                  <Link to="#">
-                    <button className="btn">clothing</button>
+                  <Link to="#" className="btn">
+                    clothing
                   </Link>
-                  <Link to="#">
-                    <button className="btn">footwear</button>
+                  <Link to="#" className="btn">
+                    footwear
                   </Link>
-                  <Link to="#">
-                    <button className="btn">watches</button>
+                  <Link to="#" className="btn">
+                    watches
                   </Link>
-                  <Link to="#">
-                    <button className="btn">clothing</button>
+                  <Link to="#" className="btn">
+                    clothing
                   </Link>
-                  <Link to="#">
-                    <button className="btn">footwear</button>
+                  <Link to="#" className="btn">
+                    footwear
                   </Link>
                 </div>
               </li>
               <li>
-                <Link to="#">
-                  <button className="btn">Beauty</button>
+                <Link to="#" className="btn">
+                  Beauty
                 </Link>
               </li>
               <li>
-                <Link to="#">
-                  <button className="btn">Watches</button>
+                <Link to="#" className="btn">
+                  Watches
                 </Link>
               </li>
               <li>
-                <Link to="#">
-                  <button className="btn">Kids</button>
+                <Link to="#" className="btn">
+                  Kids
                 </Link>
               </li>
               <li>
-                <Link to="#">
-                  <button className="btn">Gifts</button>
+                <Link to="#" className="btn">
+                  Gifts
                 </Link>
               </li>
             </ul>
@@ -120,150 +118,150 @@ export default function Navigation() {
       {/* <div className="categories-section"> */}
         <ul className="categories-section">
           <li>
-            <Link to="/">
-              <button className="btn">Home</button>
+            <Link to="/" className="btn">
+              Home
             </Link>
           </li>
           <li>
-            <Link to="/cat/men">
-              <button className="btn">Men</button>
+            <Link to="/cat/men" className="btn">
+              Men
             </Link>
             <div className="sub-categories shadow">
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
-              <Link to="#">
-                <button className="btn">watches</button>
+              <Link to="#" className="btn">
+                watches
               </Link>
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
             </div>
           </li>
           <li>
-            <Link to="/cat/women">
-              <button className="btn">Women</button>
+            <Link to="/cat/women" className="btn">
+              Women
             </Link>
             <div className="sub-categories shadow">
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
-              <Link to="#">
-                <button className="btn">watches</button>
+              <Link to="#" className="btn">
+                watches
               </Link>
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
             </div>
           </li>
           <li>
-            <Link to="/cat/beauty">
-              <button className="btn">Beauty</button>
+            <Link to="/cat/beauty" className="btn">
+              Beauty
             </Link>
             <div className="sub-categories shadow">
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
-              <Link to="#">
-                <button className="btn">watches</button>
+              <Link to="#" className="btn">
+                watches
               </Link>
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
             </div>
           </li>
           <li>
-            <Link to="/cat/watches">
-              <button className="btn">Watches</button>
+            <Link to="/cat/watches" className="btn">
+              Watches
             </Link>
             <div className="sub-categories shadow">
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
-              <Link to="#">
-                <button className="btn">watches</button>
+              <Link to="#" className="btn">
+                watches
               </Link>
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
             </div>
           </li>
           <li>
-            <Link to="/cat/kids">
-              <button className="btn">Kids</button>
+            <Link to="/cat/kids" className="btn">
+              Kids
             </Link>
             <div className="sub-categories shadow">
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
-              <Link to="#">
-                <button className="btn">watches</button>
+              <Link to="#" className="btn">
+                watches
               </Link>
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
             </div>
           </li>
           <li>
-            <Link to="/cat/gift">
-              <button className="btn">Gift</button>
+            <Link to="/cat/gift" className="btn">
+              Gift
             </Link>
             <div className="sub-categories shadow">
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
-              <Link to="#">
-                <button className="btn">watches</button>
+              <Link to="#" className="btn">
+                watches
               </Link>
-              <Link to="#">
-                <button className="btn">clothing</button>
+              <Link to="#" className="btn">
+                clothing
               </Link>
-              <Link to="#">
-                <button className="btn">footwear</button>
+              <Link to="#" className="btn">
+                footwear
               </Link>
             </div>
           </li>
           <li>
-            <Link to="#">
-              <button className="btn">Blog</button>
+            <Link to="#" className="btn">
+              Blog
             </Link>
           </li>
           <li>
-            <Link to="#">
-              <button className="btn">Contact</button>
+            <Link to="#" className="btn">
+              Contact
             </Link>
           </li>
         </ul>

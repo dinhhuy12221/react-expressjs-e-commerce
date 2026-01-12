@@ -36,22 +36,30 @@ muted → variant
     --color-text-red: var(--color-bg-primary);
     --color-text-red-muted: var(--color-bg-primary-muted);
 
-    --font-2sm: 8px;
-    --font-sm: 10px;
-    --font-2md: 12px;
-    --font-md: 14px;
-    --font-2lg: 16px;
-    --font-lg: 18px;
-    --font-xl: 24px;
+    --font-8: 8px;
+    --font-10: 10px;
+    --font-12: 12px;
+    --font-14: 14px;
+    --font-16: 16px;
+    --font-18: 18px;
+    --font-20: 24px;
 
-    --space-2xs: 2px;
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-2md: 10px;
-    --space-md: 12px;
-    --space-lg: 16px;
-    --space-2xl: 24px;
-    --space-xl: 32px;
+    --space-2: 2px;
+    --space-4: 4px;
+    --space-6: 6px;
+    --space-8: 8px;
+    --space-10: 10px;
+    --space-12: 12px;
+    --space-14: 14px;
+    --space-16: 16px;
+    --space-18: 18px;
+    --space-20: 20px;
+    --space-22: 22px;
+    --space-24: 24px;
+    --space-26: 26px;
+    --space-28: 28px;
+    --space-30: 30px;
+    --space-32: 32px;
 
     --radius-5: 5px;
     --radius-10: 10px;
@@ -69,7 +77,7 @@ body {
     padding: 0;
     color: var(--color-text-primary);
     font-family: var(--font-sans);
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 }
 
 img {
@@ -78,7 +86,7 @@ img {
 
 .badge {
     display: inline-block;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-8) var(--space-12);
     border-radius: var(--radius-20);
 }
 
@@ -91,7 +99,7 @@ img {
     background: var(--color-bg-success);
     color: var(--color-text-success);
     font-weight: 500;
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 }
 
 .btn {
@@ -110,7 +118,7 @@ img {
 }
 
 .btn svg {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
 }
 
 /* .btn:hover {
@@ -123,10 +131,12 @@ img {
 
 .btn--outlined {
     background-color: transparent;
+    color: var(--color-bg-primary);
     border: var(--border-width-hairline) var(--color-bg-primary);
 }
 .btn--outlined:hover {
     background-color: transparent;
+    color: var(--color-bg-primary);
     border: var(--border-width-hairline) var(--color-bg-primary-muted);
 }
 
@@ -151,20 +161,20 @@ img {
 }
 
 .btn--lg {
-    font-size: var(--font-lg);
-    padding: var(--space-md) var(--space-xl);
+    font-size: var(--font-18);
+    padding: var(--space-12) var(--space-32);
 }
 
 .btn--sm {
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 
     svg {
-        font-size: var(--font-lg);
+        font-size: var(--font-18);
     }
 }
 
 .text-sml {
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 }
 
 .cursor {
@@ -173,7 +183,7 @@ img {
 
 .text-light {
     color: #8b8888;
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 }
 
 ::-webkit-scrollbar {
@@ -190,13 +200,13 @@ img {
 }
 
 .hd {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
     font-weight: 600;
     text-transform: uppercase;
 }
 
 .view-all-btn {
-    padding: var(--space-xs) var(--space-xl);
+    padding: var(--space-4) var(--space-32);
     background-color: var(--color-text-white);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: var(--radius-20);
@@ -206,7 +216,7 @@ img {
 }
 
 .view-all-btn svg {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
 }
 
 .swiper {
@@ -230,7 +240,7 @@ img {
 }
 
 .socials ul li svg {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
     color: rgba(0, 0, 0, 0.8);
 }
 
@@ -257,8 +267,8 @@ img {
     position: absolute;
     left: 0;
     width: 0;
-    bottom: calc(-1 * var(--space-2xs));
-    height: var(--space-2xs);
+    bottom: calc(-1 * var(--space-2));
+    height: var(--space-2);
     background: #102a44;
     content: "";
     -webkit-transition: 0.2s;

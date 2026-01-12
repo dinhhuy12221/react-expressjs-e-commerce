@@ -20,31 +20,31 @@
 .canvas-header {
   display: flex;
   justify-content: space-between;
-  padding: 0px var(--space-md);
+  padding: 0px var(--space-12);
 }
 .canvas-header .close-button {
-  font: var(--font-md);
+  font: var(--font-14);
 }
 .canvas-header img {
   width: 100px;
 }
 
 .canvas-main {
-  padding: 0px var(--space-xl);
+  padding: 0px var(--space-32);
 }
 
 .canvas-main .country-selector {
   width: 100%;
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--space-32) var(--space-16);
 }
 .canvas-main .country-selector .country-name {
-  font-size: var(--font-2md);
+  font-size: var(--font-12);
 }
 .country-modal .country-label {
-  font-size: var(--font-lg);
+  font-size: var(--font-18);
 }
 .country-modal .country-description {
-  font-size: var(--font-2md);
+  font-size: var(--font-12);
 }
 
 /* SMARTPHONES LANDSCAPE */
