@@ -117,19 +117,15 @@ img {
     border: none;
 }
 .btn:hover {
-    color: var(--color-text-red-muted);
+    color: var(--color-text-red-muted) !important;
 }
 .btn:active {
-    color: var(--color-text-red-muted);
+    color: var(--color-text-red-muted) !important;
 }
 
 .btn svg {
     font-size: var(--font-18);
 }
-
-/* .btn:hover {
-    background-color: var(--color-bg-primary);
-} */
 
 .btn--circle {
     border-radius: 50%;
