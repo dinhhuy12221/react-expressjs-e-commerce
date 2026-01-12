@@ -1,6 +1,7 @@
 .navigate-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 220px;
 }
 
@@ -27,8 +28,8 @@
   position: absolute;
 
   background: var(--color-bg-white);
-  top: 78px;
-  width: 250px;
+  top: 72px;
+  width: 260px;
   left: 0px;
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
@@ -36,14 +37,10 @@
   border-bottom-left-radius: var(--radius-10);
   transition: all 0.2 ease-in-out;
   z-index: 1000;
-  visibility: hidden;
-  opacity: 0;
 }
 
 .categories-wrapper .sub-categories-section.open {
-  height: auto;
-  opacity: 1;
-  visibility: inherit;
+  display: none;
 }
 .categories-wrapper .sub-categories-section ul {
   width: 100%;
