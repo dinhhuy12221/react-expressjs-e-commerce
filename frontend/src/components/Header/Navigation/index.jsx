@@ -52,46 +52,66 @@ export default function Navigation() {
                 Men
                 <FaAngleRight />
               </Link>
-              <div className="sub-categories">
-                <Link to="#" className="btn">
-                  clothing
-                </Link>
-                <Link to="#" className="btn">
-                  footwear
-                </Link>
-                <Link to="#" className="btn">
-                  watches
-                </Link>
-                <Link to="#" className="btn">
-                  clothing
-                </Link>
-                <Link to="#" className="btn">
-                  footwear
-                </Link>
-              </div>
+              <ul className="sub-categories">
+                <li>
+                  <Link to="#" className="btn">
+                    clothing
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    footwear
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    watches
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    clothing
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    footwear
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li>
               <Link to="#" className="btn">
                 Women
                 <FaAngleRight />
               </Link>
-              <div className="sub-categories">
-                <Link to="#" className="btn">
-                  clothing
-                </Link>
-                <Link to="#" className="btn">
-                  footwear
-                </Link>
-                <Link to="#" className="btn">
-                  watches
-                </Link>
-                <Link to="#" className="btn">
-                  clothing
-                </Link>
-                <Link to="#" className="btn">
-                  footwear
-                </Link>
-              </div>
+              <ul className="sub-categories">
+                <li>
+                  <Link to="#" className="btn">
+                    clothing
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    footwear
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    watches
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    clothing
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    footwear
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li>
               <Link to="#" className="btn">
