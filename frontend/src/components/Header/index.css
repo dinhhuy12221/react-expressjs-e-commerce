@@ -38,7 +38,7 @@
 }
 
 .cart-price {
-  font-size: var(--font-lg);
+  font-size: var(--font-18);
   font-weight: 700;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .signin-button {
-  font-size: var(--font-2lg);
+  font-size: var(--font-16);
   padding: var(--space-md) var(--space-lg);
 }
 
@@ -93,7 +93,7 @@
 
   .menu-button {
     display: block;
-    font-size: var(--font-xl);
+    font-size: var(--font-20);
   }
   .logo img {
     width: 120px;

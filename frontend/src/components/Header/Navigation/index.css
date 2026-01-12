@@ -16,7 +16,7 @@
   height: 60px;
   padding: var(--space-xs) var(--space-2md);
   border-radius: var(--radius-35);
-  font-size: var(--font-2lg);
+  font-size: var(--font-16);
 }
 
 .categories-wrapper .categories-button .icon:last-child {

@@ -87,7 +87,7 @@
   color: var(--color-text-primary);
   padding: var(--space-md) var(--space-lg);
   
-  font-size: var(--font-2lg);
+  font-size: var(--font-16);
   font-weight: 500;
   
   cursor: pointer;
@@ -108,7 +108,7 @@
 }
 
 .close-button svg {
-  font-size: var(--font-xl);
+  font-size: var(--font-20);
 }
 
 /* SMARTPHONES PORTRAIT */

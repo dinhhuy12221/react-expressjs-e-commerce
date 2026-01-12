@@ -20,7 +20,7 @@ footer {
 }
 
 .news-letter .text {
-  font-size: var(--font-lg);
+  font-size: var(--font-18);
   color: var(--color-text-white);
 }
 .news-letter h1 {
@@ -45,7 +45,7 @@ footer {
 }
 .news-letter .email-form .icon {
   width: 40px;
-  font-size: var(--font-xl);
+  font-size: var(--font-20);
   opacity: 0.5;
 }
 .news-letter .email-form input {
@@ -68,7 +68,7 @@ footer {
   align-items: center;
 
   border-bottom: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
-  font-size: var(--font-2lg);
+  font-size: var(--font-16);
 }
 
 .footer-content .footer-label svg {

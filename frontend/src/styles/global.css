@@ -40,9 +40,9 @@ muted → variant
     --font-10: 10px;
     --font-12: 12px;
     --font-14: 14px;
-    --font-2lg: 16px;
-    --font-lg: 18px;
-    --font-xl: 24px;
+    --font-16: 16px;
+    --font-18: 18px;
+    --font-20: 24px;
 
     --space-2xs: 2px;
     --space-xs: 4px;
@@ -110,7 +110,7 @@ img {
 }
 
 .btn svg {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
 }
 
 /* .btn:hover {
@@ -153,7 +153,7 @@ img {
 }
 
 .btn--lg {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
     padding: var(--space-md) var(--space-xl);
 }
 
@@ -161,7 +161,7 @@ img {
     font-size: var(--font-14);
 
     svg {
-        font-size: var(--font-lg);
+        font-size: var(--font-18);
     }
 }
 
@@ -192,7 +192,7 @@ img {
 }
 
 .hd {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -208,7 +208,7 @@ img {
 }
 
 .view-all-btn svg {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
 }
 
 .swiper {
@@ -232,7 +232,7 @@ img {
 }
 
 .socials ul li svg {
-    font-size: var(--font-lg);
+    font-size: var(--font-18);
     color: rgba(0, 0, 0, 0.8);
 }
 
