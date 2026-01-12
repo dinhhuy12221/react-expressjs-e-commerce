@@ -123,10 +123,12 @@ img {
 
 .btn--outlined {
     background-color: transparent;
+    color: var(--color-bg-primary);
     border: var(--border-width-hairline) var(--color-bg-primary);
 }
 .btn--outlined:hover {
     background-color: transparent;
+    color: var(--color-bg-primary);
     border: var(--border-width-hairline) var(--color-bg-primary-muted);
 }
 
