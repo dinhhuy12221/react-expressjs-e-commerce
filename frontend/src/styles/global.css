@@ -53,11 +53,12 @@ muted → variant
     --space-2xl: 24px;
     --space-xl: 32px;
 
-    --radius-xs: 5px;
-    --radius-sm: 10px;
-    --radius-md: 15px;
-    --radius-lg: 20px;
-    --radius-xl: 25px;
+    --radius-5: 5px;
+    --radius-10: 10px;
+    --radius-15: 15px;
+    --radius-20: 20px;
+    --radius-25: 25px;
+    --radius-30: 25px;
 
     --border-width-hairline: 1px solid;
 }
@@ -77,7 +78,7 @@ img {
 .badge {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-20);
 }
 
 .badge.bg-success {
@@ -98,7 +99,7 @@ img {
     justify-content: center;
     gap: var(--space-sm);
     padding: var(--space-sm);
-    border-radius: var(--radius-xs);
+    border-radius: var(--radius-5);
     transition: 0.5s ease;
 
     font-family: inherit;
@@ -199,7 +200,7 @@ img {
     padding: var(--space-xs) var(--space-xl);
     background-color: var(--color-text-white);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-20);
     color: #424040;
     font-weight: 600;
     text-transform: capitalize;

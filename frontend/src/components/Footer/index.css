@@ -41,7 +41,7 @@ footer {
   height: 50px;
   background: var(--color-text-white);
   padding: var(--space-md) var(--space-xs);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-5);
 }
 .news-letter .email-form .icon {
   width: 40px;
