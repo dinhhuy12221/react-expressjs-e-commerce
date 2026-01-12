@@ -84,6 +84,9 @@ img {
     user-select: none;
 }
 
+li {
+    list-style: none;
+}
 .badge {
     display: inline-block;
     padding: var(--space-8) var(--space-12);
@@ -117,10 +120,10 @@ img {
     border: none;
 }
 .btn:hover {
-    color: var(--color-text-red-muted) !important;
+    color: var(--color-text-red-muted);
 }
 .btn:active {
-    color: var(--color-text-red-muted) !important;
+    color: var(--color-text-red-muted);
 }
 
 .btn svg {
