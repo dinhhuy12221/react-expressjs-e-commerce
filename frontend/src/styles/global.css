@@ -119,7 +119,7 @@ img {
 .btn:hover {
     color: var(--color-text-red-muted);
 }
-.btn:focus {
+.btn:active {
     color: var(--color-text-red-muted);
 }
 

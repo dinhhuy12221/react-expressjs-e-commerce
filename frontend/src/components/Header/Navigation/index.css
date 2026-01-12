@@ -40,15 +40,13 @@
 
   transform: scaleY(0);
   transform-origin: top;
-  opacity: 0;
   pointer-events: none;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.2s ease;
   z-index: 1000;
 }
 
 .categories-wrapper .sub-categories-section-show {
   transform: scaleY(1);
-  opacity: 1;
   pointer-events: auto;
 }
 .categories-wrapper .sub-categories-section ul {
