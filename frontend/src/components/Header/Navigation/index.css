@@ -70,9 +70,8 @@
 
 .categories-wrapper .sub-categories-section ul li .sub-categories {
   position: absolute;
-  box-sizing: border-box;
   top: 0px;
-  left: 261px;
+  left: 259px;
   width: 250px;
   min-height: 251px;
   padding-top: var(--space-12);
