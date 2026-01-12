@@ -100,11 +100,6 @@
   list-style-type: none;
 }
 
-/* .categories-section .categories-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 .categories-section li a {
   text-decoration: none;
 }

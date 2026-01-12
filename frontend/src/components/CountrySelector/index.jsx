@@ -45,7 +45,7 @@ export default function CountrySelector() {
 
   return (
     <>
-      <button className="country-selector" onClick={() => setIsModalOpen(true)}>
+      <button className="btn country-selector" onClick={() => setIsModalOpen(true)}>
         <div className="country-info">
           <span className="country-label">Your Country</span>
           <span className="country-name">

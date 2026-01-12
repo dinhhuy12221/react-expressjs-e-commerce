@@ -107,6 +107,7 @@ img {
     font-family: inherit;
     font-weight: 500;
     text-transform: capitalize;
+    text-decoration: none;
     cursor: pointer;
     border: none;
 }
