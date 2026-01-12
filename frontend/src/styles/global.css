@@ -57,6 +57,7 @@ muted → variant
     --radius-sm: 10px;
     --radius-md: 15px;
     --radius-lg: 20px;
+    --radius-xl: 25px;
 
     --border-width-hairline: 1px solid;
 }
@@ -67,10 +68,6 @@ body {
     color: var(--color-text-primary);
     font-family: var(--font-sans);
     font-size: var(--font-md);
-}
-
-.container {
-    max-width: 85%;
 }
 
 img {
@@ -110,6 +107,10 @@ img {
     text-decoration: none;
     cursor: pointer;
     border: none;
+}
+
+.btn svg {
+    font-size: var(--font-lg);
 }
 
 /* .btn:hover {
