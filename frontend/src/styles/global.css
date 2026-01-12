@@ -44,14 +44,22 @@ muted → variant
     --font-18: 18px;
     --font-20: 24px;
 
-    --space-2xs: 2px;
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-2md: 10px;
-    --space-md: 12px;
-    --space-lg: 16px;
-    --space-2xl: 24px;
-    --space-xl: 32px;
+    --space-2: 2px;
+    --space-4: 4px;
+    --space-6: 6px;
+    --space-8: 8px;
+    --space-10: 10px;
+    --space-12: 12px;
+    --space-14: 14px;
+    --space-16: 16px;
+    --space-18: 18px;
+    --space-20: 20px;
+    --space-22: 22px;
+    --space-24: 24px;
+    --space-26: 26px;
+    --space-28: 28px;
+    --space-30: 30px;
+    --space-32: 32px;
 
     --radius-5: 5px;
     --radius-10: 10px;
@@ -78,7 +86,7 @@ img {
 
 .badge {
     display: inline-block;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-8) var(--space-12);
     border-radius: var(--radius-20);
 }
 
@@ -154,7 +162,7 @@ img {
 
 .btn--lg {
     font-size: var(--font-18);
-    padding: var(--space-md) var(--space-xl);
+    padding: var(--space-12) var(--space-32);
 }
 
 .btn--sm {
@@ -198,7 +206,7 @@ img {
 }
 
 .view-all-btn {
-    padding: var(--space-xs) var(--space-xl);
+    padding: var(--space-4) var(--space-32);
     background-color: var(--color-text-white);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: var(--radius-20);
@@ -259,8 +267,8 @@ img {
     position: absolute;
     left: 0;
     width: 0;
-    bottom: calc(-1 * var(--space-2xs));
-    height: var(--space-2xs);
+    bottom: calc(-1 * var(--space-2));
+    height: var(--space-2);
     background: #102a44;
     content: "";
     -webkit-transition: 0.2s;

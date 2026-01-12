@@ -6,7 +6,7 @@
   width: 170px;
   height: 50px;
   min-width: 150px;
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-12) var(--space-16);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-10);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -44,7 +44,7 @@
 
   height: 50px;
   background: #f3f4f7;
-  padding: var(--space-md);
+  padding: var(--space-12);
   border-radius: var(--radius-5);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
 }
@@ -67,7 +67,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: var(--space-md);
+  gap: var(--space-12);
 }
 
 .country-modal .country-list {
@@ -85,7 +85,7 @@
   justify-content: start;
 
   color: var(--color-text-primary);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-12) var(--space-16);
   
   font-size: var(--font-16);
   font-weight: 500;
@@ -101,8 +101,8 @@
 
 .close-button {
   position: absolute;
-  top: var(--space-xl);
-  right: var(--space-xl);
+  top: var(--space-32);
+  right: var(--space-32);
   color: var(--color-text-primary);
   padding: 0px 0px;
 }
@@ -116,7 +116,7 @@
   .country-selector {
     width: 50px;
     height: 35px;
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-12) var(--space-16);
   }
 
   .country-selector .country-info .country-label {
@@ -136,7 +136,7 @@
   .country-selector {
     width: 50px;
     height: 35px;
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-12) var(--space-16);
   }
 
   .country-selector .country-info .country-label {

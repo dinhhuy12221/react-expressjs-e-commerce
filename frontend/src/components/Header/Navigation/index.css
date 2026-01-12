@@ -11,12 +11,12 @@
   flex-shrink: 0;
 }
 .categories-wrapper .categories-button {
-  gap: var(--space-2md);
+  gap: var(--space-10);
   width: 200px;
-  height: 60px;
-  padding: var(--space-xs) var(--space-2md);
+  height: 55px;
+  padding: var(--space-2) var(--space-10);
   border-radius: var(--radius-35);
-  font-size: var(--font-16);
+  font-size: var(--font-14);
 }
 
 .categories-wrapper .categories-button .icon:last-child {
