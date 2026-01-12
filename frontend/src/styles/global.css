@@ -116,6 +116,12 @@ img {
     cursor: pointer;
     border: none;
 }
+.btn:hover {
+    color: var(--color-text-red-muted);
+}
+.btn:focus {
+    color: var(--color-text-red-muted);
+}
 
 .btn svg {
     font-size: var(--font-18);

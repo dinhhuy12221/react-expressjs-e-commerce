@@ -42,7 +42,7 @@ export default function Navigation() {
         </button>
         <div
           className={`sub-categories-section ${
-            isOpenSidebarVal === true ? "open" : ""
+            isOpenSidebarVal === true ? "sub-categories-section-show" : ""
           }`}
           onAbort={() => setIsOpenSidebarVal(false)}
         >
