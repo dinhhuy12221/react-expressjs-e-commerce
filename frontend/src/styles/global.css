@@ -58,7 +58,8 @@ muted → variant
     --radius-15: 15px;
     --radius-20: 20px;
     --radius-25: 25px;
-    --radius-30: 25px;
+    --radius-30: 30px;
+    --radius-35: 35px;
 
     --border-width-hairline: 1px solid;
 }
@@ -97,8 +98,6 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm);
     border-radius: var(--radius-5);
     transition: 0.5s ease;
 

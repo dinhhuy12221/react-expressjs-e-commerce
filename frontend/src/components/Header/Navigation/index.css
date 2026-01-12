@@ -11,12 +11,10 @@
   flex-shrink: 0;
 }
 .categories-wrapper .categories-button {
-  display: flex;
-  align-items: center;
   gap: var(--space-2md);
   width: 180px;
-  padding: var(--space-2md) var(--space-2md);
-  border-radius: var(--radius-25);
+  padding: var(--space-xs) var(--space-2md);
+  border-radius: var(--radius-35);
 }
 
 .categories-wrapper .categories-button .icon:last-child {
