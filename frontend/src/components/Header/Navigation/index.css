@@ -30,13 +30,11 @@
   background: var(--color-bg-white);
   top: 72px;
   width: 260px;
-  height: fit-content;
+  height: max-content;
   left: 0px;
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
-  border-bottom-right-radius: var(--radius-10);
   border-bottom-left-radius: var(--radius-10);
-  /* padding: var(--space-8) var(--space-10); */
 
   transform: scaleY(0);
   transform-origin: top;
@@ -50,60 +48,46 @@
   pointer-events: auto;
 }
 .categories-wrapper .sub-categories-section ul {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
   padding-inline-start: 0px !important;
-}
-.categories-wrapper .sub-categories-section ul li {
-  /* width: 100%; */
-  list-style: none;
-  padding: 0px 15px;
-}
-.categories-wrapper .sub-categories-section ul li a {
-  color: var(--color-text-black);
-  width: 100%;
-  justify-content: space-between;
-  font-weight: 400;
-}
-.categories-wrapper .sub-categories-section ul li svg {
-  font-size: 14px;
-  opacity: 0.5;
-}
-.categories-wrapper .sub-categories-section ul li:hover {
-  background: transparent !important;
 }
 
 .categories-wrapper .sub-categories-section ul li {
-  position: static;
+  padding: var(--space-8) var(--space-12);
+}
+
+.categories-wrapper .sub-categories-section ul li a {
+  color: var(--color-text-black);
+  min-width: 100%;
+  justify-content: start;
+  font-size: var(--font-16);
+  font-weight: 400;
+}
+.categories-wrapper .sub-categories-section ul li svg {
+  font-size: var(--font-14);
+  margin-left: auto;
+  opacity: 0.5;
 }
 
 .categories-wrapper .sub-categories-section ul li .sub-categories {
   position: absolute;
   top: 0px;
-  left: 105%;
+  left: 259px;
   width: 250px;
-  height: 100%;
-  background: #fff;
-  z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  min-height: 251px;
+  padding-top: var(--space-12);
+  background: var(--color-bg-white);
+  border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding: 20px;
+  border-left: none;
+  border-bottom-right-radius: var(--radius-10);
+  
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
 }
 
 .categories-wrapper .sub-categories-section ul li:hover .sub-categories {
   opacity: 1;
-  visibility: inherit;
-  left: 100%;
-  transition: all 0.2s ease-in-out;
-}
-
-.categories-wrapper .sub-categories-section ul li:hover .sub-categories button {
-  border-radius: 0px !important;
 }
 
 .categories-section {
