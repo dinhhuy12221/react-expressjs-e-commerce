@@ -36,7 +36,7 @@ export default function Navigation() {
             onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}
           >
             <MdMenu className="icon" />
-            <span className="text">CATEGORIES</span>
+            <span className="text">ALL CATEGORIES</span>
             <FaAngleDown className="icon"/>
           </button>
           <div

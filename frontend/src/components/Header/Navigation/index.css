@@ -12,9 +12,11 @@
 }
 .categories-wrapper .categories-button {
   gap: var(--space-2md);
-  width: 180px;
+  width: 200px;
+  height: 60px;
   padding: var(--space-xs) var(--space-2md);
   border-radius: var(--radius-35);
+  font-size: var(--font-md);
 }
 
 .categories-wrapper .categories-button .icon:last-child {
