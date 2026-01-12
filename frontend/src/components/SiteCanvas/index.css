@@ -23,7 +23,7 @@
   padding: 0px var(--space-md);
 }
 .canvas-header .close-button {
-  font: var(--font-md);
+  font: var(--font-14);
 }
 .canvas-header img {
   width: 100px;
@@ -38,13 +38,13 @@
   padding: var(--space-xl) var(--space-lg);
 }
 .canvas-main .country-selector .country-name {
-  font-size: var(--font-2md);
+  font-size: var(--font-12);
 }
 .country-modal .country-label {
   font-size: var(--font-lg);
 }
 .country-modal .country-description {
-  font-size: var(--font-2md);
+  font-size: var(--font-12);
 }
 
 /* SMARTPHONES LANDSCAPE */

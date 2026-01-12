@@ -22,13 +22,13 @@
   align-items: flex-start;
 }
 .country-selector .country-info .country-label {
-  font-size: var(--font-sm);
+  font-size: var(--font-10);
   color: var(--color-text-primary);
   opacity: 0.6;
 }
 
 .country-selector .country-info .country-name {
-  font-size: var(--font-md);
+  font-size: var(--font-14);
   color: var(--color-bg-primary-muted);
 }
 
@@ -120,13 +120,13 @@
   }
 
   .country-selector .country-info .country-label {
-    font-size: var(--font-sm);
+    font-size: var(--font-10);
     color: var(--color-text-primary);
     opacity: 0.6;
   }
 
   .country-selector .country-info .country-name {
-    font-size: var(--font-sm);
+    font-size: var(--font-10);
     color: var(--color-bg-primary-muted);
   }
 } */
@@ -140,13 +140,13 @@
   }
 
   .country-selector .country-info .country-label {
-    font-size: var(--font-sm);
+    font-size: var(--font-10);
     color: var(--color-text-primary);
     opacity: 0.6;
   }
 
   .country-selector .country-info .country-name {
-    font-size: var(--font-sm);
+    font-size: var(--font-10);
     color: var(--color-bg-primary-muted);
   }
 }

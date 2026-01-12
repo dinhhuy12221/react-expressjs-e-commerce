@@ -36,10 +36,10 @@ muted → variant
     --color-text-red: var(--color-bg-primary);
     --color-text-red-muted: var(--color-bg-primary-muted);
 
-    --font-2sm: 8px;
-    --font-sm: 10px;
-    --font-2md: 12px;
-    --font-md: 14px;
+    --font-8: 8px;
+    --font-10: 10px;
+    --font-12: 12px;
+    --font-14: 14px;
     --font-2lg: 16px;
     --font-lg: 18px;
     --font-xl: 24px;
@@ -69,7 +69,7 @@ body {
     padding: 0;
     color: var(--color-text-primary);
     font-family: var(--font-sans);
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 }
 
 img {
@@ -91,7 +91,7 @@ img {
     background: var(--color-bg-success);
     color: var(--color-text-success);
     font-weight: 500;
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 }
 
 .btn {
@@ -158,7 +158,7 @@ img {
 }
 
 .btn--sm {
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 
     svg {
         font-size: var(--font-lg);
@@ -166,7 +166,7 @@ img {
 }
 
 .text-sml {
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 }
 
 .cursor {
@@ -175,7 +175,7 @@ img {
 
 .text-light {
     color: #8b8888;
-    font-size: var(--font-md);
+    font-size: var(--font-14);
 }
 
 ::-webkit-scrollbar {

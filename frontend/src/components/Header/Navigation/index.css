@@ -1,7 +1,7 @@
 .navigate-wrapper {
   display: flex;
   justify-content: center;
-  /* gap: 220px; */
+  gap: 220px;
 }
 
 .categories-wrapper {
@@ -16,7 +16,7 @@
   height: 60px;
   padding: var(--space-xs) var(--space-2md);
   border-radius: var(--radius-35);
-  font-size: var(--font-md);
+  font-size: var(--font-2lg);
 }
 
 .categories-wrapper .categories-button .icon:last-child {
@@ -27,7 +27,8 @@
   position: absolute;
 
   background: var(--color-bg-white);
-  top: 125%;
+  top: 78px;
+  width: 250px;
   left: 0px;
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
@@ -110,7 +111,7 @@
 .categories-section li a {
   text-decoration: none;
 }
-.categories-section li a button {
+.categories-section li a {
   font-size: 14px !important;
   font-weight: 500;
   text-decoration: none;

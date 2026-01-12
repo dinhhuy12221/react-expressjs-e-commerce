@@ -53,7 +53,7 @@ footer {
   background: var(--color-text-white);
   outline: none;
   border: 0px;
-  font-size: var(--font-md);
+  font-size: var(--font-14);
 }
 .news-letter .email-form button {
   padding: var(--space-sm) var(--space-xl);
