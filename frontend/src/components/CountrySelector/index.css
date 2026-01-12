@@ -8,7 +8,7 @@
   min-width: 150px;
   padding: var(--space-md) var(--space-lg);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-10);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   color: var(--color-bg-primary);
 }
@@ -45,7 +45,7 @@
   height: 50px;
   background: #f3f4f7;
   padding: var(--space-md);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-5);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
 }
 

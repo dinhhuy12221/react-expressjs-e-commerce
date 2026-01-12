@@ -11,12 +11,12 @@
   flex-shrink: 0;
 }
 .categories-wrapper .categories-button {
-  display: flex;
-  align-items: center;
   gap: var(--space-2md);
   width: 200px;
-  padding: var(--space-2md) var(--space-2md);
-  border-radius: var(--radius-xl);
+  height: 60px;
+  padding: var(--space-xs) var(--space-2md);
+  border-radius: var(--radius-35);
+  font-size: var(--font-md);
 }
 
 .categories-wrapper .categories-button .icon:last-child {
@@ -31,8 +31,8 @@
   left: 0px;
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
-  border-bottom-right-radius: var(--radius-sm);
-  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-10);
+  border-bottom-left-radius: var(--radius-10);
   /* padding: var(--space-lg) var(--space-sm);
   margin: 0; */
   transition: all 0.2 ease-in-out;
