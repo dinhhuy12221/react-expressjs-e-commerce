@@ -96,7 +96,7 @@
       }
 
       button:hover {
-        background: var(--color-bg-primary);
+        background: var(--color-bg-red-1);
 
         svg {
           color: var(--color-on-primary);

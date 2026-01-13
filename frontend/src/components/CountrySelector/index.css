@@ -10,7 +10,7 @@
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-10);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
-  color: var(--color-bg-primary);
+  color: var(--color-bg-red-1);
 }
 .country-selector:hover {
   box-shadow: 1.5px 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@
 
 .country-selector .country-info .country-name {
   font-size: var(--font-14);
-  color: var(--color-bg-primary-muted);
+  color: var(--color-bg-red-2);
 }
 
 .country-modal {
@@ -127,7 +127,7 @@
 
   .country-selector .country-info .country-name {
     font-size: var(--font-10);
-    color: var(--color-bg-primary-muted);
+    color: var(--color-bg-red-2);
   }
 } */
 
@@ -147,7 +147,7 @@
 
   .country-selector .country-info .country-name {
     font-size: var(--font-10);
-    color: var(--color-bg-primary-muted);
+    color: var(--color-bg-red-2);
   }
 }
 

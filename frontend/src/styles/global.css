@@ -30,17 +30,19 @@ muted → variant
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Lato", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --color-bg-primary: #ff00009c;
-  --color-bg-primary-muted: #ea2b0f;
-  --color-bg-primary-1: #f3624c;
+  --color-bg-red-1: #ff00009c;
+  --color-bg-red-2: #ea2b0f;
+  --color-bg-red-3: #f3624c;
+  --color-bg-red-4: #fff0f0;
   --color-bg-success: #e5f8ed;
   --color-bg-white: #fff;
+  --color-text-red-1: #f92b2b;
   --color-text-white: #fff;
   --color-text-black: #000000;
   --color-text-black-muted: rgba(0, 0, 0, 0.7);
   --color-text-success: #16b858;
-  --color-text-red: var(--color-bg-primary);
-  --color-text-red-muted: var(--color-bg-primary-muted);
+  --color-text-red: var(--color-bg-red-1);
+  --color-text-red-muted: var(--color-bg-red-2);
 
   --font-8: 8px;
   --font-10: 10px;
@@ -142,26 +144,26 @@ li {
 
 .btn--outlined {
   background-color: transparent;
-  color: var(--color-bg-primary);
-  border: var(--border-width-hairline) var(--color-bg-primary);
+  color: var(--color-bg-red-1);
+  border: var(--border-width-hairline) var(--color-bg-red-1);
 }
 .btn--outlined:hover {
   background-color: transparent;
-  color: var(--color-bg-primary);
-  border: var(--border-width-hairline) var(--color-bg-primary-muted);
+  color: var(--color-bg-red-1);
+  border: var(--border-width-hairline) var(--color-bg-red-2);
 }
 
 .btn--primary {
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-red-1);
   color: var(--color-text-white);
   text-transform: capitalize;
 }
 .btn--primary:hover {
-  background-color: var(--color-bg-primary-muted);
+  background-color: var(--color-bg-red-2);
   color: var(--color-text-white);
 }
 .btn--primary:active {
-  background-color: var(--color-bg-primary-muted);
+  background-color: var(--color-bg-red-2);
   color: var(--color-text-white);
 }
 
@@ -256,7 +258,7 @@ li {
 }
 
 .socials ul li a:hover {
-  background: var(--color-bg-primary);
+  background: var(--color-bg-red-1);
 }
 
 .socials ul li a:hover svg {
@@ -269,7 +271,7 @@ li {
 
 .border-effect {
   position: relative;
-  color: var(--color-bg-primary);
+  color: var(--color-bg-red-1);
   text-decoration: none;
 }
 

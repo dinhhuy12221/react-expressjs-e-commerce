@@ -12,7 +12,7 @@
 
 .banner-strip {
   margin: 0px;
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-red-1);
   color: var(--color-text-white);
   padding: var(--space-8) 0px;
   font-size: var(--font-14);
@@ -68,7 +68,7 @@
   height: 20px;
 
   color: var(--color-text-white);
-  background: var(--color-bg-primary-muted);
+  background: var(--color-bg-red-2);
 }
 
 .signin-button {
