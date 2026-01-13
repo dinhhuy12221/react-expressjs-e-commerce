@@ -51,11 +51,11 @@
   padding-inline-start: 0px !important;
 }
 
-.categories-wrapper .sub-categories-section ul li {
+.categories-wrapper .sub-categories-section .menu-item {
   padding: var(--space-8) var(--space-12);
 }
 
-.categories-wrapper .sub-categories-section ul li a {
+.categories-wrapper .sub-categories-section .menu-item a {
   color: var(--color-text-black);
   min-width: 100%;
   justify-content: start;
@@ -63,18 +63,18 @@
   font-size: var(--font-16);
   font-weight: 300;
 }
-.categories-wrapper .sub-categories-section ul li a:hover {
+.categories-wrapper .sub-categories-section .menu-item a:hover {
   color: var(--color-text-red-1)
 }
-.categories-wrapper .sub-categories-section ul li svg {
+.categories-wrapper .sub-categories-section .menu-item svg {
   font-size: var(--font-14);
   opacity: 0.5;
 }
-.categories-wrapper .sub-categories-section ul li svg:last-child {
+.categories-wrapper .sub-categories-section .menu-item svg:last-child {
   margin-left: auto;
 }
 
-.categories-wrapper .sub-categories-section ul li .sub-categories {
+.categories-wrapper .sub-categories-section .menu-item .sub-categories {
   position: absolute;
   top: 0px;
   left: 259px;
@@ -92,7 +92,7 @@
   z-index: 0;
 }
 
-.categories-wrapper .sub-categories-section ul li:hover .sub-categories {
+.categories-wrapper .sub-categories-section .menu-item:hover .sub-categories {
   opacity: 1;
   z-index: 1000;
 }

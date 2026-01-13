@@ -118,7 +118,7 @@ li {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-5);
-  transition: 0.5s ease;
+  transition: all 0.3s ease;
 
   font-family: inherit;
   font-weight: 500;
@@ -126,12 +126,6 @@ li {
   text-decoration: none;
   cursor: pointer;
   border: none;
-}
-.btn:hover {
-  color: var(--color-text-red-muted);
-}
-.btn:active {
-  color: var(--color-text-red-muted);
 }
 
 .btn svg {
