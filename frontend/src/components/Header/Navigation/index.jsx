@@ -57,7 +57,7 @@ export default function Navigation() {
           <ul>
             <li>
               <Link to="#" className="btn">
-              <CiApple />
+                <CiApple />
                 <span>Fruits & Vegetables</span>
                 <FaAngleRight />
               </Link>
@@ -101,55 +101,91 @@ export default function Navigation() {
             </li>
             <li>
               <Link to="#" className="btn">
-              <TbMeat />
+                <TbMeat />
                 <span>Meats & Seafood</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
-              <GiRawEgg />
+                <GiRawEgg />
                 <span>Breakfast & Dairy</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
-              <MdOutlineLocalCafe />
+                <MdOutlineLocalCafe />
                 <span>Beverages</span>
                 <FaAngleRight />
               </Link>
               <ul className="sub-categories">
-                <li><Link to="#" className="btn"><span>Coffee</span></Link></li>
-                <li><Link to="#" className="btn"><span>Craft Beer</span></Link></li>
-                <li><Link to="#" className="btn"><span>Drink Boxes &amp; Pouches</span></Link></li>
-                <li><Link to="#" className="btn"><span>Milk &amp; Plant-Based Milk</span></Link></li>
-                <li><Link to="#" className="btn"><span>Soda &amp; Pop</span></Link></li>
-                <li><Link to="#" className="btn"><span>Sparkling Water</span></Link></li>
-                <li><Link to="#" className="btn"><span>Tea &amp; Kombucha</span></Link></li>
-                <li><Link to="#" className="btn"><span>Water</span></Link></li>
-                <li><Link to="#" className="btn"><span>Wine</span></Link></li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Coffee</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Craft Beer</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Drink Boxes &amp; Pouches</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Milk &amp; Plant-Based Milk</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Soda &amp; Pop</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Sparkling Water</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Tea &amp; Kombucha</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Water</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="btn">
+                    <span>Wine</span>
+                  </Link>
+                </li>
               </ul>
             </li>
             <li>
               <Link to="#" className="btn">
-              <BsCookie />
+                <BsCookie />
                 <span>Breads & Bakery</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
-              <IoSnowSharp />
+                <IoSnowSharp />
                 <span>Frozen Foods</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
-              <TbCandy />
+                <TbCandy />
                 <span>Biscuits & Snacks</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
-              <PiPlant />
+                <PiPlant />
                 <span>Grocery & Staples</span>
               </Link>
             </li>
@@ -178,149 +214,49 @@ export default function Navigation() {
           <Link to="/" className="btn">
             Home
           </Link>
+          <div className="sub-categories shadow">
+            <Link to="#" className="btn">
+              <span>clothing</span>
+            </Link>
+            <Link to="#" className="btn">
+              <span>footwear</span>
+            </Link>
+            <Link to="#" className="btn">
+              <span>watches</span>
+            </Link>
+            <Link to="#" className="btn">
+              <span>clothing</span>
+            </Link>
+            <Link to="#" className="btn">
+              <span>footwear</span>
+            </Link>
+          </div>
         </li>
         <li>
           <Link to="/cat/men" className="btn">
-          <TbMeat />
+            <TbMeat />
             <span>Meats & Seafood</span>
           </Link>
-          <div className="sub-categories shadow">
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>watches</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-          </div>
         </li>
         <li>
           <Link to="/cat/women" className="btn">
-          <GiRawEgg />
+            <GiRawEgg />
             <span>Bakery</span>
           </Link>
-          <div className="sub-categories shadow">
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>watches</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-          </div>
         </li>
         <li>
           <Link to="/cat/beauty" className="btn">
-          <MdOutlineLocalCafe />
+            <MdOutlineLocalCafe />
             <span>Beverages</span>
           </Link>
-          <div className="sub-categories shadow">
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>watches</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-          </div>
         </li>
         <li>
           <Link to="/cat/watches" className="btn">
             <span>Blog</span>
           </Link>
-          <div className="sub-categories shadow">
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>watches</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-          </div>
         </li>
         <li>
           <Link to="/cat/kids" className="btn">
-            <span>Contact</span>
-          </Link>
-          <div className="sub-categories shadow">
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>watches</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <Link to="/cat/gift" className="btn">
-            <span>Gift</span>
-          </Link>
-          <div className="sub-categories shadow">
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>watches</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <Link to="#" className="btn">
-            <span>Blog</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="#" className="btn">
             <span>Contact</span>
           </Link>
         </li>
