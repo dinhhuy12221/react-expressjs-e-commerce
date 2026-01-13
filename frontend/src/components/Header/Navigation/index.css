@@ -60,7 +60,7 @@
   min-width: 100%;
   justify-content: start;
   font-size: var(--font-16);
-  font-weight: 400;
+  font-weight: 300;
 }
 .categories-wrapper .sub-categories-section ul li a:hover {
   color: var(--color-text-red-1)
@@ -76,7 +76,7 @@
   top: 0px;
   left: 259px;
   width: 250px;
-  min-height: 251px;
+  min-height: 452px;
   padding-top: var(--space-12);
   background: var(--color-bg-white);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
