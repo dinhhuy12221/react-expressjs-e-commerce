@@ -47,7 +47,7 @@
 }
 
 .result-item .actions button:hover {
-  background: var(--color-bg-primary);
+  background: var(--color-bg-red-1);
 }
 
 .result-item .actions button:hover svg {

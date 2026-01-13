@@ -38,8 +38,8 @@
 
   transform: scaleY(0);
   transform-origin: top;
+  transition: transform 0.3 ease;
   pointer-events: none;
-  transition: transform 0.2s ease;
   z-index: 1000;
 }
 
@@ -61,6 +61,9 @@
   justify-content: start;
   font-size: var(--font-16);
   font-weight: 400;
+}
+.categories-wrapper .sub-categories-section ul li a:hover {
+  color: var(--color-text-red-1)
 }
 .categories-wrapper .sub-categories-section ul li svg {
   font-size: var(--font-14);
@@ -99,9 +102,6 @@
 }
 
 .categories-section li a {
-  text-decoration: none;
-}
-.categories-section li a {
   font-size: 14px !important;
   font-weight: 500;
   text-decoration: none;
@@ -115,8 +115,8 @@
 }
 
 .categories-section li a:hover {
-  background: #f0faff;
-  color: #2bbef9;
+  background: var(--color-bg-red-4);
+  color: var(--color-text-red-1);
 }
 
 .categories-section li {
