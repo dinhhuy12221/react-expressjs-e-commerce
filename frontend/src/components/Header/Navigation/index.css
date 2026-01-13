@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 220px;
+  gap: 210px;
 }
 
 .categories-wrapper {
@@ -59,6 +59,7 @@
   color: var(--color-text-black);
   min-width: 100%;
   justify-content: start;
+  gap: var(--space-8);
   font-size: var(--font-16);
   font-weight: 300;
 }
@@ -101,7 +102,14 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: var(--space-10);
+  padding-inline-start: 0px !important;
+
   list-style-type: none;
+}
+.categories-navigation .menu-item {
+  display: flex;
+  gap: var(--space-6);
 }
 
 .categories-navigation li a {
