@@ -59,6 +59,7 @@
   color: var(--color-text-black);
   min-width: 100%;
   justify-content: start;
+  gap: var(--space-8);
   font-size: var(--font-16);
   font-weight: 300;
 }

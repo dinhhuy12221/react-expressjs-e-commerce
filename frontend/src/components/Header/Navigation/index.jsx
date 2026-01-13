@@ -181,7 +181,8 @@ export default function Navigation() {
         </li>
         <li>
           <Link to="/cat/men" className="btn">
-            <span>Men</span>
+          <TbMeat />
+            <span>Meats & Seafood</span>
           </Link>
           <div className="sub-categories shadow">
             <Link to="#" className="btn">
@@ -203,7 +204,8 @@ export default function Navigation() {
         </li>
         <li>
           <Link to="/cat/women" className="btn">
-            <span>Women</span>
+          <GiRawEgg />
+            <span>Bakery</span>
           </Link>
           <div className="sub-categories shadow">
             <Link to="#" className="btn">
@@ -225,7 +227,8 @@ export default function Navigation() {
         </li>
         <li>
           <Link to="/cat/beauty" className="btn">
-            <span>Beauty</span>
+          <MdOutlineLocalCafe />
+            <span>Beverages</span>
           </Link>
           <div className="sub-categories shadow">
             <Link to="#" className="btn">
@@ -247,7 +250,7 @@ export default function Navigation() {
         </li>
         <li>
           <Link to="/cat/watches" className="btn">
-            <span>watches</span>
+            <span>Blog</span>
           </Link>
           <div className="sub-categories shadow">
             <Link to="#" className="btn">
@@ -269,7 +272,7 @@ export default function Navigation() {
         </li>
         <li>
           <Link to="/cat/kids" className="btn">
-            <span>Kids</span>
+            <span>Contact</span>
           </Link>
           <div className="sub-categories shadow">
             <Link to="#" className="btn">
