@@ -188,7 +188,7 @@ export default function Footer() {
         </div>
 
         <div className="socials copyright mt-3 pt-3 pb-3 d-flex">
-          <p className="mb-0">© 2024 dinhhuy12221. All rights reserved. Design inspired by Bacola UI.</p>
+          <p className="mb-0">© 2026 dinhhuy12221. All rights reserved. Design inspired by <a href="https://klbtheme.com/bacola/" target="_blank" rel="noopener">Bacola</a>.</p>
           <ul className="list list-inline ms-auto mb-0 socials">
             <li className="list-inline-item">
               <Link to="#">
