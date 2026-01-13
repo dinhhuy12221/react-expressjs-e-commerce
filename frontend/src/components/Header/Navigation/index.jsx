@@ -55,152 +55,152 @@ export default function Navigation() {
           onAbort={() => setIsOpenSidebarVal(false)}
         >
           <ul>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <CiApple />
                 <span>Fruits & Vegetables</span>
                 <FaAngleRight />
               </Link>
               <ul className="sub-categories">
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Cuts & Sprouts</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Exotic Fruits & Veggies</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Fresh Fruits</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Fresh Vegetables</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Herbs & Seasonings</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Packaged Produce</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Party Trays</span>
                   </Link>
                 </li>
               </ul>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <TbMeat />
                 <span>Meats & Seafood</span>
               </Link>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <GiRawEgg />
                 <span>Breakfast & Dairy</span>
               </Link>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <MdOutlineLocalCafe />
                 <span>Beverages</span>
                 <FaAngleRight />
               </Link>
               <ul className="sub-categories">
-                <li>
-                  <Link to="#" className="btn">
+                <li className="menu-item">
+                  <Link to="#" className="btn ">
                     <span>Coffee</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Craft Beer</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Drink Boxes &amp; Pouches</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Milk &amp; Plant-Based Milk</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Soda &amp; Pop</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Sparkling Water</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Tea &amp; Kombucha</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Water</span>
                   </Link>
                 </li>
-                <li>
+                <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Wine</span>
                   </Link>
                 </li>
               </ul>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <BsCookie />
                 <span>Breads & Bakery</span>
               </Link>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <IoSnowSharp />
                 <span>Frozen Foods</span>
               </Link>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <TbCandy />
                 <span>Biscuits & Snacks</span>
               </Link>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <PiPlant />
                 <span>Grocery & Staples</span>
               </Link>
             </li>
             <hr />
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <span>Value of the Day</span>
               </Link>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <span>Top 100 Offers</span>
               </Link>
             </li>
-            <li>
+            <li className="menu-item">
               <Link to="#" className="btn">
                 <span>New Arrivals</span>
               </Link>
@@ -210,9 +210,10 @@ export default function Navigation() {
       </div>
       {/* <div className="categories-section"> */}
       <ul className="categories-navigation">
-        <li>
-          <Link to="/" className="btn menu-item">
+        <li className="btn menu-item menu-item-has-children">
+          <Link to="/">
             Home
+          <FaAngleDown />
           </Link>
           <div className="sub-categories shadow">
             <Link to="#" className="btn">
@@ -232,31 +233,31 @@ export default function Navigation() {
             </Link>
           </div>
         </li>
-        <li>
-          <Link to="/cat/men" className="btn menu-item">
+        <li className="btn menu-item">
+          <Link to="/cat/men">
             <TbMeat />
             <span>Meats & Seafood</span>
           </Link>
         </li>
-        <li>
-          <Link to="/cat/women" className="btn menu-item">
+        <li className="btn menu-item">
+          <Link to="/cat/women">
             <GiRawEgg />
             <span>Bakery</span>
           </Link>
         </li>
-        <li>
-          <Link to="/cat/beauty" className="btn menu-item">
+        <li className="btn menu-item">
+          <Link to="/cat/beauty">
             <MdOutlineLocalCafe />
             <span>Beverages</span>
           </Link>
         </li>
-        <li>
-          <Link to="/cat/watches" className="btn menu-item">
+        <li className="btn menu-item">
+          <Link to="/cat/watches">
             <span>Blog</span>
           </Link>
         </li>
-        <li>
-          <Link to="/cat/kids" className="btn menu-item">
+        <li className="btn menu-item">
+          <Link to="/cat/kids">
             <span>Contact</span>
           </Link>
         </li>
