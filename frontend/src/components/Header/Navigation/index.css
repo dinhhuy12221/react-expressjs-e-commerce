@@ -79,7 +79,7 @@
   top: 0px;
   left: 259px;
   width: 250px;
-  min-height: 452px;
+  min-height: 456px;
   padding-top: var(--space-12);
   background: var(--color-bg-white);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
@@ -88,13 +88,16 @@
   border-bottom-right-radius: var(--radius-10);
   
   opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  
   transition: opacity 0.3s ease;
-  z-index: 0;
 }
 
 .categories-wrapper .sub-categories-section .menu-item:hover .sub-categories {
   opacity: 1;
-  z-index: 1000;
+  pointer-events: auto;
+  visibility: inherit;
 }
 
 .categories-navigation {
@@ -107,12 +110,12 @@
 
   list-style-type: none;
 }
-.categories-navigation .menu-item {
+.categories-navigation .menu-item a {
   display: flex;
   gap: var(--space-6);
 }
 
-.categories-navigation li a {
+.categories-navigation .menu-item a {
   font-size: 14px !important;
   font-weight: 500;
   text-decoration: none;
@@ -125,15 +128,15 @@
   border-radius: 20px;
 }
 
-.categories-navigation li a:hover {
+.categories-navigation .menu-item a:hover {
   background: var(--color-bg-red-4);
   color: var(--color-text-red-1);
 }
 
-.categories-navigation li {
+.categories-navigation .menu-item {
   position: relative;
 }
-.categories-navigation li .sub-categories {
+.categories-navigation .menu-item .sub-categories {
   position: absolute;
   top: 150%;
   left: 0px;
@@ -144,11 +147,11 @@
   transition: all 0.2s ease-in-out;
   z-index: 100;
 }
-.categories-navigation li .sub-categories a {
+.categories-navigation .menu-item .sub-categories a {
   display: block;
   width: 100%;
 }
-.categories-navigation li .sub-categories a button {
+.categories-navigation .menu-item .sub-categories a button {
   width: 100%;
   justify-content: flex-start !important;
   border-radius: 0px !important;
@@ -156,11 +159,11 @@
   font-weight: 500 !important;
 }
 
-.categories-navigation li .sub-categories a button:hover {
+.categories-navigation .menu-item .sub-categories a button:hover {
   background: #f1f1f1 !important;
 }
 
-.categories-navigation ul li:hover .sub-categories {
+.categories-navigation .menu-item:hover .sub-categories {
   opacity: 1;
   visibility: inherit;
   top: 100%;
