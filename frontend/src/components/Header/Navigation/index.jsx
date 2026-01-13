@@ -173,14 +173,14 @@ export default function Navigation() {
         </div>
       </div>
       {/* <div className="categories-section"> */}
-      <ul className="categories-section">
+      <ul className="categories-navigation">
         <li>
           <Link to="/" className="btn">
             Home
           </Link>
         </li>
         <li>
-          <Link to="/cat/<span>Men</span>" className="btn">
+          <Link to="/cat/men" className="btn">
             <span>Men</span>
           </Link>
           <div className="sub-categories shadow">
@@ -202,7 +202,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>Women</span>" className="btn">
+          <Link to="/cat/women" className="btn">
             <span>Women</span>
           </Link>
           <div className="sub-categories shadow">
@@ -224,7 +224,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>Beauty</span>" className="btn">
+          <Link to="/cat/beauty" className="btn">
             <span>Beauty</span>
           </Link>
           <div className="sub-categories shadow">
@@ -246,7 +246,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>watches</span>" className="btn">
+          <Link to="/cat/watches" className="btn">
             <span>watches</span>
           </Link>
           <div className="sub-categories shadow">
@@ -268,7 +268,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>Kids</span>" className="btn">
+          <Link to="/cat/kids" className="btn">
             <span>Kids</span>
           </Link>
           <div className="sub-categories shadow">
@@ -290,7 +290,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>Gift</span>" className="btn">
+          <Link to="/cat/gift" className="btn">
             <span>Gift</span>
           </Link>
           <div className="sub-categories shadow">
