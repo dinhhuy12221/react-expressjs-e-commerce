@@ -104,33 +104,18 @@ export default function Navigation() {
             <li>
               <Link to="#" className="btn">
                 <span>Beverages</span>
+                <FaAngleRight />
               </Link>
               <ul className="sub-categories">
-                <li>
-                  <Link to="#" className="btn">
-                    <span>clothing</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" className="btn">
-                    <span>footwear</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" className="btn">
-                    <span>watches</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" className="btn">
-                    <span>clothing</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" className="btn">
-                    <span>footwear</span>
-                  </Link>
-                </li>
+                <li><Link to="#" className="btn"><span>Coffee</span></Link></li>
+                <li><Link to="#" className="btn"><span>Craft Beer</span></Link></li>
+                <li><Link to="#" className="btn"><span>Drink Boxes &amp; Pouches</span></Link></li>
+                <li><Link to="#" className="btn"><span>Milk &amp; Plant-Based Milk</span></Link></li>
+                <li><Link to="#" className="btn"><span>Soda &amp; Pop</span></Link></li>
+                <li><Link to="#" className="btn"><span>Sparkling Water</span></Link></li>
+                <li><Link to="#" className="btn"><span>Tea &amp; Kombucha</span></Link></li>
+                <li><Link to="#" className="btn"><span>Water</span></Link></li>
+                <li><Link to="#" className="btn"><span>Wine</span></Link></li>
               </ul>
             </li>
             <li>
@@ -151,7 +136,6 @@ export default function Navigation() {
             <li>
               <Link to="#" className="btn">
                 <span>Grocery & Staples</span>
-                <FaAngleRight />
               </Link>
             </li>
           </ul>
