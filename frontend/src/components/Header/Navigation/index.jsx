@@ -138,6 +138,22 @@ export default function Navigation() {
                 <span>Grocery & Staples</span>
               </Link>
             </li>
+            <hr />
+            <li>
+              <Link to="#" className="btn">
+                <span>Value of the Day</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="btn">
+                <span>Top 100 Offers</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="btn">
+                <span>New Arrivals</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

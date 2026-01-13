@@ -86,11 +86,12 @@
   
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: 1000;
+  z-index: 0;
 }
 
 .categories-wrapper .sub-categories-section ul li:hover .sub-categories {
   opacity: 1;
+  z-index: 1000;
 }
 
 .categories-section {
