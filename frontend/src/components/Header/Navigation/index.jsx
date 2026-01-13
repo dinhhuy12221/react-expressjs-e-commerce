@@ -1,7 +1,14 @@
 import { MdMenu } from "react-icons/md";
 import { FaAngleRight } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa";
-import { PiDressLight } from "react-icons/pi";
+import { CiApple } from "react-icons/ci";
+import { TbMeat } from "react-icons/tb";
+import { GiRawEgg } from "react-icons/gi";
+import { MdOutlineLocalCafe } from "react-icons/md";
+import { BsCookie } from "react-icons/bs";
+import { IoSnowSharp } from "react-icons/io5";
+import { TbCandy } from "react-icons/tb";
+import { PiPlant } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useRef } from "react";
@@ -50,6 +57,7 @@ export default function Navigation() {
           <ul>
             <li>
               <Link to="#" className="btn">
+              <CiApple />
                 <span>Fruits & Vegetables</span>
                 <FaAngleRight />
               </Link>
@@ -93,16 +101,19 @@ export default function Navigation() {
             </li>
             <li>
               <Link to="#" className="btn">
+              <TbMeat />
                 <span>Meats & Seafood</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
+              <GiRawEgg />
                 <span>Breakfast & Dairy</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
+              <MdOutlineLocalCafe />
                 <span>Beverages</span>
                 <FaAngleRight />
               </Link>
@@ -120,21 +131,25 @@ export default function Navigation() {
             </li>
             <li>
               <Link to="#" className="btn">
+              <BsCookie />
                 <span>Breads & Bakery</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
+              <IoSnowSharp />
                 <span>Frozen Foods</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
+              <TbCandy />
                 <span>Biscuits & Snacks</span>
               </Link>
             </li>
             <li>
               <Link to="#" className="btn">
+              <PiPlant />
                 <span>Grocery & Staples</span>
               </Link>
             </li>
@@ -158,14 +173,14 @@ export default function Navigation() {
         </div>
       </div>
       {/* <div className="categories-section"> */}
-      <ul className="categories-section">
+      <ul className="categories-navigation">
         <li>
           <Link to="/" className="btn">
             Home
           </Link>
         </li>
         <li>
-          <Link to="/cat/<span>Men</span>" className="btn">
+          <Link to="/cat/men" className="btn">
             <span>Men</span>
           </Link>
           <div className="sub-categories shadow">
@@ -187,7 +202,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>Women</span>" className="btn">
+          <Link to="/cat/women" className="btn">
             <span>Women</span>
           </Link>
           <div className="sub-categories shadow">
@@ -209,7 +224,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>Beauty</span>" className="btn">
+          <Link to="/cat/beauty" className="btn">
             <span>Beauty</span>
           </Link>
           <div className="sub-categories shadow">
@@ -231,7 +246,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>watches</span>" className="btn">
+          <Link to="/cat/watches" className="btn">
             <span>watches</span>
           </Link>
           <div className="sub-categories shadow">
@@ -253,7 +268,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>Kids</span>" className="btn">
+          <Link to="/cat/kids" className="btn">
             <span>Kids</span>
           </Link>
           <div className="sub-categories shadow">
@@ -275,7 +290,7 @@ export default function Navigation() {
           </div>
         </li>
         <li>
-          <Link to="/cat/<span>Gift</span>" className="btn">
+          <Link to="/cat/gift" className="btn">
             <span>Gift</span>
           </Link>
           <div className="sub-categories shadow">

@@ -60,15 +60,17 @@
   min-width: 100%;
   justify-content: start;
   font-size: var(--font-16);
-  font-weight: 400;
+  font-weight: 300;
 }
 .categories-wrapper .sub-categories-section ul li a:hover {
   color: var(--color-text-red-1)
 }
 .categories-wrapper .sub-categories-section ul li svg {
   font-size: var(--font-14);
-  margin-left: auto;
   opacity: 0.5;
+}
+.categories-wrapper .sub-categories-section ul li svg:last-child {
+  margin-left: auto;
 }
 
 .categories-wrapper .sub-categories-section ul li .sub-categories {
@@ -76,7 +78,7 @@
   top: 0px;
   left: 259px;
   width: 250px;
-  min-height: 251px;
+  min-height: 452px;
   padding-top: var(--space-12);
   background: var(--color-bg-white);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
@@ -94,7 +96,7 @@
   z-index: 1000;
 }
 
-.categories-section {
+.categories-navigation {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +104,7 @@
   list-style-type: none;
 }
 
-.categories-section li a {
+.categories-navigation li a {
   font-size: 14px !important;
   font-weight: 500;
   text-decoration: none;
@@ -115,15 +117,15 @@
   border-radius: 20px;
 }
 
-.categories-section li a:hover {
+.categories-navigation li a:hover {
   background: var(--color-bg-red-4);
   color: var(--color-text-red-1);
 }
 
-.categories-section li {
+.categories-navigation li {
   position: relative;
 }
-.categories-section li .sub-categories {
+.categories-navigation li .sub-categories {
   position: absolute;
   top: 150%;
   left: 0px;
@@ -134,11 +136,11 @@
   transition: all 0.2s ease-in-out;
   z-index: 100;
 }
-.categories-section li .sub-categories a {
+.categories-navigation li .sub-categories a {
   display: block;
   width: 100%;
 }
-.categories-section li .sub-categories a button {
+.categories-navigation li .sub-categories a button {
   width: 100%;
   justify-content: flex-start !important;
   border-radius: 0px !important;
@@ -146,11 +148,11 @@
   font-weight: 500 !important;
 }
 
-.categories-section li .sub-categories a button:hover {
+.categories-navigation li .sub-categories a button:hover {
   background: #f1f1f1 !important;
 }
 
-.categories-section ul li:hover .sub-categories {
+.categories-navigation ul li:hover .sub-categories {
   opacity: 1;
   visibility: inherit;
   top: 100%;
