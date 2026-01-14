@@ -215,7 +215,7 @@ export default function Navigation() {
             Home
           <FaAngleDown />
           </Link>
-          <div className="sub-categories shadow">
+          <div className="sub-categories">
             <Link to="#" className="btn">
               <span>clothing</span>
             </Link>
