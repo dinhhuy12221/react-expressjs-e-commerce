@@ -116,7 +116,7 @@
   color: var(--color-text-black);
   border-radius: var(--radius-20);
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: var(--space-10) var(--space-16);
   transition: all 0.2s ease-in-out;
 }
 

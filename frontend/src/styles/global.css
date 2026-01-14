@@ -93,7 +93,9 @@ img {
 }
 
 ul {
-  padding-inline-start: 0px !important;
+  margin-block-start: 0rem !important;
+  margin-block-end: 0rem !important;
+  padding-inline-start: 0rem !important;
 }
 
 li {
