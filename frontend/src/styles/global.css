@@ -99,6 +99,7 @@ ul {
 li {
   list-style: none;
 }
+
 .badge {
   display: inline-block;
   padding: var(--space-8) var(--space-12);

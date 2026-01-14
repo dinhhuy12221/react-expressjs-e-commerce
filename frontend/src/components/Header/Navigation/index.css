@@ -112,13 +112,9 @@
 }
 
 .categories-navigation .menu-item a {
-  font-size: 14px !important;
-  font-weight: 500;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.8);
+  font-size: var(--font-14);
+  color: var(--color-text-black);
   text-transform: uppercase;
-  display: flex;
-  align-items: center;
   padding: 10px 15px;
   transition: all 0.2s ease-in-out;
   border-radius: 20px;
