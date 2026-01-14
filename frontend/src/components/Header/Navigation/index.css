@@ -41,13 +41,18 @@
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.3 ease;
+  
   pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
   z-index: 1000;
 }
 
 .categories-wrapper .sub-categories-section-show {
   transform: scaleY(1);
   pointer-events: auto;
+  visibility: inherit;
+  opacity: 1;
 }
 
 .categories-wrapper .sub-categories-section .menu-item {
@@ -66,8 +71,8 @@
   color: var(--color-text-red-1);
 }
 .categories-wrapper .sub-categories-section .menu-item svg {
-  font-size: var(--font-14);
-  opacity: 0.5;
+  font-size: var(--font-18);
+  opacity: 0.6;
 }
 .categories-wrapper .sub-categories-section .menu-item svg:last-child {
   margin-left: auto;
