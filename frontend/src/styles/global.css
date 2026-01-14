@@ -92,9 +92,14 @@ img {
   user-select: none;
 }
 
+ul {
+  padding-inline-start: 0px !important;
+}
+
 li {
   list-style: none;
 }
+
 .badge {
   display: inline-block;
   padding: var(--space-8) var(--space-12);

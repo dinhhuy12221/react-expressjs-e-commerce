@@ -210,12 +210,12 @@ export default function Navigation() {
       </div>
       {/* <div className="categories-section"> */}
       <ul className="categories-navigation">
-        <li className="btn menu-item menu-item-has-children">
-          <Link to="/">
+        <li className="menu-item menu-item-has-children">
+          <Link to="/" className="btn">
             Home
           <FaAngleDown />
           </Link>
-          <div className="sub-categories shadow">
+          <div className="sub-categories">
             <Link to="#" className="btn">
               <span>clothing</span>
             </Link>
@@ -233,31 +233,31 @@ export default function Navigation() {
             </Link>
           </div>
         </li>
-        <li className="btn menu-item">
-          <Link to="/cat/men">
+        <li className="menu-item">
+          <Link to="/cat/men" className="btn">
             <TbMeat />
             <span>Meats & Seafood</span>
           </Link>
         </li>
-        <li className="btn menu-item">
-          <Link to="/cat/women">
+        <li className="menu-item">
+          <Link to="/cat/women" className="btn">
             <GiRawEgg />
             <span>Bakery</span>
           </Link>
         </li>
-        <li className="btn menu-item">
-          <Link to="/cat/beauty">
+        <li className="menu-item">
+          <Link to="/cat/beauty" className="btn">
             <MdOutlineLocalCafe />
             <span>Beverages</span>
           </Link>
         </li>
-        <li className="btn menu-item">
-          <Link to="/cat/watches">
+        <li className="menu-item">
+          <Link to="/cat/watches" className="btn">
             <span>Blog</span>
           </Link>
         </li>
-        <li className="btn menu-item">
-          <Link to="/cat/kids">
+        <li className="menu-item">
+          <Link to="/cat/kids" className="btn">
             <span>Contact</span>
           </Link>
         </li>
