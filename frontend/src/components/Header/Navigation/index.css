@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 5rem;
   gap: 210px;
 }
 
@@ -28,10 +29,11 @@
   position: absolute;
 
   background: var(--color-bg-white);
-  top: 72px;
+  top: 68px;
   width: 260px;
   height: max-content;
   left: 0px;
+  padding: var(--space-16) 0px;
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
   border-bottom-left-radius: var(--radius-10);
@@ -39,13 +41,18 @@
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.3 ease;
+  
   pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
   z-index: 1000;
 }
 
 .categories-wrapper .sub-categories-section-show {
   transform: scaleY(1);
   pointer-events: auto;
+  visibility: inherit;
+  opacity: 1;
 }
 
 .categories-wrapper .sub-categories-section .menu-item {
@@ -64,8 +71,8 @@
   color: var(--color-text-red-1);
 }
 .categories-wrapper .sub-categories-section .menu-item svg {
-  font-size: var(--font-14);
-  opacity: 0.5;
+  font-size: var(--font-18);
+  opacity: 0.6;
 }
 .categories-wrapper .sub-categories-section .menu-item svg:last-child {
   margin-left: auto;
@@ -73,11 +80,12 @@
 
 .categories-wrapper .sub-categories-section .menu-item .sub-categories {
   position: absolute;
+  gap: var(--space-6);
   top: 0px;
   left: 259px;
   width: 250px;
   min-height: 456px;
-  padding-top: var(--space-12);
+  padding: var(--space-16) 0px;
   background: var(--color-bg-white);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
@@ -100,55 +108,68 @@
 .categories-navigation {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  height: 100%;
   flex-wrap: wrap;
   gap: var(--space-10);
 
   list-style-type: none;
 }
-.categories-navigation .menu-item a {
+.categories-navigation > .menu-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.categories-navigation > .menu-item > a.btn {
   display: flex;
   gap: var(--space-6);
-}
-
-.categories-navigation .menu-item a {
   font-size: var(--font-14);
   color: var(--color-text-black);
+  border-radius: var(--radius-20);
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: var(--space-10) var(--space-16);
   transition: all 0.2s ease-in-out;
-  border-radius: 20px;
 }
 
-.categories-navigation .menu-item a:hover {
+.categories-navigation > .menu-item > a.btn:hover {
   background: var(--color-bg-red-4);
   color: var(--color-text-red-1);
 }
 
-.categories-navigation .menu-item {
-  position: relative;
-}
-.categories-navigation .menu-item .sub-categories {
+.categories-navigation .menu-item > .sub-categories {
   position: absolute;
-  top: 54px;
-  left: 0px;
-  min-width: 150px;
-  background: var(--color-bg-white);
   
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-12);
 
+  top: 71px;
+  left: 0px;
+  width: 200px;
+  min-height: fit-content;
+  padding: var(--space-32) 0px;
+  background: var(--color-bg-white);
+  border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
+  border-top: none;
+  
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  
   transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 100;
 }
-.categories-navigation .menu-item:hover .sub-categories {
+.categories-navigation .menu-item:hover > .sub-categories {
   transform: translateY(10px);
-  pointer-events: auto;
   opacity: 1;
+  pointer-events: auto;
   visibility: inherit;
 }
-.categories-navigation .menu-item .sub-categories a {
+.categories-navigation .sub-categories > .menu-item {
+  padding: 0px var(--space-18);
+}
+.categories-navigation .sub-categories > .menu-item > a.btn {
   color: var(--color-text-black);
   min-width: 100%;
   justify-content: start;
@@ -160,197 +181,3 @@
   color: var(--color-text-red-1);
   background-color: var(--color-bg-white);
 }
-/* .categories-navigation .menu-item .sub-categories a button {
-  width: 100%;
-  justify-content: flex-start !important;
-  border-radius: 0px !important;
-  text-transform: capitalize !important;
-  font-weight: 500 !important;
-} */
-
-/* {
-  .navPart1 {
-    max-width: 20%;
-    flex: 0 0 20%;
-
-    .categories-wrapper {
-      position: relative;
-
-      .sub-categories-section {
-        width: 200px;
-        height: 0;
-        opacity: 0;
-        background: #fff;
-        position: absolute;
-        top: 115%;
-        left: 0px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 15px 0px;
-        transition: all 0.2;
-        z-index: 1000;
-        visibility: hidden;
-
-        &.open {
-          height: auto;
-          opacity: 1;
-          visibility: inherit;
-        }
-
-        ul {
-          li {
-            position: static;
-
-            width: 100%;
-            list-style: none;
-            padding: 0px 15px;
-
-            button {
-              color: #000;
-              width: 100%;
-              justify-content: flex-start;
-              text-transform: capitalize !important;
-
-              svg {
-                font-size: 14px;
-                opacity: 0.5;
-              }
-
-              &:hover {
-                background: transparent !important;
-              }
-            }
-
-            .sub-categories {
-              position: absolute;
-              top: 0px;
-              left: 105%;
-              width: 250px;
-              height: 100%;
-              background: #fff;
-              z-index: 100;
-              opacity: 0;
-              visibility: hidden;
-              border-left: 1px solid rgba(0, 0, 0, 0.1);
-              padding: 20px;
-            }
-
-            &:hover {
-              .sub-categories {
-                opacity: 1;
-                visibility: inherit;
-                left: 100%;
-                transition: all 0.2s ease-in-out;
-
-                button {
-                  border-radius: 0px !important;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .categories-section {
-    max-width: 80%;
-    flex: 0 0 80%;
-
-    ul {
-      margin-bottom: 0px;
-
-      li {
-        position: relative;
-
-        padding-bottom: 20px;
-
-        a {
-          text-decoration: none;
-
-          button {
-            font-size: 14px !important;
-            font-weight: 500;
-            text-decoration: none;
-            color: rgba(0, 0, 0, 0.8);
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            transition: all 0.2s ease-in-out;
-            border-radius: 20px;
-          }
-          &:hover {
-            background: #f0faff;
-            color: #2bbef9;
-
-            
-          }
-        }
-
-        .sub-categories {
-          position: absolute;
-          top: 150%;
-          left: 0px;
-          min-width: 150px;
-          background: #fff;
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.2s ease-in-out;
-          z-index: 100;
-
-          a {
-            display: block;
-            width: 100%;
-
-            button {
-              width: 100%;
-              justify-content: flex-start !important;
-              border-radius: 0px !important;
-              text-transform: capitalize !important;
-              font-weight: 500 !important;
-
-              &:hover {
-                background: #f1f1f1 !important;
-              }
-            }
-          }
-        }
-
-        &:hover {
-          .sub-categories {
-              opacity: 1;
-              visibility: inherit;
-              top: 100%;
-            }
-        }
-      }
-    }
-  }
-}
-
-.categories-button {
-  padding: 10px 15px !important;
-  border-radius: 30px !important;
-
-  color: #fff;
-  background: rgba(255, 0, 0, 0.61);
-
-  .text {
-    display: flex;
-    align-items: center;
-
-    font-weight: 600;
-
-    .icon {
-      box-sizing: content-box;
-
-      padding-bottom: 2px;
-
-      font-size: 20px;
-    }
-
-    &:hover {
-      background: rgba(255, 0, 0, 0.81);
-    }
-  }
-} */

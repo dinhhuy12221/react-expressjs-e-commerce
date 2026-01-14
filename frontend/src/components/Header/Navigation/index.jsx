@@ -215,23 +215,33 @@ export default function Navigation() {
             Home
           <FaAngleDown />
           </Link>
-          <div className="sub-categories">
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>watches</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>clothing</span>
-            </Link>
-            <Link to="#" className="btn">
-              <span>footwear</span>
-            </Link>
-          </div>
+          <ul className="sub-categories">
+            <li className="menu-item">
+              <Link to="#" className="btn">
+                <span>clothing</span>
+              </Link>
+            </li>
+            <li className="menu-item">
+              <Link to="#" className="btn">
+                <span>footwear</span>
+              </Link>
+            </li>
+            <li className="menu-item">
+              <Link to="#" className="btn">
+                <span>watches</span>
+              </Link>
+            </li>
+            <li className="menu-item">
+              <Link to="#" className="btn">
+                <span>clothing</span>
+              </Link>
+            </li>
+            <li className="menu-item">
+              <Link to="#" className="btn">
+                <span>footwear</span>
+              </Link>
+            </li>
+          </ul>
         </li>
         <li className="menu-item">
           <Link to="/cat/men" className="btn">

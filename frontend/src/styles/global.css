@@ -17,8 +17,8 @@ muted → variant
 
 @layer reset, base, layout, components, utilities;
 
-@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css");
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"); */
 
 *,
 *::before,
@@ -93,7 +93,9 @@ img {
 }
 
 ul {
-  padding-inline-start: 0px !important;
+  margin-block-start: 0rem !important;
+  margin-block-end: 0rem !important;
+  padding-inline-start: 0rem !important;
 }
 
 li {
