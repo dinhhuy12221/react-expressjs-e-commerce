@@ -40,11 +40,10 @@
 
   transform: scaleY(0);
   transform-origin: top;
-  transition: transform 0.3 ease;
-  
+  transition: transform 0.3s ease;
+
   pointer-events: none;
   visibility: hidden;
-  opacity: 0;
   z-index: 1000;
 }
 
@@ -52,7 +51,6 @@
   transform: scaleY(1);
   pointer-events: auto;
   visibility: inherit;
-  opacity: 1;
 }
 
 .categories-wrapper .sub-categories-section .menu-item {
@@ -128,7 +126,7 @@
   border-radius: var(--radius-20);
   text-transform: uppercase;
   padding: var(--space-10) var(--space-16);
-  transition: all 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .categories-navigation > .menu-item > a.btn:hover {
