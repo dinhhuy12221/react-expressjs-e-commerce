@@ -38,7 +38,7 @@ export default function Navigation() {
   }, [sideBarRef]);
 
   return (
-    <nav className="navigate-wrapper">
+    <nav className="navigate">
       <div ref={sideBarRef} className="categories-wrapper">
         <button
           className="btn btn--primary categories-button"
@@ -49,8 +49,8 @@ export default function Navigation() {
           <FaAngleDown className="icon" />
         </button>
         <div
-          className={`sub-categories-section ${
-            isOpenSidebarVal === true ? "sub-categories-section-show" : ""
+          className={`category-menu-1 ${
+            isOpenSidebarVal === true ? "category-menu-1-show" : ""
           }`}
           onAbort={() => setIsOpenSidebarVal(false)}
         >
@@ -209,8 +209,8 @@ export default function Navigation() {
         </div>
       </div>
       {/* <div className="categories-section"> */}
-      <ul className="categories-navigation">
-        <li className="menu-item menu-item-has-children">
+      <ul className="category-menu-2">
+        <li className="menu-item">
           <Link to="/" className="btn">
             Home
           <FaAngleDown />

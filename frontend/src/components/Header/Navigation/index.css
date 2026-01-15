@@ -1,4 +1,4 @@
-.navigate-wrapper {
+.navigate {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.categories-wrapper .categories-button {
+.categories-button {
   gap: var(--space-10);
   width: 200px;
   height: 55px;
@@ -21,11 +21,11 @@
   font-size: var(--font-14);
 }
 
-.categories-wrapper .categories-button .icon:last-child {
+.categories-button .icon:last-child {
   margin-left: auto;
 }
 
-.categories-wrapper .sub-categories-section {
+.category-menu-1 {
   position: absolute;
 
   background: var(--color-bg-white);
@@ -40,26 +40,24 @@
 
   transform: scaleY(0);
   transform-origin: top;
-  transition: transform 0.3 ease;
-  
+  transition: transform 0.3s ease;
+
   pointer-events: none;
   visibility: hidden;
-  opacity: 0;
   z-index: 1000;
 }
 
-.categories-wrapper .sub-categories-section-show {
+.category-menu-1-show {
   transform: scaleY(1);
   pointer-events: auto;
   visibility: inherit;
-  opacity: 1;
 }
 
-.categories-wrapper .sub-categories-section .menu-item {
+.category-menu-1 .menu-item {
   padding: var(--space-8) var(--space-12);
 }
 
-.categories-wrapper .sub-categories-section .menu-item a {
+.category-menu-1 .menu-item a {
   color: var(--color-text-black);
   min-width: 100%;
   justify-content: start;
@@ -67,18 +65,18 @@
   font-size: var(--font-16);
   font-weight: 300;
 }
-.categories-wrapper .sub-categories-section .menu-item a:hover {
+.category-menu-1 .menu-item a:hover {
   color: var(--color-text-red-1);
 }
-.categories-wrapper .sub-categories-section .menu-item svg {
+.category-menu-1 .menu-item svg {
   font-size: var(--font-18);
   opacity: 0.6;
 }
-.categories-wrapper .sub-categories-section .menu-item svg:last-child {
+.category-menu-1 .menu-item svg:last-child {
   margin-left: auto;
 }
 
-.categories-wrapper .sub-categories-section .menu-item .sub-categories {
+.category-menu-1 .menu-item .sub-categories {
   position: absolute;
   gap: var(--space-6);
   top: 0px;
@@ -99,13 +97,13 @@
   transition: opacity 0.3s ease;
 }
 
-.categories-wrapper .sub-categories-section .menu-item:hover .sub-categories {
+.category-menu-1 .menu-item:hover .sub-categories {
   opacity: 1;
   pointer-events: auto;
   visibility: inherit;
 }
 
-.categories-navigation {
+.category-menu-2 {
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -115,12 +113,12 @@
 
   list-style-type: none;
 }
-.categories-navigation > .menu-item {
+.category-menu-2 > .menu-item {
   display: flex;
   align-items: center;
   position: relative;
 }
-.categories-navigation > .menu-item > a.btn {
+.category-menu-2 > .menu-item > a.btn {
   display: flex;
   gap: var(--space-6);
   font-size: var(--font-14);
@@ -128,15 +126,14 @@
   border-radius: var(--radius-20);
   text-transform: uppercase;
   padding: var(--space-10) var(--space-16);
-  transition: all 0.2s ease-in-out;
 }
 
-.categories-navigation > .menu-item > a.btn:hover {
+.category-menu-2 > .menu-item > a.btn:hover {
   background: var(--color-bg-red-4);
   color: var(--color-text-red-1);
 }
 
-.categories-navigation .menu-item > .sub-categories {
+.category-menu-2 .menu-item > .sub-categories {
   position: absolute;
   
   display: flex;
@@ -160,16 +157,16 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 100;
 }
-.categories-navigation .menu-item:hover > .sub-categories {
+.category-menu-2 .menu-item:hover > .sub-categories {
   transform: translateY(10px);
   opacity: 1;
   pointer-events: auto;
   visibility: inherit;
 }
-.categories-navigation .sub-categories > .menu-item {
+.category-menu-2 .sub-categories > .menu-item {
   padding: 0px var(--space-18);
 }
-.categories-navigation .sub-categories > .menu-item > a.btn {
+.category-menu-2 .sub-categories > .menu-item > a.btn {
   color: var(--color-text-black);
   min-width: 100%;
   justify-content: start;
@@ -177,7 +174,7 @@
   font-size: var(--font-16);
   font-weight: 300;
 }
-.categories-navigation .menu-item .sub-categories a:hover {
+.category-menu-2 .menu-item .sub-categories a:hover {
   color: var(--color-text-red-1);
   background-color: var(--color-bg-white);
 }
