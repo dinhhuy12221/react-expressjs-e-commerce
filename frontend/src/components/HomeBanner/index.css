@@ -5,13 +5,17 @@
 }
 
 .home-banner .blank-div {
-  width: 50%;
+  width: 400px;
 }
 
+.home-banner .swiper {
+  width: 870px;
+}
 .home-banner .swiper-wrapper {
 }
 
 .home-banner .banner-item {
+  display: inline-block;
   border-radius: 25px;
 }
 

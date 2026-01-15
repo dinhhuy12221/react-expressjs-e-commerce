@@ -22,7 +22,6 @@ export default function HomeBanner() {
           //   delay: 2500,
           //   // disableOnInteraction: false,
           // }}
-         
         >
           <SwiperSlide className="banner-item">
               <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-1.jpg" />

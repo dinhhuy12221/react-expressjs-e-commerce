@@ -83,7 +83,7 @@ muted → variant
 body {
   margin: 0;
   padding: 0;
-  color: var(--color-text-primary);
+  color: var(--color-text-black);
   font-family: var(--font-sans);
   font-size: var(--font-14);
 }
