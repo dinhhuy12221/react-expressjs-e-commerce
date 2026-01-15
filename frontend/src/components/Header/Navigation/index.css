@@ -126,7 +126,6 @@
   border-radius: var(--radius-20);
   text-transform: uppercase;
   padding: var(--space-10) var(--space-16);
-  transition: color 0.2s ease-in-out;
 }
 
 .categories-navigation > .menu-item > a.btn:hover {
