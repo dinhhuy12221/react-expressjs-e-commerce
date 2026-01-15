@@ -1,14 +1,17 @@
 .home-banner {
-  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-banner .blank-div {
+  width: 50%;
 }
 
 .home-banner .swiper-wrapper {
-  max-width: fit-content;
-  
 }
 
 .home-banner .banner-item {
-  max-width: fit-content;
   border-radius: 25px;
 }
 
