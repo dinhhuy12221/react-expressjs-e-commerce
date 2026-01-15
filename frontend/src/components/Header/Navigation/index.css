@@ -178,3 +178,9 @@
   color: var(--color-text-red-1);
   background-color: var(--color-bg-white);
 }
+
+@media (max-width: 480px) {
+  .navigate {
+    display: none;
+  }
+}
