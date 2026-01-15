@@ -61,7 +61,7 @@ export default function Navigation() {
                 <span>Fruits & Vegetables</span>
                 <FaAngleRight />
               </Link>
-              <ul className="sub-categories">
+              <ul className="sub-menu">
                 <li className="menu-item">
                   <Link to="#" className="btn">
                     <span>Cuts & Sprouts</span>
@@ -117,7 +117,7 @@ export default function Navigation() {
                 <span>Beverages</span>
                 <FaAngleRight />
               </Link>
-              <ul className="sub-categories">
+              <ul className="sub-menu">
                 <li className="menu-item">
                   <Link to="#" className="btn ">
                     <span>Coffee</span>
@@ -215,7 +215,7 @@ export default function Navigation() {
             Home
           <FaAngleDown />
           </Link>
-          <ul className="sub-categories">
+          <ul className="sub-menu">
             <li className="menu-item">
               <Link to="#" className="btn">
                 <span>clothing</span>
