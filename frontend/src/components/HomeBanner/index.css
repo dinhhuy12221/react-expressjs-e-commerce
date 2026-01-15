@@ -1,26 +1,14 @@
-.home-banner-section {
-  .container {
-    width: 50%;
-    /* margin-left: 600px; */
-  }
-  .item {
-    overflow: hidden;
-
-    img {
-      width: 100%;
-    }
-  }
+.home-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home-banner-section .swiper {
+.home-banner .swiper {
   border-radius: 25px;
-  overflow: hidden !important;
-}
-.home-banner-section * {
-  outline: none !important;
 }
 
-.home-banner-section .swiper-button-prev {
+/* .home-banner .swiper-button-prev {
   left: 10px;
   width: 40px;
   height: 40px;
@@ -28,7 +16,7 @@
   border-radius: 50%;
   background: rgba(255, 0, 0, 0.61);
 }
-.home-banner-section .swiper-button-next {
+.home-banner .swiper-button-next {
   right: 10px;
   width: 40px;
   height: 40px;
@@ -36,11 +24,11 @@
   border-radius: 50%;
   background: rgba(255, 0, 0, 0.61);
 }
-.home-banner-section .swiper-button-prev::after {
+.home-banner .swiper-button-prev::after {
   font-size: 0.5rem;
   color: #fff;
 }
-.home-banner-section .swiper-button-next::after {
+.home-banner .swiper-button-next::after {
   font-size: 0.5rem;
   color: #fff;
-}
+} */
