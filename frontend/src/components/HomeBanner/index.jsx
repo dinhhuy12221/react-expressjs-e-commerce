@@ -22,20 +22,14 @@ export default function HomeBanner() {
         // }}
         className="home-banner"
       >
-        <SwiperSlide>
-          <div className="item">
+        <SwiperSlide className="banner-item">
             <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-1.jpg" />
-          </div>
         </SwiperSlide>
-        <SwiperSlide>
-          <div className="item">
+        <SwiperSlide className="banner-item">
             <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-2.jpg" />
-          </div>
         </SwiperSlide>
-        <SwiperSlide>
-          <div className="item">
+        <SwiperSlide className="banner-item">
             <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/05/slider-3.jpg" />
-          </div>
         </SwiperSlide>
       </Swiper>
   );
