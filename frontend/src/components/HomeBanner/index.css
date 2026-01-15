@@ -16,32 +16,6 @@
   overflow: hidden;
 }
 
-
-/* .home-banner .swiper-button-prev {
-  left: 10px;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 50%;
-  background: rgba(255, 0, 0, 0.61);
-}
-.home-banner .swiper-button-next {
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 50%;
-  background: rgba(255, 0, 0, 0.61);
-}
-.home-banner .swiper-button-prev::after {
-  font-size: 0.5rem;
-  color: #fff;
-}
-.home-banner .swiper-button-next::after {
-  font-size: 0.5rem;
-  color: #fff;
-} */
-
 @media (max-width: 480px) {
   .home-banner .blank-div {
     display: none;
