@@ -2,22 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--space-12) 0px;
 }
 
 .home-banner .blank-div {
-  width: 400px;
+  width: 300px;
+  height: auto;
 }
 
 .home-banner .swiper {
   width: 870px;
-}
-.home-banner .swiper-wrapper {
+  border-radius: var(--radius-25);
+  overflow: hidden;
 }
 
-.home-banner .banner-item {
-  display: inline-block;
-  border-radius: 25px;
-}
 
 /* .home-banner .swiper-button-prev {
   left: 10px;
