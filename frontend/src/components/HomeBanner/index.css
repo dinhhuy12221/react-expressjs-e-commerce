@@ -1,38 +1,34 @@
 .home-banner {
-  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-12) var(--space-12);
 }
 
-.home-banner .swiper-wrapper {
-  max-width: fit-content;
-  
+.home-banner .blank-div {
+  width: 300px;
+  height: auto;
 }
 
-.home-banner .banner-item {
-  max-width: fit-content;
-  border-radius: 25px;
+.home-banner .swiper {
+  width: 870px;
+  border-radius: var(--radius-25);
+  overflow: hidden;
 }
 
-/* .home-banner .swiper-button-prev {
-  left: 10px;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 50%;
-  background: rgba(255, 0, 0, 0.61);
+@media (max-width: 480px) {
+  .home-banner .blank-div {
+    display: none;
+  }
+  .home-banner .swiper {
+    height: 200px;
+    width: 100%;
+  }
+  .home-banner .banner-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
-.home-banner .swiper-button-next {
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 50%;
-  background: rgba(255, 0, 0, 0.61);
-}
-.home-banner .swiper-button-prev::after {
-  font-size: 0.5rem;
-  color: #fff;
-}
-.home-banner .swiper-button-next::after {
-  font-size: 0.5rem;
-  color: #fff;
-} */
