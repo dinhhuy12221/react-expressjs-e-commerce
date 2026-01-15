@@ -1,23 +1,25 @@
-import React from "react";
+// import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
+// import "swiper/css";
+// import "swiper/css/navigation";
+import 'swiper/css/pagination';
+
 
 import './index.css'
 
 export default function HomeBanner() {
   return (
-    <div className="home-banner-section mt-3">
-      <div className="container">
+    <div className="home-banner">
         <Swiper
           slidesPerView={1}
-          spaceBetween={20}
-          navigation={true}
+          // spaceBetween={20}
+          // navigation={true}
+          pagination={true}
           loop={true}
-          modules={[Navigation, Autoplay]}
+          modules={[Navigation, Autoplay, Pagination]}
           autoplay={{
-            delay: 1500,
+            delay: 2500,
             disableOnInteraction: false,
           }}
           className="mySwiper"
@@ -43,15 +45,7 @@ export default function HomeBanner() {
               />
             </div>
           </SwiperSlide>
-          {/* <SwiperSlide>
-            <div className="item">
-              <img
-                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-4.jpg"
-              />
-            </div>
-          </SwiperSlide> */}
         </Swiper>
-      </div>
     </div>
   );
 }
