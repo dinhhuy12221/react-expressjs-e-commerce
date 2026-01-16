@@ -102,6 +102,13 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: var(--color-text-black);
+  font-weight: 300;
+
+}
+
 .badge {
   display: inline-block;
   padding: var(--space-8) var(--space-12);
