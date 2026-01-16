@@ -106,12 +106,12 @@
 
 .product-buttons {
   position: absolute;
-  top: 20px;
-  right: 12px;
+  top: var(--space-20);
+  right: var(--space-12);
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-10);
 
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -124,5 +124,9 @@
 .product-buttons .btn {
   padding: var(--space-6);
   font-size: var(--font-8);
+}
+.product-buttons .btn:hover {
+  background-color: var(--color-bg-red-3);
+  color: var(--color-text-white);
 }
 
