@@ -42,7 +42,7 @@ export default function ProductItem({ product }) {
 
       <div className="product-main">
         <Link to={"/product/" + product.slug}>
-          <h4>{product.name}</h4>
+          <span className="product-name">{product.name}</span>
         </Link>
         <div className="status">
           <span className="text-success d-block">In Stock</span>

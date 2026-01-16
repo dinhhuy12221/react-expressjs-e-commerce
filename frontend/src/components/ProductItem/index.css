@@ -134,3 +134,7 @@
   color: var(--color-text-white);
 }
 
+.product-main {
+  display: flex;
+  flex-direction: column;
+}

@@ -81,12 +81,7 @@ export default function Home() {
               {productList &&
                 productList.map((item, index) => {
                   return (
-                    <div
-                      key={index}
-                      className="col-lg-3 col-md-4 col-sm-6 col-6 new-product"
-                    >
-                      <ProductItem product={item} />
-                    </div>
+                      <ProductItem product={item} key={index}/>
                   );
                 })}
             </div>
