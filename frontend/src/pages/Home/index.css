@@ -5,68 +5,33 @@
   gap: var(--space-26);
 
   padding: var(--space-12) 0px;
-
-  .view-all-btn {
-    color: rgba(0, 0, 0, 0.5) !important;
-
-    transition: 0.3s ease;
-
-    &:hover {
-      color: rgba(0, 0, 0, 0.9) !important;
-    }
-  }
-
-  .hd {
-    margin-bottom: 0;
-    margin-top: 10px;
-  }
-
-  .new-products-list {
-    display: flex;
-
-    padding: 10px;
-
-    .new-product {
-      padding: 0;
-    }
-  }
 }
 
 .side-banner {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  flex-shrink: 1;
   gap: var(--space-20);
 }
 
+.side-banner .banner-item {
+  overflow: hidden;
 
-.side-banner {
-  .banner-item {
-    overflow: hidden;
+  height: 50%;
+  border-radius: 10px;
 
-    height: 50%;
-    border-radius: 10px;
-
-    color: rgba(0, 0, 0, 0.1);
-  }
-
-  img {
-    width: auto;
-    height: 100%;
-  }
+  color: rgba(0, 0, 0, 0.1);
 }
 
 .home-main {
   display: flex;
   flex-direction: column;
+  flex-shrink: 1;
 }
 
-.home-main .best-seller-section {
+.home-main .best-seller-section,
+.home-main .new-products-section {
   display: flex;
   justify-content: space-between;
 }
-
-.home-main .best-seller-section .view-button {
-  max-height: fit-content;
-}
-

@@ -65,14 +65,14 @@ export default function Home() {
 
           <ProductSwiper productList={productList} />
 
-          <div className="d-flex align-items-center mt-5 mb-3">
-            <div className="info w-75">
-              <h3 className="mb-0 hd">NEW PRODUCTS</h3>
-              <p className="text-sml mb-0">New products with updated stocks.</p>
+          <div className="new-products-section">
+            <div className="new-products-header">
+              <h2>NEW PRODUCTS</h2>
+              <span>New products with updated stocks.</span>
             </div>
 
-            <button className="view-button">
-              View all
+            <button className="btn btn--outlined">
+              <span>View all</span>
               <IoArrowForwardOutline />
             </button>
           </div>
