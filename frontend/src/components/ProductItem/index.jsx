@@ -10,21 +10,21 @@ import "./index.css";
 import LoadingAnimation from "../LoadingAnimation";
 import { getDiscountPrice } from "../../utils/getDiscountPrice";
 
-export default function ProductItem({ info }) {
+export default function ProductItem({ product }) {
   const context = useContext(MyContext);
 
   const viewProductDetails = (id) => {
     context.setIsOpenProductModal(true);
   };
 
-  const currentPrice = getDiscountPrice(info.price, info.discount);
+  const currentPrice = getDiscountPrice(product.price, product.discount);
 
   return (
     <div className="item productItem">
         <div className="imgWrapper">
-          <Link to={"/product/" + info.slug}>
+          <Link to={"/product/" + product.slug}>
             <img
-              src={info.image}
+              src={product.image}
             />
           </Link>
           <div className="actions">
@@ -37,26 +37,26 @@ export default function ProductItem({ info }) {
           </div>
         </div>
   
-        <span className="badge bg-primary">{info.discount}%</span>
+        <span className="badge bg-primary">{product.discount}%</span>
   
-        <div className="info">
+        <div className="product">
           <Link 
-            to={"/product/" + info.slug}
+            to={"/product/" + product.slug}
             style={{ color: "#333" }}>
-            <h4>{info.name}</h4>
+            <h4>{product.name}</h4>
           </Link>
           <div className="status">
             <span className="text-success d-block">In Stock</span>
             <Rating
               className="mt-2 mb-2"
               name="read-only"
-              value={info.rating}
+              value={product.rating}
               readOnly
               size="small"
               precision={0.5}
             />
             <div className="d-flex">
-              <span className="oldPrice">${info.price}</span>
+              <span className="oldPrice">${product.price}</span>
               <span className="netPrice text-danger">${currentPrice}</span>
             </div>
           </div>

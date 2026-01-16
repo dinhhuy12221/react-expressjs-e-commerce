@@ -49,7 +49,7 @@ export default function ProductSwiper(props) {
       >
         {productList &&
           productList.map((product, index) => {
-            return <SwiperSlide key={index}><ProductItem info={product}/></SwiperSlide>;
+            return <SwiperSlide key={index}><ProductItem product={product}/></SwiperSlide>;
           })}
       </Swiper>
     </div>

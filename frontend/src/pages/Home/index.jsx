@@ -79,13 +79,13 @@ export default function Home() {
             </div>
             <div className="new-products-list">
               {productList &&
-                productList.map((info, index) => {
+                productList.map((item, index) => {
                   return (
                     <div
                       key={index}
                       className="col-lg-3 col-md-4 col-sm-6 col-6 new-product"
                     >
-                      <ProductItem info={info} />
+                      <ProductItem product={item} />
                     </div>
                   );
                 })}
