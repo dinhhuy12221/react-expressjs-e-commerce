@@ -41,10 +41,10 @@ export default function Home() {
       {/* <HomeCat /> */}
       <section className="home">
         <div className="side-banner">
-          <div className="banner">
+          <div className="banner-item">
             <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/banner-box.jpg"></img>
           </div>
-          <div className="banner">
+          <div className="banner-item">
             <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-banner-04.jpg"></img>
           </div>
         </div>
