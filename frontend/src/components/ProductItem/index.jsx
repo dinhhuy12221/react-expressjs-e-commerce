@@ -21,22 +21,23 @@ export default function ProductItem({ product }) {
 
   return (
     <div className="product">
+      <div className="product-buttons">
+          <button className="btn btn--outlined btn--circle detail-button" onClick={() => viewProductDetails(1)}>
+            <AiOutlineFullscreen />
+          </button>
+          <button className="btn btn--outlined btn--circle wishlist-button">
+            <IoMdHeartEmpty />
+          </button>
+        </div>
       <div className="product-thumbnail">
         <Link to={"/product/" + product.slug}>
           <img src={product.image} />
         </Link>
-        <div className="actions">
-          <Button onClick={() => viewProductDetails(1)}>
-            <AiOutlineFullscreen />
-          </Button>
-          <Button>
-            <IoMdHeartEmpty />
-          </Button>
-        </div>
+        
       </div>
 
       <div className="product-badge">
-        <span className="btn btn--primary">{product.discount}%</span>
+        <span className="btn">{product.discount}%</span>
       </div>
 
       <div className="product-main">
