@@ -46,7 +46,7 @@ function Header() {
           ) : (
             <Profile customer={customer} />
           )} */}
-          <span className="cart-price">$55.5</span>
+          <span className="cart-price">$0.00</span>
           <div className="cart">
             <span className="cart-count btn--circle">1</span>
             <a

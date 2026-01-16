@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import HomeBanner from "../../components/HomeBanner";
 import Button from "@mui/material/Button";
 import { IoArrowForwardOutline } from "react-icons/io5";
@@ -6,13 +6,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import ProductItem from "../../components/ProductItem";
-import HomeCat from "../../components/HomeCat";
+// import HomeCat from "../../components/HomeCat";
 import "./index.css";
 import ProductSwiper from "../../components/ProductSwiper";
 // import { getProductList } from "../../api/product";
 import axios, { axiosPrivate } from "../../api/axios";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 
 
 export default function Home() {
@@ -42,7 +40,7 @@ export default function Home() {
   return (
     <>
       <HomeBanner />
-      <HomeCat />
+      {/* <HomeCat /> */}
       <section className="home-products">
         <div className="container">
           <div className="row">
