@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: var(--space-26);
 
   padding: var(--space-12) 0px;
 
@@ -12,26 +13,6 @@
 
     &:hover {
       color: rgba(0, 0, 0, 0.9) !important;
-    }
-  }
-
-  .side-banner {
-    position: sticky;
-    top: 0;
-    height: 1000px;
-
-    .banner-item {
-      overflow: hidden;
-
-      height: 50%;
-      border-radius: 10px;
-
-      color: rgba(0, 0, 0, 0.1);
-    }
-
-    img {
-      width: auto;
-      height: 100%;
     }
   }
 
@@ -51,16 +32,44 @@
   }
 }
 
-.banner-section {
-    display: flex;
-    gap: 5px;
-    
-    .banner {
-      width: 50%;
-    }
+.side-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-    img {
-      width: 100%;
-      border-radius: 15px;
-    }
+
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-main .best-seller-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-main .best-seller-section .view-button {
+  max-height: fit-content;
+}
+
+.side-banner {
+  position: sticky;
+  top: 0;
+  height: 1000px;
+
+  .banner-item {
+    overflow: hidden;
+
+    height: 50%;
+    border-radius: 10px;
+
+    color: rgba(0, 0, 0, 0.1);
   }
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+}
