@@ -53,7 +53,9 @@ export default function Home() {
             <div className="best-seller-header">
               <div>
                 <h2>BEST SELLERS</h2>
-                <span>Do not miss the current offers until the end of March</span>
+                <span>
+                  Do not miss the current offers until the end of March
+                </span>
               </div>
 
               <button className="btn btn--outlined">
@@ -61,9 +63,8 @@ export default function Home() {
                 <IoArrowForwardOutline />
               </button>
             </div>
-          <ProductSwiper productList={productList} />
+            <ProductSwiper productList={productList} />
           </div>
-
 
           <div className="new-products-section">
             <div className="new-products-header">
@@ -80,9 +81,7 @@ export default function Home() {
             <div className="new-products-list">
               {productList &&
                 productList.map((item, index) => {
-                  return (
-                      <ProductItem product={item} key={index}/>
-                  );
+                  return <ProductItem product={item} key={index} />;
                 })}
             </div>
           </div>
