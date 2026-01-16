@@ -33,7 +33,7 @@
   width: 260px;
   height: max-content;
   left: 0px;
-  padding: var(--space-16) 0px;
+  padding: var(--space-28) 0px;
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
   border-top: none;
   border-bottom-left-radius: var(--radius-10);
@@ -54,7 +54,7 @@
 }
 
 .category-menu-1 .menu-item {
-  padding: var(--space-8) var(--space-12);
+  padding: var(--space-10) var(--space-12);
 }
 
 .category-menu-1 .menu-item a {
@@ -82,7 +82,7 @@
   top: 0px;
   left: 259px;
   width: 250px;
-  min-height: 456px;
+  min-height: 544px;
   padding: var(--space-16) 0px;
   background: var(--color-bg-white);
   border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
