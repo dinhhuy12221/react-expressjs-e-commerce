@@ -49,18 +49,18 @@ export default function Home() {
           </div>
         </div>
         <div className="home-main">
-          <div className="">
-            <div className="info w-75">
-              <h3 className="hd">BEST SELLERS</h3>
-              <p className="text-sml mb-0">
+          <div className="best-seller-section">
+            <div className="best-seller-header">
+              <h2>BEST SELLERS</h2>
+              <span>
                 Do not miss the current offers until the end of March
-              </p>
+              </span>
             </div>
 
-            <Button className="view-all-btn ms-auto">
-              View all
+            <button className="btn btn--outlined">
+              <span>View all</span>
               <IoArrowForwardOutline />
-            </Button>
+            </button>
           </div>
 
           <ProductSwiper productList={productList} />
@@ -71,10 +71,10 @@ export default function Home() {
               <p className="text-sml mb-0">New products with updated stocks.</p>
             </div>
 
-            <Button className="view-all-btn ms-auto">
+            <button className="view-button">
               View all
               <IoArrowForwardOutline />
-            </Button>
+            </button>
           </div>
 
           <div className="row new-products-list">
