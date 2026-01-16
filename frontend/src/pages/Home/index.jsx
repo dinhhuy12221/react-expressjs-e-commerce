@@ -51,44 +51,45 @@ export default function Home() {
         <div className="home-main">
           <div className="best-seller-section">
             <div className="best-seller-header">
-              <h2>BEST SELLERS</h2>
-              <span>
-                Do not miss the current offers until the end of March
-              </span>
-            </div>
+              <div>
+                <h2>BEST SELLERS</h2>
+                <span>Do not miss the current offers until the end of March</span>
+              </div>
 
-            <button className="btn btn--outlined">
-              <span>View all</span>
-              <IoArrowForwardOutline />
-            </button>
+              <button className="btn btn--outlined">
+                <span>View all</span>
+                <IoArrowForwardOutline />
+              </button>
+            </div>
+          <ProductSwiper productList={productList} />
           </div>
 
-          <ProductSwiper productList={productList} />
 
           <div className="new-products-section">
             <div className="new-products-header">
-              <h2>NEW PRODUCTS</h2>
-              <span>New products with updated stocks.</span>
+              <div>
+                <h2>NEW PRODUCTS</h2>
+                <span>New products with updated stocks.</span>
+              </div>
+
+              <button className="btn btn--outlined">
+                <span>View all</span>
+                <IoArrowForwardOutline />
+              </button>
             </div>
-
-            <button className="btn btn--outlined">
-              <span>View all</span>
-              <IoArrowForwardOutline />
-            </button>
-          </div>
-
-          <div className="row new-products-list">
-            {productList &&
-              productList.map((info, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="col-lg-3 col-md-4 col-sm-6 col-6 new-product"
-                  >
-                    <ProductItem info={info} />
-                  </div>
-                );
-              })}
+            <div className="new-products-list">
+              {productList &&
+                productList.map((info, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="col-lg-3 col-md-4 col-sm-6 col-6 new-product"
+                    >
+                      <ProductItem info={info} />
+                    </div>
+                  );
+                })}
+            </div>
           </div>
 
           <div className="banner-section">

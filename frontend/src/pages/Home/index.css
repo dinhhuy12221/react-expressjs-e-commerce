@@ -30,8 +30,13 @@
   flex-shrink: 1;
 }
 
+.home-main .best-seller-header,
+.home-main .new-products-header {
+  display: flex;
+  justify-content: space-between;
+}
 .home-main .best-seller-section,
 .home-main .new-products-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
