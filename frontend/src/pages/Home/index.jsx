@@ -48,8 +48,8 @@ export default function Home() {
             <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-banner-04.jpg"></img>
           </div>
         </div>
-        <div className="">
-          <div className="d-flex align-items-center">
+        <div className="home-main">
+          <div className="">
             <div className="info w-75">
               <h3 className="hd">BEST SELLERS</h3>
               <p className="text-sml mb-0">
