@@ -30,10 +30,9 @@ export default function ProductItem({ product }) {
           </button>
         </div>
       <div className="product-thumbnail">
-        <Link to={"/product/" + product.slug}>
+        {/* <a href={"/product/" + product.slug}> */}
           <img src={product.image} />
-        </Link>
-        
+        {/* </a> */}
       </div>
 
       <div className="product-badge">
@@ -42,7 +41,7 @@ export default function ProductItem({ product }) {
 
       <div className="product-main">
         <Link to={"/product/" + product.slug}>
-          <h4>{product.name}</h4>
+          <span className="product-name">{product.name}</span>
         </Link>
         <div className="status">
           <span className="text-success d-block">In Stock</span>
@@ -54,7 +53,7 @@ export default function ProductItem({ product }) {
             size="small"
             precision={0.5}
           />
-          <div className="d-flex">
+          <div className="">
             <span className="oldPrice">${product.price}</span>
             <span className="netPrice text-danger">${currentPrice}</span>
           </div>
