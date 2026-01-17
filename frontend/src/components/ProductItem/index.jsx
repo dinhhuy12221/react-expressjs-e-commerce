@@ -22,16 +22,19 @@ export default function ProductItem({ product }) {
   return (
     <div className="product">
       <div className="product-buttons">
-          <button className="btn btn--outlined btn--circle detail-button" onClick={() => viewProductDetails(1)}>
-            <AiOutlineFullscreen />
-          </button>
-          <button className="btn btn--outlined btn--circle wishlist-button">
-            <IoMdHeartEmpty />
-          </button>
-        </div>
+        <button
+          className="btn btn--outlined btn--circle detail-button"
+          onClick={() => viewProductDetails(1)}
+        >
+          <AiOutlineFullscreen />
+        </button>
+        <button className="btn btn--outlined btn--circle wishlist-button">
+          <IoMdHeartEmpty />
+        </button>
+      </div>
       <div className="product-thumbnail">
         {/* <a href={"/product/" + product.slug}> */}
-          <img src={product.image} />
+        <img src={product.image} />
         {/* </a> */}
       </div>
 
@@ -43,20 +46,18 @@ export default function ProductItem({ product }) {
         <Link to={"/product/" + product.slug}>
           <span className="product-name">{product.name}</span>
         </Link>
-        <div className="product-status">
-          <span className="">In Stock</span>
-          <Rating
-            className="product-rating"
-            name="read-only"
-            value={product.rating}
-            readOnly
-            size="small"
-            precision={0.5}
-          />
-          <div className="">
-            <span className="product-old-price">${product.price}</span>
-            <span className="product-net-price">${currentPrice}</span>
-          </div>
+        <span className="product-status">In Stock</span>
+        <Rating
+          className="product-rating"
+          name="read-only"
+          value={product.rating}
+          readOnly
+          size="small"
+          precision={0.5}
+        />
+        <div className="product-price">
+          <span className="product-old-price">${product.price}</span>
+          <span className="product-net-price">${currentPrice}</span>
         </div>
       </div>
     </div>

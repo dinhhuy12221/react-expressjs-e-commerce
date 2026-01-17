@@ -31,8 +31,8 @@
 .product-thumbnail img {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 70%;
   object-fit: cover;
   transition: all 0.3s ease-in-out;
 }
@@ -86,10 +86,11 @@
 .product-main {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
-
-.product-main .product-name {
+.product-main .product-status {
+  display: inline-flex;
+}
+.product-status .product-name {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
