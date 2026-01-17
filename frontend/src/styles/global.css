@@ -39,6 +39,7 @@ muted → variant
   --color-bg-white: #fff;
   --color-text-red-1: #f92b2b;
   --color-text-white: #fff;
+  --color-text-gray: #cecccc;
   --color-text-black: #000000;
   --color-text-black-muted: rgba(0, 0, 0, 0.7);
   --color-text-success: #16b858;
