@@ -43,10 +43,10 @@ export default function ProductItem({ product }) {
         <Link to={"/product/" + product.slug}>
           <span className="product-name">{product.name}</span>
         </Link>
-        <div className="status">
-          <span className="text-success d-block">In Stock</span>
+        <div className="product-status">
+          <span className="">In Stock</span>
           <Rating
-            className="mt-2 mb-2"
+            className="product-rating"
             name="read-only"
             value={product.rating}
             readOnly
@@ -54,8 +54,8 @@ export default function ProductItem({ product }) {
             precision={0.5}
           />
           <div className="">
-            <span className="oldPrice">${product.price}</span>
-            <span className="netPrice text-danger">${currentPrice}</span>
+            <span className="product-old-price">${product.price}</span>
+            <span className="product-net-price">${currentPrice}</span>
           </div>
         </div>
       </div>
