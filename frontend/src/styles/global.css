@@ -29,6 +29,7 @@ muted → variant
 :root {
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Lato", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-dosis: "Dosis", sans-serif;
 
   --color-bg-red-1: #ff00009c;
   --color-bg-red-2: #ea2b0f;
