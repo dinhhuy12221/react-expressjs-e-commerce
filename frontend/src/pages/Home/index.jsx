@@ -5,7 +5,7 @@ import { IoArrowForwardOutline } from "react-icons/io5";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import ProductItem from "../../components/ProductItem";
+import ProductItem from "../../components/Product/ProductItem";
 // import HomeCat from "../../components/HomeCat";
 import "./index.css";
 import ProductSwiper from "../../components/ProductSwiper";
