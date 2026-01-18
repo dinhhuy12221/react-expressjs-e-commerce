@@ -11,30 +11,34 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  flex-shrink: 1;
   gap: var(--space-20);
 }
 
 .side-banner .banner-item {
   overflow: hidden;
-
   height: 50%;
-  border-radius: 10px;
-
-  color: rgba(0, 0, 0, 0.1);
+  width: 258px;
+  border-radius: var(--radius-10);
 }
 
 .home-main {
   display: flex;
   flex-direction: column;
-  flex-shrink: 1;
+  gap: var(--space-18);
+  min-width: 850px;
 }
 
 .home-main .best-seller-header,
-.home-main .new-products-header {
+.home-main .new-products-header,
+.home-main .hot-product-header {
   display: flex;
   justify-content: space-between;
 }
+
+.hot-product-section .hot-text {
+  color: var(--color-text-red-1);
+}
+
 .home-main .best-seller-section,
 .home-main .new-products-section {
   display: flex;

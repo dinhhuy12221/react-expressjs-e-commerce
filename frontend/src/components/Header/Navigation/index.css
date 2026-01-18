@@ -128,7 +128,8 @@
   padding: var(--space-10) var(--space-16);
 }
 
-.category-menu-2 > .menu-item > a.btn:hover {
+.category-menu-2 > .menu-item > a.btn:hover,
+.category-menu-2 > .menu-item:hover > a.btn {
   background: var(--color-bg-red-4);
   color: var(--color-text-red-1);
 }

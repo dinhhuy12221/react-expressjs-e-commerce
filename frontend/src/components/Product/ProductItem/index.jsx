@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AiOutlineFullscreen } from "react-icons/ai";
-import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
 import { IoMdHeartEmpty } from "react-icons/io";
 
 import { Link } from "react-router-dom";
-import { MyContext } from "../../App";
+import { MyContext } from "../../../App";
 import "./index.css";
-import LoadingAnimation from "../LoadingAnimation";
-import { getDiscountPrice } from "../../utils/getDiscountPrice";
+import LoadingAnimation from "../../LoadingAnimation";
+import { getDiscountPrice } from "../../../utils/getDiscountPrice";
 
 export default function ProductItem({ product }) {
   const context = useContext(MyContext);
@@ -33,9 +32,9 @@ export default function ProductItem({ product }) {
         </button>
       </div>
       <div className="product-thumbnail">
-        {/* <a href={"/product/" + product.slug}> */}
+        <Link to={"/product/" + product.slug}>
         <img src={product.image} />
-        {/* </a> */}
+        </Link>
       </div>
 
       <div className="product-badge">
