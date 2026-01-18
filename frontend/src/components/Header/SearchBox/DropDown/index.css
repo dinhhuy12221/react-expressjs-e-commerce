@@ -6,7 +6,7 @@
   border-radius: 10px;
 
   box-shadow: 2px 2px 2px 2px #f3f4f7;
-  border: var(--border-width-hairline) #f3f4f7;
+  border: var(--border-width-1) #f3f4f7;
   background-color: var(--color-on-primary);
   overflow-y: scroll;
   transition: all 1s ease-in;

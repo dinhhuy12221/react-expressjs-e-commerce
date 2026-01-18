@@ -3,7 +3,7 @@
   background: #f3f4f7;
   width: 30%;
   border-radius: var(--radius-5);
-  border: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
+  border: var(--border-width-1) rgba(0, 0, 0, 0.1);
 }
 
 .search-box .search-input {

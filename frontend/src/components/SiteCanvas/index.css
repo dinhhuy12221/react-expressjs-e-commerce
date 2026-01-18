@@ -9,7 +9,7 @@
   width: 375px;
 
   background-color: var(--color-bg-white);
-  border: var(--border-width-hairline) rgba(0, 0, 0, 0.2);
+  border: var(--border-width-1) rgba(0, 0, 0, 0.2);
 
   transform: translateX(-377px);
   transition: transform 0.5s ease;

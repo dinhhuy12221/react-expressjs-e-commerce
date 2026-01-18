@@ -1,6 +1,8 @@
 .hot-product {
     display: flex;
     justify-content: space-between;
+
+    border: var(--border-width-3) var(--color-bg-red-2);
 }
 
 .thumbnail .badge {

@@ -67,7 +67,7 @@ footer {
   justify-content: space-around;
   align-items: center;
 
-  border-bottom: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
+  border-bottom: var(--border-width-1) rgba(0, 0, 0, 0.1);
   font-size: var(--font-16);
 }
 
@@ -76,7 +76,7 @@ footer {
 }
 
 .footer-content .footer-label > * {
-  border-left: var(--border-width-hairline) rgba(0, 0, 0, 0.1);
+  border-left: var(--border-width-1) rgba(0, 0, 0, 0.1);
   padding-left: var(--space-12);
 }
 .footer-content .footer-label > *:first-child {

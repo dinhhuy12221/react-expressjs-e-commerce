@@ -79,7 +79,9 @@ muted → variant
   --radius-30: 30px;
   --radius-35: 35px;
 
-  --border-width-hairline: 1px solid;
+  --border-width-1: 1px solid;
+  --border-width-2: 2px solid;
+  --border-width-3: 3px solid;
 }
 
 body {
@@ -155,12 +157,12 @@ a {
 .btn--outlined {
   background-color: transparent;
   color: var(--color-bg-red-1);
-  border: var(--border-width-hairline) var(--color-bg-red-1);
+  border: var(--border-width-1) var(--color-bg-red-1);
 }
 .btn--outlined:hover {
   background-color: transparent;
   color: var(--color-bg-red-1);
-  border: var(--border-width-hairline) var(--color-bg-red-2);
+  border: var(--border-width-1) var(--color-bg-red-2);
 }
 
 .btn--primary {
