@@ -27,14 +27,20 @@
 .home-main {
   display: flex;
   flex-direction: column;
-  flex-shrink: 1;
+  min-width: 800px;
 }
 
 .home-main .best-seller-header,
-.home-main .new-products-header {
+.home-main .new-products-header,
+.home-main .hot-product-header {
   display: flex;
   justify-content: space-between;
 }
+
+.hot-product-section .hot-text {
+  color: var(--color-text-red-1);
+}
+
 .home-main .best-seller-section,
 .home-main .new-products-section {
   display: flex;

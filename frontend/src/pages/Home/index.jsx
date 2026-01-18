@@ -52,7 +52,7 @@ export default function Home() {
           <div className="best-seller-section">
             <div className="best-seller-header">
               <div>
-                <h2>BEST SELLERS</h2>
+                <h3>BEST SELLERS</h3>
                 <span>
                   Do not miss the current offers until the end of March
                 </span>
@@ -69,7 +69,7 @@ export default function Home() {
           <div className="new-products-section">
             <div className="new-products-header">
               <div>
-                <h2>NEW PRODUCTS</h2>
+                <h3>NEW PRODUCTS</h3>
                 <span>New products with updated stocks.</span>
               </div>
 
@@ -83,6 +83,21 @@ export default function Home() {
                 productList.map((item, index) => {
                   return <ProductItem product={item} key={index} />;
                 })}
+            </div>
+          </div>
+          <div className="hot-product-section">
+            <div className="hot-product-header">
+              <div>
+                <h3>HOT PRODUCT FOR <span className="hot-text">THIS WEEK</span></h3>
+                <span>
+                  Don't miss this opportunity at a special discount just for
+                  this week.
+                </span>
+              </div>
+              <button className="btn btn--outlined">
+                <span>View all</span>
+                <IoArrowForwardOutline />
+              </button>
             </div>
           </div>
 
