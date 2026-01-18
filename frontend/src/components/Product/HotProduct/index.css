@@ -1,8 +1,14 @@
 .hot-product {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    border: var(--border-width-3) var(--color-bg-red-2);
+  padding: var(--space-30) var(--space-20);
+
+  border: var(--border-width-3) var(--color-bg-red-2);
+}
+
+.thumbnail {
+  position: relative;
 }
 
 .thumbnail .badge {
