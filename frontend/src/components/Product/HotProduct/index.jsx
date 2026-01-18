@@ -1,11 +1,25 @@
+import { getDiscountPrice } from "../../../utils/getDiscountPrice";
+const HotProduct = ({ product }) => {
+  const currentPrice = getDiscountPrice(product.price);
 
-const HotProduct = () => {
   return (
     <div className="hot-product">
-        <div className="hot-product-thumbnail"></div>
-        <div className="hot-product-main"></div>
+      <div className="thumbnail">
+        <div className="badge">
+          <span className="btn">{product.discount}%</span>
+        </div>
+        <img src={product.image} alt="NOT FOUND" />
+      </div>
+      <div className="main">
+        <div className="prices">
+          <span className="old-price">{product.price}</span>
+          <span className="net-price">{currentPrice}</span>
+        </div>
+        <span className="name">{product.name}</span>
+        <span className="status">In Stock</span>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default HotProduct
+export default HotProduct;
