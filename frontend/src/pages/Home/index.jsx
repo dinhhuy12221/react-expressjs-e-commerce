@@ -11,6 +11,7 @@ import "./index.css";
 import ProductSwiper from "../../components/ProductSwiper";
 // import { getProductList } from "../../api/product";
 import axios, { axiosPrivate } from "../../api/axios";
+import HotProduct from "../../components/Product/HotProduct";
 
 export default function Home() {
   const [productList, setProductList] = useState([]);
@@ -99,6 +100,7 @@ export default function Home() {
                 <IoArrowForwardOutline />
               </button>
             </div>
+            {productList && <HotProduct product={productList[0]}/>}
           </div>
 
           <div className="banner-section">
