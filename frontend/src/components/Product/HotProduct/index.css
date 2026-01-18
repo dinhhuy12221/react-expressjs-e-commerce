@@ -2,3 +2,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+.thumbnail .badge {
+  position: absolute;
+
+  top: var(--space-10);
+  left: var(--space-10);
+
+  z-index: 100;
+}
