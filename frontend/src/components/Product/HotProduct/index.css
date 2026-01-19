@@ -1,10 +1,19 @@
 .hot-product {
+  position: relative;
   display: flex;
   gap: var(--space-30);
 
-  padding: var(--space-30) var(--space-20);
+  padding: var(--space-20);
   border-radius: var(--radius-10);
   border: var(--border-width-1) var(--color-bg-red-2);
+}
+
+.hot-product .overlay-link {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
 }
 
 .thumbnail {
@@ -42,8 +51,9 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: var(--space-10);
+  gap: var(--space-20);
   padding: var(--space-20) 0;
+  /* min-width: 0; */
 }
 
 .main .prices {
@@ -72,7 +82,14 @@
 }
 
 .main .name {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: var(--font-18);
+  max-width: 410px;
   font-weight: 600;
 }
 .main .status {
@@ -80,4 +97,21 @@
   font-family: var(--font-dosis);
   font-size: var(--font-14);
   font-weight: 600;
+}
+
+.main .progress {
+  position: relative;
+  height: 10px;
+  width: 120%;
+  border-radius: var(--radius-20);
+  background-color: var(--color-bg-gray);
+  overflow: hidden;
+}
+.main .progress span {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 80%;
+  background: linear-gradient(to right, var(--color-bg-red-1), var(--color-bg-yellow));
+  border-radius: var(--radius-20);
 }

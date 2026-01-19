@@ -9,7 +9,9 @@ const HotProduct = ({ product }) => {
   return (
     <div className="hot-product">
       <div className="thumbnail">
-        <div className="badge"><span>{product.discount}%</span></div>
+        <div className="badge">
+          <span>{product.discount}%</span>
+        </div>
         <img src={product.image} alt="NOT FOUND" />
       </div>
       <div className="main">
@@ -19,7 +21,12 @@ const HotProduct = ({ product }) => {
         </div>
         <span className="name">{product.name}</span>
         <span className="status">In Stock</span>
+        <div className="progress">
+          <span></span>
+        </div>
+        <div className="product-expired"></div>
       </div>
+      {/* <a href={`/product/${product.slug}`} className="overlay-link"></a> */}
     </div>
   );
 };
