@@ -1,14 +1,13 @@
 import { getDiscountPrice } from "../../../utils/getDiscountPrice";
-import "./index.css"
+import "./index.css";
 const HotProduct = ({ product }) => {
   const currentPrice = getDiscountPrice(product.price, product.discount);
 
   return (
     <div className="hot-product">
       <div className="thumbnail">
-        <div className="badge">
-          <span className="btn">{product.discount}%</span>
-        </div>
+        <div className="badge"><span>{product.discount}%</span></div
+       >
         <img src={product.image} alt="NOT FOUND" />
       </div>
       <div className="main">
