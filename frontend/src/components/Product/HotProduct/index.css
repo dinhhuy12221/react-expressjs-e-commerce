@@ -42,6 +42,8 @@
 .main {
   display: flex;
   flex-direction: column;
+  gap: var(--space-10);
+  padding: var(--space-20) 0;
 }
 
 .main .prices {
@@ -60,5 +62,16 @@
 .main .prices .net-price {
   color: var(--color-text-red-1);
   font-size: var(--font-18);
+  font-weight: 600;
+}
+
+.main .name {
+  font-size: var(--font-18);
+  font-weight: 600;
+}
+.main .status {
+  color: var(--color-text-success);
+  font-family: var(--font-dosis);
+  font-size: var(--font-14);
   font-weight: 600;
 }
