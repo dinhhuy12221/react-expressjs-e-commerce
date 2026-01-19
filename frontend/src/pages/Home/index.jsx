@@ -66,7 +66,23 @@ export default function Home() {
             </div>
             <ProductSwiper productList={productList} />
           </div>
-
+          
+          <div className="hot-product-section">
+            <div className="hot-product-header">
+              <div>
+                <h2>HOT PRODUCT FOR <span className="hot-text">THIS WEEK</span></h2>
+                <span>
+                  Don't miss this opportunity at a special discount just for
+                  this week.
+                </span>
+              </div>
+              <button className="btn btn--outlined">
+                <span>View all</span>
+                <IoArrowForwardOutline />
+              </button>
+            </div>
+            {productList && <HotProduct product={productList[0]}/>}
+          </div>
           <div className="new-products-section">
             <div className="new-products-header">
               <div>
@@ -85,22 +101,6 @@ export default function Home() {
                   return <ProductItem product={item} key={index} />;
                 })}
             </div>
-          </div>
-          <div className="hot-product-section">
-            <div className="hot-product-header">
-              <div>
-                <h2>HOT PRODUCT FOR <span className="hot-text">THIS WEEK</span></h2>
-                <span>
-                  Don't miss this opportunity at a special discount just for
-                  this week.
-                </span>
-              </div>
-              <button className="btn btn--outlined">
-                <span>View all</span>
-                <IoArrowForwardOutline />
-              </button>
-            </div>
-            {productList && <HotProduct product={productList[0]}/>}
           </div>
 
           <div className="banner-section">
