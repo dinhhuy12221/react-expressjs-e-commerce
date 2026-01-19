@@ -53,6 +53,12 @@
   font-family: var(--font-dosis);
 }
 
+.man .prices span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
 .main .prices .old-price {
   color: var(--color-text-gray);
   text-decoration: line-through;

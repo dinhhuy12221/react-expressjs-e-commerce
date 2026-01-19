@@ -115,6 +115,11 @@
   gap: var(--space-6);
   font-family: var(--font-dosis);
 }
+.product-main .product-price span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
 
 .product-main .product-price .product-old-price {
   color: var(--color-text-gray);
