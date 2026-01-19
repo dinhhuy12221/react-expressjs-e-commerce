@@ -115,3 +115,29 @@
   background: linear-gradient(to right, var(--color-bg-red-1), var(--color-bg-yellow));
   border-radius: var(--radius-20);
 }
+
+.main .expired {
+  display: flex;
+  align-items: center;
+  gap: var(--space-20);
+}
+
+.main .expired .countdown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+
+  font-family: var(--font-dosis);
+  font-size: var(--font-16);
+  font-weight: 500;
+}
+.countdown div {
+  padding: var(--space-6);
+  background-color: var(--color-bg-gray);
+}
+
+.main .expired .expired-text {
+  max-width: 120px;
+  font-size: var(--font-12);
+  opacity: 0.7;
+}
