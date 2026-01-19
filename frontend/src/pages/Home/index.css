@@ -54,13 +54,10 @@
 }
 
 .home-main .banner-section .thumbnail {
-  width: 100%;
   border-radius: var(--radius-10);
   overflow: hidden;
 }
-.home-main .banner-section .thumbnail img {
+/* .home-main .banner-section .thumbnail img {
   inset: 0;
-  width: 100%;
-  height: auto;
   object-fit: cover;
-}
+} */
