@@ -52,7 +52,12 @@ muted → variant
   --font-14: 14px;
   --font-16: 16px;
   --font-18: 18px;
-  --font-20: 24px;
+  --font-20: 20px;
+  --font-22: 22px;
+  --font-24: 24px;
+  --font-26: 26px;
+  --font-28: 28px;
+  --font-30: 30px;
 
   --space-2: 2px;
   --space-4: 4px;
@@ -79,7 +84,9 @@ muted → variant
   --radius-30: 30px;
   --radius-35: 35px;
 
-  --border-width-hairline: 1px solid;
+  --border-width-1: 1px solid;
+  --border-width-2: 2px solid;
+  --border-width-3: 3px solid;
 }
 
 body {
@@ -155,12 +162,12 @@ a {
 .btn--outlined {
   background-color: transparent;
   color: var(--color-bg-red-1);
-  border: var(--border-width-hairline) var(--color-bg-red-1);
+  border: var(--border-width-1) var(--color-bg-red-1);
 }
 .btn--outlined:hover {
   background-color: transparent;
   color: var(--color-bg-red-1);
-  border: var(--border-width-hairline) var(--color-bg-red-2);
+  border: var(--border-width-1) var(--color-bg-red-2);
 }
 
 .btn--primary {

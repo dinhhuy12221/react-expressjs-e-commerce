@@ -1,13 +1,43 @@
 .hot-product {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+
+  padding: var(--space-30) var(--space-20);
+  border-radius: var(--radius-10);
+  border: var(--border-width-1) var(--color-bg-red-2);
+}
+
+.thumbnail {
+  position: relative;
+  padding: var(--space-20) var(--space-20);
 }
 
 .thumbnail .badge {
   position: absolute;
+  box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  width: 25px;
+  height: 25px;
+  background-color: var(--color-bg-red-2);
+  padding: var(--space-20) var(--space-20);
   top: var(--space-10);
-  left: var(--space-10);
+  left: var(--space-20);
 
+  border-radius: 50%;
   z-index: 100;
+}
+
+.badge span {
+  font-size: var(--font-24);
+  font-family: var(--font-dosis);
+  color: var(--color-text-white);
+}
+
+.thumbnail img {
+  
+  width: 200px;
+  height: 200px;
 }
