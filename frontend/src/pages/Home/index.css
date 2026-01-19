@@ -41,7 +41,9 @@
 }
 
 .home-main .best-seller-section,
-.home-main .new-products-section {
+.home-main .new-products-section,
+.home-main .hot-product-section {
   display: flex;
   flex-direction: column;
+  gap: var(--space-20);
 }
