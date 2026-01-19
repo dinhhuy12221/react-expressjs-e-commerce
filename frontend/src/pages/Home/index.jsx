@@ -104,10 +104,10 @@ export default function Home() {
           </div>
 
           <div className="banner-section">
-            <div className="banner">
+            <div className="thumbnail">
               <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-01.jpg"></img>
             </div>
-            <div className="banner">
+            <div className="thumbnail">
               <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-02.jpg"></img>
             </div>
           </div>
