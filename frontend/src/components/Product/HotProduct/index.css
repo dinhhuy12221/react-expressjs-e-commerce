@@ -1,6 +1,6 @@
 .hot-product {
   display: flex;
-  justify-content: space-between;
+  gap: var(--space-30);
 
   padding: var(--space-30) var(--space-20);
   border-radius: var(--radius-10);
@@ -10,6 +10,10 @@
 .thumbnail {
   position: relative;
   padding: var(--space-20) var(--space-20);
+}
+.thumbnail img {
+  width: 200px;
+  height: 200px;
 }
 
 .thumbnail .badge {
@@ -29,15 +33,51 @@
   border-radius: 50%;
   z-index: 100;
 }
-
-.badge span {
+.thumbnail .badge span {
   font-size: var(--font-24);
   font-family: var(--font-dosis);
   color: var(--color-text-white);
 }
 
-.thumbnail img {
-  
-  width: 200px;
-  height: 200px;
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  padding: var(--space-20) 0;
+}
+
+.main .prices {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  font-family: var(--font-dosis);
+}
+
+.man .prices span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.main .prices .old-price {
+  color: var(--color-text-gray);
+  text-decoration: line-through;
+  font-size: var(--font-16);
+  font-weight: 600;
+}
+.main .prices .net-price {
+  color: var(--color-text-red-1);
+  font-size: var(--font-18);
+  font-weight: 600;
+}
+
+.main .name {
+  font-size: var(--font-18);
+  font-weight: 600;
+}
+.main .status {
+  color: var(--color-text-success);
+  font-family: var(--font-dosis);
+  font-size: var(--font-14);
+  font-weight: 600;
 }

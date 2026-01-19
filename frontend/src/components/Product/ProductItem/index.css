@@ -44,10 +44,9 @@
 
 .product-badge {
   position: absolute;
-
   top: var(--space-10);
   left: var(--space-10);
-
+  font-family: var(--font-dosis);
   z-index: 100;
 }
 
@@ -116,6 +115,11 @@
   gap: var(--space-6);
   font-family: var(--font-dosis);
 }
+.product-main .product-price span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
 
 .product-main .product-price .product-old-price {
   color: var(--color-text-gray);
@@ -124,7 +128,7 @@
   font-weight: 600;
 }
 .product-main .product-price .product-net-price {
-  color: var(--color-text-red);
+  color: var(--color-text-red-1);
   font-size: var(--font-18);
   font-weight: 600;
 }

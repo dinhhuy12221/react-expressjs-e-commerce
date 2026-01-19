@@ -33,6 +33,7 @@
 .home-main .hot-product-header {
   display: flex;
   justify-content: space-between;
+  font-family: var(--font-dosis);
 }
 
 .hot-product-section .hot-text {
@@ -40,7 +41,9 @@
 }
 
 .home-main .best-seller-section,
-.home-main .new-products-section {
+.home-main .new-products-section,
+.home-main .hot-product-section {
   display: flex;
   flex-direction: column;
+  gap: var(--space-20);
 }
