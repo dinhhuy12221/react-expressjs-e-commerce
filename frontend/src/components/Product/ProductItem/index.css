@@ -44,10 +44,9 @@
 
 .product-badge {
   position: absolute;
-
   top: var(--space-10);
   left: var(--space-10);
-
+  font-family: var(--font-dosis);
   z-index: 100;
 }
 

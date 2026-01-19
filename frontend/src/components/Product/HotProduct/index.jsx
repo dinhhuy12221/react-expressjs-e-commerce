@@ -1,6 +1,9 @@
 import { getDiscountPrice } from "../../../utils/getDiscountPrice";
 import "./index.css";
 const HotProduct = ({ product }) => {
+  if (!product) {
+    return null;
+  }
   const currentPrice = getDiscountPrice(product.price, product.discount);
 
   return (
