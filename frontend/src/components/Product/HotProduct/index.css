@@ -112,6 +112,6 @@
   inset: 0;
   height: 100%;
   width: 80%;
-  background: var(--color-bg-red-2);
+  background: linear-gradient(to right, var(--color-bg-red-1), var(--color-bg-yellow));
   border-radius: var(--radius-20);
 }
