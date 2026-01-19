@@ -20,6 +20,7 @@ const HotProduct = ({ product }) => {
         <span className="name">{product.name}</span>
         <span className="status">In Stock</span>
       </div>
+      <a href={`/product/${product.slug}`} className="overlay-link"></a>
     </div>
   );
 };

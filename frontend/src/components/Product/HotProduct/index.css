@@ -1,10 +1,19 @@
 .hot-product {
+  position: relative;
   display: flex;
   gap: var(--space-30);
 
   padding: var(--space-30) var(--space-20);
   border-radius: var(--radius-10);
   border: var(--border-width-1) var(--color-bg-red-2);
+}
+
+.hot-product .overlay-link {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
 }
 
 .thumbnail {
@@ -81,3 +90,4 @@
   font-size: var(--font-14);
   font-weight: 600;
 }
+
