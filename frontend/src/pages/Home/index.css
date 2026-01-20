@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-18);
+  padding: var(--space-12) var(--space-12);
   min-width: 850px;
 }
 
@@ -57,7 +58,22 @@
   border-radius: var(--radius-10);
   overflow: hidden;
 }
-/* .home-main .banner-section .thumbnail img {
+.home-main .banner-section .thumbnail img {
   inset: 0;
   object-fit: cover;
-} */
+}
+
+@media (max-width: 480px) {
+  .home {
+    flex-direction: column;
+  }
+  .home .side-banner {
+    display: none;
+  }
+  .home .home-main {
+    width: 100%;
+  }
+  .home-main .banner-section {
+  flex-direction: column;
+}
+}
