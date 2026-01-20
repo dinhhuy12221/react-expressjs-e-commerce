@@ -49,6 +49,12 @@
   gap: var(--space-20);
 }
 
+.home-main .new-products-section .new-products-list {
+  
+  display: grid;
+  grid-template-columns: auto 4fr;
+}
+
 .home-main .banner-section {
   display: flex;
   gap: var(--space-6);
