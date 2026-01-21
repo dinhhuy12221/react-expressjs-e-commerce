@@ -37,7 +37,7 @@ const HotProduct = ({ product }) => {
           <div className="hot-product-main-expired-text">Remains until the end of the offer</div>
         </div>
       </div>
-      {/* <a href={`/product/${product.slug}`} className="overlay-link"></a> */}
+      <a href={`/product/${product.slug}`} className="overlay-link"></a>
     </div>
   );
 };

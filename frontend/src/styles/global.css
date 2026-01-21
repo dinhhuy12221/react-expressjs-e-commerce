@@ -317,3 +317,11 @@ a {
 .border-effect:hover:after {
   width: 100%;
 }
+
+.overlay-link {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
