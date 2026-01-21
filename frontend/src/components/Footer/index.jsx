@@ -18,10 +18,9 @@ export default function Footer() {
         <div className="footer-newsletter-email">
           <p className="text">$20 discount for your first order</p>
           <h1>Join our newsletter and get...</h1>
-          <p className="text">
-            Join our email subscription now
-            <br />
-            to get updates on promotions and coupons.
+          <p className="text footer-newsletter-email-description">
+            Join our email subscription now to get updates on promotions and
+            coupons.
           </p>
 
           <form className="footer-newsletter-email-form">
@@ -31,7 +30,7 @@ export default function Footer() {
           </form>
         </div>
 
-        <div>
+        <div className="footer-newsletter-thumbnail">
           <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/coupon.png" />
         </div>
       </section>
@@ -214,10 +213,16 @@ export default function Footer() {
             >
               <FaFacebookF />
             </Link>
-            <Link to={"#"} className="footer-bottom-contracts-item btn btn--outlined btn--circle">
+            <Link
+              to={"#"}
+              className="footer-bottom-contracts-item btn btn--outlined btn--circle"
+            >
               <FaTwitter />
             </Link>
-            <Link to={"#"} className="footer-bottom-contracts-item btn btn--outlined btn--circle">
+            <Link
+              to={"#"}
+              className="footer-bottom-contracts-item btn btn--outlined btn--circle"
+            >
               <FaInstagram />
             </Link>
           </div>
