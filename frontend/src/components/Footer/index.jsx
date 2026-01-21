@@ -31,7 +31,7 @@ export default function Footer() {
           </form>
         </div>
 
-        <div>
+        <div className="footer-newsletter-img">
           <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/coupon.png" />
         </div>
       </section>
