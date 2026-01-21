@@ -62,7 +62,7 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div className="row mt-5 linksWrap">
+        <div className="linksWrap">
           <div className="col">
             <h5>FRUIT & VEGETABLES</h5>
             <ul>
@@ -195,8 +195,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="socials copyright mt-3 pt-3 pb-3 d-flex">
-          <p className="mb-0">
+        <div className="footer-bottom">
+          <p className="footer-bottom-copyright">
             © 2026 dinhhuy12221. All rights reserved. Design inspired by{" "}
             <a
               href="https://klbtheme.com/bacola/"
@@ -207,18 +207,18 @@ export default function Footer() {
             </a>
             .
           </p>
-          <ul className="list list-inline ms-auto mb-0 socials">
-            <li className="list-inline-item">
+          <ul className="footer-bottom-contracts">
+            <li className="footer-bottom-contracts-item btn btn--outlined btn--circle">
               <Link to="#">
                 <FaFacebookF />
               </Link>
             </li>
-            <li className="list-inline-item">
+            <li className="footer-bottom-contracts-item">
               <Link to="#">
                 <FaTwitter />
               </Link>
             </li>
-            <li className="list-inline-item">
+            <li className="footer-bottom-contracts-item">
               <Link to="#">
                 <FaInstagram />
               </Link>
