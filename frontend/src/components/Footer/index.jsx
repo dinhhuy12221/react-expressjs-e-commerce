@@ -31,7 +31,7 @@ export default function Footer() {
           </form>
         </div>
 
-        <div className="footer-newsletter-img">
+        <div className="footer-newsletter-thumbnail">
           <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/coupon.png" />
         </div>
       </section>
@@ -214,10 +214,16 @@ export default function Footer() {
             >
               <FaFacebookF />
             </Link>
-            <Link to={"#"} className="footer-bottom-contracts-item btn btn--outlined btn--circle">
+            <Link
+              to={"#"}
+              className="footer-bottom-contracts-item btn btn--outlined btn--circle"
+            >
               <FaTwitter />
             </Link>
-            <Link to={"#"} className="footer-bottom-contracts-item btn btn--outlined btn--circle">
+            <Link
+              to={"#"}
+              className="footer-bottom-contracts-item btn btn--outlined btn--circle"
+            >
               <FaInstagram />
             </Link>
           </div>
