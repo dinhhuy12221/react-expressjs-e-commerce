@@ -14,8 +14,8 @@ import "./index.css";
 export default function Footer() {
   return (
     <footer className="footer">
-      <section className="news-letter">
-        <div className="email-label">
+      <section className="footer-newsletter">
+        <div className="footer-newsletter-email">
           <p className="text">$20 discount for your first order</p>
           <h1>Join our newsletter and get...</h1>
           <p className="text">
@@ -24,7 +24,7 @@ export default function Footer() {
             to get updates on promotions and coupons.
           </p>
 
-          <form className="email-form">
+          <form className="footer-newsletter-email-form">
             <CiMail className="icon" />
             <input type="email" placeholder="Your email address"></input>
             <button className="btn btn--primary">Subscribe</button>
