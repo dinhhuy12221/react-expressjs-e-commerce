@@ -50,9 +50,10 @@
 }
 
 .home-main .new-products-section .new-products-list {
-  
+  width: 800px;
   display: grid;
-  grid-template-columns: auto 4fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0px;
 }
 
 .home-main .banner-section {
@@ -81,5 +82,10 @@
   }
   .home-main .banner-section {
   flex-direction: column;
+}
+
+.home-main .new-products-section .new-products-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 }

@@ -16,16 +16,16 @@
   z-index: 100;
 }
 
-.hot-product .thumbnail {
+.hot-product-thumbnail {
   position: relative;
   padding: var(--space-20) var(--space-20);
 }
-.hot-product .thumbnail img {
+.hot-product-thumbnail img {
   width: 200px;
   height: 200px;
 }
 
-.hot-product .thumbnail .badge {
+.hot-product-thumbnail-badge {
   position: absolute;
   box-sizing: content-box;
   display: flex;
@@ -42,13 +42,13 @@
   border-radius: 50%;
   z-index: 100;
 }
-.hot-product .thumbnail .badge span {
+.hot-product-thumbnail-badge span {
   font-size: var(--font-24);
   font-family: var(--font-dosis);
   color: var(--color-text-white);
 }
 
-.hot-product .main {
+.hot-product-main {
   display: flex;
   flex-direction: column;
   gap: var(--space-20);
@@ -56,32 +56,30 @@
   /* min-width: 0; */
 }
 
-.hot-product .main .prices {
+.hot-product-main-prices {
   display: flex;
   align-items: center;
   gap: var(--space-6);
   font-family: var(--font-dosis);
 }
 
-.hot-product .man .prices span {
+.hot-product-main-prices span {
   display: inline-flex;
   align-items: center;
   line-height: 1.2;
 }
-
-.hot-product .main .prices .old-price {
+.hot-product-main-prices-old-price {
   color: var(--color-text-gray);
   text-decoration: line-through;
   font-size: var(--font-16);
   font-weight: 600;
-}
-.hot-product .main .prices .net-price {
+}.hot-product-main-prices-net-price {
   color: var(--color-text-red-1);
   font-size: var(--font-18);
   font-weight: 600;
 }
 
-.hot-product .main .name {
+.hot-product-main-name {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -92,14 +90,14 @@
   max-width: 410px;
   font-weight: 600;
 }
-.hot-product .main .status {
+.hot-product-main-status {
   color: var(--color-text-success);
   font-family: var(--font-dosis);
   font-size: var(--font-14);
   font-weight: 600;
 }
 
-.hot-product .main .progress {
+.hot-product-main-progress {
   position: relative;
   height: 10px;
   width: 120%;
@@ -107,7 +105,7 @@
   background-color: var(--color-bg-gray);
   overflow: hidden;
 }
-.hot-product .main .progress span {
+.hot-product-main-progress span {
   position: absolute;
   inset: 0;
   height: 100%;
@@ -120,13 +118,13 @@
   border-radius: var(--radius-20);
 }
 
-.hot-product .main .expired {
+.hot-product-main-expired {
   display: flex;
   align-items: center;
   gap: var(--space-20);
 }
 
-.hot-product .main .expired .countdown {
+.hot-product-main-expired-countdown {
   display: flex;
   align-items: center;
   gap: var(--space-6);
@@ -135,12 +133,12 @@
   font-size: var(--font-16);
   font-weight: 500;
 }
-.hot-product .countdown div {
+.hot-product-main-expired-countdown div {
   padding: var(--space-6);
   background-color: var(--color-bg-gray);
 }
 
-.hot-product .main .expired .expired-text {
+.hot-product-main-expired-text {
   max-width: 120px;
   font-size: var(--font-12);
   opacity: 0.7;
