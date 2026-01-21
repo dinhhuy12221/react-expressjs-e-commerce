@@ -59,7 +59,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <button className="btn btn--outlined">
+              <button className="view-all-button btn btn--outlined">
                 <span>View all</span>
                 <IoArrowForwardOutline />
               </button>
@@ -76,7 +76,7 @@ export default function Home() {
                   this week.
                 </span>
               </div>
-              <button className="btn btn--outlined">
+              <button className="view-all-button btn btn--outlined">
                 <span>View all</span>
                 <IoArrowForwardOutline />
               </button>
@@ -90,7 +90,7 @@ export default function Home() {
                 <span>New products with updated stocks.</span>
               </div>
 
-              <button className="btn btn--outlined">
+              <button className="view-all-button btn btn--outlined">
                 <span>View all</span>
                 <IoArrowForwardOutline />
               </button>
