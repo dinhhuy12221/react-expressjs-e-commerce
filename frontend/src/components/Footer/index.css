@@ -146,7 +146,7 @@ footer .topInfo .col span {
   gap: var(--space-12);
 }
 .footer-bottom-contracts-item {
-  min-width: 30px;
-  width: 30px;
-  height: 30px;
+  min-width: 35px;
+  width: 35px;
+  height: 35px;
 }

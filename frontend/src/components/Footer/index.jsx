@@ -214,10 +214,10 @@ export default function Footer() {
             >
               <FaFacebookF />
             </Link>
-            <Link to={"#"} className="footer-bottom-contracts-item">
+            <Link to={"#"} className="footer-bottom-contracts-item btn btn--outlined btn--circle">
               <FaTwitter />
             </Link>
-            <Link to={"#"} className="footer-bottom-contracts-item">
+            <Link to={"#"} className="footer-bottom-contracts-item btn btn--outlined btn--circle">
               <FaInstagram />
             </Link>
           </div>
