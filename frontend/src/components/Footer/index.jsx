@@ -18,10 +18,9 @@ export default function Footer() {
         <div className="footer-newsletter-email">
           <p className="text">$20 discount for your first order</p>
           <h1>Join our newsletter and get...</h1>
-          <p className="text">
-            Join our email subscription now
-            <br />
-            to get updates on promotions and coupons.
+          <p className="text footer-newsletter-email-description">
+            Join our email subscription now to get updates on promotions and
+            coupons.
           </p>
 
           <form className="footer-newsletter-email-form">
