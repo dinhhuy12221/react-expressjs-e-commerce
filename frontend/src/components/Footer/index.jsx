@@ -13,7 +13,7 @@ import "./index.css";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <section className="news-letter">
         <div className="email-label">
           <p className="text">$20 discount for your first order</p>
@@ -38,20 +38,28 @@ export default function Footer() {
       <section className="footer-content">
         <div className="footer-label">
           <div>
-            <RiShirtLine />
-            <span>Everyday fresh products</span>
+            <span>
+              <RiShirtLine />
+              Everyday fresh products
+            </span>
           </div>
           <div>
-            <CiDeliveryTruck />
-            <span>Free delivery for order over $70</span>
+            <span>
+              <CiDeliveryTruck />
+              Free delivery for order over $70
+            </span>
           </div>
           <div>
-            <RiDiscountPercentLine />
-            <span>Daily Mega Discounts</span>
+            <span>
+              <RiDiscountPercentLine />
+              Daily Mega Discounts
+            </span>
           </div>
           <div>
-            <CiDollar />
-            <span>Best price on the market</span>
+            <span>
+              <CiDollar />
+              Best price on the market
+            </span>
           </div>
         </div>
         <div className="row mt-5 linksWrap">
@@ -188,7 +196,17 @@ export default function Footer() {
         </div>
 
         <div className="socials copyright mt-3 pt-3 pb-3 d-flex">
-          <p className="mb-0">© 2026 dinhhuy12221. All rights reserved. Design inspired by <a href="https://klbtheme.com/bacola/" target="_blank" rel="noopener">Bacola</a>.</p>
+          <p className="mb-0">
+            © 2026 dinhhuy12221. All rights reserved. Design inspired by{" "}
+            <a
+              href="https://klbtheme.com/bacola/"
+              target="_blank"
+              rel="noopener"
+            >
+              Bacola
+            </a>
+            .
+          </p>
           <ul className="list list-inline ms-auto mb-0 socials">
             <li className="list-inline-item">
               <Link to="#">

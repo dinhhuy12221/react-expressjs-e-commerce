@@ -1,5 +1,4 @@
-
-footer {
+.footer {
   width: 100vw;
   height: 500px;
   margin: auto;
@@ -64,10 +63,16 @@ footer {
 
 .footer-content .footer-label {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-
-  border-bottom: var(--border-width-1) rgba(0, 0, 0, 0.1);
+  
+  border-bottom: var(--border-width-2) rgba(0, 0, 0, 0.1);
+}
+.footer-content .footer-label div {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding: var(--space-12) 0;
   font-size: var(--font-16);
 }
 
@@ -76,7 +81,7 @@ footer {
 }
 
 .footer-content .footer-label > * {
-  border-left: var(--border-width-1) rgba(0, 0, 0, 0.1);
+  border-left: var(--border-width-2) rgba(0, 0, 0, 0.1);
   padding-left: var(--space-12);
 }
 .footer-content .footer-label > *:first-child {
