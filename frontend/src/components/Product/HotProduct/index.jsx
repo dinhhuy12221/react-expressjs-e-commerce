@@ -8,36 +8,36 @@ const HotProduct = ({ product }) => {
 
   return (
     <div className="hot-product">
-      <div className="thumbnail">
-        <div className="badge">
+      <div className="hot-product-thumbnail">
+        <div className="hot-product-thumbnail-badge">
           <span>{product.discount}%</span>
         </div>
         <img src={product.image} alt="NOT FOUND" />
       </div>
-      <div className="main">
-        <div className="prices">
-          <span className="old-price">${product.price}</span>
-          <span className="net-price">${currentPrice}</span>
+      <div className="hot-product-main">
+        <div className="hot-product-main-prices">
+          <span className="hot-product-main-prices-old-price">${product.price}</span>
+          <span className="hot-product-main-prices-net-price">${currentPrice}</span>
         </div>
-        <span className="name">{product.name}</span>
-        <span className="status">In Stock</span>
-        <div className="progress">
+        <span className="hot-product-main-name">{product.name}</span>
+        <span className="hot-product-main-status">In Stock</span>
+        <div className="hot-product-main-progress">
           <span></span>
         </div>
-        <div className="expired">
-          <div className="countdown">
-            <div className="count-item-days">99</div>
+        <div className="hot-product-main-expired">
+          <div className="hot-product-main-expired-countdown">
+            <div className="hot-main-expired-countdown-count-item-days">99</div>
             <span>:</span>
-            <div className="count-item-hours">23</div>
+            <div className="hot-main-expired-countdown-count-item-hours">23</div>
             <span>:</span>
-            <div className="count-item-minutes">59</div>
+            <div className="hot-main-expired-countdown-count-item-minutes">59</div>
             <span>:</span>
-            <div className="count-item-seconds">59</div>
+            <div className="hot-main-expired-countdown-count-item-seconds">59</div>
           </div>
-          <div className="expired-text">Remains until the end of the offer</div>
+          <div className="hot-product-main-expired-text">Remains until the end of the offer</div>
         </div>
       </div>
-      {/* <a href={`/product/${product.slug}`} className="overlay-link"></a> */}
+      <a href={`/product/${product.slug}`} className="overlay-link"></a>
     </div>
   );
 };

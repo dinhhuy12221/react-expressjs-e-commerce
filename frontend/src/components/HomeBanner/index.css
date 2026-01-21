@@ -16,7 +16,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1000px)  {
   .home-banner .blank-div {
     display: none;
   }

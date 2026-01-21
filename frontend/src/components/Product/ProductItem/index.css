@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
 
-  max-width: 200px;
+  /* max-width: 200px; */
 
   border: var(--border-width-1) rgba(0, 0, 0, 0.1);
 
@@ -16,10 +16,6 @@
 
     height: 100%;
   } */
-
-  .bg-primary {
-    background: #2bbef9 !important;
-  }
 }
 
 .product-thumbnail {

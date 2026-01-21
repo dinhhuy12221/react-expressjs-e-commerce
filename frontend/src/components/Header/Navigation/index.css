@@ -180,6 +180,11 @@
   background-color: var(--color-bg-white);
 }
 
+@media (max-width: 1200px) {
+  .navigate {
+    display: none;
+  }
+}
 @media (max-width: 480px) {
   .navigate {
     display: none;
