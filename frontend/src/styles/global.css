@@ -117,7 +117,6 @@ a {
   text-decoration: none;
   color: var(--color-text-black);
   font-weight: 300;
-
 }
 
 .badge {
@@ -166,10 +165,17 @@ a {
   color: var(--color-text-red-1);
   border: var(--border-width-1) var(--color-bg-red-1);
 }
+.btn--outlined svg {
+  color: var(--color-text-red-1);
+}
 .btn--outlined:hover {
   color: var(--color-text-white);
   background-color: var(--color-bg-red-2);
   border: var(--border-width-1) var(--color-bg-red-2);
+}
+
+.btn--outlined:hover svg {
+  color: var(--color-text-white);
 }
 
 .btn--primary {

@@ -207,23 +207,20 @@ export default function Footer() {
             </a>
             .
           </p>
-          <ul className="footer-bottom-contracts">
-            <li className="footer-bottom-contracts-item btn btn--outlined btn--circle">
-              <Link to="#">
-                <FaFacebookF />
-              </Link>
-            </li>
-            <li className="footer-bottom-contracts-item">
-              <Link to="#">
-                <FaTwitter />
-              </Link>
-            </li>
-            <li className="footer-bottom-contracts-item">
-              <Link to="#">
-                <FaInstagram />
-              </Link>
-            </li>
-          </ul>
+          <div className="footer-bottom-contracts">
+            <Link
+              to={"#"}
+              className="footer-bottom-contracts-item btn btn--outlined btn--circle"
+            >
+              <FaFacebookF />
+            </Link>
+            <Link to={"#"} className="footer-bottom-contracts-item btn btn--outlined btn--circle">
+              <FaTwitter />
+            </Link>
+            <Link to={"#"} className="footer-bottom-contracts-item btn btn--outlined btn--circle">
+              <FaInstagram />
+            </Link>
+          </div>
         </div>
       </section>
     </footer>
