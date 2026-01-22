@@ -45,7 +45,6 @@
   flex-direction: column;
   gap: var(--space-20);
   padding: var(--space-20) 0;
-  /* min-width: 0; */
 }
 
 .hot-product-main-prices {
@@ -92,7 +91,8 @@
 .hot-product-main-progress {
   position: relative;
   height: 10px;
-  width: 120%;
+  width: 100%;
+  max-width: 500px;
   border-radius: var(--radius-20);
   background-color: var(--color-bg-gray);
   overflow: hidden;
@@ -134,4 +134,10 @@
   max-width: 120px;
   font-size: var(--font-12);
   opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .hot-product {
+    flex-direction: column;
+  }
 }
