@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
         <div className="footer-widgets">
           <div className="footer-widget-menu">
-            <h5>FRUIT & VEGETABLES</h5>
+            <h5 className="footer-widget-menu-header">FRUIT & VEGETABLES</h5>
             <ul>
               <li>
                 <Link to="#">Fresh Vegetables</Link>
@@ -80,8 +80,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col">
-            <h5>Breakfast & Dairy</h5>
+          <div className="footer-widget-menu">
+            <h5 className="footer-widget-menu-header">Breakfast & Dairy</h5>
             <ul>
               <li>
                 <Link to="#">Fresh Vegetables</Link>
@@ -106,8 +106,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col">
-            <h5>Meat & Seafood</h5>
+          <div className="footer-widget-menu">
+            <h5 className="footer-widget-menu-header">Meat & Seafood</h5>
             <ul>
               <li>
                 <Link to="#">Fresh Vegetables</Link>
@@ -132,8 +132,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col">
-            <h5>Beverages</h5>
+          <div className="footer-widget-menu">
+            <h5 className="footer-widget-menu-header">Beverages</h5>
             <ul>
               <li>
                 <Link to="#">Fresh Vegetables</Link>
@@ -158,8 +158,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col">
-            <h5>Breads & Bakery</h5>
+          <div className="footer-widget-menu">
+            <h5 className="footer-widget-menu-header">Breads & Bakery</h5>
             <ul>
               <li>
                 <Link to="#">Fresh Vegetables</Link>
