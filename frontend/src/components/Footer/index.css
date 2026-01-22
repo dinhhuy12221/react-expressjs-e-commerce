@@ -89,7 +89,9 @@
   gap: var(--space-10);
   height: 100%;
   padding: var(--space-12) 0;
-  /* font-size: var(--font-16); */
+}
+.footer-content .footer-label div svg {
+  font-size: var(--font-16);
 }
 
 .footer-content .footer-label > * {
