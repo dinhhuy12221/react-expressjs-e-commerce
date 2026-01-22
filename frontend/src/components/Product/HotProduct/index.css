@@ -10,6 +10,9 @@
 
 .hot-product-thumbnail {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: var(--space-20) var(--space-20);
 }
 .hot-product-thumbnail img {
@@ -45,7 +48,6 @@
   flex-direction: column;
   gap: var(--space-20);
   padding: var(--space-20) 0;
-  /* min-width: 0; */
 }
 
 .hot-product-main-prices {
@@ -65,7 +67,8 @@
   text-decoration: line-through;
   font-size: var(--font-16);
   font-weight: 600;
-}.hot-product-main-prices-net-price {
+}
+.hot-product-main-prices-net-price {
   color: var(--color-text-red-1);
   font-size: var(--font-18);
   font-weight: 600;
@@ -93,6 +96,7 @@
   position: relative;
   height: 10px;
   width: 120%;
+  max-width: 500px;
   border-radius: var(--radius-20);
   background-color: var(--color-bg-gray);
   overflow: hidden;
@@ -134,4 +138,13 @@
   max-width: 120px;
   font-size: var(--font-12);
   opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .hot-product {
+    flex-direction: column;
+  }
+  .hot-product-main-progress {
+    width: 100%;
+  }
 }
