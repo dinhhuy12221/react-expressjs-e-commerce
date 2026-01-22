@@ -41,6 +41,8 @@
   align-items: center;
 
   gap: var(--space-8);
+  min-width: 500px;
+  max-width: 100%;
   width: 100%;
   height: 50px;
   background: var(--color-text-white);

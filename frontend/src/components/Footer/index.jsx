@@ -37,28 +37,20 @@ export default function Footer() {
       <section className="footer-content">
         <div className="footer-label">
           <div>
-            <span>
-              <RiShirtLine />
-              Everyday fresh products
-            </span>
+            <RiShirtLine />
+            Everyday fresh products
           </div>
           <div>
-            <span>
-              <CiDeliveryTruck />
-              Free delivery for order over $70
-            </span>
+            <CiDeliveryTruck />
+            Free delivery for order over $70
           </div>
           <div>
-            <span>
-              <RiDiscountPercentLine />
-              Daily Mega Discounts
-            </span>
+            <RiDiscountPercentLine />
+            Daily Mega Discounts
           </div>
           <div>
-            <span>
-              <CiDollar />
-              Best price on the market
-            </span>
+            <CiDollar />
+            Best price on the market
           </div>
         </div>
         <div className="linksWrap">
