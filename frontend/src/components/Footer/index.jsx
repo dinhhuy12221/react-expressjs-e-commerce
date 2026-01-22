@@ -53,8 +53,8 @@ export default function Footer() {
             Best price on the market
           </div>
         </div>
-        <div className="linksWrap">
-          <div className="col">
+        <div className="footer-widgets">
+          <div className="footer-widget-menu">
             <h5>FRUIT & VEGETABLES</h5>
             <ul>
               <li>
