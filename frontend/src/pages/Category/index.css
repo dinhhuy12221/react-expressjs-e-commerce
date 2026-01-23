@@ -6,12 +6,16 @@
   padding: var(--space-20);
 }
 .category-product-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
   padding: var(--space-24);
 }
 
-.view-options-layout {
+.category-product-view-selector {
   display: flex;
-  justify-content: space-between;
+  gap: var(--space-8);
+
 }
 .product-item {
   padding: 0;
