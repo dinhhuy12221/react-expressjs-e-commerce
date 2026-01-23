@@ -2,7 +2,7 @@ import { IoClose } from 'react-icons/io5'
 import CountrySelector from '../CountrySelector/index'
 import Logo from '../../assets/images/logo.png'
 import "./index.css"
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { MyContext } from '../../App'
 function SiteCanvas({ open, onClose }) {
   const context = useContext(MyContext);

@@ -47,11 +47,7 @@
   font-size: var(--font-12);
 }
 
-/* SMARTPHONES LANDSCAPE */
-@media only screen and (max-width: 480px) {
-  /* body.site-canvas-display {
-        overflow: hidden;
-    } */
+@media (max-width: 1024px) {
   .site-canvas-display {
     /* position: sticky; */
     overflow-y: hidden;
@@ -63,10 +59,8 @@
     height: 500px;
   }
 }
-/* TABLETS PORTRAIT */
 @media only screen and (max-width: 768px) {
 }
 
-/* TABLET LANDSCAPE / DESKTOP */
 @media only screen and (max-width: 1024px) {
 }

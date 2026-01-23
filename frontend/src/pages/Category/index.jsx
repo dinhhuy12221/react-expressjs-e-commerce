@@ -76,53 +76,56 @@ export default function Category() {
 
   return (
     <section className="category">
-        <SideBar />
-      <div className="products-view">
-        <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" />
-
-        <div className="view-options-layout">
-          <div className="layout-options">
-            <button
-              className={`${activeLayout === 1 ? "active" : ""}`}
-              onClick={() => {
-                handleProductLayout(1);
-                setActiveLayout(1);
-              }}
-            >
-              <BsGridFill />
-            </button>
-            <button
-              className={`${activeLayout === 2 ? "active" : ""}`}
-              onClick={() => {
-                handleProductLayout(2);
-                setActiveLayout(2);
-              }}
-            >
-              <CgMenuGridR />
-            </button>
-            <button
-              className={`${activeLayout === 3 ? "active" : ""}`}
-              onClick={() => {
-                handleProductLayout(3);
-                setActiveLayout(3);
-              }}
-            >
-              <TfiLayoutGrid4Alt />
-            </button>
-          </div>
+      <SideBar />
+      <section className="category-product-section">
+        <div className="thumbnail">
+          <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" />
+        </div>
+        <div className="category-product-view-selector">
+          <button
+            className={`btn btn--outlined ${
+              activeLayout === 1 ? "active" : ""
+            }`}
+            onClick={() => {
+              handleProductLayout(1);
+              setActiveLayout(1);
+            }}
+          >
+            <BsGridFill />
+          </button>
+          <button
+            className={`btn btn--outlined ${
+              activeLayout === 2 ? "active" : ""
+            }`}
+            onClick={() => {
+              handleProductLayout(2);
+              setActiveLayout(2);
+            }}
+          >
+            <CgMenuGridR />
+          </button>
+          <button
+            className={`btn btn--outlined ${
+              activeLayout === 3 ? "active" : ""
+            }`}
+            onClick={() => {
+              handleProductLayout(3);
+              setActiveLayout(3);
+            }}
+          >
+            <TfiLayoutGrid4Alt />
+          </button>
         </div>
 
-        <div className="products-view">
+        <div className="category-product-main">
           {productList &&
             productList.map((item, index) => (
-              <div className={`product-item ${layouts}`} key={index}>
-                <ProductItem product={item} />
-              </div>
+                <ProductItem product={item} key={index} />
             ))}
         </div>
 
         <PaginationSection />
-      </div>
+      </section>
     </section>
   );
 }

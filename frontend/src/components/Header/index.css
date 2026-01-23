@@ -34,7 +34,7 @@
   align-items: center;
   gap: var(--space-16);
 
-  padding-bottom: 10px;
+  padding: 0px var(--space-20);
 }
 
 .cart-price {
@@ -76,13 +76,17 @@
   padding: var(--space-12) var(--space-16);
 }
 
+@media (max-width: 1024px) {
+  .menu-button {
+    display: block;
+    font-size: var(--font-20);
+  }
+}
 @media (max-width: 768px) {
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 0px var(--space-20);
   }
   .header .search-box,
   .header .country-selector {
@@ -93,13 +97,6 @@
   .header .cart-price {
     display: none;
   }
-  .menu-button {
-    display: block;
-    font-size: var(--font-20);
-  }
-}
-
-@media (max-width: 1200px) {
 }
 
 @media (max-width: 480px) {

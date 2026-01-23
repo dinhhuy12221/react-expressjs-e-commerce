@@ -4,7 +4,6 @@
   gap: var(--space-8);
 
   padding: var(--space-12);
-
   max-width: 220px;
   min-width: 100px;
 }
@@ -26,4 +25,22 @@
 .sidebar-filter-on-price {
   display: flex;
   justify-content: space-between;
+}
+
+.sidebar .thumbnail {
+  max-width: 220px;
+  min-width: 200px;
+  height: 300px;
+}
+.sidebar .thumbnail img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
 }
