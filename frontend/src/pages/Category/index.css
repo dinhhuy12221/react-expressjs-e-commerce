@@ -3,23 +3,15 @@
   justify-content: center;
   gap: var(--space-26);
 
-  padding: 0px var(--space-20);
+  padding: var(--space-20);
 }
-.products-view {
-  padding: 15px;
-}
-
-img {
-  width: 100%;
-  border-radius: 20px;
+.category-product-section {
+  padding: var(--space-24);
 }
 
 .view-options-layout {
   display: flex;
   justify-content: space-between;
-
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 .product-item {
   padding: 0;

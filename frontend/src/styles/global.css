@@ -118,25 +118,11 @@ a {
   color: var(--color-text-black);
   font-weight: 300;
 }
-
-.badge {
-  display: inline-block;
-  padding: var(--space-8) var(--space-12);
-  border-radius: var(--radius-20);
+.thumbnail {
+  position: relative;
+  border-radius: var(--radius-10);
+  overflow: hidden;
 }
-
-.badge.bg-success {
-  background: var(--color-bg-success);
-  color: var(--color-text-success);
-}
-
-.badge-success {
-  background: var(--color-bg-success);
-  color: var(--color-text-success);
-  font-weight: 500;
-  font-size: var(--font-14);
-}
-
 .btn {
   display: inline-flex;
   align-items: center;

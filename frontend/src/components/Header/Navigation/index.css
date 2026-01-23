@@ -32,10 +32,9 @@
 
   background: var(--color-bg-white);
   top: 68px;
-  max-width: 260px;
-  min-width: 160px;
+  min-width: 260px;
   left: 0px;
-  padding: var(--space-28) 0px;
+  padding: var(--space-20) 0px;
   border: var(--border-width-1) rgba(0, 0, 0, 0.1);
   border-top: none;
   border-bottom-left-radius: var(--radius-10);

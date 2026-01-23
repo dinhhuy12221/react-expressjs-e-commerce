@@ -50,10 +50,8 @@ export default function SideBar() {
           </span>
         </div>
       </div>
-
       <div className="sidebar-filter">
         <h3>PRODUCT STATUS</h3>
-
         <div className="sidebar-filter-scroll">
           <ul>
             <li>
@@ -65,10 +63,8 @@ export default function SideBar() {
           </ul>
         </div>
       </div>
-
       <div className="sidebar-filter">
         <h3>BRANDS</h3>
-
         <div className="sidebar-filter-scroll">
           <ul>
             <li>
@@ -92,8 +88,7 @@ export default function SideBar() {
           </ul>
         </div>
       </div>
-
-      <Link to="#">
+      <Link className="thumbnail" to="#">
         <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/05/sidebar-banner.gif" />
       </Link>
     </section>

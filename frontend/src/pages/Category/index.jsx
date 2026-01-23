@@ -76,9 +76,9 @@ export default function Category() {
 
   return (
     <section className="category">
-        <SideBar />
-      <div className="products-view">
-        <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" />
+      <SideBar />
+      <section className="category-product-section">
+        <div className="thumbnail"><img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" /></div>
 
         <div className="view-options-layout">
           <div className="layout-options">
@@ -122,7 +122,7 @@ export default function Category() {
         </div>
 
         <PaginationSection />
-      </div>
+      </section>
     </section>
   );
 }
