@@ -117,12 +117,10 @@ export default function Category() {
           </button>
         </div>
 
-        <div className="products-view">
+        <div className="category-product-main">
           {productList &&
             productList.map((item, index) => (
-              <div className={`product-item ${layouts}`} key={index}>
-                <ProductItem product={item} />
-              </div>
+                <ProductItem product={item} key={index} />
             ))}
         </div>
 
