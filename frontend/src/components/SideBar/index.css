@@ -1,10 +1,18 @@
 .sidebar {
-  width: 100%;
-  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+
+  padding: var(--space-12);
+
+  max-width: 220px;
   min-width: 100px;
 }
 
 .sidebar-filter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
 }
 
 .sidebar-filter-scroll {
@@ -17,6 +25,5 @@
 }
 .sidebar-filter-on-price {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
+  justify-content: space-between;
 }

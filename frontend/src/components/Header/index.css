@@ -76,35 +76,41 @@
   padding: var(--space-12) var(--space-16);
 }
 
-/* SMARTPHONES LANDSCAPE */
+@media (max-width: 768px) {
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px var(--space-20);
+  }
+  .header .search-box,
+  .header .country-selector {
+    display: none;
+  }
+
+  .header .signin-button,
+  .header .cart-price {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+    font-size: var(--font-20);
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
 @media (max-width: 480px) {
   .banner-strip {
     padding: var(--space-4) 0px;
     font-size: var(--font-10);
   }
 
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    padding: 0px var(--space-8);
-  }
-
-  .menu-button {
-    display: block;
-    font-size: var(--font-20);
-  }
   .logo img {
     width: 120px;
     height: 80px;
-  }
-
-  .header .search-box,
-  .header .country-selector,
-  .header .signin-button,
-  .header .cart-price {
-    display: none;
   }
 
   .cart-button {
@@ -124,12 +130,4 @@
     width: 15px;
     height: 15px;
   }
-}
-/* TABLETS PORTRAIT */
-@media only screen and (max-width: 768px) {
-}
-
-/* TABLET LANDSCAPE / DESKTOP */
-@media only screen and (max-width: 1200px) {
-  
 }
