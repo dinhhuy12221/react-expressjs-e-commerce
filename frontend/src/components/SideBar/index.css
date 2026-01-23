@@ -1,34 +1,29 @@
 .sidebar {
-  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
 
-  .sidebar-filter {
-    margin-bottom: 35px;
+  padding: var(--space-12);
 
-    h6 {
-      font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-  }
+  max-width: 220px;
+  min-width: 100px;
+}
 
-  .scroll {
-    /* max-height: 200px; */
-    overflow-y: scroll;
-    overflow-x: hidden;
+.sidebar-filter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
 
-    ul {
-      padding-left: 8px !important;
-      margin-bottom: -10px !important;
-
-      li {
-        list-style: none;
-        margin-bottom: 10px;
-        width: 100%;
-      }
-    }
-  }
-  .scroll::-webkit-scrollbar {
-    width: 5px !important;
-    height: 5px !important;
-  }
+.sidebar-filter-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.sidebar-filter-scroll::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+.sidebar-filter-on-price {
+  display: flex;
+  justify-content: space-between;
 }
