@@ -1,6 +1,9 @@
 .category {
-    padding: 24px 10px 0px;
+    display: flex;
+    justify-content: center;
+}
 
+.category {
     .products-view {
         padding: 15px;
 

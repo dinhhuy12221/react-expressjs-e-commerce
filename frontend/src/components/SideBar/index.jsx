@@ -15,9 +15,7 @@ export default function SideBar() {
   // const [totalLength, setTotalLength] = useState([]);
 
   return (
-    <>
       <div className="sidebar">
-        <div className="sticky-top">
           <div className="filterBox">
             <h6>PRODUCT CATEGORIES</h6>
 
@@ -25,28 +23,28 @@ export default function SideBar() {
               <ul>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Men"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Women"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Beauty"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Kids"
                   />
@@ -54,28 +52,28 @@ export default function SideBar() {
 
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Men"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Women"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Beauty"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Kids"
                   />
@@ -83,28 +81,28 @@ export default function SideBar() {
 
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Men"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Women"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Beauty"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Kids"
                   />
@@ -112,28 +110,28 @@ export default function SideBar() {
 
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Men"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Women"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Beauty"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Kids"
                   />
@@ -141,28 +139,28 @@ export default function SideBar() {
 
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Men"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Women"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Beauty"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Kids"
                   />
@@ -198,14 +196,14 @@ export default function SideBar() {
               <ul>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="In Stock"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="On Sale"
                   />
@@ -221,42 +219,42 @@ export default function SideBar() {
               <ul>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Frito Lay"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Nespresso"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Frito Lay"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Nespresso"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Frito Lay"
                   />
                 </li>
                 <li>
                   <FormControlLabel
-                    className="w-100"
+                    className="button"
                     control={<Checkbox />}
                     label="Nespresso"
                   />
@@ -268,11 +266,9 @@ export default function SideBar() {
           <Link to="#">
             <img
               src="https://klbtheme.com/bacola/wp-content/uploads/2021/05/sidebar-banner.gif"
-              className="w-100"
+              className="button"
             />
           </Link>
-        </div>
       </div>
-    </>
   );
 }

@@ -217,30 +217,33 @@ export default function Navigation() {
           </Link>
           <ul className="sub-menu">
             <li className="menu-item">
-              <Link to="#" className="btn">
-                <span>clothing</span>
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="#" className="btn">
-                <span>footwear</span>
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="#" className="btn">
-                <span>watches</span>
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="#" className="btn">
-                <span>clothing</span>
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link to="#" className="btn">
-                <span>footwear</span>
-              </Link>
-            </li>
+          <Link to="/cat/men" className="btn">
+            <TbMeat />
+            <span>Meats & Seafood</span>
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link to="/cat/women" className="btn">
+            <GiRawEgg />
+            <span>Bakery</span>
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link to="/cat/beauty" className="btn">
+            <MdOutlineLocalCafe />
+            <span>Beverages</span>
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link to="/cat/watches" className="btn">
+            <span>Blog</span>
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link to="/cat/kids" className="btn">
+            <span>Contact</span>
+          </Link>
+        </li>
           </ul>
         </li>
         <li className="menu-item">
