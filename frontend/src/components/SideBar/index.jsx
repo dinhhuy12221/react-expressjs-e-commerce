@@ -18,24 +18,21 @@ export default function SideBar() {
     <section className="sidebar">
       <div className="sidebar-filter">
         <h3>PRODUCT CATEGORIES</h3>
-        <div className="scroll">
+        <div className="sidebar-filter-scroll">
           <ul>
             <li>
-              <FormControlLabel control={<Checkbox />} label="Men" />
+              <FormControlLabel control={<Checkbox />} label="Meats & Seafood" />
             </li>
             <li>
-              <FormControlLabel control={<Checkbox />} label="Women" />
+              <FormControlLabel control={<Checkbox />} label="Bakery" />
             </li>
             <li>
-              <FormControlLabel control={<Checkbox />} label="Beauty" />
-            </li>
-            <li>
-              <FormControlLabel control={<Checkbox />} label="Kids" />
+              <FormControlLabel control={<Checkbox />} label="Beverages" />
             </li>
           </ul>
         </div>
       </div>
-      <div className="filterBox">
+      <div className="sidebar-filter">
         <h3>FILTER BY PRICE</h3>
         <RangeSlider
           value={value}
@@ -44,7 +41,7 @@ export default function SideBar() {
           max={60000}
           step={5}
         />
-        <div className="priceRange">
+        <div className="sidebar-filter-on-price">
           <span>
             From: <strong className="text-dark">{value[0]}</strong>
           </span>
@@ -54,10 +51,10 @@ export default function SideBar() {
         </div>
       </div>
 
-      <div className="filterBox">
+      <div className="sidebar-filter">
         <h3>PRODUCT STATUS</h3>
 
-        <div className="scroll">
+        <div className="sidebar-filter-scroll">
           <ul>
             <li>
               <FormControlLabel control={<Checkbox />} label="In Stock" />
@@ -69,10 +66,10 @@ export default function SideBar() {
         </div>
       </div>
 
-      <div className="filterBox">
+      <div className="sidebar-filter">
         <h3>BRANDS</h3>
 
-        <div className="scroll">
+        <div className="sidebar-filter-scroll">
           <ul>
             <li>
               <FormControlLabel control={<Checkbox />} label="Frito Lay" />
