@@ -15,128 +15,12 @@ export default function SideBar() {
   // const [totalLength, setTotalLength] = useState([]);
 
   return (
-      <div className="sidebar">
-          <div className="filterBox">
+      <section className="sidebar">
+          <div className="sidebar-filter">
             <h6>PRODUCT CATEGORIES</h6>
 
             <div className="scroll">
               <ul>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Men"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Women"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Beauty"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Kids"
-                  />
-                </li>
-
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Men"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Women"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Beauty"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Kids"
-                  />
-                </li>
-
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Men"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Women"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Beauty"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Kids"
-                  />
-                </li>
-
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Men"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Women"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Beauty"
-                  />
-                </li>
-                <li>
-                  <FormControlLabel
-                    className="button"
-                    control={<Checkbox />}
-                    label="Kids"
-                  />
-                </li>
-
                 <li>
                   <FormControlLabel
                     className="button"
@@ -269,6 +153,6 @@ export default function SideBar() {
               className="button"
             />
           </Link>
-      </div>
+      </section>
   );
 }
