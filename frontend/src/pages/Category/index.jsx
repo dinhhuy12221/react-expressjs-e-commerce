@@ -7,19 +7,16 @@ import React, {
   useState,
 } from "react";
 import SideBar from "../../components/SideBar";
-import Button from "@mui/material/Button";
 import Pagination from "@mui/material/Pagination";
 
 import { BsGridFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { TfiLayoutGrid4Alt } from "react-icons/tfi";
-import ProductItem from "../../components/ProductItem";
+import ProductItem from "../../components/Product/ProductItem";
 import PaginationSection from "../../components/PaginationSection";
+import { getProductList } from "../../api/product";
 
 import "./index.css";
-import { getProductList } from "../../api/product";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 
 const productList = await getProductList();
 
@@ -78,62 +75,54 @@ export default function Category() {
   };
 
   return (
-    <>
-      <section className="category">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3">
-              <SideBar />
-            </div>
-            <div className="col-md-9 products-view">
-              <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" />
+    <section className="category">
+        <SideBar />
+      <div className="products-view">
+        <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" />
 
-              <div className="view-options-layout">
-                <div className="layout-options">
-                  <Button
-                    className={`${activeLayout === 1 ? "active" : ""}`}
-                    onClick={() => {
-                      handleProductLayout(1);
-                      setActiveLayout(1);
-                    }}
-                  >
-                    <BsGridFill />
-                  </Button>
-                  <Button
-                    className={`${activeLayout === 2 ? "active" : ""}`}
-                    onClick={() => {
-                      handleProductLayout(2);
-                      setActiveLayout(2);
-                    }}
-                  >
-                    <CgMenuGridR />
-                  </Button>
-                  <Button
-                    className={`${activeLayout === 3 ? "active" : ""}`}
-                    onClick={() => {
-                      handleProductLayout(3);
-                      setActiveLayout(3);
-                    }}
-                  >
-                    <TfiLayoutGrid4Alt />
-                  </Button>
-                </div>
-              </div>
-
-              <div className="products-view row">
-                {productList &&
-                  productList.map((info, index) => (
-                    <div className={`product-item ${layouts}`} key={index}>
-                      <ProductItem info={info} />
-                    </div>
-                  ))}
-              </div>
-
-              <PaginationSection />
-            </div>
+        <div className="view-options-layout">
+          <div className="layout-options">
+            <button
+              className={`${activeLayout === 1 ? "active" : ""}`}
+              onClick={() => {
+                handleProductLayout(1);
+                setActiveLayout(1);
+              }}
+            >
+              <BsGridFill />
+            </button>
+            <button
+              className={`${activeLayout === 2 ? "active" : ""}`}
+              onClick={() => {
+                handleProductLayout(2);
+                setActiveLayout(2);
+              }}
+            >
+              <CgMenuGridR />
+            </button>
+            <button
+              className={`${activeLayout === 3 ? "active" : ""}`}
+              onClick={() => {
+                handleProductLayout(3);
+                setActiveLayout(3);
+              }}
+            >
+              <TfiLayoutGrid4Alt />
+            </button>
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="products-view">
+          {productList &&
+            productList.map((item, index) => (
+              <div className={`product-item ${layouts}`} key={index}>
+                <ProductItem product={item} />
+              </div>
+            ))}
+        </div>
+
+        <PaginationSection />
+      </div>
+    </section>
   );
 }
