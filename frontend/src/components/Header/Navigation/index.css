@@ -14,7 +14,9 @@
 }
 .categories-button {
   gap: var(--space-10);
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
+  min-width: 150px;
   height: 55px;
   padding: var(--space-2) var(--space-10);
   border-radius: var(--radius-35);
@@ -30,8 +32,8 @@
 
   background: var(--color-bg-white);
   top: 68px;
-  width: 260px;
-  height: max-content;
+  max-width: 260px;
+  min-width: 160px;
   left: 0px;
   padding: var(--space-28) 0px;
   border: var(--border-width-1) rgba(0, 0, 0, 0.1);
@@ -108,7 +110,6 @@
   justify-content: center;
   align-items: stretch;
   height: 100%;
-  flex-wrap: wrap;
   gap: var(--space-10);
 
   list-style-type: none;
@@ -124,8 +125,8 @@
   font-size: var(--font-14);
   color: var(--color-text-black);
   border-radius: var(--radius-20);
-  text-transform: uppercase;
   padding: var(--space-10) var(--space-16);
+  text-transform: uppercase;
 }
 
 .category-menu-2 > .menu-item > a.btn:hover,
@@ -180,7 +181,7 @@
   background-color: var(--color-bg-white);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .navigate {
     display: none;
   }
