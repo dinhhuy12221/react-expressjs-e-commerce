@@ -176,6 +176,9 @@ a {
   color: var(--color-text-white);
   text-transform: capitalize;
 }
+.btn--primary svg {
+  color: var(--color-text-white);
+}
 .btn--primary:hover {
   background-color: var(--color-bg-red-2);
   color: var(--color-text-white);
