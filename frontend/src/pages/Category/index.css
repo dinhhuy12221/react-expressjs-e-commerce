@@ -34,13 +34,18 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+@media (max-width: 1024px) {
+  .category-product-view-selector {
+    display: none;
+  }
+}
 @media (max-width: 650px) {
   .category-product-main {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 @media (max-width: 480px) {
   .category-product-main {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }

@@ -74,12 +74,12 @@ export default function Category() {
   //   setProductLayouts(productLayoutsTemp);
   // };
   const [layout, setLayout] = useState(4);
-  let currentLayout = 'four';
+  let [currentLayout, setCurrentLayout] = useState('four');
 
   useEffect(() => {
-    if (layout === 2) currentLayout = 'two';
-    else if (layout === 3) currentLayout = 'three';
-    else if (layout === 4) currentLayout = 'four';
+    if (layout === 2) setCurrentLayout('two');
+    else if (layout === 3) setCurrentLayout('three');
+    else if (layout === 4) setCurrentLayout('four');
   }, [layout])
 
   return (
