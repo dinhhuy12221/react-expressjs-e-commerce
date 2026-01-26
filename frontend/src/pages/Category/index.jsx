@@ -73,7 +73,14 @@ export default function Category() {
 
   //   setProductLayouts(productLayoutsTemp);
   // };
-  const [layout, setLayout] = useState(3);
+  const [layout, setLayout] = useState(4);
+  let currentLayout = 'four';
+
+  useEffect(() => {
+    if (layout === 2) currentLayout = 'two';
+    else if (layout === 3) currentLayout = 'three';
+    else if (layout === 4) currentLayout = 'four';
+  }, [layout])
 
   return (
     <section className="category">
@@ -85,19 +92,11 @@ export default function Category() {
         <div className="category-product-view-selector">
           <button
             className={`btn btn--outlined ${
-              layout === 1 && "btn--primary"
-            }`}
-            onClick={() => setLayout(1)}
-          >
-            <BsGridFill />
-          </button>
-          <button
-            className={`btn btn--outlined ${
               layout === 2 && "btn--primary"
             }`}
             onClick={() => setLayout(2)}
           >
-            <CgMenuGridR />
+            <BsGridFill />
           </button>
           <button
             className={`btn btn--outlined ${
@@ -105,11 +104,19 @@ export default function Category() {
             }`}
             onClick={() => setLayout(3)}
           >
+            <CgMenuGridR />
+          </button>
+          <button
+            className={`btn btn--outlined ${
+              layout === 4 && "btn--primary"
+            }`}
+            onClick={() => setLayout(4)}
+          >
             <TfiLayoutGrid4Alt />
           </button>
         </div>
 
-        <div className="category-product-main">
+        <div className={`category-product-main ${currentLayout}`}>
           {productList &&
             productList.map((item, index) => (
                 <ProductItem product={item} key={index} />
