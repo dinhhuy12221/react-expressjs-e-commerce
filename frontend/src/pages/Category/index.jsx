@@ -40,39 +40,40 @@ let productLayoutOptions = [
 let layouts = "col-lg-3";
 
 export default function Category() {
-  const [productLayouts, setProductLayouts] = useState(productLayoutOptions);
-  const [activeLayout, setActiveLayout] = useState(3);
+  // const [productLayouts, setProductLayouts] = useState(productLayoutOptions);
+  // const [activeLayout, setActiveLayout] = useState(3);
 
-  useMemo(() => {
-    const arr = Array();
-    productLayouts.forEach((item) => {
-      if (item.used) {
-        arr.push(item.layout);
-      }
-    });
+  // useMemo(() => {
+  //   const arr = Array();
+  //   productLayouts.forEach((item) => {
+  //     if (item.used) {
+  //       arr.push(item.layout);
+  //     }
+  //   });
 
-    layouts = arr.join(" ");
-  }, [productLayouts]);
+  //   layouts = arr.join(" ");
+  // }, [productLayouts]);
 
-  const handleProductLayout = (index) => {
-    const productLayoutsTemp = productLayouts.map((item) => {
-      if (index == item.index) {
-        item = {
-          ...item,
-          used: true,
-        };
-      } else {
-        item = {
-          ...item,
-          used: false,
-        };
-      }
+  // const handleProductLayout = (index) => {
+  //   const productLayoutsTemp = productLayouts.map((item) => {
+  //     if (index == item.index) {
+  //       item = {
+  //         ...item,
+  //         used: true,
+  //       };
+  //     } else {
+  //       item = {
+  //         ...item,
+  //         used: false,
+  //       };
+  //     }
 
-      return item;
-    });
+  //     return item;
+  //   });
 
-    setProductLayouts(productLayoutsTemp);
-  };
+  //   setProductLayouts(productLayoutsTemp);
+  // };
+  const [layout, setLayout] = useState(3);
 
   return (
     <section className="category">
@@ -84,34 +85,25 @@ export default function Category() {
         <div className="category-product-view-selector">
           <button
             className={`btn btn--outlined ${
-              activeLayout === 1 ? "active" : ""
+              layout === 1 && "btn--primary"
             }`}
-            onClick={() => {
-              handleProductLayout(1);
-              setActiveLayout(1);
-            }}
+            onClick={() => setLayout(1)}
           >
             <BsGridFill />
           </button>
           <button
             className={`btn btn--outlined ${
-              activeLayout === 2 ? "active" : ""
+              layout === 2 && "btn--primary"
             }`}
-            onClick={() => {
-              handleProductLayout(2);
-              setActiveLayout(2);
-            }}
+            onClick={() => setLayout(2)}
           >
             <CgMenuGridR />
           </button>
           <button
             className={`btn btn--outlined ${
-              activeLayout === 3 ? "active" : ""
+              layout === 3 && "btn--primary"
             }`}
-            onClick={() => {
-              handleProductLayout(3);
-              setActiveLayout(3);
-            }}
+            onClick={() => setLayout(3)}
           >
             <TfiLayoutGrid4Alt />
           </button>
