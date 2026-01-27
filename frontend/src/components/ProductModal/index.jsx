@@ -65,29 +65,31 @@ export default function ProductModal(props) {
           {/* <ProductZoom /> */}
         </div>
         <div className="product-modal-content-main">
-          <div className="product-modal-main-content-prices">
-            <span className="product-modal-main-content-old-price">{product.price}</span>
-            <span className="product-modal-main-content-net-price">{currentPrice}</span>
+          <div className="product-modal-content-main-status">
+            <div className="product-modal-content-main-status-prices">
+              <span className="product-modal-content-main-status-prices-old-price">{product.price}</span>
+              <span className="product-modal-content-main-status-prices-net-price">{currentPrice}</span>
+            </div>
+          <span className="product-modal-content-main-status-stock">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
           </div>
-          <span className="product-modal-main-content-status">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
-          <p className="product-modal-main-content-description">
+          <p className="product-modal-content-main-description">
             {product.description}
           </p>
 
-          <div className="product-modal-main-content-quantity">
+          <div className="product-modal-content-main-quantity">
             <QuantityBox quantity={product.countInStock} />
-            <button className="product-modal-main-content-add-button">
+            <button className="product-modal-content-main-add-button">
               <IoCartOutline className="" />
               <span>Add to cart</span>
             </button>
           </div>
 
-          <div className="product-modal-main-content-buttons">
-            <button className="product-modal-main-content-wishlist-button">
+          <div className="product-modal-content-main-buttons">
+            <button className="product-modal-content-main-wishlist-button">
               <CiHeart />
               &nbsp;ADD TO WISHSLIST
             </button>
-            <button className="product-modal-main-content-compare-button">
+            <button className="product-modal-content-main-compare-button">
               <MdCompareArrows />
               &nbsp;COMPARE
             </button>
