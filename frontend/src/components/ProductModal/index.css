@@ -67,7 +67,7 @@
   gap: var(--space-6);
 }
 .product-modal-content-main-status-prices-old-price {
-  color: var(--color-text-gray);
+  color: var(--color-text-gray-1);
   text-decoration: line-through;
   font-size: var(--font-26);
   font-weight: 600;
@@ -87,6 +87,11 @@
   font-weight: 600;
 }
 
+.product-modal-content-main-quantity {
+  display: flex;
+  justify-content: start;
+  gap: var(--space-16);
+}
 /* .zoomSliderBig {
   width: 100% !important;
 }

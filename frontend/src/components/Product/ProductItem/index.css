@@ -118,7 +118,7 @@
 }
 
 .product-main .product-price .product-old-price {
-  color: var(--color-text-gray);
+  color: var(--color-text-gray-1);
   text-decoration: line-through;
   font-size: var(--font-16);
   font-weight: 600;

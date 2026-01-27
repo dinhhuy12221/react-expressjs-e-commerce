@@ -7,13 +7,13 @@ import "./index.css";
 export default function QuantityBox({ stockQuantity }) {
   const [quantity, setQuantity] = useState(1);
 
-  const minus = () => {
+  const decrease = () => {
     if (quantity > 1) {
       setQuantity((i) => i - 1);
     }
   };
 
-  const plus = () => {
+  const increase = () => {
     if (quantity < stockQuantity) {
       setQuantity((i) => i + 1);
     }
@@ -27,15 +27,15 @@ export default function QuantityBox({ stockQuantity }) {
 
   return (
     <div className="quantity-box">
-      <button onClick={minus()}>
+      <button className="btn btn--circle" onClick={() => decrease()}>
         <FaMinus />
       </button>
       <input
-        type="text"
+        disabled
         value={quantity}
         onChange={(e) => changeQuantity(e.target.value)}
       />
-      <button onClick={plus()}>
+      <button className="btn btn--circle" onClick={() => increase()}>
         <FaPlus />
       </button>
     </div>

@@ -77,7 +77,7 @@ export default function ProductModal(props) {
           </p>
 
           <div className="product-modal-content-main-quantity">
-            <QuantityBox quantity={product.countInStock} />
+            <QuantityBox stockQuantity={product.countInStock} />
             <button className="product-modal-content-main-add-button">
               <IoCartOutline className="" />
               <span>Add to cart</span>
