@@ -69,7 +69,7 @@ export default function ProductModal(props) {
             <span className="oldPrice">{product.price}</span>
             <span className="netPrice">{currentPrice}</span>
           </div>
-          <span className="">{product.countInStock > 0 && "In Stock"}</span>
+          <span className="">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
           <p className="">
             {product.description}
           </p>

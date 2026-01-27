@@ -1,6 +1,6 @@
-.quantityDrop {
-    width: 150px;
-    gap: 10px;
+.quantity-box {
+  display: flex;
+  justify-content: center;
   }
   .quantityDrop button {
     min-width: 40px !important;

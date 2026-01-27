@@ -14,24 +14,28 @@ export default function QuantityBox({ stockQuantity }) {
   };
 
   const plus = () => {
-    if (quantity >= stockQuantity) {
+    if (quantity < stockQuantity) {
       setQuantity((i) => i + 1);
     }
   };
 
-  const changeQuantity = (value) => {};
+  const changeQuantity = (value) => {
+    if (1 < quantity && quantity < stockQuantity) {
+      setQuantity(value)
+    }
+  };
 
   return (
-    <div className="quantityDrop d-flex justify-content-center">
-      <button onClick={minus}>
+    <div className="quantity-box">
+      <button onClick={minus()}>
         <FaMinus />
       </button>
       <input
         type="text"
-        value={inputVal}
+        value={quantity}
         onChange={(e) => changeQuantity(e.target.value)}
       />
-      <button onClick={plus}>
+      <button onClick={plus()}>
         <FaPlus />
       </button>
     </div>
