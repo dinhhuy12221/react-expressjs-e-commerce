@@ -18,6 +18,19 @@
   width: 30px;
   min-height: 30px;
 }
+.product-modal-header-rating {
+  display: flex;
+  gap: var(--space-18);
+
+}
+
+.product-modal-header-rating > * {
+  border-left: var(--border-width-2) rgba(0, 0, 0, 0.1);
+}
+
+.product-modal-header-rating > *:first-child {
+  border-left: none;
+}
 
 .productZoom {
   width: 100%;
