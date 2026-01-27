@@ -1,20 +1,20 @@
-.productModal .MuiPaper-elevation {
+.product-modal .MuiPaper-elevation {
   padding: 25px;
   position: relative;
   max-width: 900px !important;
   width: 900px !important;
 }
-.productModal h4 {
+.product-modal h4 {
   font-size: 22px !important;
   color: rgba(0, 0, 0, 0.7) !important;
 }
 
-.productModal .actions button {
+.product-modal .actions button {
   color: #000 !important;
   border: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 11px !important;
 }
-.productModal .actions button svg {
+.product-modal .actions button svg {
   font-size: 15px !important;
 }
 

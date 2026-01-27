@@ -20,24 +20,24 @@ import "./index.css";
 
 const productList = await getProductList();
 
-let productLayoutOptions = [
-  {
-    index: 1,
-    layout: "col-sm-6",
-    used: true,
-  },
-  {
-    index: 2,
-    layout: "col-md-4",
-    used: true,
-  },
-  {
-    index: 3,
-    layout: "col-lg-3",
-    used: true,
-  },
-];
-let layouts = "col-lg-3";
+// let productLayoutOptions = [
+//   {
+//     index: 1,
+//     layout: "col-sm-6",
+//     used: true,
+//   },
+//   {
+//     index: 2,
+//     layout: "col-md-4",
+//     used: true,
+//   },
+//   {
+//     index: 3,
+//     layout: "col-lg-3",
+//     used: true,
+//   },
+// ];
+// let layouts = "col-lg-3";
 
 export default function Category() {
   // const [productLayouts, setProductLayouts] = useState(productLayoutOptions);
