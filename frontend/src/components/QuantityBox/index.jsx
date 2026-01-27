@@ -2,29 +2,37 @@ import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
 
-import './index.css'
+import "./index.css";
 
-export default function QuantityBox(props) {
+export default function QuantityBox({ stockQuantity }) {
+  const [quantity, setQuantity] = useState(1);
 
-    const [inputVal, setInputVal] = useState(props.quantity);
-
-    const minus = () => {
-        if (inputVal > 1)
-            setInputVal(i => i - 1);
+  const minus = () => {
+    if (quantity > 1) {
+      setQuantity((i) => i - 1);
     }
+  };
 
-    const plus = () => {
-        setInputVal(i => i + 1);
+  const plus = () => {
+    if (quantity >= stockQuantity) {
+      setQuantity((i) => i + 1);
     }
-    
+  };
+
+  const changeQuantity = (value) => {};
+
   return (
     <div className="quantityDrop d-flex justify-content-center">
       <button onClick={minus}>
-      <FaMinus />
+        <FaMinus />
       </button>
-      <input type="text" value={inputVal}/>
+      <input
+        type="text"
+        value={inputVal}
+        onChange={(e) => changeQuantity(e.target.value)}
+      />
       <button onClick={plus}>
-      <FaPlus />
+        <FaPlus />
       </button>
     </div>
   );
