@@ -63,7 +63,7 @@
   line-height: 1.2;
 }
 .hot-product-main-prices-old-price {
-  color: var(--color-text-gray);
+  color: var(--color-text-gray-1);
   text-decoration: line-through;
   font-size: var(--font-16);
   font-weight: 600;
@@ -98,7 +98,7 @@
   width: 120%;
   max-width: 500px;
   border-radius: var(--radius-20);
-  background-color: var(--color-bg-gray);
+  background-color: var(--color-bg-gray-1);
   overflow: hidden;
 }
 .hot-product-main-progress span {
@@ -131,7 +131,7 @@
 }
 .hot-product-main-expired-countdown div {
   padding: var(--space-6);
-  background-color: var(--color-bg-gray);
+  background-color: var(--color-bg-gray-1);
 }
 
 .hot-product-main-expired-text {

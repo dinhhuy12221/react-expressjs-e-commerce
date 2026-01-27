@@ -9,8 +9,8 @@ import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
 import { MyContext } from "../../App";
 import { getDiscountPrice } from "../../utils/getDiscountPrice";
-import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/navigation";
 
 import "./index.css";
 import ProductZoom from "../ProductZoom";
@@ -40,7 +40,7 @@ export default function ProductModal(props) {
       }}
     >
       <button
-        className="product-modal-close-button"
+        className="btn btn--outlined btn--circle product-modal-close-button"
         onClick={() => {
         context.setIsOpenProductModal(false);
         context.setProductModal({});
@@ -48,46 +48,48 @@ export default function ProductModal(props) {
       >
         <IoClose />
       </button>
-      <h4 className="">{product.name}</h4>
-      <div className="">
-        <div className="">
-          <span>Brands:</span>
-          <span className="">
-            <b>{product.brand}</b>
-          </span>
-        </div>
-
-        <Rating defaultValue={3} precision={0.5} size="small" readOnly />
-      </div>
-      <hr />
-      <div className="productDetailsModal">
-        <div className="">
-          <ProductZoom />
-        </div>
-        <div className="">
-          <div className="">
-            <span className="oldPrice">{product.price}</span>
-            <span className="netPrice">{currentPrice}</span>
+      <div className="product-modal-header">
+        <h1 className="product-modal-header-name">{product.name}</h1>
+        <div className="product-modal-header-rating">
+          <div className="product-modal-header-brand">
+            <span>Brands:</span>
+            <span>
+              <b> {product.brand}</b>
+            </span>
           </div>
-          <span className="">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
-          <p className="">
+          <Rating defaultValue={3} precision={0.5} size="small" readOnly />
+        </div>
+      </div>
+      <div className="product-modal-content">
+        <div className="product-modal-content-thumbnails">
+          {/* <ProductZoom /> */}
+        </div>
+        <div className="product-modal-content-main">
+          <div className="product-modal-content-main-status">
+            <div className="product-modal-content-main-status-prices">
+              <span className="product-modal-content-main-status-prices-old-price">{product.price}</span>
+              <span className="product-modal-content-main-status-prices-net-price">{currentPrice}</span>
+            </div>
+          <span className="product-modal-content-main-status-stock">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
+          </div>
+          <p className="product-modal-content-main-description">
             {product.description}
           </p>
 
-          <div className="">
-            <QuantityBox quantity={product.countInStock} />
-            <button className="">
+          <div className="product-modal-content-main-quantity">
+            <QuantityBox stockQuantity={product.countInStock} />
+            <button className="product-modal-content-main-add-button">
               <IoCartOutline className="" />
-              Add to cart
+              <span>Add to cart</span>
             </button>
           </div>
 
-          <div className="">
-            <button className="" variant="outlined">
+          <div className="product-modal-content-main-buttons">
+            <button className="product-modal-content-main-wishlist-button">
               <CiHeart />
               &nbsp;ADD TO WISHSLIST
             </button>
-            <button className="" variant="outlined">
+            <button className="product-modal-content-main-compare-button">
               <MdCompareArrows />
               &nbsp;COMPARE
             </button>

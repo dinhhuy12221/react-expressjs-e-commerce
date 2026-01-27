@@ -1,41 +1,98 @@
+.product-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 600px;
+}
 .product-modal .MuiPaper-elevation {
-  padding: 25px;
   position: relative;
-  max-width: 900px !important;
-  width: 900px !important;
-}
-.product-modal h4 {
-  font-size: 22px !important;
-  color: rgba(0, 0, 0, 0.7) !important;
-}
-
-.product-modal .actions button {
-  color: #000 !important;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 11px !important;
-}
-.product-modal .actions button svg {
-  font-size: 15px !important;
-}
-
-.productZoom {
+  padding: var(--space-50);
   width: 100%;
+  min-width: 300px;
+  max-width: 1000px;
+}
+.product-modal-close-button {
+  margin-left: auto;
+
+  width: 30px;
+  min-height: 30px;
+}
+.product-modal-header-rating {
+  display: flex;
+  gap: var(--space-18);
+
+}
+
+.product-modal-header-rating > * {
+  border-left: var(--border-width-2) rgba(0, 0, 0, 0.1);
+}
+
+.product-modal-header-rating > *:first-child {
+  border-left: none;
+}
+
+.product-modal-content {
+  display: flex;
+
+}
+.product-modal-content-thumbnails {
+  /* width: 100%; */
   height: auto;
   padding: 0px;
   overflow: hidden;
   border-radius: 15px;
 }
-.productZoom .badge {
+.product-modal-content-thumbnails .badge {
   position: absolute !important;
   top: 20px !important;
   left: 20px !important;
   z-index: 100;
 }
-.productZoom .badge-primary {
-  background: #2bbef9 !important;
+
+.product-modal-content-main {
+  display: flex;
+  flex-direction: column;
+}
+.product-modal-content-main-status {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--space-6);
+  font-family: var(--font-dosis);
+}
+.product-modal-content-main-status-prices {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+.product-modal-content-main-status-prices-old-price {
+  color: var(--color-text-gray-1);
+  text-decoration: line-through;
+  font-size: var(--font-26);
+  font-weight: 600;
+}
+.product-modal-content-main-status-prices-net-price {
+  color: var(--color-text-red-1);
+  font-size: var(--font-28);
+  font-weight: 600;
+}
+.product-modal-content-main-status-stock {
+  padding: var(--space-8);
+  border-radius: var(--radius-20);
+  color: var(--color-text-success);
+  background-color: var(--color-bg-success);
+  font-family: var(--font-dosis);
+  font-size: var(--font-14);
+  font-weight: 600;
 }
 
-.zoomSliderBig {
+.product-modal-content-main-quantity {
+  display: flex;
+  justify-content: start;
+  gap: var(--space-16);
+}
+/* .zoomSliderBig {
   width: 100% !important;
 }
 
@@ -66,4 +123,4 @@
 }
 .zoomSlider .slick-arrow.slick-prev {
   left: -5% !important;
-}
+} */

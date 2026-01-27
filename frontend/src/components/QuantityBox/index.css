@@ -1,23 +1,21 @@
 .quantity-box {
   display: flex;
   justify-content: center;
-  }
-  .quantityDrop button {
-    min-width: 40px !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
-    background: #edeef5;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
-    color: #000;
-  }
-  .quantityDrop button svg {
-    color: #000 !important;
-  }
-  .quantityDrop input {
-    width: 20px;
-    border: 0px;
-    background: transparent;
-    outline: none;
-    text-align: center;
-  }
+  gap: var(--space-8);
+}
+.quantity-box button {
+  width: 40px;
+  min-height: 40px;
+  background: var(--color-bg-gray-2);
+  border: var(--border-width-1) rgba(0, 0, 0, 0.1);
+}
+.quantity-box button svg {
+  font-size: var(--font-12);
+}
+.quantity-box input {
+  width: 30px;
+  border: 0px;
+  outline: none;
+  background: transparent;
+  text-align: center;
+}
