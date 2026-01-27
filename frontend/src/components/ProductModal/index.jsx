@@ -40,7 +40,7 @@ export default function ProductModal(props) {
       }}
     >
       <button
-        className="product-modal-close-button"
+        className="btn btn--outlined btn--circle product-modal-close-button"
         onClick={() => {
         context.setIsOpenProductModal(false);
         context.setProductModal({});
@@ -49,12 +49,12 @@ export default function ProductModal(props) {
         <IoClose />
       </button>
       <div className="product-modal-header">
-        <h4 className="product-modal-header-name">{product.name}</h4>
+        <h1 className="product-modal-header-name">{product.name}</h1>
         <div className="product-modal-header-rating">
           <div className="product-modal-header-brand">
             <span>Brands:</span>
-            <span className="">
-              <b>{product.brand}</b>
+            <span>
+              <b> {product.brand}</b>
             </span>
           </div>
           <Rating defaultValue={3} precision={0.5} size="small" readOnly />

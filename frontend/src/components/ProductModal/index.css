@@ -1,21 +1,22 @@
-.product-modal .MuiPaper-elevation {
-  padding: 25px;
-  position: relative;
-  max-width: 900px !important;
-  width: 900px !important;
-}
-.product-modal h4 {
-  font-size: 22px !important;
-  color: rgba(0, 0, 0, 0.7) !important;
-}
+.product-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.product-modal .actions button {
-  color: #000 !important;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 11px !important;
+  min-height: 600px;
 }
-.product-modal .actions button svg {
-  font-size: 15px !important;
+.product-modal .MuiPaper-elevation {
+  position: relative;
+  padding: var(--space-50);
+  width: 100%;
+  min-width: 300px;
+  max-width: 1000px;
+}
+.product-modal-close-button {
+  margin-left: auto;
+
+  width: 30px;
+  min-height: 30px;
 }
 
 .productZoom {
