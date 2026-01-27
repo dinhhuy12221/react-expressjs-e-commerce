@@ -12,7 +12,7 @@ import { getDiscountPrice } from "../../../utils/getDiscountPrice";
 export default function ProductItem({ product }) {
   const context = useContext(MyContext);
 
-  const viewProductDetails = (id) => {
+  const viewProductDetails = () => {
     context.setIsOpenProductModal(true);
     context.setProductModal(product);
   };
@@ -24,7 +24,7 @@ export default function ProductItem({ product }) {
       <div className="product-buttons">
         <button
           className="btn btn--outlined btn--circle detail-button"
-          onClick={() => viewProductDetails(1)}
+          onClick={() => viewProductDetails()}
         >
           <AiOutlineFullscreen />
         </button>

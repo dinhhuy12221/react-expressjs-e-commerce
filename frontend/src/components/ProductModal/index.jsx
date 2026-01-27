@@ -69,13 +69,13 @@ export default function ProductModal(props) {
             <span className="oldPrice">{product.price}</span>
             <span className="netPrice">{currentPrice}</span>
           </div>
-          <span className="">{product.countInStock > 0 && "IN STOCK"}</span>
+          <span className="">{product.countInStock > 0 && "In Stock"}</span>
           <p className="">
             {product.description}
           </p>
 
           <div className="">
-            <QuantityBox quantity={1} />
+            <QuantityBox quantity={product.countInStock} />
             <button className="">
               <IoCartOutline className="" />
               Add to cart

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
-import Button from "@mui/material/Button";
 import { FaMinus } from "react-icons/fa";
 
 import './index.css'
@@ -20,13 +19,13 @@ export default function QuantityBox(props) {
     
   return (
     <div className="quantityDrop d-flex justify-content-center">
-      <Button onClick={minus}>
+      <button onClick={minus}>
       <FaMinus />
-      </Button>
+      </button>
       <input type="text" value={inputVal}/>
-      <Button onClick={plus}>
+      <button onClick={plus}>
       <FaPlus />
-      </Button>
+      </button>
     </div>
   );
 }
