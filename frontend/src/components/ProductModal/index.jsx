@@ -9,8 +9,8 @@ import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
 import { MyContext } from "../../App";
 import { getDiscountPrice } from "../../utils/getDiscountPrice";
-import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/navigation";
 
 import "./index.css";
 import ProductZoom from "../ProductZoom";
@@ -60,34 +60,34 @@ export default function ProductModal(props) {
           <Rating defaultValue={3} precision={0.5} size="small" readOnly />
         </div>
       </div>
-      <div className="product-modal-main">
-        <div className="product-modal-thumbnails">
-          <ProductZoom />
+      <div className="product-modal-content">
+        <div className="product-modal-content-thumbnails">
+          {/* <ProductZoom /> */}
         </div>
-        <div className="product-modal-main">
-          <div className="">
-            <span className="product-modal-main-old-price">{product.price}</span>
-            <span className="product-modal-main-net-price">{currentPrice}</span>
+        <div className="product-modal-content-main">
+          <div className="product-modal-main-content-prices">
+            <span className="product-modal-main-content-old-price">{product.price}</span>
+            <span className="product-modal-main-content-net-price">{currentPrice}</span>
           </div>
-          <span className="product-modal-main-status">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
-          <p className="product-modal-main-description">
+          <span className="product-modal-main-content-status">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
+          <p className="product-modal-main-content-description">
             {product.description}
           </p>
 
-          <div className="product-modal-main-quantity">
+          <div className="product-modal-main-content-quantity">
             <QuantityBox quantity={product.countInStock} />
-            <button className="product-modal-main-add-button">
+            <button className="product-modal-main-content-add-button">
               <IoCartOutline className="" />
               <span>Add to cart</span>
             </button>
           </div>
 
-          <div className="product-modal-main-buttons">
-            <button className="product-modal-main-wishlist-button">
+          <div className="product-modal-main-content-buttons">
+            <button className="product-modal-main-content-wishlist-button">
               <CiHeart />
               &nbsp;ADD TO WISHSLIST
             </button>
-            <button className="product-modal-main-compare-button">
+            <button className="product-modal-main-content-compare-button">
               <MdCompareArrows />
               &nbsp;COMPARE
             </button>
