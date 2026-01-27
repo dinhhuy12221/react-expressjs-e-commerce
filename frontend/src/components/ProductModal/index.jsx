@@ -48,46 +48,46 @@ export default function ProductModal(props) {
       >
         <IoClose />
       </button>
-      <h4 className="">{product.name}</h4>
-      <div className="">
-        <div className="">
-          <span>Brands:</span>
-          <span className="">
-            <b>{product.brand}</b>
-          </span>
+      <div className="product-modal-header">
+        <h4 className="product-modal-header-name">{product.name}</h4>
+        <div className="product-modal-header-rating">
+          <div className="product-modal-header-brand">
+            <span>Brands:</span>
+            <span className="">
+              <b>{product.brand}</b>
+            </span>
+          </div>
+          <Rating defaultValue={3} precision={0.5} size="small" readOnly />
         </div>
-
-        <Rating defaultValue={3} precision={0.5} size="small" readOnly />
       </div>
-      <hr />
-      <div className="productDetailsModal">
-        <div className="">
+      <div className="product-modal-main">
+        <div className="product-modal-thumbnails">
           <ProductZoom />
         </div>
-        <div className="">
+        <div className="product-modal-main">
           <div className="">
-            <span className="oldPrice">{product.price}</span>
-            <span className="netPrice">{currentPrice}</span>
+            <span className="product-modal-main-old-price">{product.price}</span>
+            <span className="product-modal-main-net-price">{currentPrice}</span>
           </div>
-          <span className="">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
-          <p className="">
+          <span className="product-modal-main-status">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
+          <p className="product-modal-main-description">
             {product.description}
           </p>
 
-          <div className="">
+          <div className="product-modal-main-quantity">
             <QuantityBox quantity={product.countInStock} />
-            <button className="">
+            <button className="product-modal-main-add-button">
               <IoCartOutline className="" />
-              Add to cart
+              <span>Add to cart</span>
             </button>
           </div>
 
-          <div className="">
-            <button className="" variant="outlined">
+          <div className="product-modal-main-buttons">
+            <button className="product-modal-main-wishlist-button">
               <CiHeart />
               &nbsp;ADD TO WISHSLIST
             </button>
-            <button className="" variant="outlined">
+            <button className="product-modal-main-compare-button">
               <MdCompareArrows />
               &nbsp;COMPARE
             </button>
