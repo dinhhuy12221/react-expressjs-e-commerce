@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 export default function SideBar() {
-  const [value, setValue] = useState([100, 60000]);
+  const [value, setValue] = useState([0, 50000]);
   // const [value2, setValue2] = useState(0);
   // const [brandFilters, setBrandFilters] = useState([]);
   // const [ratingsArr, setRatings] = useState([]);
@@ -37,8 +37,8 @@ export default function SideBar() {
         <RangeSlider
           value={value}
           onInput={setValue}
-          min={100}
-          max={60000}
+          min={0}
+          max={50000}
           step={5}
         />
         <div className="sidebar-filter-on-price">

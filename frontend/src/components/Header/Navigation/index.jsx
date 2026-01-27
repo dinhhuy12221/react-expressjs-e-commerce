@@ -217,60 +217,60 @@ export default function Navigation() {
           </Link>
           <ul className="sub-menu">
             <li className="menu-item">
-          <Link to="/cat/men" className="btn">
+          <Link to="/category/meats-seafood" className="btn">
             <TbMeat />
             <span>Meats & Seafood</span>
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/cat/women" className="btn">
+          <Link to="/category/bakery" className="btn">
             <GiRawEgg />
             <span>Bakery</span>
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/cat/beauty" className="btn">
+          <Link to="/category/beverages" className="btn">
             <MdOutlineLocalCafe />
             <span>Beverages</span>
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/cat/watches" className="btn">
+          <Link to="/blog" className="btn">
             <span>Blog</span>
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/cat/kids" className="btn">
+          <Link to="/contact" className="btn">
             <span>Contact</span>
           </Link>
         </li>
           </ul>
         </li>
         <li className="menu-item">
-          <Link to="/cat/men" className="btn">
+          <Link to="/category/meats-seafood" className="btn">
             <TbMeat />
             <span>Meats & Seafood</span>
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/cat/women" className="btn">
+          <Link to="/category/bakery" className="btn">
             <GiRawEgg />
             <span>Bakery</span>
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/cat/beauty" className="btn">
+          <Link to="/category/beverages" className="btn">
             <MdOutlineLocalCafe />
             <span>Beverages</span>
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/cat/watches" className="btn">
+          <Link to="/blog" className="btn">
             <span>Blog</span>
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/cat/kids" className="btn">
+          <Link to="/contact" className="btn">
             <span>Contact</span>
           </Link>
         </li>

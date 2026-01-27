@@ -14,6 +14,7 @@ export default function ProductItem({ product }) {
 
   const viewProductDetails = (id) => {
     context.setIsOpenProductModal(true);
+    context.setProductModal(product);
   };
 
   const currentPrice = getDiscountPrice(product.price, product.discount);
@@ -45,7 +46,7 @@ export default function ProductItem({ product }) {
         <Link to={"/product/" + product.slug}>
           <span className="product-name">{product.name}</span>
         </Link>
-        <span className="product-status">In Stock</span>
+        <span className="product-status">{product.countInStock > 0 && "In Stock"}</span>
         <Rating
           className="product-rating"
           name="read-only"

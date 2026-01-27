@@ -39,6 +39,7 @@ function App() {
   const [countryList, setCountryList] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isOpenProductModal, setIsOpenProductModal] = useState(false);
+  const [productModal, setProductModal] = useState({});
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
@@ -55,6 +56,8 @@ function App() {
     setSelectedCountry,
     isOpenProductModal,
     setIsOpenProductModal,
+    productModal,
+    setProductModal,
     isLogin,
     setIsLogin,
   };
@@ -66,7 +69,7 @@ function App() {
             <Route path="/" element={<Wrapper />}>
               {/* Pulic Routes */}
               <Route path="/" element={<Home />} />
-              <Route path="/cat/:id" element={<Category />} />
+              <Route path="/category/:id" element={<Category />} />
               <Route
                 path="/product/:slug"
                 element={<ProductDetails />}
@@ -79,7 +82,7 @@ function App() {
               {/* <Route element={<PersistLogin />}> */}
               <Route element={<RequireAuth />}>
                 <Route path="/profile" element={<Profile />}>
-                  <Route path="info" element={<Account />} index={true} />
+                  <Route path="information" element={<Account />} index={true} />
                   <Route path="orders" element={<Orders />} />
                   <Route path="reviews" element={<Reviews />} />
                   <Route path="settings" element={<Settings />} />
