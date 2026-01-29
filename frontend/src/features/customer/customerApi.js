@@ -6,7 +6,7 @@ export const customerApiSlice = apiSlice.injectEndpoints({
       query: (id) => ({
         url: "/customer/get",
         method: "GET",
-        body: { id }, 
+        body: { id },
       }),
     }),
     updateCustomer: builder.mutation({

@@ -4,7 +4,7 @@ class customerController {
   getCustomer = async (req, res) => {
     try {
       console.log(req.body);
-      
+
       const user = await Customer.findOne({ _id: req.body.id });
       return res.status(200).json(user);
     } catch (error) {
@@ -27,11 +27,12 @@ class customerController {
       );
 
       if (result) {
-        return res.status(200).json({ "customer": result });
+        return res.status(200).json({ customer: result });
       }
       res.status(400).json({ message: "Unauthorized" });
     } catch (error) {
       console.log(error);
+      return res.status(400).json({ message: "Error" });
     }
   };
 }

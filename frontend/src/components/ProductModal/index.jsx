@@ -87,7 +87,7 @@ export default function ProductModal(props) {
           <div className="product-modal-content-main-buttons">
             <button className="product-modal-content-main-wishlist-button">
               <CiHeart />
-              &nbsp;ADD TO WISHSLIST
+              &nbsp;ADD TO WISHLIST
             </button>
             <button className="product-modal-content-main-compare-button">
               <MdCompareArrows />
