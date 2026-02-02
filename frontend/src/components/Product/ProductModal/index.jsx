@@ -1,3 +1,4 @@
+import { MyContext } from "~/App";
 import { useContext, useRef, useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import { IoClose } from "react-icons/io5";
@@ -7,18 +8,17 @@ import QuantityBox from "~/components/QuantityBox/index.jsx";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
-import { MyContext } from "~/App";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
+import ProductZoom from "~/components/ProductZoom";
 // import "swiper/css";
 // import "swiper/css/navigation";
 
 import "./index.css";
-import ProductZoom from "~/components/ProductZoom";
 
 export default function ProductModal(props) {
-  const [slideIndex, setSlideIndex] = useState(0);
-  const zoomSliderBig = useRef();
-  const zoomSlider = useRef();
+  // const [slideIndex, setSlideIndex] = useState(0);
+  // const zoomSliderBig = useRef();
+  // const zoomSlider = useRef();
 
   const context = useContext(MyContext);
   const product = context.productModal;
@@ -62,7 +62,7 @@ export default function ProductModal(props) {
       </div>
       <div className="product-modal-content">
         <div className="product-modal-content-thumbnails">
-          {/* <ProductZoom /> */}
+          <ProductZoom />
         </div>
         <div className="product-modal-content-main">
           <div className="product-modal-content-main-status">
