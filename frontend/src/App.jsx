@@ -1,7 +1,7 @@
 // import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import { createContext, Suspense, useEffect, useState } from "react";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
-import ProductModal from "./components/ProductModal/index.jsx";
+import ProductModal from "./components/Product/ProductModal/index.jsx";
 import axios from "axios";
 import ScrollToTop from "./utils/ScrollToTop/index.jsx";
 import RequireAuth from "./features/auth/RequireAuth.jsx";

@@ -1,13 +1,12 @@
-import "./Button.module.css";
+import styles from "./Button.module.css";
 
-const Button = ({ children, className, variant = "primary", href, onClick, iconLeft, iconRight, ...props }) => {
+const Button = ({ children, className, href, onClick, iconLeft, iconRight, ...props }) => {
   const Component = href ? "a" : "button"
 
   return (
     <Component
-      className={className}
+      className={`${styles.btn} ${className}`}
       href={href}
-      variant={variant}
       onClick={onClick}
       {...props}
     >
