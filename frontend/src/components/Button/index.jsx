@@ -1,20 +1,20 @@
 import "./Button.module.css";
 
-const Button = ({ children, className, variant = "primary", onClick, iconLeft, iconRight }) => {
+const Button = ({ children, className, variant = "primary", href, onClick, iconLeft, iconRight, ...props }) => {
+  const Component = href ? "a" : "button"
 
-  const props = {
-    
-  }
   return (
-    <button
+    <Component
       className={className}
+      href={href}
       variant={variant}
       onClick={onClick}
+      {...props}
     >
       {iconLeft}
       {children}
       {iconRight}
-    </button>
+    </Component>
   );
 }
 
