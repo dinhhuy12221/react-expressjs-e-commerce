@@ -1,0 +1,123 @@
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-5);
+  transition: all 0.3s ease;
+
+  font-family: inherit;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+button svg {
+  font-size: var(--font-18);
+}
+
+button[data-variant="primary"] {
+  background-color: var(--color-bg-red-1);
+  color: var(--color-text-white);
+  text-transform: capitalize;
+}
+button[data-variant="primary"] svg {
+  color: var(--color-text-white);
+}
+button[data-variant="primary"]:hover {
+  background-color: var(--color-bg-red-2);
+  color: var(--color-text-white);
+}
+button[data-variant="primary"]:active {
+  background-color: var(--color-bg-red-2);
+  color: var(--color-text-white);
+}
+
+button[data-variant="circle"] {
+  border-radius: 50%;
+}
+
+button[data-variant="outlined"] {
+  background-color: transparent;
+  color: var(--color-text-red-1);
+  border: var(--border-width-1) var(--color-bg-red-1);
+}
+button[data-variant="outlined"] svg {
+  color: var(--color-text-red-1);
+}
+button[data-variant="outlined"]:hover {
+  color: var(--color-text-white);
+  background-color: var(--color-bg-red-2);
+  border: var(--border-width-1) var(--color-bg-red-2);
+}
+
+button[data-variant="outlined"]:hover svg {
+  color: var(--color-text-white);
+}
+
+/* button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    box-sizing: border-box;
+
+    width: auto;
+
+    border-radius: 8px;
+
+    background-color: var(--theme-2);
+    color: rgba(255, 255, 255);
+
+    font-weight: 600;
+
+    user-select: none;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
+
+.small {
+    padding: 6px;
+    
+    font-size: 1em;
+}
+
+.medium {
+    padding: 8px;
+    
+    font-size: 1.1em;
+}
+
+.large {
+    padding: 10px;
+    
+    font-size: 1.2em;
+} */
+
+/* 
+.btn-blue {
+  background: #233a95;
+  color: var(--color-text-white);
+  text-transform: capitalize;
+}
+
+.btn--lg {
+  font-size: var(--font-18);
+  padding: var(--space-12) var(--space-32);
+}
+
+.btn--sm {
+  font-size: var(--font-14);
+
+  svg {
+    font-size: var(--font-18);
+  }
+} */

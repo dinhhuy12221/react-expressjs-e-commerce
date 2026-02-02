@@ -7,6 +7,7 @@ import Navigation from "./Navigation/index";
 import { MyContext } from "../../App";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
+import Button from "../Button";
 // import { useSelector } from "react-redux";
 // import { selectCurrentCustomer } from "../../features/auth/authSlice";
 // import Profile from "./Profile";
@@ -26,9 +27,9 @@ function Header() {
           delay
         </p>
         <div className="header-content">
-          <button className="btn menu-button" onClick={() => setOpen(true)}>
+          <Button className="menu-button" onClick={() => setOpen(true)}>
             <IoIosMenu />
-          </button>
+          </Button>
           <a href="/" className="logo">
             <img src={Logo} alt="Logo"></img>
           </a>
