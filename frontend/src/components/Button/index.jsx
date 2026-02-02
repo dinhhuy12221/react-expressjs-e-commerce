@@ -1,24 +1,44 @@
-import "./index.scss";
+import styles from "./Button.module.css";
 
-function Button({ children, className, style, iconLeft, iconRight, onClick, ...passProps }) {
-  let classes = className;
-
-  const props = {
-    className: classes,
-    style,
-    onClick,
-    ...passProps,
-  };
+const Button = ({ children, className, href, onClick, iconLeft, iconRight, ...props }) => {
+  const Component = href ? "a" : "button"
 
   return (
-    <button
+    <Component
+      className={`${styles.btn} ${className}`}
+      href={href}
+      onClick={onClick}
       {...props}
     >
       {iconLeft}
       {children}
       {iconRight}
-    </button>
+    </Component>
   );
 }
 
 export default Button;
+// import "./index.css";
+
+// function Button({ children, className, style, iconLeft, iconRight, onClick, ...passProps }) {
+//   let classes = className;
+
+//   const props = {
+//     className: classes,
+//     style,
+//     onClick,
+//     ...passProps,
+//   };
+
+//   return (
+//     <button
+//       {...props}
+//     >
+//       {iconLeft}
+//       {children}
+//       {iconRight}
+//     </button>
+//   );
+// }
+
+// export default Button;

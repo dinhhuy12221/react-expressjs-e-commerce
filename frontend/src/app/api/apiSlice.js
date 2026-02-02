@@ -43,6 +43,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     return result;
   } catch (error) {
     console.error(error);
+    return error;
   }
 };
 

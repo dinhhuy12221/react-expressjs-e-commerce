@@ -10,10 +10,10 @@ export const authApiSlice = apiSlice.injectEndpoints({
             })
         }),
         register: builder.mutation({
-            query: registerInfo => ({
+            query: data => ({
                 url: '/account/customer/create',
                 method: "POST",
-                body: { ...registerInfo },
+                body: { ...data },
             })
         }),
         verify: builder.mutation({

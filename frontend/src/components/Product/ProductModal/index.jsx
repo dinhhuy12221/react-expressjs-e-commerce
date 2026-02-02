@@ -3,17 +3,17 @@ import Dialog from "@mui/material/Dialog";
 import { IoClose } from "react-icons/io5";
 import Rating from "@mui/material/Rating";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
-import QuantityBox from "../QuantityBox";
+import QuantityBox from "../../QuantityBox";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
-import { MyContext } from "../../App";
-import { getDiscountPrice } from "../../utils/getDiscountPrice";
+import { MyContext } from "../../../App";
+import { getDiscountPrice } from "../../../utils/getDiscountPrice";
 // import "swiper/css";
 // import "swiper/css/navigation";
 
 import "./index.css";
-import ProductZoom from "../ProductZoom";
+import ProductZoom from "../../ProductZoom";
 
 export default function ProductModal(props) {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -42,9 +42,9 @@ export default function ProductModal(props) {
       <button
         className="btn btn--outlined btn--circle product-modal-close-button"
         onClick={() => {
-        context.setIsOpenProductModal(false);
-        context.setProductModal({});
-      }}
+          context.setIsOpenProductModal(false);
+          context.setProductModal({});
+        }}
       >
         <IoClose />
       </button>
@@ -67,10 +67,16 @@ export default function ProductModal(props) {
         <div className="product-modal-content-main">
           <div className="product-modal-content-main-status">
             <div className="product-modal-content-main-status-prices">
-              <span className="product-modal-content-main-status-prices-old-price">{product.price}</span>
-              <span className="product-modal-content-main-status-prices-net-price">{currentPrice}</span>
+              <span className="product-modal-content-main-status-prices-old-price">
+                {product.price}
+              </span>
+              <span className="product-modal-content-main-status-prices-net-price">
+                {currentPrice}
+              </span>
             </div>
-          <span className="product-modal-content-main-status-stock">{product.countInStock > 0 && `In Stock: ${product.countInStock}`}</span>
+            <span className="product-modal-content-main-status-stock">
+              {product.countInStock > 0 && `In Stock: ${product.countInStock}`}
+            </span>
           </div>
           <p className="product-modal-content-main-description">
             {product.description}
@@ -78,20 +84,20 @@ export default function ProductModal(props) {
 
           <div className="product-modal-content-main-quantity">
             <QuantityBox stockQuantity={product.countInStock} />
-            <button className="product-modal-content-main-add-button">
+            <button className="btn btn--primary product-modal-content-main-quantity-add-button">
               <IoCartOutline className="" />
               <span>Add to cart</span>
             </button>
           </div>
 
           <div className="product-modal-content-main-buttons">
-            <button className="product-modal-content-main-wishlist-button">
+            <button className="btn btn--outlined product-modal-content-main-wishlist-button">
               <CiHeart />
-              &nbsp;ADD TO WISHLIST
+              &nbsp;Add to wishlist
             </button>
-            <button className="product-modal-content-main-compare-button">
+            <button className="btn btn--outlined product-modal-content-main-compare-button">
               <MdCompareArrows />
-              &nbsp;COMPARE
+              &nbsp;Compare
             </button>
           </div>
         </div>

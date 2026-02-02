@@ -10,10 +10,10 @@ export const customerApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     updateCustomer: builder.mutation({
-      query: (info) => ({
+      query: data => ({
         url: "/customer/update",
         method: "PUT",
-        body: { ...info },
+        body: { ...data },
       }),
     }),
   }),
