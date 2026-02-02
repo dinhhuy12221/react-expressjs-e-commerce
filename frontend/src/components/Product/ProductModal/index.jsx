@@ -3,17 +3,17 @@ import Dialog from "@mui/material/Dialog";
 import { IoClose } from "react-icons/io5";
 import Rating from "@mui/material/Rating";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
-import QuantityBox from "../../QuantityBox";
+import QuantityBox from "~/components/QuantityBox/index.jsx";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
-import { MyContext } from "../../../App";
-import { getDiscountPrice } from "../../../utils/getDiscountPrice";
+import { MyContext } from "~/App";
+import { getDiscountPrice } from "~/utils/getDiscountPrice";
 // import "swiper/css";
 // import "swiper/css/navigation";
 
 import "./index.css";
-import ProductZoom from "../../ProductZoom";
+import ProductZoom from "~/components/ProductZoom";
 
 export default function ProductModal(props) {
   const [slideIndex, setSlideIndex] = useState(0);
