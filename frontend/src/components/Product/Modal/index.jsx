@@ -61,9 +61,9 @@ export default function ProductModal(props) {
         </div>
       </div>
       <div className="product-modal-content">
-        <div className="product-modal-content-thumbnails">
-          <ThumbnailsSwiper product={context.productModal}/>
-        </div>
+        {/* <div className="product-modal-content-thumbnails"> */}
+          <ThumbnailsSwiper product={product}/>
+        {/* </div> */}
         <div className="product-modal-content-main">
           <div className="product-modal-content-main-status">
             <div className="product-modal-content-main-status-prices">

@@ -36,27 +36,27 @@ export default function ThumbnailsSwiper({ product }) {
         <SwiperSlide>
           <div className="product-thumbnails-slider-item">
             <InnerImageZoom
-              zoomType="hover"
-              zoomScale={1}
-              src={images}
+              // zoomType="hover"
+              // zoomScale={1}
+              src={product.image}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="product-thumbnails-slider-item">
             <InnerImageZoom
-              zoomType="hover"
-              zoomScale={1}
-              src={images}
+              // zoomType="hover"
+              // zoomScale={1}
+              src={product.image}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="product-thumbnails-slider-item">
             <InnerImageZoom
-              zoomType="hover"
-              zoomScale={1}
-              src={images}
+              // zoomType="hover"
+              // zoomScale={1}
+              src={product.image}
             />
           </div>
         </SwiperSlide>
@@ -73,9 +73,9 @@ export default function ThumbnailsSwiper({ product }) {
         <SwiperSlide>
           <div className={`product-thumbnails-navigation-item ${slideIndex === 0 && "active"}`}>
             <img
-              zoomType="hover"
-              zoomScale={1}
-              src={images}
+              // zoomType="hover"
+              // zoomScale={1}
+              src={product.image}
               onClick={() => goto(0)}
             />
           </div>
@@ -83,8 +83,8 @@ export default function ThumbnailsSwiper({ product }) {
         <SwiperSlide>
           <div className={`product-thumbnails-navigation-item ${slideIndex === 1 && "active"}`}>
             <img
-              zoomType="hover"
-              zoomScale={1}
+              // zoomType="hover"
+              // zoomScale={1}
               src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-46.jpg"
               onClick={() => goto(1)}
             />
@@ -93,8 +93,8 @@ export default function ThumbnailsSwiper({ product }) {
         <SwiperSlide>
           <div className={`product-thumbnails-navigation-item ${slideIndex === 2 && "active"}`}>
             <img
-              zoomType="hover"
-              zoomScale={1}
+              // zoomType="hover"
+              // zoomScale={1}
               src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-34.jpg"
               onClick={() => goto(2)}
             />
