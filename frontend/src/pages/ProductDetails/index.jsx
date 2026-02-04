@@ -1,21 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import ProductZoom from "~/components/Product/ThumbnailSwiper";
 import Rating from "@mui/material/Rating";
 import QuantityBox from "~/components/QuantityBox";
-import Button from "@mui/material/Button";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineCompareArrows } from "react-icons/md";
 import Tooltip from "@mui/material/Tooltip";
 
-import "./index.css";
 import ProductReview from "./ProductReview";
 import ItemSwiper from "~/components/Product/ItemSwiper";
 import { getProductBySlug } from "~/api/product";
 import { getCategoryById } from "~/api/category";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
+import "./index.css";
 
 const getProductInfo = async () => {
   try {
@@ -146,22 +143,22 @@ export default function ProductDetails() {
 
               <div className="d-flex align-items-center mt-3">
                 <QuantityBox quantity={1} />
-                <Button className="bg-red btn--lg btn-round ms-1">
+                <button className="bg-red btn--lg btn-round ms-1">
                   <IoCartOutline className="me-2" />
                   <span>Add to cart</span>
-                </Button>
+                </button>
               </div>
 
               <div className="d-flex align-items-center mt-3">
                 <Tooltip title="Add to wishlist" placement="bottom">
-                  <Button className="bg-red btn--lg btn-circle me-2">
+                  <button className="bg-red btn--lg btn-circle me-2">
                     <CiHeart />
-                  </Button>
+                  </button>
                 </Tooltip>
                 <Tooltip title="Add to compare" placement="bottom">
-                  <Button className="bg-red btn--lg btn-circle">
+                  <button className="bg-red btn--lg btn-circle">
                     <MdOutlineCompareArrows />
-                  </Button>
+                  </button>
                 </Tooltip>
               </div>
             </div>
