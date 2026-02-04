@@ -47,7 +47,7 @@ export default function ThumbnailsSwiper({ product }) {
             <InnerImageZoom
               // zoomType="hover"
               // zoomScale={1}
-              src={product.image}
+              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-46.jpg"
             />
           </div>
         </SwiperSlide>
@@ -56,7 +56,7 @@ export default function ThumbnailsSwiper({ product }) {
             <InnerImageZoom
               // zoomType="hover"
               // zoomScale={1}
-              src={product.image}
+              src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-34.jpg"
             />
           </div>
         </SwiperSlide>

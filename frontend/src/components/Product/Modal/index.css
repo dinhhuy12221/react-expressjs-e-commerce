@@ -7,13 +7,15 @@
 }
 .product-modal .MuiPaper-elevation {
   position: relative;
-  padding: var(--space-50);
+  padding: var(--space-40);
   width: 100%;
   min-width: 300px;
   max-width: 1000px;
 }
 .product-modal-close-button {
-  margin-left: auto;
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-16);
 
   width: 30px;
   min-height: 30px;
@@ -21,7 +23,6 @@
 .product-modal-header-rating {
   display: flex;
   gap: var(--space-18);
-
 }
 
 .product-modal-header-rating > * {
@@ -36,12 +37,6 @@
   display: flex;
   gap: var(--space-8);
 }
-/* .product-modal-content-thumbnails {
-  height: auto;
-  padding: 0px;
-  overflow: hidden;
-  border-radius: 15px;
-} */
 
 .product-modal-content-main {
   display: flex;
@@ -104,35 +99,9 @@
   border-radius: var(--radius-15);
   padding: var(--space-6);
 }
-/* .zoomSliderBig {
-  width: 100%;
-}
 
-.zoomSlider {
-  padding-top: 30px;
+@media (max-width: 480px) {
+  .product-modal-content {
+    flex-direction: column;
+  }
 }
-.zoomSlider .slick-slide {
-  padding-right: 20px;
-}
-.zoomSlider * {
-  outline: none;
-}
-.zoomSlider .item {
-  border: 2px solid transparent;
-  overflow: hidden;
-  border-radius: 15px;
-  cursor: pointer;
-}
-.zoomSlider .slick-current .item {
-  border: 2px solid #3bb77e;
-}
-.zoomSlider .slick-arrow {
-  top: 55%;
-  zoom: 80%;
-}
-.zoomSlider .slick-arrow.slick-next {
-  right: -2%;
-}
-.zoomSlider .slick-arrow.slick-prev {
-  left: -5%;
-} */
