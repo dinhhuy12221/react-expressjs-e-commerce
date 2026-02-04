@@ -4,10 +4,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
-import ProductItem from "../Product/ProductItem";
+import Item from "../Item";
 import "./index.css";
 
-export default function ProductSwiper(props) {
+export default function ItemSwiper(props) {
   const [numberOfProductSwiper, setNumberOfProductSwiper] = useState(4);
 
   const productList = props.productList;
@@ -49,7 +49,7 @@ export default function ProductSwiper(props) {
       >
         {productList &&
           productList.map((product, index) => {
-            return <SwiperSlide key={index}><ProductItem product={product}/></SwiperSlide>;
+            return <SwiperSlide key={index}><Item product={product}/></SwiperSlide>;
           })}
       </Swiper>
     </div>

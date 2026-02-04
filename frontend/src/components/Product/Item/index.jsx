@@ -9,7 +9,7 @@ import LoadingAnimation from "~/components/LoadingAnimation";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import "./index.css";
 
-export default function ProductItem({ product }) {
+export default function Item({ product }) {
   const context = useContext(MyContext);
 
   const viewProductDetails = () => {

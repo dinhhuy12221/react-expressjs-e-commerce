@@ -1,6 +1,6 @@
 import { getDiscountPrice } from "../../../utils/getDiscountPrice";
 import "./index.css";
-const HotProduct = ({ product }) => {
+const HotItem = ({ product }) => {
   if (!product) {
     return null;
   }
@@ -42,4 +42,4 @@ const HotProduct = ({ product }) => {
   );
 };
 
-export default HotProduct;
+export default HotItem;

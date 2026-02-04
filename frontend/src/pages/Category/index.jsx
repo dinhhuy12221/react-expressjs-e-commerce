@@ -12,7 +12,7 @@ import Pagination from "@mui/material/Pagination";
 import { BsGridFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { TfiLayoutGrid4Alt } from "react-icons/tfi";
-import ProductItem from "../../components/Product/ProductItem";
+import Item from "../../components/Product/Item";
 import PaginationSection from "../../components/PaginationSection";
 import { getProductList } from "../../api/product";
 
@@ -119,7 +119,7 @@ export default function Category() {
         <div className={`category-product-main ${currentLayout}`}>
           {productList &&
             productList.map((item, index) => (
-                <ProductItem product={item} key={index} />
+                <Item product={item} key={index} />
             ))}
         </div>
 

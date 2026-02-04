@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import ProductZoom from "../../components/ProductZoom";
+import ProductZoom from "~/components/Product/ThumbnailSwiper";
 import Rating from "@mui/material/Rating";
-import QuantityBox from "../../components/QuantityBox";
+import QuantityBox from "~/components/QuantityBox";
 import Button from "@mui/material/Button";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
@@ -10,12 +10,12 @@ import Tooltip from "@mui/material/Tooltip";
 
 import "./index.css";
 import ProductReview from "./ProductReview";
-import ProductSwiper from "../../components/ProductSwiper";
-import { getProductBySlug } from "../../api/product";
-import { getCategoryById } from "../../api/category";
-import { getDiscountPrice } from "../../utils/getDiscountPrice";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import ItemSwiper from "~/components/Product/ItemSwiper";
+import { getProductBySlug } from "~/api/product";
+import { getCategoryById } from "~/api/category";
+import { getDiscountPrice } from "~/utils/getDiscountPrice";
+import Header from "~/components/Header";
+import Footer from "~/components/Footer";
 
 const getProductInfo = async () => {
   try {
@@ -171,9 +171,9 @@ export default function ProductDetails() {
 
           <ProductReview title="REVIEWS" />
 
-          <ProductSwiper title="RELATED PRODUCTS" />
+          <ItemSwiper title="RELATED PRODUCTS" />
 
-          <ProductSwiper title="RECENTLY VIEWED PRODUCTS" />
+          <ItemSwiper title="RECENTLY VIEWED PRODUCTS" />
         </div>
       </section>
     </>
