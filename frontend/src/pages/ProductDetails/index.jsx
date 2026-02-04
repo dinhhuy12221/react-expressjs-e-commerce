@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import ProductZoom from "../../components/ProductZoom";
+import ProductZoom from "../../components/ThumbnailSwiper";
 import Rating from "@mui/material/Rating";
 import QuantityBox from "../../components/QuantityBox";
 import Button from "@mui/material/Button";

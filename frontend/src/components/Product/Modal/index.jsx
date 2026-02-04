@@ -9,7 +9,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
-import ProductZoom from "~/components/ProductZoom";
+import ProductZoom from "~/components/ThumbnailSwiper";
 // import "swiper/css";
 // import "swiper/css/navigation";
 
