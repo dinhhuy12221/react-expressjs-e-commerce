@@ -9,15 +9,15 @@ import "swiper/css/navigation";
 
 import "./index.css";
 
-export default function ProductZoom({ images }) {
+export default function ThumbnailsSwiper({ product }) {
   const [slideIndex, setSlideIndex] = useState(0);
-  const thumbnailsSwiper = useRef();
+  const thumbnailsSlider = useRef();
   const thumbnailsNavigation = useRef();
 
   const goto = (index) => {
     setSlideIndex(index);
     thumbnailsNavigation.current.swiper.slideTo(index);
-    thumbnailsSwiper.current.swiper.slideTo(index);
+    thumbnailsSlider.current.swiper.slideTo(index);
   };
 
   return (
@@ -31,7 +31,7 @@ export default function ProductZoom({ images }) {
         loop
         modules={[Navigation]}
         className="product-thumbnails-slider"
-        ref={thumbnailsSwiper}
+        ref={thumbnailsSlider}
       >
         <SwiperSlide>
           <div className="product-thumbnails-slider-item">

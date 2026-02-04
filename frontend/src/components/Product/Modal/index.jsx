@@ -9,7 +9,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
-import ProductZoom from "~/components/Product/ThumbnailSwiper";
+import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
 // import "swiper/css";
 // import "swiper/css/navigation";
 
@@ -62,7 +62,7 @@ export default function ProductModal(props) {
       </div>
       <div className="product-modal-content">
         <div className="product-modal-content-thumbnails">
-          <ProductZoom />
+          <ThumbnailsSwiper product={context.productModal}/>
         </div>
         <div className="product-modal-content-main">
           <div className="product-modal-content-main-status">

@@ -16,11 +16,10 @@
 
 .product-thumbnails-navigation {
   padding-top: 30px;
-
-  .swiper-wrapper {
-    display: flex;
-    justify-content: center;
-  }
+}
+.product-thumbnails-navigation .swiper-wrapper {
+  display: flex;
+  justify-content: center;
 }
 .product-thumbnails-navigation .slick-slide {
   padding-right: 20px;
