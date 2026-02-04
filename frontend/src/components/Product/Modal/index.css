@@ -7,13 +7,15 @@
 }
 .product-modal .MuiPaper-elevation {
   position: relative;
-  padding: var(--space-50);
+  padding: var(--space-40);
   width: 100%;
   min-width: 300px;
   max-width: 1000px;
 }
 .product-modal-close-button {
-  margin-left: auto;
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-16);
 
   width: 30px;
   min-height: 30px;
@@ -21,7 +23,6 @@
 .product-modal-header-rating {
   display: flex;
   gap: var(--space-18);
-
 }
 
 .product-modal-header-rating > * {
