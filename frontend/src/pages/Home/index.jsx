@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import Item from "~/components/Product/Item";
 // import HomeCat from "~/components/HomeCat";
 import "./index.css";
-import ProductSwiper from "~/components/ProductSwiper";
+import ItemSwiper from "~/components/Product/ItemSwiper";
 // import { getProductList } from "~/api/product";
 import axios, { axiosPrivate } from "~/api/axios";
 import HotItem from "~/components/Product/HotItem";
@@ -63,7 +63,7 @@ export default function Home() {
                 <IoArrowForwardOutline />
               </button>
             </div>
-            <ProductSwiper productList={productList} />
+            <ItemSwiper productList={productList} />
           </div>
           
           <div className="hot-product-section">
