@@ -35,9 +35,9 @@ export default function ItemSwiper(props) {
 
     return (
       <>
-        {productList.map((product, index) => (
-          <SwiperSlide key={index}>
-            <Item key={index} product={product} />
+        {productList.map(product => (
+          <SwiperSlide >
+            <Item product={product} />
           </SwiperSlide>
         ))}
       </>
@@ -45,7 +45,7 @@ export default function ItemSwiper(props) {
   };
   return (
     <section className="product-swiper">
-      <h5 className="">{props.title}</h5>
+      <h3 className="">{props?.title}</h3>
       <Swiper
         slidesPerView={numberOfProductSwiper}
         spaceBetween={0}

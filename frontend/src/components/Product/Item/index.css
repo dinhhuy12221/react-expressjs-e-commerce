@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
 
-  /* max-width: 200px; */
+  max-width: 220px;
 
   border: var(--border-width-1) rgba(0, 0, 0, 0.1);
 
@@ -26,7 +26,6 @@
 }
 
 .product-thumbnail img {
-  /* position: absolute; */
   inset: 0;
   width: 100%;
   height: 100%;
