@@ -1,5 +1,8 @@
-.product-reviews {
-  border-radius: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
+.product-review {
+  border-radius: var(--radius-15);
+  border: var(--border-width-1) rgba(0, 0, 0, 0.1);
+}
+
+.product-review-title {
+  padding: var(--space-16);
 }

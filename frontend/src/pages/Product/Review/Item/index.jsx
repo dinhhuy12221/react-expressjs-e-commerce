@@ -7,6 +7,7 @@ function Item({ review, index }) {
       <div className="review-item-header">
         <img className="review-item-header-profile-picture" src={review.profile_image} />
         <span className="review-item-header-username">{review.username}</span>
+        <span className="review-item-header-date">{review.date}</span>
       </div>
       <div className="review-item-content">
         <Rating className="review-item-content-rating" value={review.rating} precision={0.5} readOnly />

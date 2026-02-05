@@ -12,6 +12,8 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-12);
+    text-align: center;
+    font-size: var(--font-14);
 }
 .review-item-header-profile-picture {
     width: 50px;
@@ -21,10 +23,12 @@
 }
 .review-item-header-username {
     width: 100px;
-    font-size: var(--font-14);
-    text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+.review-item-header-date {
+    font-family: var(--font-dosis);
+    font-weight: 300;
 }
 
 .review-item-content-description {

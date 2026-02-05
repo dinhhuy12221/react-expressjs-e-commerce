@@ -2,7 +2,7 @@ import reviews_list from "./reviews_list";
 import "./index.css";
 import Item from "./Item";
 import ReviewFilter from "./ReviewFilter";
-import PaginationSection from "../../../components/PaginationSection";
+import PaginationSection from "~/components/PaginationSection";
 
 const ProductReview = () => {
   // const ShowMore = () => {
@@ -29,7 +29,7 @@ const ProductReview = () => {
   // }
 
   const ReviewList = () => {
-    if (reviews_list == null) return null;
+    if (reviews_list === null) return null;
     return (
       <>
         {reviews_list.map((item, index) => (
@@ -40,8 +40,8 @@ const ProductReview = () => {
   };
 
   return (
-    <div className="row product-reviews">
-      <h5 className="p-3">REVIEWS</h5>
+    <div className="product-review">
+      <h3 className="product-review-title">REVIEWS</h3>
       <ReviewFilter />
       <ReviewList />
       <PaginationSection />
