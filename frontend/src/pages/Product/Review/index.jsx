@@ -1,10 +1,10 @@
-import reviews_list from "./reviews_list";
-import "./index.css";
+import review_dummies from "./review_dummies";
 import Item from "./Item";
-import ReviewFilter from "./ReviewFilter";
+import Filter from "./Filter";
 import PaginationSection from "~/components/PaginationSection";
+import "./index.css";
 
-const ProductReview = () => {
+const Review = () => {
   // const ShowMore = () => {
   //   return (
   //     <>
@@ -28,11 +28,11 @@ const ProductReview = () => {
   //   setShow(!show);
   // }
 
-  const ReviewList = () => {
-    if (reviews_list === null) return null;
+  const List = () => {
+    if (review_dummies === null) return null;
     return (
       <>
-        {reviews_list.map((item, index) => (
+        {review_dummies.map((item, index) => (
           <Item review={item} index={index} />
         ))}
       </>
@@ -42,11 +42,11 @@ const ProductReview = () => {
   return (
     <div className="product-review">
       <h3 className="product-review-title">REVIEWS</h3>
-      <ReviewFilter />
-      <ReviewList />
+      <Filter />
+      <List />
       <PaginationSection />
     </div>
   );
 };
 
-export default ProductReview;
+export default Review;

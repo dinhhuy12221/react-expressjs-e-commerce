@@ -152,7 +152,7 @@ a {
   font-size: var(--font-18);
 }
 
-.btn--circle {
+.bnt--rounded {
   border-radius: 50%;
 }
 

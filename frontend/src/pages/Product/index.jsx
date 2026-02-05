@@ -7,7 +7,7 @@ import "react-inner-image-zoom/lib/styles.min.css";
 import { MdCompareArrows } from "react-icons/md";
 import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
 import QuantityBox from "~/components/QuantityBox";
-import ProductReview from "./Review";
+import Review from "./Review";
 import ItemSwiper from "~/components/Product/ItemSwiper";
 import { getProductBySlug } from "~/api/product";
 import { getCategoryById } from "~/api/category";
@@ -208,7 +208,7 @@ export default function Product() {
           </div> */}
         </div>
 
-        <ProductReview />
+        <Review />
 
         <ItemSwiper title="RELATED PRODUCTS" />
 

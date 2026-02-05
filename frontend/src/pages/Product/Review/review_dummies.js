@@ -1,4 +1,4 @@
-const reviews_list = [
+const review_dummies = [
   {
     username: "ABCCCCCCCCCCCCCCCCCCCCCCCc",
     profile_image:
@@ -42,4 +42,4 @@ const reviews_list = [
   },
 ];
 
-export default reviews_list;
+export default review_dummies;
