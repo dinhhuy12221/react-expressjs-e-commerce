@@ -36,6 +36,6 @@ app.use(express.urlencoded({ extended: true }));
 route(app);
 
 // server
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT,() => {
   console.log(`Server is running http://localhost:${process.env.PORT}`);
 });
