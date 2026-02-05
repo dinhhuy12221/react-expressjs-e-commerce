@@ -1,10 +1,8 @@
 .product-review {
   border-radius: var(--radius-15);
-  
   border: var(--border-width-1) rgba(0, 0, 0, 0.1);
 }
 
 .product-review-title {
-  padding: var(--space-16);
-  /* padding: var(--space-16); */
+  padding: 0 var(--space-16);
 }
