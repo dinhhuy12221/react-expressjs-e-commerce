@@ -7,7 +7,7 @@ import "react-inner-image-zoom/lib/styles.min.css";
 import { MdCompareArrows } from "react-icons/md";
 import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
 import QuantityBox from "~/components/QuantityBox";
-import ProductReview from "./ProductReview";
+import Review from "./Review";
 import ItemSwiper from "~/components/Product/ItemSwiper";
 import { getProductBySlug } from "~/api/product";
 import { getCategoryById } from "~/api/category";
@@ -66,10 +66,10 @@ export default function Product() {
               <div className="page-product-main-content-main-status">
                 <div className="page-product-main-content-main-status-prices">
                   <span className="page-product-main-content-main-status-prices-old-price">
-                    {product.price}
+                    ${product.price}
                   </span>
                   <span className="page-product-main-content-main-status-prices-net-price">
-                    {currentPrice}
+                    ${currentPrice}
                   </span>
                 </div>
                 <span className="page-product-main-content-main-status-stock">
@@ -208,9 +208,7 @@ export default function Product() {
           </div> */}
         </div>
 
-        <br />
-
-        <ProductReview title="REVIEWS" />
+        <Review />
 
         <ItemSwiper title="RELATED PRODUCTS" />
 

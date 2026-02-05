@@ -40,7 +40,7 @@ export default function Modal(props) {
       }}
     >
       <button
-        className="btn btn--outlined btn--circle product-modal-close-button"
+        className="btn btn--outlined bnt--rounded product-modal-close-button"
         onClick={() => {
           context.setIsOpenProductModal(false);
           context.setProductModal({});
@@ -61,9 +61,7 @@ export default function Modal(props) {
         </div>
       </div>
       <div className="product-modal-content">
-        {/* <div className="product-modal-content-thumbnails"> */}
-          <ThumbnailsSwiper product={product}/>
-        {/* </div> */}
+        <ThumbnailsSwiper product={product} />
         <div className="product-modal-content-main">
           <div className="product-modal-content-main-status">
             <div className="product-modal-content-main-status-prices">
