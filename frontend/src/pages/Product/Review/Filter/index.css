@@ -1,5 +1,6 @@
 .review-filter {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-12);
   padding: var(--space-12);
 }

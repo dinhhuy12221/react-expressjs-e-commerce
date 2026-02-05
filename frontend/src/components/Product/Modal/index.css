@@ -35,7 +35,7 @@
 
 .product-modal-content {
   display: flex;
-  gap: var(--space-8);
+  gap: var(--space-16);
 }
 
 .product-modal-content-main {
@@ -100,7 +100,7 @@
   padding: var(--space-6);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .product-modal-content {
     flex-direction: column;
   }

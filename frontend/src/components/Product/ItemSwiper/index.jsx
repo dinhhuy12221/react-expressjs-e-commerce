@@ -30,22 +30,9 @@ export default function ItemSwiper(props) {
     };
   }, []);
 
-  const List = () => {
-    if (productList === null) return null;
-
-    return (
-      <>
-        {productList.map((product, index) => (
-          <SwiperSlide key={index}>
-            <Item key={index} product={product} />
-          </SwiperSlide>
-        ))}
-      </>
-    );
-  };
   return (
     <section className="product-swiper">
-      <h5 className="">{props.title}</h5>
+      <h3 className="">{props?.title}</h3>
       <Swiper
         slidesPerView={numberOfProductSwiper}
         spaceBetween={0}
@@ -57,7 +44,11 @@ export default function ItemSwiper(props) {
         }}
         className="product-swiper-list"
       >
-        <List />
+        {productList.map(product => (
+          <SwiperSlide >
+            <Item key={product.id} product={product} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );

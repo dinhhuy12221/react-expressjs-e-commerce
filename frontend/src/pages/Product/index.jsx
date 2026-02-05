@@ -61,6 +61,7 @@ export default function Product() {
       controller.abort();
     };
   }, []);
+
   const isActive = (index) => {
     setActiveSize(index);
   };
@@ -120,6 +121,7 @@ export default function Product() {
                   &nbsp;Compare
                 </button>
               </div>
+              <span className="page-product-main-content-main-category">Category: <b>{category.name}</b></span>
             </div>
           </div>
           {/* <div className="page-product-main-header">
