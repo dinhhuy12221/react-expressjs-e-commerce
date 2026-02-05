@@ -66,10 +66,10 @@ export default function Product() {
               <div className="page-product-main-content-main-status">
                 <div className="page-product-main-content-main-status-prices">
                   <span className="page-product-main-content-main-status-prices-old-price">
-                    {product.price}
+                    ${product.price}
                   </span>
                   <span className="page-product-main-content-main-status-prices-net-price">
-                    {currentPrice}
+                    ${currentPrice}
                   </span>
                 </div>
                 <span className="page-product-main-content-main-status-stock">
