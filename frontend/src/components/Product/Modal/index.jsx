@@ -3,7 +3,7 @@ import { useContext, useRef, useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import { IoClose } from "react-icons/io5";
 import Rating from "@mui/material/Rating";
-import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
+import "react-inner-image-zoom/lib/styles.min.css";
 import QuantityBox from "~/components/QuantityBox/index.jsx";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
