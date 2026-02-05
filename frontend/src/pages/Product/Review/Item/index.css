@@ -12,7 +12,6 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-12);
-    cursor: pointer;
 }
 .review-item-header-profile-picture {
     width: 50px;
