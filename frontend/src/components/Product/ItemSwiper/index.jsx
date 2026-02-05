@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import Item from "../Item";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation } from "swiper/modules";
-import Item from "../Item";
 import "./index.css";
 
 export default function ItemSwiper(props) {
@@ -29,13 +29,23 @@ export default function ItemSwiper(props) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const List = () => {
+    if (productList === null) return null;
+
+    return (
+      <>
+        {productList.map((product, index) => (
+          <SwiperSlide key={index}>
+            <Item key={index} product={product} />
+          </SwiperSlide>
+        ))}
+      </>
+    );
+  };
   return (
-    <div className="product-row mt-4">
-      <div className="d-flex align-items-center">
-        <div className="info w-75">
-          <h5 className="mb-2">{props.title}</h5>
-        </div>
-      </div>
+    <section className="product-swiper">
+      <h5 className="">{props.title}</h5>
       <Swiper
         slidesPerView={numberOfProductSwiper}
         spaceBetween={0}
@@ -45,13 +55,10 @@ export default function ItemSwiper(props) {
         pagination={{
           clickable: true,
         }}
-        className="mySwiper"
+        className="product-swiper-list"
       >
-        {productList &&
-          productList.map((product, index) => {
-            return <SwiperSlide key={index}><Item product={product}/></SwiperSlide>;
-          })}
+        <List />
       </Swiper>
-    </div>
+    </section>
   );
 }

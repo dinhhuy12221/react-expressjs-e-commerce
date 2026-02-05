@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "@mui/material/Rating";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
@@ -13,6 +13,7 @@ import { getProductBySlug } from "~/api/product";
 import { getCategoryById } from "~/api/category";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import "./index.css";
+import axios from "~/api/axios";
 
 const getProductInfo = async () => {
   try {
@@ -39,7 +40,27 @@ export default function Product() {
   const [activeSize, setActiveSize] = useState(null);
 
   const currentPrice = getDiscountPrice(product?.price, product?.discount);
+  const [productList, setProductList] = useState([]);
 
+  useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+
+    const getProductList = async () => {
+      try {
+        const response = await axios.get("/product");
+        isMounted && setProductList(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProductList();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, []);
   const isActive = (index) => {
     setActiveSize(index);
   };
@@ -210,9 +231,9 @@ export default function Product() {
 
         <Review />
 
-        <ItemSwiper title="RELATED PRODUCTS" />
+        <ItemSwiper productList={productList} title="RELATED PRODUCTS" />
 
-        <ItemSwiper title="RECENTLY VIEWED PRODUCTS" />
+        <ItemSwiper productList={productList} title="RECENTLY VIEWED PRODUCTS" />
       </div>
     </section>
   );
