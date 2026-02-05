@@ -47,11 +47,11 @@ export default function Product() {
   return (
     <section className="page-product">
       <div className="page-product-content">
-        <div className="page-product-content-main">
-          <div className="page-product-content-main-header">
-            <h1 className="page-product-content-main-header-name">{product.name}</h1>
-            <div className="page-product-content-main-header-rating">
-              <div className="page-product-content-main-header-brand">
+        <div className="page-product-main">
+          <div className="page-product-main-header">
+            <h1 className="page-product-main-header-name">{product.name}</h1>
+            <div className="page-product-main-header-rating">
+              <div className="page-product-main-header-brand">
                 <span>Brands:</span>
                 <span>
                   <b> {product.brand}</b>
@@ -60,56 +60,56 @@ export default function Product() {
               <Rating defaultValue={3} precision={0.5} size="small" readOnly />
             </div>
           </div>
-          <div className="page-product-content-main-content">
+          <div className="page-product-main-content">
             <ThumbnailsSwiper product={product} />
-            <div className="page-product-content-main-content-main">
-              <div className="page-product-content-main-content-main-status">
-                <div className="page-product-content-main-content-main-status-prices">
-                  <span className="page-product-content-main-content-main-status-prices-old-price">
+            <div className="page-product-main-content-main">
+              <div className="page-product-main-content-main-status">
+                <div className="page-product-main-content-main-status-prices">
+                  <span className="page-product-main-content-main-status-prices-old-price">
                     {product.price}
                   </span>
-                  <span className="page-product-content-main-content-main-status-prices-net-price">
+                  <span className="page-product-main-content-main-status-prices-net-price">
                     {currentPrice}
                   </span>
                 </div>
-                <span className="page-product-content-main-content-main-status-stock">
+                <span className="page-product-main-content-main-status-stock">
                   {product.countInStock > 0 &&
                     `In Stock: ${product.countInStock}`}
                 </span>
               </div>
-              <p className="page-product-content-main-content-main-description">
+              <p className="page-product-main-content-main-description">
                 {product.description}
               </p>
 
-              <div className="page-product-content-main-content-main-quantity">
+              <div className="page-product-main-content-main-quantity">
                 <QuantityBox stockQuantity={product.countInStock} />
-                <button className="btn btn--primary page-product-content-main-content-main-quantity-add-button">
+                <button className="btn btn--primary page-product-main-content-main-quantity-add-button">
                   <IoCartOutline className="" />
                   <span>Add to cart</span>
                 </button>
               </div>
 
-              <div className="page-product-content-main-content-main-buttons">
-                <button className="btn btn--outlined page-product-content-main-content-main-wishlist-button">
+              <div className="page-product-main-content-main-buttons">
+                <button className="btn btn--outlined page-product-main-content-main-wishlist-button">
                   <CiHeart />
                   &nbsp;Add to wishlist
                 </button>
-                <button className="btn btn--outlined page-product-content-main-content-main-compare-button">
+                <button className="btn btn--outlined page-product-main-content-main-compare-button">
                   <MdCompareArrows />
                   &nbsp;Compare
                 </button>
               </div>
             </div>
           </div>
-          {/* <div className="page-product-content-main-header">
-            <h2 className="page-product-content-main-header-product-name">
+          {/* <div className="page-product-main-header">
+            <h2 className="page-product-main-header-product-name">
               {product?.name}
             </h2>
-            <div className="page-product-content-main-header-product-brand">
+            <div className="page-product-main-header-product-brand">
               <span>Brands: &nbsp;</span>
               <span>{product?.brand}</span>
             </div>
-            <div className="page-product-content-main-header-product-rating">
+            <div className="page-product-main-header-product-rating">
               <Rating
                 name="read-only"
                 defaultValue={3}
