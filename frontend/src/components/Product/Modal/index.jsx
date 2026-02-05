@@ -15,7 +15,7 @@ import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
 
 import "./index.css";
 
-export default function ProductModal(props) {
+export default function Modal(props) {
   // const [slideIndex, setSlideIndex] = useState(0);
   // const zoomSliderBig = useRef();
   // const zoomSlider = useRef();
