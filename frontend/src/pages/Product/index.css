@@ -16,7 +16,6 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-
 }
 
 .page-product-main-content {
@@ -85,6 +84,11 @@
   padding: var(--space-6);
 }
 
+@media (max-width: 720px) {
+  .page-product-main-content {
+    flex-direction: column;
+  }
+}
 /* .page-product {
   .hd {
     font-size: 30px;
