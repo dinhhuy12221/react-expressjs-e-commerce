@@ -1,8 +1,6 @@
 import React, { useState, useRef, useContext } from "react";
 // import Slider from "react-slick";
 import InnerImageZoom from "react-inner-image-zoom";
-// import "react-inner-image-zoom/lib/InnerImageZoom/style.css";
-// import "react-inner-image-zoom/dist/styles.css";
 import "react-inner-image-zoom/lib/styles.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";

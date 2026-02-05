@@ -25,7 +25,7 @@ const MyContext = createContext();
 
 const Home = lazyLoad("pages/Home/index.jsx");
 const Category = lazyLoad("pages/Category/index.jsx");
-const ProductDetails = lazyLoad("pages/ProductDetails/index.jsx");
+const ProductDetails = lazyLoad("pages/Product/index.jsx");
 const Login = lazyLoad("pages/Login/index.jsx");
 const Register = lazyLoad("pages/Register/index.jsx");
 const Cart = lazyLoad("pages/Cart/index.jsx");
