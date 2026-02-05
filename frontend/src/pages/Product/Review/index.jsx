@@ -1,6 +1,6 @@
 import reviews_list from "./reviews_list";
 import "./index.css";
-import Review from "./Review";
+import Item from "./Item";
 import ReviewFilter from "./ReviewFilter";
 import PaginationSection from "../../../components/PaginationSection";
 function ProductReview({ title }) {
@@ -30,12 +30,12 @@ function ProductReview({ title }) {
 
   return (
     <div className="row product-reviews">
-      <h5 className="p-3">{title}</h5>
+      <h5 className="p-3">REVIEWS</h5>
       
       <ReviewFilter />
 
       {reviews_list.map((review, index) => (
-        <Review index={index} review={review} />
+        <Item index={index} review={review} />
       ))}
       
       <PaginationSection />
