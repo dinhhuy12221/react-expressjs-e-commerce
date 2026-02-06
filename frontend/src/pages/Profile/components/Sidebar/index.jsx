@@ -18,7 +18,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/info"}
         onClick={() => setIsActive(0)}
-        className={isActive === 0 ? "active" : ""}
+        className={`profile-page-sidebar-item ${isActive === 0 ? "active" : ""}`}
       >
         <CgProfile />
         <span>Profile</span>
@@ -31,7 +31,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/orders"}
         onClick={() => setIsActive(1)}
-        className={isActive === 1 ? "active" : ""}
+        className={`profile-page-sidebar-item ${isActive === 1 ? "active" : ""}`}
       >
         <FiShoppingCart />
         <span>Orders</span>
@@ -44,7 +44,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/reviews"}
         onClick={() => setIsActive(2)}
-        className={isActive === 2 ? "active" : ""}
+        className={`profile-page-sidebar-item ${isActive === 2 ? "active" : ""}`}
       >
         <MdOutlineRateReview />
         <span>Reviews</span>
@@ -57,7 +57,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/settings"}
         onClick={() => setIsActive(3)}
-        className={isActive === 3 ? "active" : ""}
+        className={`profile-page-sidebar-item ${isActive === 3 ? "active" : ""}`}
       >
         <CiSettings />
         <span>Settings</span>
