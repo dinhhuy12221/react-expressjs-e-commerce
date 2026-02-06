@@ -4,8 +4,7 @@
   display: inline-block;
 }
 
-.offscreen,
-.hide {
+.offscreen {
   display: none;
 }
 
@@ -36,7 +35,7 @@
 
     width: 300px;
     height: 450px;
-    
+
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -53,7 +52,7 @@
     .action {
       a {
         font-size: 20px;
-        
+
         color: var(--theme-1);
 
         text-decoration: none;
@@ -61,13 +60,12 @@
 
       &:hover {
         color: var(--theme-1);
-        
+
         text-decoration: underline;
       }
     }
   }
 }
-
 
 .signup-page {
   display: flex;
@@ -85,7 +83,6 @@
   width: 400px;
   min-width: 200px;
   padding: var(--space-20) var(--space-8);
-  /* border: var(--border-width-1) linear-gradient(var(--color-bg-red-2), var(--color-bg-red-3)); */
   border: var(--border-width-1) var(--color-bg-red-2);
 }
 
@@ -114,12 +111,19 @@
   text-align: center;
 }
 
-.signup-page-content-form-forgot-button {
+.signup-page-content-form-fullname .MuiFormControl-root,
+.signup-page-content-form-username .MuiFormControl-root,
+.signup-page-content-form-password .MuiFormControl-root,
+.signup-page-content-form-confirm-password .MuiFormControl-root {
   display: flex;
-  justify-content: center;
 }
 
-.signup-page-content-form-signin-button {
+/* .signup-page-content-form-forgot-button {
+  display: flex;
+  justify-content: center;
+} */
+
+.signup-page-content-form-signup-button {
   padding: var(--space-8);
 }
 
