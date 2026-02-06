@@ -5,6 +5,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import google_logo from "~/assets/images/google-logo.png";
+import Logo from "~/assets/images/logo.png";
 
 // Hooks imported
 // import useLocalStorage from "~/~/hooks/useLocalStorage";
@@ -92,7 +93,7 @@ export default function Login() {
     <section className="login-page">
       <div className="login-page-content">
         <div className="login-page-content-logo">
-          <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo.png" />
+          <img src={Logo} />
         </div>
 
         <p
@@ -135,7 +136,7 @@ export default function Login() {
             Sign In
           </button>
 
-          <div className="d-flex mt-3 w-100 txt">
+          <div className="login-page-content-form-not-registered">
             Not Registered?{" "}
             <Link to="/register" className="">
               Sign Up
@@ -145,34 +146,25 @@ export default function Login() {
             </Link>
           </div>
 
-          <h6 className="">Or continue with social account</h6>
+          <h6>Or continue with social account</h6>
 
-          <div className="socials">
-            <ul className="list list-inline text-center mb-0 mt-2 socials">
-              <li className="list-inline-item">
-                <Link to="#">
-                  <FaFacebookF />
-                </Link>
-              </li>
-              <li className="list-inline-item">
-                <Link to="#">
-                  <FaTwitter />
-                </Link>
-              </li>
-              <li className="list-inline-item">
-                <Link to="#">
-                  <FaInstagram />
-                </Link>
-              </li>
-            </ul>
+          <div className="login-page-content-form-social-links">
+            <Link to="#">
+              <FaFacebookF />
+            </Link>
+            <Link to="#">
+              <FaTwitter />
+            </Link>
+            <Link to="#">
+              <FaInstagram />
+            </Link>
           </div>
-          <div className="w-100 text-center mt-2">
-            <button className="loginWithGoogle" variant="outlined">
+          <div className="login-page-content-form-google">
+            <button className="btn btn--outlined login-page-content-form-google-button">
               <img
                 src={google_logo}
                 style={{ width: "25px", height: "25px" }}
                 alt="Google image"
-                className="me-2"
               />
               <span>Continue with Google</span>
             </button>
