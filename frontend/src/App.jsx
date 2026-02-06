@@ -27,7 +27,7 @@ const Home = lazyLoad("pages/Home/index.jsx");
 const Category = lazyLoad("pages/Category/index.jsx");
 const ProductDetails = lazyLoad("pages/Product/index.jsx");
 const Login = lazyLoad("pages/Login/index.jsx");
-const Register = lazyLoad("pages/Register/index.jsx");
+const Signup = lazyLoad("pages/Signup/index.jsx");
 const Cart = lazyLoad("pages/Cart/index.jsx");
 const Profile = lazyLoad("pages/Profile/index.jsx");
 const Account = lazyLoad("pages/Account/index.jsx");
@@ -76,7 +76,7 @@ function App() {
                 exact={true}
               />
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/Signup" element={<Signup />} />
   
               {/* Protected Routes */}
               {/* <Route element={<PersistLogin />}> */}
@@ -112,7 +112,7 @@ function App() {
 
 function Wrapper() {
   const { pathname } = useLocation();
-  const list = ["/login", "/register"];
+  const list = ["/login", "/signup"];
   const isVisible = !list.some(p => pathname.startsWith(p))
   
   return (

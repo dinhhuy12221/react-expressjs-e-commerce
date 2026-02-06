@@ -3,7 +3,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Category from "./pages/Category";
-import Register from "./pages/Register";
+import Register from "./pages/Signup";
 import Profile from "./pages/Profile";
 const routes = [
     // Public routes
