@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import "./index.css";
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import ProfileSidebar from "./components/Sidebar";
+import Sidebar from "./Sidebar";
+import "./index.css";
 
 function Profile() {
   const [info, setInfo] = useState();
@@ -34,20 +32,14 @@ function Profile() {
   }, []);
 
   return (
-    <>
-      <div className="profile">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-3">
-              <ProfileSidebar />
-            </div>
-            <div className="col-sm-9">
-              <Outlet />
-            </div>
-          </div>
-        </div>
+    <section className="profile-page">
+      <div className="profile-page-sidebar">
+        <Sidebar />
       </div>
-    </>
+      <div className="profile-page-content">
+        <Outlet />
+      </div>
+    </section>
   );
 }
 

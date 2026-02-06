@@ -1,0 +1,29 @@
+.profile-page-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-8);
+}
+
+.profile-page-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+
+  padding: var(--space-2) var(--space-30);
+
+  font-size: var(--font-18);
+
+  cursor: pointer;
+}
+.profile-page-sidebar-item.active,
+.profile-page-sidebar-item:hover {
+  background-color: rgb(235, 235, 240);
+}
+
+
+@media (max-width: 480px) {
+  .profile-page-sidebar {
+    flex-direction: row;
+  }
+}

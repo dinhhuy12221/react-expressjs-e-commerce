@@ -30,10 +30,10 @@ const Login = lazyLoad("pages/Login/index.jsx");
 const Signup = lazyLoad("pages/Signup/index.jsx");
 const Cart = lazyLoad("pages/Cart/index.jsx");
 const Profile = lazyLoad("pages/Profile/index.jsx");
-const Account = lazyLoad("pages/Account/index.jsx");
-const Orders = lazyLoad("pages/Orders/index.jsx");
-const Reviews = lazyLoad("pages/Reviews/index.jsx");
-const Settings = lazyLoad("pages/Settings/index.jsx");
+const Information = lazyLoad("pages/profile/Information/index.jsx");
+const Orders = lazyLoad("pages/profile/Orders/index.jsx");
+const Reviews = lazyLoad("pages/profile/Reviews/index.jsx");
+const Settings = lazyLoad("pages/profile/Settings/index.jsx");
 
 function App() {
   const [countryList, setCountryList] = useState([]);
@@ -82,7 +82,7 @@ function App() {
               {/* <Route element={<PersistLogin />}> */}
               <Route element={<RequireAuth />}>
                 <Route path="/profile" element={<Profile />}>
-                  <Route path="information" element={<Account />} index={true} />
+                  <Route path="information" element={<Information />} />
                   <Route path="orders" element={<Orders />} />
                   <Route path="reviews" element={<Reviews />} />
                   <Route path="settings" element={<Settings />} />

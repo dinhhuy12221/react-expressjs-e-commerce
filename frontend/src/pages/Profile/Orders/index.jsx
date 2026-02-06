@@ -1,5 +1,5 @@
 import "./index.css";
-import { useGetOrdersByCustomerQuery } from "../../../../features/orders/ordersApi";
+import { useGetOrdersByCustomerQuery } from "~/features/orders/ordersApi";
 import { useEffect } from "react";
 
 function Orders() {
