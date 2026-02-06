@@ -95,7 +95,6 @@ export default function Login() {
         <div className="login-page-content-logo">
           <img src={Logo} />
         </div>
-
         <p
           ref={errRef}
           className={errorMessage ? "error-message" : "offscreen"}
@@ -131,17 +130,17 @@ export default function Login() {
           />
           {/* </div> */}
 
-          <button className="btn btn--outlined">Forgot Password?</button>
-          <button className="btn btn--primary" type="submit">
+          <span className="btn btn--underlined login-page-content-form-forgot-button">Forgot Password?</span>
+          <button className="btn btn--primary login-page-content-form-signin-button" type="submit">
             Sign In
           </button>
 
           <div className="login-page-content-form-not-registered">
             Not Registered?{" "}
-            <Link to="/register" className="">
+            <Link to="/register" className="btn btn--underlined">
               Sign Up
             </Link>
-            <Link to="/" className="">
+            <Link to="/" className="btn btn--underlined">
               Home
             </Link>
           </div>

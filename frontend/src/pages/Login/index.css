@@ -73,14 +73,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(var(--theme-1), var(--theme-2));
-  padding: 0;
-  opacity: 0.8;
+
+  height: 100vh;
 }
 
 .login-page-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  width: 400px;
+  padding: var(--space-10);
+  /* border: var(--border-width-1) linear-gradient(var(--color-bg-red-2), var(--color-bg-red-3)); */
+  border: var(--border-width-1) var(--color-bg-red-2);
 }
 
 .login-page-content-logo {
@@ -94,4 +99,23 @@
   height: 100%;
   top: 0;
   left: 0;
+}
+
+.login-page-content-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.login-page-content-form-forgot-button {
+  align-self: center;
+}
+
+.login-page-content-form-signin-button {
+  padding: var(--space-8);
+}
+
+.login-page-content-form-not-registered {
+  display: flex;
+  gap: var(--space-10);
 }

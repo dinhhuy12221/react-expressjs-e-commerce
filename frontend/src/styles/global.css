@@ -156,6 +156,14 @@ a {
   border-radius: 50%;
 }
 
+.btn--underlined {
+  background-color: transparent;
+  color: var(--color-text-red-1);
+  text-decoration: underline;
+}
+.btn--underlined svg {
+  color: var(--color-text-red-1);
+}
 .btn--outlined {
   background-color: transparent;
   color: var(--color-text-red-1);
