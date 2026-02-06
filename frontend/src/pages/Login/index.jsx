@@ -137,7 +137,7 @@ export default function Login() {
 
           <div className="login-page-content-form-not-registered">
             Not Registered?{" "}
-            <Link to="/register" className="btn btn--underlined">
+            <Link to="/Signup" className="btn btn--underlined">
               Sign Up
             </Link>
             <Link to="/" className="btn btn--underlined">

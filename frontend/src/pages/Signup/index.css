@@ -1,0 +1,150 @@
+.valid,
+.invalid,
+.instructions {
+  display: inline-block;
+}
+
+.offscreen,
+.hide {
+  display: none;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+.message-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  width: 100%;
+  height: 100vh;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 300px;
+    height: 450px;
+    
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+
+    .message {
+      font-weight: 600;
+    }
+
+    .icon {
+      text-align: center;
+      font-size: 70px;
+    }
+
+    .action {
+      a {
+        font-size: 20px;
+        
+        color: var(--theme-1);
+
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: var(--theme-1);
+        
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.signup-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 400px;
+  min-width: 200px;
+  padding: var(--space-20) var(--space-8);
+  /* border: var(--border-width-1) linear-gradient(var(--color-bg-red-2), var(--color-bg-red-3)); */
+  border: var(--border-width-1) var(--color-bg-red-2);
+}
+
+.signup-page-content-logo {
+  width: 180px;
+  height: 140px;
+}
+
+.signup-page-content-logo img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.signup-page-content-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  width: 300px;
+  min-width: 150px;
+}
+
+.signup-page-content-form-title {
+  text-align: center;
+}
+
+.signup-page-content-form-forgot-button {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-page-content-form-signin-button {
+  padding: var(--space-8);
+}
+
+.signup-page-content-form-not-registered {
+  display: flex;
+  gap: var(--space-10);
+}
+
+.signup-page-content-form-social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.signup-page-content-form-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-page-content-form-google-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8);
+}
