@@ -182,12 +182,12 @@ export default function Signup() {
                     label={
                       <>
                         Fullname:
-                        <span className={validFullname ? "valid" : "hide"}>
+                        <span className={validFullname ? "valid" : "offscreen"}>
                           <FaCheck />
                         </span>
                         <span
                           className={
-                            validFullname || !fullname ? "hide" : "invalid"
+                            validFullname || !fullname ? "offscreen" : "invalid"
                           }
                         >
                           <FaTimes />
@@ -226,12 +226,12 @@ export default function Signup() {
                     label={
                       <>
                         Username:
-                        <span className={validUsername ? "valid" : "hide"}>
+                        <span className={validUsername ? "valid" : "offscreen"}>
                           <FaCheck />
                         </span>
                         <span
                           className={
-                            validUsername || !username ? "hide" : "invalid"
+                            validUsername || !username ? "offscreen" : "invalid"
                           }
                         >
                           <FaTimes />
@@ -269,12 +269,12 @@ export default function Signup() {
                     label={
                       <>
                         Password:
-                        <span className={validPassword ? "valid" : "hide"}>
+                        <span className={validPassword ? "valid" : "offscreen"}>
                           <FaCheck />
                         </span>
                         <span
                           className={
-                            validPassword || !password ? "hide" : "invalid"
+                            validPassword || !password ? "offscreen" : "invalid"
                           }
                         >
                           <FaTimes />
@@ -317,12 +317,12 @@ export default function Signup() {
                     label={
                       <>
                         Confirm Password:
-                        <span className={validMatch ? "valid" : "hide"}>
+                        <span className={validMatch ? "valid" : "offscreen"}>
                           <FaCheck />
                         </span>
                         <span
                           className={
-                            validMatch || !matchPwd ? "hide" : "invalid"
+                            validMatch || !matchPwd ? "offscreen" : "invalid"
                           }
                         >
                           <FaTimes />
