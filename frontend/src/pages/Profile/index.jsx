@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./Sidebar";
 import "./index.css";
 
 function Profile() {

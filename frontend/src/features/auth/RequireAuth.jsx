@@ -46,7 +46,7 @@ const RequireAuth = () => {
     isVerified() ? setAllowed(true) : setAllowed(false);
   }, [location]);
 
-  console.log(allowed, accessToken);
+  // console.log(allowed, accessToken);
   // console.log(window.location.href);
   
   return (

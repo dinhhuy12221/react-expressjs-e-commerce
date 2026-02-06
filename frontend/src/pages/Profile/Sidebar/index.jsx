@@ -16,7 +16,7 @@ const Sidebar = () => {
           className={isActive === 0 ? "active" : ""}
         > */}
       <Link
-        to={"/profile/info"}
+        to={"/profile/information"}
         onClick={() => setIsActive(0)}
         className={`profile-page-sidebar-item ${isActive === 0 ? "active" : ""}`}
       >

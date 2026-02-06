@@ -1,14 +1,14 @@
-import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCurrentCustomer, setCustomer } from "../../../../features/auth/authSlice";
-import { FaImages } from "react-icons/fa";
-import Input from "../../../../components/Input";
-import Button from "../../../../components/Button";
+import { selectCurrentCustomer, setCustomer } from "~/features/auth/authSlice";
+import Input from "~/components/Input";
 import { useEffect, useState } from "react";
-import { useUpdateCustomerMutation } from "../../../../features/customer/customerApi";
-import OptionModal from "../../../../components/OptionModal";
+import { useUpdateCustomerMutation } from "~/features/customer/customerApi";
+import OptionModal from "~/components/OptionModal";
+import { FaImages } from "react-icons/fa";
+import Logo from "~/assets/images/logo.png"
+import "./index.css";
 
-function Account() {
+const Information = () => {
   const dispatch = useDispatch();
   const customer = useSelector(selectCurrentCustomer);
   const [updateCustomer, { isLoading }] = useUpdateCustomerMutation();
@@ -62,7 +62,7 @@ function Account() {
           type: "close",
         });
         
-        await dispatch(setCustomer({ customer: result?.data?.customer }))
+        dispatch(setCustomer({ customer: result?.data?.customer }))
 
       } else if (result?.error){
         setOption({
@@ -92,23 +92,21 @@ function Account() {
 
   return (
     <>
-      <div className="profile-info">
-        <form className="row">
-          <div className="col-md-6">
-            <div className="row mb-3">
-              <div className="avatar-container col-sm-4">
-                <div className="avatar">
+      <section className="profile-page-info">
+        <form className="profile-page-info-form">
+            <div className="profile-page-info-form-info">
+              <div className="profile-page-info-form-info-avatar">
                   <input
                     className="avatar-chooser"
                     type="file"
                     accept="avatar/png, avatar/jpeg"
                     onChange={handleImageUpload}
                   />
-                  <img src={avatar} alt="avatar" />
+                  {/* <img src={avatar} alt="avatar" /> */}
+                  <img src={Logo} alt="avatar" />
                   <span className="change-icon">
                     <FaImages />
                   </span>
-                </div>
               </div>
               <div className="col-sm-8">
                 <div className="form-group mb-3">
@@ -157,8 +155,7 @@ function Account() {
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
-            <Button
-              type="button"
+            <button
               className="small col-md-2 col-sm-12"
               onClick={(e) => {
                 e.preventDefault();
@@ -171,10 +168,9 @@ function Account() {
               }}
             >
               Save change
-            </Button>
-          </div>
+            </button>
         </form>
-      </div>
+      </section>
 
       {isModalOpen && (
         <OptionModal
@@ -188,4 +184,4 @@ function Account() {
   );
 }
 
-export default Account;
+export default Information;
