@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
-import Logo from "../../assets/images/logo.png";
+import Logo from "~/assets/images/logo.png";
 import CountrySelector from "../CountrySelector/index";
 import SearchBox from "./SearchBox/index";
 import SiteCanvas from "../SiteCanvas";
 import Navigation from "./Navigation/index";
-import { MyContext } from "../../App";
+import { MyContext } from "~/App";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
 // import { useSelector } from "react-redux";
-// import { selectCurrentCustomer } from "../../features/auth/authSlice";
+// import { selectCurrentCustomer } from "~/features/auth/authSlice";
 // import Profile from "./Profile";
 import "./index.css";
 

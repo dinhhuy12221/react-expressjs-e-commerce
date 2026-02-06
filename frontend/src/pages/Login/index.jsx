@@ -1,23 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import google_logo from "../../assets/images/google-logo.png";
+import google_logo from "~/assets/images/google-logo.png";
+import Logo from "~/assets/images/logo.png";
 
 // Hooks imported
-// import useLocalStorage from "../../../../hooks/useLocalStorage";
-// import useAuth from "../../../../hooks/useAuth";
-import useInput from "../../hooks/useInput";
+// import useLocalStorage from "~/~/hooks/useLocalStorage";
+// import useAuth from "~/~/hooks/useAuth";
+import useInput from "~/hooks/useInput";
 import { useDispatch } from "react-redux";
-import { useLoginMutation } from "../../features/auth/authApi";
+import { useLoginMutation } from "~/features/auth/authApi";
 // Styles
 import "./index.css";
-import { setCredentials, setCustomer } from "../../features/auth/authSlice";
+import { setCredentials, setCustomer } from "~/features/auth/authSlice";
 
-// import axios from "../../api/axios";
+// import axios from "~/api/axios";
 // const LOGIN_URL = "/auth/customer/login";
 
 export default function Login() {
@@ -62,7 +62,10 @@ export default function Login() {
       // const accessToken = response?.data?.accessToken;
       // setAuth({ username, accessToken, });
 
-      const { accessToken, customer } = await login({ username, password }).unwrap();
+      const { accessToken, customer } = await login({
+        username,
+        password,
+      }).unwrap();
 
       dispatch(setCredentials({ accessToken }));
       dispatch(setCustomer({ customer }));
@@ -86,116 +89,87 @@ export default function Login() {
     }
   };
 
-  
-
   return (
-    <>
-      <section className="section signInPage">
-        <div className="container">
-          <div className="box card p-3 shadow border-0">
-            <div className="text-center">
-              <img
-                src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo.png"
-                className="w-50"
-              />
-            </div>
-
-            <p
-              ref={errRef}
-              className={errorMessage ? "errorMessage" : "offscreen"}
-              aria-live="assertive"
-            >
-              {errorMessage}
-            </p>
-            <form onSubmit={handleSubmit}>
-              <h2>Sign In</h2>
-              <div className="form-group">
-                <TextField
-                  className="w-100"
-                  id="username"
-                  label="Username"
-                  variant="standard"
-                  type="text"
-                  ref={usernameRef}
-                  autoComplete="off"
-                  {...usernameAttrbs}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <TextField
-                  className="w-100"
-                  id="password"
-                  label="Password"
-                  variant="standard"
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  required
-                />
-              </div>
-
-              <a className="border-effect cursor">Forgot Password?</a>
-              <br />
-              <Button
-                className="btn--primary btn--lg mt-3 w-100"
-                type="submit"
-              >
-                Sign In
-              </Button>
-
-              <div className="d-flex mt-3 w-100 txt">
-                <span>
-                  Not Registered?{" "}
-                  <Link to="/register" className="border-effect">
-                    Sign Up
-                  </Link>
-                </span>
-                <span className="ms-auto">
-                  <Link to="/" className="border-effect">
-                    Home
-                  </Link>
-                </span>
-              </div>
-
-              <h6 className="mt-4 text-center">
-                Or continue with social account
-              </h6>
-
-              <div className="socials">
-                <ul className="list list-inline text-center mb-0 mt-2 socials">
-                  <li className="list-inline-item">
-                    <Link to="#">
-                      <FaFacebookF />
-                    </Link>
-                  </li>
-                  <li className="list-inline-item">
-                    <Link to="#">
-                      <FaTwitter />
-                    </Link>
-                  </li>
-                  <li className="list-inline-item">
-                    <Link to="#">
-                      <FaInstagram />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="w-100 text-center mt-2">
-                <Button className="loginWithGoogle" variant="outlined">
-                  <img
-                    src={google_logo}
-                    style={{ width: "25px", height: "25px" }}
-                    alt="Google image"
-                    className="me-2"
-                  />
-                  <span>Continue with Google</span>
-                </Button>
-              </div>
-            </form>
-          </div>
+    <section className="login-page">
+      <div className="login-page-content">
+        <div className="login-page-content-logo">
+          <img src={Logo} />
         </div>
-      </section>
-    </>
+        <p
+          ref={errRef}
+          className={errorMessage ? "error-message" : "offscreen"}
+          aria-live="assertive"
+        >
+          {errorMessage}
+        </p>
+        <form className="login-page-content-form" onSubmit={handleSubmit}>
+          <h2 className="login-page-content-form-title">Sign In</h2>
+          {/* <div className="form-group"> */}
+          <TextField
+            className=""
+            id="username"
+            label="Username"
+            variant="standard"
+            type="text"
+            ref={usernameRef}
+            autoComplete="off"
+            {...usernameAttrbs}
+            required
+          />
+          {/* </div> */}
+          {/* <div className="form-group"> */}
+          <TextField
+            className=""
+            id="password"
+            label="Password"
+            variant="standard"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
+          {/* </div> */}
+
+          <span className="btn btn--underlined login-page-content-form-forgot-button">Forgot Password?</span>
+          <button className="btn btn--primary login-page-content-form-signin-button" type="submit">
+            Sign In
+          </button>
+
+          <div className="login-page-content-form-not-registered">
+            Not Registered?{" "}
+            <Link to="/register" className="btn btn--underlined">
+              Sign Up
+            </Link>
+            <Link to="/" className="btn btn--underlined">
+              Home
+            </Link>
+          </div>
+
+          <h4>Or continue with social account</h4>
+
+          <div className="login-page-content-form-social-links">
+            <Link to="#">
+              <FaFacebookF />
+            </Link>
+            <Link to="#">
+              <FaTwitter />
+            </Link>
+            <Link to="#">
+              <FaInstagram />
+            </Link>
+          </div>
+          <div className="login-page-content-form-google">
+            <button className="btn btn--outlined login-page-content-form-google-button">
+              <img
+                src={google_logo}
+                style={{ width: "25px", height: "25px" }}
+                alt="Google image"
+              />
+              <span>Continue with Google</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }
