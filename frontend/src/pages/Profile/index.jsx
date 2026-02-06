@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import "./index.css";
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import ProfileSidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar";
+import "./index.css";
 
 function Profile() {
   const [info, setInfo] = useState();
@@ -36,7 +34,7 @@ function Profile() {
   return (
     <section className="profile-page">
       <div className="profile-page-sidebar">
-        <ProfileSidebar />
+        <Sidebar />
       </div>
       <div className="profile-page-content">
         <Outlet />

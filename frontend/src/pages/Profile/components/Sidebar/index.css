@@ -1,8 +1,11 @@
-.profile-sidebar {
-  padding-top: 15px;
+.profile-page-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-8);
+}
 
-  height: fit-content;
-
+.profile-page-sidebar {
   ul {
     list-style: none;
     li {
