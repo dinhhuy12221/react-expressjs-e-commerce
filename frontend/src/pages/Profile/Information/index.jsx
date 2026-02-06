@@ -108,8 +108,8 @@ const Information = () => {
                     <FaImages />
                   </span>
               </div>
-              <div className="col-sm-8">
-                <div className="form-group mb-3">
+              <div className="profile-page-info-form-info-name">
+                <div className="profile-page-info-form-info-username">
                   <label htmlFor="customer" className="form-label">
                     Username
                   </label>
@@ -120,7 +120,7 @@ const Information = () => {
                     disabled
                   />
                 </div>
-                <div className="form-group mb-3">
+                <div className="profile-page-info-form-info-fullname">
                   <label htmlFor="fullname" className="form-label">
                     Fullname
                   </label>
@@ -133,7 +133,7 @@ const Information = () => {
                 </div>
               </div>
             </div>
-            <div className="form-group mb-3 col-sm-12">
+            <div className="profile-page-info-form-info-phone">
               <label htmlFor="phone-number" className="form-label">
                 Phone number
               </label>
@@ -144,7 +144,7 @@ const Information = () => {
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
-            <div className="form-group mb-3 col-sm-12">
+            <div className="profile-page-info-form-info-address">
               <label htmlFor="address" className="form-label">
                 Address
               </label>

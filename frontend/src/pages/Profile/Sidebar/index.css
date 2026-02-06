@@ -20,3 +20,10 @@
 .profile-page-sidebar-item:hover {
   background-color: rgb(235, 235, 240);
 }
+
+
+@media (max-width: 480px) {
+  .profile-page-sidebar {
+    flex-direction: row;
+  }
+}
