@@ -103,7 +103,7 @@ export default function Login() {
           {errorMessage}
         </p>
         <form className="login-page-content-form" onSubmit={handleSubmit}>
-          <h2>Sign In</h2>
+          <h2 className="login-page-content-form-title">Sign In</h2>
           {/* <div className="form-group"> */}
           <TextField
             className=""
@@ -145,7 +145,7 @@ export default function Login() {
             </Link>
           </div>
 
-          <h6>Or continue with social account</h6>
+          <h4>Or continue with social account</h4>
 
           <div className="login-page-content-form-social-links">
             <Link to="#">
