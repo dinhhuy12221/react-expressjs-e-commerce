@@ -17,20 +17,6 @@
   color: red;
 }
 
-.errmsg {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 0;
-
-  text-align: center;
-  background-color: var(--theme-1);
-  color: red;
-
-  font-size: 25px;
-  font-weight: 700;
-}
-
-
 .message-section {
   display: flex;
   justify-content: center;
@@ -84,47 +70,28 @@
 
 
 .login-page {
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(var(--theme-1), var(--theme-2));
-  position: absolute;
   padding: 0;
   opacity: 0.8;
 }
 
 .login-page-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-page-content-logo {
+  width: 180px;
+  height: 200px;
+}
+
+.login-page-content-logo img {
+  inset: 0;
   width: 100%;
   height: 100%;
-  place-content: center;
-  padding: auto;
-  margin: auto;
-}
-
-.login-page-content .box {
-  width: 400px;
-  height: auto;
-  background: #fff;
-  margin: auto;
-}
-
-.login-page-content .box h2 {
-  font-size: 25px;
-  font-weight: 600;
-}
-
-.login-page-content form {
-  padding: 20px 30px 10px;
-}
-
-.login-page-content form .txt {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.login-page-content .form-group {
-  margin-bottom: 20px;
-}
-
-.loginWithGoogle {
-  width: 100%;
+  top: 0;
+  left: 0;
 }

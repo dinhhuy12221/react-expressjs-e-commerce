@@ -98,7 +98,7 @@ export default function Login() {
 
         <p
           ref={errRef}
-          className={errorMessage ? "errorMessage" : "offscreen"}
+          className={errorMessage ? "error-message" : "offscreen"}
           aria-live="assertive"
         >
           {errorMessage}

@@ -299,6 +299,14 @@ a {
   width: 100%;
 }
 
+.error-message {
+  color: var(--color-text-red);
+}
+
+.offscreen {
+  display: none;
+}
+
 .overlay-link {
   position: absolute;
   inset: 0;
