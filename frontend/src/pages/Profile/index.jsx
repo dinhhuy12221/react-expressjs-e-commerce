@@ -34,20 +34,14 @@ function Profile() {
   }, []);
 
   return (
-    <>
-      <div className="profile">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-3">
-              <ProfileSidebar />
-            </div>
-            <div className="col-sm-9">
-              <Outlet />
-            </div>
-          </div>
-        </div>
+    <section className="profile-page">
+      <div className="profile-page-sidebar">
+        <ProfileSidebar />
       </div>
-    </>
+      <div className="profile-page-content">
+        <Outlet />
+      </div>
+    </section>
   );
 }
 
