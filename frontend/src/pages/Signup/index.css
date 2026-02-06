@@ -123,7 +123,7 @@
   padding: var(--space-8);
 }
 
-.signup-page-content-form-not-registered {
+.signup-page-content-form-already-registered {
   display: flex;
   gap: var(--space-10);
 }

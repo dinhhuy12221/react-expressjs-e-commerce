@@ -141,7 +141,7 @@ export default function Signup() {
         <section className="signup-page">
           <div className="signup-page-content">
             <div className="signup-page-content-logo">
-              <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo.png" />
+              <img src={Logo} />
             </div>
 
             <p
@@ -153,7 +153,6 @@ export default function Signup() {
             </p>
             <form className="signup-page-content-form" onSubmit={handleSubmit}>
               <h2 className="signup-page-content-form-title">Register</h2>
-              <div className="row">
                 {/* <div className="col-md-6">
                   <div className="form-group">
                     <TextField
@@ -354,7 +353,6 @@ export default function Signup() {
                     &nbsp; Must match the first password input field.
                   </p>
                 </div>
-              </div>
 
               <a className="btn btn--underlined signup-page-content-form-forgot-button">
                 Forgot Password?
@@ -400,6 +398,7 @@ export default function Signup() {
                 <button className="btn btn--outlined signup-page-content-form-google-button">
                   <img
                     src={google_logo}
+                    style={{ width: "25px", height: "25px" }}
                     alt="Google image"
                   />
                   <span>Continue with Google</span>
