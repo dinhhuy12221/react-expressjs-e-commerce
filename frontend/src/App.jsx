@@ -113,7 +113,7 @@ function App() {
 function Wrapper() {
   const { pathname } = useLocation();
   const list = ["/login", "/signup"];
-  const isVisible = !list.some(p => pathname.startsWith(p))
+  const isVisible = !list.some(p => pathname.toLowerCase().startsWith(p))
   
   return (
     <>

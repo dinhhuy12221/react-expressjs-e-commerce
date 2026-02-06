@@ -153,7 +153,7 @@ export default function Signup() {
             </p>
             <form className="signup-page-content-form" onSubmit={handleSubmit}>
               <h2 className="signup-page-content-form-title">Register</h2>
-                {/* <div className="col-md-6">
+              {/* <div className="col-md-6">
                   <div className="form-group">
                     <TextField
                       // id="standard-basic"
@@ -177,189 +177,188 @@ export default function Signup() {
                     />
                   </div>
                 </div> */}
-                <div className="signup-page-content-form-fullname">
-                  <TextField
-                    label={
-                      <>
-                        Fullname:
-                        <span className={validFullname ? "valid" : "offscreen"}>
-                          <FaCheck />
-                        </span>
-                        <span
-                          className={
-                            validFullname || !fullname ? "offscreen" : "invalid"
-                          }
-                        >
-                          <FaTimes />
-                        </span>
-                      </>
-                    }
-                    className="w-100"
-                    variant="standard"
-                    type="text"
-                    id="fullname"
-                    ref={fullnameRef}
-                    autoComplete="off"
-                    onChange={(e) => setFullname(e.target.value)}
-                    required
-                    aria-invalid={validFullname ? "false" : "true"}
-                    aria-describedby="fullnamenote"
-                    onFocus={() => setFullnameFocus(true)}
-                    onBlur={() => setFullnameFocus(false)}
-                  />
-                  <p
-                    id="fullnamenote"
-                    className={
-                      fullnameFocus && fullname && !validFullname
-                        ? "instructions"
-                        : "offscreen"
-                    }
-                  >
-                    <FaInfoCircle />
-                    &nbsp; 4 to 24 characters.
-                    <br />
-                    Not allowed numbers and special characters.
-                  </p>
-                </div>
-                <div className="signup-page-content-form-username">
-                  <TextField
-                    label={
-                      <>
-                        Username:
-                        <span className={validUsername ? "valid" : "offscreen"}>
-                          <FaCheck />
-                        </span>
-                        <span
-                          className={
-                            validUsername || !username ? "offscreen" : "invalid"
-                          }
-                        >
-                          <FaTimes />
-                        </span>
-                      </>
-                    }
-                    className="w-100"
-                    variant="standard"
-                    type="text"
-                    id="username"
-                    ref={userRef}
-                    autoComplete="off"
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                    aria-invalid={validUsername ? "false" : "true"}
-                    aria-describedby="uidnote"
-                    onFocus={() => setUsernameFocus(true)}
-                    onBlur={() => setUsernameFocus(false)}
-                  />
-                  <p
-                    id="uidnote"
-                    className={
-                      usernameFocus && username && !validUsername
-                        ? "instructions"
-                        : "offscreen"
-                    }
-                  >
-                    <FaInfoCircle />
-                    &nbsp; 4 to 24 characters. Must begin with a letter.
-                    Letters, numbers, underscores, hyphens allowed.
-                  </p>
-                </div>
-                <div className="signup-page-content-form-password">
-                  <TextField
-                    label={
-                      <>
-                        Password:
-                        <span className={validPassword ? "valid" : "offscreen"}>
-                          <FaCheck />
-                        </span>
-                        <span
-                          className={
-                            validPassword || !password ? "offscreen" : "invalid"
-                          }
-                        >
-                          <FaTimes />
-                        </span>
-                      </>
-                    }
-                    type="password"
-                    id="password"
-                    autoComplete="off"
-                    onChange={(e) => setPwd(e.target.value)}
-                    required
-                    aria-invalid={validPassword ? "false" : "true"}
-                    aria-describedby="pwdnote"
-                    onFocus={() => setPwdFocus(true)}
-                    onBlur={() => setPwdFocus(false)}
-                    className="w-100"
-                    variant="standard"
-                  />
-                  <p
-                    id="pwdnote"
-                    className={
-                      pwdFocus && password && !validPassword
-                        ? "instructions"
-                        : "offscreen"
-                    }
-                  >
-                    <FaInfoCircle />
-                    &nbsp; 8 to 24 characters. Must include uppercase and
-                    lowercase letters, a number and a special character. Allowed
-                    special characters:&nbsp;
-                    <span aria-label="exclamation">!</span>
-                    <span aria-label="at symbol">@</span>
-                    <span aria-label="hashtag">#</span>
-                    <span aria-label="dollar sign">$</span>
-                    <span aria-label="percent">%</span>
-                  </p>
-                </div>
-                <div className="signup-page-content-form-confirm-password">
-                  <TextField
-                    label={
-                      <>
-                        Confirm Password:
-                        <span className={validMatch ? "valid" : "offscreen"}>
-                          <FaCheck />
-                        </span>
-                        <span
-                          className={
-                            validMatch || !matchPwd ? "offscreen" : "invalid"
-                          }
-                        >
-                          <FaTimes />
-                        </span>
-                      </>
-                    }
-                    type="password"
-                    id="confirm-password"
-                    autoComplete="off"
-                    onChange={(e) => setMatchPwd(e.target.value)}
-                    required
-                    aria-invalid={validMatch ? "false" : "true"}
-                    aria-describedby="confirmnote"
-                    onFocus={() => setMatchFocus(true)}
-                    onBlur={() => setMatchFocus(false)}
-                    className="w-100"
-                    variant="standard"
-                  />
-                  <p
-                    id="confirmnote"
-                    className={
-                      matchFocus && matchPwd && !validMatch
-                        ? "instructions"
-                        : "offscreen"
-                    }
-                  >
-                    <FaInfoCircle />
-                    &nbsp; Must match the first password input field.
-                  </p>
-                </div>
+              <div className="signup-page-content-form-fullname">
+                <TextField
+                  label={
+                    <>
+                      Fullname:
+                      <span className={validFullname ? "valid" : "offscreen"}>
+                        <FaCheck />
+                      </span>
+                      <span
+                        className={
+                          validFullname || !fullname ? "offscreen" : "invalid"
+                        }
+                      >
+                        <FaTimes />
+                      </span>
+                    </>
+                  }
+                  className="w-100"
+                  variant="standard"
+                  type="text"
+                  id="fullname"
+                  ref={fullnameRef}
+                  autoComplete="off"
+                  onChange={(e) => setFullname(e.target.value)}
+                  required
+                  aria-invalid={validFullname ? "false" : "true"}
+                  aria-describedby="fullnamenote"
+                  onFocus={() => setFullnameFocus(true)}
+                  onBlur={() => setFullnameFocus(false)}
+                />
+                <p
+                  id="fullnamenote"
+                  className={
+                    fullnameFocus && fullname && !validFullname
+                      ? "instructions"
+                      : "offscreen"
+                  }
+                >
+                  <FaInfoCircle />
+                  &nbsp; 4 to 24 characters.
+                  <br />
+                  Not allowed numbers and special characters.
+                </p>
+              </div>
+              <div className="signup-page-content-form-username">
+                <TextField
+                  label={
+                    <>
+                      Username:
+                      <span className={validUsername ? "valid" : "offscreen"}>
+                        <FaCheck />
+                      </span>
+                      <span
+                        className={
+                          validUsername || !username ? "offscreen" : "invalid"
+                        }
+                      >
+                        <FaTimes />
+                      </span>
+                    </>
+                  }
+                  className="w-100"
+                  variant="standard"
+                  type="text"
+                  id="username"
+                  ref={userRef}
+                  autoComplete="off"
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  aria-invalid={validUsername ? "false" : "true"}
+                  aria-describedby="uidnote"
+                  onFocus={() => setUsernameFocus(true)}
+                  onBlur={() => setUsernameFocus(false)}
+                />
+                <p
+                  id="uidnote"
+                  className={
+                    usernameFocus && username && !validUsername
+                      ? "instructions"
+                      : "offscreen"
+                  }
+                >
+                  <FaInfoCircle />
+                  &nbsp; 4 to 24 characters. Must begin with a letter. Letters,
+                  numbers, underscores, hyphens allowed.
+                </p>
+              </div>
+              <div className="signup-page-content-form-password">
+                <TextField
+                  label={
+                    <>
+                      Password:
+                      <span className={validPassword ? "valid" : "offscreen"}>
+                        <FaCheck />
+                      </span>
+                      <span
+                        className={
+                          validPassword || !password ? "offscreen" : "invalid"
+                        }
+                      >
+                        <FaTimes />
+                      </span>
+                    </>
+                  }
+                  type="password"
+                  id="password"
+                  autoComplete="off"
+                  onChange={(e) => setPwd(e.target.value)}
+                  required
+                  aria-invalid={validPassword ? "false" : "true"}
+                  aria-describedby="pwdnote"
+                  onFocus={() => setPwdFocus(true)}
+                  onBlur={() => setPwdFocus(false)}
+                  className="w-100"
+                  variant="standard"
+                />
+                <p
+                  id="pwdnote"
+                  className={
+                    pwdFocus && password && !validPassword
+                      ? "instructions"
+                      : "offscreen"
+                  }
+                >
+                  <FaInfoCircle />
+                  &nbsp; 8 to 24 characters. Must include uppercase and
+                  lowercase letters, a number and a special character. Allowed
+                  special characters:&nbsp;
+                  <span aria-label="exclamation">!</span>
+                  <span aria-label="at symbol">@</span>
+                  <span aria-label="hashtag">#</span>
+                  <span aria-label="dollar sign">$</span>
+                  <span aria-label="percent">%</span>
+                </p>
+              </div>
+              <div className="signup-page-content-form-confirm-password">
+                <TextField
+                  label={
+                    <>
+                      Confirm Password:
+                      <span className={validMatch ? "valid" : "offscreen"}>
+                        <FaCheck />
+                      </span>
+                      <span
+                        className={
+                          validMatch || !matchPwd ? "offscreen" : "invalid"
+                        }
+                      >
+                        <FaTimes />
+                      </span>
+                    </>
+                  }
+                  type="password"
+                  id="confirm-password"
+                  autoComplete="off"
+                  onChange={(e) => setMatchPwd(e.target.value)}
+                  required
+                  aria-invalid={validMatch ? "false" : "true"}
+                  aria-describedby="confirmnote"
+                  onFocus={() => setMatchFocus(true)}
+                  onBlur={() => setMatchFocus(false)}
+                  className="w-100"
+                  variant="standard"
+                />
+                <p
+                  id="confirmnote"
+                  className={
+                    matchFocus && matchPwd && !validMatch
+                      ? "instructions"
+                      : "offscreen"
+                  }
+                >
+                  <FaInfoCircle />
+                  &nbsp; Must match the first password input field.
+                </p>
+              </div>
 
-              <a className="btn btn--underlined signup-page-content-form-forgot-button">
+              {/* <a className="btn btn--underlined signup-page-content-form-forgot-button">
                 Forgot Password?
-              </a>
-              <div className="signup-page-content-form-signup-button">
+              </a> */}
                 <button
-                  className="btn btn--primary"
+                  className="signup-page-content-form-signup-button btn btn--primary"
                   type="submit"
                   disabled={
                     !validUsername || !validMatch || !validMatch ? true : false
@@ -367,32 +366,29 @@ export default function Signup() {
                 >
                   Sign Up
                 </button>
-              </div>
 
               <div className="signup-page-content-form-already-registered">
                 Already Registered?{" "}
-                <Link to="/login" className="border-effect">
+                <Link to="/login" className="btn btn--underlined">
                   Sign In
                 </Link>
-                <Link to="/" className="border-effect">
+                <Link to="/" className="btn btn--underlined">
                   Home
                 </Link>
               </div>
 
-              <h3>
-                Or continue with social account
-              </h3>
+              <h3>Or continue with social account</h3>
 
               <div className="signup-page-content-form-social-links">
-                  <Link to="#">
-                    <FaFacebookF />
-                  </Link>
-                  <Link to="#">
-                    <FaTwitter />
-                  </Link>
-                  <Link to="#">
-                    <FaInstagram />
-                  </Link>
+                <Link to="#">
+                  <FaFacebookF />
+                </Link>
+                <Link to="#">
+                  <FaTwitter />
+                </Link>
+                <Link to="#">
+                  <FaInstagram />
+                </Link>
               </div>
               <div className="signup-page-content-form-google">
                 <button className="btn btn--outlined signup-page-content-form-google-button">

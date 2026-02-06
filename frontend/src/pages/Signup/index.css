@@ -118,12 +118,12 @@
   display: flex;
 }
 
-.signup-page-content-form-forgot-button {
+/* .signup-page-content-form-forgot-button {
   display: flex;
   justify-content: center;
-}
+} */
 
-.signup-page-content-form-signin-button {
+.signup-page-content-form-signup-button {
   padding: var(--space-8);
 }
 
