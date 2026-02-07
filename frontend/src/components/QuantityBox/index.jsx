@@ -27,7 +27,7 @@ export default function QuantityBox({ stockQuantity }) {
 
   return (
     <div className="quantity-box">
-      <button className="btn bnt--rounded" onClick={() => decrease()}>
+      <button className="btn btn--rounded" onClick={() => decrease()}>
         <FaMinus />
       </button>
       <input
@@ -35,7 +35,7 @@ export default function QuantityBox({ stockQuantity }) {
         value={quantity}
         onChange={(e) => changeQuantity(e.target.value)}
       />
-      <button className="btn bnt--rounded" onClick={() => increase()}>
+      <button className="btn btn--rounded" onClick={() => increase()}>
         <FaPlus />
       </button>
     </div>

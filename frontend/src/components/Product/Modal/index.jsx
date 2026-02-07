@@ -40,7 +40,7 @@ export default function Modal(props) {
       }}
     >
       <button
-        className="btn btn--outlined bnt--rounded product-modal-close-button"
+        className="btn btn--outlined btn--rounded product-modal-close-button"
         onClick={() => {
           context.setIsOpenProductModal(false);
           context.setProductModal({});

@@ -201,19 +201,19 @@ export default function Footer() {
           <div className="footer-bottom-contracts">
             <Link
               to={"#"}
-              className="footer-bottom-contracts-item btn btn--outlined bnt--rounded"
+              className="footer-bottom-contracts-item btn btn--outlined btn--rounded"
             >
               <FaFacebookF />
             </Link>
             <Link
               to={"#"}
-              className="footer-bottom-contracts-item btn btn--outlined bnt--rounded"
+              className="footer-bottom-contracts-item btn btn--outlined btn--rounded"
             >
               <FaTwitter />
             </Link>
             <Link
               to={"#"}
-              className="footer-bottom-contracts-item btn btn--outlined bnt--rounded"
+              className="footer-bottom-contracts-item btn btn--outlined btn--rounded"
             >
               <FaInstagram />
             </Link>

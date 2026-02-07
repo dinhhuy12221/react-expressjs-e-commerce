@@ -1,7 +1,6 @@
 .profile-page-sidebar {
   display: flex;
   flex-direction: column;
-  gap: var(--space-16);
   padding: var(--space-8);
 }
 

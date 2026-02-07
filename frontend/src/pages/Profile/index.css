@@ -3,7 +3,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.profile-page-content {
+  width: 600px;
+}
 @media (max-width: 480px) {
   .profile-page {
     flex-direction: column;
