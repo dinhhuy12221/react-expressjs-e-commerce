@@ -93,11 +93,11 @@ const Information = () => {
     <>
       <section className="profile-page-info">
         <form className="profile-page-info-form">
-          <div className="profile-page-info-form-avatar btn btn--rounded">
+          <div className="profile-page-info-form-avatar">
             <input
-              className="profile-page-info-form-avatar-selector"
+              className="profile-page-info-form-avatar-selector btn btn--rounded"
               type="file"
-              accept="avatar/png, avatar/jpeg"
+              accept="image/*"
               onChange={handleImageUpload}
             />
             {/* <img src={avatar} alt="avatar" /> */}

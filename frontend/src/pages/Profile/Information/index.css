@@ -31,8 +31,12 @@
   position: relative;
 
   align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   border: var(--border-width-2) var(--color-bg-red-1);
+  border-radius: 50%;
 
   width: 150px;
   height: 150px;
@@ -49,14 +53,27 @@
 }
 .profile-page-info-form-avatar-selector {
   position: absolute;
-  background-color: var(--color-bg-gray-2);
+
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  color: transparent;
+  background-color: var(--color-bg-red-2);
+  opacity: 0.3;
 }
 .profile-page-info-form-avatar-selector::-webkit-file-upload-button {
   visibility: hidden;
 }
 .profile-page-info-form-avatar-change-icon {
   position: absolute;
-  background-color: var(--color-bg-red-2);
+
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+.profile-page-info-form-avatar-change-icon svg {
+  color: var(--color-bg-red-2);
+  opacity: 0.4;
 }
 /* .profile-info {
   padding: 20px;
