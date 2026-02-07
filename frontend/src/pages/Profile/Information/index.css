@@ -6,6 +6,7 @@
 .profile-page-info-form {
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
   gap: var(--space-12);
 }
 .profile-page-info-form-info {
@@ -29,28 +30,33 @@
 .profile-page-info-form-avatar {
   position: relative;
 
-  grid-column: 1 / -1;
+  align-self: center;
 
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
-  border: var(--border-width-1) var(--color-bg-red-1);
+  border: var(--border-width-2) var(--color-bg-red-1);
 
   width: 150px;
   height: 150px;
+  padding: var(--space-8);
+
+  overflow: hidden;
 }
 .profile-page-info-form-avatar img {
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* background-size: cover; */
 }
-.profile-page-info-form-info-1-avatar-selector {
+.profile-page-info-form-avatar-selector {
   position: absolute;
+  background-color: var(--color-bg-gray-2);
 }
-.profile-page-info-form-info-1-avatar-change-icon {
+.profile-page-info-form-avatar-selector::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.profile-page-info-form-avatar-change-icon {
   position: absolute;
+  background-color: var(--color-bg-red-2);
 }
 /* .profile-info {
   padding: 20px;

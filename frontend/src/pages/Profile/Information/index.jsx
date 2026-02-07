@@ -93,7 +93,7 @@ const Information = () => {
     <>
       <section className="profile-page-info">
         <form className="profile-page-info-form">
-          <div className="profile-page-info-form-avatar">
+          <div className="profile-page-info-form-avatar btn btn--rounded">
             <input
               className="profile-page-info-form-avatar-selector"
               type="file"
