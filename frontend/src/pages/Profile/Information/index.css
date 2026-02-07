@@ -11,20 +11,21 @@
 }
 .profile-page-info-form-info {
   display: flex;
+  gap: var(--space-16);
 }
 .profile-page-info-form-info-1 {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
 
-  width: 400px;
+  width: 300px;
 }
 .profile-page-info-form-info-2 {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
 
-  width: 400px;
+  width: 300px;
 }
 
 .profile-page-info-form-avatar {
@@ -59,7 +60,7 @@
   object-fit: cover;
   color: transparent;
   background-color: var(--color-bg-red-2);
-  opacity: 0.3;
+  opacity: 0.2;
 }
 .profile-page-info-form-avatar-selector::-webkit-file-upload-button {
   visibility: hidden;
@@ -69,11 +70,15 @@
 
   width: 20px;
   height: 20px;
+  color: var(--color-bg-red-2);
+  opacity: 0.7;
   pointer-events: none;
 }
-.profile-page-info-form-avatar-change-icon svg {
-  color: var(--color-bg-red-2);
-  opacity: 0.4;
+
+@media (max-width: 720px) {
+  .profile-page-info-form-info {
+    flex-direction: column;
+  }
 }
 /* .profile-info {
   padding: 20px;
