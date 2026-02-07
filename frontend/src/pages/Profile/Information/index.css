@@ -1,4 +1,81 @@
-.profile-info {
+.profile-page-info {
+  display: flex;
+  padding: var(--space-20);
+}
+
+.profile-page-info-form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: var(--space-12);
+}
+.profile-page-info-form-info {
+  display: flex;
+}
+.profile-page-info-form-info-1 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+
+  width: 400px;
+}
+.profile-page-info-form-info-2 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+
+  width: 400px;
+}
+
+.profile-page-info-form-avatar {
+  position: relative;
+
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: var(--border-width-2) var(--color-bg-red-1);
+  border-radius: 50%;
+
+  width: 150px;
+  height: 150px;
+  padding: var(--space-8);
+
+  overflow: hidden;
+}
+.profile-page-info-form-avatar img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* background-size: cover; */
+}
+.profile-page-info-form-avatar-selector {
+  position: absolute;
+
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  color: transparent;
+  background-color: var(--color-bg-red-2);
+  opacity: 0.3;
+}
+.profile-page-info-form-avatar-selector::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.profile-page-info-form-avatar-change-icon {
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+.profile-page-info-form-avatar-change-icon svg {
+  color: var(--color-bg-red-2);
+  opacity: 0.4;
+}
+/* .profile-info {
   padding: 20px;
 
   background-color: #fff;
@@ -26,12 +103,12 @@
         border: 3px solid var(--theme-2);
 
         width: 110px;
-        height: 110px;
+        height: 110px; */
 
-        /* background-image: url("https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256");
+/* background-image: url("https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256");
         background-size: cover; */
 
-        opacity: 0.4;
+/* opacity: 0.4;
         cursor: pointer;
         overflow: hidden;
 
@@ -67,4 +144,4 @@
       }
     }
   }
-}
+} */

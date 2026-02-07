@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useUpdateCustomerMutation } from "~/features/customer/customerApi";
 import OptionModal from "~/components/OptionModal";
 import { FaImages } from "react-icons/fa";
-import Logo from "~/assets/images/logo.png"
+import Logo from "~/assets/images/logo.png";
 import "./index.css";
 
 const Information = () => {
@@ -42,7 +42,7 @@ const Information = () => {
 
   const handleChangeSubmit = async () => {
     try {
-      const _id = customer?._id
+      const _id = customer?._id;
       const updatedCustomer = {
         _id,
         avatar,
@@ -53,7 +53,7 @@ const Information = () => {
 
       const result = await updateCustomer({ ...updatedCustomer });
       console.log(result);
-      
+
       setIsModalOpen(true);
       if (result?.data) {
         setOption({
@@ -61,16 +61,15 @@ const Information = () => {
           content: "Your changes are saved!",
           type: "close",
         });
-        
-        dispatch(setCustomer({ customer: result?.data?.customer }))
 
-      } else if (result?.error){
+        dispatch(setCustomer({ customer: result?.data?.customer }));
+      } else if (result?.error) {
         setOption({
           title: "Failed",
-          content: "There is something wrong when saving your changes! Please try again",
+          content:
+            "There is something wrong when saving your changes! Please try again",
           type: "close",
         });
-
       }
     } catch (error) {
       console.error(error);
@@ -94,22 +93,20 @@ const Information = () => {
     <>
       <section className="profile-page-info">
         <form className="profile-page-info-form">
-            <div className="profile-page-info-form-info">
-              <div className="profile-page-info-form-info-avatar">
-                  <input
-                    className="avatar-chooser"
-                    type="file"
-                    accept="avatar/png, avatar/jpeg"
-                    onChange={handleImageUpload}
-                  />
-                  {/* <img src={avatar} alt="avatar" /> */}
-                  <img src={Logo} alt="avatar" />
-                  <span className="change-icon">
-                    <FaImages />
-                  </span>
-              </div>
-              <div className="profile-page-info-form-info-name">
-                <div className="profile-page-info-form-info-username">
+          <div className="profile-page-info-form-avatar">
+            <input
+              className="profile-page-info-form-avatar-selector btn btn--rounded"
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+            {/* <img src={avatar} alt="avatar" /> */}
+            <img src={Logo} alt="avatar" />
+            <FaImages className="profile-page-info-form-avatar-change-icon" />
+          </div>
+          <div className="profile-page-info-form-info">
+            <div className="profile-page-info-form-info-1">
+                <div className="profile-page-info-form-info-1-username">
                   <label htmlFor="customer" className="form-label">
                     Username
                   </label>
@@ -120,7 +117,7 @@ const Information = () => {
                     disabled
                   />
                 </div>
-                <div className="profile-page-info-form-info-fullname">
+                <div className="profile-page-info-form-info-1-fullname">
                   <label htmlFor="fullname" className="form-label">
                     Fullname
                   </label>
@@ -131,44 +128,46 @@ const Information = () => {
                     onChange={(e) => setFullname(e.target.value)}
                   />
                 </div>
+            </div>
+            <div className="profile-page-info-form-info-2">
+              <div className="profile-page-info-form-info-2-phone">
+                <label htmlFor="phone-number" className="form-label">
+                  Phone number
+                </label>
+                <Input
+                  type="number"
+                  id="phone-number"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
+              </div>
+              <div className="profile-page-info-form-info-2-address">
+                <label htmlFor="address" className="form-label">
+                  Address
+                </label>
+                <Input
+                  type="text"
+                  id="address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
               </div>
             </div>
-            <div className="profile-page-info-form-info-phone">
-              <label htmlFor="phone-number" className="form-label">
-                Phone number
-              </label>
-              <Input
-                type="number"
-                id="phone-number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              />
-            </div>
-            <div className="profile-page-info-form-info-address">
-              <label htmlFor="address" className="form-label">
-                Address
-              </label>
-              <Input
-                type="text"
-                id="address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </div>
-            <button
-              className="small col-md-2 col-sm-12"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsModalOpen(true);
-                setOption({
-                  title: "Save change",
-                  content: "Are you sure to save these recently changes?",
-                  type: "yes_no",
-                });
-              }}
-            >
-              Save change
-            </button>
+          </div>
+              <button
+                className="profile-page-info-form-save-button btn btn--primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsModalOpen(true);
+                  setOption({
+                    title: "Save change",
+                    content: "Are you sure to save these recently changes?",
+                    type: "yes_no",
+                  });
+                }}
+              >
+                Save change
+              </button>
         </form>
       </section>
 
@@ -182,6 +181,6 @@ const Information = () => {
       )}
     </>
   );
-}
+};
 
 export default Information;
