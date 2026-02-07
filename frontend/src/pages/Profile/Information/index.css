@@ -1,4 +1,58 @@
-.profile-info {
+.profile-page-info {
+  display: flex;
+  padding: var(--space-20);
+}
+
+.profile-page-info-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.profile-page-info-form-info {
+  display: flex;
+}
+.profile-page-info-form-info-1 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+
+  width: 400px;
+}
+.profile-page-info-form-info-2 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+
+  width: 400px;
+}
+
+.profile-page-info-form-avatar {
+  position: relative;
+
+  grid-column: 1 / -1;
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  border: var(--border-width-1) var(--color-bg-red-1);
+
+  width: 150px;
+  height: 150px;
+}
+.profile-page-info-form-avatar img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-page-info-form-info-1-avatar-selector {
+  position: absolute;
+}
+.profile-page-info-form-info-1-avatar-change-icon {
+  position: absolute;
+}
+/* .profile-info {
   padding: 20px;
 
   background-color: #fff;
@@ -26,12 +80,12 @@
         border: 3px solid var(--theme-2);
 
         width: 110px;
-        height: 110px;
+        height: 110px; */
 
-        /* background-image: url("https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256");
+/* background-image: url("https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256");
         background-size: cover; */
 
-        opacity: 0.4;
+/* opacity: 0.4;
         cursor: pointer;
         overflow: hidden;
 
@@ -67,4 +121,4 @@
       }
     }
   }
-}
+} */
