@@ -37,7 +37,7 @@ function Profile() {
         <Sidebar />
       </div>
       <div className="profile-page-content">
-        <Outlet />
+        <Outlet className="profile-page-content"/>
       </div>
     </section>
   );

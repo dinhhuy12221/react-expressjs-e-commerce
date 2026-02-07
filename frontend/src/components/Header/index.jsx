@@ -48,10 +48,10 @@ function Header() {
           )} */}
           <span className="cart-price">$0.00</span>
           <div className="cart">
-            <span className="cart-count bnt--rounded">1</span>
+            <span className="cart-count btn--rounded">1</span>
             <a
               href="/cart"
-              className="btn bnt--rounded btn--outlined cart-button"
+              className="btn btn--rounded btn--outlined cart-button"
             >
               <TiShoppingCart />
             </a>

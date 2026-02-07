@@ -23,12 +23,12 @@ export default function Item({ product }) {
     <div className="product">
       <div className="product-buttons">
         <button
-          className="btn btn--outlined bnt--rounded detail-button"
+          className="btn btn--outlined btn--rounded detail-button"
           onClick={() => viewProductDetails()}
         >
           <AiOutlineFullscreen />
         </button>
-        <button className="btn btn--outlined bnt--rounded wishlist-button">
+        <button className="btn btn--outlined btn--rounded wishlist-button">
           <IoMdHeartEmpty />
         </button>
       </div>
