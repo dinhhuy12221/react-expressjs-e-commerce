@@ -46,7 +46,7 @@ function Header() {
           {/* <a href="/login" className="btn btn--primary signin-button">
             Signin
           </a> */}
-          {!customer ? (
+          {customerId === null ? (
             <a href="/login" className="btn btn--primary signin-button">
               Signin
             </a>

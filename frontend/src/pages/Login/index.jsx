@@ -13,9 +13,8 @@ import Logo from "~/assets/images/logo.png";
 import useInput from "~/hooks/useInput";
 import { useDispatch } from "react-redux";
 import { useLoginMutation } from "~/features/auth/authApi";
-// Styles
-import "./index.css";
 import { setCredentials } from "~/features/auth/authSlice";
+import "./index.css";
 
 // import axios from "~/api/axios";
 // const LOGIN_URL = "/auth/customer/login";
