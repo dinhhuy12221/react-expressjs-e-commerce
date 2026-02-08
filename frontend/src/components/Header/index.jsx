@@ -8,14 +8,21 @@ import { MyContext } from "~/App";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
 import { useSelector } from "react-redux";
-import { selectCurrentCustomer } from "~/features/auth/authSlice";
+import { selectCurrentCustomerId } from "~/features/auth/authSlice";
 import Profile from "./Profile";
 import "./index.css";
+import { useGetCustomerQuery } from "~/features/customer/customerApi";
+import { skipToken } from "@reduxjs/toolkit/query";
 
 function Header() {
   const context = useContext(MyContext);
   const [open, setOpen] = useState(false);
-  const customer = useSelector(selectCurrentCustomer);
+  const customerId = useSelector(selectCurrentCustomerId);
+  const {
+      data: customer,
+      isLoading,
+      isFetching,
+    } = useGetCustomerQuery(customerId ?? skipToken);
 
   return (
     <div className="header-wrapper">

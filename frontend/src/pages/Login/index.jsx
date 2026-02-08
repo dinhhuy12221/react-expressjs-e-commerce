@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import { useLoginMutation } from "~/features/auth/authApi";
 // Styles
 import "./index.css";
-import { setCredentials, setCustomer } from "~/features/auth/authSlice";
+import { setCredentials } from "~/features/auth/authSlice";
 
 // import axios from "~/api/axios";
 // const LOGIN_URL = "/auth/customer/login";

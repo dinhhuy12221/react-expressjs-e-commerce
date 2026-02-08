@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { skipToken } from "@reduxjs/toolkit/query";
-import { selectCurrentCustomerID } from "~/features/auth/authSlice";
+import { selectCurrentCustomerId } from "~/features/auth/authSlice";
 import Input from "~/components/Input";
 import { useEffect, useState } from "react";
 import {
@@ -14,7 +14,7 @@ import "./index.css";
 
 const Information = () => {
   const dispatch = useDispatch();
-  const customerId = useSelector(selectCurrentCustomerID);
+  const customerId = useSelector(selectCurrentCustomerId);
   const {
     data: customer,
     isLoading,
