@@ -19,7 +19,7 @@ function Profile() {
 
       } finally {
         dispatch(logOut())
-        navigate('/')
+        navigate(0)
       }
     }
 

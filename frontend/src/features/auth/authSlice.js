@@ -10,7 +10,7 @@ const authSlice = createSlice({
       state.accessToken = accessToken
       state.isAuthenticated = true
     },
-    logOut: (state, action) => {
+    logOut: (state) => {
       state.customerId = null;
       state.accessToken = null;
       state.isAuthenticated = false;
@@ -22,6 +22,6 @@ export default authSlice.reducer;
 
 export const { setCredentials, logOut } = authSlice.actions;
 
-export const selectCurrentCustomerId = (state) => state.auth.customer._id;
+export const selectCurrentCustomerId = (state) => state.auth.customerId;
 export const selectCurrentAccessToken = (state) => state.auth.accessToken;
 export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
