@@ -16,7 +16,7 @@ const getProductById = async (id) => {
     const product = await fetch(base_url + "/product/" + id).then((result) =>
       result.json()
     );
-    return await product;
+    return product;
   } catch (error) {
     console.error(error);
   }
@@ -27,7 +27,7 @@ const getProductBySlug = async (slug) => {
     const product = await fetch(base_url + "/product/" + slug).then((result) =>
       result.json()
     );
-    return await product;
+    return product;
   } catch (error) {
     console.error(error);
   }
