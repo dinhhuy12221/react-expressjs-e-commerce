@@ -30,6 +30,7 @@ const RequireAuth = () => {
   const accessToken = useSelector(selectCurrentAccessToken);
   const [verify, { isLoading }] = useVerifyMutation();
   const [allowed, setAllowed] = useState(false);
+  const isAuthenticate = (allowed && accessToken !== null)
 
   const isVerified = async () => {
     try {
@@ -51,7 +52,7 @@ const RequireAuth = () => {
   
   return (
     <>
-      {(allowed && accessToken !== null) ? (
+      {isAuthenticate ? (
         <Outlet />
       ) : (
         <Navigate to="/login" state={{ from: location }} replace />

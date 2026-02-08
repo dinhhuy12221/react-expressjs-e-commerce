@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentCustomer, setCustomer } from "~/features/auth/authSlice";
 import Input from "~/components/Input";
 import { useEffect, useState } from "react";
-import { useUpdateCustomerMutation } from "~/features/customer/customerApi";
+import { useUpdateUserMutation } from "~/features/customer/userApi";
 import OptionModal from "~/components/OptionModal";
 import { FaImages } from "react-icons/fa";
 import Logo from "~/assets/images/logo.png";
@@ -11,7 +11,7 @@ import "./index.css";
 const Information = () => {
   const dispatch = useDispatch();
   const customer = useSelector(selectCurrentCustomer);
-  const [updateCustomer, { isLoading }] = useUpdateCustomerMutation();
+  const [updateUser, { isLoading }] = useUpdateUserMutation();
 
   const [avatar, setAvatar] = useState(customer?.avatar || "");
   const [fullname, setFullname] = useState(customer?.fullname || "");
@@ -43,7 +43,7 @@ const Information = () => {
   const handleChangeSubmit = async () => {
     try {
       const _id = customer?._id;
-      const updatedCustomer = {
+      const updatedUser = {
         _id,
         avatar,
         fullname,
@@ -51,8 +51,7 @@ const Information = () => {
         phoneNumber,
       };
 
-      const result = await updateCustomer({ ...updatedCustomer });
-      console.log(result);
+      const result = await updateUser({ ...updatedUser });
 
       setIsModalOpen(true);
       if (result?.data) {
