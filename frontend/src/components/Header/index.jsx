@@ -1,18 +1,18 @@
 import { useContext, useState } from "react";
-import Logo from "~/assets/images/logo.png";
-import CountrySelector from "../CountrySelector/index";
-import SearchBox from "./SearchBox/index";
-import SiteCanvas from "../SiteCanvas";
-import Navigation from "./Navigation/index";
 import { MyContext } from "~/App";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { selectCurrentCustomerId } from "~/features/auth/authSlice";
-import Profile from "./Profile";
-import "./index.css";
 import { useGetCustomerQuery } from "~/features/customer/customerApi";
 import { skipToken } from "@reduxjs/toolkit/query";
+import Profile from "./Profile";
+import Logo from "~/assets/images/logo.png";
+import CountrySelector from "../CountrySelector/index";
+import SearchBox from "./SearchBox/index";
+import SiteCanvas from "../SiteCanvas";
+import Navigation from "./Navigation/index";
+import "./index.css";
 
 function Header() {
   const context = useContext(MyContext);
@@ -43,9 +43,9 @@ function Header() {
             <CountrySelector className="country-selector" />
           )}
           <SearchBox className="search-box" />
-          <a href="/login" className="btn btn--primary signin-button">
+          {/* <a href="/login" className="btn btn--primary signin-button">
             Signin
-          </a>
+          </a> */}
           {!customer ? (
             <a href="/login" className="btn btn--primary signin-button">
               Signin
