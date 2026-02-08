@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { skipToken } from "@reduxjs/toolkit/query";
-import {
-  selectCurrentCustomerID,
-  setCustomer,
-} from "~/features/auth/authSlice";
+import { selectCurrentCustomerID } from "~/features/auth/authSlice";
 import Input from "~/components/Input";
 import { useEffect, useState } from "react";
 import {
@@ -74,7 +71,7 @@ const Information = () => {
           type: "close",
         });
 
-        dispatch(setCustomer({ customer: result?.data?.customer }));
+        // dispatch(setCustomer({ customer: result?.data?.customer }));
       } else if (result?.error) {
         setOption({
           title: "Failed",
@@ -92,7 +89,6 @@ const Information = () => {
     setOptionState({ isClicked, state });
   };
 
-
   useEffect(() => {
     if (optionState.isClicked) {
       setIsModalOpen(false);
@@ -104,13 +100,13 @@ const Information = () => {
 
   useEffect(() => {
     if (customer) {
-      setAvatar(customer.avatar)
-      setUsername(customer.username)
-      setFullname(customer.fullname)
-      setPhoneNumber(customer.phone_number)
-      setAddress(customer.address)
+      setAvatar(customer.avatar);
+      setUsername(customer.username);
+      setFullname(customer.fullname);
+      setPhoneNumber(customer.phone_number);
+      setAddress(customer.address);
     }
-  }, [customer])
+  }, [customer]);
 
   return (
     <>
@@ -133,12 +129,7 @@ const Information = () => {
                 <label htmlFor="customer" className="form-label">
                   Username
                 </label>
-                <Input
-                  type="text"
-                  id="customer"
-                  value={username}
-                  disabled
-                />
+                <Input type="text" id="customer" value={username} disabled />
               </div>
               <div className="profile-page-info-form-info-1-fullname">
                 <label htmlFor="fullname" className="form-label">
