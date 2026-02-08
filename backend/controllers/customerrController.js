@@ -1,20 +1,19 @@
-import User from "../models/user.js";
+import Customer from "../models/customer.js";
 
-class userController {
-  getUser = async (req, res) => {
+class customerController {
+  getCustomer = async (req, res) => {
     try {
-      console.log(req.body);
 
-      const user = await User.findOne({ _id: req.body.id });
-      return res.status(200).json(user);
+      const customer = await Customer.findOne({ _id: req.params.id });
+      return res.status(200).json(customer);
     } catch (error) {
       return res.status(400).json(error);
     }
   };
 
-  updateUser = async (req, res) => {
+  updateCustomer = async (req, res) => {
     try {
-      const result = await User.findOneAndUpdate(
+      const result = await Customer.findOneAndUpdate(
         {
           _id: req.body._id,
         },
@@ -27,14 +26,14 @@ class userController {
       );
 
       if (result) {
-        return res.status(200).json({ user: result });
+        return res.status(200).json({ customer: result });
       }
       res.status(400).json({ message: "Unauthorized" });
     } catch (error) {
       console.log(error);
-      return res.status(400).json({ message: "Error" });
+      return res.status(400).json({ message: error });
     }
   };
 }
 
-export default new userController();
+export default new customerController();

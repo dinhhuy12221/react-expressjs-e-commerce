@@ -9,7 +9,7 @@ function Profile() {
   const dispatch = useDispatch();
   return (
     <div className="header-profile">
-      <Link className='profile-link' to="/profile/info">
+      <Link className='profile-link' to="/profile/information">
         <FaRegUserCircle />
       </Link>
       <Button className="small" onClick={() => dispatch(logOut())}>

@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import { useLoginMutation } from "~/features/auth/authApi";
 // Styles
 import "./index.css";
-import { setCredentials, setCustomer } from "~/features/auth/authSlice";
+import { setCredentials } from "~/features/auth/authSlice";
 
 // import axios from "~/api/axios";
 // const LOGIN_URL = "/auth/customer/login";
@@ -50,27 +50,13 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const response = await axios.post(
-      //   LOGIN_URL,
-      //   JSON.stringify({ username: username, password: password }),
-      //   {
-      //     headers: { "Content-Type": "application/json" },
-      //     withCredentials: true,
-      //   }
-      // );
-      // // console.log(JSON.stringify(response?.data));
-      // const accessToken = response?.data?.accessToken;
-      // setAuth({ username, accessToken, });
-
       const { accessToken, customer } = await login({
         username,
         password,
       }).unwrap();
 
-      dispatch(setCredentials({ accessToken }));
-      dispatch(setCustomer({ customer }));
+      dispatch(setCredentials({ customerId: customer._id, accessToken }));
 
-      // setUsername("");
       resetUsername("");
       setPassword("");
       navigate(from, { replace: true });
