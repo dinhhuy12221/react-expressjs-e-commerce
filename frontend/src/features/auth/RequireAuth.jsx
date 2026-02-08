@@ -1,63 +1,38 @@
-// import { useLocation, Navigate, Outlet } from "react-router-dom";
-// import useAuth from "../../../../hooks/useAuth";
-// import jwt_decode from 'jwt-decode'
-
-// const RequireAuth = ({ }) => {
-//   const { auth } = useAuth();
-//   const location = useLocation();
-
-//   const decoded = auth?.accessToken
-//     ? jwt_decode(auth.accessToken)
-//     : undefined;
-
-//   return auth?.accessToken ? (
-//     <Outlet />
-//   ) : (
-//     <Navigate to="/login" state={{ from: location }} replace />
-//   );
-// };
-
-// export default RequireAuth;
-
-import { useLocation, Navigate, Outlet } from "react-router";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useVerifyMutation } from "./authApi";
-import { useMemo, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectCurrentAccessToken } from "./authSlice";
+import { logOut } from "./authSlice";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const RequireAuth = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
-  const accessToken = useSelector(selectCurrentAccessToken);
+
   const [verify, { isLoading }] = useVerifyMutation();
-  const [allowed, setAllowed] = useState(false);
-  const isAuthenticate = (allowed && accessToken !== null)
+  const [allowed, setAllowed] = useState(null);
 
-  const isVerified = async () => {
-    try {
-      const result = await verify({}).unwrap();
-      
-      if (result?.status === 200) return true;
-      return false;
-    } catch (error) {
-      return false;
-    }
-  };
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await verify().unwrap();
+        setAllowed(true);
+      } catch (error) {
+        dispatch(logOut());
+        setAllowed(false);
+      }
+    };
 
-  useMemo(() => {
-    isVerified() ? setAllowed(true) : setAllowed(false);
-  }, [location]);
+    checkAuth();
+  }, [verify, dispatch]);
 
-  // console.log(allowed, accessToken);
-  // console.log(window.location.href);
-  
-  return (
-    <>
-      {isAuthenticate ? (
-        <Outlet />
-      ) : (
-        <Navigate to="/login" state={{ from: location }} replace />
-      )}
-    </>
+  if (isLoading || allowed === null) {
+    return <div>Checking authentication...</div>;
+  }
+
+  return allowed ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" state={{ from: location }} replace />
   );
 };
 
