@@ -1,8 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectCurrentCustomer, setCustomer } from "~/features/auth/authSlice";
+import { skipToken } from "@reduxjs/toolkit/query";
+import {
+  selectCurrentCustomerID,
+  setCustomer,
+} from "~/features/auth/authSlice";
 import Input from "~/components/Input";
 import { useEffect, useState } from "react";
-import { useUpdateUserMutation } from "~/features/customer/userApi";
+import {
+  useUpdateCustomerMutation,
+  useGetCustomerQuery,
+} from "~/features/customer/customerApi";
 import OptionModal from "~/components/OptionModal";
 import { FaImages } from "react-icons/fa";
 import Logo from "~/assets/images/logo.png";
@@ -10,13 +17,19 @@ import "./index.css";
 
 const Information = () => {
   const dispatch = useDispatch();
-  const customer = useSelector(selectCurrentCustomer);
-  const [updateUser, { isLoading }] = useUpdateUserMutation();
+  const customerId = useSelector(selectCurrentCustomerID);
+  const {
+    data: customer,
+    isLoading,
+    isFetching,
+  } = useGetCustomerQuery(customerId ?? skipToken);
+  const [updateCustomer] = useUpdateCustomerMutation();
 
-  const [avatar, setAvatar] = useState(customer?.avatar || "");
-  const [fullname, setFullname] = useState(customer?.fullname || "");
-  const [phoneNumber, setPhoneNumber] = useState(customer?.phone_number || "");
-  const [address, setAddress] = useState(customer?.address || "");
+  const [avatar, setAvatar] = useState("");
+  const [username, setUsername] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [optionState, setOptionState] = useState({
     isClicked: false,
@@ -43,7 +56,7 @@ const Information = () => {
   const handleChangeSubmit = async () => {
     try {
       const _id = customer?._id;
-      const updatedUser = {
+      const updatedCustomer = {
         _id,
         avatar,
         fullname,
@@ -51,7 +64,7 @@ const Information = () => {
         phoneNumber,
       };
 
-      const result = await updateUser({ ...updatedUser });
+      const result = await updateCustomer({ ...updatedCustomer });
 
       setIsModalOpen(true);
       if (result?.data) {
@@ -79,6 +92,7 @@ const Information = () => {
     setOptionState({ isClicked, state });
   };
 
+
   useEffect(() => {
     if (optionState.isClicked) {
       setIsModalOpen(false);
@@ -87,6 +101,16 @@ const Information = () => {
       }
     }
   }, [optionState]);
+
+  useEffect(() => {
+    if (customer) {
+      setAvatar(customer.avatar)
+      setUsername(customer.username)
+      setFullname(customer.fullname)
+      setPhoneNumber(customer.phone_number)
+      setAddress(customer.address)
+    }
+  }, [customer])
 
   return (
     <>
@@ -105,28 +129,28 @@ const Information = () => {
           </div>
           <div className="profile-page-info-form-info">
             <div className="profile-page-info-form-info-1">
-                <div className="profile-page-info-form-info-1-username">
-                  <label htmlFor="customer" className="form-label">
-                    Username
-                  </label>
-                  <Input
-                    type="text"
-                    id="customer"
-                    value={customer?.username || ""}
-                    disabled
-                  />
-                </div>
-                <div className="profile-page-info-form-info-1-fullname">
-                  <label htmlFor="fullname" className="form-label">
-                    Fullname
-                  </label>
-                  <Input
-                    type="text"
-                    id="fullname"
-                    value={fullname}
-                    onChange={(e) => setFullname(e.target.value)}
-                  />
-                </div>
+              <div className="profile-page-info-form-info-1-customername">
+                <label htmlFor="customer" className="form-label">
+                  Username
+                </label>
+                <Input
+                  type="text"
+                  id="customer"
+                  value={username}
+                  disabled
+                />
+              </div>
+              <div className="profile-page-info-form-info-1-fullname">
+                <label htmlFor="fullname" className="form-label">
+                  Fullname
+                </label>
+                <Input
+                  type="text"
+                  id="fullname"
+                  value={fullname}
+                  onChange={(e) => setFullname(e.target.value)}
+                />
+              </div>
             </div>
             <div className="profile-page-info-form-info-2">
               <div className="profile-page-info-form-info-2-phone">
@@ -153,20 +177,20 @@ const Information = () => {
               </div>
             </div>
           </div>
-              <button
-                className="profile-page-info-form-save-button btn btn--primary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsModalOpen(true);
-                  setOption({
-                    title: "Save change",
-                    content: "Are you sure to save these recently changes?",
-                    type: "yes_no",
-                  });
-                }}
-              >
-                Save change
-              </button>
+          <button
+            className="profile-page-info-form-save-button btn btn--primary"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsModalOpen(true);
+              setOption({
+                title: "Save change",
+                content: "Are you sure to save these recently changes?",
+                type: "yes_no",
+              });
+            }}
+          >
+            Save change
+          </button>
         </form>
       </section>
 
