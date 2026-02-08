@@ -1,20 +1,20 @@
-import Customer from "../models/customer.js";
+import User from "../models/user.js";
 
-class customerController {
-  getCustomer = async (req, res) => {
+class userController {
+  getUser = async (req, res) => {
     try {
       console.log(req.body);
 
-      const user = await Customer.findOne({ _id: req.body.id });
+      const user = await User.findOne({ _id: req.body.id });
       return res.status(200).json(user);
     } catch (error) {
       return res.status(400).json(error);
     }
   };
 
-  updateCustomer = async (req, res) => {
+  updateUser = async (req, res) => {
     try {
-      const result = await Customer.findOneAndUpdate(
+      const result = await User.findOneAndUpdate(
         {
           _id: req.body._id,
         },
@@ -27,7 +27,7 @@ class customerController {
       );
 
       if (result) {
-        return res.status(200).json({ customer: result });
+        return res.status(200).json({ user: result });
       }
       res.status(400).json({ message: "Unauthorized" });
     } catch (error) {
@@ -37,4 +37,4 @@ class customerController {
   };
 }
 
-export default new customerController();
+export default new userController();
