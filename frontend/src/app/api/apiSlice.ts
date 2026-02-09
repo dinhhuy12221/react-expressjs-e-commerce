@@ -1,12 +1,14 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { BaseQueryFn, createApi, FetchArgs, fetchBaseQuery, FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
 import { setCredentials, logOut } from "~/features/auth/authSlice";
+import { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:4002/api",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     try {
-      const accessToken = getState().auth.accessToken;
+      const state = getState() as RootState
+      const accessToken = state.auth.accessToken;
       if (accessToken) {
         headers.set("Authorization", `Bearer ${accessToken}`);
       }
@@ -18,12 +20,12 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-const baseQueryWithReauth = async (args, api, extraOptions) => {
+const baseQueryWithReauth : BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (args, api, extraOptions) => {
   try {
     let result = await baseQuery(args, api, extraOptions);
 
 
-    if (result?.error?.originalStatus === 403 || result?.error?.originalStatus === 401) {
+    if (result?.error?.status === 403 || result?.error?.status === 401) {
       // console.log("sending refresh token");
       // Send refresh token to get new access token
       const refreshResult = await baseQuery(
@@ -34,7 +36,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       // console.log(refreshResult);
       if (refreshResult?.data) {
         // store the new token
-        api.dispatch(setCredentials({ ...refreshResult.data }));
+        api.dispatch(setCredentials({ ...refreshResult.data as any }));
         // retry the original query with new access token
         result = await baseQuery(args, api, extraOptions);
       } else {
@@ -48,6 +50,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 };
 
 export const apiSlice = createApi({
+  reducerPath: "api",
   baseQuery: baseQueryWithReauth,
   tagTypes: ['Customer'],
   endpoints: (builder) => ({}),

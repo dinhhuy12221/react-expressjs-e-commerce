@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import storageSession from 'redux-persist/lib/storage/session'
 import { apiSlice } from "./api/apiSlice";
-import authReducer from "../features/auth/authSlice";
+import authReducer from "~/features/auth/authSlice";
 
 const persistConfig = {
   key: "root",
@@ -27,3 +27,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+export type RootState = ReturnType<typeof store.getState>

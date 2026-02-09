@@ -1,7 +1,8 @@
+import React from "react";
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 
-function LoadingAnimation({ time, children }) {
+const LoadingAnimation = ({ time, children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { MyContext } from "../../../../App";
-import LinkTo from "../../../../utils/LinkTo/index";
+import { MyContext } from "~/App";
+import LinkTo from "~/utils/LinkTo/index";
 import "./index.css";
 
 function ResultItem(props) {

@@ -11,10 +11,11 @@ import OptionModal from "~/components/OptionModal";
 import { FaImages } from "react-icons/fa";
 import Logo from "~/assets/images/logo.png";
 import "./index.css";
+import { RootState } from "~/app/store";
 
 const Information = () => {
   const dispatch = useDispatch();
-  const customerId = useSelector(selectCurrentCustomerId);
+  const customerId = useSelector((state: RootState) => state.auth.customerId);
   const {
     data: customer,
     isLoading,
