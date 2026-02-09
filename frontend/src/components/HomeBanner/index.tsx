@@ -1,4 +1,5 @@
-// import React from "react";
+import React from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";

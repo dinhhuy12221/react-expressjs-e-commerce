@@ -1,7 +1,9 @@
+import React from "react";
+
 import { memo, useState } from "react";
-import "./index.scss";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import "./index.scss";
 
 function Input({ className, type, value, onChange, disabled }) {
   const [isShowed, setIsShowed] = useState(false);

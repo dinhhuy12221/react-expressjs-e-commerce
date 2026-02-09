@@ -1,4 +1,6 @@
-import { getDiscountPrice } from "../../../utils/getDiscountPrice";
+import React from "react";
+
+import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import "./index.css";
 const HotItem = ({ product }) => {
   if (!product) {

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { MyContext } from "~/App";
 import { useContext, useRef, useState } from "react";
 import Dialog from "@mui/material/Dialog";
@@ -16,18 +18,18 @@ import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
 import "./index.css";
 
 export default function Modal(props) {
-  // const [slideIndex, setSlideIndex] = useState(0);
-  // const zoomSliderBig = useRef();
-  // const zoomSlider = useRef();
+  const [slideIndex, setSlideIndex] = useState(0);
+  const zoomSliderBig = useRef(null);
+  const zoomSlider = useRef(null);
 
   const context = useContext(MyContext);
   const product = context.productModal;
   const currentPrice = getDiscountPrice(product.price, product.discount);
 
-  const goto = (index) => {
+  const goto = (index: number) => {
     setSlideIndex(index);
-    zoomSlider.current.swiper.slideTo(index);
     zoomSliderBig.current.swiper.slideTo(index);
+    zoomSlider.current.swiper.slideTo(index);
   };
 
   return (
