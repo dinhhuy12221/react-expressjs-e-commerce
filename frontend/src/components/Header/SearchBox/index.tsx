@@ -1,9 +1,11 @@
+import React from "react";
+
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useRef, useState } from "react";
 import DropDown from "./DropDown";
 import "./index.css";
 
-export default function SearchBox() {
+export default function SearchBox({ className }: { className?: string }) {
   const [input, setInput] = useState("");
   const [resultShow, setResultShow] = useState(false);
   const searchResultRef = useRef(null);

@@ -13,7 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide children={undefined} direction="up" ref={ref} {...props} />;
 });
 
-export default function CountrySelector() {
+export default function CountrySelector({ className }: { className?: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [countryList, setCountryList] = useState([]);

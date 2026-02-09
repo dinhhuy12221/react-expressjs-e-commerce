@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useContext, useState } from "react";
 import { MyContext } from "~/App";
 import { TiShoppingCart } from "react-icons/ti";
@@ -51,7 +53,7 @@ function Header() {
               Signin
             </a>
           ) : (
-            <Profile customer={customer} />
+            <Profile />
           )}
           <span className="cart-price">$0.00</span>
           <div className="cart">

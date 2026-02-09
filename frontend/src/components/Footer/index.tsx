@@ -1,5 +1,5 @@
+import React from "react";
 import { Link } from "react-router-dom";
-
 import { RiShirtLine } from "react-icons/ri";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { RiDiscountPercentLine } from "react-icons/ri";

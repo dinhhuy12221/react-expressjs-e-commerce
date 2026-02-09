@@ -1,6 +1,6 @@
-import { memo } from "react";
+import React, { memo } from "react";
 import ResultItem from "../ResultItem";
-import LoadingAnimation from "~/LoadingAnimation";
+import LoadingAnimation from "~/components/LoadingAnimation";
 import "./index.css";
 
 const list = Array(10).fill({
@@ -9,7 +9,11 @@ const list = Array(10).fill({
     "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60.jpg",
 });
 
-function DropDown({ ref }) {
+type Props = {
+  ref?: any
+}
+
+function DropDown({ ref }: Props) {
   return (
     <div ref={ref} className="search-result">
       <LoadingAnimation time={800}>

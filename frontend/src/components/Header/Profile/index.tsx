@@ -1,10 +1,11 @@
-import './index.scss'
+import React from "react";
+
 import { useDispatch } from "react-redux";
 import { logOut } from "~/features/auth/authSlice";
 import { useLogoutMutation } from '~/features/auth/authApi';
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
-import Button from "~/components/Button";
+import './index.scss'
 
 function Profile() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function Profile() {
 
     const handleLogOut = async () => {
       try {
-        await logout().unwrap()
+        await logout(null).unwrap()
       } catch (error) {
 
       } finally {
@@ -28,9 +29,9 @@ function Profile() {
       <Link className='profile-link' to="/profile/information">
         <FaRegUserCircle />
       </Link>
-      <Button className="small" onClick={handleLogOut}>
+      <button className="btn btn--outlined" onClick={handleLogOut}>
         Logout
-      </Button>
+      </button>
     </div>
   );
 }
