@@ -11,37 +11,41 @@ import { useGetCartByCustomerQuery } from "~/features/cart/cartApi";
 import { useSelector } from "react-redux";
 import { RootState } from '~/app/store';
 import { useGetProductByIdQuery } from "~/features/product/productApi";
+import { CartInt } from "~/features/cart/cart.types";
 
-const cartProduct = {
-  img: "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg",
-  info: "Angie's Boomchickapop Sweet & Salty Kettle Corn",
-  rating: 3.5,
-  unitPrice: 3.29,
-  quantity: 1,
-  subtotal: 3.29,
-};
+// const cartProduct = {
+//   img: "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg",
+//   info: "Angie's Boomchickapop Sweet & Salty Kettle Corn",
+//   rating: 3.5,
+//   unitPrice: 3.29,
+//   quantity: 1,
+//   subtotal: 3.29,
+// };
 
-const amount = 10;
+// const amount = 10;
 
-const cartProducts = Array(amount).fill(cartProduct);
+// const cartProducts = Array(amount).fill(cartProduct);
 
 const Cart = () => {
-  const [productList, setProductList] = useState(null);
+  const [productList, setProductList] = useState([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId)
-  const { data: cart, isLoading } = useGetCartByCustomerQuery(customerId);
+  const { data, isLoading } = useGetCartByCustomerQuery(customerId);
+  const cart: CartInt[] = data ?? [];
 
   useEffect(() => {
     const getProductList = async () => {
-      const tmp = cart.map((item) => useGetProductByIdQuery(item.product_id))
-      setProductList(tmp)
+      // const tmp = cart.map((item) => useGetProductByIdQuery(item.product_id))
+      setProductList(() => cart.map((item) => useGetProductByIdQuery({ id: item.product_id })))
     }
+
+    getProductList()
   }, [])
 
   return (
     <section className="profile-page-cart">
       <h2 className="profile-page-cart-title">Your Cart</h2>
       <p>
-        There are <b>{amount}</b> products in your cart
+        There are <b>{productList.length}</b> products in your cart
       </p>
       <div className="profile-page-cart-content">
         <table className="profile-page-cart-content-table">
@@ -81,10 +85,10 @@ const Cart = () => {
                     <span>{product.price}</span>
                   </td>
                   <td className="quantity" width="25%">
-                    <QuantityBox stockQuantity={cart.product_count} />
+                    <QuantityBox stockQuantity={product.product_count} />
                   </td>
                   <td className="subtotal" width="15%">
-                    <span>{cart.product_count}</span>
+                    <span>{product.product_count}</span>
                   </td>
                   <td className="remove">
                     <span>
