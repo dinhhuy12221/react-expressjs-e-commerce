@@ -1,4 +1,4 @@
-export interface Product {
+export interface ProductInt {
   _id: number,
   name: string,
   description: string,

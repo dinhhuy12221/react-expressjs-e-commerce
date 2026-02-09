@@ -9,9 +9,11 @@ import { IoCartOutline } from "react-icons/io5";
 import "./index.css";
 import { useGetCartByCustomerQuery } from "~/features/cart/cartApi";
 import { useSelector } from "react-redux";
-import { RootState } from '~/app/store';
+import { RootState } from "~/app/store";
 import { useGetProductByIdQuery } from "~/features/product/productApi";
 import { CartInt } from "~/features/cart/cart.types";
+import { getProductById } from "~/api/product";
+import { ProductInt } from "~/features/product/product.types";
 
 // const cartProduct = {
 //   img: "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg",
@@ -28,18 +30,23 @@ import { CartInt } from "~/features/cart/cart.types";
 
 const Cart = () => {
   const [productList, setProductList] = useState([]);
-  const customerId = useSelector((state: RootState) => state.auth.customerId)
+  const customerId = useSelector((state: RootState) => state.auth.customerId);
   const { data, isLoading } = useGetCartByCustomerQuery(customerId);
   const cart: CartInt[] = data ?? [];
 
   useEffect(() => {
-    const getProductList = async () => {
-      // const tmp = cart.map((item) => useGetProductByIdQuery(item.product_id))
-      setProductList(() => cart.map((item) => useGetProductByIdQuery({ id: item.product_id })))
-    }
+    const getProductsFromCart = async () => {
+      const result = await Promise.all(
+        cart.map((item) =>
+          getProductById(item.product_id).then((res) => res.data)
+        )
+      );
 
-    getProductList()
-  }, [])
+      setProductList(result);
+    };
+
+    getProductsFromCart();
+  }, [cart]);
 
   return (
     <section className="profile-page-cart">
@@ -60,13 +67,13 @@ const Cart = () => {
           </thead>
           <tbody className="profile-page-cart-content-table-body">
             {productList &&
-              productList.map((product, index) => (
+              productList.map((product: ProductInt, index) => (
                 <tr className="text-center" key={index}>
                   <td width="35%">
                     <Link to={`product/${product.slug}`}>
                       <div className="d-flex align-items-center cartItemImgWrapper">
                         <div className="imgWrapper">
-                          <img src={product.img} className="w-100" />
+                          <img src={product.image} className="w-100" />
                         </div>
                         <div className="info text-start">
                           <h6>{product.name}</h6>
@@ -85,10 +92,10 @@ const Cart = () => {
                     <span>{product.price}</span>
                   </td>
                   <td className="quantity" width="25%">
-                    <QuantityBox stockQuantity={product.product_count} />
+                    <QuantityBox stockQuantity={product.countInStock} />
                   </td>
                   <td className="subtotal" width="15%">
-                    <span>{product.product_count}</span>
+                    <span>{product.countInStock}</span>
                   </td>
                   <td className="remove">
                     <span>
