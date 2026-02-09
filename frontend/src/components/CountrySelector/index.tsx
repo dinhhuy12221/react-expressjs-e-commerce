@@ -5,12 +5,12 @@ import { CiSearch } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
-import { MyContext } from "../../App";
+import { MyContext } from "~/App";
 
 import "./index.css";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide children={undefined} direction="up" ref={ref} {...props} />;
 });
 
 export default function CountrySelector() {
@@ -20,7 +20,7 @@ export default function CountrySelector() {
 
   const context = useContext(MyContext);
 
-  const selectCountry = (index, country) => {
+  const selectCountry = (index: number, country: string) => {
     setSelectedOption(index);
     setIsModalOpen(false);
     context.setSelectedCountry(country);

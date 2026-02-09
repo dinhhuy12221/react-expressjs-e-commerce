@@ -1,4 +1,5 @@
 // import { BrowserRouter, Routes, Route, Outlet } from "react-router";
+import React from "react";
 import { createContext, Suspense, useEffect, useState } from "react";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 import Modal from "./components/Product/Modal";
@@ -21,7 +22,7 @@ import Header from "./components/Header/index.jsx";
 import Footer from "./components/Footer/index.jsx";
 import { lazyLoad } from "./utils/lazyLoad.js";
 
-const MyContext = createContext();
+const MyContext = createContext(1);
 
 const Home = lazyLoad("pages/Home/index.jsx");
 const Category = lazyLoad("pages/Category/index.jsx");
