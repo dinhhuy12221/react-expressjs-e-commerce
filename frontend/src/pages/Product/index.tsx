@@ -12,32 +12,13 @@ import ItemSwiper from "~/components/Product/ItemSwiper";
 import { getProductBySlug } from "~/api/product";
 import { getCategoryById } from "~/api/category";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
-import "./index.css";
 import axios from "~/api/axios";
-
-const getProductInfo = async () => {
-  try {
-    const slug = new URL(window.location).pathname.split("/")[2];
-    const product = await getProductBySlug(slug)
-      .then((result) => result[0])
-      .catch((error) => console.error(error));
-
-    if (product) {
-      const categoryId = product.categoryId;
-      const category = await getCategoryById(categoryId);
-
-      return { product, category };
-    }
-    return {};
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const { product, category } = await getProductInfo();
+import "./index.css";
 
 export default function Product() {
   const [activeSize, setActiveSize] = useState(null);
+  const [product, setProduct] = useState(null)
+  const [category, setCategory] = useState(null)
 
   const currentPrice = getDiscountPrice(product?.price, product?.discount);
   const [productList, setProductList] = useState([]);
@@ -65,6 +46,29 @@ export default function Product() {
   const isActive = (index) => {
     setActiveSize(index);
   };
+
+  useEffect(() => {
+    const getProductInfo = async () => {
+    try {
+      const slug = new URL(window.location.toString()).pathname.split("/")[2];
+      const product = await getProductBySlug(slug)
+        .then((result) => result[0])
+        .catch((error) => console.error(error));
+
+      if (!product) return null
+
+      const category = await getCategoryById(product.categoryId);
+
+      setProduct(product)
+      setCategory(category)
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  getProductInfo();
+  }, [])
 
   return (
     <section className="page-product">

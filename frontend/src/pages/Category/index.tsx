@@ -1,24 +1,19 @@
 import React, {
-  useCallback,
-  useContext,
   useEffect,
-  useLayoutEffect,
-  useMemo,
   useState,
 } from "react";
-import SideBar from "../../components/SideBar";
+import SideBar from "~/components/SideBar";
 import Pagination from "@mui/material/Pagination";
 
 import { BsGridFill } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { TfiLayoutGrid4Alt } from "react-icons/tfi";
-import Item from "../../components/Product/Item";
-import PaginationSection from "../../components/PaginationSection";
-import { getProductList } from "../../api/product";
+import Item from "~/components/Product/Item";
+import PaginationSection from "~/components/PaginationSection";
+import { getProductList } from "~/api/product";
 
 import "./index.css";
 
-const productList = await getProductList();
 
 // let productLayoutOptions = [
 //   {
@@ -74,6 +69,7 @@ export default function Category() {
   //   setProductLayouts(productLayoutsTemp);
   // };
   const [layout, setLayout] = useState(4);
+  const [productList, setProductList] = useState(null)
   let [currentLayout, setCurrentLayout] = useState('four');
 
   useEffect(() => {
@@ -81,6 +77,15 @@ export default function Category() {
     else if (layout === 3) setCurrentLayout('three');
     else if (layout === 4) setCurrentLayout('four');
   }, [layout])
+
+useEffect(() => {
+  const loadProducts = async () => {
+    const products = await getProductList();
+    setProductList(products);
+  };
+
+  loadProducts();
+}, []);
 
   return (
     <section className="category">

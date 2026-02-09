@@ -35,7 +35,7 @@ export default function SideBar() {
       <div className="sidebar-filter">
         <h3>FILTER BY PRICE</h3>
         <RangeSlider
-          value={value}
+          // value={value.at(0)}
           onInput={setValue}
           min={0}
           max={50000}

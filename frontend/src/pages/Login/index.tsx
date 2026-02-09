@@ -28,15 +28,15 @@ export default function Login() {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const usernameRef = useRef();
-  const errRef = useRef();
+  const usernameRef = useRef(null);
+  const errRef = useRef(null);
 
   const [username, resetUsername, usernameAttrbs] = useInput(
     "username",
     "dinhhuy12221"
   ); //useState("abcd");
   const [password, setPassword] = useState("!1234Abc");
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     usernameRef?.current.focus();

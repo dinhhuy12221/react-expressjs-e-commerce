@@ -5,16 +5,25 @@ import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import "./index.scss";
 
-function Input({ className, type, value, onChange, disabled }) {
+type Props = {
+  className?: string,
+  id?: number,
+  type?: string,
+  value?: string,
+  onChange?: any,
+  disabled?: boolean,
+}
+function Input({ className, id, type, value, onChange, disabled }: Props) {
   const [isShowed, setIsShowed] = useState(false);
   let EyeIcon = isShowed ? IoEye : IoEyeOff;
 
   const props = {
     className,
+    id,
     type,
     value,
     onChange,
-    disabled,
+    disabled
   }
 
   const handleShow = () => {
