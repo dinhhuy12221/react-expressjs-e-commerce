@@ -6,8 +6,8 @@ class orderController {
             const order = new Order({
                 customer_id: req.body.customer_id,
                 product_id: req.body.product_id,
-                number_of_product: req.body.number_of_product,
-                total: req.body.total,
+                product_count: req.body.product_count,
+                // total: req.body.total,
             })
 
             const result = await order.save();
@@ -20,29 +20,24 @@ class orderController {
             })
         } catch (error) {
             console.log(error);
-            
         }
     }
 
     getOrderByCustomer = async(req, res) => {
-        // try {
-        //     const order = await Order.find({
-        //         customer_id: req.params.id,
-        //     })
+        try {
+            const order = await Order.find({
+                customer_id: req.params.id,
+            })
 
-        //     console.log(order);
-            
-
-        //     if (order) {
-        //         return res.status(200).json(order)
-        //     }
-        //     return res.status(400).json({
-        //         message: 'failed'
-        //     })
-        // } catch (error) {
-        //     console.log(error);
-            
-        // }
+            if (order) {
+                return res.status(200).json(order)
+            }
+            return res.status(400).json({
+                message: 'failed'
+            })
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
