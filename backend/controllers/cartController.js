@@ -28,7 +28,7 @@ class cartController {
                 customer_id: req.params.id,
             })
 
-            if (order) {
+            if (cart) {
                 return res.status(200).json(cart)
             }
             return res.status(400).json({

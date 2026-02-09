@@ -30,6 +30,19 @@ class productController {
       });
     }
   }
+  // GET product by id
+  async getProductById(req, res) {
+    try {
+      const product = await Product.find({ _id: req.params.id });
+
+      return res.status(200).send(product);
+    } catch (error) {
+      return res.status(404).json({
+        success: false,
+        message: JSON.stringify(error),
+      });
+    }
+  }
 
   // POST create product
   async createProduct(req, res) {
