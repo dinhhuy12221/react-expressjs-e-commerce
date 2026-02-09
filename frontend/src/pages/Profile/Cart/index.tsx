@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
@@ -7,6 +7,10 @@ import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
 import "./index.css";
+import { useGetCartByCustomerQuery } from "~/features/cart/cartApi";
+import { useSelector } from "react-redux";
+import { RootState } from '~/app/store';
+import { useGetProductByIdQuery } from "~/features/product/productApi";
 
 const cartProduct = {
   img: "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg",
@@ -22,6 +26,17 @@ const amount = 10;
 const cartProducts = Array(amount).fill(cartProduct);
 
 const Cart = () => {
+  const [productList, setProductList] = useState(null);
+  const customerId = useSelector((state: RootState) => state.auth.customerId)
+  const { data: cart, isLoading } = useGetCartByCustomerQuery(customerId);
+
+  useEffect(() => {
+    const getProductList = async () => {
+      const tmp = cart.map((item) => useGetProductByIdQuery(item.product_id))
+      setProductList(tmp)
+    }
+  }, [])
+
   return (
     <section className="profile-page-cart">
       <h2 className="profile-page-cart-title">Your Cart</h2>
@@ -40,21 +55,21 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody className="profile-page-cart-content-table-body">
-            {cartProducts &&
-              cartProducts.map((cartProduct, index) => (
+            {productList &&
+              productList.map((product, index) => (
                 <tr className="text-center" key={index}>
                   <td width="35%">
-                    <Link to="/product/1">
+                    <Link to={`product/${product.slug}`}>
                       <div className="d-flex align-items-center cartItemImgWrapper">
                         <div className="imgWrapper">
-                          <img src={cartProduct.img} className="w-100" />
+                          <img src={product.img} className="w-100" />
                         </div>
                         <div className="info text-start">
-                          <h6>{cartProduct.info}</h6>
+                          <h6>{product.name}</h6>
                           <Rating
                             className="rating"
                             name="read-only"
-                            defaultValue={cartProduct.rating}
+                            defaultValue={product.rating}
                             precision={0.5}
                             readOnly
                           />
@@ -63,13 +78,13 @@ const Cart = () => {
                     </Link>
                   </td>
                   <td className="unitPrice" width="15%">
-                    <span>{cartProduct.unitPrice}</span>
+                    <span>{product.price}</span>
                   </td>
                   <td className="quantity" width="25%">
-                    <QuantityBox stockQuantity={cartProduct.quantity} />
+                    <QuantityBox stockQuantity={cart.product_count} />
                   </td>
                   <td className="subtotal" width="15%">
-                    <span>{cartProduct.subtotal}</span>
+                    <span>{cart.product_count}</span>
                   </td>
                   <td className="remove">
                     <span>
