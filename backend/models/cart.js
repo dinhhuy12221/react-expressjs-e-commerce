@@ -6,7 +6,7 @@ const AutoIncrement = Inc(mongoose)
 
 const Schema = mongoose.Schema
 
-const orderModel = new Schema({
+const cartModel = new Schema({
     _id: {
         type: Number,
     },
@@ -31,13 +31,13 @@ const orderModel = new Schema({
     timestamps: true,
 })
 
-orderModel.plugin(AutoIncrement, {
-    id: 'order_id_counter',
+cartModel.plugin(AutoIncrement, {
+    id: 'cart_id_counter',
 })
 
-orderModel.plugin(mongooseDelete, {
+cartModel.plugin(mongooseDelete, {
   deletedAt: true,
   overrideMethods: "all",
 });
 
-export default mongoose.model("Order", orderModel);
+export default mongoose.model("Cart", cartModel);
