@@ -1,19 +1,18 @@
-import Order from '../models/order.js'
+import Cart from '../models/cart.js'
 
-class orderController {
-    createOrder = async(req, res) => {
+class cartController {
+    createCart = async(req, res) => {
         try {
-            const order = new Order({
+            const cart = new Cart({
                 customer_id: req.body.customer_id,
                 product_id: req.body.product_id,
                 product_count: req.body.product_count,
-                // total: req.body.total,
             })
 
-            const result = await order.save();
+            const result = await cart.save();
 
             if (result) {
-                return res.status(200).json({ message: "Add order successfully" })
+                return res.status(200).json({ message: "Add cart successfully" })
             }
             return res.status(404).json({
                 message: 'failed',
@@ -23,14 +22,14 @@ class orderController {
         }
     }
 
-    getOrderByCustomer = async(req, res) => {
+    getCartByCustomer = async(req, res) => {
         try {
-            const order = await Order.find({
+            const cart = await Cart.find({
                 customer_id: req.params.id,
             })
 
             if (order) {
-                return res.status(200).json(order)
+                return res.status(200).json(cart)
             }
             return res.status(400).json({
                 message: 'failed'
@@ -41,5 +40,4 @@ class orderController {
     }
 }
 
-
-export default new orderController();
+export default new cartController();
