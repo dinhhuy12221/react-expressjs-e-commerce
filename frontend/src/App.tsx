@@ -21,7 +21,6 @@ import RequireAuth from "./features/auth/RequireAuth";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { lazyLoad } from "./utils/lazyLoad.js";
-import Wishlist from "./pages/Profile/Wishlist";
 
 const MyContext = createContext(null);
 
@@ -30,10 +29,11 @@ const Category = lazyLoad("pages/Category/index.tsx");
 const ProductDetails = lazyLoad("pages/Product/index.tsx");
 const Login = lazyLoad("pages/Login/index.tsx");
 const Signup = lazyLoad("pages/Signup/index.tsx");
-const Cart = lazyLoad("pages/Cart/index.tsx");
 const Profile = lazyLoad("pages/Profile/index.tsx");
 const Information = lazyLoad("pages/profile/Information/index.tsx");
-const Orders = lazyLoad("pages/profile/Orders/index.tsx");
+const Cart = lazyLoad("pages/Profile/Cart/index.tsx");
+const Wishlist = lazyLoad("pages/Profile/Wishlist/index.tsx");
+// const Orders = lazyLoad("pages/profile/Orders/index.tsx");
 const Reviews = lazyLoad("pages/profile/Reviews/index.tsx");
 const Settings = lazyLoad("pages/profile/Settings/index.tsx");
 
@@ -84,12 +84,12 @@ function App() {
               <Route element={<RequireAuth />}>
                 <Route path="/profile" element={<Profile />}>
                   <Route path="information" element={<Information />} />
-                  <Route path="cart" element={<Orders />} />
+                  <Route path="cart" element={<Cart />} />
                   <Route path="wishlist" element={<Wishlist />} />
                   <Route path="reviews" element={<Reviews />} />
                   <Route path="settings" element={<Settings />} />
                 </Route>
-                <Route path="/cart" element={<Cart />} />
+                {/* <Route path="/cart" element={<Cart />} /> */}
               </Route>
               {/* </Route> */}
   

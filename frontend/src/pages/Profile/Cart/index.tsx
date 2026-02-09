@@ -21,105 +21,95 @@ const amount = 10;
 
 const cartProducts = Array(amount).fill(cartProduct);
 
-export default function Cart() {
-
+const Cart = () => {
   return (
-    <>
-      <section className="section cartPage">
-        <div className="container">
-          <h2 className="hd">Your Cart</h2>
-          <p>
-            There are <b className="text-red">{amount}</b> products in your cart
-          </p>
-          <div className="row">
-            <div className="col-md-9">
-              <div className="table-responsive">
-                <table className="table">
-                  <thead>
-                    <tr className="text-center">
-                      <th>Product</th>
-                      <th>Unit Price</th>
-                      <th>Quantity</th>
-                      <th>Subtotal</th>
-                      <th>Remove</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cartProducts && cartProducts.map((cartProduct, index) => (
-                      <tr className="text-center" key={index}>
-                        <td width="35%">
-                          <Link to="/product/1">
-                            <div className="d-flex align-items-center cartItemImgWrapper">
-                              <div className="imgWrapper">
-                                <img src={cartProduct.img} className="w-100" />
-                              </div>
-                              <div className="info text-start">
-                                <h6>{cartProduct.info}</h6>
-                                <Rating
-                                  className="rating"
-                                  name="read-only"
-                                  defaultValue={cartProduct.rating}
-                                  precision={0.5}
-                                  readOnly
-                                />
-                              </div>
-                            </div>
-                          </Link>
-                        </td>
-                        <td className="unitPrice" width="15%">
-                          <span>{cartProduct.unitPrice}</span>
-                        </td>
-                        <td className="quantity" width="25%">
-                          <QuantityBox stockQuantity={cartProduct.quantity} />
-                        </td>
-                        <td className="subtotal" width="15%">
-                          <span>{cartProduct.subtotal}</span>
-                        </td>
-                        <td className="remove">
-                          <span>
-                            <IoClose />
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+    <section className="profile-page-cart">
+      <h2 className="profile-page-cart-title">Your Cart</h2>
+      <p>
+        There are <b>{amount}</b> products in your cart
+      </p>
+      <div className="profile-page-cart-content">
+        <table className="profile-page-cart-content-table">
+          <thead className="profile-page-cart-content-table-head">
+            <tr>
+              <th>Product</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody className="profile-page-cart-content-table-body">
+            {cartProducts &&
+              cartProducts.map((cartProduct, index) => (
+                <tr className="text-center" key={index}>
+                  <td width="35%">
+                    <Link to="/product/1">
+                      <div className="d-flex align-items-center cartItemImgWrapper">
+                        <div className="imgWrapper">
+                          <img src={cartProduct.img} className="w-100" />
+                        </div>
+                        <div className="info text-start">
+                          <h6>{cartProduct.info}</h6>
+                          <Rating
+                            className="rating"
+                            name="read-only"
+                            defaultValue={cartProduct.rating}
+                            precision={0.5}
+                            readOnly
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  </td>
+                  <td className="unitPrice" width="15%">
+                    <span>{cartProduct.unitPrice}</span>
+                  </td>
+                  <td className="quantity" width="25%">
+                    <QuantityBox stockQuantity={cartProduct.quantity} />
+                  </td>
+                  <td className="subtotal" width="15%">
+                    <span>{cartProduct.subtotal}</span>
+                  </td>
+                  <td className="remove">
+                    <span>
+                      <IoClose />
+                    </span>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+
+        <div className="col-md-3">
+          <div className="card shadow p-3 cartDetails sticky-top pt-3">
+            <h4>CART TOTALS</h4>
+            <div className="d-flex align-items-center mb-2">
+              <span>Subtotal</span>
+              <span className="ms-auto text-red font-weight-bold">$3.29</span>
+            </div>
+            <div className="d-flex align-items-center mb-2">
+              <span>Shipping</span>
+              <span className="ms-auto">Free</span>
+            </div>
+            <div className="d-flex align-items-center mb-2">
+              <span>Estimated for</span>
+              <span className="ms-auto text-end text-red">United Kingdom</span>
+            </div>
+            <div className="d-flex align-items-center">
+              <span>Total</span>
+              <span className="ms-auto text-red">$3.29</span>
             </div>
 
-            <div className="col-md-3">
-              <div className="card shadow p-3 cartDetails sticky-top pt-3">
-                <h4>CART TOTALS</h4>
-                <div className="d-flex align-items-center mb-2">
-                  <span>Subtotal</span>
-                  <span className="ms-auto text-red font-weight-bold">
-                    $3.29
-                  </span>
-                </div>
-                <div className="d-flex align-items-center mb-2">
-                  <span>Shipping</span>
-                  <span className="ms-auto">Free</span>
-                </div>
-                <div className="d-flex align-items-center mb-2">
-                  <span>Estimated for</span>
-                  <span className="ms-auto text-end text-red">
-                    United Kingdom
-                  </span>
-                </div>
-                <div className="d-flex align-items-center">
-                  <span>Total</span>
-                  <span className="ms-auto text-red">$3.29</span>
-                </div>
-
-                <Button className="bg-red btn--lg btn-round mt-3">
-                  <IoCartOutline className="me-2" />
-                  Checkout
-                </Button>
-              </div>
-            </div>
+            <Button className="bg-red btn--lg btn-round mt-3">
+              <IoCartOutline className="me-2" />
+              Checkout
+            </Button>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
-}
+};
+
+export default Cart;
