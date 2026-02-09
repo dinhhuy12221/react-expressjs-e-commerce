@@ -1,10 +1,13 @@
-import "./index.css";
+import React from "react";
+
 import { CgProfile } from "react-icons/cg";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdOutlineRateReview } from "react-icons/md";
 import { CiSettings } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import "./index.css";
+
 const Sidebar = () => {
   const [isActive, setIsActive] = useState(0);
 

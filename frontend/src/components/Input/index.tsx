@@ -7,7 +7,7 @@ import "./index.scss";
 
 type Props = {
   className?: string,
-  id?: number,
+  id?: string,
   type?: string,
   value?: string,
   onChange?: any,

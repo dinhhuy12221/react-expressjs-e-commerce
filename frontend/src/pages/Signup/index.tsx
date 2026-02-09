@@ -5,7 +5,6 @@ import { FaCheck, FaFacebookF, FaTimes } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram, FaInfoCircle } from "react-icons/fa";
 import google_logo from "~/assets/images/google-logo.png";
-// import axios from "~/api/axios";
 import { useRegisterMutation } from "~/features/auth/authApi";
 import Logo from "~/assets/images/logo.png";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
@@ -18,9 +17,9 @@ const PWD_REGEX =
 const REGISTER_URL = "/auth/register";
 
 export default function Signup() {
-  const fullnameRef = useRef();
-  const userRef = useRef();
-  const errRef = useRef();
+  const fullnameRef = useRef(null);
+  const userRef = useRef(null);
+  const errRef = useRef(null);
 
   const [fullname, setFullname] = useState("");
   const [validFullname, setValidFullname] = useState(false);
@@ -33,7 +32,7 @@ export default function Signup() {
   const [password, setPwd] = useState("");
   const [validPassword, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
-  const [matchPwd, setMatchPwd] = useState(false);
+  const [matchPwd, setMatchPwd] = useState("");
 
   const [match, setMatch] = useState("");
   const [validMatch, setValidMatch] = useState(false);

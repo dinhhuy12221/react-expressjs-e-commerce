@@ -1,9 +1,11 @@
-import "./index.css";
+import React from "react";
+
 import { useGetOrdersByCustomerQuery } from "~/features/orders/ordersApi";
 import { useEffect } from "react";
+import "./index.css";
 
 function Orders() {
-  const getOrdersByCustomer = useGetOrdersByCustomerQuery();
+  const getOrdersByCustomer = useGetOrdersByCustomerQuery(null);
 
   // const tagLiOfOrders = () => {
   //     return ordersByCustomer.map((order, index) => {
@@ -11,16 +13,17 @@ function Orders() {
   //     })
   // }
 
-  const orderList = async () => {
-    try {
-      const list = await getOrdersByCustomer({ id: 1 });
-    //   console.log(list);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   useEffect(() => {
+    
+    const orderList = async () => {
+      try {
+        // const list = await getOrdersByCustomer({ id: 1 });
+        // console.log(list);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     orderList()
 }, []);
   return (

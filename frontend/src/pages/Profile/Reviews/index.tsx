@@ -1,4 +1,6 @@
-function Reviews() {
+import React from "react";
+
+const Reviews = () => {
     return ( <div>
         Reviews Section
     </div> );
