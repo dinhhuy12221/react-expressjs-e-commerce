@@ -4,8 +4,8 @@ import { createContext, Suspense, useEffect, useState } from "react";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 import Modal from "./components/Product/Modal";
 import axios from "axios";
-import ScrollToTop from "./utils/ScrollToTop/index.jsx";
-import RequireAuth from "./features/auth/RequireAuth.jsx";
+import ScrollToTop from "./utils/ScrollToTop";
+import RequireAuth from "./features/auth/RequireAuth";
 // import PersistLogin from "./components/PersistLogin/index.jsx";
 // import Home from "./pages/Home/index.jsx";
 // import Category from "./pages/Category/index.jsx";
@@ -18,23 +18,23 @@ import RequireAuth from "./features/auth/RequireAuth.jsx";
 // import Orders from "./pages/Profile/components/Orders/index.jsx";
 // import Reviews from "./pages/Profile/components/Reviews/index.jsx";
 // import Settings from "./pages/Profile/components/Settings/index.jsx";
-import Header from "./components/Header/index.jsx";
-import Footer from "./components/Footer/index.jsx";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { lazyLoad } from "./utils/lazyLoad.js";
 
-const MyContext = createContext(1);
+const MyContext = createContext(null);
 
-const Home = lazyLoad("pages/Home/index.jsx");
-const Category = lazyLoad("pages/Category/index.jsx");
-const ProductDetails = lazyLoad("pages/Product/index.jsx");
-const Login = lazyLoad("pages/Login/index.jsx");
-const Signup = lazyLoad("pages/Signup/index.jsx");
-const Cart = lazyLoad("pages/Cart/index.jsx");
-const Profile = lazyLoad("pages/Profile/index.jsx");
-const Information = lazyLoad("pages/profile/Information/index.jsx");
-const Orders = lazyLoad("pages/profile/Orders/index.jsx");
-const Reviews = lazyLoad("pages/profile/Reviews/index.jsx");
-const Settings = lazyLoad("pages/profile/Settings/index.jsx");
+const Home = lazyLoad("pages/Home/index.tsx");
+const Category = lazyLoad("pages/Category/index.tsx");
+const ProductDetails = lazyLoad("pages/Product/index.tsx");
+const Login = lazyLoad("pages/Login/index.tsx");
+const Signup = lazyLoad("pages/Signup/index.tsx");
+const Cart = lazyLoad("pages/Cart/index.tsx");
+const Profile = lazyLoad("pages/Profile/index.tsx");
+const Information = lazyLoad("pages/profile/Information/index.tsx");
+const Orders = lazyLoad("pages/profile/Orders/index.tsx");
+const Reviews = lazyLoad("pages/profile/Reviews/index.tsx");
+const Settings = lazyLoad("pages/profile/Settings/index.tsx");
 
 function App() {
   const [countryList, setCountryList] = useState([]);
@@ -74,7 +74,6 @@ function App() {
               <Route
                 path="/product/:slug"
                 element={<ProductDetails />}
-                exact={true}
               />
               <Route path="/login" element={<Login />} />
               <Route path="/Signup" element={<Signup />} />
@@ -100,7 +99,6 @@ function App() {
                     <div>404 Error. No Page Found</div>
                   </>
                 }
-                exact={true}
               />
             </Route>
           </Routes>

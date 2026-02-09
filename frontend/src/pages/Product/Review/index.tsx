@@ -1,3 +1,5 @@
+import React from "react";
+
 import review_dummies from "./review_dummies";
 import Item from "./Item";
 import Filter from "./Filter";

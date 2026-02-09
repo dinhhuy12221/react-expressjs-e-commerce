@@ -1,16 +1,18 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
-import HomeBanner from "~/components/HomeBanner";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Item from "~/components/Product/Item";
 // import HomeCat from "~/components/HomeCat";
-import "./index.css";
+import HomeBanner from "~/components/HomeBanner";
 import ItemSwiper from "~/components/Product/ItemSwiper";
 // import { getProductList } from "~/api/product";
 import axios, { axiosPrivate } from "~/api/axios";
 import HotItem from "~/components/Product/HotItem";
+import "./index.css";
 
 export default function Home() {
   const [productList, setProductList] = useState([]);

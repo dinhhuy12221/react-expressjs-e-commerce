@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useContext } from "react";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import Rating from "@mui/material/Rating";
@@ -5,7 +7,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 
 import { Link } from "react-router-dom";
 import { MyContext } from "~/App";
-import LoadingAnimation from "~/components/LoadingAnimation";
+// import LoadingAnimation from "~/components/LoadingAnimation";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import "./index.css";
 

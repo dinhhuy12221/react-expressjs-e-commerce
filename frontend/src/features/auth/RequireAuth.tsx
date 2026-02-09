@@ -1,3 +1,4 @@
+import React from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useVerifyMutation } from "./authApi";
 import { logOut } from "./authSlice";
@@ -14,7 +15,7 @@ const RequireAuth = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await verify().unwrap();
+        await verify(null).unwrap();
         setAllowed(true);
       } catch (error) {
         dispatch(logOut());

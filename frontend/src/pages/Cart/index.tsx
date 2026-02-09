@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
@@ -7,8 +7,6 @@ import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
 import "./index.css";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 
 const cartProduct = {
   img: "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg",
@@ -39,11 +37,11 @@ export default function Cart() {
                 <table className="table">
                   <thead>
                     <tr className="text-center">
-                      <th width="35%">Product</th>
-                      <th width="15%">Unit Price</th>
-                      <th width="25%">Quantity</th>
-                      <th width="15%">Subtotal</th>
-                      <th width="10%">Remove</th>
+                      <th>Product</th>
+                      <th>Unit Price</th>
+                      <th>Quantity</th>
+                      <th>Subtotal</th>
+                      <th>Remove</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -72,7 +70,7 @@ export default function Cart() {
                           <span>{cartProduct.unitPrice}</span>
                         </td>
                         <td className="quantity" width="25%">
-                          <QuantityBox quantity={cartProduct.quantity} />
+                          <QuantityBox stockQuantity={cartProduct.quantity} />
                         </td>
                         <td className="subtotal" width="15%">
                           <span>{cartProduct.subtotal}</span>

@@ -1,6 +1,7 @@
+import React from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { skipToken } from "@reduxjs/toolkit/query";
-import { selectCurrentCustomerId } from "~/features/auth/authSlice";
 import Input from "~/components/Input";
 import { useEffect, useState } from "react";
 import {
@@ -10,8 +11,8 @@ import {
 import OptionModal from "~/components/OptionModal";
 import { FaImages } from "react-icons/fa";
 import Logo from "~/assets/images/logo.png";
-import "./index.css";
 import { RootState } from "~/app/store";
+import "./index.css";
 
 const Information = () => {
   const dispatch = useDispatch();
@@ -40,13 +41,13 @@ const Information = () => {
     transformFile(files[0]);
   };
 
-  const transformFile = (file) => {
+  const transformFile = (file: File) => {
     const reader = new FileReader();
 
     if (file) {
       reader.readAsDataURL(file);
       reader.onloadend = () => {
-        setAvatar(reader.result);
+        setAvatar(reader.result.toString());
       };
     }
   };

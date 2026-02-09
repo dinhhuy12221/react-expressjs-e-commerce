@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
@@ -37,7 +39,8 @@ function Profile() {
         <Sidebar />
       </div>
       <div className="profile-page-content">
-        <Outlet className="profile-page-content"/>
+        {/* <Outlet className="profile-page-content"/> */}
+        <Outlet />
       </div>
     </section>
   );

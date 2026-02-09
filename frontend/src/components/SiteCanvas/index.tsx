@@ -1,9 +1,12 @@
+import React from "react";
+
 import { IoClose } from 'react-icons/io5'
 import CountrySelector from '../CountrySelector/index'
 import Logo from '../../assets/images/logo.png'
-import "./index.css"
 import { useContext } from 'react'
 import { MyContext } from '../../App'
+import "./index.css"
+
 function SiteCanvas({ open, onClose }) {
   const context = useContext(MyContext);
 

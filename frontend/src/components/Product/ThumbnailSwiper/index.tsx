@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef } from "react";
 // import Slider from "react-slick";
 import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/styles.min.css";
@@ -11,8 +11,8 @@ import "./index.css";
 
 export default function ThumbnailsSwiper({ product }) {
   const [slideIndex, setSlideIndex] = useState(0);
-  const thumbnailsSlider = useRef();
-  const thumbnailsNavigation = useRef();
+  const thumbnailsSlider = useRef(null);
+  const thumbnailsNavigation = useRef(null);
 
   const goto = (index) => {
     setSlideIndex(index);

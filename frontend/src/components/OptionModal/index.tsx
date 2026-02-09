@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import Button from "../Button";
+import React, { useEffect } from "react";
 import "./index.scss";
 
 function OptionModal({
@@ -21,19 +20,19 @@ function OptionModal({
     };
   }, []);
 
-  const optionalButtons = () => {
+  const optionalbuttons = () => {
     switch (optionType) {
       case "yes_no":
         return (
           <>
-            <Button className="medium" style={{backgroundColor: "green"}} onClick={() => handleOption(true, true)}>Yes</Button>
-            <Button className="medium" style={{backgroundColor: "red"}} onClick={() => handleOption(true, false)}>No</Button>
+            <button className="btn btn--primary" style={{backgroundColor: "green"}} onClick={() => handleOption(true, true)}>Yes</button>
+            <button className="btn btn--primary" style={{backgroundColor: "red"}} onClick={() => handleOption(true, false)}>No</button>
           </>
         );
         default:
         return (
           <>
-            <Button className="medium" onClick={() => handleOption(true, false)}>Close</Button>
+            <button className="btn btn--outlined" onClick={() => handleOption(true, false)}>Close</button>
           </>
         );
 
@@ -51,7 +50,7 @@ function OptionModal({
           <span>{content}</span>
         </div>
         <div className="button">
-          {optionalButtons()}
+          {optionalbuttons()}
         </div>
       </div>
     </div>

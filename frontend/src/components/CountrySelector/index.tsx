@@ -13,7 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide children={undefined} direction="up" ref={ref} {...props} />;
 });
 
-export default function CountrySelector() {
+export default function CountrySelector({ className }: { className?: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [countryList, setCountryList] = useState([]);
@@ -61,7 +61,8 @@ export default function CountrySelector() {
       <Dialog
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        TransitionComponent={Transition}
+        // TransitionComponent={Transition}
+        component={Transition}
       >
         <div className="country-modal">
           <h5 className="country-label">Choose your Delivery Country</h5>

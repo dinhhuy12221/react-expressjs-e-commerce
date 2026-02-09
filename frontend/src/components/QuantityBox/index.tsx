@@ -1,10 +1,12 @@
+import React from "react";
+
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
 
 import "./index.css";
 
-export default function QuantityBox({ stockQuantity }) {
+export default function QuantityBox({ stockQuantity }: {stockQuantity: number}) {
   const [quantity, setQuantity] = useState(1);
 
   const decrease = () => {
