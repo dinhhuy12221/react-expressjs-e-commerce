@@ -21,6 +21,7 @@ import RequireAuth from "./features/auth/RequireAuth";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { lazyLoad } from "./utils/lazyLoad.js";
+import Wishlist from "./pages/Profile/Wishlist";
 
 const MyContext = createContext(null);
 
@@ -83,7 +84,8 @@ function App() {
               <Route element={<RequireAuth />}>
                 <Route path="/profile" element={<Profile />}>
                   <Route path="information" element={<Information />} />
-                  <Route path="orders" element={<Orders />} />
+                  <Route path="cart" element={<Orders />} />
+                  <Route path="wishlist" element={<Wishlist />} />
                   <Route path="reviews" element={<Reviews />} />
                   <Route path="settings" element={<Settings />} />
                 </Route>

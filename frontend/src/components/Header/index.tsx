@@ -59,7 +59,7 @@ function Header() {
           <div className="cart">
             <span className="cart-count btn--rounded">1</span>
             <a
-              href="/cart"
+              href="/profile/cart"
               className="btn btn--rounded btn--outlined cart-button"
             >
               <TiShoppingCart />
