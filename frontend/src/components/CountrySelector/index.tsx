@@ -61,7 +61,8 @@ export default function CountrySelector() {
       <Dialog
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        TransitionComponent={Transition}
+        // TransitionComponent={Transition}
+        component={Transition}
       >
         <div className="country-modal">
           <h5 className="country-label">Choose your Delivery Country</h5>
