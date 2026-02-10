@@ -18,13 +18,9 @@ const cartModel = new Schema({
         type: Number,
         require: true,
     },
-    number_of_product: {
+    product_count: {
         type: Number,
         require: true
-    },
-    total: {
-        type: Number,
-        require: true,
     },
 }, {
     _id: false,

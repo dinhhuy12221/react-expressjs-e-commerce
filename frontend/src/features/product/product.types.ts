@@ -1,0 +1,15 @@
+export interface ProductInt {
+  _id: number,
+  name: string,
+  description: string,
+  image: string,
+  brand: string,
+  price: number,
+  discount: number,
+  countInStock: number,
+  rating: number,
+  numReviews: number,
+  isFeatured: boolean,
+  categoryId: number,
+  slug: string,
+}
