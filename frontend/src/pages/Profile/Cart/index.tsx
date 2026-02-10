@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
-import QuantityBox from "~/components/QuantityBox";
 import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
-import "./index.css";
+import QuantityBox from "~/components/QuantityBox";
 import { useGetCartByCustomerQuery } from "~/features/cart/cartApi";
 import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";
-import { useGetProductByIdQuery } from "~/features/product/productApi";
 import { CartInt } from "~/features/cart/cart.types";
 import { getProductById } from "~/api/product";
-import { ProductInt } from "~/features/product/product.types";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
+
+import "./index.css";
 
 // const cartProduct = {
 //   img: "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-60-90x90.jpg",
@@ -53,10 +51,12 @@ const Cart = () => {
 
   return (
     <section className="profile-page-cart">
-      <h2 className="profile-page-cart-title">Your Cart</h2>
-      <p>
-        There are <b>{productList.length}</b> products in your cart
-      </p>
+      <div className="profile-page-cart-header">
+        <h2 className="profile-page-cart-header-title">Your Cart</h2>
+        <p>
+          There are <b>{productList.length}</b> products in your cart
+        </p>
+      </div>
       <div className="profile-page-cart-content">
         <table className="profile-page-cart-content-table">
           <thead className="profile-page-cart-content-table-head">
@@ -141,9 +141,9 @@ const Cart = () => {
               <span>$3.29</span>
             </div>
 
-            <button className="profile-page-cart-content-summary-checkout">
+            <button className="profile-page-cart-content-summary-checkout btn btn--primary">
               <IoCartOutline className="me-2" />
-              Checkout
+              <span>Checkout</span>
             </button>
           </div>
       </div>
