@@ -4,7 +4,7 @@
   align-items: center;
 }
 .profile-page-content {
-  width: 600px;
+  width: 900px;
 }
 @media (max-width: 480px) {
   .profile-page {
