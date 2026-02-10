@@ -1,9 +1,9 @@
 .profile-page-cart {
   display: flex;
   flex-direction: column;
+
 }
 .profile-page-cart-header {
-  display: flex;
   flex-direction: column;
   gap: var(--space-8);
   padding: var(--space-12) 0;

@@ -5,6 +5,7 @@
 }
 .profile-page-content {
   width: 900px;
+  padding: var(--space-16);
 }
 @media (max-width: 480px) {
   .profile-page {
