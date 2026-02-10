@@ -18,7 +18,40 @@
 }
 
 .profile-page-cart-content-table {
-  
+}
+.profile-page-cart-content-table-head {
+}
+.profile-page-cart-content-table-body {
+}
+.profile-page-cart-content-table-body-row {
+
+}
+.profile-page-cart-content-table-body-row-info {
+  display: flex;
+  gap: var(--space-16);
+
+}
+.profile-page-cart-content-table-body-row-info-image {
+  inset: 0;
+  width: 80px;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-page-cart-content-table-body-row-price {
+  display: flex;
+  justify-content: center;
+}
+.profile-page-cart-content-table-body-row-quantity {
+  display: flex;
+  justify-content: center;
+}
+.profile-page-cart-content-table-body-row-total-price {
+  display: flex;
+  justify-content: center;
+}
+.profile-page-cart-content-table-body-row-remove {
+  display: flex;
+  justify-content: center;
 }
 .profile-page-cart-content-summary {
   display: flex;

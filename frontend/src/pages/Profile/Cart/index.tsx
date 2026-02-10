@@ -73,13 +73,15 @@ const Cart = () => {
               productList.map((item) => (
                 <tr className="profile-page-cart-content-table-body-row">
                   <td>
-                    <Link to={`../../product/${item.slug}`}>
-                      <img
-                        className="profile-page-cart-content-table-body-row-image"
-                        src={item.image}
-                      />
-                      <div className="profile-page-cart-content-table-body-row-image">
-                        <h6>{item.name}</h6>
+                    <div className="profile-page-cart-content-table-body-row-info">
+                      <Link to={`../../product/${item.slug}`}>
+                        <img
+                          className="profile-page-cart-content-table-body-row-info-image"
+                          src={item.image}
+                        />
+                      </Link>
+                      <div className="profile-page-cart-content-table-body-row-info-main">
+                        <h4>{item.name}</h4>
                         <Rating
                           className="rating"
                           name="read-only"
@@ -88,61 +90,63 @@ const Cart = () => {
                           readOnly
                         />
                       </div>
-                    </Link>
+                    </div>
                   </td>
-                  <td
-                    className="profile-page-cart-content-table-body-row-price"
-                  >
-                    <span>
-                      {getDiscountPrice(item.price, item.discount).toFixed(2)}
-                    </span>
+                  <td>
+                    <div className="profile-page-cart-content-table-body-row-price">
+                      <span>
+                        {getDiscountPrice(item.price, item.discount).toFixed(2)}
+                      </span>
+                    </div>
                   </td>
-                  <td
-                    className="profile-page-cart-content-table-body-row-quantity"
-                  >
-                    <QuantityBox stockQuantity={item.countInStock} />
+                  <td>
+                    <div className="profile-page-cart-content-table-body-row-quantity">
+                      <QuantityBox stockQuantity={item.countInStock} />
+                    </div>
                   </td>
-                  <td
-                    className="profile-page-cart-content-table-body-row-total-price"
-                  >
-                    <span>
-                      {(
-                        item.countInStock *
-                        getDiscountPrice(item.price, item.discount)
-                      ).toFixed(2)}
-                    </span>
+                  <td>
+                    <div className="profile-page-cart-content-table-body-row-total-price">
+                      <span>
+                        {(
+                          item.countInStock *
+                          getDiscountPrice(item.price, item.discount)
+                        ).toFixed(2)}
+                      </span>
+                    </div>
                   </td>
-                  <td className="profile-page-cart-content-table-body-row-remove">
-                    <IoClose />
+                  <td>
+                    <div className="profile-page-cart-content-table-body-row-remove">
+                      <IoClose className="btn btn--primary"/>
+                    </div>
                   </td>
                 </tr>
               ))}
           </tbody>
         </table>
-          <div className="profile-page-cart-content-summary">
-            <h4>CART TOTALS</h4>
-            <div className="profile-page-cart-content-summary-subtotal">
-              <span>Subtotal</span>
-              <span>$3.29</span>
-            </div>
-            <div className="profile-page-cart-content-summary-delivery">
-              <span>Delivery</span>
-              <span className="ms-auto">Free</span>
-            </div>
-            <div className="profile-page-cart-content-summary-location">
-              <span>Estimated for</span>
-              <span>United Kingdom</span>
-            </div>
-            <div className="profile-page-cart-content-summary-total">
-              <span>Total</span>
-              <span>$3.29</span>
-            </div>
-
-            <button className="profile-page-cart-content-summary-checkout btn btn--primary">
-              <IoCartOutline className="me-2" />
-              <span>Checkout</span>
-            </button>
+        <div className="profile-page-cart-content-summary">
+          <h4>CART TOTALS</h4>
+          <div className="profile-page-cart-content-summary-subtotal">
+            <span>Subtotal</span>
+            <span>$3.29</span>
           </div>
+          <div className="profile-page-cart-content-summary-delivery">
+            <span>Delivery</span>
+            <span className="ms-auto">Free</span>
+          </div>
+          <div className="profile-page-cart-content-summary-location">
+            <span>Estimated for</span>
+            <span>United Kingdom</span>
+          </div>
+          <div className="profile-page-cart-content-summary-total">
+            <span>Total</span>
+            <span>$3.29</span>
+          </div>
+
+          <button className="profile-page-cart-content-summary-checkout btn btn--primary">
+            <IoCartOutline className="me-2" />
+            <span>Checkout</span>
+          </button>
+        </div>
       </div>
     </section>
   );
