@@ -22,6 +22,7 @@ export interface ProductInCartInt {
   price: number,
   discount: number,
   countInCart: number,
+  countInStock: number,
   rating: number,
   numReviews: number,
   isFeatured: boolean,

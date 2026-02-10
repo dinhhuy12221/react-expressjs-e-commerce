@@ -26,14 +26,14 @@ const Cart = () => {
         const tempProduct = await getProductById(item.product_id).then(
           (res) => res[0]
         );
-        const { countInStock, ...rest } = tempProduct;
         return {
-          ...rest,
+          ...tempProduct,
           countInCart: item.product_count,
         };
       })
     );
-
+    console.log(result);
+    
     setProducts(result)
   };
 
@@ -86,19 +86,19 @@ const Cart = () => {
             <td>
               <div className="profile-page-cart-content-table-body-row-price">
                 <span>
-                  {getDiscountPrice(product.price, product.discount).toFixed(2)}
+                  ${getDiscountPrice(product.price, product.discount).toFixed(2)}
                 </span>
               </div>
             </td>
             <td>
               <div className="profile-page-cart-content-table-body-row-quantity">
-                <QuantityBox stockQuantity={product.countInCart} />
+                <QuantityBox count={product.countInCart} stock={product.countInStock} />
               </div>
             </td>
             <td>
               <div className="profile-page-cart-content-table-body-row-total-price">
                 <span>
-                  {(
+                  ${(
                     product.countInCart *
                     getDiscountPrice(product.price, product.discount)
                   ).toFixed(2)}
