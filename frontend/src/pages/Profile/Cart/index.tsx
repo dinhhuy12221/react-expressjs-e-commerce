@@ -72,7 +72,7 @@ const Cart = () => {
             {productList &&
               productList.map((item) => (
                 <tr className="profile-page-cart-content-table-body-row">
-                  <td width="35%">
+                  <td>
                     <Link to={`../../product/${item.slug}`}>
                       <img
                         className="profile-page-cart-content-table-body-row-image"
@@ -92,7 +92,6 @@ const Cart = () => {
                   </td>
                   <td
                     className="profile-page-cart-content-table-body-row-price"
-                    width="15%"
                   >
                     <span>
                       {getDiscountPrice(item.price, item.discount).toFixed(2)}
@@ -100,13 +99,11 @@ const Cart = () => {
                   </td>
                   <td
                     className="profile-page-cart-content-table-body-row-quantity"
-                    width="25%"
                   >
                     <QuantityBox stockQuantity={item.countInStock} />
                   </td>
                   <td
                     className="profile-page-cart-content-table-body-row-total-price"
-                    width="15%"
                   >
                     <span>
                       {(

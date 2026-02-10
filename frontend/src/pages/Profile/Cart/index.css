@@ -16,6 +16,10 @@
   display: flex;
   gap: var(--space-12);
 }
+
+.profile-page-cart-content-table {
+  
+}
 .profile-page-cart-content-summary {
   display: flex;
   flex-direction: column;
