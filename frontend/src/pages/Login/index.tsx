@@ -31,10 +31,18 @@ export default function Login() {
   const usernameRef = useRef(null);
   const errRef = useRef(null);
 
-  const { value: username, setValue: setUsername, onChange: onChangeUsername, reset: resetUsername } = useInput(
-    "dinhhuy12221"
-  ); //useState("abcd");
-  const [password, setPassword] = useState("!1234Abc");
+  const {
+    value: username,
+    setValue: setUsername,
+    onChange: onChangeUsername,
+    reset: resetUsername,
+  } = useInput("dinhhuy12221");
+  const {
+    value: password,
+    setValue: setPassword,
+    onChange: onChangePassword,
+    reset: resetPassword,
+  } = useInput("!1234Abc");
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
@@ -109,14 +117,19 @@ export default function Login() {
             label="Password"
             variant="standard"
             type="password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => onChangePassword(e)}
             value={password}
             required
           />
           {/* </div> */}
 
-          <span className="btn btn--underlined login-page-content-form-forgot-button">Forgot Password?</span>
-          <button className="btn btn--primary login-page-content-form-signin-button" type="submit">
+          <span className="btn btn--underlined login-page-content-form-forgot-button">
+            Forgot Password?
+          </span>
+          <button
+            className="btn btn--primary login-page-content-form-signin-button"
+            type="submit"
+          >
             Sign In
           </button>
 

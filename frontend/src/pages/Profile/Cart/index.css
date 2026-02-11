@@ -29,7 +29,6 @@
 .profile-page-cart-content-table-body-row-info {
   display: flex;
   gap: var(--space-16);
-
 }
 .profile-page-cart-content-table-body-row-info-image {
   inset: 0;
