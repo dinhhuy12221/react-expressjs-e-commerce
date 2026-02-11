@@ -54,6 +54,7 @@ const Cart = () => {
         <table className="profile-page-cart-content-table">
           <thead className="profile-page-cart-content-table-head">
             <tr>
+              <th>Select</th>
               <th>Product</th>
               <th>Unit Price</th>
               <th>Quantity</th>
@@ -63,6 +64,11 @@ const Cart = () => {
           </thead>
           <tbody className="profile-page-cart-content-table-body">
             {products.map((product) => (<tr className="profile-page-cart-content-table-body-row">
+              <td>
+                <div className="profile-page-cart-content-table-body-row-selector">
+                  <input type="checkbox" />
+                </div>
+              </td>
             <td>
               <div className="profile-page-cart-content-table-body-row-info">
                 <Link to={`../../product/${product.slug}`}>
@@ -107,7 +113,7 @@ const Cart = () => {
             </td>
             <td>
               <div className="profile-page-cart-content-table-body-row-remove">
-                <IoClose className="btn btn--primary" />
+                <IoClose className="btn btn--primary btn--rounded" />
               </div>
             </td>
           </tr>))}
@@ -131,7 +137,6 @@ const Cart = () => {
             <span>Total</span>
             <span>$3.29</span>
           </div>
-
           <button className="profile-page-cart-content-summary-checkout btn btn--primary">
             <IoCartOutline className="me-2" />
             <span>Checkout</span>

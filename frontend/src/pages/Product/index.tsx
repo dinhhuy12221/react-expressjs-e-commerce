@@ -16,25 +16,45 @@ import axios from "~/api/axios";
 import "./index.css";
 
 export default function Product() {
-  const [activeSize, setActiveSize] = useState(null);
-  const [product, setProduct] = useState(null)
-  const [category, setCategory] = useState(null)
+  // const [activeSize, setActiveSize] = useState(null);
+  const [product, setProduct] = useState(null);
+  const [category, setCategory] = useState(null);
 
   const currentPrice = getDiscountPrice(product?.price, product?.discount);
   const [productList, setProductList] = useState([]);
+  let isMounted = true;
+
+  const getProductList = async () => {
+    try {
+      const response = await axios.get("/product");
+      isMounted && setProductList(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getProductInfo = async () => {
+    try {
+      const slug = new URL(window.location.toString()).pathname.split("/")[2];
+      const tmpProduct = await getProductBySlug(slug)
+        .then((result) => result[0])
+        .catch((error) => console.error(error));
+
+      console.log(tmpProduct, slug);
+
+      if (!tmpProduct) return null;
+
+      const category = await getCategoryById(tmpProduct.categoryId);
+
+      setProduct(tmpProduct);
+      setCategory(category);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    let isMounted = true;
     const controller = new AbortController();
-
-    const getProductList = async () => {
-      try {
-        const response = await axios.get("/product");
-        isMounted && setProductList(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getProductList();
 
     return () => {
@@ -43,32 +63,13 @@ export default function Product() {
     };
   }, []);
 
-  const isActive = (index) => {
-    setActiveSize(index);
-  };
+  // const isActive = (index) => {
+  //   setActiveSize(index);
+  // };
 
   useEffect(() => {
-    const getProductInfo = async () => {
-    try {
-      const slug = new URL(window.location.toString()).pathname.split("/")[2];
-      const product = await getProductBySlug(slug)
-        .then((result) => result[0])
-        .catch((error) => console.error(error));
-
-      if (!product) return null
-
-      const category = await getCategoryById(product.categoryId);
-
-      setProduct(product)
-      setCategory(category)
-
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  getProductInfo();
-  }, [])
+    getProductInfo();
+  }, []);
 
   return (
     <section className="page-product">
@@ -99,8 +100,7 @@ export default function Product() {
                   </span>
                 </div>
                 <span className="page-product-main-content-main-status-stock">
-                  {product.countInStock > 0 &&
-                    `In Stock: ${product.countInStock}`}
+                  {`In Stock: ${product.countInStock}`}
                 </span>
               </div>
               <p className="page-product-main-content-main-description">
@@ -108,7 +108,7 @@ export default function Product() {
               </p>
 
               <div className="page-product-main-content-main-quantity">
-                <QuantityBox stockQuantity={product.countInStock} />
+                <QuantityBox count={1} stock={product.countInStock} />
                 <button className="btn btn--primary page-product-main-content-main-quantity-add-button">
                   <IoCartOutline className="" />
                   <span>Add to cart</span>
@@ -125,7 +125,9 @@ export default function Product() {
                   &nbsp;Compare
                 </button>
               </div>
-              <span className="page-product-main-content-main-category">Category: <b>{category.name}</b></span>
+              <span className="page-product-main-content-main-category">
+                Category: <b>{category.name}</b>
+              </span>
             </div>
           </div>
           {/* <div className="page-product-main-header">
@@ -239,7 +241,10 @@ export default function Product() {
 
         <ItemSwiper productList={productList} title="RELATED PRODUCTS" />
 
-        <ItemSwiper productList={productList} title="RECENTLY VIEWED PRODUCTS" />
+        <ItemSwiper
+          productList={productList}
+          title="RECENTLY VIEWED PRODUCTS"
+        />
       </div>
     </section>
   );
