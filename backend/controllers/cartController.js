@@ -3,13 +3,24 @@ import Cart from '../models/cart.js'
 class cartController {
     createCart = async(req, res) => {
         try {
-            const cart = new Cart({
+            const cart = await Cart.find({ product_id: req.body.product_id })
+            
+            let result;
+            if (cart) {
+                result = await Cart.findByIdAndUpdate(cart._id, {
+                    ...cart,
+                    product_count: product_count + req.body.product_count
+                })
+            }
+            else {
+                const newCart = new Cart({
                 customer_id: req.body.customer_id,
                 product_id: req.body.product_id,
                 product_count: req.body.product_count,
-            })
+                })
 
-            const result = await cart.save();
+                result = await newCart.save();
+            }
 
             if (result) {
                 return res.status(200).json({ message: "Add cart successfully" })

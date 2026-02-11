@@ -1,16 +1,27 @@
-import useLocalStorage from "./useLocalStorage";
+import { useCallback, useState } from "react";
+// import useLocalStorage from "./useLocalStorage";
 
-const useInput = (key, initValue) => {
-    const [value, setValue] = useLocalStorage(key, initValue)
+const useInput = (initialValue, type = "text") => {
+    const [value, setValue] = useState(initialValue)
 
-    const reset = () => setValue(initValue)
+    const reset = () => setValue(initialValue)
 
-    const attributeObj = {
-        value,
-        onChange: (e) => setValue(e.target.value),
-    }
+    const onChange = useCallback((e) => {
+        const target = e.target
 
-    return [value, reset, attributeObj];
+        const nextValue = type === "checkbox" ? target.checked :
+        type === "number" ? Number(target.value) :
+        target.value
+
+        setValue(nextValue)
+    }, [])
+
+    // const attributeObj = {
+    //     value,
+    //     onChange: (e) => setValue(e.target.value),
+    // }
+
+    return { value, setValue, onChange, reset };
 }
 
 export default useInput;
