@@ -6,8 +6,13 @@ import { FaMinus } from "react-icons/fa";
 
 import "./index.css";
 
-export default function QuantityBox({ stockQuantity }: {stockQuantity: number}) {
-  const [quantity, setQuantity] = useState(1);
+type Props = {
+  count: number,
+  stock: number,
+}
+
+export default function QuantityBox({ count, stock }: Props) {
+  const [quantity, setQuantity] = useState(count);
 
   const decrease = () => {
     if (quantity > 1) {
@@ -16,17 +21,17 @@ export default function QuantityBox({ stockQuantity }: {stockQuantity: number}) 
   };
 
   const increase = () => {
-    if (quantity < stockQuantity) {
+    if (quantity < stock) {
       setQuantity((i) => i + 1);
     }
   };
 
   const changeQuantity = (value) => {
-    if (1 < quantity && quantity < stockQuantity) {
+    if (1 < quantity && quantity < stock) {
       setQuantity(value)
     }
   };
-
+  
   return (
     <div className="quantity-box">
       <button className="btn btn--rounded" onClick={() => decrease()}>

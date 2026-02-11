@@ -13,3 +13,19 @@ export interface ProductInt {
   categoryId: number,
   slug: string,
 }
+export interface ProductInCartInt {
+  _id: number,
+  name: string,
+  description: string,
+  image: string,
+  brand: string,
+  price: number,
+  discount: number,
+  countInCart: number,
+  countInStock: number,
+  rating: number,
+  numReviews: number,
+  isFeatured: boolean,
+  categoryId: number,
+  slug: string,
+}

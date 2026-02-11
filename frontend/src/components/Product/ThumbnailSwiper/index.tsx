@@ -38,7 +38,7 @@ export default function ThumbnailsSwiper({ product }) {
             <InnerImageZoom
               // zoomType="hover"
               // zoomScale={1}
-              src={product.image}
+              src={product?.image}
             />
           </div>
         </SwiperSlide>
@@ -76,7 +76,7 @@ export default function ThumbnailsSwiper({ product }) {
             <img
               // zoomType="hover"
               // zoomScale={1}
-              src={product.image}
+              src={product?.image}
               onClick={() => goto(0)}
             />
           </div>

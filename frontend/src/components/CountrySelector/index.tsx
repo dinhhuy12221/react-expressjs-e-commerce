@@ -62,7 +62,7 @@ export default function CountrySelector({ className }: { className?: string }) {
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         // TransitionComponent={Transition}
-        component={Transition}
+        // TransitionComponent={Transition}
       >
         <div className="country-modal">
           <h5 className="country-label">Choose your Delivery Country</h5>
