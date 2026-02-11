@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
 
 const getLocalValue = (key, initValue) => {
-    // SSR Next.js
-    if (typeof window === 'undefined') return initValue;
+    try {
+        // SSR Next.js
+        if (typeof window === 'undefined') return initValue;
+    
+        // if a value is already stored
+        const localValue = JSON.parse(localStorage.getItem(key));
+        if (localValue) return localValue;
+    
+        // return result of a function
+        if (initValue instanceof Function) return initValue();
+        return initValue;
 
-    // if a value is already stored
-    const localValue = JSON.parse(localStorage.getItem(key));
-    if (localValue) return localValue;
-
-    // return result of a function 
-    if (initValue instanceof Function) return initValue();
-    return initValue;
+    } catch (error) {
+        
+    }
+    
 }
 
 const useLocalStorage = (key, initValue) => {
@@ -20,7 +26,7 @@ const useLocalStorage = (key, initValue) => {
         localStorage.setItem(key, JSON.stringify(value));
     }, [key, value]);
 
-    return [value, setValue];
+    return [value, setValue] as const;
 }
 
 export default useLocalStorage;

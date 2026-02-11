@@ -32,7 +32,6 @@ const Cart = () => {
         };
       })
     );
-    console.log(result);
     
     setProducts(result)
   };
@@ -41,8 +40,8 @@ const Cart = () => {
     getProductsFromCart()
   }, [cart])
 
-
-  return (
+  if (products.length !== 0) {
+    return (
     <section className="profile-page-cart">
       <div className="profile-page-cart-header">
         <h2 className="profile-page-cart-header-title">Your Cart</h2>
@@ -145,6 +144,7 @@ const Cart = () => {
       </div>
     </section>
   );
+  }
 };
 
 export default Cart;

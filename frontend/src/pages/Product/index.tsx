@@ -76,12 +76,12 @@ export default function Product() {
       <div className="page-product-content">
         <div className="page-product-main">
           <div className="page-product-main-header">
-            <h1 className="page-product-main-header-name">{product.name}</h1>
+            <h1 className="page-product-main-header-name">{product?.name}</h1>
             <div className="page-product-main-header-rating">
               <div className="page-product-main-header-brand">
                 <span>Brands:</span>
                 <span>
-                  <b> {product.brand}</b>
+                  <b> {product?.brand}</b>
                 </span>
               </div>
               <Rating defaultValue={3} precision={0.5} size="small" readOnly />
@@ -93,22 +93,22 @@ export default function Product() {
               <div className="page-product-main-content-main-status">
                 <div className="page-product-main-content-main-status-prices">
                   <span className="page-product-main-content-main-status-prices-old-price">
-                    ${product.price}
+                    ${product?.price}
                   </span>
                   <span className="page-product-main-content-main-status-prices-net-price">
                     ${currentPrice}
                   </span>
                 </div>
                 <span className="page-product-main-content-main-status-stock">
-                  {`In Stock: ${product.countInStock}`}
+                  {`In Stock: ${product?.countInStock}`}
                 </span>
               </div>
               <p className="page-product-main-content-main-description">
-                {product.description}
+                {product?.description}
               </p>
 
               <div className="page-product-main-content-main-quantity">
-                <QuantityBox count={1} stock={product.countInStock} />
+                <QuantityBox count={1} stock={product?.countInStock} />
                 <button className="btn btn--primary page-product-main-content-main-quantity-add-button">
                   <IoCartOutline className="" />
                   <span>Add to cart</span>
@@ -126,7 +126,7 @@ export default function Product() {
                 </button>
               </div>
               <span className="page-product-main-content-main-category">
-                Category: <b>{category.name}</b>
+                Category: <b>{category?.name}</b>
               </span>
             </div>
           </div>

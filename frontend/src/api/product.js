@@ -13,7 +13,7 @@ const getProductList = async () => {
 
 const getProductById = async (id) => {
   try {
-    const product = await fetch(base_url + "/product/" + id).then((result) =>
+    const product = await fetch(base_url + "/product/id/" + id).then((result) =>
       result.json()
     );
     return product;
