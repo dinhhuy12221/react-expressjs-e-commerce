@@ -31,8 +31,7 @@ export default function Login() {
   const usernameRef = useRef(null);
   const errRef = useRef(null);
 
-  const [username, resetUsername, usernameAttrbs] = useInput(
-    "username",
+  const { value: username, setValue: setUsername, onChange: onChangeUsername, reset: resetUsername } = useInput(
     "dinhhuy12221"
   ); //useState("abcd");
   const [password, setPassword] = useState("!1234Abc");
@@ -56,7 +55,7 @@ export default function Login() {
 
       dispatch(setCredentials({ customerId: customer._id, accessToken }));
 
-      resetUsername("");
+      resetUsername();
       setPassword("");
       navigate(from, { replace: true });
     } catch (error) {
@@ -98,8 +97,9 @@ export default function Login() {
             type="text"
             ref={usernameRef}
             autoComplete="off"
-            {...usernameAttrbs}
             required
+            value={username}
+            onChange={(e) => onChangeUsername(e)}
           />
           {/* </div> */}
           {/* <div className="form-group"> */}
