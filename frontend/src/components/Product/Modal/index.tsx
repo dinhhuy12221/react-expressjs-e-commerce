@@ -6,7 +6,7 @@ import Dialog from "@mui/material/Dialog";
 import { IoClose } from "react-icons/io5";
 import Rating from "@mui/material/Rating";
 import "react-inner-image-zoom/lib/styles.min.css";
-import QuantityBox from "~/components/QuantityBox/index.jsx";
+import QuantityCounter from "~/components/QuantityCounter";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
@@ -15,12 +15,18 @@ import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
 // import "swiper/css";
 // import "swiper/css/navigation";
 
+import useCreateCartHandler from "~/hooks/useCreateCartHandler";
 import "./index.css";
+import { useSelector } from "react-redux";
+import { selectCurrentCustomerId } from "~/features/auth/authSlice";
 
 export default function Modal(props) {
   const [slideIndex, setSlideIndex] = useState(0);
   const zoomSliderBig = useRef(null);
   const zoomSlider = useRef(null);
+  const [quantity, setQuantity] = useState(1);
+  const {handleCreateCart, isLoading } = useCreateCartHandler();
+  const customer_id = useSelector(selectCurrentCustomerId);
 
   const context = useContext(MyContext);
   const product = context.productModal;
@@ -83,9 +89,11 @@ export default function Modal(props) {
           </p>
 
           <div className="product-modal-content-main-quantity">
-            <QuantityBox stockQuantity={product.countInStock} />
-            <button className="btn btn--primary product-modal-content-main-quantity-add-button">
-              <IoCartOutline className="" />
+            <QuantityCounter value={quantity} onChange={setQuantity} stock={product.countInStock} />
+            <button className="btn btn--primary product-modal-content-main-quantity-add-button"
+            onClick={() => handleCreateCart(customer_id, product._id, quantity)}
+            >
+              <IoCartOutline />
               <span>Add to cart</span>
             </button>
           </div>

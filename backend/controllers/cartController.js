@@ -1,54 +1,70 @@
-import Cart from '../models/cart.js'
+import Cart from "../models/cart.js";
 
 class cartController {
-    createCart = async(req, res) => {
-        try {
-            const cart = await Cart.find({ product_id: req.body.product_id })
-            
-            let result;
-            if (cart) {
-                result = await Cart.findByIdAndUpdate(cart._id, {
-                    ...cart,
-                    product_count: product_count + req.body.product_count
-                })
-            }
-            else {
-                const newCart = new Cart({
-                customer_id: req.body.customer_id,
-                product_id: req.body.product_id,
-                product_count: req.body.product_count,
-                })
+  createCart = async (req, res) => {
+    try {
+      const { customer_id, product_id, product_count } = req.body;
+      const cart = await Cart.findOne({ customer_id, product_id });
 
-                result = await newCart.save();
-            }
+      let result;
+      if (cart) {
+        cart.product_count += product_count;
+        result = await cart.save();
+      } else {
+        result = new Cart.create({
+          customer_id,
+          product_id,
+          product_count,
+        });
+      }
 
-            if (result) {
-                return res.status(200).json({ message: "Add cart successfully" })
-            }
-            return res.status(404).json({
-                message: 'failed',
-            })
-        } catch (error) {
-            console.log(error);
-        }
+      return res
+        .status(200)
+        .json({ message: "Add cart successfully", data: result });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        message: "Internal server error",
+      });
     }
+  };
 
-    getCartByCustomer = async(req, res) => {
-        try {
-            const cart = await Cart.find({
-                customer_id: req.params.id,
-            })
+  updateCart = async (req, res) => {
+    try {
+      const { customer_id, product_id, product_count } = req.body;
+      const cart = await Cart.findOne({ customer_id, product_id });
 
-            if (cart) {
-                return res.status(200).json(cart)
-            }
-            return res.status(400).json({
-                message: 'failed'
-            })
-        } catch (error) {
-            console.log(error);
-        }
+      let result;
+      if (cart) {
+        cart.product_count = product_count;
+        result = await cart.save();
+      }
+
+      return res
+        .status(200)
+        .json({ message: "Update cart successfully", data: result });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        message: "Internal server error",
+      });
     }
+  };
+
+  getCartByCustomer = async (req, res) => {
+    try {
+      const cart = await Cart.find({
+        customer_id: req.params.id,
+      });
+
+      return res.status(200).json(cart);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        message: "Internal server error",
+      });
+    }
+  };
 }
 
 export default new cartController();
