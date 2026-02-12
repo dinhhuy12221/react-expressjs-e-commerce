@@ -4,5 +4,6 @@ const router = express.Router();
 
 router.get('/by_customer/:id', cartController.getCartByCustomer)
 router.post('/create', cartController.createCart);
+router.put('/update', cartController.updateCart);
 
 export default router;

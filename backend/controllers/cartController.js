@@ -57,14 +57,12 @@ class cartController {
         customer_id: req.params.id,
       });
 
-      if (cart) {
-        return res.status(200).json(cart);
-      }
-      return res.status(400).json({
-        message: "failed",
-      });
+      return res.status(200).json(cart);
     } catch (error) {
       console.log(error);
+      return res.status(500).json({
+        message: "Internal server error",
+      });
     }
   };
 }
