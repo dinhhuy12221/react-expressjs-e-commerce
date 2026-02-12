@@ -4,8 +4,8 @@ import Rating from "@mui/material/Rating";
 import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
-import QuantityBox from "~/components/QuantityCounter";
-import { useGetCartByCustomerQuery } from "~/features/cart/cartApi";
+import QuantityCounter from "~/components/QuantityCounter";
+import { useGetCartByCustomerQuery, useUpdateCartMutation } from "~/features/cart/cartApi";
 import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";
 import { CartInt } from "~/features/cart/cart.types";
@@ -18,7 +18,8 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
-  const { data, isLoading } = useGetCartByCustomerQuery(customerId);
+  const { data } = useGetCartByCustomerQuery(customerId);
+  const [updateCart, { isLoading }] = useUpdateCartMutation();
   const cart: CartInt[] = data ?? [];
 
   const getProductsFromCart = async () => {
@@ -43,6 +44,21 @@ const Cart = () => {
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
     );
   };
+
+  const handleUpdateCart = async (customer_id: number, product_id: number, product_count: number) => {
+    setProducts(prev => prev.map(p => p._id === product_id ? { ...p, countInCart: product_count } : p))
+
+    const payload = {
+      customer_id,
+      product_id,
+      product_count
+    };
+    await updateCart(payload).unwrap();
+  }
+
+  const setProduct = (product_id: number) => {
+    setProducts(prev => prev.map(p => p._id === product_id ? { ...p, countInCart: product_count } : p))
+  }
 
   useEffect(() => {
     getProductsFromCart();
@@ -115,8 +131,9 @@ const Cart = () => {
                   </td>
                   <td>
                     <div className="profile-page-cart-content-table-body-row-quantity">
-                      <QuantityBox
-                        count={product.countInCart}
+                      <QuantityCounter
+                        value={product.countInCart}
+                        onChange={setProducts}
                         stock={product.countInStock}
                       />
                     </div>

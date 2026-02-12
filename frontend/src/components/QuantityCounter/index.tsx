@@ -13,8 +13,14 @@ type Props = {
 };
 
 export default function QuantityCounter({ value, onChange, stock }: Props) {
-  const decrease = () => onChange(Math.max(1, value - 1));
-  const increase = () => onChange(Math.min(stock, value + 1));
+  const decrease = () => {
+    const newValue = Math.max(1, value - 1);
+    onChange(newValue)
+  };
+  const increase = () => {
+    const newValue = Math.min(stock, value + 1);
+    onChange(newValue)
+  };
 
   const changeQuantity = (value) => {
     if (1 < stock && stock < stock) {

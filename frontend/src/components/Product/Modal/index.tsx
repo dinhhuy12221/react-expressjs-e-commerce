@@ -15,13 +15,18 @@ import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
 // import "swiper/css";
 // import "swiper/css/navigation";
 
+import useCreateCartHandler from "~/hooks/useCreateCartHandler";
 import "./index.css";
+import { useSelector } from "react-redux";
+import { selectCurrentCustomerId } from "~/features/auth/authSlice";
 
 export default function Modal(props) {
   const [slideIndex, setSlideIndex] = useState(0);
   const zoomSliderBig = useRef(null);
   const zoomSlider = useRef(null);
   const [quantity, setQuantity] = useState(1);
+  const {handleCreateCart, isLoading } = useCreateCartHandler();
+  const customer_id = useSelector(selectCurrentCustomerId);
 
   const context = useContext(MyContext);
   const product = context.productModal;
@@ -32,10 +37,6 @@ export default function Modal(props) {
     zoomSliderBig.current.swiper.slideTo(index);
     zoomSlider.current.swiper.slideTo(index);
   };
-
-  const addToCart = () => {
-    
-  }
 
   return (
     <Dialog
@@ -89,7 +90,9 @@ export default function Modal(props) {
 
           <div className="product-modal-content-main-quantity">
             <QuantityCounter value={quantity} onChange={setQuantity} stock={product.countInStock} />
-            <button className="btn btn--primary product-modal-content-main-quantity-add-button">
+            <button className="btn btn--primary product-modal-content-main-quantity-add-button"
+            onClick={() => handleCreateCart(customer_id, product._id, quantity)}
+            >
               <IoCartOutline />
               <span>Add to cart</span>
             </button>
