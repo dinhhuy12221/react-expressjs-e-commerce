@@ -4,7 +4,7 @@ import Rating from "@mui/material/Rating";
 import { IoClose } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 
-import QuantityBox from "~/components/QuantityBox";
+import QuantityBox from "~/components/QuantityCounter";
 import { useGetCartByCustomerQuery } from "~/features/cart/cartApi";
 import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";

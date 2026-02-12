@@ -6,7 +6,7 @@ import Dialog from "@mui/material/Dialog";
 import { IoClose } from "react-icons/io5";
 import Rating from "@mui/material/Rating";
 import "react-inner-image-zoom/lib/styles.min.css";
-import QuantityBox from "~/components/QuantityBox/index.jsx";
+import QuantityCounter from "~/components/QuantityCounter";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { MdCompareArrows } from "react-icons/md";
@@ -21,6 +21,7 @@ export default function Modal(props) {
   const [slideIndex, setSlideIndex] = useState(0);
   const zoomSliderBig = useRef(null);
   const zoomSlider = useRef(null);
+  const [quantity, setQuantity] = useState(1);
 
   const context = useContext(MyContext);
   const product = context.productModal;
@@ -31,6 +32,10 @@ export default function Modal(props) {
     zoomSliderBig.current.swiper.slideTo(index);
     zoomSlider.current.swiper.slideTo(index);
   };
+
+  const addToCart = () => {
+    
+  }
 
   return (
     <Dialog
@@ -83,9 +88,9 @@ export default function Modal(props) {
           </p>
 
           <div className="product-modal-content-main-quantity">
-            <QuantityBox stockQuantity={product.countInStock} />
+            <QuantityCounter value={quantity} onChange={setQuantity} stock={product.countInStock} />
             <button className="btn btn--primary product-modal-content-main-quantity-add-button">
-              <IoCartOutline className="" />
+              <IoCartOutline />
               <span>Add to cart</span>
             </button>
           </div>
