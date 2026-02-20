@@ -13,64 +13,61 @@ import { getProductById } from "~/api/product";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 
 import "./index.css";
+import CartManager from "./CartManager";
+import CartTotal from "./CartTotal";
 
 const Cart = () => {
-  const [products, setProducts] = useState([]);
-  const [selectedIds, setSelectedIds] = useState<number[]>([]);
-  const customerId = useSelector((state: RootState) => state.auth.customerId);
-  const { data } = useGetCartByCustomerQuery(customerId);
-  const [updateCart, { isLoading }] = useUpdateCartMutation();
-  const cart: CartInt[] = data ?? [];
+  // const [products, setProducts] = useState([]);
+  // const [selectedIds, setSelectedIds] = useState<number[]>([]);
+  // const customerId = useSelector((state: RootState) => state.auth.customerId);
+  // const { data } = useGetCartByCustomerQuery(customerId);
+  // const [updateCart, { isLoading }] = useUpdateCartMutation();
+  // const cart: CartInt[] = data ?? [];
 
-  const getProductsFromCart = async () => {
-    const result = await Promise.all(
-      cart.map(async (item) => {
-        const tempProduct = await getProductById(item.product_id).then(
-          (res) => res[0]
-        );
-        return {
-          ...tempProduct,
-          cartId: item._id,
-          countInCart: item.product_count,
-        };
-      })
-    );
+  // const getProductsFromCart = async () => {
+  //   const result = await Promise.all(
+  //     cart.map(async (item) => {
+  //       const tempProduct = await getProductById(item.product_id).then(
+  //         (res) => res[0]
+  //       );
+  //       return {
+  //         ...tempProduct,
+  //         cartId: item._id,
+  //         countInCart: item.product_count,
+  //       };
+  //     })
+  //   );
 
-    setProducts(result);
-  };
+  //   setProducts(result);
+  // };
 
-  const toggleProduct = (id: number) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
-  };
+  // const toggleProduct = (id: number) => {
+  //   setSelectedIds((prev) =>
+  //     prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+  //   );
+  // };
 
-  const handleUpdateCart = async (customer_id: number, product_id: number, product_count: number) => {
-    setProducts(prev => prev.map(p => p._id === product_id ? { ...p, countInCart: product_count } : p))
+  // const handleUpdateCart = async (customer_id: number, product_id: number, product_count: number) => {
+  //   setProducts(prev => prev.map(p => p._id === product_id ? { ...p, countInCart: product_count } : p))
 
-    const payload = {
-      customer_id,
-      product_id,
-      product_count
-    };
-    await updateCart(payload).unwrap();
-  }
+  //   const payload = {
+  //     customer_id,
+  //     product_id,
+  //     product_count
+  //   };
+  //   await updateCart(payload).unwrap();
+  // }
 
-  const setProduct = (product_id: number) => {
-    setProducts(prev => prev.map(p => p._id === product_id ? { ...p, countInCart: product_count } : p))
-  }
+  // useEffect(() => {
+  //   getProductsFromCart();
+  // }, [cart]);
 
-  useEffect(() => {
-    getProductsFromCart();
-  }, [cart]);
-
-  if (products.length !== 0) {
     return (
       <section className="profile-page-cart">
         <div className="profile-page-cart-header">
           <h2 className="profile-page-cart-header-title">Your Cart</h2>
           <p>
-            There are <b>{products.length}</b> products in your cart
+            {/* There are <b>{products.length}</b> products in your cart */}
           </p>
         </div>
         <div className="profile-page-cart-content">
@@ -86,7 +83,7 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody className="profile-page-cart-content-table-body">
-              {products.map((product) => (
+              {/* {products.map((product) => (
                 <tr className="profile-page-cart-content-table-body-row">
                   <td>
                     <div className="profile-page-cart-content-table-body-row-selector">
@@ -133,7 +130,7 @@ const Cart = () => {
                     <div className="profile-page-cart-content-table-body-row-quantity">
                       <QuantityCounter
                         value={product.countInCart}
-                        onChange={setProducts}
+                        onChange={() => setProducts}
                         stock={product.countInStock}
                       />
                     </div>
@@ -155,36 +152,16 @@ const Cart = () => {
                     </div>
                   </td>
                 </tr>
-              ))}
+              ))} */}
+              <CartManager />
             </tbody>
           </table>
           <div className="profile-page-cart-content-summary">
-            <h4>CART TOTALS</h4>
-            <div className="profile-page-cart-content-summary-subtotal">
-              <span>Subtotal</span>
-              <span>$3.29</span>
-            </div>
-            <div className="profile-page-cart-content-summary-delivery">
-              <span>Delivery</span>
-              <span className="ms-auto">Free</span>
-            </div>
-            <div className="profile-page-cart-content-summary-location">
-              <span>Estimated for</span>
-              <span>United Kingdom</span>
-            </div>
-            <div className="profile-page-cart-content-summary-total">
-              <span>Total</span>
-              <span>$3.29</span>
-            </div>
-            <button className="profile-page-cart-content-summary-checkout btn btn--primary">
-              <IoCartOutline className="me-2" />
-              <span>Checkout</span>
-            </button>
+            <CartTotal />
           </div>
         </div>
       </section>
     );
   }
-};
 
 export default Cart;
