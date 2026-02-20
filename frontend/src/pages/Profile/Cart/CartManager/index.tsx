@@ -68,6 +68,7 @@ const CartManager = () => {
     getProductsFromCart();
   }, [cart]);
 
+  if (products.length !== 0) {
   return (
     <div>
       {products.map((product) => (
@@ -138,6 +139,7 @@ const CartManager = () => {
       ))}
     </div>
   );
+}
 };
 
 export default CartManager;
