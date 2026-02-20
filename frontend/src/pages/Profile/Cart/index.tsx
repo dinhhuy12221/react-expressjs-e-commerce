@@ -15,7 +15,6 @@ import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import "./index.css";
 
 const Cart = () => {
-  const [product, setProduct] = useState(null);
   const [products, setProducts] = useState([]);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
