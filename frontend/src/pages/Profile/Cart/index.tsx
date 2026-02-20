@@ -15,6 +15,7 @@ import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import "./index.css";
 
 const Cart = () => {
+  const [product, setProduct] = useState(null);
   const [products, setProducts] = useState([]);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
@@ -54,10 +55,6 @@ const Cart = () => {
       product_count
     };
     await updateCart(payload).unwrap();
-  }
-
-  const setProduct = (product_id: number) => {
-    setProducts(prev => prev.map(p => p._id === product_id ? { ...p, countInCart: product_count } : p))
   }
 
   useEffect(() => {
@@ -133,7 +130,7 @@ const Cart = () => {
                     <div className="profile-page-cart-content-table-body-row-quantity">
                       <QuantityCounter
                         value={product.countInCart}
-                        onChange={setProducts}
+                        onChange={() => setProducts}
                         stock={product.countInStock}
                       />
                     </div>
