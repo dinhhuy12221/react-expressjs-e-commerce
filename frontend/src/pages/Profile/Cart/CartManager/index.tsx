@@ -1,9 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Rating from "@mui/material/Rating";
-import { IoClose } from "react-icons/io5";
-
-import QuantityCounter from "~/components/QuantityCounter";
 import {
   useGetCartByCustomerQuery,
   useUpdateCartMutation,
@@ -12,7 +7,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";
 import { CartInt } from "~/features/cart/cart.types";
 import { getProductById } from "~/api/product";
-import { getDiscountPrice } from "~/utils/getDiscountPrice";
+import CartItem from "../CartItem";
 
 const CartManager = () => {
   const [products, setProducts] = useState([]);
@@ -37,12 +32,6 @@ const CartManager = () => {
     );
 
     setProducts(result);
-  };
-
-  const toggleProduct = (id: number) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
   };
 
   const handleUpdateCart = async (
@@ -72,70 +61,7 @@ const CartManager = () => {
   return (
     <div>
       {products.map((product) => (
-        <tr className="profile-page-cart-content-table-body-row">
-          <td>
-            <div className="profile-page-cart-content-table-body-row-selector">
-              <input
-                type="checkbox"
-                value={product.cartId}
-                checked={selectedIds.includes(product.cartId)}
-                onChange={() => toggleProduct(product.cartId)}
-              />
-            </div>
-          </td>
-          <td>
-            <div className="profile-page-cart-content-table-body-row-info">
-              <Link to={`../../product/${product.slug}`}>
-                <img
-                  className="profile-page-cart-content-table-body-row-info-image"
-                  src={product.image}
-                />
-              </Link>
-              <div className="profile-page-cart-content-table-body-row-info-main">
-                <h4>{product.name}</h4>
-                <Rating
-                  className="rating"
-                  name="read-only"
-                  defaultValue={product.rating}
-                  precision={0.5}
-                  readOnly
-                />
-              </div>
-            </div>
-          </td>
-          <td>
-            <div className="profile-page-cart-content-table-body-row-price">
-              <span>
-                ${getDiscountPrice(product.price, product.discount).toFixed(2)}
-              </span>
-            </div>
-          </td>
-          <td>
-            <div className="profile-page-cart-content-table-body-row-quantity">
-              <QuantityCounter
-                value={product.countInCart}
-                onChange={() => setProducts}
-                stock={product.countInStock}
-              />
-            </div>
-          </td>
-          <td>
-            <div className="profile-page-cart-content-table-body-row-total-price">
-              <span>
-                $
-                {(
-                  product.countInCart *
-                  getDiscountPrice(product.price, product.discount)
-                ).toFixed(2)}
-              </span>
-            </div>
-          </td>
-          <td>
-            <div className="profile-page-cart-content-table-body-row-remove">
-              <IoClose className="btn btn--primary btn--rounded" />
-            </div>
-          </td>
-        </tr>
+        <CartItem product={product} selectedIds={selectedIds} setSelectedIds={setSelectedIds}/>
       ))}
     </div>
   );
