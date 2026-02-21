@@ -14,9 +14,9 @@ const CartItem = ({ product, selectedIds, setSelectedIds }) => {
   };
 
   return (
-    <tr className="profile-page-cart-content-table-body-row">
+    <tr className="cart-item">
           <td>
-            <div className="profile-page-cart-content-table-body-row-selector">
+            <div className="cart-item-selector">
               <input
                 type="checkbox"
                 value={product.cartId}
@@ -26,14 +26,14 @@ const CartItem = ({ product, selectedIds, setSelectedIds }) => {
             </div>
           </td>
           <td>
-            <div className="profile-page-cart-content-table-body-row-info">
+            <div className="cart-item-info">
               <Link to={`../../product/${product.slug}`}>
                 <img
-                  className="profile-page-cart-content-table-body-row-info-image"
+                  className="cart-item-info-image"
                   src={product.image}
                 />
               </Link>
-              <div className="profile-page-cart-content-table-body-row-info-main">
+              <div className="cart-item-info-main">
                 <h4>{product.name}</h4>
                 <Rating
                   className="rating"
@@ -46,14 +46,14 @@ const CartItem = ({ product, selectedIds, setSelectedIds }) => {
             </div>
           </td>
           <td>
-            <div className="profile-page-cart-content-table-body-row-price">
+            <div className="cart-item-price">
               <span>
                 ${getDiscountPrice(product.price, product.discount).toFixed(2)}
               </span>
             </div>
           </td>
           <td>
-            <div className="profile-page-cart-content-table-body-row-quantity">
+            <div className="cart-item-quantity">
               <QuantityCounter
                 value={product.countInCart}
                 onChange={() => {}}
@@ -62,7 +62,7 @@ const CartItem = ({ product, selectedIds, setSelectedIds }) => {
             </div>
           </td>
           <td>
-            <div className="profile-page-cart-content-table-body-row-total-price">
+            <div className="cart-item-total-price">
               <span>
                 $
                 {(
@@ -73,7 +73,7 @@ const CartItem = ({ product, selectedIds, setSelectedIds }) => {
             </div>
           </td>
           <td>
-            <div className="profile-page-cart-content-table-body-row-remove">
+            <div className="cart-item-remove">
               <IoClose className="btn btn--primary btn--rounded" />
             </div>
           </td>

@@ -1,0 +1,31 @@
+
+.cart-item-info {
+  display: flex;
+  gap: var(--space-16);
+}
+.cart-item-info-image {
+  inset: 0;
+  width: 80px;
+  height: 100%;
+  object-fit: cover;
+}
+.cart-item-price {
+  display: flex;
+  justify-content: center;
+}
+.cart-item-quantity {
+  display: flex;
+  justify-content: center;
+}
+.cart-item-total-price {
+  display: flex;
+  justify-content: center;
+}
+.cart-item-remove {
+  display: flex;
+  justify-content: center;
+}
+.cart-item-remove svg {
+  width: 30px;
+  height: 30px;
+}
