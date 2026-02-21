@@ -34,12 +34,6 @@ const CartManager = () => {
     setProducts(result);
   };
 
-  const toggleProduct = (id: number) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
-  };
-
   const handleUpdateCart = async (
     customer_id: number,
     product_id: number,
