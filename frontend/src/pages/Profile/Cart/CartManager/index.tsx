@@ -1,9 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Rating from "@mui/material/Rating";
-import { IoClose } from "react-icons/io5";
-
-import QuantityCounter from "~/components/QuantityCounter";
 import {
   useGetCartByCustomerQuery,
   useUpdateCartMutation,
@@ -12,7 +7,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";
 import { CartInt } from "~/features/cart/cart.types";
 import { getProductById } from "~/api/product";
-import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import CartItem from "../CartItem";
 
 const CartManager = () => {
@@ -137,7 +131,7 @@ const CartManager = () => {
         //     </div>
         //   </td>
         // </tr>
-        <CartItem product={product} />
+        <CartItem product={product} selectedIds={selectedIds} setSelectedIds={setSelectedIds}/>
       ))}
     </div>
   );

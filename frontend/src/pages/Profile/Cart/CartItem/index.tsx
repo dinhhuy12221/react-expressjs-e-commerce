@@ -5,7 +5,14 @@ import { Link } from 'react-router-dom'
 import QuantityCounter from '~/components/QuantityCounter'
 import { getDiscountPrice } from '~/utils/getDiscountPrice'
 
-const CartItem = ({ product }) => {
+const CartItem = ({ product, selectedIds, setSelectedIds }) => {
+
+  const toggleProduct = (id: number) => {
+    setSelectedIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
+  };
+
   return (
     <tr className="profile-page-cart-content-table-body-row">
           <td>
@@ -49,7 +56,7 @@ const CartItem = ({ product }) => {
             <div className="profile-page-cart-content-table-body-row-quantity">
               <QuantityCounter
                 value={product.countInCart}
-                onChange={() => setProducts}
+                onChange={() => {}}
                 stock={product.countInStock}
               />
             </div>
