@@ -8,3 +8,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.cart-total-checkout-button {
+    font-size: var(--font-18);
+    padding: var(--space-10);
+}
