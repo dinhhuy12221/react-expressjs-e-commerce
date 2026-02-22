@@ -1,0 +1,4 @@
+.cart-total {
+    display: flex;
+    flex-direction: column;
+}

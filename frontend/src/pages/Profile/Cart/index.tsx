@@ -5,14 +5,14 @@ import "./index.css";
 
 const Cart = () => {
   return (
-    <section className="profile-page-cart">
-      <div className="profile-page-cart-header">
-        <h2 className="profile-page-cart-header-title">Your Cart</h2>
+    <section className="profile-cart">
+      <div className="profile-cart-header">
+        <h2 className="profile-cart-header-title">Your Cart</h2>
         <p>{/* There are <b>{products.length}</b> products in your cart */}</p>
       </div>
-      <div className="profile-page-cart-content">
-        <table className="profile-page-cart-content-table">
-          <thead className="profile-page-cart-content-table-head">
+      <div className="profile-cart-content">
+        <table className="profile-cart-content-table">
+          <thead className="profile-cart-content-table-head">
             <tr>
               <th></th>
               <th>Product</th>
@@ -22,13 +22,13 @@ const Cart = () => {
               <th>Remove</th>
             </tr>
           </thead>
-          <tbody className="profile-page-cart-content-table-body">
+          <tbody className="profile-cart-content-table-body">
             <CartManager />
           </tbody>
         </table>
-        <div className="profile-page-cart-content-total">
+        {/* <div className="profile-cart-content-total"> */}
           <CartTotal />
-        </div>
+        {/* </div> */}
       </div>
     </section>
   );

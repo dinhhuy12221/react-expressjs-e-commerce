@@ -3,7 +3,7 @@ import { IoCartOutline } from "react-icons/io5";
 
 const CartTotal = () => {
   return (
-    <div>
+    <div className="cart-total">
       <h4>CART TOTALS</h4>
       <div className="cart-total-subprice">
         <span>Subtotal</span>
