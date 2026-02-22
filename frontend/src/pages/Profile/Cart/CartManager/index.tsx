@@ -58,14 +58,14 @@ const CartManager = () => {
   }, [cart]);
 
   if (products.length !== 0) {
-  return (
-    <div>
-      {products.map((product) => (
-        <CartItem product={product} selectedIds={selectedIds} setSelectedIds={setSelectedIds}/>
-      ))}
-    </div>
-  );
-}
+    return products.map((product) => (
+      <CartItem
+        product={product}
+        selectedIds={selectedIds}
+        setSelectedIds={setSelectedIds}
+      />
+    ));
+  }
 };
 
 export default CartManager;

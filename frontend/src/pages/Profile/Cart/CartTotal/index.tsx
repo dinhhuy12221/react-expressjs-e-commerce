@@ -1,27 +1,29 @@
 import React from "react";
 import { IoCartOutline } from "react-icons/io5";
 
+import "./index.css"
+
 const CartTotal = () => {
   return (
-    <div>
+    <div className="cart-total">
       <h4>CART TOTALS</h4>
-      <div className="profile-page-cart-content-summary-subtotal">
-        <span>Subtotal</span>
+      <div className="cart-total-subprice">
+        <span>Subtotal: </span>
         <span>$3.29</span>
       </div>
-      <div className="profile-page-cart-content-summary-delivery">
-        <span>Delivery</span>
+      <div className="cart-total-delivery">
+        <span>Delivery Fee: </span>
         <span className="ms-auto">Free</span>
       </div>
-      <div className="profile-page-cart-content-summary-location">
-        <span>Estimated for</span>
+      <div className="cart-total-location">
+        <span>Location: </span>
         <span>United Kingdom</span>
       </div>
-      <div className="profile-page-cart-content-summary-total">
-        <span>Total</span>
+      <div className="cart-total-price">
+        <span>Total: </span>
         <span>$3.29</span>
       </div>
-      <button className="profile-page-cart-content-summary-checkout btn btn--primary">
+      <button className="cart-total-checkout-button btn btn--primary">
         <IoCartOutline className="me-2" />
         <span>Checkout</span>
       </button>

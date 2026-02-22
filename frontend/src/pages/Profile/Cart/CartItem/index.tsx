@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import QuantityCounter from '~/components/QuantityCounter'
 import { getDiscountPrice } from '~/utils/getDiscountPrice'
 
+import "./index.css"
+
 const CartItem = ({ product, selectedIds, setSelectedIds }) => {
 
   const toggleProduct = (id: number) => {

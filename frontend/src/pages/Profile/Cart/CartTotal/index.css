@@ -1,0 +1,10 @@
+.cart-total {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    width: 300px;
+}
+.cart-total > div {
+    display: flex;
+    justify-content: space-between;
+}
