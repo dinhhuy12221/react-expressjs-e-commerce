@@ -56,7 +56,7 @@
   width: 30px;
   height: 30px;
 }
-.profile-page-cart-content-summary {
+.profile-page-cart-content-total {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);

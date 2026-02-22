@@ -5,23 +5,23 @@ const CartTotal = () => {
   return (
     <div>
       <h4>CART TOTALS</h4>
-      <div className="profile-page-cart-content-summary-subtotal">
+      <div className="cart-total-subprice">
         <span>Subtotal</span>
         <span>$3.29</span>
       </div>
-      <div className="profile-page-cart-content-summary-delivery">
+      <div className="cart-total-delivery">
         <span>Delivery</span>
         <span className="ms-auto">Free</span>
       </div>
-      <div className="profile-page-cart-content-summary-location">
+      <div className="cart-total-location">
         <span>Estimated for</span>
         <span>United Kingdom</span>
       </div>
-      <div className="profile-page-cart-content-summary-total">
+      <div className="cart-total-price">
         <span>Total</span>
         <span>$3.29</span>
       </div>
-      <button className="profile-page-cart-content-summary-checkout btn btn--primary">
+      <button className="cart-total-checkout-button btn btn--primary">
         <IoCartOutline className="me-2" />
         <span>Checkout</span>
       </button>

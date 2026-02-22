@@ -26,7 +26,7 @@ const Cart = () => {
             <CartManager />
           </tbody>
         </table>
-        <div className="profile-page-cart-content-summary">
+        <div className="profile-page-cart-content-total">
           <CartTotal />
         </div>
       </div>
