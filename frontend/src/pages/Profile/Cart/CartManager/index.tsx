@@ -58,17 +58,13 @@ const CartManager = () => {
   }, [cart]);
 
   if (products.length !== 0) {
-    // (
-    //   <div className="cart-manager">
-        return products.map((product) => (
-          <CartItem
-            product={product}
-            selectedIds={selectedIds}
-            setSelectedIds={setSelectedIds}
-          />
-        ))
-    //   </div>
-    // );
+    return products.map((product) => (
+      <CartItem
+        product={product}
+        selectedIds={selectedIds}
+        setSelectedIds={setSelectedIds}
+      />
+    ));
   }
 };
 

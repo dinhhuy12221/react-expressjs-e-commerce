@@ -1,7 +1,6 @@
 .profile-cart {
   display: flex;
   flex-direction: column;
-
 }
 .profile-cart-header {
   flex-direction: column;
@@ -17,15 +16,6 @@
   gap: var(--space-12);
 }
 
-.profile-cart-content-table {
-}
-.profile-cart-content-table-head {
-}
-.profile-cart-content-table-body {
-}
-.profile-cart-content-table-body-row {
-
-}
 .profile-cart-content-table-body-row-info {
   display: flex;
   gap: var(--space-16);
