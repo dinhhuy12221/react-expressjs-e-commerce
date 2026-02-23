@@ -1,4 +1,5 @@
 import Cart from "../models/cart.js";
+import Product from "../models/product.js"
 
 class cartController {
   createCart = async (req, res) => {
@@ -42,7 +43,7 @@ class cartController {
 
       return res
         .status(200)
-        .json({ message: "Update cart successfully", data: result });
+        .json({ message: "Update cart successfully", data: product_count });
     } catch (error) {
       console.log(error);
       return res.status(500).json({
@@ -65,6 +66,26 @@ class cartController {
       });
     }
   };
+
+  getProductsByCustomer = async(req, res) => {
+    try {
+      const cart = await Cart.find({
+        customer_id: req.params.id,
+      });
+
+      const product_ids = cart.map(item => { item.product_id, item.product_count })
+
+      const products = await Product.find({})
+
+      // const res = products.map((item) => item._id === )
+      return res.status(200).json(products);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        message: "Internal server error",
+      });
+    }
+  }
 }
 
 export default new cartController();
