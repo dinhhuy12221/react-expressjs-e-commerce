@@ -6,7 +6,8 @@ export const cartApiSlice = apiSlice.injectEndpoints({
             query: (id) => ({
                 url: `/cart/by_customer/${id}`,
                 method: "GET",
-            })
+            }),
+            providesTags: ["Cart"],
         }),
         createCart: builder.mutation({
             query: (data) => ({
@@ -20,7 +21,8 @@ export const cartApiSlice = apiSlice.injectEndpoints({
                 url: "/cart/update",
                 method: "PUT",
                 body: { ...data },
-            })
+            }),
+            invalidatesTags: ["Cart"],
         }),
     })
 })

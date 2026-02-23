@@ -9,28 +9,28 @@ import { getProductById } from "~/api/product";
 import CartItem from "../CartItem";
 
 const CartManager = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
   const { data } = useGetCartByCustomerQuery(customerId);
-  const cart: CartInt[] = data ?? [];
+  const products: CartInt[] = data ?? [];
 
-  const getProductsFromCart = async () => {
-    const result = await Promise.all(
-      cart.map(async (item) => {
-        const tempProduct = await getProductById(item.product_id).then(
-          (res) => res[0]
-        );
-        return {
-          ...tempProduct,
-          cartId: item._id,
-          countInCart: item.product_count,
-        };
-      })
-    );
+  // const getProductsFromCart = async () => {
+  //   const result = await Promise.all(
+  //     cart.map(async (item) => {
+  //       const tempProduct = await getProductById(item.product_id).then(
+  //         (res) => res[0]
+  //       );
+  //       return {
+  //         ...tempProduct,
+  //         cartId: item._id,
+  //         countInCart: item.product_count,
+  //       };
+  //     })
+  //   );
 
-    setProducts(result);
-  };
+  //   setProducts(result);
+  // };
 
   // const handleUpdateCart = async (
   //   customer_id: number,
@@ -51,9 +51,9 @@ const CartManager = () => {
   //   await updateCart(payload).unwrap();
   // };
 
-  useEffect(() => {
-    getProductsFromCart();
-  }, [cart]);
+  // useEffect(() => {
+  //   getProductsFromCart();
+  // }, [cart]);
 
   if (products.length !== 0) {
     return products.map((product) => (
