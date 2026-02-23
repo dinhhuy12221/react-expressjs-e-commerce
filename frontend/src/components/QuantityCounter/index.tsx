@@ -13,6 +13,7 @@ type Props = {
 };
 
 export default function QuantityCounter({ value, onChange, stock }: Props) {
+  
   const decrease = () => {
     const newValue = Math.max(1, value - 1);
     onChange(newValue)
@@ -22,11 +23,11 @@ export default function QuantityCounter({ value, onChange, stock }: Props) {
     onChange(newValue)
   };
 
-  const changeQuantity = (value) => {
-    if (1 < stock && stock < stock) {
-      onChange(value);
-    }
-  };
+  // const changeQuantity = (value) => {
+  //   if (1 < stock && stock < stock) {
+  //     onChange(value);
+  //   }
+  // };
 
   return (
     <div className="quantity-box">
@@ -36,7 +37,7 @@ export default function QuantityCounter({ value, onChange, stock }: Props) {
       <input
         disabled
         value={value}
-        onChange={(e) => changeQuantity(e.target.value)}
+        // onChange={(e) => onChange(Number(e.target.value))}
       />
       <button className="btn btn--rounded" onClick={() => increase()}>
         <FaPlus />

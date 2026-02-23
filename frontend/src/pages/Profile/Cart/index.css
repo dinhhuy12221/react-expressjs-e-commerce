@@ -16,6 +16,10 @@
   gap: var(--space-12);
 }
 
+.profile-cart-content-table-head tr th {
+  padding: 0px var(--space-16);
+}
+
 .profile-cart-content-table-body-row-info {
   display: flex;
   gap: var(--space-16);
@@ -46,8 +50,9 @@
   width: 30px;
   height: 30px;
 }
-/* .profile-cart-content-total {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
-} */
+
+@media (max-width: 480px) {
+  .profile-cart-content {
+    flex-direction: column;
+  }
+}

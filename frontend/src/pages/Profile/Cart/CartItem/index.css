@@ -1,3 +1,6 @@
+.cart-item td {
+  padding: 0px var(--space-16);
+}
 .cart-item-info {
   display: flex;
   gap: var(--space-16);
