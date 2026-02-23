@@ -13,7 +13,7 @@ const CartManager = () => {
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
   const { data } = useGetCartByCustomerQuery(customerId);
-  const products: CartInt[] = data ?? [];
+  const products = data ?? [];
 
   // const getProductsFromCart = async () => {
   //   const result = await Promise.all(
@@ -58,7 +58,8 @@ const CartManager = () => {
   if (products.length !== 0) {
     return products.map((product) => (
       <CartItem
-        product={product}
+        product={product.product_id}
+        product_count={product.product_count}
         customerId={customerId}
         selectedIds={selectedIds}
         setSelectedIds={setSelectedIds}
