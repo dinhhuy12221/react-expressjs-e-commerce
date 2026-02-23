@@ -4,10 +4,12 @@ import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import QuantityCounter from "~/components/QuantityCounter";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
+import { useUpdateCartMutation } from "~/features/cart/cartApi";
 
 import "./index.css";
 
-const CartItem = ({ product, selectedIds, setSelectedIds }) => {
+const CartItem = ({ product, customerId, selectedIds, setSelectedIds }) => {
+  const [updateCart, { isLoading }] = useUpdateCartMutation();
   const toggleProduct = (id: number) => {
     setSelectedIds((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
@@ -54,8 +56,14 @@ const CartItem = ({ product, selectedIds, setSelectedIds }) => {
         <div className="cart-item-quantity">
           <QuantityCounter
             value={product.countInCart}
-            onChange={() => {}}
             stock={product.countInStock}
+            onChange={(newValue) => {
+              updateCart({
+                customerId,
+                product_id: product._id,
+                product_count: newValue
+              })
+            }}
           />
         </div>
       </td>
