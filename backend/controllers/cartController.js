@@ -51,6 +51,21 @@ class cartController {
     }
   };
 
+  deleteCart = async (req, res) => {
+    try {
+      const result = await Cart.deleteOne({ _id: req.params.id })
+
+      return res
+        .status(200)
+        .json({ message: "Delete cart successfully", data: result });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        message: "Internal server error",
+      });
+    }
+  };
+
   getCartByCustomer = async (req, res) => {
     try {
       const cart = await Cart.find({
