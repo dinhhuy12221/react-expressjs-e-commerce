@@ -1,4 +1,9 @@
+.cart-item {
+  position: relative;
+  min-width: 800px !important;
+}
 .cart-item td {
+  width: 100px;
   padding: 0px var(--space-16);
 }
 .cart-item-info {
