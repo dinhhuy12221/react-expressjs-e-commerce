@@ -4,18 +4,18 @@ import Product from "../models/product.js"
 class cartController {
   createCart = async (req, res) => {
     try {
-      const { customer_id, product_id, product_count } = req.body;
-      const cart = await Cart.findOne({ customer_id, product_id });
+      const { customerId, productId, productCount } = req.body;
+      const cart = await Cart.findOne({ customerId, productId });
 
       let result;
       if (cart) {
-        cart.product_count += product_count;
+        cart.productCount += productCount;
         result = await cart.save();
       } else {
         result = new Cart.create({
-          customer_id,
-          product_id,
-          product_count,
+          customerId,
+          productId,
+          productCount,
         });
       }
 
@@ -32,18 +32,18 @@ class cartController {
 
   updateCart = async (req, res) => {
     try {
-      const { customer_id, product_id, product_count } = req.body;
-      const cart = await Cart.findOne({ customer_id, product_id });
+      const { customerId, productId, productCount } = req.body;
+      const cart = await Cart.findOne({ customerId, productId });
 
       let result;
       if (cart) {
-        cart.product_count = product_count;
+        cart.productCount = productCount;
         result = await cart.save();
       }
 
       return res
         .status(200)
-        .json({ message: "Update cart successfully", data: product_count });
+        .json({ message: "Update cart successfully", data: result });
     } catch (error) {
       console.log(error);
       return res.status(500).json({
@@ -55,7 +55,7 @@ class cartController {
   getCartByCustomer = async (req, res) => {
     try {
       const cart = await Cart.find({
-        customer_id: req.params.id,
+        customerId: req.params.id,
       });
 
       return res.status(200).json(cart);
@@ -69,15 +69,10 @@ class cartController {
 
   getProductsByCustomer = async(req, res) => {
     try {
-      const res = await Cart.find({
-        customer_id: req.params.id,
-      }).populate("product_id");
+      const products = await Cart.find({
+        customerId: req.params.id,
+      }).populate("productId");
 
-      // const product_ids = cart.map(item => { item.product_id, item.product_count })
-
-      // const products = await Product.find({})
-
-      // const res = products.map((item) => item._id === )
       return res.status(200).json(products);
     } catch (error) {
       console.log(error);

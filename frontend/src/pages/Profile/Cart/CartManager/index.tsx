@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   useGetCartByCustomerQuery,
 } from "~/features/cart/cartApi";
 import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";
-import { CartInt } from "~/features/cart/cart.types";
-import { getProductById } from "~/api/product";
 import CartItem from "../CartItem";
 
 const CartManager = () => {
@@ -13,18 +11,18 @@ const CartManager = () => {
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
   const { data } = useGetCartByCustomerQuery(customerId);
-  const products: CartInt[] = data ?? [];
+  const products = data ?? [];
 
   // const getProductsFromCart = async () => {
   //   const result = await Promise.all(
   //     cart.map(async (item) => {
-  //       const tempProduct = await getProductById(item.product_id).then(
+  //       const tempProduct = await getProductById(item.productId).then(
   //         (res) => res[0]
   //       );
   //       return {
   //         ...tempProduct,
   //         cartId: item._id,
-  //         countInCart: item.product_count,
+  //         countInCart: item.productCount,
   //       };
   //     })
   //   );
@@ -33,20 +31,20 @@ const CartManager = () => {
   // };
 
   // const handleUpdateCart = async (
-  //   customer_id: number,
-  //   product_id: number,
-  //   product_count: number
+  //   customerId: number,
+  //   productId: number,
+  //   productCount: number
   // ) => {
   //   setProducts((prev) =>
   //     prev.map((p) =>
-  //       p._id === product_id ? { ...p, countInCart: product_count } : p
+  //       p._id === productId ? { ...p, countInCart: productCount } : p
   //     )
   //   );
 
   //   const payload = {
-  //     customer_id,
-  //     product_id,
-  //     product_count,
+  //     customerId,
+  //     productId,
+  //     productCount,
   //   };
   //   await updateCart(payload).unwrap();
   // };
@@ -58,7 +56,8 @@ const CartManager = () => {
   if (products.length !== 0) {
     return products.map((product) => (
       <CartItem
-        product={product}
+        product={product.productId}
+        productCount={product.productCount}
         customerId={customerId}
         selectedIds={selectedIds}
         setSelectedIds={setSelectedIds}

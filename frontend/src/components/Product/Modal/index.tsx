@@ -26,7 +26,7 @@ export default function Modal(props) {
   const zoomSlider = useRef(null);
   const [quantity, setQuantity] = useState(1);
   const {handleCreateCart, isLoading } = useCreateCartHandler();
-  const customer_id = useSelector(selectCurrentCustomerId);
+  const customerId = useSelector(selectCurrentCustomerId);
 
   const context = useContext(MyContext);
   const product = context.productModal;
@@ -91,7 +91,7 @@ export default function Modal(props) {
           <div className="product-modal-content-main-quantity">
             <QuantityCounter value={quantity} onChange={setQuantity} stock={product.countInStock} />
             <button className="btn btn--primary product-modal-content-main-quantity-add-button"
-            onClick={() => handleCreateCart(customer_id, product._id, quantity)}
+            onClick={() => handleCreateCart(customerId, product._id, quantity)}
             >
               <IoCartOutline />
               <span>Add to cart</span>

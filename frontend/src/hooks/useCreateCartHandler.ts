@@ -3,11 +3,11 @@ import { useCreateCartMutation } from '~/features/cart/cartApi'
 const useCreateCartHandler = () => {
     const [createCart, mutationState] = useCreateCartMutation();
 
-    const handleCreateCart = async (customer_id: number, product_id: number, product_count: number) => {
+    const handleCreateCart = async (customerId: number, productId: number, productCount: number) => {
         const payload = {
-            customer_id,
-            product_id,
-            product_count,
+            customerId,
+            productId,
+            productCount,
         };
         createCart(payload).unwrap()
     }

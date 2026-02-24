@@ -9,7 +9,7 @@ function Orders() {
 
   // const tagLiOfOrders = () => {
   //     return ordersByCustomer.map((order, index) => {
-  //         <li key={index}>{order.product_id}</li>
+  //         <li key={index}>{order.productId}</li>
   //     })
   // }
 

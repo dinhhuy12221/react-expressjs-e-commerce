@@ -10,16 +10,17 @@ const cartModel = new Schema({
     _id: {
         type: Number,
     },
-    customer_id: {
+    customerId: {
         type: Schema.Types.Int32,
         ref: 'Customer',
+        require: true,
     },
-    product_id: {
+    productId: {
         type: Schema.Types.Int32,
         ref: "Product",
         require: true,
     },
-    product_count: {
+    productCount: {
         type: Number,
         require: true
     },

@@ -8,7 +8,7 @@ import { useUpdateCartMutation } from "~/features/cart/cartApi";
 
 import "./index.css";
 
-const CartItem = ({ product, customerId, selectedIds, setSelectedIds }) => {
+const CartItem = ({ product, productCount, customerId, selectedIds, setSelectedIds }) => {
   const [updateCart, { isLoading }] = useUpdateCartMutation();
   const toggleProduct = (id: number) => {
     setSelectedIds((prev) =>
@@ -55,13 +55,13 @@ const CartItem = ({ product, customerId, selectedIds, setSelectedIds }) => {
       <td>
         <div className="cart-item-quantity">
           <QuantityCounter
-            value={product.countInCart}
+            value={productCount}
             stock={product.countInStock}
             onChange={(newValue) => {
               updateCart({
                 customerId,
-                product_id: product._id,
-                product_count: newValue
+                productId: product._id,
+                productCount: newValue
               })
             }}
           />
@@ -72,7 +72,7 @@ const CartItem = ({ product, customerId, selectedIds, setSelectedIds }) => {
           <span>
             $
             {(
-              product.countInCart *
+              productCount *
               getDiscountPrice(product.price, product.discount)
             ).toFixed(2)}
           </span>
