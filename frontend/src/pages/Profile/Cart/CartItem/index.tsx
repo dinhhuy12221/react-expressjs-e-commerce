@@ -7,6 +7,7 @@ import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import { useUpdateCartMutation } from "~/features/cart/cartApi";
 
 import "./index.css";
+import LoadingScreen from "~/components/Loading";
 
 const CartItem = ({ product, productCount, customerId, selectedIds, setSelectedIds }) => {
   const [updateCart, { isLoading }] = useUpdateCartMutation();
@@ -18,6 +19,9 @@ const CartItem = ({ product, productCount, customerId, selectedIds, setSelectedI
 
   return (
     <tr className="cart-item">
+      {1 && <td className="cart-item-loading">
+        <LoadingScreen />
+      </td>}
       <td>
         <div className="cart-item-selector">
           <input
