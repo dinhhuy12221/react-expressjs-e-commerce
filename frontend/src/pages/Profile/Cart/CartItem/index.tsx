@@ -9,7 +9,13 @@ import { useUpdateCartMutation } from "~/features/cart/cartApi";
 import "./index.css";
 import LoadingScreen from "~/components/Loading";
 
-const CartItem = ({ product, productCount, customerId, selectedIds, setSelectedIds }) => {
+const CartItem = ({
+  product,
+  productCount,
+  customerId,
+  selectedIds,
+  setSelectedIds,
+}) => {
   const [updateCart, { isLoading }] = useUpdateCartMutation();
   const toggleProduct = (id: number) => {
     setSelectedIds((prev) =>
@@ -18,76 +24,80 @@ const CartItem = ({ product, productCount, customerId, selectedIds, setSelectedI
   };
 
   return (
-    <tr className="cart-item">
-      {1 && <td className="cart-item-loading">
-        <LoadingScreen />
-      </td>}
-      <td>
-        <div className="cart-item-selector">
-          <input
-            type="checkbox"
-            value={product.cartId}
-            checked={selectedIds.includes(product.cartId)}
-            onChange={() => toggleProduct(product.cartId)}
-          />
-        </div>
-      </td>
-      <td>
-        <div className="cart-item-info">
-          <Link to={`../../product/${product.slug}`}>
-            <img className="cart-item-info-image" src={product.image} />
-          </Link>
-          <div className="cart-item-info-main">
-            <h4>{product.name}</h4>
-            <Rating
-              className="rating"
-              name="read-only"
-              defaultValue={product.rating}
-              precision={0.5}
-              readOnly
+    <>
+      <tr className="cart-item">
+        <td>
+          <div className="cart-item-selector">
+            <input
+              type="checkbox"
+              value={product.cartId}
+              checked={selectedIds.includes(product.cartId)}
+              onChange={() => toggleProduct(product.cartId)}
             />
           </div>
-        </div>
-      </td>
-      <td>
-        <div className="cart-item-price">
-          <span>
-            ${getDiscountPrice(product.price, product.discount).toFixed(2)}
-          </span>
-        </div>
-      </td>
-      <td>
-        <div className="cart-item-quantity">
-          <QuantityCounter
-            value={productCount}
-            stock={product.countInStock}
-            onChange={(newValue) => {
-              updateCart({
-                customerId,
-                productId: product._id,
-                productCount: newValue
-              })
-            }}
-          />
-        </div>
-      </td>
-      <td>
-        <div className="cart-item-total-price">
-          <span>
-            $
-            {(
-              productCount *
-              getDiscountPrice(product.price, product.discount)
-            ).toFixed(2)}
-          </span>
-        </div>
-      </td>
-      <td>
-        <div className="cart-item-remove">
-          <IoClose className="btn btn--primary btn--rounded" />
-        </div>
-      </td>
-    </tr>
+        </td>
+        <td>
+          <div className="cart-item-info">
+            <Link to={`../../product/${product.slug}`}>
+              <img className="cart-item-info-image" src={product.image} />
+            </Link>
+            <div className="cart-item-info-main">
+              <h4>{product.name}</h4>
+              <Rating
+                className="rating"
+                name="read-only"
+                defaultValue={product.rating}
+                precision={0.5}
+                readOnly
+              />
+            </div>
+          </div>
+        </td>
+        <td>
+          <div className="cart-item-price">
+            <span>
+              ${getDiscountPrice(product.price, product.discount).toFixed(2)}
+            </span>
+          </div>
+        </td>
+        <td>
+          <div className="cart-item-quantity">
+            <QuantityCounter
+              value={productCount}
+              stock={product.countInStock}
+              onChange={(newValue) => {
+                updateCart({
+                  customerId,
+                  productId: product._id,
+                  productCount: newValue,
+                });
+              }}
+            />
+          </div>
+        </td>
+        <td>
+          <div className="cart-item-total-price">
+            <span>
+              $
+              {(
+                productCount * getDiscountPrice(product.price, product.discount)
+              ).toFixed(2)}
+            </span>
+          </div>
+        </td>
+        <td>
+          <div className="cart-item-remove">
+            <IoClose className="btn btn--primary btn--rounded" />
+          </div>
+        </td>
+        
+          {isLoading && (<div className="cart-item-loading">
+          {/* {1 && (<div className="cart-item-loading"> */}
+              <LoadingScreen />
+            </div>
+          )}
+      </tr>
+    </>
   );
 };
 
