@@ -4,19 +4,21 @@ import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import QuantityCounter from "~/components/QuantityCounter";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
-import { useUpdateCartMutation } from "~/features/cart/cartApi";
+import { useDeleteCartMutation, useUpdateCartMutation } from "~/features/cart/cartApi";
 
 import "./index.css";
 import LoadingScreen from "~/components/Loading";
 
 const CartItem = ({
   product,
+  cartId,
   productCount,
   customerId,
   selectedIds,
   setSelectedIds,
 }) => {
   const [updateCart, { isLoading }] = useUpdateCartMutation();
+  const [deleteCart] = useDeleteCartMutation();
   const toggleProduct = (id: number) => {
     setSelectedIds((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
@@ -86,7 +88,9 @@ const CartItem = ({
           </div>
         </td>
         <td>
-          <div className="cart-item-remove">
+          <div className="cart-item-remove" onClick={() => {
+            deleteCart(cartId)
+          }}>
             <IoClose className="btn btn--primary btn--rounded" />
           </div>
         </td>

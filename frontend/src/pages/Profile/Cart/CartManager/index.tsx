@@ -17,6 +17,7 @@ const CartManager = () => {
     return products.map((product) => (
       <CartItem
         product={product.productId}
+        cartId={product._id}
         productCount={product.productCount}
         customerId={customerId}
         selectedIds={selectedIds}
