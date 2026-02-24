@@ -1,10 +1,13 @@
 .cart-item {
   position: relative;
-  min-width: 800px !important;
 }
 .cart-item td {
-  width: 100px;
-  padding: 0px var(--space-16);
+  /* padding: 0px var(--space-16); */
+}
+.cart-item-loading {
+  position: absolute;
+  width: 100%;
+  height: 230px;
 }
 .cart-item-info {
   display: flex;

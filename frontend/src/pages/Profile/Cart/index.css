@@ -16,9 +16,6 @@
   gap: var(--space-12);
 }
 
-.profile-cart-content-table {
-  width: 800px;
-}
 .profile-cart-content-table-head tr th {
   padding: 0px var(--space-16);
 }

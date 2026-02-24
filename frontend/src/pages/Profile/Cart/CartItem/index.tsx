@@ -19,6 +19,9 @@ const CartItem = ({ product, productCount, customerId, selectedIds, setSelectedI
 
   return (
     <tr className="cart-item">
+      {1 && <td className="cart-item-loading">
+        <LoadingScreen />
+      </td>}
       <td>
         <div className="cart-item-selector">
           <input
