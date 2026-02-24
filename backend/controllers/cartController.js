@@ -1,5 +1,4 @@
 import Cart from "../models/cart.js";
-import Product from "../models/product.js"
 
 class cartController {
   createCart = async (req, res) => {
@@ -12,7 +11,7 @@ class cartController {
         cart.productCount += productCount;
         result = await cart.save();
       } else {
-        result = new Cart.create({
+        result = await Cart.create({
           customerId,
           productId,
           productCount,
@@ -44,6 +43,21 @@ class cartController {
       return res
         .status(200)
         .json({ message: "Update cart successfully", data: result });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        message: "Internal server error",
+      });
+    }
+  };
+
+  deleteCart = async (req, res) => {
+    try {
+      const result = await Cart.deleteOne({ _id: req.params.id })
+
+      return res
+        .status(200)
+        .json({ message: "Delete cart successfully", data: result });
     } catch (error) {
       console.log(error);
       return res.status(500).json({
