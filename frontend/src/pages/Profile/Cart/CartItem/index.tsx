@@ -59,7 +59,7 @@ const CartItem = ({ product, product_count, customerId, selectedIds, setSelected
             stock={product.countInStock}
             onChange={(newValue) => {
               updateCart({
-                customerId,
+                customer_id: customerId,
                 product_id: product._id,
                 product_count: newValue
               })

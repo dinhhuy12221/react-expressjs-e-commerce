@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   useGetCartByCustomerQuery,
 } from "~/features/cart/cartApi";
 import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";
-import { CartInt } from "~/features/cart/cart.types";
-import { getProductById } from "~/api/product";
 import CartItem from "../CartItem";
 
 const CartManager = () => {
