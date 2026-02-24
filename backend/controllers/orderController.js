@@ -4,9 +4,9 @@ class orderController {
     createOrder = async(req, res) => {
         try {
             const order = new Order({
-                customer_id: req.body.customer_id,
-                product_id: req.body.product_id,
-                product_count: req.body.product_count,
+                customerId: req.body.customerId,
+                productId: req.body.productId,
+                productCount: req.body.productCount,
                 // total: req.body.total,
             })
 
@@ -26,7 +26,7 @@ class orderController {
     getOrderByCustomer = async(req, res) => {
         try {
             const order = await Order.find({
-                customer_id: req.params.id,
+                customerId: req.params.id,
             })
 
             if (order) {

@@ -35,7 +35,7 @@ const customerSchema = Schema(
   }
 );
 
-customerSchema.plugin(AutoIncrement, { id: "customer_id_counter" });
+customerSchema.plugin(AutoIncrement, { id: "customerId_counter" });
 
 customerSchema.plugin(mongooseDelete, {
   deletedAt: true,

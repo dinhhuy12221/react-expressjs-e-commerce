@@ -10,11 +10,11 @@ const orderModel = new Schema({
     _id: {
         type: Number,
     },
-    customer_id: {
+    customerId: {
         type: Schema.Types.Int32,
         ref: 'Customer',
     },
-    product_id: {
+    productId: {
         type: Number,
         require: true,
     },
