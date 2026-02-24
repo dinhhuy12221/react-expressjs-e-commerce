@@ -79,7 +79,7 @@ const productSchema = Schema(
   }
 );
 
-productSchema.plugin(AutoIncrement, { id: "productId_counter" });
+productSchema.plugin(AutoIncrement, { id: "product_id_counter" });
 
 productSchema.plugin(mongooseDelete, {
   deletedAt: true,

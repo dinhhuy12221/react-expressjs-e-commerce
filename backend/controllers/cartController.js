@@ -1,5 +1,4 @@
 import Cart from "../models/cart.js";
-import Product from "../models/product.js"
 
 class cartController {
   createCart = async (req, res) => {
@@ -12,7 +11,7 @@ class cartController {
         cart.productCount += productCount;
         result = await cart.save();
       } else {
-        result = new Cart.create({
+        result = await Cart.create({
           customerId,
           productId,
           productCount,
