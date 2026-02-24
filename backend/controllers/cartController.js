@@ -43,7 +43,7 @@ class cartController {
 
       return res
         .status(200)
-        .json({ message: "Update cart successfully", data: product_count });
+        .json({ message: "Update cart successfully", data: result });
     } catch (error) {
       console.log(error);
       return res.status(500).json({
@@ -69,15 +69,10 @@ class cartController {
 
   getProductsByCustomer = async(req, res) => {
     try {
-      const res = await Cart.find({
+      const products = await Cart.find({
         customer_id: req.params.id,
       }).populate("product_id");
 
-      // const product_ids = cart.map(item => { item.product_id, item.product_count })
-
-      // const products = await Product.find({})
-
-      // const res = products.map((item) => item._id === )
       return res.status(200).json(products);
     } catch (error) {
       console.log(error);

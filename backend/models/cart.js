@@ -13,6 +13,7 @@ const cartModel = new Schema({
     customer_id: {
         type: Schema.Types.Int32,
         ref: 'Customer',
+        require: true,
     },
     product_id: {
         type: Schema.Types.Int32,
