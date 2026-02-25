@@ -11,7 +11,7 @@ const Cart = () => {
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
   const { data } = useGetCartByCustomerQuery(customerId);
-  const products = data ?? [];
+  const carts = data ?? [];
 
   return (
     <section className="profile-cart">
@@ -34,14 +34,14 @@ const Cart = () => {
           </thead>
           <tbody className="profile-cart-content-table-body">
             <CartList
-              products={products}
+              carts={carts}
               customerId={customerId}
               selectedIds={selectedIds}
               setSelectedIds={setSelectedIds}
             />
           </tbody>
         </table>
-        {products && <CartTotal products={products} selectedIds={selectedIds} />}
+        {carts && <CartTotal carts={carts} selectedIds={selectedIds} />}
       </div>
     </section>
   );

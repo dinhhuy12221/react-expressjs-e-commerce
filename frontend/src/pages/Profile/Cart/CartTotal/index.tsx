@@ -4,8 +4,8 @@ import { getDiscountPrice } from "~/utils/getDiscountPrice";
 
 import "./index.css";
 
-const CartTotal = ({ products, selectedIds }) => {
-  const total = products
+const CartTotal = ({ carts, selectedIds }) => {
+  const total = carts
     .filter((item) => selectedIds.includes(item.productId._id))
     .reduce((acc, item) => {
       const price =
@@ -13,6 +13,10 @@ const CartTotal = ({ products, selectedIds }) => {
         item.productCount;
       return acc + price;
     }, 0);
+
+    const handleCheckout = () => {
+
+    }
 
   return (
     <div className="cart-total">
