@@ -24,6 +24,10 @@ const cartModel = new Schema({
         type: Number,
         require: true
     },
+    // isCheckout: {
+    //     type: Boolean,
+    //     require: true
+    // },
 }, {
     _id: false,
     timestamps: true,

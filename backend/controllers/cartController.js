@@ -86,7 +86,7 @@ class cartController {
       const products = await Cart.find({
         customerId: req.params.id,
       }).populate("productId");
-      
+
       return res.status(200).json(products);
     } catch (error) {
       console.log(error);
