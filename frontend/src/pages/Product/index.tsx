@@ -19,9 +19,10 @@ export default function Product() {
   // const [activeSize, setActiveSize] = useState(null);
   const [product, setProduct] = useState(null);
   const [category, setCategory] = useState(null);
-
-  const currentPrice = getDiscountPrice(product?.price, product?.discount);
+  const [quantity, setQuantity] = useState(1);
   const [productList, setProductList] = useState([]);
+
+  const currentPrice = getDiscountPrice(product?.price, product?.discount).toFixed(2);
   let isMounted = true;
 
   const getProductList = async () => {
@@ -108,9 +109,9 @@ export default function Product() {
               </p>
 
               <div className="page-product-main-content-main-quantity">
-                <QuantityBox count={1} stock={product?.countInStock} />
+                <QuantityBox value={quantity} onChange={setQuantity} stock={product?.countInStock} />
                 <button className="btn btn--primary page-product-main-content-main-quantity-add-button">
-                  <IoCartOutline className="" />
+                  <IoCartOutline />
                   <span>Add to cart</span>
                 </button>
               </div>
@@ -130,111 +131,6 @@ export default function Product() {
               </span>
             </div>
           </div>
-          {/* <div className="page-product-main-header">
-            <h2 className="page-product-main-header-product-name">
-              {product?.name}
-            </h2>
-            <div className="page-product-main-header-product-brand">
-              <span>Brands: &nbsp;</span>
-              <span>{product?.brand}</span>
-            </div>
-            <div className="page-product-main-header-product-rating">
-              <Rating
-                name="read-only"
-                defaultValue={3}
-                precision={0.5}
-                readOnly
-                size="small"
-              />
-              <span>{product?.numReviews} Review(s)</span>
-            </div>
-            <div>
-              <span className="">SKU: &nbsp;</span>
-              <span>BE4CURT</span>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-5">
-              <ThumbnailSwiper product={product} />
-            </div>
-            <div className="col-md-7 ps-3">
-              <div className="d-flex info mb-3">
-                <span className="oldPrice">${product?.price}</span>
-                <span className="netPrice">${currentPrice}</span>
-              </div>
-              <span className="badge badge-success">
-                {product?.isFeatured && "IN STOCK"}
-              </span>
-              <p className="mt-3">{product?.description}</p>
-  
-              <div className="productSize d-flex align-items-center">
-                <span>Size / Weight:</span>
-                <ul className="list list-inline mb-0 ps-4">
-                  <li className="list-inline-item">
-                    <a
-                      className={`tag ${activeSize === 0 ? "active" : ""}`}
-                      onClick={() => setActiveSize(0)}
-                    >
-                      {50}g
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a
-                      className={`tag ${activeSize === 1 ? "active" : ""}`}
-                      onClick={() => setActiveSize(1)}
-                    >
-                      {100}g
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a
-                      className={`tag ${activeSize === 2 ? "active" : ""}`}
-                      onClick={() => setActiveSize(2)}
-                    >
-                      {200}g
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a
-                      className={`tag ${activeSize === 3 ? "active" : ""}`}
-                      onClick={() => setActiveSize(3)}
-                    >
-                      {300}g
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a
-                      className={`tag ${activeSize === 4 ? "active" : ""}`}
-                      onClick={() => setActiveSize(4)}
-                    >
-                      {500}g
-                    </a>
-                  </li>
-                </ul>
-              </div>
-  
-              <div className="d-flex align-items-center mt-3">
-                <QuantityBox quantity={1} />
-                <button className="bg-red btn--lg btn-round ms-1">
-                  <IoCartOutline className="me-2" />
-                  <span>Add to cart</span>
-                </button>
-              </div>
-  
-              <div className="d-flex align-items-center mt-3">
-                <Tooltip title="Add to wishlist" placement="bottom">
-                  <button className="bg-red btn--lg btn-circle me-2">
-                    <CiHeart />
-                  </button>
-                </Tooltip>
-                <Tooltip title="Add to compare" placement="bottom">
-                  <button className="bg-red btn--lg btn-circle">
-                    <MdOutlineCompareArrows />
-                  </button>
-                </Tooltip>
-              </div>
-            </div>
-          </div> */}
         </div>
 
         <Review />

@@ -21,10 +21,6 @@ const CartTotal = ({ carts, selectedIds }) => {
   return (
     <div className="cart-total">
       <h4>Cart Totals</h4>
-      {/* <div className="cart-total-subprice">
-        <span>Subtotal: </span>
-        <span>${subtotal}</span>
-      </div> */}
       <div className="cart-total-delivery">
         <span>Delivery Fee: </span>
         <span className="ms-auto">Free</span>
