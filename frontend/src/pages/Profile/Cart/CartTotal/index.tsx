@@ -2,16 +2,17 @@ import React from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 
-import "./index.css"
+import "./index.css";
 
 const CartTotal = ({ products, selectedIds }) => {
-  console.log(products);
-  
-  const total = products.filter(item => selectedIds.includes(item._id)).reduce((acc, item) => 
-  {
-    const price = getDiscountPrice(item.productId.price, item.productId.discount) * item.product_count;
-    return acc + price;
-  })
+  const total = products
+    .filter((item) => selectedIds.includes(item.productId._id))
+    .reduce((acc, item) => {
+      const price =
+        getDiscountPrice(item.productId.price, item.productId.discount) *
+        item.product_count;
+      return acc + price;
+    });
   return (
     <div className="cart-total">
       <h4>Cart Totals</h4>

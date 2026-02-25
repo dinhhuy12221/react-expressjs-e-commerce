@@ -12,6 +12,9 @@ const Cart = () => {
   const customerId = useSelector((state: RootState) => state.auth.customerId);
   const { data } = useGetCartByCustomerQuery(customerId);
   const products = data ?? [];
+
+  console.log(customerId, products);
+  
   return (
     <section className="profile-cart">
       <div className="profile-cart-header">
@@ -40,7 +43,7 @@ const Cart = () => {
             />
           </tbody>
         </table>
-        <CartTotal products={products} selectedIds={selectedIds} />
+        {products && <CartTotal products={products} selectedIds={selectedIds} />}
       </div>
     </section>
   );
