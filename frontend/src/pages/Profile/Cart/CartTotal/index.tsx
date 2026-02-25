@@ -1,16 +1,30 @@
 import React from "react";
 import { IoCartOutline } from "react-icons/io5";
+import { getDiscountPrice } from "~/utils/getDiscountPrice";
 
-import "./index.css"
+import "./index.css";
 
-const CartTotal = () => {
+const CartTotal = ({ carts, selectedIds }) => {
+  const total = carts
+    .filter((item) => selectedIds.includes(item.productId._id))
+    .reduce((acc, item) => {
+      const price =
+        getDiscountPrice(item.productId.price, item.productId.discount) *
+        item.productCount;
+      return acc + price;
+    }, 0);
+
+    const handleCheckout = () => {
+
+    }
+
   return (
     <div className="cart-total">
-      <h4>CART TOTALS</h4>
-      <div className="cart-total-subprice">
+      <h4>Cart Totals</h4>
+      {/* <div className="cart-total-subprice">
         <span>Subtotal: </span>
-        <span>$3.29</span>
-      </div>
+        <span>${subtotal}</span>
+      </div> */}
       <div className="cart-total-delivery">
         <span>Delivery Fee: </span>
         <span className="ms-auto">Free</span>
@@ -21,7 +35,7 @@ const CartTotal = () => {
       </div>
       <div className="cart-total-price">
         <span>Total: </span>
-        <span>$3.29</span>
+        <span>${total.toFixed(2)}</span>
       </div>
       <button className="cart-total-checkout-button btn btn--primary">
         <IoCartOutline className="me-2" />

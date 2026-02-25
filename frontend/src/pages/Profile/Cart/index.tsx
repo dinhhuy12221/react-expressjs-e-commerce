@@ -1,9 +1,18 @@
-import React from "react";
-import CartManager from "./CartManager";
+import React, { useState } from "react";
+import CartList from "./CartList";
 import CartTotal from "./CartTotal";
+
+import { useGetCartByCustomerQuery } from "~/features/cart/cartApi";
+import { useSelector } from "react-redux";
+import { RootState } from "~/app/store";
 import "./index.css";
 
 const Cart = () => {
+  const [selectedIds, setSelectedIds] = useState<number[]>([]);
+  const customerId = useSelector((state: RootState) => state.auth.customerId);
+  const { data } = useGetCartByCustomerQuery(customerId);
+  const carts = data ?? [];
+
   return (
     <section className="profile-cart">
       <div className="profile-cart-header">
@@ -24,10 +33,15 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody className="profile-cart-content-table-body">
-            <CartManager />
+            <CartList
+              carts={carts}
+              customerId={customerId}
+              selectedIds={selectedIds}
+              setSelectedIds={setSelectedIds}
+            />
           </tbody>
         </table>
-          <CartTotal />
+        {carts && <CartTotal carts={carts} selectedIds={selectedIds} />}
       </div>
     </section>
   );

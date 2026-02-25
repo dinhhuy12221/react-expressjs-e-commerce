@@ -32,9 +32,9 @@ const CartItem = ({
           <div className="cart-item-selector">
             <input
               type="checkbox"
-              value={product.cartId}
-              checked={selectedIds.includes(product.cartId)}
-              onChange={() => toggleProduct(product.cartId)}
+              value={product._id}
+              checked={selectedIds.includes(product._id)}
+              onChange={() => toggleProduct(product._id)}
             />
           </div>
         </td>
