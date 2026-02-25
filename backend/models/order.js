@@ -15,12 +15,9 @@ const orderModel = new Schema({
         ref: 'Customer',
     },
     productId: {
-        type: Number,
+        type: Schema.Types.Array,
+        ref: "Product",
         require: true,
-    },
-    number_of_product: {
-        type: Number,
-        require: true
     },
     total: {
         type: Number,

@@ -14,11 +14,11 @@ import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
 // import "swiper/css";
 // import "swiper/css/navigation";
-
-import useCreateCartHandler from "~/hooks/useCreateCartHandler";
-import "./index.css";
+import useCreateCartHandler from "~/hooks/create/useCreateCartHandler";
 import { useSelector } from "react-redux";
 import { selectCurrentCustomerId } from "~/features/auth/authSlice";
+
+import "./index.css";
 
 export default function Modal(props) {
   const [slideIndex, setSlideIndex] = useState(0);

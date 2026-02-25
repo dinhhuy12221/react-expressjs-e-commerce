@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { MyContext } from "~/App";
 // import LoadingAnimation from "~/components/LoadingAnimation";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
+
 import "./index.css";
 
 export default function Item({ product }) {
@@ -19,7 +20,7 @@ export default function Item({ product }) {
     context.setProductModal(product);
   };
 
-  const currentPrice = getDiscountPrice(product.price, product.discount);
+  const currentPrice = getDiscountPrice(product.price, product.discount).toFixed(2);
 
   return (
     <div className="product">
