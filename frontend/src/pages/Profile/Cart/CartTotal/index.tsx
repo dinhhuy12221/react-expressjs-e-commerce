@@ -5,15 +5,18 @@ import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import "./index.css";
 
 const CartTotal = ({ carts, selectedIds }) => {
-  const total = carts
+  const products = carts
     .filter((item) => selectedIds.includes(item.productId._id))
-    .reduce((acc, item) => {
+  
+  const total = products.reduce((acc, item) => {
       const price =
         getDiscountPrice(item.productId.price, item.productId.discount) *
         item.productCount;
       return acc + price;
     }, 0);
 
+    // products : id, count
+    // total, fee, location
     const handleCheckout = () => {
 
     }
@@ -34,8 +37,8 @@ const CartTotal = ({ carts, selectedIds }) => {
         <span>${total.toFixed(2)}</span>
       </div>
       <button className="cart-total-checkout-button btn btn--primary">
-        <IoCartOutline className="me-2" />
-        <span>Checkout</span>
+        <IoCartOutline />
+        <span>&nbsp;Checkout</span>
       </button>
     </div>
   );

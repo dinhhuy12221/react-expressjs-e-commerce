@@ -13,7 +13,7 @@ import { getCategoryById } from "~/api/category";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import axios from "~/api/axios";
 import "./index.css";
-import useCreateCartHandler from "~/hooks/useCreateCartHandler";
+import useCreateCartHandler from "~/hooks/create/useCreateCartHandler";
 import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";
 

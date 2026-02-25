@@ -7,14 +7,16 @@ export const ordersApiSlice = apiSlice.injectEndpoints(
                 query: (id) => ({
                     url: `/orders/orders_by_customer/${id}`,
                     method: "GET",
-                })
+                }),
+                providesTags: ["Order"],
             }),
             createOrder: builder.mutation({
                 query: (data) => ({
                     url: "/order/create",
                     method: "POST",
                     body: { ...data }
-                })
+                }),
+                invalidatesTags: ["Order"],
             })
         })
     }
