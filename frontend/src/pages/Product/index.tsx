@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Rating from "@mui/material/Rating";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
-import Tooltip from "@mui/material/Tooltip";
 import "react-inner-image-zoom/lib/styles.min.css";
 import { MdCompareArrows } from "react-icons/md";
 import ThumbnailsSwiper from "~/components/Product/ThumbnailSwiper";
@@ -14,13 +13,17 @@ import { getCategoryById } from "~/api/category";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import axios from "~/api/axios";
 import "./index.css";
+import useCreateCartHandler from "~/hooks/useCreateCartHandler";
+import { useSelector } from "react-redux";
+import { RootState } from "~/app/store";
 
 export default function Product() {
-  // const [activeSize, setActiveSize] = useState(null);
+  const customerId = useSelector((state: RootState) => state.auth.customerId);
   const [product, setProduct] = useState(null);
   const [category, setCategory] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [productList, setProductList] = useState([]);
+  const { handleCreateCart } = useCreateCartHandler();
 
   const currentPrice = getDiscountPrice(product?.price, product?.discount).toFixed(2);
   let isMounted = true;
@@ -64,10 +67,6 @@ export default function Product() {
     };
   }, []);
 
-  // const isActive = (index) => {
-  //   setActiveSize(index);
-  // };
-
   useEffect(() => {
     getProductInfo();
   }, []);
@@ -110,7 +109,13 @@ export default function Product() {
 
               <div className="page-product-main-content-main-quantity">
                 <QuantityBox value={quantity} onChange={setQuantity} stock={product?.countInStock} />
-                <button className="btn btn--primary page-product-main-content-main-quantity-add-button">
+                <button className="btn btn--primary page-product-main-content-main-quantity-add-button" onClick={() => {
+                  handleCreateCart(
+                    customerId,
+                    product._id,
+                    quantity
+                  )
+                }}>
                   <IoCartOutline />
                   <span>Add to cart</span>
                 </button>
