@@ -13,8 +13,6 @@ const Cart = () => {
   const { data } = useGetCartByCustomerQuery(customerId);
   const products = data ?? [];
 
-  console.log(customerId, products);
-  
   return (
     <section className="profile-cart">
       <div className="profile-cart-header">

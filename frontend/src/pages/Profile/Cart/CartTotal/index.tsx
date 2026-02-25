@@ -10,9 +10,10 @@ const CartTotal = ({ products, selectedIds }) => {
     .reduce((acc, item) => {
       const price =
         getDiscountPrice(item.productId.price, item.productId.discount) *
-        item.product_count;
+        item.productCount;
       return acc + price;
-    });
+    }, 0);
+
   return (
     <div className="cart-total">
       <h4>Cart Totals</h4>
@@ -30,7 +31,7 @@ const CartTotal = ({ products, selectedIds }) => {
       </div>
       <div className="cart-total-price">
         <span>Total: </span>
-        <span>${total}</span>
+        <span>${total.toFixed(2)}</span>
       </div>
       <button className="cart-total-checkout-button btn btn--primary">
         <IoCartOutline className="me-2" />
