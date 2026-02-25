@@ -7,7 +7,6 @@ import { RootState } from "~/app/store";
 import CartItem from "../CartItem";
 
 const CartManager = () => {
-  // const [products, setProducts] = useState([]);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
   const { data } = useGetCartByCustomerQuery(customerId);

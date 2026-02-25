@@ -6,7 +6,7 @@ import "./index.css"
 const CartTotal = () => {
   return (
     <div className="cart-total">
-      <h4>CART TOTALS</h4>
+      <h4>Cart Totals</h4>
       <div className="cart-total-subprice">
         <span>Subtotal: </span>
         <span>$3.29</span>
