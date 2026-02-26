@@ -41,7 +41,7 @@ const Cart = () => {
             />
           </tbody>
         </table>
-        {carts && <CartTotal carts={carts} selectedIds={selectedIds} />}
+        {carts && <CartTotal customerId={customerId} carts={carts} selectedIds={selectedIds} />}
       </div>
     </section>
   );

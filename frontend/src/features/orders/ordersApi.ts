@@ -5,7 +5,7 @@ export const ordersApiSlice = apiSlice.injectEndpoints(
         endpoints: builder => ({
             getOrdersByCustomer: builder.query({
                 query: (id) => ({
-                    url: `/orders/orders_by_customer/${id}`,
+                    url: `/order/orders_by_customer/${id}`,
                     method: "GET",
                 }),
                 providesTags: ["Order"],
@@ -16,7 +16,7 @@ export const ordersApiSlice = apiSlice.injectEndpoints(
                     method: "POST",
                     body: { ...data }
                 }),
-                invalidatesTags: ["Order"],
+                invalidatesTags: ["Order", "Cart"],
             })
         })
     }

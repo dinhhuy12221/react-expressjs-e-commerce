@@ -3,22 +3,34 @@ import { IoCartOutline } from "react-icons/io5";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 
 import "./index.css";
+import useCreateOrderHandler from "~/hooks/create/useCreateOrderHandler";
 
-const CartTotal = ({ carts, selectedIds }) => {
-  const products = carts
-    .filter((item) => selectedIds.includes(item.productId._id))
+const CartTotal = ({ customerId, carts, selectedIds }) => {
+  const { handleCreateOrder, ...mutationState } = useCreateOrderHandler();
+  let products = carts
+    .filter((item: any) => selectedIds.includes(item.productId._id))
   
   const total = products.reduce((acc, item) => {
       const price =
         getDiscountPrice(item.productId.price, item.productId.discount) *
         item.productCount;
       return acc + price;
-    }, 0);
+    }, 0);    
+    
+    let newProducts = products.map((item: any) => {
+      return {
+        id: item.productId._id,
+        count: item.productCount
+      };
+    });
 
-    // products : id, count
-    // total, fee, location
     const handleCheckout = () => {
-
+      handleCreateOrder(
+        customerId,
+        newProducts,
+        "United Kingdom",
+        0,
+      )
     }
 
   return (
@@ -36,7 +48,7 @@ const CartTotal = ({ carts, selectedIds }) => {
         <span>Total: </span>
         <span>${total.toFixed(2)}</span>
       </div>
-      <button className="cart-total-checkout-button btn btn--primary">
+      <button className="cart-total-checkout-button btn btn--primary" onClick={handleCheckout}>
         <IoCartOutline />
         <span>&nbsp;Checkout</span>
       </button>
