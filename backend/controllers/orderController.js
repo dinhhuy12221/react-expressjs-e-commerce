@@ -56,11 +56,11 @@ class orderController {
 
   getOrderByCustomer = async (req, res) => {
     try {
-      const order = await Order.find({
+      const result = await Order.find({
         customerId: req.params.id,
-      });
+      }).populate("products.id");
 
-      return res.status(200).json(order);
+      return res.status(200).json({ message: "Get order successfully", data: result });
     } catch (error) {
       console.log(error);
       return res.status(400).json({
