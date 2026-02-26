@@ -14,15 +14,15 @@ const orderModel = new Schema({
         type: Schema.Types.Int32,
         ref: 'Customer',
     },
-    productId: {
-        type: Schema.Types.Array,
-        ref: "Product",
+    products: {
+        // id, count, price, discount
+        type: Array,
         require: true,
     },
-    total: {
-        type: Number,
-        require: true,
-    },
+    // price: {
+    //     type: Number,
+    //     require: true,
+    // },
 }, {
     _id: false,
     timestamps: true,
