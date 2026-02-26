@@ -14,12 +14,40 @@ const orderModel = new Schema({
         type: Schema.Types.Int32,
         ref: 'Customer',
     },
-    productId: {
-        type: Schema.Types.Array,
-        ref: "Product",
+    products: [
+        {
+            id: {
+                type: Schema.Types.Int32,
+                ref: "Product",
+                required: true,
+            },
+            count: {
+                type: Number,
+                required: true,
+            },
+            price: {
+                type: Number,
+                required: true,
+            },
+            discount: {
+                type: Number,
+                required: true,
+            },
+            finalPrice: {
+                type: Number,
+                required: true,
+            },
+        }
+    ],
+    location: {
+        type: String,
         require: true,
     },
-    total: {
+    delivery: {
+        type: Number,
+        require: true,
+    },
+    totalPrice: {
         type: Number,
         require: true,
     },

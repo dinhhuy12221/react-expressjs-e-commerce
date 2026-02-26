@@ -9,7 +9,7 @@ const useCreateCartHandler = () => {
             productId,
             productCount,
         };
-        createCart(payload).unwrap()
+        await createCart(payload).unwrap()
     }
 
     return {
