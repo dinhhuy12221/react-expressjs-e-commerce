@@ -1,15 +1,11 @@
 import Order from "../models/order.js";
-import Product from "../models/product.js"
+import Product from "../models/product.js";
+import Cart from "../models/cart.js";
 
 class orderController {
   createOrder = async (req, res) => {
     try {
-      const {
-        customerId,
-        products,
-        location,
-        delivery,
-      } = req.body;
+      const { customerId, products, location, delivery } = req.body;
 
       let orderProducts = [];
       let totalPrice = 0;
@@ -34,7 +30,15 @@ class orderController {
           price,
           discount,
           finalPrice,
-        })
+        });
+
+        await Product.findByIdAndUpdate(
+          product._id,
+          { $inc: { countInStock: -count } },
+          { new: true }
+        );
+
+        await Cart.deleteOne({ customerId, productId: product._id });
       }
 
       const result = await Order.create({
@@ -45,7 +49,9 @@ class orderController {
         totalPrice,
       });
 
-      return res.status(200).json({ message: "Create order successfully", data: result });
+      return res
+        .status(200)
+        .json({ message: "Create order successfully", data: result });
     } catch (error) {
       console.log(error);
       return res.status(404).json({
@@ -60,7 +66,9 @@ class orderController {
         customerId: req.params.id,
       }).populate("products.id");
 
-      return res.status(200).json({ message: "Get order successfully", data: result });
+      return res
+        .status(200)
+        .json({ message: "Get order successfully", data: result });
     } catch (error) {
       console.log(error);
       return res.status(400).json({

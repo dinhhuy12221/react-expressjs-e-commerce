@@ -18,7 +18,7 @@ const route = (app) => {
   app.use("/api/category", categoryRouter);
   app.use("/api/product", productRouter);
   app.use("/api/cart", cartRouter);
-  app.use("/api/orders", orderRouter);
+  app.use("/api/order", orderRouter);
 };
 
 export default route;
