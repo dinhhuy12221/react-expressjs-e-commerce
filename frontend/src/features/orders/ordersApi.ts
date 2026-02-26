@@ -16,7 +16,7 @@ export const ordersApiSlice = apiSlice.injectEndpoints(
                     method: "POST",
                     body: { ...data }
                 }),
-                invalidatesTags: ["Order"],
+                invalidatesTags: ["Order", "Cart"],
             })
         })
     }
