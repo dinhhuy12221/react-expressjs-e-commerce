@@ -1,5 +1,5 @@
 // import { BrowserRouter, Routes, Route, Outlet } from "react-router";
-import React from "react";
+import React, { useContext } from "react";
 import { createContext, Suspense, useEffect, useState } from "react";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 import Modal from "./components/Product/Modal";
@@ -21,6 +21,7 @@ import RequireAuth from "./features/auth/RequireAuth";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { lazyLoad } from "./utils/lazyLoad.js";
+import LoadingScreen from "./components/Loading";
 
 const MyContext = createContext(null);
 
@@ -33,7 +34,7 @@ const Profile = lazyLoad("pages/Profile/index.tsx");
 const Information = lazyLoad("pages/profile/Information/index.tsx");
 const Cart = lazyLoad("pages/Profile/Cart/index.tsx");
 const Wishlist = lazyLoad("pages/Profile/Wishlist/index.tsx");
-// const Orders = lazyLoad("pages/profile/Orders/index.tsx");
+const Order = lazyLoad("pages/profile/Order/index.tsx");
 const Reviews = lazyLoad("pages/profile/Reviews/index.tsx");
 const Settings = lazyLoad("pages/profile/Settings/index.tsx");
 
@@ -43,6 +44,7 @@ function App() {
   const [isOpenProductModal, setIsOpenProductModal] = useState(false);
   const [productModal, setProductModal] = useState({});
   const [isLogin, setIsLogin] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getCountry("https://countriesnow.space/api/v0.1/countries/");
@@ -62,6 +64,8 @@ function App() {
     setProductModal,
     isLogin,
     setIsLogin,
+    isLoading,
+    setIsLoading,
   };
 
   return (
@@ -85,6 +89,7 @@ function App() {
                 <Route path="/profile" element={<Profile />}>
                   <Route path="information" element={<Information />} />
                   <Route path="cart" element={<Cart />} />
+                  <Route path="order" element={<Order />} />
                   <Route path="wishlist" element={<Wishlist />} />
                   <Route path="reviews" element={<Reviews />} />
                   <Route path="settings" element={<Settings />} />
@@ -112,12 +117,14 @@ function App() {
 }
 
 function Wrapper() {
+  const { isLoading } = useContext(MyContext);
   const { pathname } = useLocation();
   const list = ["/login", "/signup"];
   const isVisible = !list.some(p => pathname.toLowerCase().startsWith(p))
   
   return (
     <>
+    {isLoading && <LoadingScreen />}
       {isVisible && <Header />}
       <Suspense>
         <Outlet />

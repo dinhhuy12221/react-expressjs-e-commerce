@@ -4,7 +4,7 @@ import { useGetOrdersByCustomerQuery } from "~/features/orders/ordersApi";
 import { useEffect } from "react";
 import "./index.css";
 
-function Orders() {
+function Order() {
   const getOrdersByCustomer = useGetOrdersByCustomerQuery(null);
 
   // const tagLiOfOrders = () => {
@@ -35,4 +35,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default Order;
