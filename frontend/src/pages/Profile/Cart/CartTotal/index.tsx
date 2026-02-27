@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import useCreateOrderHandler from "~/hooks/create/useCreateOrderHandler";
@@ -8,7 +8,7 @@ import { MyContext } from "~/App";
 
 const CartTotal = ({ customerId, carts, selectedIds }) => {
   const { handleCreateOrder, ...mutationState } = useCreateOrderHandler();
-  const { setIsLoading } = useContext(MyContext);
+  const { isLoading, setIsLoading } = useContext(MyContext);
 
   let products = carts
     .filter((item: any) => selectedIds.includes(item.productId._id))
@@ -34,9 +34,11 @@ const CartTotal = ({ customerId, carts, selectedIds }) => {
         "United Kingdom",
         0,
       )
-
-      setIsLoading(mutationState.isLoading);
     }
+
+    useEffect(() => {
+      setIsLoading(isLoading);
+    }, [mutationState])
 
   return (
     <div className="cart-total">
