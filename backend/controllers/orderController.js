@@ -7,6 +7,10 @@ class orderController {
     try {
       const { customerId, products, location, delivery } = req.body;
 
+      if (products.length === 0) {
+        return res.status(404).json({ message: "There is no selected product" })
+      }
+
       let orderProducts = [];
       let totalPrice = 0;
 
