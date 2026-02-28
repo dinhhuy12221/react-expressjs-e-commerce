@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { MyContext } from "~/App";
 import { useContext, useRef, useState } from "react";
@@ -30,13 +30,17 @@ export default function Modal(props) {
 
   const context = useContext(MyContext);
   const product = context.productModal;
-  const currentPrice = getDiscountPrice(product.price, product.discount);
+  const currentPrice = getDiscountPrice(product.price, product.discount).toFixed(2);
 
   const goto = (index: number) => {
     setSlideIndex(index);
     zoomSliderBig.current.swiper.slideTo(index);
     zoomSlider.current.swiper.slideTo(index);
   };
+
+  useEffect(() => {
+    context.setIsLoading(isLoading);
+  }, [isLoading])
 
   return (
     <Dialog
@@ -91,7 +95,9 @@ export default function Modal(props) {
           <div className="product-modal-content-main-quantity">
             <QuantityCounter value={quantity} onChange={setQuantity} stock={product.countInStock} />
             <button className="btn btn--primary product-modal-content-main-quantity-add-button"
-            onClick={() => handleCreateCart(customerId, product._id, quantity)}
+            onClick={() => {
+              handleCreateCart(customerId, product._id, quantity)
+            }}
             >
               <IoCartOutline />
               <span>Add to cart</span>
