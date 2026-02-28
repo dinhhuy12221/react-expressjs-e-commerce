@@ -8,7 +8,7 @@ import { MyContext } from "~/App";
 
 const CartTotal = ({ customerId, carts, selectedIds }) => {
   const { handleCreateOrder, ...mutationState } = useCreateOrderHandler();
-  const { isLoading, setIsLoading } = useContext(MyContext);
+  const { setIsLoading } = useContext(MyContext);
 
   let products = carts
     .filter((item: any) => selectedIds.includes(item.productId._id))
@@ -37,7 +37,10 @@ const CartTotal = ({ customerId, carts, selectedIds }) => {
     }
 
     useEffect(() => {
-      setIsLoading(isLoading);
+      setIsLoading(mutationState.isLoading);
+
+      console.log(mutationState.isLoading);
+      
     }, [mutationState])
 
   return (
