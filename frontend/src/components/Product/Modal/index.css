@@ -4,6 +4,8 @@
   align-items: center;
 
   min-height: 600px;
+
+  z-index: 999 !important;
 }
 .product-modal .MuiPaper-elevation {
   position: relative;

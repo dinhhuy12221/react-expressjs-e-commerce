@@ -4,7 +4,7 @@ import "./index.css"
 const LoadingScreen = () => {
   return (
     <div className="loading-screen">
-      <CircularProgress />
+      <CircularProgress color="success" />
     </div>
   );
 };
