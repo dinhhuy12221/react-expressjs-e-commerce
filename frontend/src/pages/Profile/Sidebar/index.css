@@ -2,15 +2,16 @@
   display: flex;
   flex-direction: column;
   padding: var(--space-8);
+
+  height: 500px;
 }
 
 .profile-page-sidebar-item {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-8);
 
-  padding: var(--space-2) var(--space-30);
-
+  padding: var(--space-8) var(--space-40);
   font-size: var(--font-18);
 
   cursor: pointer;
