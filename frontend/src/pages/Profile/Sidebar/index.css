@@ -2,22 +2,27 @@
   display: flex;
   flex-direction: column;
   padding: var(--space-8);
+
+  height: 500px;
 }
 
 .profile-page-sidebar-item {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-8);
 
-  padding: var(--space-2) var(--space-30);
-
+  padding: var(--space-8) var(--space-40);
   font-size: var(--font-18);
 
   cursor: pointer;
 }
-.profile-page-sidebar-item.active,
-.profile-page-sidebar-item:hover {
-  background-color: rgb(235, 235, 240);
+.profile-page-sidebar-item.active {
+  color: var(--color-text-white);
+  background-color: var(--color-bg-red-1);
+  border: var(--border-width-1) var(--color-bg-red-1);
+}
+.profile-page-sidebar-item.active svg {
+  color: var(--color-text-white);
 }
 
 
