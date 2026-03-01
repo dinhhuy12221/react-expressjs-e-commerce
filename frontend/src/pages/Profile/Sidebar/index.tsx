@@ -18,7 +18,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/information"}
         onClick={() => setIsActive(0)}
-        className={`profile-page-sidebar-item ${isActive === 0 ? "active" : ""}`}
+        className={`profile-page-sidebar-item btn btn--outlined ${isActive === 0 ? "active" : ""}`}
       >
         <CgProfile />
         <span> Profile</span>
@@ -26,7 +26,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/cart"}
         onClick={() => setIsActive(1)}
-        className={`profile-page-sidebar-item ${isActive === 1 ? "active" : ""}`}
+        className={`profile-page-sidebar-item btn btn--outlined ${isActive === 1 ? "active" : ""}`}
       >
         <FiShoppingCart />
         <span> Cart</span>
@@ -34,7 +34,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/order"}
         onClick={() => setIsActive(2)}
-        className={`profile-page-sidebar-item ${isActive === 2 ? "active" : ""}`}
+        className={`profile-page-sidebar-item btn btn--outlined ${isActive === 2 ? "active" : ""}`}
       >
         <TbTruckDelivery />
         <span> Order</span>
@@ -42,7 +42,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/wishlist"}
         onClick={() => setIsActive(3)}
-        className={`profile-page-sidebar-item ${isActive === 3 ? "active" : ""}`}
+        className={`profile-page-sidebar-item btn btn--outlined ${isActive === 3 ? "active" : ""}`}
       >
         <FaRegHeart />
         <span> Wishlist</span>
@@ -50,7 +50,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/reviews"}
         onClick={() => setIsActive(4)}
-        className={`profile-page-sidebar-item ${isActive === 4 ? "active" : ""}`}
+        className={`profile-page-sidebar-item btn btn--outlined ${isActive === 4 ? "active" : ""}`}
       >
         <MdOutlineRateReview />
         <span> Reviews</span>
@@ -58,7 +58,7 @@ const Sidebar = () => {
       <Link
         to={"/profile/settings"}
         onClick={() => setIsActive(5)}
-        className={`profile-page-sidebar-item ${isActive === 5? "active" : ""}`}
+        className={`profile-page-sidebar-item btn btn--outlined ${isActive === 5? "active" : ""}`}
       >
         <CiSettings />
         <span> Settings</span>

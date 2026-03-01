@@ -16,9 +16,13 @@
 
   cursor: pointer;
 }
-.profile-page-sidebar-item.active,
-.profile-page-sidebar-item:hover {
-  background-color: rgb(235, 235, 240);
+.profile-page-sidebar-item.active {
+  color: var(--color-text-white);
+  background-color: var(--color-bg-red-1);
+  border: var(--border-width-1) var(--color-bg-red-1);
+}
+.profile-page-sidebar-item.active svg {
+  color: var(--color-text-white);
 }
 
 

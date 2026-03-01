@@ -3,9 +3,12 @@ import React from "react";
 import { useGetOrdersByCustomerQuery } from "~/features/orders/ordersApi";
 import { useEffect } from "react";
 import "./index.css";
+import { useSelector } from "react-redux";
+import { selectCurrentCustomerId } from "~/features/auth/authSlice";
 
 function Order() {
-  const getOrdersByCustomer = useGetOrdersByCustomerQuery(null);
+  const customerId = useSelector(selectCurrentCustomerId);
+  const getOrdersByCustomer = useGetOrdersByCustomerQuery(customerId);
 
   // const tagLiOfOrders = () => {
   //     return ordersByCustomer.map((order, index) => {
