@@ -9,7 +9,7 @@ const OrderItem = ({ order }) => {
   const [remain, setRemain] = useState("")
   
   const orderedAt = new Date(order.orderedAt);
-  const formatted = `${orderedAt.getDate()}-${orderedAt.getMonth()}-${orderedAt.getFullYear()}`
+  const formatted = `${orderedAt.getDate()}-${orderedAt.getMonth()}-${orderedAt.getFullYear()} ${orderedAt.getHours()}:${orderedAt.getMinutes()}:${orderedAt.getSeconds()}`
 
   const intervalId = setInterval(() => {
     const remaining = new Date(order.deliveredAt).getTime() - Date.now();
@@ -47,11 +47,11 @@ const OrderItem = ({ order }) => {
         ))}
       </div>
         <div className="order-item-content-summary">
-          <div>Delivery Fee: <b>${order.delivery}</b></div>
-          <div>Location: <b>{order.location}</b></div>
-          <div>Ordered At: <b>{formatted}</b></div>
-          <div>Remaining Time: <b>{remain === "0" ? "Finished" : remain}</b></div>
-          <div>Final price: <b>${order.totalPrice.toFixed(2)}</b></div>
+          <span>Delivery Fee: <b>${order.delivery}</b></span>
+          <span>Location: <b>{order.location}</b></span>
+          <span>Ordered At: <b>{formatted}</b></span>
+          <span>Remaining Time: <b>{remain === "0" ? "Finished" : remain}</b></span>
+          <span>Final price: <b>${order.totalPrice.toFixed(2)}</b></span>
         </div>
     </div>
   );
