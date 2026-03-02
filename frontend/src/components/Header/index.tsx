@@ -19,12 +19,6 @@ import "./index.css";
 function Header() {
   const context = useContext(MyContext);
   const [open, setOpen] = useState(false);
-  const customerId = useSelector(selectCurrentCustomerId);
-  const {
-      data: customer,
-      isLoading,
-      isFetching,
-    } = useGetCustomerQuery(customerId ?? skipToken);
 
   return (
     <div className="header-wrapper">
@@ -48,13 +42,7 @@ function Header() {
           {/* <a href="/login" className="btn btn--primary signin-button">
             Signin
           </a> */}
-          {customerId === null ? (
-            <a href="/login" className="btn btn--primary signin-button">
-              Signin
-            </a>
-          ) : (
-            <Profile />
-          )}
+          <Profile />
           <span className="cart-price">$0.00</span>
           <div className="cart">
             <span className="cart-count btn--rounded">1</span>

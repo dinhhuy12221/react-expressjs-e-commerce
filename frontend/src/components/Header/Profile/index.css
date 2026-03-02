@@ -1,0 +1,43 @@
+.header-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-10);
+}
+.header-profile-button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.header-profile-button svg {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.header-profile-dropbox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 60px;
+    left: -30px;
+    width: 100px;
+    border: var(--border-width-1) var(--color-text-red);
+
+    z-index: 999;
+}
+.header-profile-dropbox-item {
+    font-size: var(--font-18);
+    font-weight: 600;
+    color: var(--color-text-red);
+    padding: 0;
+    outline: none;
+    border: none;
+    background: transparent;
+    text-align: center;
+    cursor: pointer;
+}
