@@ -92,6 +92,9 @@ muted → variant
   --border-width-1: 1px solid;
   --border-width-2: 2px solid;
   --border-width-3: 3px solid;
+
+  --box-shadow-1: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.08);
+  --box-shadow-2: 0 8px 16px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 body {

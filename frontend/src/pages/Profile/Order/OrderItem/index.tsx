@@ -23,13 +23,13 @@ const OrderItem = ({ order }) => {
   }, 1000)
   return (
     <div className="order-item">
-      <h3 className="order-item-id">#{order._id}</h3>
+      <h3 className="order-item-id">Order ID: #{order._id}</h3>
       <div className="order-item-content">
         {order.products.map((i) => (
           <div className="order-item-product">
             <img className="order-item-product-thumbnail" src={i.id.image} />
             <div className="order-item-product-content">
-              <Link to={`../../product/${i.id.slug}`}><h2>{i.id.name}</h2></Link>
+              <Link className="order-item-product-content-name" to={`../../product/${i.id.slug}`}>{i.id.name}</Link>
               <div className="order-item-product-content-prices">
                 <span className="order-item-product-content-prices-old-price">
                   ${i.price}
