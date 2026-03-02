@@ -22,17 +22,17 @@ const OrderItem = ({ order }) => {
                 </span>
               </div>
               <div className="order-item-product-content-total">
-                <span className="order-item-product-content-total-quantity">Quantity: {i.count}</span>
-                <span className="order-item-product-content-total-price">Total: {(i.count * getDiscountPrice(i.price, i.discount)).toFixed(2)}</span>
+                <span className="order-item-product-content-total-quantity">Quantity: <b>{i.count}</b></span>
+                <span className="order-item-product-content-total-price">Total: <b>${(i.count * getDiscountPrice(i.price, i.discount)).toFixed(2)}</b></span>
               </div>
             </div>
           </div>
         ))}
       </div>
         <div className="order-item-content-summary">
-          <div>Delivery: ${order.delivery}</div>
-          <div>Location: {order.location}</div>
-          <div>Final price: ${order.totalPrice.toFixed(2)}</div>
+          <div>Delivery: <b>${order.delivery}</b></div>
+          <div>Location: <b>{order.location}</b></div>
+          <div>Final price: <b>${order.totalPrice.toFixed(2)}</b></div>
         </div>
     </div>
   );
