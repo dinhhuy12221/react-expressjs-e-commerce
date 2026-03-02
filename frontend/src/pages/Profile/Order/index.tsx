@@ -10,14 +10,12 @@ import "./index.css";
 function Order() {
   const customerId = useSelector(selectCurrentCustomerId);
   const { data, isLoading } = useGetOrdersByCustomerQuery(customerId);
-  const orders = data.data;
-  
-  console.log(orders);
+  const orders = data?.data;
 
   return (
     <div className="order-page">
       <div className="order-page-content">
-        {isLoading && orders.map(item => <OrderItem order={item} />)}
+        {orders && orders.map(item => <OrderItem order={item} />)}
       </div>
     </div>
   );

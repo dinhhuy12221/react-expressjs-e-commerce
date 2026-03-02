@@ -1,6 +1,7 @@
 .profile-page-sidebar {
   display: flex;
   flex-direction: column;
+  justify-items: start;
   padding: var(--space-8);
 
   height: 500px;

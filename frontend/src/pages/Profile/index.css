@@ -1,7 +1,7 @@
 .profile-page {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 .profile-page-content {
   width: 900px;

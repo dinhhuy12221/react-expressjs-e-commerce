@@ -35,9 +35,7 @@ function Profile() {
 
   return (
     <section className="profile-page">
-      <div className="profile-page-sidebar">
         <Sidebar />
-      </div>
       <div className="profile-page-content">
         {/* <Outlet className="profile-page-content"/> */}
         <Outlet />
