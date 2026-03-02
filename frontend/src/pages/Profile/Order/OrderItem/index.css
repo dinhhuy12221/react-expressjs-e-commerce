@@ -1,0 +1,31 @@
+.order-item {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-width-1) var(--color-text-red-1);
+}
+
+.order-item-product {
+  display: flex;
+  align-items: start;
+}
+.order-item-product-thumbnail {
+  width: 200px;
+  height: 200px;
+  inset: 0;
+}
+.order-item-product-content-prices {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+.order-item-product-content-prices-old-price {
+  color: var(--color-text-red-1);
+  text-decoration: line-through;
+  font-size: var(--font-18);
+  font-weight: 600;
+}
+.order-item-product-content-prices-net-price {
+  color: var(--color-text-success);
+  font-size: var(--font-18);
+  font-weight: 600;
+}
