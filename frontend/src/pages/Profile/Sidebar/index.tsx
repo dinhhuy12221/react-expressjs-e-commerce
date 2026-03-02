@@ -11,7 +11,17 @@ import { useState } from "react";
 import "./index.css";
 
 const Sidebar = () => {
-  const [isActive, setIsActive] = useState(0);
+  const loc = window.location.pathname;
+  const locList = {
+    "/profile/information": 0,
+    "/profile/cart": 1,
+    "/profile/order": 2,
+    "/profile/wishlist": 3,
+    "/profile/reviews": 4,
+    "/profile/settings": 5,
+  }
+  
+  const [isActive, setIsActive] = useState(locList[loc]);
 
   return (
     <div className="profile-page-sidebar">
