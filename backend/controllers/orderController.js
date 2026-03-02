@@ -25,7 +25,7 @@ class orderController {
         const discount = product.discount;
         const count = item.count;
 
-        const finalPrice = (price * discount * count) / 100;
+        const finalPrice = (price * (100 - discount) * count) / 100;
         totalPrice += finalPrice;
 
         orderProducts.push({
@@ -45,11 +45,14 @@ class orderController {
         await Cart.deleteOne({ customerId, productId: product._id });
       }
 
+      const time = Date.now;
+
       const result = await Order.create({
         customerId,
         products: orderProducts,
         location,
         delivery,
+        time,
         totalPrice,
       });
 

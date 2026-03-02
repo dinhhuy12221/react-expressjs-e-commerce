@@ -47,6 +47,14 @@ const orderModel = new Schema({
         type: Number,
         require: true,
     },
+    orderedAt: {
+        type: Date,
+        require: true,
+    },
+    deliveredAt: {
+        type: Date,
+        require: true,
+    },
     totalPrice: {
         type: Number,
         require: true,
