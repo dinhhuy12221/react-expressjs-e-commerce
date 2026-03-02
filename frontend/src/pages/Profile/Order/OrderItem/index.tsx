@@ -28,12 +28,12 @@ const OrderItem = ({ order }) => {
             </div>
           </div>
         ))}
+      </div>
         <div className="order-item-content-summary">
           <div>Delivery: ${order.delivery}</div>
           <div>Location: {order.location}</div>
           <div>Final price: ${order.totalPrice.toFixed(2)}</div>
         </div>
-      </div>
     </div>
   );
 };
