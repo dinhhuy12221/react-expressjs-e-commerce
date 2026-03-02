@@ -13,6 +13,11 @@
   height: 200px;
   inset: 0;
 }
+.order-item-product-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
 .order-item-product-content-prices {
   display: flex;
   align-items: center;
@@ -28,4 +33,13 @@
   color: var(--color-text-success);
   font-size: var(--font-18);
   font-weight: 600;
+}
+.order-item-product-content-total {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+.order-item-product-content-total span {
+    font-size: var(--font-16);
+    font-weight: bold;
 }
