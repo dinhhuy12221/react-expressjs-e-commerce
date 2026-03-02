@@ -45,14 +45,16 @@ class orderController {
         await Cart.deleteOne({ customerId, productId: product._id });
       }
 
-      const time = Date.now;
+      const orderedAt = new Date();
+      const deliveredAt = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000);
 
       const result = await Order.create({
         customerId,
         products: orderProducts,
         location,
         delivery,
-        time,
+        orderedAt,
+        deliveredAt,
         totalPrice,
       });
 
