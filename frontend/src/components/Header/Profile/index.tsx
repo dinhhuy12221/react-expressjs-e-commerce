@@ -21,10 +21,9 @@ function Profile() {
   const handleLogOut = async () => {
     try {
       await logout(null).unwrap();
-    } catch (error) {
-    } finally {
       dispatch(logOut());
       navigate(0);
+    } catch (error) {
     }
   };
 
@@ -34,14 +33,18 @@ function Profile() {
 
   return (
     <div className="header-profile">
-      <button className="header-profile-button" onClick={() => setIsActive(true)}>
+      <button className="header-profile-button" onClick={() => setIsActive(!isActive)}>
         <FaRegUserCircle />
       </button>
       {isActive && <div className="header-profile-dropbox">
         {
-          customerId ? <button className="header-profile-dropbox-logout" onClick={handleLogOut}>
-          Logout
-        </button> : <button>Signin</button>
+          customerId ? (
+            <>
+              <button className="header-profile-dropbox-item" onClick={() => navigate("/profile/information")}>Profile</button>
+              <button className="header-profile-dropbox-item" onClick={handleLogOut}>Logout
+          </button>
+            </>
+          ) : <button className="header-profile-dropbox-item" onClick={() => navigate("/login")}>Signin</button>
         }
       </div>}
     </div>
