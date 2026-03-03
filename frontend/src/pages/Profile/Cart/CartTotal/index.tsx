@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import useCreateOrderHandler from "~/hooks/create/useCreateOrderHandler";
+import { MyContext } from "~/App";
 
 import "./index.css";
-import { MyContext } from "~/App";
 
 const CartTotal = ({ customerId, carts, selectedIds }) => {
   const { handleCreateOrder, ...mutationState } = useCreateOrderHandler();
