@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AdminContext } from "../..";
+import { AdminContext } from "../../main";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";

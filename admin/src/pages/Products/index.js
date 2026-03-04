@@ -9,7 +9,7 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
-import { AdminContext } from "../..";
+import { AdminContext } from "../../main";
 
 
 import { Link } from "react-router-dom";
