@@ -1,4 +1,5 @@
 import Customer from "../models/customer.js";
+import cloudinary from "../config/cloudinary.js";
 
 class customerController {
   getCustomer = async (req, res) => {
