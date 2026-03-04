@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectCurrentCustomerId } from "~/features/auth/authSlice";
@@ -17,14 +17,27 @@ function Profile() {
   const { setIsLoading } = useContext(MyContext);
 
   const [logout, { isLoading }] = useLogoutMutation();
+  const dropboxRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropboxRef.current && !dropboxRef.current.contains(event.target)) {
+        setIsActive(false);
+      }
+    }
+    
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [dropboxRef]);
 
   const handleLogOut = async () => {
     try {
       await logout(null).unwrap();
       dispatch(logOut());
       navigate(0);
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -33,20 +46,39 @@ function Profile() {
 
   return (
     <div className="header-profile">
-      <button className="header-profile-button" onClick={() => setIsActive(!isActive)}>
+      <button
+        className="header-profile-button"
+        onClick={() => setIsActive(!isActive)}
+      >
         <FaRegUserCircle />
       </button>
-      {isActive && <div className="header-profile-dropbox">
-        {
-          customerId ? (
+      {isActive && (
+        <div className="header-profile-dropbox" ref={dropboxRef}>
+          {customerId ? (
             <>
-              <button className="header-profile-dropbox-item" onClick={() => navigate("/profile/information")}>Profile</button>
-              <button className="header-profile-dropbox-item" onClick={handleLogOut}>Logout
-          </button>
+              <button
+                className="header-profile-dropbox-item"
+                onClick={() => navigate("/profile/information")}
+              >
+                Profile
+              </button>
+              <button
+                className="header-profile-dropbox-item"
+                onClick={handleLogOut}
+              >
+                Logout
+              </button>
             </>
-          ) : <button className="header-profile-dropbox-item" onClick={() => navigate("/login")}>Signin</button>
-        }
-      </div>}
+          ) : (
+            <button
+              className="header-profile-dropbox-item"
+              onClick={() => navigate("/login")}
+            >
+              Signin
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }

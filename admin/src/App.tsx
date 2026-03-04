@@ -7,11 +7,9 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
 
-// import { MyContext } from "../../App";
+const AdminContext = createContext(null);
 
-const AdminContext = createContext();
-
-function Admin() {
+const App = () => {
   const [isToggleSidebar, setIsToggleSidebar] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
   const [isHideSidebarAndHeader, setIsHideSidebarAndHeader] = useState(false);
@@ -104,9 +102,9 @@ function Admin() {
                 routes.map((route, index) => {
                   return (
                     <Route
-                      key={index}
+                      // ke={index}
                       path={route.path}
-                      exact={route.exact}
+                      // exact={route.exact}
                       element={route.element}
                     />
                   );
@@ -118,5 +116,5 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default App;
 export { AdminContext };

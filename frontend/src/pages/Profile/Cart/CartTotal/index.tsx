@@ -1,13 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import useCreateOrderHandler from "~/hooks/create/useCreateOrderHandler";
+import { MyContext } from "~/App";
 
 import "./index.css";
-import { MyContext } from "~/App";
 
 const CartTotal = ({ customerId, carts, selectedIds }) => {
   const { handleCreateOrder, ...mutationState } = useCreateOrderHandler();
+  const [address, setAddress] = useState("");
   const { setIsLoading } = useContext(MyContext);
 
   let products = carts.filter((item: any) =>
@@ -30,7 +31,7 @@ const CartTotal = ({ customerId, carts, selectedIds }) => {
 
   const handleCheckout = () => {
     if (newProducts.length > 0) {
-      handleCreateOrder(customerId, newProducts, "United Kingdom", 0);
+      handleCreateOrder(customerId, newProducts, address, 0);
     }
   };
 
@@ -46,8 +47,8 @@ const CartTotal = ({ customerId, carts, selectedIds }) => {
         <span className="ms-auto">Free</span>
       </div>
       <div className="cart-total-location">
-        <span>Location: </span>
-        <span>United Kingdom</span>
+        <span>Address: </span>
+        <input value={address} onChange={e => setAddress(e.target.value)} type={"text"}placeholder="Enter address" />
       </div>
       <div className="cart-total-price">
         <span>Total: </span>

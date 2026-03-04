@@ -9,7 +9,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { IoMdSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
-import { AdminContext } from "../..";
+import { AdminContext } from "../../main";
 import { BiSolidCategory } from "react-icons/bi";
 
 import './index.css'
