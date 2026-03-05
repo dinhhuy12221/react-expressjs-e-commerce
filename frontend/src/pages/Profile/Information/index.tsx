@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { skipToken } from "@reduxjs/toolkit/query";
 import Input from "~/components/Input";
 import { useEffect, useState } from "react";
@@ -10,23 +10,19 @@ import {
 } from "~/features/customer/customerApi";
 import OptionModal from "~/components/OptionModal";
 import { FaImages } from "react-icons/fa";
-import Logo from "~/assets/images/logo.png";
 import { RootState } from "~/app/store";
-import "./index.css";
 import { MyContext } from "~/App";
+import "./index.css";
 
 const Information = () => {
   // const dispatch = useDispatch();
   const customerId = useSelector((state: RootState) => state.auth.customerId);
-  const {
-    data: customer,
-    isLoading,
-  } = useGetCustomerQuery(customerId ?? skipToken);
-  const [updateCustomer] = useUpdateCustomerMutation();
+  const { data: customer } = useGetCustomerQuery(customerId ?? skipToken);
+  const [updateCustomer, { isLoading }] = useUpdateCustomerMutation();
   const { setIsLoading } = useContext(MyContext);
-
-  const [imageFile, setImageFile] = useState("");
-  const [imagePublicId, setImagePublicId] = useState("");
+  
+  const [image, setImage] = useState({ url: "", public_id: "" });
+  const [imageFile, setImageFile] = useState(customer.image.url);
   const [username, setUsername] = useState("");
   const [fullname, setFullname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -60,7 +56,7 @@ const Information = () => {
       const updatedCustomer = {
         _id,
         image_file: imageFile,
-        image_public_id: imagePublicId,
+        image_public_id: image.public_id,
         fullname: fullname,
         address: address,
         phone_number: phoneNumber,
@@ -105,8 +101,7 @@ const Information = () => {
 
   useEffect(() => {
     if (customer) {
-      setImageFile(customer.image_file);
-      setImagePublicId(customer.image_public_id)
+      setImage(customer.image);
       setUsername(customer.username);
       setFullname(customer.fullname);
       setPhoneNumber(customer.phone_number);
@@ -116,22 +111,22 @@ const Information = () => {
 
   useEffect(() => {
     setIsLoading(isLoading);
-  }, [isLoading])
+  }, [isLoading]);
 
   return (
     <>
       <section className="profile-page-info">
         <form className="profile-page-info-form">
-          <div className="profile-page-info-form-imageFile">
+          <div className="profile-page-info-form-avatar">
             <input
-              className="profile-page-info-form-imageFile-selector btn btn--rounded"
+              className="profile-page-info-form-avatar-selector btn btn--rounded"
               type="file"
               accept="image/*"
               onChange={handleImageUpload}
             />
-            {/* <img src={imageFile} alt="imageFile" /> */}
-            <img src={Logo} alt="imageFile" />
-            <FaImages className="profile-page-info-form-imageFile-change-icon" />
+            <img src={imageFile} alt="avatar" />
+            {/* <img src={Logo} alt="imageFile" /> */}
+            <FaImages className="profile-page-info-form-avatar-change-icon" />
           </div>
           <div className="profile-page-info-form-info">
             <div className="profile-page-info-form-info-1">
