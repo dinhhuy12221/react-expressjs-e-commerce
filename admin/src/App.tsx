@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 import "./responsive.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { createContext, useContext, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
 
-const AdminContext = createContext(null);
+const AdminContext = createContext({});
 
 const App = () => {
   const [isToggleSidebar, setIsToggleSidebar] = useState(false);
@@ -16,7 +16,6 @@ const App = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const [themeMode, setThemeMode] = useState(false);
-  // const context = useContext(MyContext)
 
   useEffect(() => {
     if (themeMode === true) {

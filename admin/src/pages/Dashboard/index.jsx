@@ -49,7 +49,7 @@ const options2 = {
   backgroundColor: "transparent",
 };
 
-export default function Dashboard() {
+const Dashboard = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [showBy, setShowBy] = useState("");
   const [showByCat, setShowByCat] = useState("");
@@ -567,3 +567,5 @@ export default function Dashboard() {
     </>
   );
 }
+
+export default Dashboard

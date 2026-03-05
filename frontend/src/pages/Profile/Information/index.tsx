@@ -20,9 +20,12 @@ const Information = () => {
   const { data: customer } = useGetCustomerQuery(customerId ?? skipToken);
   const [updateCustomer, { isLoading }] = useUpdateCustomerMutation();
   const { setIsLoading } = useContext(MyContext);
+
+  console.log(customer);
   
+
   const [image, setImage] = useState({ url: "", public_id: "" });
-  const [imageFile, setImageFile] = useState(customer.image.url);
+  const [imageFile, setImageFile] = useState("");
   const [username, setUsername] = useState("");
   const [fullname, setFullname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -102,6 +105,7 @@ const Information = () => {
   useEffect(() => {
     if (customer) {
       setImage(customer.image);
+      setImageFile(customer.image.url);
       setUsername(customer.username);
       setFullname(customer.fullname);
       setPhoneNumber(customer.phone_number);
