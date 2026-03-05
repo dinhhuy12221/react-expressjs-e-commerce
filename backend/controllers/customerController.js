@@ -49,8 +49,7 @@ class customerController {
   updateCustomer = async (req, res) => {
     try {
       const imageResult = await cloudinary.v2.uploader.upload(req.file.path, {
-        // folder: `ecommerce/customers/${req.body._id}`,
-        public_id: req.body.image.public_id,
+        public_id: req.body.image_public_id,
         overwrite: true,
       });
 
