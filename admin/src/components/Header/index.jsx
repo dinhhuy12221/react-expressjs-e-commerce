@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
+// import button from "@mui/material/button";
 import { MdMenu } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import { MdOutlineMenuOpen } from "react-icons/md";
@@ -13,17 +13,17 @@ import { GoBell } from "react-icons/go";
 import { MdDarkMode } from "react-icons/md";
 import { MdLockReset } from "react-icons/md";
 
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
+// import Iconbutton from "@mui/material/Iconbutton";
+// import Typography from "@mui/material/Typography";
+// import Tooltip from "@mui/material/Tooltip";
+// import PersonAdd from "@mui/icons-material/PersonAdd";
+// import Settings from "@mui/icons-material/Settings";
+// import Logout from "@mui/icons-material/Logout";
 import { AdminContext } from "../../main";
 import UserAvatarImg from "../UserAvatarImg";
 
@@ -62,7 +62,7 @@ export default function Header() {
 
             {context.windowWidth > 750 && (
               <div className="col-sm-3 d-flex align-items-center part2 res-hide">
-                <Button
+                <button
                   className="rounded-circle"
                   onClick={() =>
                     context.setIsToggleSidebar(!context.isToggleSidebar)
@@ -73,45 +73,45 @@ export default function Header() {
                   ) : (
                     <MdMenu />
                   )}
-                </Button>
+                </button>
                 <SearchBox />
               </div>
             )}
 
             <div className="col-sm-7 d-flex align-items-center justify-content-end part3 pe-0">
-              <Button
+              <button
                 className="rounded-circle"
                 onClick={() => context.setThemeMode(!context.themeMode)}
               >
                 <MdOutlineLightMode />
-              </Button>
+              </button>
               {context.windowWidth > 750 && (
                 <>
-                  <Button className="rounded-circle">
+                  <button className="rounded-circle">
                     <IoGlobeOutline />
-                  </Button>
-                  <Button className="rounded-circle">
+                  </button>
+                  <button className="rounded-circle">
                     <LuShoppingCart />
-                  </Button>
-                  <Button className="rounded-circle">
+                  </button>
+                  <button className="rounded-circle">
                     <MdMailOutline />
-                  </Button>
+                  </button>
                 </>
               )}
               <div className="dropDownWrapper">
-                <Button
+                <button
                   className="rounded-circle"
                   onClick={handleOpenNotificationsDrop}
                 >
                   <GoBell />
-                </Button>
+                </button>
                 {context.windowWidth <= 750 && (
-                  <Button
+                  <button
                     className="rounded-circle"
                     onClick={() => context.openNav()}
                   >
                     <IoMenu />
-                  </Button>
+                  </button>
                 )}
                 <Menu
                   anchorEl={isOpenNotificationDrop}
@@ -355,19 +355,19 @@ export default function Header() {
                     </MenuItem>
                   </div>
                   <div className="ps-2 pe-2 pt-2 w-100">
-                    <Button className="btn-blue w-100">
+                    <button className="btn-blue w-100">
                       View all notifications
-                    </Button>
+                    </button>
                   </div>
                 </Menu>
               </div>
               {context.isLogin === false ? (
                 <Link to={"/login"}>
-                  <Button className="btn-blue btn-lg btn-round">Sign in</Button>
+                  <button className="btn-blue btn-lg btn-round">Sign in</button>
                 </Link>
               ) : (
                 <div className="myAccWrapper">
-                  <Button
+                  <button
                     className="myAcc d-flex align-items-center"
                     onClick={handleOpenMyAccDrop}
                   >
@@ -381,7 +381,7 @@ export default function Header() {
                       <h4>aLue</h4>
                       <p className="mb-0">@aLue35</p>
                     </div>
-                  </Button>
+                  </button>
                   <Menu
                     anchorEl={anchorEl}
                     id="account-menu"
@@ -433,7 +433,7 @@ export default function Header() {
                     </MenuItem>
                     <MenuItem onClick={handleCloseMyAccDrop}>
                       <ListItemIcon>
-                        <Logout fontSize="small" />
+                        {/* <Logout fontSize="small" /> */}
                       </ListItemIcon>
                       Logout
                     </MenuItem>

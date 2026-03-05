@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Button from "@mui/material/Button";
+// import button from "@mui/material/button";
 import { MdDashboard } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { BsFillXDiamondFill } from "react-icons/bs";
@@ -12,7 +12,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { AdminContext } from "../../main";
 import { BiSolidCategory } from "react-icons/bi";
 
-import './index.css'
+import "./index.css";
 
 export default function Sidebar() {
   const [activeTab, setActiveTab] = useState(0);
@@ -30,7 +30,7 @@ export default function Sidebar() {
         <ul>
           <li>
             <Link to="/">
-              <Button
+              <button
                 className={`w-100 ${
                   activeTab === 0 && isToggleSubmenu === true ? "active" : ""
                 }`}
@@ -38,16 +38,16 @@ export default function Sidebar() {
               >
                 <span className="icon">
                   <MdDashboard />
-                </span>
                 Dashboard
+                </span>
                 <span className="arrow">
                   <IoIosArrowForward />
                 </span>
-              </Button>
+              </button>
             </Link>
           </li>
           <li>
-            <Button
+            <button
               className={`w-100 ${
                 activeTab === 1 && isToggleSubmenu ? "active" : ""
               }`}
@@ -60,7 +60,7 @@ export default function Sidebar() {
               <span className="arrow">
                 <IoIosArrowForward />
               </span>
-            </Button>
+            </button>
             <div
               className={`submenuWrapper ${
                 activeTab === 1 && isToggleSubmenu === true
@@ -83,20 +83,21 @@ export default function Sidebar() {
           </li>
           <li>
             <Link to="/categories">
-              <Button className={`w-100 ${activeTab === 2 ? "active" : ""}`}
-              onClick={() => isOpenSubmenu(2)}>
+              <button
+                className={`w-100 ${activeTab === 2 ? "active" : ""}`}
+                onClick={() => isOpenSubmenu(2)}
+              >
                 <span className="icon">
-                <BiSolidCategory />
+                  <BiSolidCategory />
                 </span>
                 Categories
-                <span className="arrow">
-                </span>
-              </Button>
+                <span className="arrow"></span>
+              </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 3 ? "active" : ""}`}>
+              <button className={`w-100 ${activeTab === 3 ? "active" : ""}`}>
                 <span className="icon">
                   <IoCartSharp />
                 </span>
@@ -104,12 +105,12 @@ export default function Sidebar() {
                 <span className="arrow">
                   <IoIosArrowForward />
                 </span>
-              </Button>
+              </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 4 ? "active" : ""}`}>
+              <button className={`w-100 ${activeTab === 4 ? "active" : ""}`}>
                 <span className="icon">
                   <RiMessage2Fill />
                 </span>
@@ -117,12 +118,12 @@ export default function Sidebar() {
                 <span className="arrow">
                   <IoIosArrowForward />
                 </span>
-              </Button>
+              </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 5 ? "active" : ""}`}>
+              <button className={`w-100 ${activeTab === 5 ? "active" : ""}`}>
                 <span className="icon">
                   <IoMdNotifications />
                 </span>
@@ -130,12 +131,12 @@ export default function Sidebar() {
                 <span className="arrow">
                   <IoIosArrowForward />
                 </span>
-              </Button>
+              </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <Button className={`w-100 ${activeTab === 6 ? "active" : ""}`}>
+              <button className={`w-100 ${activeTab === 6 ? "active" : ""}`}>
                 <span className="icon">
                   <IoMdSettings />
                 </span>
@@ -143,7 +144,7 @@ export default function Sidebar() {
                 <span className="arrow">
                   <IoIosArrowForward />
                 </span>
-              </Button>
+              </button>
             </Link>
           </li>
         </ul>
@@ -152,10 +153,10 @@ export default function Sidebar() {
 
         <div className="logoutWrapper">
           <div className="logoutBox">
-            <Button variant="contained">
+            <button variant="contained">
               <IoLogOutOutline />
               Logout
-            </Button>
+            </button>
           </div>
         </div>
       </div>

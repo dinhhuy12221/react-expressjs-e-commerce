@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
+// import button from "@mui/material/button";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { FaArrowTrendDown } from "react-icons/fa6";
@@ -54,9 +54,9 @@ export default function DashboardBox(props) {
         <div className="d-flex align-items-center w-100 bottomEle">
           <h6 className="text-white mb-0 mt-0">Last Month</h6>
           <div className="ms-auto">
-            <Button className="ms-auto toggleIcon" onClick={handleClick}>
+            <button className="ms-auto toggleIcon" onClick={handleClick}>
               <HiOutlineDotsVertical />
-            </Button>
+            </button>
             <Menu
               id="long-menu"
               MenuListProps={{
