@@ -6,8 +6,9 @@ import corsOptions from "./config/corsOptions.js";
 import cookieParser from "cookie-parser";
 import credentials from './middlewares/credentials.js'
 import dbConnect from "./config/dbConnect.js";
-import "dotenv/config";
+import dotenv from "dotenv";
 
+dotenv.config();
 dbConnect();
 
 const app = express();

@@ -5,7 +5,7 @@ class customerController {
   createCustomer = async (req, res) => {
     try {
       const imageResult = await cloudinary.v2.uploader.upload(req.file.path, {
-        folder: "products",
+        folder: `ecommerce/customers/${req.body._id}`,
       });
       // res.json({
       //   url: imageResult.secure_url,
@@ -49,11 +49,9 @@ class customerController {
   updateCustomer = async (req, res) => {
     try {
       const imageResult = await cloudinary.v2.uploader.upload(req.file.path, {
-        folder: "customers",
-      });
-      res.json({
-        url: imageResult.secure_url,
-        public_id: imageResult.public_id,
+        // folder: `ecommerce/customers/${req.body._id}`,
+        public_id: req.body.image.public_id,
+        overwrite: true,
       });
 
       const result = await Customer.findOneAndUpdate(
@@ -71,7 +69,7 @@ class customerController {
         }
       );
 
-      res.status(200).json({ customer: result });
+      res.status(200).json({ message: "Customer updated successfully", customer: result });
     } catch (error) {
       console.log(error);
       res.status(400).json({ message: "Unauthorized", error: error.message });
