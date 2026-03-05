@@ -14,8 +14,15 @@ const customerSchema = Schema(
       type: String,
       ref: "customerAccount",
     },
-    avatar: {
-      type: String,
+    image: {
+      url: {
+        type: String,
+        require: true,
+      },
+      public_id: {
+        type: String,
+        require: true,
+      },
     },
     fullname: {
       type: String,
