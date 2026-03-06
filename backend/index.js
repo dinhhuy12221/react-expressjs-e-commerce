@@ -1,5 +1,5 @@
 import express from "express";
-// import morgan from "morgan"
+import morgan from "morgan"
 import cors from "cors";
 import route from "./routes/index.js";
 import corsOptions from "./config/corsOptions.js";
@@ -25,6 +25,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true }));
+
+app.use(morgan("dev"))
 
 // Database
 
