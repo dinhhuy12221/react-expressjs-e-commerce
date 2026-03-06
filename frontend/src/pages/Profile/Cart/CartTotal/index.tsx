@@ -3,11 +3,8 @@ import { IoCartOutline } from "react-icons/io5";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import useCreateOrderHandler from "~/hooks/create/useCreateOrderHandler";
 import { MyContext } from "~/App";
-
-import "./index.css";
-import { useSelector } from "react-redux";
-import { selectCurrentCustomerId } from "~/features/auth/authSlice";
 import { useGetCustomerQuery } from "~/features/customer/customerApi";
+import "./index.css";
 
 const CartTotal = ({ customerId, carts, selectedIds }) => {
   const { data: customer } = useGetCustomerQuery(customerId)
@@ -40,7 +37,7 @@ const CartTotal = ({ customerId, carts, selectedIds }) => {
   };
 
   useEffect(() => {
-    setAddress(customer.address)
+    if (customer) setAddress(customer.address)
   }, [customer])
 
   useEffect(() => {

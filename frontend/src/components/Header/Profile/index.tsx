@@ -19,18 +19,18 @@ function Profile() {
   const [logout, { isLoading }] = useLogoutMutation();
   const dropboxRef = useRef(null);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropboxRef.current && !dropboxRef.current.contains(event.target)) {
-        setIsActive(false);
-      }
-    }
+  // useEffect(() => {
+  //   function handleClickOutside(event) {
+  //     if (dropboxRef.current && !dropboxRef.current.contains(event.target)) {
+  //       setIsActive(false);
+  //     }
+  //   }
     
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [dropboxRef]);
+  //   document.addEventListener("click", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutside);
+  //   };
+  // }, [dropboxRef]);
 
   const handleLogOut = async () => {
     try {
@@ -39,6 +39,11 @@ function Profile() {
       navigate(0);
     } catch (error) {}
   };
+
+  const handleNavigate = (location: string) => {
+    navigate(location)
+    setIsActive(false)
+  }
 
   useEffect(() => {
     setIsLoading(isLoading);
@@ -58,7 +63,7 @@ function Profile() {
             <>
               <button
                 className="header-profile-dropbox-item"
-                onClick={() => navigate("/profile/information")}
+                onClick={() => handleNavigate("/profile/information")}
               >
                 Profile
               </button>
@@ -72,7 +77,7 @@ function Profile() {
           ) : (
             <button
               className="header-profile-dropbox-item"
-              onClick={() => navigate("/login")}
+              onClick={() => handleNavigate("/login")}
             >
               Signin
             </button>

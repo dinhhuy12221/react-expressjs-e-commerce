@@ -17,7 +17,6 @@ const Cart = () => {
     <section className="profile-cart">
       <div className="profile-cart-header">
         <h2 className="profile-cart-header-title">Your Cart</h2>
-        {/* <p>There are <b>{products.length}</b> products in your cart</p> */}
         <hr />
       </div>
       <div className="profile-cart-content">
