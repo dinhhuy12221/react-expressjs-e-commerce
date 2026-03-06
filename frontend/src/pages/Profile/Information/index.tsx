@@ -20,10 +20,7 @@ const Information = () => {
   const { data: customer } = useGetCustomerQuery(customerId ?? skipToken);
   const [updateCustomer, { isLoading }] = useUpdateCustomerMutation();
   const { setIsLoading } = useContext(MyContext);
-
-  console.log(customer);
   
-
   const [image, setImage] = useState({ url: "", public_id: "" });
   const [imageFile, setImageFile] = useState("");
   const [username, setUsername] = useState("");

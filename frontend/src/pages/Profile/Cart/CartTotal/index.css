@@ -8,6 +8,16 @@
     display: flex;
     justify-content: space-between;
 }
+.cart-total-address {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+}
+.cart-total-address input {
+    padding: var(--space-4);
+    outline: none;
+    border: var(--border-width-1) var(--color-text-red);
+}
 
 .cart-total-checkout-button {
     font-size: var(--font-18);
