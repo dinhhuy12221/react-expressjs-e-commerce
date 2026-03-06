@@ -24,7 +24,7 @@ import Divider from "@mui/material/Divider";
 // import PersonAdd from "@mui/icons-material/PersonAdd";
 // import Settings from "@mui/icons-material/Settings";
 // import Logout from "@mui/icons-material/Logout";
-import { AdminContext } from "../../main";
+import { AdminContext } from "../../App";
 import UserAvatarImg from "../UserAvatarImg";
 
 export default function Header() {
@@ -421,7 +421,8 @@ export default function Header() {
                   >
                     <MenuItem onClick={handleCloseMyAccDrop}>
                       <ListItemIcon>
-                        <PersonAdd fontSize="small" />
+                        {/* <PersonAdd fontSize="small" /> */}
+                        +
                       </ListItemIcon>
                       My Account
                     </MenuItem>

@@ -45,10 +45,10 @@ export default function ProductView() {
   };
 
   const goToSlide = (index) => {
-    if (productSliderBig.current !== null && productSliderSmall.current !== null) {
+    // if (productSliderBig.current !== null && productSliderSmall.current !== null) {
       productSliderBig.current?.slickGoTo(index);
       productSliderSmall.current?.slickGoTo(index);
-    }
+    // }
   };
   return (
     <>

@@ -9,7 +9,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { IoMdSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
-import { AdminContext } from "../../main";
+import { AdminContext } from "../../App";
 import { BiSolidCategory } from "react-icons/bi";
 
 import "./index.css";
@@ -153,7 +153,7 @@ export default function Sidebar() {
 
         <div className="logoutWrapper">
           <div className="logoutBox">
-            <button variant="contained">
+            <button>
               <IoLogOutOutline />
               Logout
             </button>

@@ -9,13 +9,12 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
-import { AdminContext } from "../../main";
+import { AdminContext } from "../../App";
 
 
 import { Link } from "react-router-dom";
 import Breadcrumb from "../../components/Breadcrumb";
 import { MenuItem } from "@mui/material";
-import { Button } from "bootstrap";
 
 function handleClick(event) {
   event.preventDefault();
@@ -231,16 +230,16 @@ export default function Products() {
                   <td>
                     <div className="actions d-flex align-items-center justify-content-center">
                       <Link to={"/products/details"}>
-                        <Button className="secondary" color="secondary">
+                        <button className="secondary" color="secondary">
                           <FaEye />
-                        </Button>
+                        </button>
                       </Link>
-                      <Button className="success" color="success">
+                      <button className="success" color="success">
                         <IoPencil />
-                      </Button>
-                      <Button className="error" color="error">
+                      </button>
+                      <button className="error" color="error">
                         <RiDeleteBin6Fill />
-                      </Button>
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -280,16 +279,16 @@ export default function Products() {
                   <td>
                     <div className="actions d-flex align-items-center justify-content-center">
                       <Link to={"/products/details"}>
-                        <Button className="secondary" color="secondary">
+                        <button className="secondary" color="secondary">
                           <FaEye />
-                        </Button>
+                        </button>
                       </Link>
-                      <Button className="success" color="success">
+                      <button className="success" color="success">
                         <IoPencil />
-                      </Button>
-                      <Button className="error" color="error">
+                      </button>
+                      <button className="error" color="error">
                         <RiDeleteBin6Fill />
-                      </Button>
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -329,16 +328,16 @@ export default function Products() {
                   <td>
                     <div className="actions d-flex align-items-center justify-content-center">
                       <Link to={"/products/details"}>
-                        <Button className="secondary" color="secondary">
+                        <button className="secondary" color="secondary">
                           <FaEye />
-                        </Button>
+                        </button>
                       </Link>
-                      <Button className="success" color="success">
+                      <button className="success" color="success">
                         <IoPencil />
-                      </Button>
-                      <Button className="error" color="error">
+                      </button>
+                      <button className="error" color="error">
                         <RiDeleteBin6Fill />
-                      </Button>
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -378,16 +377,16 @@ export default function Products() {
                   <td>
                     <div className="actions d-flex align-items-center justify-content-center">
                       <Link to={"/products/details"}>
-                        <Button className="secondary" color="secondary">
+                        <button className="secondary" color="secondary">
                           <FaEye />
-                        </Button>
+                        </button>
                       </Link>
-                      <Button className="success" color="success">
+                      <button className="success" color="success">
                         <IoPencil />
-                      </Button>
-                      <Button className="error" color="error">
+                      </button>
+                      <button className="error" color="error">
                         <RiDeleteBin6Fill />
-                      </Button>
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -427,16 +426,16 @@ export default function Products() {
                   <td>
                     <div className="actions d-flex align-items-center justify-content-center">
                       <Link to={"/products/details"}>
-                        <Button className="secondary" color="secondary">
+                        <button className="secondary" color="secondary">
                           <FaEye />
-                        </Button>
+                        </button>
                       </Link>
-                      <Button className="success" color="success">
+                      <button className="success" color="success">
                         <IoPencil />
-                      </Button>
-                      <Button className="error" color="error">
+                      </button>
+                      <button className="error" color="error">
                         <RiDeleteBin6Fill />
-                      </Button>
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -476,16 +475,16 @@ export default function Products() {
                   <td>
                     <div className="actions d-flex align-items-center justify-content-center">
                       <Link to={"/products/details"}>
-                        <Button className="secondary" color="secondary">
+                        <button className="secondary" color="secondary">
                           <FaEye />
-                        </Button>
+                        </button>
                       </Link>
-                      <Button className="success" color="success">
+                      <button className="success" color="success">
                         <IoPencil />
-                      </Button>
-                      <Button className="error" color="error">
+                      </button>
+                      <button className="error" color="error">
                         <RiDeleteBin6Fill />
-                      </Button>
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -525,16 +524,16 @@ export default function Products() {
                   <td>
                     <div className="actions d-flex align-items-center justify-content-center">
                       <Link to={"/products/details"}>
-                        <Button className="secondary" color="secondary">
+                        <button className="secondary" color="secondary">
                           <FaEye />
-                        </Button>
+                        </button>
                       </Link>
-                      <Button className="success" color="success">
+                      <button className="success" color="success">
                         <IoPencil />
-                      </Button>
-                      <Button className="error" color="error">
+                      </button>
+                      <button className="error" color="error">
                         <RiDeleteBin6Fill />
-                      </Button>
+                      </button>
                     </div>
                   </td>
                 </tr>

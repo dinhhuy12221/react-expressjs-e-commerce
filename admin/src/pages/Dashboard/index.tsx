@@ -17,7 +17,7 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
-import { AdminContext } from "../../main";
+import { AdminContext } from "../../App";
 
 const data = [
   ["Year", "Sales", "Expenses"],
