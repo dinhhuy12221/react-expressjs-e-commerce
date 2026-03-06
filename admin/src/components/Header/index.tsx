@@ -49,6 +49,44 @@ export default function Header() {
     setIsOpenNotificationDrop(null);
   };
 
+  const getNotificationItems = () => {
+    let array = [];
+    for (let index = 0; index < 10; index++) {
+      array.push(
+        <MenuItem onClick={handleCloseNotificationsDrop}>
+          <div className="header-notification-content-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+            <div className="dropdownInfo d-flex flex-column justify-content-start ps-3 header-notification-content-main">
+              <h4>
+                <span>
+                  <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                </span>
+              </h4>
+              <p className="text-sky">few seconds ago!</p>
+            </div>
+          </div>
+        </MenuItem>
+      );
+    }
+
+      return (
+        <MenuItem onClick={handleCloseNotificationsDrop}>
+          <div className="header-notification-content-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+            <div className="dropdownInfo d-flex flex-column justify-content-start ps-3 header-notification-content-main">
+              <h4>
+                <span>
+                  <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                </span>
+              </h4>
+              <p className="text-sky">few seconds ago!</p>
+            </div>
+          </div>
+        </MenuItem>
+      );
+    }
+  };
+
   return (
     <header className="header">
       <Link to={"/"} className="header-logo">
@@ -92,7 +130,7 @@ export default function Header() {
             </button>
           </>
         )}
-        <div className="dropDownWrapper">
+        <div className="header-notification">
           <button
             className="rounded-circle"
             onClick={handleOpenNotificationsDrop}
@@ -109,8 +147,8 @@ export default function Header() {
           )}
           <Menu
             anchorEl={isOpenNotificationDrop}
-            className="notifications dropdown_list"
-            id="notifications"
+            className="header-notification-dropdown"
+            // id="notifications"
             open={openNotifications}
             onClose={handleCloseNotificationsDrop}
             slotProps={{
@@ -144,19 +182,16 @@ export default function Header() {
             transformOrigin={{ horizontal: "right", vertical: "top" }}
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
           >
-            <div className="head pt-3 sticky-top">
-              <h4 className="ps-3">Orders (12)</h4>
+            <div className="header-notification-header">
+              <h4>Orders (12)</h4>
             </div>
-            <Divider className="" />
-            <div className="scroll">
+            <Divider />
+            <div className="header-notification-content">
+              {getNotificationItems()}
               <MenuItem onClick={handleCloseNotificationsDrop}>
-                <div className="d-flex">
-                  <div className="userImg">
-                    <span className="rounded-circle">
-                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                    </span>
-                  </div>
-                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                <div className="header-notification-content-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3 header-notification-content-main">
                     <h4>
                       <span>
                         <b>Alue</b> added to her favorite list <b>Vengeance</b>

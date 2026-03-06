@@ -111,7 +111,11 @@ p,
 em {
   color: #403e57;
 }
-
+.rounded-circle {
+    width: 35px !important;
+    height: 35px !important;
+    min-width: 35px !important;
+  }
 body.dark h1,
 body.dark h2,
 body.dark h3,
