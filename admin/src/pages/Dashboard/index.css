@@ -1,13 +1,14 @@
 .dashboard {
-    display: flex;
+    /* display: flex; */
 }
 .dashboard-content {
     display: flex;
+    flex-direction: column;
 }
 .dashboard-content-overview {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .dashboard-content-graph-bottom {
@@ -17,4 +18,11 @@
 
 .dashboard-content-graph-bottom-title {
     color: var(--color-text-white);
+}
+.dashboard-content-graph-bottom-total {
+    color: var(--color-text-white);
+    font-weight: bold;
+}
+.dashboard-content-graph-main {
+
 }

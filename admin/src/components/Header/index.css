@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: var(--space-8);
+}
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+}
+.header-logo img {
+    width: 70px;
+    height: 70px;
+}
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+.header-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}

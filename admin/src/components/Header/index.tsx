@@ -26,6 +26,7 @@ import Divider from "@mui/material/Divider";
 // import Logout from "@mui/icons-material/Logout";
 import { AdminContext } from "../../App";
 import UserAvatarImg from "../UserAvatarImg";
+import "./index.css";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -49,402 +50,376 @@ export default function Header() {
   };
 
   return (
-    <>
-      <header className="d-flex align-items-center">
-        <div className="container-fluid w-100">
-          <div className="row d-flex flex-row align-items-center w-100 ">
-            <div className="col-sm-2 part1">
-              <Link to={"/"} className="logo d-flex align-items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" />
-                <span className="ms-2">HOTASH</span>
-              </Link>
-            </div>
+    <header className="header">
+      <Link to={"/"} className="header-logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" />
+        <span>ADMIN</span>
+      </Link>
 
-            {context.windowWidth > 750 && (
-              <div className="col-sm-3 d-flex align-items-center part2 res-hide">
-                <button
-                  className="rounded-circle"
-                  onClick={() =>
-                    context.setIsToggleSidebar(!context.isToggleSidebar)
-                  }
-                >
-                  {context.isToggleSidebar === false ? (
-                    <MdOutlineMenuOpen />
-                  ) : (
-                    <MdMenu />
-                  )}
-                </button>
-                <SearchBox />
-              </div>
+      {context.windowWidth > 750 && (
+        <div className="header-menu">
+          <button
+            className="rounded-circle"
+            onClick={() => context.setIsToggleSidebar(!context.isToggleSidebar)}
+          >
+            {context.isToggleSidebar === false ? (
+              <MdOutlineMenuOpen />
+            ) : (
+              <MdMenu />
             )}
+          </button>
+          <SearchBox />
+        </div>
+      )}
 
-            <div className="col-sm-7 d-flex align-items-center justify-content-end part3 pe-0">
-              <button
-                className="rounded-circle"
-                onClick={() => context.setThemeMode(!context.themeMode)}
-              >
-                <MdOutlineLightMode />
-              </button>
-              {context.windowWidth > 750 && (
-                <>
-                  <button className="rounded-circle">
-                    <IoGlobeOutline />
-                  </button>
-                  <button className="rounded-circle">
-                    <LuShoppingCart />
-                  </button>
-                  <button className="rounded-circle">
-                    <MdMailOutline />
-                  </button>
-                </>
-              )}
-              <div className="dropDownWrapper">
-                <button
-                  className="rounded-circle"
-                  onClick={handleOpenNotificationsDrop}
-                >
-                  <GoBell />
-                </button>
-                {context.windowWidth <= 750 && (
-                  <button
-                    className="rounded-circle"
-                    onClick={() => context.openNav()}
-                  >
-                    <IoMenu />
-                  </button>
-                )}
-                <Menu
-                  anchorEl={isOpenNotificationDrop}
-                  className="notifications dropdown_list"
-                  id="notifications"
-                  open={openNotifications}
-                  onClose={handleCloseNotificationsDrop}
-                  slotProps={{
-                    paper: {
-                      elevation: 0,
-                      sx: {
-                        overflow: "visible",
-                        filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                        mt: 1.5,
-                        "& .MuiAvatar-root": {
-                          width: 32,
-                          height: 32,
-                          ml: -0.5,
-                          mr: 1,
-                        },
-                        "&::before": {
-                          content: '""',
-                          display: "block",
-                          position: "absolute",
-                          top: 0,
-                          right: 14,
-                          width: 10,
-                          height: 10,
-                          bgcolor: "background.paper",
-                          transform: "translateY(-50%) rotate(45deg)",
-                          zIndex: 0,
-                        },
-                      },
-                    },
-                  }}
-                  transformOrigin={{ horizontal: "right", vertical: "top" }}
-                  anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-                >
-                  <div className="head pt-3 sticky-top">
-                    <h4 className="ps-3">Orders (12)</h4>
+      <div className="col-sm-7 d-flex align-items-center justify-content-end part3 pe-0 header-links">
+        <button
+          className="rounded-circle"
+          onClick={() => context.setThemeMode(!context.themeMode)}
+        >
+          <MdOutlineLightMode />
+        </button>
+        {context.windowWidth > 750 && (
+          <>
+            <button className="rounded-circle">
+              <IoGlobeOutline />
+            </button>
+            <button className="rounded-circle">
+              <LuShoppingCart />
+            </button>
+            <button className="rounded-circle">
+              <MdMailOutline />
+            </button>
+          </>
+        )}
+        <div className="dropDownWrapper">
+          <button
+            className="rounded-circle"
+            onClick={handleOpenNotificationsDrop}
+          >
+            <GoBell />
+          </button>
+          {context.windowWidth <= 750 && (
+            <button
+              className="rounded-circle"
+              onClick={() => context.openNav()}
+            >
+              <IoMenu />
+            </button>
+          )}
+          <Menu
+            anchorEl={isOpenNotificationDrop}
+            className="notifications dropdown_list"
+            id="notifications"
+            open={openNotifications}
+            onClose={handleCloseNotificationsDrop}
+            slotProps={{
+              paper: {
+                elevation: 0,
+                sx: {
+                  overflow: "visible",
+                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  mt: 1.5,
+                  "& .MuiAvatar-root": {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                  },
+                  "&::before": {
+                    content: '""',
+                    display: "block",
+                    position: "absolute",
+                    top: 0,
+                    right: 14,
+                    width: 10,
+                    height: 10,
+                    bgcolor: "background.paper",
+                    transform: "translateY(-50%) rotate(45deg)",
+                    zIndex: 0,
+                  },
+                },
+              },
+            }}
+            transformOrigin={{ horizontal: "right", vertical: "top" }}
+            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          >
+            <div className="head pt-3 sticky-top">
+              <h4 className="ps-3">Orders (12)</h4>
+            </div>
+            <Divider className="" />
+            <div className="scroll">
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
                   </div>
-                  <Divider className="" />
-                  <div className="scroll">
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationsDrop}>
-                      <div className="d-flex">
-                        <div className="userImg">
-                          <span className="rounded-circle">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
-                          </span>
-                        </div>
-                        <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
-                          <h4>
-                            <span>
-                              <b>Alue</b> added to her favorite list{" "}
-                              <b>Vengeance</b>
-                            </span>
-                          </h4>
-                          <p className="text-sky">few seconds ago!</p>
-                        </div>
-                      </div>
-                    </MenuItem>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
                   </div>
-                  <div className="ps-2 pe-2 pt-2 w-100">
-                    <button className="btn-blue w-100">
-                      View all notifications
-                    </button>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
                   </div>
-                </Menu>
-              </div>
-              {context.isLogin === false ? (
-                <Link to={"/login"}>
-                  <button className="btn-blue btn-lg btn-round">Sign in</button>
-                </Link>
-              ) : (
-                <div className="myAccWrapper">
-                  <button
-                    className="myAcc d-flex align-items-center"
-                    onClick={handleOpenMyAccDrop}
-                  >
-                    {/* <UserAvatarImg
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNotificationsDrop}>
+                <div className="d-flex">
+                  <div className="userImg">
+                    <span className="rounded-circle">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+                    </span>
+                  </div>
+                  <div className="dropdownInfo d-flex flex-column justify-content-start ps-3">
+                    <h4>
+                      <span>
+                        <b>Alue</b> added to her favorite list <b>Vengeance</b>
+                      </span>
+                    </h4>
+                    <p className="text-sky">few seconds ago!</p>
+                  </div>
+                </div>
+              </MenuItem>
+            </div>
+            <div className="ps-2 pe-2 pt-2 w-100">
+              <button className="btn-blue w-100">View all notifications</button>
+            </div>
+          </Menu>
+        </div>
+        {context.isLogin === false ? (
+          <Link to={"/login"}>
+            <button className="btn-blue btn-lg btn-round">Sign in</button>
+          </Link>
+        ) : (
+          <div className="myAccWrapper">
+            <button
+              className="myAcc d-flex align-items-center"
+              onClick={handleOpenMyAccDrop}
+            >
+              {/* <UserAvatarImg
                       imgUrl={
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ"
                       }
                     /> */}
 
-                    <div className="userInfo res-hide">
-                      <h4>aLue</h4>
-                      <p className="mb-0">@aLue35</p>
-                    </div>
-                  </button>
-                  <Menu
-                    anchorEl={anchorEl}
-                    id="account-menu"
-                    open={openMyAcc}
-                    onClose={handleCloseMyAccDrop}
-                    //   onClick={handleCloseMyAccDrop}
-                    slotProps={{
-                      paper: {
-                        elevation: 0,
-                        sx: {
-                          overflow: "visible",
-                          filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                          mt: 1.5,
-                          "& .MuiAvatar-root": {
-                            width: 32,
-                            height: 32,
-                            ml: -0.5,
-                            mr: 1,
-                          },
-                          "&::before": {
-                            content: '""',
-                            display: "block",
-                            position: "absolute",
-                            top: 0,
-                            right: 14,
-                            width: 10,
-                            height: 10,
-                            bgcolor: "background.paper",
-                            transform: "translateY(-50%) rotate(45deg)",
-                            zIndex: 0,
-                          },
-                        },
-                      },
-                    }}
-                    transformOrigin={{ horizontal: "right", vertical: "top" }}
-                    anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-                  >
-                    <MenuItem onClick={handleCloseMyAccDrop}>
-                      <ListItemIcon>
-                        {/* <PersonAdd fontSize="small" /> */}
-                        +
-                      </ListItemIcon>
-                      My Account
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseMyAccDrop}>
-                      <ListItemIcon>
-                        <MdLockReset />
-                      </ListItemIcon>
-                      Reset Password
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseMyAccDrop}>
-                      <ListItemIcon>
-                        {/* <Logout fontSize="small" /> */}
-                      </ListItemIcon>
-                      Logout
-                    </MenuItem>
-                  </Menu>
-                </div>
-              )}
-            </div>
+              <div className="userInfo res-hide">
+                <h4>aLue</h4>
+                <p className="mb-0">@aLue35</p>
+              </div>
+            </button>
+            <Menu
+              anchorEl={anchorEl}
+              id="account-menu"
+              open={openMyAcc}
+              onClose={handleCloseMyAccDrop}
+              //   onClick={handleCloseMyAccDrop}
+              slotProps={{
+                paper: {
+                  elevation: 0,
+                  sx: {
+                    overflow: "visible",
+                    filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    mt: 1.5,
+                    "& .MuiAvatar-root": {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    "&::before": {
+                      content: '""',
+                      display: "block",
+                      position: "absolute",
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: "background.paper",
+                      transform: "translateY(-50%) rotate(45deg)",
+                      zIndex: 0,
+                    },
+                  },
+                },
+              }}
+              transformOrigin={{ horizontal: "right", vertical: "top" }}
+              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+              <MenuItem onClick={handleCloseMyAccDrop}>
+                <ListItemIcon>
+                  {/* <PersonAdd fontSize="small" /> */}+
+                </ListItemIcon>
+                My Account
+              </MenuItem>
+              <MenuItem onClick={handleCloseMyAccDrop}>
+                <ListItemIcon>
+                  <MdLockReset />
+                </ListItemIcon>
+                Reset Password
+              </MenuItem>
+              <MenuItem onClick={handleCloseMyAccDrop}>
+                <ListItemIcon>{/* <Logout fontSize="small" /> */}</ListItemIcon>
+                Logout
+              </MenuItem>
+            </Menu>
           </div>
-        </div>
-      </header>
-    </>
+        )}
+      </div>
+    </header>
   );
 }
