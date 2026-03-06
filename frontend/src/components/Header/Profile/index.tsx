@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectCurrentCustomerId } from "~/features/auth/authSlice";
 import { useLogoutMutation } from "~/features/auth/authApi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MyContext } from "~/App";
 
@@ -19,26 +19,31 @@ function Profile() {
   const [logout, { isLoading }] = useLogoutMutation();
   const dropboxRef = useRef(null);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropboxRef.current && !dropboxRef.current.contains(event.target)) {
-        setIsActive(false);
-      }
-    }
+  // useEffect(() => {
+  //   function handleClickOutside(event) {
+  //     if (dropboxRef.current && !dropboxRef.current.contains(event.target)) {
+  //       setIsActive(false);
+  //     }
+  //   }
     
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [dropboxRef]);
+  //   document.addEventListener("click", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutside);
+  //   };
+  // }, [dropboxRef]);
 
   const handleLogOut = async () => {
     try {
       await logout(null).unwrap();
-      dispatch(logOut());
       navigate(0);
+      dispatch(logOut());
     } catch (error) {}
   };
+
+  const handleNavigate = (location: string) => {
+    navigate(location)
+    setIsActive(false)
+  }
 
   useEffect(() => {
     setIsLoading(isLoading);
@@ -58,7 +63,7 @@ function Profile() {
             <>
               <button
                 className="header-profile-dropbox-item"
-                onClick={() => navigate("/profile/information")}
+                onClick={() => handleNavigate("/profile/information")}
               >
                 Profile
               </button>
@@ -72,7 +77,7 @@ function Profile() {
           ) : (
             <button
               className="header-profile-dropbox-item"
-              onClick={() => navigate("/login")}
+              onClick={() => handleNavigate("/login")}
             >
               Signin
             </button>

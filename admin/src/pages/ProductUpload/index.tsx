@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 import { Button } from "@mui/material";
 
 import { MdCloudUpload } from "react-icons/md";
@@ -21,7 +21,7 @@ export default function ProductUpload() {
   const [isFeatured, setIsFeatured] = useState("");
   const [stock, setStock] = useState();
   const [brand, setBrand] = useState("");
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<string[]>([]);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -62,7 +62,7 @@ export default function ProductUpload() {
     if (file) {
       reader.readAsDataURL(file);
       reader.onloadend = () => {
-        setImages([...images, reader.result]);
+        setImages((prev) => [...prev, reader.result as string]);
       };
     } else {
       setImages(images);
@@ -203,7 +203,7 @@ export default function ProductUpload() {
                             <IoCloseSharp />
                           </span>
                           <div className="box">
-                            <img alt={"image"} effect="blur" src={image} />
+                            <img alt={"image"} src={image} />
                           </div>
                         </div>
                       );

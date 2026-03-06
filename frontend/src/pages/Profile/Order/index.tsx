@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
 import { useGetOrdersByCustomerQuery } from "~/features/orders/ordersApi";
 import { useSelector } from "react-redux";
@@ -6,11 +6,17 @@ import { selectCurrentCustomerId } from "~/features/auth/authSlice";
 import OrderItem from "./OrderItem";
 
 import "./index.css";
+import { MyContext } from "~/App";
 
 function Order() {
   const customerId = useSelector(selectCurrentCustomerId);
   const { data, isLoading } = useGetOrdersByCustomerQuery(customerId);
   const orders = data?.data;
+  const { setIsLoading } = useContext(MyContext)
+
+  useEffect(() => {
+    setIsLoading(isLoading)
+  }, [isLoading])
 
   return (
     <div className="order-page">

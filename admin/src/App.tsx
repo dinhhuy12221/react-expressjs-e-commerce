@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // import "./App.css";
 import "./responsive.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
 
-const AdminContext = createContext({});
+const AdminContext = createContext<any>(null);
 
 const App = () => {
   const [isToggleSidebar, setIsToggleSidebar] = useState(false);
@@ -27,7 +27,6 @@ const App = () => {
       document.body.classList.add("dark");
       localStorage.setItem("themeMode", "dark");
     }
-
   }, [themeMode]);
 
   useEffect(() => {
@@ -69,51 +68,50 @@ const App = () => {
   useEffect(() => {}, [isToggleSidebar]);
 
   return (
-      <AdminContext.Provider value={values}>
-        <div className="main d-flex">
-          {isHideSidebarAndHeader === false && <Header />}
-          {isHideSidebarAndHeader === false && (
-            <>
-              <div
-                className={`sidebarOverlay d-none ${
-                  isOpenNav === true && "show"
-                }`}
-                onClick={() => setIsOpenNav(!isOpenNav)}
-              ></div>
-              <div
-                className={`sidebarWrapper ${
-                  isToggleSidebar === true ? "toggle" : ""
-                } ${isOpenNav === true ? "open" : ""}`}
-              >
-                <Sidebar />
-              </div>
-            </>
-          )}
+    <AdminContext.Provider value={values}>
+      <div className="main d-flex">
+        {isHideSidebarAndHeader === false && <Header />}
+        {isHideSidebarAndHeader === false && (
+          <>
+            <div
+              className={`sidebarOverlay d-none ${
+                isOpenNav === true && "show"
+              }`}
+              onClick={() => setIsOpenNav(!isOpenNav)}
+            ></div>
+            <div
+              className={`sidebarWrapper ${
+                isToggleSidebar === true ? "toggle" : ""
+              } ${isOpenNav === true ? "open" : ""}`}
+            >
+              <Sidebar />
+            </div>
+          </>
+        )}
 
-          <div
-            className={`content ${isHideSidebarAndHeader === true && "full"} ${
-              isToggleSidebar === true ? "toggle" : ""
-            }
-             `}
-          >
-            <Routes>
-              {routes &&
-                routes.map((route, index) => {
-                  return (
-                    <Route
-                      // ke={index}
-                      path={route.path}
-                      // exact={route.exact}
-                      element={route.element}
-                    />
-                  );
-                })}
-            </Routes>
-          </div>
+        <div
+          className={`content ${isHideSidebarAndHeader === true && "full"} ${
+            isToggleSidebar === true ? "toggle" : ""
+          }`}
+        >
+          <Routes>
+            {routes &&
+              routes.map((route, index) => {
+                return (
+                  <Route
+                    // ke={index}
+                    path={route.path}
+                    // exact={route.exact}
+                    element={route.element}
+                  />
+                );
+              })}
+          </Routes>
         </div>
-      </AdminContext.Provider>
+      </div>
+    </AdminContext.Provider>
   );
-}
+};
 
 export default App;
 export { AdminContext };

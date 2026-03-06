@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CartList from "./CartList";
 import CartTotal from "./CartTotal";
 
@@ -6,18 +6,23 @@ import { useGetCartByCustomerQuery } from "~/features/cart/cartApi";
 import { useSelector } from "react-redux";
 import { RootState } from "~/app/store";
 import "./index.css";
+import { MyContext } from "~/App";
 
 const Cart = () => {
+  const { setIsLoading } = useContext(MyContext)
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const customerId = useSelector((state: RootState) => state.auth.customerId);
-  const { data } = useGetCartByCustomerQuery(customerId);
+  const { data, isLoading } = useGetCartByCustomerQuery(customerId);
   const carts = data ?? [];
+
+  useEffect(() => {
+    setIsLoading(isLoading)
+  }, [isLoading])
 
   return (
     <section className="profile-cart">
       <div className="profile-cart-header">
         <h2 className="profile-cart-header-title">Your Cart</h2>
-        {/* <p>There are <b>{products.length}</b> products in your cart</p> */}
         <hr />
       </div>
       <div className="profile-cart-content">

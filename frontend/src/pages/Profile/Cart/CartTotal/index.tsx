@@ -3,10 +3,11 @@ import { IoCartOutline } from "react-icons/io5";
 import { getDiscountPrice } from "~/utils/getDiscountPrice";
 import useCreateOrderHandler from "~/hooks/create/useCreateOrderHandler";
 import { MyContext } from "~/App";
-
+import { useGetCustomerQuery } from "~/features/customer/customerApi";
 import "./index.css";
 
 const CartTotal = ({ customerId, carts, selectedIds }) => {
+  const { data: customer } = useGetCustomerQuery(customerId)
   const { handleCreateOrder, ...mutationState } = useCreateOrderHandler();
   const [address, setAddress] = useState("");
   const { setIsLoading } = useContext(MyContext);
@@ -36,6 +37,10 @@ const CartTotal = ({ customerId, carts, selectedIds }) => {
   };
 
   useEffect(() => {
+    if (customer) setAddress(customer.address)
+  }, [customer])
+
+  useEffect(() => {
     setIsLoading(mutationState.isLoading);
   }, [mutationState]);
 
@@ -46,7 +51,7 @@ const CartTotal = ({ customerId, carts, selectedIds }) => {
         <span>Delivery Fee: </span>
         <span className="ms-auto">Free</span>
       </div>
-      <div className="cart-total-location">
+      <div className="cart-total-address">
         <span>Address: </span>
         <input value={address} onChange={e => setAddress(e.target.value)} type={"text"}placeholder="Enter address" />
       </div>

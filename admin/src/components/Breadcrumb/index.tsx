@@ -1,11 +1,12 @@
 import { Breadcrumbs, Chip, emphasize, styled } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
+// import HomeIcon from "@mui/icons-material/Home";
 
 import "./index.css";
 import { Link } from "react-router-dom";
 
 const StyledBreadcrumb = styled(Chip)(({ theme }) => {
-  const backgroundColor = (theme.palette.mode = "#112143");
+  // const backgroundColor = (theme.palette.mode = "#112143");
+  const backgroundColor = "#112143";
   return {
     backgroundColor,
     height: theme.spacing(3),

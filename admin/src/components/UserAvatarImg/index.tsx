@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function UserAvatarImg(props) {
   return (
     <div className={`userImg ${props.lg === "true" && "lg"}`}>

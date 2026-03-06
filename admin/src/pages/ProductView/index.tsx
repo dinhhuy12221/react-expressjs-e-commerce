@@ -1,12 +1,6 @@
-import { emphasize, styled } from "@mui/material/styles";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Chip from "@mui/material/Chip";
-import HomeIcon from "@mui/icons-material/Home";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Rating from "@mui/material/Rating";
 
 import Slider from "react-slick";
-import { ArrowBack } from "@mui/icons-material";
 
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { MdBrandingWatermark } from "react-icons/md";
@@ -21,7 +15,6 @@ import { TiArrowBack } from "react-icons/ti";
 
 import UserAvatarImg from "../../components/UserAvatarImg";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
 import { useRef } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 
@@ -31,8 +24,8 @@ function handleClick(event) {
 }
 
 export default function ProductView() {
-  const productSliderBig = useRef();
-  const productSliderSmall = useRef();
+  const productSliderBig = useRef<Slider | null>(null);
+  const productSliderSmall = useRef<Slider | null>(null);
 
   var productSliderOptions = {
     dots: false,
@@ -52,8 +45,10 @@ export default function ProductView() {
   };
 
   const goToSlide = (index) => {
-    productSliderBig.current.slickGoTo(index);
-    productSliderSmall.current.slickGoTo(index);
+    // if (productSliderBig.current !== null && productSliderSmall.current !== null) {
+      productSliderBig.current?.slickGoTo(index);
+      productSliderSmall.current?.slickGoTo(index);
+    // }
   };
   return (
     <>
