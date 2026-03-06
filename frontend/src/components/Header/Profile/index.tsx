@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectCurrentCustomerId } from "~/features/auth/authSlice";
 import { useLogoutMutation } from "~/features/auth/authApi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MyContext } from "~/App";
 
@@ -35,8 +35,8 @@ function Profile() {
   const handleLogOut = async () => {
     try {
       await logout(null).unwrap();
-      dispatch(logOut());
       navigate(0);
+      dispatch(logOut());
     } catch (error) {}
   };
 

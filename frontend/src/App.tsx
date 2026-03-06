@@ -110,8 +110,8 @@ function App() {
             </Route>
           </Routes>
           {isOpenProductModal === true && <Modal />}
-        </MyContext.Provider>
         <ScrollToTop />
+        </MyContext.Provider>
       </>
   );
 }
