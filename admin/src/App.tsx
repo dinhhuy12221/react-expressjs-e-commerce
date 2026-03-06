@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-// import "./App.css";
+import "./index.css";
 import "./responsive.css";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import { createContext, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -69,18 +68,18 @@ const App = () => {
 
   return (
     <AdminContext.Provider value={values}>
-      <div className="main d-flex">
+      <div className="sidebar">
         {isHideSidebarAndHeader === false && <Header />}
         {isHideSidebarAndHeader === false && (
           <>
             <div
-              className={`sidebarOverlay d-none ${
+              className={`sidebar-overlay ${
                 isOpenNav === true && "show"
               }`}
               onClick={() => setIsOpenNav(!isOpenNav)}
             ></div>
             <div
-              className={`sidebarWrapper ${
+              className={`sidebar-wrapper ${
                 isToggleSidebar === true ? "toggle" : ""
               } ${isOpenNav === true ? "open" : ""}`}
             >
@@ -90,7 +89,7 @@ const App = () => {
         )}
 
         <div
-          className={`content ${isHideSidebarAndHeader === true && "full"} ${
+          className={`sidebar-content ${isHideSidebarAndHeader === true && "full"} ${
             isToggleSidebar === true ? "toggle" : ""
           }`}
         >

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DashboardBox from "./components/DashboardBox";
 import { FaUserCircle } from "react-icons/fa";
 import { RiShoppingCart2Fill } from "react-icons/ri";
@@ -18,6 +18,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
 import { AdminContext } from "../../App";
+
+import "./index.css";
 
 const data = [
   ["Year", "Sales", "Expenses"],
@@ -78,37 +80,34 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="right-content">
-        <div className="row dashboardBoxWrapperRow">
-          <div className="col-md-8">
-            <div className="dashboardBoxWrapper d-flex ">
-              <DashboardBox
-                color={["#1da256", "#48d483"]}
-                icon={<FaUserCircle />}
-                grow={true}
-              />
-              <DashboardBox
-                color={["#c012e2", "#eb64fe"]}
-                icon={<RiShoppingCart2Fill />}
-                grow={false}
-              />
-              <DashboardBox
-                color={["#2c78e5", "#60aff5"]}
-                icon={<IoBagHandleSharp />}
-                grow={true}
-              />
-              <DashboardBox
-                color={["#e1950e", "#f3cd29"]}
-                icon={<MdOutlineStar />}
-                grow={false}
-              />
-            </div>
+      <div className="dashboard">
+        <div className="dashboard-content">
+          <div className="dashboard-content-overview">
+            <DashboardBox
+              color={["#1da256", "#48d483"]}
+              icon={<FaUserCircle />}
+              grow={true}
+            />
+            <DashboardBox
+              color={["#c012e2", "#eb64fe"]}
+              icon={<RiShoppingCart2Fill />}
+              grow={false}
+            />
+            <DashboardBox
+              color={["#2c78e5", "#60aff5"]}
+              icon={<IoBagHandleSharp />}
+              grow={true}
+            />
+            <DashboardBox
+              color={["#e1950e", "#f3cd29"]}
+              icon={<MdOutlineStar />}
+              grow={false}
+            />
           </div>
 
-          <div className="col-md-4 topPart2">
-            <div className="box graphBox">
-              <div className="d-flex align-items-center w-100 bottomEle">
-                <h6 className="text-white mb-0 mt-0">Total Sales</h6>
+          <div className="dashboard-content-graph">
+              <div className="d-flex align-items-center w-100 bottomEle dashboard-content-graph-bottom">
+                <h6 className="text-white mb-0 mt-0 dashboard-content-graph-bottom-title">Total Sales</h6>
                 <div className="ms-auto">
                   <Button className="ms-auto toggleIcon" onClick={handleClick}>
                     <HiOutlineDotsVertical />
@@ -152,7 +151,6 @@ const Dashboard = () => {
                 options={options2}
               />
             </div>
-          </div>
         </div>
 
         <div className="card row shadow border-0 mt-4 p-3 tableWrapper">
@@ -566,6 +564,6 @@ const Dashboard = () => {
       </div>
     </>
   );
-}
+};
 
-export default Dashboard
+export default Dashboard;
