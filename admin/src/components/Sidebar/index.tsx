@@ -48,7 +48,7 @@ export default function Sidebar() {
               >
                   <MdDashboard />
                   Dashboard
-                  <IoIosArrowForward />
+                  <IoIosArrowForward className="sidebar-item-arrow" />
               </button>
             </Link>
           </li>
@@ -61,16 +61,13 @@ export default function Sidebar() {
             >
                 <BsFillXDiamondFill />
               Products
-                <IoIosArrowForward />
+                <IoIosArrowForward className="sidebar-item-arrow" />
             </button>
-            <div
-              className={`sidebar-menu ${
+              <ul className={`sidebar-item-menu ${
                 activeTab === 1 && isToggleSubmenu === true
                   ? "collapse"
                   : "collapsed"
-              }`}
-            >
-              <ul className="sidebar-menu-submenu">
+              }`}>
                 <li>
                   <Link to="/products">Product List</Link>
                 </li>
@@ -81,7 +78,6 @@ export default function Sidebar() {
                   <Link to="/product/upload">Product Upload</Link>
                 </li>
               </ul>
-            </div>
           </li>
           <li>
             <Link to="/categories">
@@ -92,7 +88,7 @@ export default function Sidebar() {
                   <BiSolidCategory />
                 Categories
                 
-                <IoIosArrowForward />
+                <IoIosArrowForward className="sidebar-item-arrow" />
               </button>
             </Link>
           </li>
@@ -101,7 +97,7 @@ export default function Sidebar() {
               <button className={`sidebar-item ${activeTab === 3 ? "active" : ""}`}>
                   <IoCartSharp />
                 Orders
-                  <IoIosArrowForward />
+                  <IoIosArrowForward className="sidebar-item-arrow" />
               </button>
             </Link>
           </li>
@@ -110,7 +106,7 @@ export default function Sidebar() {
               <button className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}>
                   <RiMessage2Fill />
                 Messages
-                  <IoIosArrowForward />
+                  <IoIosArrowForward className="sidebar-item-arrow" />
               </button>
             </Link>
           </li>
@@ -119,7 +115,7 @@ export default function Sidebar() {
               <button className={`sidebar-item ${activeTab === 5 ? "active" : ""}`}>
                   <IoMdNotifications />
                 Notifications
-                  <IoIosArrowForward />
+                  <IoIosArrowForward className="sidebar-item-arrow" />
               </button>
             </Link>
           </li>
@@ -128,7 +124,7 @@ export default function Sidebar() {
               <button className={`sidebar-item ${activeTab === 6 ? "active" : ""}`}>
                   <IoMdSettings />
                 Settings
-                  <IoIosArrowForward />
+                  <IoIosArrowForward className="sidebar-item-arrow" />
               </button>
             </Link>
           </li>
