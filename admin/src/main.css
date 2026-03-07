@@ -15,12 +15,14 @@
   --color-bg-gray-2: #edeef5;
   --color-bg-yellow: #ffdd46;
   --color-bg-blue-1: #0858f7;
+  --color-bg-black-1: #12254e;
   --color-text-red-1: #f92b2b;
   --color-text-white: #fff;
   --color-text-gray-1: #cecccc;
   --color-text-gray-2: #edeef5;
   --color-text-black: #000000;
   --color-text-black-muted: rgba(0, 0, 0, 0.7);
+  --color-text-black-1: #292929;
   --color-text-success: #16b858;
   --color-text-red: var(--color-bg-red-1);
   --color-text-red-muted: var(--color-bg-red-2);
@@ -498,7 +500,7 @@ body.dark .dropdown_list li.MuiButtonBase-root {
 
 /* ---------------- Sidebar --------------------- */
 
-.main .sidebarWrapper {
+/* .main .sidebarWrapper {
   width: 30%;
   flex: 0 0 18%;
   transition: all 0.3s ease-in-out;
@@ -525,7 +527,7 @@ body.dark .dropdown_list li.MuiButtonBase-root {
 
 .sidebarOverlay.show {
   display: block !important;
-}
+} */
 
 .logoutWrapper {
   padding: 0px 25px;

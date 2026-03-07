@@ -69,7 +69,7 @@ const App = () => {
   return (
     <AdminContext.Provider value={values}>
       <div className="sidebar">
-        {isHideSidebarAndHeader === false && <Header />}
+        {/* {isHideSidebarAndHeader === false && <Header />}
         {isHideSidebarAndHeader === false && (
           <>
             <div
@@ -82,11 +82,11 @@ const App = () => {
               className={`sidebar-wrapper ${
                 isToggleSidebar === true ? "toggle" : ""
               } ${isOpenNav === true ? "open" : ""}`}
-            >
+            > */}
               <Sidebar />
-            </div>
-          </>
-        )}
+            {/* </div>
+          </> */}
+        {/* )} */}
 
         <div
           className={`sidebar-content ${isHideSidebarAndHeader === true && "full"} ${
