@@ -26,15 +26,14 @@ export default function Sidebar() {
   };
   return (
     <div className="sidebar">
-      {context.isHideSidebarAndHeader === false && <Header />}
       {context.isHideSidebarAndHeader === false && (
         <div>
-          <div
+          <button
             className={`sidebar-overlay ${
               context.isOpenNav === true && "show"
             }`}
             onClick={() => context.setIsOpenNav(!context.isOpenNav)}
-          ></div>
+          ></button>
           <div
             className={`sidebar-wrapper ${
               context.isToggleSidebar === true ? "toggle" : ""
@@ -44,7 +43,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/">
                   <button
-                    className={`w-100 ${
+                    className={`${
                       activeTab === 0 && isToggleSubmenu === true
                         ? "active"
                         : ""
@@ -63,7 +62,7 @@ export default function Sidebar() {
               </li>
               <li>
                 <button
-                  className={`w-100 ${
+                  className={`${
                     activeTab === 1 && isToggleSubmenu ? "active" : ""
                   }`}
                   onClick={() => isOpenSubmenu(1)}
@@ -99,7 +98,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/categories">
                   <button
-                    className={`w-100 ${activeTab === 2 ? "active" : ""}`}
+                    className={`${activeTab === 2 ? "active" : ""}`}
                     onClick={() => isOpenSubmenu(2)}
                   >
                     <span className="icon">
@@ -113,7 +112,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/">
                   <button
-                    className={`w-100 ${activeTab === 3 ? "active" : ""}`}
+                    className={`${activeTab === 3 ? "active" : ""}`}
                   >
                     <span className="icon">
                       <IoCartSharp />
@@ -128,7 +127,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/">
                   <button
-                    className={`w-100 ${activeTab === 4 ? "active" : ""}`}
+                    className={`${activeTab === 4 ? "active" : ""}`}
                   >
                     <span className="icon">
                       <RiMessage2Fill />
@@ -143,7 +142,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/">
                   <button
-                    className={`w-100 ${activeTab === 5 ? "active" : ""}`}
+                    className={`${activeTab === 5 ? "active" : ""}`}
                   >
                     <span className="icon">
                       <IoMdNotifications />
@@ -158,7 +157,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/">
                   <button
-                    className={`w-100 ${activeTab === 6 ? "active" : ""}`}
+                    className={`${activeTab === 6 ? "active" : ""}`}
                   >
                     <span className="icon">
                       <IoMdSettings />

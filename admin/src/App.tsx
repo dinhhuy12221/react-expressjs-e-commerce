@@ -68,46 +68,25 @@ const App = () => {
 
   return (
     <AdminContext.Provider value={values}>
-      <div className="sidebar">
-        {/* {isHideSidebarAndHeader === false && <Header />}
-        {isHideSidebarAndHeader === false && (
-          <>
-            <div
-              className={`sidebar-overlay ${
-                isOpenNav === true && "show"
-              }`}
-              onClick={() => setIsOpenNav(!isOpenNav)}
-            ></div>
-            <div
-              className={`sidebar-wrapper ${
-                isToggleSidebar === true ? "toggle" : ""
-              } ${isOpenNav === true ? "open" : ""}`}
-            > */}
-              <Sidebar />
-            {/* </div>
-          </> */}
-        {/* )} */}
-
-        <div
-          className={`sidebar-content ${isHideSidebarAndHeader === true && "full"} ${
-            isToggleSidebar === true ? "toggle" : ""
-          }`}
-        >
-          <Routes>
-            {routes &&
-              routes.map((route, index) => {
-                return (
-                  <Route
-                    // ke={index}
-                    path={route.path}
-                    // exact={route.exact}
-                    element={route.element}
-                  />
-                );
-              })}
-          </Routes>
-        </div>
-      </div>
+       <Header />
+      <Sidebar />
+      {/* <div
+        className={`sidebar-content ${
+          isHideSidebarAndHeader === true && "full"
+        } ${isToggleSidebar === true ? "toggle" : ""}`}
+      > */}
+        <Routes>
+          {routes &&
+            routes.map((route, index) => {
+              return (
+                <Route
+                  path={route.path}
+                  element={route.element}
+                />
+              );
+            })}
+        </Routes>
+      {/* </div> */}
     </AdminContext.Provider>
   );
 };

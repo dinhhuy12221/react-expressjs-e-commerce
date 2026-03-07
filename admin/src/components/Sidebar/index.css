@@ -9,12 +9,12 @@
 }
 
 .sidebar-wrapper.open {
-  left: 0px !important;
-  opacity: 1 !important;
+  left: 0px;
+  opacity: 1;
 }
 
 .sidebar-overlay {
-  position: fixed;
+  /* position: fixed; */
   top: 0px;
   left: 0px;
   width: 100%;
@@ -24,7 +24,7 @@
 }
 
 .sidebar-overlay.show {
-  display: block !important;
+  display: block;
 }
 
 .toggle .sidebar {
@@ -33,13 +33,11 @@
 }
 
 .sidebar {
-  /* position: sticky; */
-  position: relative !important;
-  width: 100% !important;
-  top: 67px !important;
+  position: relative;
+  width: 100%;
+  top: 67px;
   height: fit-content;
   max-height: calc(100% - 70px);
-  position: fixed;
   top: 70px;
   left: 0px;
   background: #fff;
@@ -47,13 +45,14 @@
   overflow-x: hidden;
   padding-bottom: 40px;
   transition: all 0.3s ease-in-out;
+  z-index: 999;
 
   /* &:-webkit-scrollbar {
-    width: 3px !important;
+    width: 3px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: transparent !important;
+    background: transparent;
   } */
 }
 .sidebar ul {
@@ -64,17 +63,17 @@
   list-style: none;
 
   button {
-    color: #5e5d72 !important;
-    background: #fff !important;
-    border-radius: 5px !important;
-    padding: 12px 0px 12px 15px !important;
-    font-weight: 700 !important;
-    font-size: 15px !important;
-    text-transform: capitalize !important;
-    font-family: "Open Sans", sans-serif !important;
+    color: #5e5d72;
+    background: #fff;
+    border-radius: 5px;
+    padding: 12px 0px 12px 15px;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-family: "Open Sans", sans-serif;
 
     * {
-      color: #5e5d72 !important;
+      color: #5e5d72;
     }
 
     .icon {
@@ -84,7 +83,7 @@
       width: 25px;
       height: 25px;
       margin-right: 10px;
-      font-weight: 600 !important;
+      font-weight: 600;
     }
 
     .arrow {
@@ -99,11 +98,11 @@
     }
 
     &:hover {
-      background: #f1f1f1 !important;
+      background: #f1f1f1;
     }
 
     &.active {
-      background: #f1f1f1 !important;
+      background: #f1f1f1;
 
       .arrow {
         transform: rotate(90deg);
@@ -112,29 +111,29 @@
   }
 
   .submenu {
-    padding: 0px 0px 0px 27px !important;
+    padding: 0px 0px 0px 27px;
     overflow: hidden;
 
     li {
       width: 100%;
       list-style: none;
-      padding: 10px 0px !important;
+      padding: 10px 0px;
       border-left: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 5px 5px 5px 25px !important;
+      padding: 5px 5px 5px 25px;
 
       a {
-        color: #5e5d72 !important;
+        color: #5e5d72;
         text-decoration: none;
         display: block;
-        font-size: 14px !important;
-        font-weight: 500 !important;
+        font-size: 14px;
+        font-weight: 500;
         transition: all 0.3s ease-in-out;
       }
 
       &:hover {
-        border-left: 1px solid #0858f7 !important;
+        border-left: 1px solid #0858f7;
         a {
-          color: #0858f7 !important;
+          color: #0858f7;
         }
       }
     }
@@ -143,7 +142,7 @@
 
 .submenuWrapper {
   .submenu {
-    transition: 0.3s ease-in-out !important;
+    transition: 0.3s ease-in-out;
   }
 
   &.collapsed .submenu {
@@ -158,36 +157,36 @@
    .sidebar ul li button .icon svg {
     color: #000;
     opacity: 0.7;
-    font-size: 20px !important;
+    font-size: 20px;
   } */
 
 body.dark .sidebar {
-  background: #12254e !important;
+  background: #12254e;
 
   ul {
     li {
       button {
-        background: #12254e !important;
-        color: #fff !important;
-        opacity: 0.9 !important;
+        background: #12254e;
+        color: #fff;
+        opacity: 0.9;
 
         &:hover {
-          background: rgba(255, 255, 255, 0.1) !important;
+          background: rgba(255, 255, 255, 0.1);
         }
 
         &.active {
-          background: rgba(255, 255, 255, 0.1) !important;
+          background: rgba(255, 255, 255, 0.1);
         }
       }
 
       .submenu {
         li {
           a {
-            color: rgba(255, 255, 255, 0.5) !important;
+            color: rgba(255, 255, 255, 0.5);
           }
 
           &:hover a {
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: rgba(255, 255, 255, 0.9);
           }
         }
       }
