@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     padding: var(--space-8);
+    padding-right: var(--space-30);
 }
 .header-logo {
     display: flex;
@@ -21,6 +22,7 @@
     display: flex;
     align-items: center;
     margin-left: auto;
+    gap: var(--space-8);
 }
 .header-notification-dropdown {
 }
@@ -44,4 +46,22 @@
 .header-notification-content-main {
     display: flex;
     flex-direction: column;
+}
+.header-notification-dropdown-buttons {
+    display: flex;
+}
+.header-notification-dropdown-buttons-view {
+    width: 100%;
+    color: var(--color-text-white);
+    background: var(--color-bg-blue-1);
+    padding: var(--space-8);
+    border: none;
+}
+.header-login-button {
+    color: var(--color-text-white) !important;
+}
+.header-profile-info {
+    display: flex;
+    align-items: center;
+    background: var(--color-bg-blue-1);
 }

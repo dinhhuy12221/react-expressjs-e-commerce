@@ -144,7 +144,7 @@ const Dashboard = () => {
               <h3 className="dashboard-content-graph-bottom-total">$3,333,333.33</h3>
               <p>$3,123.45 is last Month</p>
               <Chart
-                className="dashboard-content-graph-google"
+                className="dashboard-content-graph-main"
                 chartType="AreaChart"
                 width="100%"
                 height="180px"
