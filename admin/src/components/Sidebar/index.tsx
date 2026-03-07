@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-// import button from "@mui/material/button";
+import { useState, useContext } from "react";
 import { MdDashboard } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { BsFillXDiamondFill } from "react-icons/bs";
@@ -25,50 +24,53 @@ export default function Sidebar() {
     setIsToggleSubmenu(!isToggleSubmenu);
   };
   return (
-    <>
-      <div className="sidebar">
+    // <div className="sidebar">
+    //   {/* {context.isHideSidebarAndHeader === false && ( */}
+    //   <button
+    //         className={`sidebar-overlay ${
+    //           context.isOpenNav === true && "show"
+    //         }`}
+    //         onClick={() => context.setIsOpenNav(!context.isOpenNav)}
+    //       >aaa</button>
+      <div
+        className={`sidebar${
+          context.isToggleSidebar === true ? " toggle" : ""
+        } ${context.isOpenNav === true ? " open" : ""}`}
+      >
         <ul>
           <li>
             <Link to="/">
               <button
-                className={`w-100 ${
+                className={`sidebar-item ${
                   activeTab === 0 && isToggleSubmenu === true ? "active" : ""
                 }`}
                 onClick={() => isOpenSubmenu(0)}
               >
-                <span className="icon">
                   <MdDashboard />
-                Dashboard
-                </span>
-                <span className="arrow">
+                  Dashboard
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
           <li>
             <button
-              className={`w-100 ${
+              className={`sidebar-item ${
                 activeTab === 1 && isToggleSubmenu ? "active" : ""
               }`}
               onClick={() => isOpenSubmenu(1)}
             >
-              <span className="icon">
                 <BsFillXDiamondFill />
-              </span>
               Products
-              <span className="arrow">
                 <IoIosArrowForward />
-              </span>
             </button>
             <div
-              className={`submenuWrapper ${
+              className={`sidebar-menu ${
                 activeTab === 1 && isToggleSubmenu === true
-                  ? "colapse"
-                  : "colapsed"
+                  ? "collapse"
+                  : "collapsed"
               }`}
             >
-              <ul className="submenu">
+              <ul className="sidebar-menu-submenu">
                 <li>
                   <Link to="/products">Product List</Link>
                 </li>
@@ -84,66 +86,49 @@ export default function Sidebar() {
           <li>
             <Link to="/categories">
               <button
-                className={`w-100 ${activeTab === 2 ? "active" : ""}`}
+                className={`sidebar-item ${activeTab === 2 ? "active" : ""}`}
                 onClick={() => isOpenSubmenu(2)}
               >
-                <span className="icon">
                   <BiSolidCategory />
-                </span>
                 Categories
-                <span className="arrow"></span>
+                
+                <IoIosArrowForward />
               </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <button className={`w-100 ${activeTab === 3 ? "active" : ""}`}>
-                <span className="icon">
+              <button className={`sidebar-item ${activeTab === 3 ? "active" : ""}`}>
                   <IoCartSharp />
-                </span>
                 Orders
-                <span className="arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <button className={`w-100 ${activeTab === 4 ? "active" : ""}`}>
-                <span className="icon">
+              <button className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}>
                   <RiMessage2Fill />
-                </span>
                 Messages
-                <span className="arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <button className={`w-100 ${activeTab === 5 ? "active" : ""}`}>
-                <span className="icon">
+              <button className={`sidebar-item ${activeTab === 5 ? "active" : ""}`}>
                   <IoMdNotifications />
-                </span>
                 Notifications
-                <span className="arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <button className={`w-100 ${activeTab === 6 ? "active" : ""}`}>
-                <span className="icon">
+              <button className={`sidebar-item ${activeTab === 6 ? "active" : ""}`}>
                   <IoMdSettings />
-                </span>
                 Settings
-                <span className="arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
@@ -151,15 +136,14 @@ export default function Sidebar() {
 
         <br />
 
-        <div className="logoutWrapper">
-          <div className="logoutBox">
-            <button>
-              <IoLogOutOutline />
-              Logout
-            </button>
-          </div>
+        <div className="sidebar-logout">
+          <button>
+            <IoLogOutOutline />
+            Logout
+          </button>
         </div>
-      </div>
-    </>
+      {/* </div> */}
+      {/* )} */}
+    </div>
   );
 }

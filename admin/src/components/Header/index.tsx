@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 // import button from "@mui/material/button";
-import { MdMenu } from "react-icons/md";
+import { MdExitToApp, MdMenu } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import { MdOutlineMenuOpen } from "react-icons/md";
 import SearchBox from "../SearchBox";
@@ -27,6 +27,7 @@ import Divider from "@mui/material/Divider";
 import { AdminContext } from "../../App";
 import UserAvatarImg from "../UserAvatarImg";
 import "./index.css";
+import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -53,7 +54,7 @@ export default function Header() {
     return new Array(10).fill(
       <MenuItem onClick={handleCloseNotificationsDrop}>
         <div className="header-notification-content-item">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+          <img src="/public/logo192.png" />
           <div className="dropdownInfo d-flex flex-column justify-content-start ps-3 header-notification-content-main">
             <h4>
               <span>
@@ -69,11 +70,6 @@ export default function Header() {
 
   return (
     <header className="header">
-      <Link to={"/"} className="header-logo">
-        <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" />
-        <span>ADMIN</span>
-      </Link>
-
       {context.windowWidth > 750 && (
         <div className="header-menu">
           <button
@@ -86,9 +82,14 @@ export default function Header() {
               <MdMenu />
             )}
           </button>
-          <SearchBox />
         </div>
       )}
+      <Link to={"/"} className="header-logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" />
+        <span>ADMIN</span>
+      </Link>
+
+      <SearchBox />
 
       <div className="header-links">
         <button
@@ -203,6 +204,7 @@ export default function Header() {
               </div> */}
             </button>
             <Menu
+              className="header-profile-dropdown"
               anchorEl={anchorEl}
               id="account-menu"
               open={openMyAcc}
@@ -239,20 +241,25 @@ export default function Header() {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem onClick={handleCloseMyAccDrop}>
-                <ListItemIcon>
-                  {/* <PersonAdd fontSize="small" /> */}+
-                </ListItemIcon>
+              <MenuItem
+                className="header-profile-dropdown-item"
+                onClick={handleCloseMyAccDrop}
+              >
+                <CgProfile />
                 My Account
               </MenuItem>
-              <MenuItem onClick={handleCloseMyAccDrop}>
-                <ListItemIcon>
-                  <MdLockReset />
-                </ListItemIcon>
+              <MenuItem
+                className="header-profile-dropdown-item"
+                onClick={handleCloseMyAccDrop}
+              >
+                <MdLockReset />
                 Reset Password
               </MenuItem>
-              <MenuItem onClick={handleCloseMyAccDrop}>
-                <ListItemIcon>{/* <Logout fontSize="small" /> */}</ListItemIcon>
+              <MenuItem
+                className="header-profile-dropdown-item"
+                onClick={handleCloseMyAccDrop}
+              >
+                <MdExitToApp />
                 Logout
               </MenuItem>
             </Menu>

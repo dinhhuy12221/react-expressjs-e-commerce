@@ -1,9 +1,10 @@
 import { FaSearch } from "react-icons/fa";
+import "./index.css"
 
 export default function index() {
   return (
-    <div className="searchBox position-relative d-flex align-items-center">
-      <FaSearch className="me-2" />
+    <div className="searchbox">
+      <FaSearch />
       <input type="text" placeholder="Search here..." />
     </div>
   );
