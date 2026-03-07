@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 // import button from "@mui/material/button";
-import { MdMenu } from "react-icons/md";
+import { MdExitToApp, MdMenu } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import { MdOutlineMenuOpen } from "react-icons/md";
 import SearchBox from "../SearchBox";
@@ -27,6 +27,7 @@ import Divider from "@mui/material/Divider";
 import { AdminContext } from "../../App";
 import UserAvatarImg from "../UserAvatarImg";
 import "./index.css";
+import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -203,6 +204,7 @@ export default function Header() {
               </div> */}
             </button>
             <Menu
+            className="header-profile-dropdown"
               anchorEl={anchorEl}
               id="account-menu"
               open={openMyAcc}
@@ -239,21 +241,15 @@ export default function Header() {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem onClick={handleCloseMyAccDrop}>
-                <ListItemIcon>
-                  {/* <PersonAdd fontSize="small" /> */}+
-                </ListItemIcon>
-                My Account
+              <MenuItem className="header-profile-dropdown-item" onClick={handleCloseMyAccDrop}>
+                <CgProfile />My Account
               </MenuItem>
-              <MenuItem onClick={handleCloseMyAccDrop}>
-                <ListItemIcon>
-                  <MdLockReset />
-                </ListItemIcon>
-                Reset Password
+              <MenuItem className="header-profile-dropdown-item" onClick={handleCloseMyAccDrop}>
+                    <MdLockReset />
+                  Reset Password
               </MenuItem>
-              <MenuItem onClick={handleCloseMyAccDrop}>
-                <ListItemIcon>{/* <Logout fontSize="small" /> */}</ListItemIcon>
-                Logout
+              <MenuItem className="header-profile-dropdown-item" onClick={handleCloseMyAccDrop}>
+                <MdExitToApp />Logout
               </MenuItem>
             </Menu>
           </div>
