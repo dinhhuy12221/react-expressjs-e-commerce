@@ -117,7 +117,7 @@
         transition: 0.3s ease-in-out !important;
       }
 
-      &.colapsed .submenu {
+      &.collapsed .submenu {
         height: 0px;
         opacity: 0;
         height: auto;

@@ -54,7 +54,7 @@ export default function Header() {
     return new Array(10).fill(
       <MenuItem onClick={handleCloseNotificationsDrop}>
         <div className="header-notification-content-item">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s" />
+          <img src="/public/logo192.png" />
           <div className="dropdownInfo d-flex flex-column justify-content-start ps-3 header-notification-content-main">
             <h4>
               <span>
@@ -70,11 +70,6 @@ export default function Header() {
 
   return (
     <header className="header">
-      <Link to={"/"} className="header-logo">
-        <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" />
-        <span>ADMIN</span>
-      </Link>
-
       {context.windowWidth > 750 && (
         <div className="header-menu">
           <button
@@ -87,9 +82,14 @@ export default function Header() {
               <MdMenu />
             )}
           </button>
-          <SearchBox />
         </div>
       )}
+      <Link to={"/"} className="header-logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" />
+        <span>ADMIN</span>
+      </Link>
+
+      <SearchBox />
 
       <div className="header-links">
         <button
@@ -204,7 +204,7 @@ export default function Header() {
               </div> */}
             </button>
             <Menu
-            className="header-profile-dropdown"
+              className="header-profile-dropdown"
               anchorEl={anchorEl}
               id="account-menu"
               open={openMyAcc}
@@ -241,15 +241,26 @@ export default function Header() {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem className="header-profile-dropdown-item" onClick={handleCloseMyAccDrop}>
-                <CgProfile />My Account
+              <MenuItem
+                className="header-profile-dropdown-item"
+                onClick={handleCloseMyAccDrop}
+              >
+                <CgProfile />
+                My Account
               </MenuItem>
-              <MenuItem className="header-profile-dropdown-item" onClick={handleCloseMyAccDrop}>
-                    <MdLockReset />
-                  Reset Password
+              <MenuItem
+                className="header-profile-dropdown-item"
+                onClick={handleCloseMyAccDrop}
+              >
+                <MdLockReset />
+                Reset Password
               </MenuItem>
-              <MenuItem className="header-profile-dropdown-item" onClick={handleCloseMyAccDrop}>
-                <MdExitToApp />Logout
+              <MenuItem
+                className="header-profile-dropdown-item"
+                onClick={handleCloseMyAccDrop}
+              >
+                <MdExitToApp />
+                Logout
               </MenuItem>
             </Menu>
           </div>
