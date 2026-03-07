@@ -170,14 +170,18 @@ export default function Header() {
               {getNotificationItems().map((item) => item)}
             </div>
             <div className="header-notification-dropdown-buttons">
-              <button className="header-notification-dropdown-buttons-view">View all notifications</button>
+              <button className="header-notification-dropdown-buttons-view">
+                View all notifications
+              </button>
             </div>
           </Menu>
         </div>
         {context.isLogin === false ? (
           <div className="header-login">
             <Link to={"/login"}>
-              <button className="header-login-button rounded-circle">Sign in</button>
+              <button className="header-login-button rounded-circle">
+                Sign in
+              </button>
             </Link>
           </div>
         ) : (
@@ -186,16 +190,17 @@ export default function Header() {
               className="header-profile-info"
               onClick={handleOpenMyAccDrop}
             >
+              <UserAvatarImg imgUrl={"/public/logo192.png"} />
               {/* <UserAvatarImg
                       imgUrl={
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ"
                       }
                     /> */}
 
-              <div className="userInfo res-hide">
+              {/* <div className="userInfo res-hide">
                 <h4>aLue</h4>
                 <p className="mb-0">@aLue35</p>
-              </div>
+              </div> */}
             </button>
             <Menu
               anchorEl={anchorEl}
