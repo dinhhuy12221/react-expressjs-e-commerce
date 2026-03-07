@@ -41,35 +41,27 @@ export default function Sidebar() {
           <li>
             <Link to="/">
               <button
-                className={`${
+                className={`sidebar-item ${
                   activeTab === 0 && isToggleSubmenu === true ? "active" : ""
                 }`}
                 onClick={() => isOpenSubmenu(0)}
               >
-                <span className="sidebar-icon">
                   <MdDashboard />
                   Dashboard
-                </span>
-                <span className="sidebar-arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
           <li>
             <button
-              className={`${
+              className={`sidebar-item ${
                 activeTab === 1 && isToggleSubmenu ? "active" : ""
               }`}
               onClick={() => isOpenSubmenu(1)}
             >
-              <span className="icon">
                 <BsFillXDiamondFill />
-              </span>
               Products
-              <span className="arrow">
                 <IoIosArrowForward />
-              </span>
             </button>
             <div
               className={`sidebar-menu ${
@@ -94,66 +86,49 @@ export default function Sidebar() {
           <li>
             <Link to="/categories">
               <button
-                className={`${activeTab === 2 ? "active" : ""}`}
+                className={`sidebar-item ${activeTab === 2 ? "active" : ""}`}
                 onClick={() => isOpenSubmenu(2)}
               >
-                <span className="icon">
                   <BiSolidCategory />
-                </span>
                 Categories
-                <span className="arrow"></span>
+                
+                <IoIosArrowForward />
               </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <button className={`${activeTab === 3 ? "active" : ""}`}>
-                <span className="icon">
+              <button className={`sidebar-item ${activeTab === 3 ? "active" : ""}`}>
                   <IoCartSharp />
-                </span>
                 Orders
-                <span className="arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <button className={`${activeTab === 4 ? "active" : ""}`}>
-                <span className="icon">
+              <button className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}>
                   <RiMessage2Fill />
-                </span>
                 Messages
-                <span className="arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <button className={`${activeTab === 5 ? "active" : ""}`}>
-                <span className="icon">
+              <button className={`sidebar-item ${activeTab === 5 ? "active" : ""}`}>
                   <IoMdNotifications />
-                </span>
                 Notifications
-                <span className="arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>
           <li>
             <Link to="/">
-              <button className={`${activeTab === 6 ? "active" : ""}`}>
-                <span className="icon">
+              <button className={`sidebar-item ${activeTab === 6 ? "active" : ""}`}>
                   <IoMdSettings />
-                </span>
                 Settings
-                <span className="arrow">
                   <IoIosArrowForward />
-                </span>
               </button>
             </Link>
           </li>

@@ -105,6 +105,10 @@ body.dark {
   background: transparent !important;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
@@ -213,9 +217,9 @@ header {
 
 body.dark header {
   background: #112143 !important;
-  opacity: 0.8 !important;
-  -webkit-backdrop-filter: blur(15px) !important;
-  backdrop-filter: blur(15px) !important;
+  /* opacity: 0.8 !important; */
+  /* -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important; */
 }
 
 header .logo {
