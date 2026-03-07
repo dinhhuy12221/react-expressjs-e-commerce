@@ -1,26 +1,32 @@
-.sidebar-wrapper {
-  width: 30%;
-  flex: 0 0 18%;
+.sidebar {
+  position: sticky;
+  top: 67px;
+  width: 20%;
+  top: 70px;
+  left: 0px;
+  background: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
   transition: all 0.3s ease-in-out;
+  z-index: 999;
 }
 
-.sidebar-wrapper.toggle {
-  flex: 0 0 0%;
+.sidebar.toggle {
+  width: 0;
 }
 
-.sidebar-wrapper.open {
+.sidebar.open {
   left: 0px;
   opacity: 1;
 }
 
 .sidebar-overlay {
-  /* position: fixed; */
   top: 0px;
   left: 0px;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 999;
+  z-index: 1001;
 }
 
 .sidebar-overlay.show {
@@ -33,19 +39,6 @@
 }
 
 .sidebar {
-  position: relative;
-  width: 100%;
-  top: 67px;
-  height: fit-content;
-  max-height: calc(100% - 70px);
-  top: 70px;
-  left: 0px;
-  background: #fff;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding-bottom: 40px;
-  transition: all 0.3s ease-in-out;
-  z-index: 999;
 
   /* &:-webkit-scrollbar {
     width: 3px;
