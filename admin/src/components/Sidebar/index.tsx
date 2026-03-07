@@ -32,116 +32,117 @@ export default function Sidebar() {
     //         }`}
     //         onClick={() => context.setIsOpenNav(!context.isOpenNav)}
     //       >aaa</button>
-      <div
-        className={`sidebar${
-          context.isToggleSidebar === true ? " toggle" : ""
-        } ${context.isOpenNav === true ? " open" : ""}`}
-      >
-        <ul>
-          <li>
-            <Link to="/">
-              <button
-                className={`sidebar-item ${
-                  activeTab === 0 && isToggleSubmenu === true ? "active" : ""
-                }`}
-                onClick={() => isOpenSubmenu(0)}
-              >
-                  <MdDashboard />
-                  Dashboard
-                  <IoIosArrowForward />
-              </button>
-            </Link>
-          </li>
-          <li>
+    <div
+      className={`sidebar${context.isToggleSidebar === true ? " toggle" : ""} ${
+        context.isOpenNav === true ? " open" : ""
+      }`}
+    >
+      <ul>
+        <li>
+          <Link to="/">
             <button
               className={`sidebar-item ${
-                activeTab === 1 && isToggleSubmenu ? "active" : ""
+                activeTab === 0 && isToggleSubmenu === true ? "active" : ""
               }`}
-              onClick={() => isOpenSubmenu(1)}
+              onClick={() => isOpenSubmenu(0)}
             >
-                <BsFillXDiamondFill />
-              Products
-                <IoIosArrowForward />
+              <MdDashboard />
+              Dashboard
+              <IoIosArrowForward className="sidebar-item-arrow" />
             </button>
-            <div
-              className={`sidebar-menu ${
-                activeTab === 1 && isToggleSubmenu === true
-                  ? "collapse"
-                  : "collapsed"
-              }`}
-            >
-              <ul className="sidebar-menu-submenu">
-                <li>
-                  <Link to="/products">Product List</Link>
-                </li>
-                <li>
-                  <Link to="/product/view">Product View</Link>
-                </li>
-                <li>
-                  <Link to="/product/upload">Product Upload</Link>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <Link to="/categories">
-              <button
-                className={`sidebar-item ${activeTab === 2 ? "active" : ""}`}
-                onClick={() => isOpenSubmenu(2)}
-              >
-                  <BiSolidCategory />
-                Categories
-                
-                <IoIosArrowForward />
-              </button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <button className={`sidebar-item ${activeTab === 3 ? "active" : ""}`}>
-                  <IoCartSharp />
-                Orders
-                  <IoIosArrowForward />
-              </button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <button className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}>
-                  <RiMessage2Fill />
-                Messages
-                  <IoIosArrowForward />
-              </button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <button className={`sidebar-item ${activeTab === 5 ? "active" : ""}`}>
-                  <IoMdNotifications />
-                Notifications
-                  <IoIosArrowForward />
-              </button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <button className={`sidebar-item ${activeTab === 6 ? "active" : ""}`}>
-                  <IoMdSettings />
-                Settings
-                  <IoIosArrowForward />
-              </button>
-            </Link>
-          </li>
-        </ul>
-
-        <br />
-
-        <div className="sidebar-logout">
-          <button>
-            <IoLogOutOutline />
-            Logout
+          </Link>
+        </li>
+        <li>
+          <button
+            className={`sidebar-item ${
+              activeTab === 1 && isToggleSubmenu ? "active" : ""
+            }`}
+            onClick={() => isOpenSubmenu(1)}
+          >
+            <BsFillXDiamondFill />
+            Products
+            <IoIosArrowForward className="sidebar-item-arrow" />
           </button>
-        </div>
+          <ul
+            className={`sidebar-item-menu ${
+              activeTab === 1 && isToggleSubmenu === true ? "" : "collapsed"
+            }`}
+          >
+            <li>
+              <Link to="/products">Product List</Link>
+            </li>
+            <li>
+              <Link to="/product/view">Product View</Link>
+            </li>
+            <li>
+              <Link to="/product/upload">Product Upload</Link>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <Link to="/categories">
+            <button
+              className={`sidebar-item ${activeTab === 2 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(2)}
+            >
+              <BiSolidCategory />
+              Categories
+              <IoIosArrowForward className="sidebar-item-arrow" />
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/">
+            <button
+              className={`sidebar-item ${activeTab === 3 ? "active" : ""}`}
+            >
+              <IoCartSharp />
+              Orders
+              <IoIosArrowForward className="sidebar-item-arrow" />
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/">
+            <button
+              className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}
+            >
+              <RiMessage2Fill />
+              Messages
+              <IoIosArrowForward className="sidebar-item-arrow" />
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/">
+            <button
+              className={`sidebar-item ${activeTab === 5 ? "active" : ""}`}
+            >
+              <IoMdNotifications />
+              Notifications
+              <IoIosArrowForward className="sidebar-item-arrow" />
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/">
+            <button
+              className={`sidebar-item ${activeTab === 6 ? "active" : ""}`}
+            >
+              <IoMdSettings />
+              Settings
+              <IoIosArrowForward className="sidebar-item-arrow" />
+            </button>
+          </Link>
+        </li>
+      </ul>
+
+      <br />
+
+        <button className="sidebar-logout">
+          <IoLogOutOutline />
+          Logout
+        </button>
       {/* </div> */}
       {/* )} */}
     </div>
