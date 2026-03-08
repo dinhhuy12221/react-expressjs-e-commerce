@@ -106,10 +106,10 @@ const Dashboard = () => {
           </div>
 
           <div className="dashboard-content-graph">
-              <div className="dashboard-content-graph-bottom">
-                <h6 className="dashboard-content-graph-bottom-title">Total Sales</h6>
-                <div className="ms-auto">
-                  <Button className="ms-auto toggleIcon" onClick={handleClick}>
+              <div className="dashboard-content-graph-header">
+                <h3 className="dashboard-content-graph-header-title">Total Sales</h3>
+                <div className="ms-auto dashboard-content-graph-header-content">
+                  <Button className="" onClick={handleClick}>
                     <HiOutlineDotsVertical />
                   </Button>
                   <Menu
@@ -141,7 +141,7 @@ const Dashboard = () => {
                   </Menu>
                 </div>
               </div>
-              <h3 className="dashboard-content-graph-bottom-total">$3,333,333.33</h3>
+              <h3 className="dashboard-content-graph-header-total">$3,333,333.33</h3>
               <p>$3,123.45 is last Month</p>
               <Chart
                 className="dashboard-content-graph-main"
