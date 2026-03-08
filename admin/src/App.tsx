@@ -69,23 +69,27 @@ const App = () => {
   return (
     <AdminContext.Provider value={values}>
        <Header />
-      <Sidebar />
-      {/* <div
-        className={`sidebar-content ${
-          isHideSidebarAndHeader === true && "full"
-        } ${isToggleSidebar === true ? "toggle" : ""}`}
-      > */}
-        <Routes>
-          {routes &&
-            routes.map((route, index) => {
-              return (
-                <Route
-                  path={route.path}
-                  element={route.element}
-                />
-              );
-            })}
-        </Routes>
+      <div className="content">
+        <Sidebar />
+        {/* <div
+          className={`sidebar-content ${
+            isHideSidebarAndHeader === true && "full"
+          } ${isToggleSidebar === true ? "toggle" : ""}`}
+        > */}
+            <div className="content-main">
+          <Routes>
+            {routes &&
+              routes.map((route, index) => {
+                return (
+                    <Route
+                      path={route.path}
+                      element={route.element}
+                    />
+                  );
+                })}
+          </Routes>
+                </div>
+      </div>
       {/* </div> */}
     </AdminContext.Provider>
   );

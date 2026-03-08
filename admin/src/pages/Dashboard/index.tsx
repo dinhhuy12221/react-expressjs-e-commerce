@@ -83,22 +83,22 @@ const Dashboard = () => {
       <div className="dashboard">
         <div className="dashboard-content">
           <div className="dashboard-content-overview">
-            <DashboardBox
+            <DashboardBox className="dashboard-content-overview-item"
               color={["#1da256", "#48d483"]}
               icon={<FaUserCircle />}
               grow={true}
             />
-            <DashboardBox
+            <DashboardBox className="dashboard-content-overview-item"
               color={["#c012e2", "#eb64fe"]}
               icon={<RiShoppingCart2Fill />}
               grow={false}
             />
-            <DashboardBox
+            <DashboardBox className="dashboard-content-overview-item"
               color={["#2c78e5", "#60aff5"]}
               icon={<IoBagHandleSharp />}
               grow={true}
             />
-            <DashboardBox
+            <DashboardBox className="dashboard-content-overview-item"
               color={["#e1950e", "#f3cd29"]}
               icon={<MdOutlineStar />}
               grow={false}

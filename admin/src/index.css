@@ -11,7 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.sidebar-overlay {
-  display: none;
+.content {
+  margin-top: 70px;
+  display: flex;
+}
+.content-main {
+  width: 100%;
+  padding: var(--space-24);
 }
