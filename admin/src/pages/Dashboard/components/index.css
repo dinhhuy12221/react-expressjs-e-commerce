@@ -1,0 +1,13 @@
+.dashboard-box {
+  padding: var(--space-12);
+}
+.dashboard-box-content {
+  display: flex;
+}
+.dashboard-box-content-header > * {
+  color: var(--color-text-white);
+}
+.dashboard-box-content-icon {
+  margin-left: auto;
+  color: var(--color-text-white);
+}

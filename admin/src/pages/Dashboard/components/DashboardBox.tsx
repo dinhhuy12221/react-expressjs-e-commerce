@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 // import button from "@mui/material/button";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { FaArrowTrendUp } from "react-icons/fa6";
@@ -7,6 +7,7 @@ import { IoTimerOutline } from "react-icons/io5";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
+import "./index.css"
 
 export default function DashboardBox(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -24,32 +25,33 @@ export default function DashboardBox(props) {
   return (
     <>
       <div
-        className="dashboardBox"
+        className="dashboard-box"
         style={{
           backgroundImage: `linear-gradient(to right, ${props.color?.[0]} , ${props.color?.[1]})`,
         }}
       >
-        {props.grow === true ? (
-          <span className="chart">
-            <FaArrowTrendUp />
-          </span>
-        ) : (
-          <span className="chart">
-            <FaArrowTrendDown />
-          </span>
-        )}
-        <div className="d-flex w-100">
-          <div className="col1">
-            <h4 className="text-white">Total Users</h4>
-            <span className="text-white">277</span>
+        <div className="dashboard-box-icon">
+          {props.grow === true ? (
+            <span className="dashboard-box-icon-trend">
+              <FaArrowTrendUp />
+            </span>
+          ) : (
+            <span className="dashboard-box-icon-trend">
+              <FaArrowTrendDown />
+            </span>
+          )}
+          {props.icon ? (
+                <div className="dashboard-box-icon-role">{props.icon ? props.icon : ""}</div>
+              ) : (
+                ""
+              )}
+        </div>
+        <div className="d-flex w-100 dashboard-box-content">
+          <div className="dashboard-box-content-header">
+            <h4 className="dashboard-box-content-header-label">Total Users</h4>
+            <span className="dashboard-box-content-header-text">277</span>
           </div>
-          <div className="ms-auto">
-            {props.icon ? (
-              <span className="icon">{props.icon ? props.icon : ""}</span>
-            ) : (
-              ""
-            )}
-          </div>
+            
         </div>
         <div className="d-flex align-items-center w-100 bottomEle">
           <h6 className="text-white mb-0 mt-0">Last Month</h6>
