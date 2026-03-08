@@ -1,5 +1,7 @@
 .dashboard {
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-24);
 }
 .dashboard-content {
     display: flex;
@@ -24,5 +26,4 @@
     font-weight: bold;
 }
 .dashboard-content-graph-main {
-
 }
