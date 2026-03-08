@@ -1,10 +1,12 @@
 .dashboard-box {
   padding: var(--space-12);
+  border-radius: var(--radius-5);
 }
 .dashboard-box-icon {
     display: flex;
     justify-content: space-between;
   color: var(--color-text-white);
+  font-size: var(--font-26);
 }
 .dashboard-box-content {
   display: flex;
@@ -17,11 +19,13 @@
     display: flex;
     align-items: center;
     gap: var(--space-12);
+    font-size: var(--font-20);
 }
 .dashboard-box-period-action-button {
     border: none;
-    background: transparent;
     padding: var(--space-4);
+    border-radius: var(--radius-5);
+    background: transparent;
     color: var(--color-text-white);
     cursor: pointer;
 }

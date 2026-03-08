@@ -20,20 +20,23 @@
 
 }
 .dashboard-content-overview-item {
+
 }
 .dashboard-content-graph {
     flex-grow: 1;
+    height: 100%;
 }
-.dashboard-content-graph-bottom {
+.dashboard-content-graph-header {
     display: flex;
     align-items: center;
+    color: var(--color-text-white);
 }
 
-.dashboard-content-graph-bottom-title {
-    color: var(--color-text-white);
+.dashboard-content-graph-header-title {
 }
-.dashboard-content-graph-bottom-total {
-    color: var(--color-text-white);
+.dashboard-content-graph-header-content {
+}
+.dashboard-content-graph-header-total {
     font-weight: bold;
 }
 .dashboard-content-graph-main {
