@@ -46,17 +46,17 @@ export default function DashboardBox(props) {
                 ""
               )}
         </div>
-        <div className="d-flex w-100 dashboard-box-content">
+        <div className="dashboard-box-content">
           <div className="dashboard-box-content-header">
             <h4 className="dashboard-box-content-header-label">Total Users</h4>
             <span className="dashboard-box-content-header-text">277</span>
           </div>
             
         </div>
-        <div className="d-flex align-items-center w-100 bottomEle">
-          <h6 className="text-white mb-0 mt-0">Last Month</h6>
-          <div className="ms-auto">
-            <button className="ms-auto toggleIcon" onClick={handleClick}>
+        <div className="dashboard-box-period">
+          <h6 className="dashboard-box-period-label">Last Month</h6>
+          <div className="dashboard-box-period-action">
+            <button className="dashboard-box-period-action-button" onClick={handleClick}>
               <HiOutlineDotsVertical />
             </button>
             <Menu

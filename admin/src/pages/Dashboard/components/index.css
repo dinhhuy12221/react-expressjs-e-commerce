@@ -1,13 +1,30 @@
 .dashboard-box {
   padding: var(--space-12);
 }
+.dashboard-box-icon {
+    display: flex;
+    justify-content: space-between;
+  color: var(--color-text-white);
+}
 .dashboard-box-content {
   display: flex;
 }
 .dashboard-box-content-header > * {
   color: var(--color-text-white);
 }
-.dashboard-box-content-icon {
-  margin-left: auto;
-  color: var(--color-text-white);
+
+.dashboard-box-period {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+}
+.dashboard-box-period-action-button {
+    border: none;
+    background: transparent;
+    padding: var(--space-4);
+    color: var(--color-text-white);
+    cursor: pointer;
+}
+.dashboard-box-period-action-button:hover {
+    background: rgba(229, 229, 229, 0.4);
 }
