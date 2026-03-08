@@ -146,8 +146,8 @@ const Dashboard = () => {
               <Chart
                 className="dashboard-content-graph-main"
                 chartType="AreaChart"
-                width="100%"
-                height="180px"
+                width={"100%"}
+                height={"100%"}
                 data={data}
                 options={options2}
               />

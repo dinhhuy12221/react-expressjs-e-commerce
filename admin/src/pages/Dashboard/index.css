@@ -24,10 +24,10 @@
 }
 .dashboard-content-graph {
     flex-grow: 1;
+    height: 100%;
 }
 .dashboard-content-graph-header {
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     color: var(--color-text-white);
 }
