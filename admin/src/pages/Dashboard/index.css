@@ -1,18 +1,29 @@
 .dashboard {
     display: flex;
     flex-direction: column;
-    padding: var(--space-24);
+    width: 100%;
 }
 .dashboard-content {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: var(--space-16);
+
+    height: 300px;
 }
 .dashboard-content-overview {
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-}
+    flex-grow: 1;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
 
+}
+.dashboard-content-overview-item {
+}
+.dashboard-content-graph {
+    flex-grow: 1;
+}
 .dashboard-content-graph-bottom {
     display: flex;
     align-items: center;

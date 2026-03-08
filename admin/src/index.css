@@ -12,5 +12,10 @@ code {
     monospace;
 }
 .content {
+  margin-top: 70px;
   display: flex;
+}
+.content-main {
+  width: 100%;
+  padding: var(--space-24);
 }

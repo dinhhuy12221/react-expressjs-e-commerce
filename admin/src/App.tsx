@@ -76,17 +76,19 @@ const App = () => {
             isHideSidebarAndHeader === true && "full"
           } ${isToggleSidebar === true ? "toggle" : ""}`}
         > */}
+            <div className="content-main">
           <Routes>
             {routes &&
               routes.map((route, index) => {
                 return (
-                  <Route
-                    path={route.path}
-                    element={route.element}
-                  />
-                );
-              })}
+                    <Route
+                      path={route.path}
+                      element={route.element}
+                    />
+                  );
+                })}
           </Routes>
+                </div>
       </div>
       {/* </div> */}
     </AdminContext.Provider>
