@@ -255,7 +255,7 @@ const Dashboard = () => {
             <thead className="table-dark">
               <tr>
                 <th>UID</th>
-                <th style={{ width: "250px" }}>IMAGE</th>
+                <th>IMAGE</th>
                 <th>NAME</th>
                 <th>CATEGORY</th>
                 <th>BRAND</th>
