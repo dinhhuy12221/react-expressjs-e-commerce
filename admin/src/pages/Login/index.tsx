@@ -27,7 +27,7 @@ export default function AdminLogin() {
         <div className="login-page-content">
           <form>
             <div
-              className={`form-group position-relative ${
+              className={`login-page-content-item ${
                 inputIndex === 0 && "focus"
               }`}
             >
@@ -36,7 +36,7 @@ export default function AdminLogin() {
               </span>
               <input
                 type="text"
-                className="form-control"
+                className="login-page-content-item-control"
                 placeholder="Enter your email"
                 onFocus={() => focusInput(0)}
                 onBlur={() => focusInput(null)}
@@ -44,7 +44,7 @@ export default function AdminLogin() {
               />
             </div>
             <div
-              className={`form-group position-relative ${
+              className={`login-page-content-item ${
                 inputIndex === 1 && "focus"
               }`}
             >
@@ -53,7 +53,7 @@ export default function AdminLogin() {
               </span>
               <input
                 type={`${isShowPassword === true ? "text" : "password"}`}
-                className="form-control"
+                className="login-page-content-item-control"
                 placeholder="Enter your password"
                 onFocus={() => focusInput(1)}
                 onBlur={() => focusInput(null)}
@@ -66,11 +66,11 @@ export default function AdminLogin() {
               </span>
             </div>
 
-            <div className="form-group">
+            <div className="login-page-content-item">
               <Button className="btn-blue btn-lg btn-big w-100">Sign In</Button>
             </div>
 
-            <div className="form-group text-center">
+            <div className="login-page-content-item text-center">
               <Link to={"/forgot-password"} className="link">
                 FORGOT PASSWORD
               </Link>
@@ -80,7 +80,7 @@ export default function AdminLogin() {
               <div className="line"></div>
               <span className="txt">or</span>
             </div>
-            <div className="form-group loginWithGoogle position-relative">
+            <div className="login-page-content-item loginWithGoogle position-relative">
               <div className="logo">
                 <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
               </div>

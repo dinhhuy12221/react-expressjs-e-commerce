@@ -29,11 +29,11 @@
   padding: 35px 30px;
 }
 
-.login-page-content .form-group {
+.login-page-content-item {
   margin-bottom: 18px;
 }
 
-.login-page-content .form-control {
+.login-page-content-item-control {
   background: #fff;
   box-shadow: none;
   outline: none;
@@ -44,15 +44,15 @@
   padding-left: 45px;
 }
 
-.login-page-content .form-group.focus .icon svg {
+.login-page-content-item.focus .icon svg {
   color: #0858f7;
 }
 
-.login-page-content .form-control:focus {
+.login-page-content-item-control:focus {
   border: 1px solid #0858f7;
 }
 
-.login-page-content .form-group .icon {
+.login-page-content-item .icon {
   position: absolute;
   height: 100%;
   left: 15px;
@@ -60,7 +60,7 @@
   font-size: 20px;
 }
 
-.login-page-content .form-group .icon svg {
+.login-page-content-item .icon svg {
   color: #5e5d72;
 }
 
@@ -105,18 +105,18 @@ body.dark .login-page-content .or .txt {
   background: #08143c;
   color: rgba(255, 255, 255, 0.6);
 }
-.login-page-content .form-group.loginWithGoogle .logo {
+.login-page-content-item.loginWithGoogle .logo {
   position: absolute;
   display: flex;
   align-items: center;
   height: 100%;
   left: 65px;
 }
-.login-page-content .form-group.loginWithGoogle .logo img {
+.login-page-content-item.loginWithGoogle .logo img {
   width: 22px;
   height: 22px;
 }
-.login-page-content .form-group.loginWithGoogle button {
+.login-page-content-item.loginWithGoogle button {
   text-transform: capitalize;
   font-weight: bold;
 }
