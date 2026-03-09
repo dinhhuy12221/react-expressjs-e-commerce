@@ -20,17 +20,31 @@
 }
 
 .login-page-content {
-  width: 100%;
-  height: auto;
-  background: #f0f0f0;
-  border-radius: 20px;
-  position: relative;
-  z-index: 100;
-  padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding: var(--space-30) !important;
+    width: 100%;
+    height: auto;
+    background: #f0f0f0;
+    border-radius: var(--radius-20);
+}
+.login-page-content form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
 }
 
 .login-page-content-item {
-  margin-bottom: 18px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.login-page-content-item-icon {
+    position: absolute;
+    top: var(--space-12);
+    left: var(--space-18);
+    color: #08143c !important;
 }
 
 .login-page-content-item-control {

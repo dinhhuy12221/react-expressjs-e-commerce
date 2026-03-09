@@ -31,7 +31,7 @@ export default function AdminLogin() {
                 inputIndex === 0 && "focus"
               }`}
             >
-              <span className="icon d-flex align-items-center">
+              <span className="login-page-content-item-icon">
                 <MdEmail />
               </span>
               <input
@@ -48,7 +48,7 @@ export default function AdminLogin() {
                 inputIndex === 1 && "focus"
               }`}
             >
-              <span className="icon d-flex align-items-center">
+              <span className="login-page-content-item-icon">
                 <RiLockPasswordFill />
               </span>
               <input
