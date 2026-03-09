@@ -197,6 +197,9 @@ const Dashboard = () => {
           <Chart
             className="dashboard-content-graph-main"
             chartType="AreaChart"
+            style={
+              {flexShrink: 1}
+            }
             width={"100%"}
             height={"100%"}
             data={data}
