@@ -108,7 +108,7 @@ const Dashboard = () => {
           <div className="dashboard-content-graph">
               <div className="dashboard-content-graph-header">
                 <h3 className="dashboard-content-graph-header-title">Total Sales</h3>
-                <div className="ms-auto dashboard-content-graph-header-content">
+                <div className="ms-auto dashboard-content-graph-header-expand">
                   <Button className="" onClick={handleClick}>
                     <HiOutlineDotsVertical />
                   </Button>
@@ -146,7 +146,7 @@ const Dashboard = () => {
               <Chart
                 className="dashboard-content-graph-main"
                 chartType="AreaChart"
-                width={"100%"}
+                // width={"100%"}
                 height={"100%"}
                 data={data}
                 options={options2}

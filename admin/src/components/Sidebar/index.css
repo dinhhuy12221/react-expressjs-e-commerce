@@ -2,10 +2,11 @@
   position: sticky;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   
   padding: var(--space-16);
   width: 260px;
-  height: 100vh;
+  height: 93vh;
   top: 70px;
   left: 0px;
   background: #fff;
