@@ -136,13 +136,11 @@ export default function Sidebar() {
           </Link>
         </li>
       </ul>
-
-      <br />
-
-        <button className="sidebar-logout">
-          <IoLogOutOutline />
-          Logout
-        </button>
+      
+      <button className="sidebar-logout">
+        <IoLogOutOutline />
+        Logout
+      </button>
       {/* </div> */}
       {/* )} */}
     </div>
