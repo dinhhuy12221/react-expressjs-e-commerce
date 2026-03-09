@@ -5,14 +5,13 @@
 }
 .dashboard-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: var(--space-16);
 
     height: 300px;
 }
 .dashboard-content-overview {
-    flex-grow: 1;
+    width: 700px;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -25,6 +24,7 @@
 .dashboard-content-graph {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     height: 100%;
 }
 .dashboard-content-graph-header {
@@ -39,4 +39,22 @@
 }
 .dashboard-content-graph-header-total {
     font-weight: bold;
+}
+
+.dashboard-table {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    padding: var(--space-16);
+}
+.dashboard-table-filter {
+    display: flex;
+}
+.dashboard-table-filter-number {
+    display: flex;
+    align-items: center;
+}
+.dashboard-table-filter-category {
+    display: flex;
+    align-items: center;
 }

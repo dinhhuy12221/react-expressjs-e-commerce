@@ -142,11 +142,11 @@ const Dashboard = () => {
                 </div>
               </div>
               <h3 className="dashboard-content-graph-header-total">$3,333,333.33</h3>
-              <p>$3,123.45 is last Month</p>
+              <p>Last Month: $3,123.45</p>
               <Chart
                 className="dashboard-content-graph-main"
                 chartType="AreaChart"
-                // width={"100%"}
+                width={"100%"}
                 height={"100%"}
                 data={data}
                 options={options2}
@@ -154,12 +154,12 @@ const Dashboard = () => {
             </div>
         </div>
 
-        <div className="card row shadow border-0 mt-4 p-3 tableWrapper">
-          <h3 className="hd">Best Selling Products</h3>
+        <div className="dashboard-table">
+          <h3>Best Selling Products</h3>
 
-          <div className="row cardFilters mt-3">
-            <div className="col-md-3">
-              <h4>show by</h4>
+          <div className="dashboard-table-filter">
+            <div className="dashboard-table-filter-number">
+              <h4>Show by</h4>
               <FormControl size="small" className="w-100">
                 <Select
                   value={showBy}
@@ -177,7 +177,7 @@ const Dashboard = () => {
                 </Select>
               </FormControl>
             </div>
-            <div className="col-md-3">
+            <div className="dashboard-table-filter-category">
               <h4>Categorie by</h4>
               <FormControl size="small" className="w-100">
                 <Select
