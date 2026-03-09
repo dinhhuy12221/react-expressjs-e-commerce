@@ -82,27 +82,27 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif !important;
-  /* background: #ebe9e9 !important; */
-  background: #fff !important;
+  font-family: "Open Sans", sans-serif;
+  /* background: #ebe9e9; */
+  background: #fff;
   overflow-x: hidden;
 }
 
 body.dark {
-  background: #071739 !important;
+  background: #071739;
 }
 
 ::-webkit-scrollbar {
-  width: 5px !important;
-  height: 5px !important;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0858f7 !important;
+  background: #0858f7;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent !important;
+  background: transparent;
 }
 
 a {
@@ -120,9 +120,9 @@ em {
   color: #403e57;
 }
 .rounded-circle {
-    width: 35px !important;
-    height: 35px !important;
-    min-width: 35px !important;
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
   }
 body.dark h1,
 body.dark h2,
@@ -133,7 +133,7 @@ body.dark h6,
 body.dark p,
 body.dark em,
 body.dark span {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -159,36 +159,36 @@ li {
 }
 
 .btn-blue {
-  background: #0858f7 !important;
-  font-size: 15px !important;
-  text-transform: capitalize !important;
-  font-weight: 600 !important;
-  color: #fff !important;
-  border-radius: 5px !important;
+  background: #0858f7;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .btn-lg {
-  padding: 5px 25px !important;
+  padding: 5px 25px;
 }
 
 .btn-big {
-  padding: 10px 25px !important;
-  font-size: 16px !important;
+  padding: 10px 25px;
+  font-size: 16px;
 }
 
 .btn-big svg {
-  font-size: 25px !important;
+  font-size: 25px;
   margin-right: 7px;
 }
 
 .btn-round {
-  border-radius: 30px !important;
+  border-radius: 30px;
 }
 
 .full {
-  max-width: 100% !important;
-  flex: 0 0 100% !important;
-  width: 100% !important;
+  max-width: 100%;
+  flex: 0 0 100%;
+  width: 100%;
 }
 
 .link {
@@ -198,12 +198,12 @@ li {
 }
 
 .link:hover {
-  color: #0858f7 !important;
+  color: #0858f7;
   text-decoration: underline;
 }
 
 .link.color {
-  color: #0858f7 !important;
+  color: #0858f7;
   text-decoration: underline;
 }
 
@@ -220,10 +220,10 @@ header {
 }
 
 body.dark header {
-  background: #112143 !important;
-  /* opacity: 0.8 !important; */
-  /* -webkit-backdrop-filter: blur(15px) !important;
-  backdrop-filter: blur(15px) !important; */
+  background: #112143;
+  /* opacity: 0.8; */
+  /* -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px); */
 }
 
 header .logo {
@@ -241,8 +241,8 @@ header .logo span {
 }
 
 body.dark header .logo span {
-  color: #fff !important;
-  opacity: 0.9 !important;
+  color: #fff;
+  opacity: 0.9;
 }
 
 header .part2 {
@@ -250,33 +250,33 @@ header .part2 {
 }
 
 header button.rounded-circle {
-  min-width: 40px !important;
-  width: 40px !important;
-  height: 40px !important;
-  background: #f0f5ff !important;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  background: #f0f5ff;
   color: #0858f7;
 }
 
 header button.rounded-circle svg {
   color: #292929;
-  font-size: 18px !important;
+  font-size: 18px;
   transition: all 0.3s ease-in-out;
 }
 
 header button.rounded-circle:hover svg {
-  color: #0858f7 !important;
+  color: #0858f7;
 }
 
 body.dark header button.rounded-circle {
-  background: #12254e !important;
+  background: #12254e;
 }
 
 body.dark header button.rounded-circle svg {
-  color: #fff !important;
+  color: #fff;
 }
 
 body.dark header button.rounded-circle:hover svg {
-  color: #0858f7 !important;
+  color: #0858f7;
 }
 
 .searchBox {
@@ -312,7 +312,7 @@ body.dark .searchBox {
 body.dark .searchBox input,
 body.dark .searchBox input::-webkit-input-placeholder,
 body.dark .searchBox svg {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .part3 button.rounded-circle {
@@ -320,22 +320,22 @@ body.dark .searchBox svg {
 }
 
 .dropDownWrapper {
-  text-align: left !important;
+  text-align: left;
 }
 
 .myAcc {
-  text-align: left !important;
-  color: #000 !important;
+  text-align: left;
+  color: #000;
 }
 
 .userImg .rounded-circle img {
-  object-fit: cover !important;
+  object-fit: cover;
   width: 100%;
 }
 
 .userImg.lg {
-  width: 60px !important;
-  height: 60px !important;
+  width: 60px;
+  height: 60px;
 }
 
 .myAcc .userInfo {
@@ -358,37 +358,37 @@ body.dark .searchBox svg {
 }
 
 body.dark .myAcc .userInfo * {
-  color: #fff !important;
+  color: #fff;
 }
 
 body.dark .MuiPaper-root,
 body.dark .MuiPaper-root::before {
-  background: #12254e !important;
+  background: #12254e;
 }
 
 #account-menu ul li {
-  font-size: 15px !important;
-  padding: 8px 15px !important;
+  font-size: 15px;
+  padding: 8px 15px;
 }
 
 #account-menu ul li svg {
-  font-size: 20px !important;
+  font-size: 20px;
 }
 
 body.dark #account-menu ul li svg {
-  color: #fff !important;
+  color: #fff;
 }
 
 .dropdown_list .head {
-  background: #fff !important;
+  background: #fff;
   height: 60px;
   width: 100%;
 }
 
 body.dark .dropdown_list .head {
-  background: #12254e !important;
+  background: #12254e;
   h4 {
-    color: #fff !important;
+    color: #fff;
   }
 }
 
@@ -403,22 +403,22 @@ body.dark .dropdown_list .head {
 }
 
 .dropdown_list li.MuiButtonBase-root {
-  background: #ebf6ff !important;
-  color: #000 !important;
-  padding: 10px 15px 0px !important;
-  margin: 3px 0px 3px 5px !important;
-  border-radius: 7px !important;
+  background: #ebf6ff;
+  color: #000;
+  padding: 10px 15px 0px;
+  margin: 3px 0px 3px 5px;
+  border-radius: 7px;
 }
 
 body.dark .dropdown_list li.MuiButtonBase-root {
-  background: #12254e !important;
-  color: #fff !important;
-  opacity: 0.9 !important;
+  background: #12254e;
+  color: #fff;
+  opacity: 0.9;
 }
 
 .dropdown_list .userImg {
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px;
+  height: 40px;
 }
 
 .dropdown_list .scroll {
@@ -427,28 +427,28 @@ body.dark .dropdown_list li.MuiButtonBase-root {
 }
 
 .dropdownInfo {
-  width: 250px !important;
+  width: 250px;
 }
 
 .dropdownInfo h4 {
   font-size: 15px;
-  font-weight: 200 !important;
+  font-weight: 200;
   white-space: break-spaces;
-  line-height: 22px !important;
+  line-height: 22px;
 }
 
 .dropdownInfo h4 b {
-  font-weight: 700 !important;
+  font-weight: 700;
 }
 
 .dropdownInfo p {
-  font-size: 12px !important;
+  font-size: 12px;
   font-weight: 500;
   margin-top: 0px;
 }
 
 .text-sky {
-  color: #0858f7 !important;
+  color: #0858f7;
 }
 
 /* ---------------- Sidebar --------------------- */
@@ -464,8 +464,8 @@ body.dark .dropdown_list li.MuiButtonBase-root {
 }
 
 .main .sidebarWrapper.open {
-  left: 0px !important;
-  opacity: 1 !important;
+  left: 0px;
+  opacity: 1;
 }
 
 .sidebarOverlay {
@@ -479,7 +479,7 @@ body.dark .dropdown_list li.MuiButtonBase-root {
 }
 
 .sidebarOverlay.show {
-  display: block !important;
+  display: block;
 } */
 
 .logoutWrapper {
@@ -501,7 +501,7 @@ body.dark .dropdown_list li.MuiButtonBase-root {
 }
 
 body.dark .logoutWrapper .logoutBox {
-  background: #183e8c !important;
+  background: #183e8c;
 }
 
 .logoutWrapper .logoutBox::before {
@@ -529,14 +529,14 @@ body.dark .logoutWrapper .logoutBox {
 }
 
 .logoutWrapper .logoutBox button {
-  font-size: 14px !important;
-  font-weight: 600 !important;
+  font-size: 14px;
+  font-weight: 600;
   z-index: 100;
 }
 
 .logoutWrapper .logoutBox button svg {
   margin-right: 5px;
-  font-size: 18px !important;
+  font-size: 18px;
 }
 
 /* -------- Dashboard----------------- */
@@ -623,7 +623,7 @@ body.dark .logoutWrapper .logoutBox {
 }
 
 .dashboardBoxWrapper .dashboardBox .icon svg {
-  font-size: 30px !important;
+  font-size: 30px;
   opacity: 0.4;
   color: #fff;
 }
@@ -631,9 +631,9 @@ body.dark .logoutWrapper .logoutBox {
 .dashboardBoxWrapper .dashboardBox .toggleIcon {
   font-size: 20px;
   color: rgba(0, 0, 0, 0.5);
-  min-width: 40px !important;
-  width: 40px !important;
-  height: 40px !important;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
 }
 
@@ -676,16 +676,16 @@ body.dark .logoutWrapper .logoutBox {
 }
 
 .toggleIcon {
-  min-width: 40px !important;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 100% !important;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
 }
 
 .toggleIcon svg {
-  font-size: 20px !important;
-  opacity: 1 !important;
-  color: #fff !important;
+  font-size: 20px;
+  opacity: 1;
+  color: #fff;
 }
 
 .card {
@@ -699,11 +699,11 @@ body.dark .logoutWrapper .logoutBox {
 }
 
 body.dark .card {
-  background: #202c4c !important;
+  background: #202c4c;
 }
 
 body.dark .card .hd {
-  color: #fff !important;
+  color: #fff;
 }
 
 .card.tableWrapper {
@@ -720,84 +720,84 @@ body.dark .card .hd {
 
 body.dark .card .cardFilters *,
 body.dark .MuiInputBase-root * {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 body.dark .MuiPopover-paper ul li {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .table-responsive::-webkit-scrollbar-thumb {
-  background: #ccc !important;
+  background: #ccc;
 }
 
 .table {
-  max-width: 100% !important;
+  max-width: 100%;
 }
 
 .table .table-dark th {
   background: #1866ee;
   color: #fff;
-  font-size: 15px !important;
+  font-size: 15px;
   text-align: center;
 }
 
 body.dark .table .table-dark th,
 body.dark .table tbody td {
-  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .table tbody td {
-  font-size: 15px !important;
-  color: #403e57 !important;
+  font-size: 15px;
+  color: #403e57;
   font-weight: 500;
 }
 
 body.dark .table tbody td {
-  background: #112143 !important;
-  color: rgba(255, 255, 255, 0.8) !important;
+  background: #112143;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .table tbody .actions button {
-  min-width: 35px !important;
-  width: 35px !important;
-  height: 35px !important;
-  margin: 0px 3px !important;
+  min-width: 35px;
+  width: 35px;
+  height: 35px;
+  margin: 0px 3px;
 }
 
 .table tbody .actions button.secondary {
-  background: rgba(203, 60, 231, 0.1) !important;
+  background: rgba(203, 60, 231, 0.1);
 }
 
 .table tbody .actions button.success {
-  background: rgba(26, 159, 83, 0.1) !important;
+  background: rgba(26, 159, 83, 0.1);
 }
 .table tbody .actions button.error {
-  background: rgba(241, 17, 51, 0.1) !important;
+  background: rgba(241, 17, 51, 0.1);
 }
 
 body.dark .table tbody .actions button.secondary {
-  background: rgba(203, 60, 231, 0.37) !important;
+  background: rgba(203, 60, 231, 0.37);
   svg {
-    color: rgb(212, 0, 255) !important;
+    color: rgb(212, 0, 255);
   }
 }
 
 body.dark .table tbody .actions button.success {
-  background: rgba(26, 159, 84, 0.479) !important;
+  background: rgba(26, 159, 84, 0.479);
   svg {
-    color: rgb(24, 204, 102) !important;
+    color: rgb(24, 204, 102);
   }
 }
 body.dark .table tbody .actions button.error {
-  background: rgba(241, 17, 51, 0.411) !important;
+  background: rgba(241, 17, 51, 0.411);
   svg {
-    color: rgb(241, 17, 51) !important;
+    color: rgb(241, 17, 51);
   }
 }
 
 body.dark .table tbody .actions button.secondary table.v-align td {
-  vertical-align: middle !important;
+  vertical-align: middle;
 }
 
 .table td .old,
@@ -849,16 +849,16 @@ table.v-align td .productBox {
 }
 
 .tableFooter .pagination .Mui-selected {
-  background-color: #0858f7 !important;
-  color: #fff !important;
+  background-color: #0858f7;
+  color: #fff;
 }
 
 body.dark .tableFooter .pagination button {
-  color: #fff !important;
+  color: #fff;
 }
 
 body.dark .tableFooter .pagination button:hover {
-  background: #0858f7 !important ;
+  background: #0858f7 ;
 }
 
 .tableFooter p {
@@ -896,10 +896,10 @@ body.dark .tableFooter .pagination button:hover {
 }
 
 .loginSection .box .wrapper .form-control {
-  background: #fff !important;
-  box-shadow: none !important;
+  background: #fff;
+  box-shadow: none;
   outline: none;
-  border-radius: 7px !important;
+  border-radius: 7px;
   font-size: 14px;
   font-weight: 600;
   height: 45px;
@@ -907,7 +907,7 @@ body.dark .tableFooter .pagination button:hover {
 }
 
 .loginSection .box .wrapper .form-group.focus .icon svg {
-  color: #0858f7 !important;
+  color: #0858f7;
 }
 
 .loginSection .box .wrapper .form-control:focus {
@@ -964,8 +964,8 @@ body.dark .tableFooter .pagination button:hover {
 }
 
 body.dark .loginSection .box .wrapper .or .txt {
-  background: #08143c !important;
-  color: rgba(255, 255, 255, 0.6) !important;
+  background: #08143c;
+  color: rgba(255, 255, 255, 0.6);
 }
 .loginSection .box .wrapper .form-group.loginWithGoogle .logo {
   position: absolute;
@@ -979,34 +979,34 @@ body.dark .loginSection .box .wrapper .or .txt {
   height: 22px;
 }
 .loginSection .box .wrapper .form-group.loginWithGoogle button {
-  text-transform: capitalize !important;
-  font-weight: bold !important;
+  text-transform: capitalize;
+  font-weight: bold;
 }
 
 .loginSection .box .wrapper .text-center {
-  color: #ccc !important;
+  color: #ccc;
 }
 body.dark .loginSection .box .wrapper .text-center {
-  color: #fff !important;
+  color: #fff;
 }
 
 /* -------------- Sign Up -------------- */
 
 .signUpLoginSection {
-  background: #f1f1f1 !important;
+  background: #f1f1f1;
 }
 
 .signUpSection .box {
   background-color: #f1f1f1;
   position: relative;
   z-index: 100;
-  padding-top: 20px !important;
-  width: 100% !important;
-  height: 100vh !important;
+  padding-top: 20px;
+  width: 100%;
+  height: 100vh;
 }
 
 body.dark .signUpSection .box {
-  background-color: #08143c !important;
+  background-color: #08143c;
 }
 
 .signUpSection .box .wrapper {
@@ -1042,41 +1042,41 @@ body.dark .signUpSection .box {
   height: 22px;
 }
 .signUpSection .box .wrapper .form-group.signUpWithGoogle button {
-  text-transform: capitalize !important;
-  font-weight: bold !important;
+  text-transform: capitalize;
+  font-weight: bold;
 }
 
 .signUpSection .box .wrapper .MuiFormControlLabel-label {
-  color: #000 !important;
+  color: #000;
 }
 
 body.dark .signUpSection .box .wrapper .MuiFormControlLabel-label {
-  color: #fff !important;
+  color: #fff;
 }
 
 /* -------------- Product Details -------------- */
 
 .slick-slide .item {
-  outline: none !important;
+  outline: none;
   border: 2px dashed #cccccc;
 }
 
 .sliderSmall .slick-current .item {
-  border: 2px solid #333333 !important;
+  border: 2px solid #333333;
 }
 
 .sliderSmall .slick-slide {
-  padding-right: 5px !important;
+  padding-right: 5px;
 }
 
 .sliderSmall .slick-slide .item {
-  border-radius: 7px !important;
+  border-radius: 7px;
   overflow: hidden;
 }
 
 .sliderSmall *,
 .sliderBig * {
-  transition: all 0.2s !important;
+  transition: all 0.2s;
 }
 
 .sliderBig .item {
@@ -1085,13 +1085,13 @@ body.dark .signUpSection .box .wrapper .MuiFormControlLabel-label {
 }
 
 .productDetailsSection .productInfo span {
-  color: #67677a !important;
+  color: #67677a;
 }
 
 .productDetailsSection .productInfo .title .icon {
   width: 18%;
   flex: 0 0 18%;
-  margin-right: 7px !important;
+  margin-right: 7px;
 }
 
 .productDetailsSection .productInfo .title .icon svg {
@@ -1104,37 +1104,37 @@ body.dark .signUpSection .box .wrapper .MuiFormControlLabel-label {
 }
 
 body.dark .productDetailsSection .productInfo .title span {
-  color: #b3b8c4 !important;
+  color: #b3b8c4;
   font-weight: bold;
 }
 
 body.dark .productDetailsSection .productInfo .productContent span {
-  color: #99a0af !important;
+  color: #99a0af;
 }
 
 .productDetailsSection .productInfo .productContent #oldPrice {
-  color: rgba(240, 51, 51, 0.8) !important;
-  font-size: 14px !important;
+  color: rgba(240, 51, 51, 0.8);
+  font-size: 14px;
   text-decoration: line-through;
 }
 
 .productDetailsSection .productInfo .productContent .tags {
-  margin-bottom: 0px !important;
+  margin-bottom: 0px;
 }
 
 .productDetailsSection .productInfo .productContent .tags li span {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e6e6e6 !important;
-  border-radius: 5px !important;
+  background: #e6e6e6;
+  border-radius: 5px;
   padding: 2px 10px;
   margin-bottom: 5px;
-  font-size: 13px !important;
+  font-size: 13px;
 }
 
 body.dark .productDetailsSection .productInfo .productContent .tags li span {
-  background: #15223f !important;
+  background: #15223f;
 }
 
 .ratingSection {
@@ -1157,16 +1157,16 @@ body.dark .productDetailsSection .productInfo .productContent .tags li span {
 }
 
 .ratingSection .ratingRow .col2 .progress {
-  height: 5px !important;
-  background: #cccccc !important;
+  height: 5px;
+  background: #cccccc;
 }
 
 body.dark .ratingSection .ratingRow .col2 .progress {
-  background: #000 !important;
+  background: #000;
 }
 
 .ratingSection .ratingRow .col2 .progress .progress-bar {
-  background: #ebd213 !important;
+  background: #ebd213;
 }
 
 .ratingSection .ratingRow .col3 {
@@ -1188,7 +1188,7 @@ body.dark .ratingSection .ratingRow .col2 .progress {
   padding: 35px;
   border-radius: 10px;
   margin-bottom: 15px;
-  background: #ededed !important;
+  background: #ededed;
 }
 
 .reviewsSection .reviewsRow.reply {
@@ -1197,15 +1197,15 @@ body.dark .ratingSection .ratingRow .col2 .progress {
 }
 
 body.dark .reviewsSection .reviewsRow {
-  background: #071739 !important;
+  background: #071739;
 }
 
 .userInfo h6 {
-  margin-bottom: 0px !important;
+  margin-bottom: 0px;
 }
 
 .userInfo .MuiRating-root span {
-  color: #faaf00 !important;
+  color: #faaf00;
 }
 .reviewForm {
   width: 100%;
@@ -1216,18 +1216,18 @@ body.dark .reviewsSection .reviewsRow {
   height: 200px;
   padding: 15px;
   border-radius: 10px;
-  outline: #dbdbdb !important;
-  border: 1px solid #dbdbdb !important;
-  background: #f4f4f4 !important;
+  outline: #dbdbdb;
+  border: 1px solid #dbdbdb;
+  background: #f4f4f4;
 }
 
 body.dark .reviewForm textarea::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 body.dark .reviewForm textarea {
-  outline: navajowhite !important;
-  background-color: #132345 !important;
-  color: rgba(255, 255, 255, 0.6) !important;
-  border: 1px solid #0b1a3a !important;
+  outline: navajowhite;
+  background-color: #132345;
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid #0b1a3a;
 }

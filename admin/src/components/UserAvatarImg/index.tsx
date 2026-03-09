@@ -1,9 +1,9 @@
-import "./index.css"
+import "./index.css";
 
-export default function UserAvatarImg(props) {
+export default function UserAvatarImg({ url }) {
   return (
     <div className="user-image">
-        <img src={props.imgUrl} />
+      <img src={url} />
     </div>
   );
 }

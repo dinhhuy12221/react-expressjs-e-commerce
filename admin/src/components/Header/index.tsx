@@ -191,7 +191,7 @@ export default function Header() {
               className="header-profile-info"
               onClick={handleOpenMyAccDrop}
             >
-              <UserAvatarImg imgUrl={"/public/logo192.png"} />
+              <UserAvatarImg url={"/public/logo192.png"} />
             </button>
             <Menu
               className="header-profile-dropdown"

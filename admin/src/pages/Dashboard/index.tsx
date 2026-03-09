@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import DashboardBox from "./components/DashboardBox";
+import DashboardBox from "./DashboardBox";
 import { FaUserCircle } from "react-icons/fa";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { IoBagHandleSharp } from "react-icons/io5";
@@ -82,8 +82,8 @@ const Dashboard = () => {
       <td className="dashboard-table-content-main-brand">Rich man</td>
       <td>
         <div className="dashboard-table-content-main-prices" style={{ width: "70px" }}>
-          <del className="old">$21.00</del>
-          <span className="new text-danger">$19.00</span>
+          <del className="dashboard-table-content-main-prices-old">$21.00</del>
+          <span className="dashboard-table-content-main-prices-new">$19.00</span>
         </div>
       </td>
       <td className="dashboard-table-content-main-stock">30</td>
