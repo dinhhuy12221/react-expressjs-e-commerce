@@ -1,9 +1,9 @@
-export default function UserAvatarImg(props) {
+import "./index.css";
+
+export default function UserAvatarImg({ url }) {
   return (
-    <div className={`userImg ${props.lg === "true" && "lg"}`}>
-      <span className="rounded-circle">
-        <img src={props.imgUrl} />
-      </span>
+    <div className="user-image">
+      <img src={url} />
     </div>
   );
 }

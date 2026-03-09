@@ -191,17 +191,7 @@ export default function Header() {
               className="header-profile-info"
               onClick={handleOpenMyAccDrop}
             >
-              <UserAvatarImg imgUrl={"/public/logo192.png"} />
-              {/* <UserAvatarImg
-                      imgUrl={
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ"
-                      }
-                    /> */}
-
-              {/* <div className="userInfo res-hide">
-                <h4>aLue</h4>
-                <p className="mb-0">@aLue35</p>
-              </div> */}
+              <UserAvatarImg url={"/public/logo192.png"} />
             </button>
             <Menu
               className="header-profile-dropdown"
