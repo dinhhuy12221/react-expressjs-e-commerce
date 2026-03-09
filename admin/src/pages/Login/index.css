@@ -48,55 +48,70 @@
 }
 
 .login-page-content-item-control {
-  background: #fff;
-  box-shadow: none;
-  outline: none;
-  border-radius: 7px;
-  font-size: 14px;
-  font-weight: 600;
-  height: 45px;
-  padding-left: 45px;
+    height: 45px;
+    background: #fff;
+    outline: none;
+    border-radius: var(--radius-10);
+    font-size: var(--font-14);
+    font-weight: 600;
+    padding-left: var(--space-40);
 }
 
-.login-page-content-item.focus .icon svg {
-  color: #0858f7;
+.login-page-content-item.focus svg {
+    color: #0858f7;
 }
 
 .login-page-content-item-control:focus {
-  border: 1px solid #0858f7;
-}
-
-.login-page-content-item .icon {
-  position: absolute;
-  height: 100%;
-  left: 15px;
-  z-index: 100;
-  font-size: 20px;
+    border: 1px solid #0858f7;
 }
 
 .login-page-content-item .icon svg {
-  color: #5e5d72;
+    color: #5e5d72;
 }
 
-.toggleShowPassword {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  right: 15px;
+.login-page-content-item-pass {
+    position: absolute;
+    top: var(--space-14);
+    right: var(--space-14);
+    font-size: var(--font-16);
+    color: #08143c !important;
+    cursor: pointer;
 }
 
-.toggleShowPassword svg {
-  font-size: 17px;
-  cursor: pointer;
+.login-page-content-item-button {
+    width: 100%;
+}
+.login-page-content-item-forgot {
+    text-decoration: underline;
+    font-size: var(--font-14);
+    color: #5e5d72;
 }
 
-.login-page-content .link {
-  font-size: 14px;
-}
-
-.login-page-content .or .line {
+.login-page-content-divide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   width: 100%;
-  border: 1px solid #615b5b54;
+  height: 50px;
+  border: none;
+}
+.login-page-content-divide-border {
+  width: 100%;
+  top: var(--space-24);
+  position: absolute;
+  border: var(--border-width-1) #08143c;
+}
+.login-page-content-divide-label {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-14);
+    border-radius: 50%;
+  background: #08143c;
 }
 
 .login-page-content .or .txt {

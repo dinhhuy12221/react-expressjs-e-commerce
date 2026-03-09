@@ -59,7 +59,7 @@ export default function AdminLogin() {
                 onBlur={() => focusInput(null)}
               />
               <span
-                className="toggleShowPassword d-flex align-items-center"
+                className="login-page-content-item-pass"
                 onClick={() => setIsShowPassword(!isShowPassword)}
               >
                 {isShowPassword === true ? <IoMdEye /> : <BiSolidHide />}
@@ -67,18 +67,18 @@ export default function AdminLogin() {
             </div>
 
             <div className="login-page-content-item">
-              <Button className="btn-blue btn-lg btn-big w-100">Sign In</Button>
+              <Button className="login-page-content-item-button" variant="outlined">Sign In</Button>
             </div>
 
-            <div className="login-page-content-item text-center">
-              <Link to={"/forgot-password"} className="link">
+            <div className="login-page-content-item">
+              <Link to={"/forgot-password"} className="login-page-content-item-forgot" >
                 FORGOT PASSWORD
               </Link>
             </div>
 
-            <div className="d-flex align-items-center justify-content-center or mt-5 mb-5">
-              <div className="line"></div>
-              <span className="txt">or</span>
+            <div className="login-page-content-divide">
+              <div className="login-page-content-divide-border"></div>
+              <span className="login-page-content-divide-label">or</span>
             </div>
             <div className="login-page-content-item loginWithGoogle position-relative">
               <div className="logo">
