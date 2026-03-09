@@ -80,18 +80,16 @@ export default function AdminLogin() {
               <div className="login-page-content-divide-border"></div>
               <span className="login-page-content-divide-label">or</span>
             </div>
-            <div className="login-page-content-item loginWithGoogle position-relative">
-              <div className="logo">
+            <div className="login-page-content-item-google">
                 <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
-              </div>
-              <Button variant="outlined" color="error" className="btn-lg w-100">
+              <Button variant="outlined" color="error" >
                 Sign In with Google
               </Button>
             </div>
           </form>
-          <span className="text-center mt-2">
+          <span className="login-page-content-register">
             Don't have an account?&nbsp;
-            <Link to={"/signup"} className="link color">
+            <Link to={"/signup"} >
               Register
             </Link>
           </span>

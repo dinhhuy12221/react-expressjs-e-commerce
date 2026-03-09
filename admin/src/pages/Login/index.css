@@ -129,30 +129,25 @@
   font-weight: 600;
   z-index: 100;
 }
-
-body.dark .login-page-content .or .txt {
-  background: #08143c;
-  color: rgba(255, 255, 255, 0.6);
+.login-page-content-item-google {
+    position: relative;
 }
-.login-page-content-item.loginWithGoogle .logo {
+.login-page-content-item-google img {
   position: absolute;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  left: 65px;
+  width: 25px;
+  height: 25px;
+  top: var(--space-4);
+  left: var(--space-8);
 }
-.login-page-content-item.loginWithGoogle .logo img {
-  width: 22px;
-  height: 22px;
+.login-page-content-item-google button {
+  width: 100%;
+  text-align: center;
 }
-.login-page-content-item.loginWithGoogle button {
-  text-transform: capitalize;
-  font-weight: bold;
+.login-page-content-register {
+    color: #08143c !important;
+    font-size: var(--font-14);
+    text-align: center;
 }
-
-.login-page-content .text-center {
-  color: #ccc;
-}
-body.dark .login-page-content .text-center {
-  color: #fff;
+.login-page-content-register a {
+    text-decoration: underline;
 }
