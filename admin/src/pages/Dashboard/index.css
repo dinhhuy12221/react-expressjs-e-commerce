@@ -49,6 +49,7 @@
 }
 .dashboard-table-filter {
     display: flex;
+    gap: var(--space-12);
 }
 .dashboard-table-filter-number {
     display: flex;
