@@ -4,8 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   
-  padding: var(--space-16);
-  width: 260px;
+  width: 0;
   height: 93vh;
   top: 70px;
   left: 0px;
@@ -15,12 +14,8 @@
 }
 
 .sidebar.toggle {
-  width: 0;
-  padding: 0;
-}
-
-.sidebar li {
-  list-style: none;
+  min-width: 15%;
+  padding: var(--space-16);
 }
 
 .sidebar-item {
@@ -93,6 +88,7 @@
   font-size: var(--font-16);
   color: var(--color-text-white);
   background: #12254e;
+  cursor: pointer;
 }
 .sidebar-logout svg {
   color: #5e5d72;

@@ -77,9 +77,9 @@ export default function Header() {
             onClick={() => context.setIsToggleSidebar(!context.isToggleSidebar)}
           >
             {context.isToggleSidebar === false ? (
-              <MdOutlineMenuOpen />
-            ) : (
               <MdMenu />
+            ) : (
+              <MdOutlineMenuOpen />
             )}
           </button>
         </div>

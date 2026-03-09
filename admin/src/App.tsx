@@ -9,7 +9,7 @@ import routes from "./routes";
 const AdminContext = createContext<any>(null);
 
 const App = () => {
-  const [isToggleSidebar, setIsToggleSidebar] = useState(false);
+  const [isToggleSidebar, setIsToggleSidebar] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
   const [isHideSidebarAndHeader, setIsHideSidebarAndHeader] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

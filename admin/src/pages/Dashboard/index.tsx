@@ -90,8 +90,8 @@ const Dashboard = () => {
       <td className="dashboard-table-content-main-rating">4.9(16)</td>
       <td className="dashboard-table-content-main-order">380</td>
       <td className="dashboard-table-content-main-sales">$38k</td>
-      <td className="dashboard-table-content-main-actions">
-        <div className="actions d-flex align-items-center justify-content-center">
+      <td>
+        <div className="actions dashboard-table-content-main-actions">
           <Button className="secondary" color="secondary">
             <FaEye />
           </Button>
@@ -255,7 +255,7 @@ const Dashboard = () => {
             <thead className="table-dark">
               <tr>
                 <th>UID</th>
-                <th style={{ width: "250px" }}>IMAGE</th>
+                <th>IMAGE</th>
                 <th>NAME</th>
                 <th>CATEGORY</th>
                 <th>BRAND</th>
