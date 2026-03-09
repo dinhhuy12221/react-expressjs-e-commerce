@@ -17,5 +17,6 @@ code {
 }
 .content-main {
   width: 100%;
+  flex-shrink: 1;
   padding: var(--space-24);
 }

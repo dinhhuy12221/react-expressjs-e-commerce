@@ -4,8 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   
-  /* padding: 0; */
-  width: 0px;
+  width: 0;
   height: 93vh;
   top: 70px;
   left: 0px;
@@ -15,7 +14,7 @@
 }
 
 .sidebar.toggle {
-  min-width: 260px;
+  min-width: 15%;
   padding: var(--space-16);
 }
 
