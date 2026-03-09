@@ -328,61 +328,6 @@ body.dark .searchBox svg {
   color: #000 !important;
 }
 
-.userImg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  width: 55px;
-  height: 55px;
-  border: 1px solid #0858f7;
-  border-radius: 50%;
-  padding: 2px;
-}
-
-.userImg .rounded-circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  width: 100% !important;
-  height: 100% !important;
-  cursor: pointer;
-  position: relative;
-}
-
-/* 
-.myAcc:hover .userImg {
-  animation-name: rotate;
-  animation-duration: 30s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-.myAcc:hover .userImg .rounded-circle {
-  animation-name: anti-rotate;
-  animation-duration: 30s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(-360deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes anti-rotate {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-} */
-
 .userImg .rounded-circle img {
   object-fit: cover !important;
   width: 100%;

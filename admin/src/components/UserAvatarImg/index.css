@@ -1,0 +1,49 @@
+.user-image {
+    position: relative;
+  width: 38px;
+  height: 38px;
+  border: 4px dotted #ffffff;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user-image img {
+    position: absolute;
+    inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-image:hover {
+  animation-name: rotate;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.user-image:hover img {
+  animation-name: anti-rotate;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes anti-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

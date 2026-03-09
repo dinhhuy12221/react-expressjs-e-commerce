@@ -63,6 +63,7 @@
 .header-login-button {
     color: var(--color-text-white) !important;
 }
+
 .header-profile-info {
     display: flex;
     align-items: center;
