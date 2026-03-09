@@ -90,16 +90,16 @@
 .dashboard-table-content-main-name-head {
     font-size: var(--font-20);
 }
-.dashboard-table-content-main-prices {
+/* .dashboard-table-content-main-prices {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 .dashboard-table-content-main-prices-old {
   color: var(--color-text-red-1);
 }
 .dashboard-table-content-main-prices-new {
-  color: var(--color-text-success);
+  color: var(--color-text-success) !important;
 }
 .dashboard-table-content-main-actions {
     display: flex;

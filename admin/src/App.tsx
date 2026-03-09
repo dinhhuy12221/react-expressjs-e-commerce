@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./index.css";
 import "./responsive.css";
 import { createContext, useEffect, useState } from "react";
@@ -15,6 +15,8 @@ const App = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const [themeMode, setThemeMode] = useState(false);
+  const location = useLocation();
+  const locList = ["/login", "/signup"];
 
   useEffect(() => {
     if (themeMode === true) {
@@ -40,9 +42,10 @@ const App = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   context.setIsHeaderFooterShow(false);
-  // }, [])
+  useEffect(() => {
+    const ok = locList.some(item => item.endsWith(location.pathname))
+    setIsHideSidebarAndHeader(!ok);
+  }, [location])
 
   const openNav = () => {
     setIsOpenNav(!isOpenNav);
@@ -68,9 +71,9 @@ const App = () => {
 
   return (
     <AdminContext.Provider value={values}>
-       <Header />
+       {isHideSidebarAndHeader && <Header />}
       <div className="content">
-        <Sidebar />
+        {isHideSidebarAndHeader && <Sidebar />}
         {/* <div
           className={`sidebar-content ${
             isHideSidebarAndHeader === true && "full"

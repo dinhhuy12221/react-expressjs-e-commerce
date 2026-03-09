@@ -80,11 +80,10 @@ const Dashboard = () => {
       </td>
       <td className="dashboard-table-content-main-category">Women</td>
       <td className="dashboard-table-content-main-brand">Rich man</td>
-      <td>
-        <div className="dashboard-table-content-main-prices" style={{ width: "70px" }}>
+      <td className="dashboard-table-content-main-prices">
           <del className="dashboard-table-content-main-prices-old">$21.00</del>
+          <br />
           <span className="dashboard-table-content-main-prices-new">$19.00</span>
-        </div>
       </td>
       <td className="dashboard-table-content-main-stock">30</td>
       <td className="dashboard-table-content-main-rating">4.9(16)</td>
