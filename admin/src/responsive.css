@@ -74,15 +74,15 @@
     padding-left: 12px !important;
   }
 
-  .tableFooter {
+  .dashboard-table-content-footer {
     flex-direction: column;
   }
 
-  .tableFooter nav {
+  .dashboard-table-content-footer nav {
     margin-top: 25px;
   }
 
-  .tableFooter nav ul {
+  .dashboard-table-content-footer nav ul {
     white-space: nowrap !important;
     overflow-x: scroll !important;
     overflow-y: hidden !important;
@@ -91,7 +91,7 @@
     margin-bottom: 20px !important;
   }
 
-  .tableFooter nav ul li {
+  .dashboard-table-content-footer nav ul li {
     display: inline-block !important;
     width: max-content !important;
     min-width: max-content !important;
