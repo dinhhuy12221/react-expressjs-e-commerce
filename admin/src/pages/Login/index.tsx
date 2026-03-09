@@ -6,44 +6,37 @@ import { IoMdEye } from "react-icons/io";
 import { BiSolidHide } from "react-icons/bi";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import "./index.css"
 
 export default function AdminLogin() {
   const [inputIndex, setInputIndex] = useState(null);
   const [isShowPassword, setIsShowPassword] = useState(false);
-  const context = useContext(AdminContext);
-
-  useEffect(() => {
-    context.setIsHideSidebarAndHeader(true);
-    window.scrollTo(0, 0);
-  }, []);
 
   const focusInput = (index) => {
     setInputIndex(index);
   };
   return (
-    <section className="loginSection">
-      <div className="box">
-        <div className="logo text-center">
+    <section className="login-page">
+        <div className="login-page-header">
           <img
             src="https://cdn-icons-png.flaticon.com/512/906/906343.png"
-            width={100}
           />
-          <h5 className="font-weight-bolder mt-3">Login to Hotash</h5>
+          <h2 className="login-page-header-title">Login</h2>
         </div>
 
-        <div className="wrapper mt-3 card">
+        <div className="login-page-content">
           <form>
             <div
-              className={`form-group position-relative ${
+              className={`login-page-content-item ${
                 inputIndex === 0 && "focus"
               }`}
             >
-              <span className="icon d-flex align-items-center">
+              <span className="login-page-content-item-icon">
                 <MdEmail />
               </span>
               <input
                 type="text"
-                className="form-control"
+                className="login-page-content-item-control"
                 placeholder="Enter your email"
                 onFocus={() => focusInput(0)}
                 onBlur={() => focusInput(null)}
@@ -51,59 +44,56 @@ export default function AdminLogin() {
               />
             </div>
             <div
-              className={`form-group position-relative ${
+              className={`login-page-content-item ${
                 inputIndex === 1 && "focus"
               }`}
             >
-              <span className="icon d-flex align-items-center">
+              <span className="login-page-content-item-icon">
                 <RiLockPasswordFill />
               </span>
               <input
                 type={`${isShowPassword === true ? "text" : "password"}`}
-                className="form-control"
+                className="login-page-content-item-control"
                 placeholder="Enter your password"
                 onFocus={() => focusInput(1)}
                 onBlur={() => focusInput(null)}
               />
               <span
-                className="toggleShowPassword d-flex align-items-center"
+                className="login-page-content-item-pass"
                 onClick={() => setIsShowPassword(!isShowPassword)}
               >
                 {isShowPassword === true ? <IoMdEye /> : <BiSolidHide />}
               </span>
             </div>
 
-            <div className="form-group">
-              <Button className="btn-blue btn-lg btn-big w-100">Sign In</Button>
+            <div className="login-page-content-item">
+              <Button className="login-page-content-item-button" variant="outlined">Sign In</Button>
             </div>
 
-            <div className="form-group text-center">
-              <Link to={"/forgot-password"} className="link">
+            <div className="login-page-content-item">
+              <Link to={"/forgot-password"} className="login-page-content-item-forgot" >
                 FORGOT PASSWORD
               </Link>
             </div>
 
-            <div className="d-flex align-items-center justify-content-center or mt-5 mb-5">
-              <div className="line"></div>
-              <span className="txt">or</span>
+            <div className="login-page-content-divide">
+              <div className="login-page-content-divide-border"></div>
+              <span className="login-page-content-divide-label">or</span>
             </div>
-            <div className="form-group loginWithGoogle position-relative">
-              <div className="logo">
+            <div className="login-page-content-item-google">
                 <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
-              </div>
-              <Button variant="outlined" color="error" className="btn-lg w-100">
+              <Button variant="outlined" color="error" >
                 Sign In with Google
               </Button>
             </div>
           </form>
-          <span className="text-center mt-2">
+          <span className="login-page-content-register">
             Don't have an account?&nbsp;
-            <Link to={"/signup"} className="link color">
+            <Link to={"/signup"} >
               Register
             </Link>
           </span>
         </div>
-      </div>
     </section>
   );
 }
