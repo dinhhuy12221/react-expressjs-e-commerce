@@ -90,8 +90,8 @@ const Dashboard = () => {
       <td className="dashboard-table-content-main-rating">4.9(16)</td>
       <td className="dashboard-table-content-main-order">380</td>
       <td className="dashboard-table-content-main-sales">$38k</td>
-      <td className="dashboard-table-content-main-actions">
-        <div className="actions d-flex align-items-center justify-content-center">
+      <td>
+        <div className="actions dashboard-table-content-main-actions">
           <Button className="secondary" color="secondary">
             <FaEye />
           </Button>
@@ -197,9 +197,6 @@ const Dashboard = () => {
           <Chart
             className="dashboard-content-graph-main"
             chartType="AreaChart"
-            style={
-              {flexShrink: 1}
-            }
             width={"100%"}
             height={"100%"}
             data={data}
