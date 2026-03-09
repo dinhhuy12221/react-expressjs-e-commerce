@@ -1,0 +1,129 @@
+
+/* -------------- Login -------------- */
+
+.login-page {
+  width: 300px;
+}
+.login-page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+.login-page-header img {
+  width: 33%;
+}
+
+.login-page-content {
+  width: 100%;
+  height: auto;
+  background: #f0f0f0;
+  border-radius: 20px;
+  position: relative;
+  z-index: 100;
+  padding: 35px 30px;
+}
+
+.login-page-content .form-group {
+  margin-bottom: 18px;
+}
+
+.login-page-content .form-control {
+  background: #fff;
+  box-shadow: none;
+  outline: none;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  height: 45px;
+  padding-left: 45px;
+}
+
+.login-page-content .form-group.focus .icon svg {
+  color: #0858f7;
+}
+
+.login-page-content .form-control:focus {
+  border: 1px solid #0858f7;
+}
+
+.login-page-content .form-group .icon {
+  position: absolute;
+  height: 100%;
+  left: 15px;
+  z-index: 100;
+  font-size: 20px;
+}
+
+.login-page-content .form-group .icon svg {
+  color: #5e5d72;
+}
+
+.toggleShowPassword {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 15px;
+}
+
+.toggleShowPassword svg {
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.login-page-content .link {
+  font-size: 14px;
+}
+
+.login-page-content .or .line {
+  width: 100%;
+  border: 1px solid #615b5b54;
+}
+
+.login-page-content .or .txt {
+  position: absolute;
+  border: 1px solid #615b5b54;
+  background: #f0f0f0;
+  color: #18161654;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 100;
+}
+
+body.dark .login-page-content .or .txt {
+  background: #08143c;
+  color: rgba(255, 255, 255, 0.6);
+}
+.login-page-content .form-group.loginWithGoogle .logo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  left: 65px;
+}
+.login-page-content .form-group.loginWithGoogle .logo img {
+  width: 22px;
+  height: 22px;
+}
+.login-page-content .form-group.loginWithGoogle button {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.login-page-content .text-center {
+  color: #ccc;
+}
+body.dark .login-page-content .text-center {
+  color: #fff;
+}

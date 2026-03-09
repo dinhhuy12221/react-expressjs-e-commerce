@@ -6,32 +6,25 @@ import { IoMdEye } from "react-icons/io";
 import { BiSolidHide } from "react-icons/bi";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import "./index.css"
 
 export default function AdminLogin() {
   const [inputIndex, setInputIndex] = useState(null);
   const [isShowPassword, setIsShowPassword] = useState(false);
-  const context = useContext(AdminContext);
-
-  useEffect(() => {
-    context.setIsHideSidebarAndHeader(true);
-    window.scrollTo(0, 0);
-  }, []);
 
   const focusInput = (index) => {
     setInputIndex(index);
   };
   return (
-    <section className="loginSection">
-      <div className="box">
-        <div className="logo text-center">
+    <section className="login-page">
+        <div className="login-page-header">
           <img
             src="https://cdn-icons-png.flaticon.com/512/906/906343.png"
-            width={100}
           />
-          <h5 className="font-weight-bolder mt-3">Login to Hotash</h5>
+          <h2 className="login-page-header-title">Login</h2>
         </div>
 
-        <div className="wrapper mt-3 card">
+        <div className="login-page-content">
           <form>
             <div
               className={`form-group position-relative ${
@@ -103,7 +96,6 @@ export default function AdminLogin() {
             </Link>
           </span>
         </div>
-      </div>
     </section>
   );
 }

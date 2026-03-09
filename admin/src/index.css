@@ -18,6 +18,8 @@ code {
 .content-main {
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 1;
   padding: var(--space-24);
 }
