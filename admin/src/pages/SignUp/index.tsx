@@ -56,14 +56,14 @@ export default function SignUp() {
               </h5>
             </div>
 
-            <div className="wrapper mt-3 card">
-              <form>
+            <div className="signup-page-content">
+              <form className="signup-page-content-form">
                 <div
-                  className={`form-group position-relative ${
+                  className={`signup-page-content-form-item ${
                     inputIndex === 0 && "focus"
                   }`}
                 >
-                  <span className="icon d-flex align-items-center">
+                  <span className="signup-page-content-form-item-icon">
                     <FaUserCircle />
                   </span>
                   <input
@@ -76,11 +76,11 @@ export default function SignUp() {
                   />
                 </div>
                 <div
-                  className={`form-group position-relative ${
+                  className={`signup-page-content-form-item ${
                     inputIndex === 1 && "focus"
                   }`}
                 >
-                  <span className="icon d-flex align-items-center">
+                  <span className="signup-page-content-form-item-icon">
                     <MdEmail />
                   </span>
                   <input
@@ -92,11 +92,11 @@ export default function SignUp() {
                   />
                 </div>
                 <div
-                  className={`form-group position-relative ${
+                  className={`signup-page-content-form-item ${
                     inputIndex === 2 && "focus"
                   }`}
                 >
-                  <span className="icon d-flex align-items-center">
+                  <span className="signup-page-content-form-item-icon">
                     <RiLockPasswordFill />
                   </span>
                   <input
@@ -114,11 +114,11 @@ export default function SignUp() {
                   </span>
                 </div>
                 <div
-                  className={`form-group position-relative ${
+                  className={`signup-page-content-form-item ${
                     inputIndex === 3 && "focus"
                   }`}
                 >
-                  <span className="icon d-flex align-items-center">
+                  <span className="signup-page-content-form-item-icon">
                     <IoShieldCheckmark />
                   </span>
                   <input
