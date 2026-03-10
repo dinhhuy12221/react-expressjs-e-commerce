@@ -147,24 +147,24 @@ export default function SignUp() {
                   required
                   control={<Checkbox />}
                   label="I agree to the all Terms & Conditions"
-                  className="mb-3"
+                  className="signup-page-content-form-item-terms"
                 />
 
                 <div className="signup-page-content-form-item">
-                  <Button className="signup-page-content-form-item-signup">
+                  <Button className="signup-page-content-form-item-signup" variant="outlined">
                     Sign Up
                   </Button>
                 </div>
 
                 <div className="signup-page-content-form-item">
                   <Link to={"/forgot-password"} className="signup-page-content-form-item-forgot">
-                    FORGOT PASSWORD
+                    Forgot password
                   </Link>
                 </div>
 
-                <div className="signup-page-content-divide">
-                  <div className="signup-page-content-divide-border"></div>
-                  <span className="signup-page-content-divide-label">or</span>
+                <div className="signup-page-content-form-divide">
+                  <div className="signup-page-content-form-divide-border"></div>
+                  <span className="signup-page-content-form-divide-label">or</span>
                 </div>
                 <div className="signup-page-content-form-item-google">
                     <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
