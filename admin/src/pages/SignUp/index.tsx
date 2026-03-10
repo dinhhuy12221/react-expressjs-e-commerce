@@ -12,27 +12,22 @@ import { Link } from "react-router-dom";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
+import "./index.css"
+
 export default function SignUp() {
   const [inputIndex, setInputIndex] = useState(null);
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmedPassword, setIsShowConfirmedPassword] = useState(false);
-  const context = useContext(AdminContext);
-
-  useEffect(() => {
-    context.setIsHideSidebarAndHeader(true);
-    window.scrollTo(0, 0);
-  }, []);
 
   const focusInput = (index) => {
     setInputIndex(index);
   };
   return (
-    <section className="loginSection signUpSection">
-      <div className="row">
-        <div className="col-md-8 d-flex align-items-center justify-content-center flex-column part1">
+    <section className="signup-page">
+        {/* <div className="col-md-8 d-flex align-items-center justify-content-center flex-column part1">
           <h1>
-            BEST UX/UI FASHION{" "}
-            <span className="text-sky">ECOMMERCE DASHBOARD</span> & ADMIN PANEL
+            BEST UX/UI FASHION
+            <span className="text-sky">E-COMMERCE DASHBOARD</span> & ADMIN PANEL
           </h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -50,16 +45,14 @@ export default function SignUp() {
               </Button>
             </Link>
           </div>
-        </div>
-        <div className="col-md-4">
-          <div className="box">
-            <div className="logo text-center">
+        </div> */}
+            <div className="signup-page-header">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/906/906343.png"
                 width={100}
               />
               <h5 className="font-weight-bolder mt-3">
-                Register a new account
+                Register
               </h5>
             </div>
 
@@ -175,7 +168,7 @@ export default function SignUp() {
                 </div>
                 <div className="form-group signUpWithGoogle position-relative">
                   <div className="logo">
-                    <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
+                    {/* <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" /> */}
                   </div>
                   <Button
                     variant="outlined"
@@ -193,9 +186,6 @@ export default function SignUp() {
                 </Link>
               </span>
             </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

@@ -134,10 +134,10 @@
 }
 .login-page-content-item-google img {
   position: absolute;
-  width: 25px;
-  height: 25px;
-  top: var(--space-4);
-  left: var(--space-8);
+  width: 20px;
+  height: 20px;
+  top: var(--space-8);
+  left: var(--space-10);
 }
 .login-page-content-item-google button {
   width: 100%;
