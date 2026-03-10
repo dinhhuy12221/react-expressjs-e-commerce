@@ -68,7 +68,7 @@ export default function SignUp() {
                   </span>
                   <input
                     type="text"
-                    className="form-control"
+                    className="signup-page-content-form-item-control"
                     placeholder="Enter your name"
                     onFocus={() => focusInput(0)}
                     onBlur={() => focusInput(null)}
@@ -85,7 +85,7 @@ export default function SignUp() {
                   </span>
                   <input
                     type="text"
-                    className="form-control"
+                    className="signup-page-content-form-item-control"
                     placeholder="Enter your email"
                     onFocus={() => focusInput(1)}
                     onBlur={() => focusInput(null)}
@@ -101,13 +101,13 @@ export default function SignUp() {
                   </span>
                   <input
                     type={`${isShowPassword === true ? "text" : "password"}`}
-                    className="form-control"
+                    className="signup-page-content-form-item-control"
                     placeholder="Enter your password"
                     onFocus={() => focusInput(2)}
                     onBlur={() => focusInput(null)}
                   />
                   <span
-                    className="toggleShowPassword d-flex align-items-center"
+                    className="signup-page-content-form-item-pass"
                     onClick={() => setIsShowPassword(!isShowPassword)}
                   >
                     {isShowPassword === true ? <IoMdEye /> : <BiSolidHide />}
@@ -125,13 +125,13 @@ export default function SignUp() {
                     type={`${
                       isShowConfirmedPassword === true ? "text" : "password"
                     }`}
-                    className="form-control"
+                    className="signup-page-content-form-item-control"
                     placeholder="Confirm your password"
                     onFocus={() => focusInput(3)}
                     onBlur={() => focusInput(null)}
                   />
                   <span
-                    className="toggleShowPassword d-flex align-items-center"
+                    className="signup-page-content-form-item-pass-confirm"
                     onClick={() =>
                       setIsShowConfirmedPassword(!isShowConfirmedPassword)
                     }
@@ -150,14 +150,14 @@ export default function SignUp() {
                   className="mb-3"
                 />
 
-                <div className="form-group">
-                  <Button className="btn-blue btn-lg btn-big w-100">
+                <div className="signup-page-content-form-item">
+                  <Button className="signup-page-content-form-item-signup">
                     Sign Up
                   </Button>
                 </div>
 
-                <div className="form-group text-center">
-                  <Link to={"/forgot-password"} className="link">
+                <div className="signup-page-content-form-item">
+                  <Link to={"/forgot-password"} className="signup-page-content-form-item-forgot">
                     FORGOT PASSWORD
                   </Link>
                 </div>
@@ -166,10 +166,8 @@ export default function SignUp() {
                   <div className="line"></div>
                   <span className="txt">or</span>
                 </div>
-                <div className="form-group signUpWithGoogle position-relative">
-                  <div className="logo">
-                    {/* <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" /> */}
-                  </div>
+                <div className="signup-page-content-form-item-google">
+                    <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
                   <Button
                     variant="outlined"
                     color="error"
