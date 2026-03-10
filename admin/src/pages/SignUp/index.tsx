@@ -171,13 +171,12 @@ export default function SignUp() {
                   <Button
                     variant="outlined"
                     color="error"
-                    className="btn-lg w-100"
                   >
                     Sign Up with Google
                   </Button>
                 </div>
               </form>
-              <span className="text-center d-block mt-3">
+              <span className="signup-page-content-login">
                 Already have an account?&nbsp;
                 <Link to={"/login"} className="link color">
                   Sign In
