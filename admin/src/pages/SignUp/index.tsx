@@ -162,9 +162,9 @@ export default function SignUp() {
                   </Link>
                 </div>
 
-                <div className="d-flex align-items-center justify-content-center or mt-5 mb-5">
-                  <div className="line"></div>
-                  <span className="txt">or</span>
+                <div className="signup-page-content-divide">
+                  <div className="signup-page-content-divide-border"></div>
+                  <span className="signup-page-content-divide-label">or</span>
                 </div>
                 <div className="signup-page-content-form-item-google">
                     <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />

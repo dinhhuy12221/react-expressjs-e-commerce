@@ -18,22 +18,6 @@ body.dark .signup-page-content {
   color: #08143c !important;
 }
 
-/* 
-.signUpSection .part1 {
-  padding-left: 100px;
-  padding-right: 10px;
-}
-
-.signUpSection .part1 h1 {
-  font-size: 50px;
-  font-weight: 800;
-}
-
-.signUpSection .part1 p {
-  font-size: 18px;
-  font-weight: 500;
-} */
-
 .signup-page-content-form-item {
     position: relative;
     display: flex;
@@ -44,6 +28,51 @@ body.dark .signup-page-content {
     top: var(--space-12);
     left: var(--space-18);
     color: #08143c !important;
+}
+
+.signup-page-content-form-item-control {
+    height: 45px;
+    background: #fff;
+    outline: none;
+    border-radius: var(--radius-10);
+    font-size: var(--font-14);
+    font-weight: 600;
+    padding-left: var(--space-40);
+}
+
+.signup-page-content-form-item.focus svg {
+    color: #0858f7;
+}
+
+.signup-page-content-form-item-control:focus {
+    border: 1px solid #0858f7;
+}
+
+.signup-page-content-divide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  width: 100%;
+  height: 50px;
+  border: none;
+}
+.signup-page-content-divide-border {
+  width: 100%;
+  top: var(--space-24);
+  position: absolute;
+  border: var(--border-width-1) #08143c;
+}
+.signup-page-content-divide-label {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-14);
+    border-radius: 50%;
+  background: #08143c;
 }
 
 .signup-page-content-form-item-google img {
