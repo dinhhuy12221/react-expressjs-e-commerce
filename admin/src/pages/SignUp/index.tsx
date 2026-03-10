@@ -49,11 +49,11 @@ export default function SignUp() {
             <div className="signup-page-header">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/906/906343.png"
-                width={100}
+                width={80}
               />
-              <h5 className="font-weight-bolder mt-3">
+              <h2 className="font-weight-bolder mt-3">
                 Register
-              </h5>
+              </h2>
             </div>
 
             <div className="signup-page-content">
