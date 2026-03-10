@@ -49,11 +49,11 @@ export default function SignUp() {
             <div className="signup-page-header">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/906/906343.png"
-                width={100}
+                width={80}
               />
-              <h5 className="font-weight-bolder mt-3">
+              <h2 className="font-weight-bolder mt-3">
                 Register
-              </h5>
+              </h2>
             </div>
 
             <div className="signup-page-content">
@@ -147,37 +147,36 @@ export default function SignUp() {
                   required
                   control={<Checkbox />}
                   label="I agree to the all Terms & Conditions"
-                  className="mb-3"
+                  className="signup-page-content-form-item-terms"
                 />
 
                 <div className="signup-page-content-form-item">
-                  <Button className="signup-page-content-form-item-signup">
+                  <Button className="signup-page-content-form-item-signup" variant="outlined">
                     Sign Up
                   </Button>
                 </div>
 
                 <div className="signup-page-content-form-item">
                   <Link to={"/forgot-password"} className="signup-page-content-form-item-forgot">
-                    FORGOT PASSWORD
+                    Forgot password
                   </Link>
                 </div>
 
-                <div className="d-flex align-items-center justify-content-center or mt-5 mb-5">
-                  <div className="line"></div>
-                  <span className="txt">or</span>
+                <div className="signup-page-content-form-divide">
+                  <div className="signup-page-content-form-divide-border"></div>
+                  <span className="signup-page-content-form-divide-label">or</span>
                 </div>
                 <div className="signup-page-content-form-item-google">
                     <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
                   <Button
                     variant="outlined"
                     color="error"
-                    className="btn-lg w-100"
                   >
                     Sign Up with Google
                   </Button>
                 </div>
               </form>
-              <span className="text-center d-block mt-3">
+              <span className="signup-page-content-login">
                 Already have an account?&nbsp;
                 <Link to={"/login"} className="link color">
                   Sign In
