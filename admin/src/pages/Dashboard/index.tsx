@@ -20,6 +20,8 @@ import Pagination from "@mui/material/Pagination";
 import { AdminContext } from "../../App";
 
 import "./index.css";
+import { getProductList } from "../../api/product";
+import getDiscountPrice from "../../utils/getDiscountPrice";
 
 const data = [
   ["Year", "Sales", "Expenses"],
@@ -52,6 +54,7 @@ const options2 = {
 };
 
 const Dashboard = () => {
+  const [products, setProducts] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [showBy, setShowBy] = useState("");
   const [showByCat, setShowByCat] = useState("");
@@ -62,48 +65,59 @@ const Dashboard = () => {
 
   const context = useContext(AdminContext);
 
-  const products = new Array(10).fill(
-    <tr>
-      <td>#1</td>
-      <td className="dashboard-table-content-main-image">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWcJNHzYZB8D673M2BdfeunxmGpEw01441aQ&s"
-          />
-      </td>
-      <td className="dashboard-table-content-main-name">
-            <span className="dashboard-table-content-main-name-head">Top and skirt set for Female</span>
-            <br />
-            <span>
-              Women's exclusive summer Tops and skirt set for Female Tops and
-              skirt set
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getProductList();
+
+      const result = data.map((item) => (
+        <tr>
+          <td>#{item._id}</td>
+          <td className="dashboard-table-content-main-image">
+            <img src={item.image} />
+          </td>
+          <td className="dashboard-table-content-main-name">
+            <span className="dashboard-table-content-main-name-head">
+              {item.name}
             </span>
-      </td>
-      <td className="dashboard-table-content-main-category">Women</td>
-      <td className="dashboard-table-content-main-brand">Rich man</td>
-      <td className="dashboard-table-content-main-prices">
-          <del className="dashboard-table-content-main-prices-old">$21.00</del>
-          <br />
-          <span className="dashboard-table-content-main-prices-new">$19.00</span>
-      </td>
-      <td className="dashboard-table-content-main-stock">30</td>
-      <td className="dashboard-table-content-main-rating">4.9(16)</td>
-      <td className="dashboard-table-content-main-order">380</td>
-      <td className="dashboard-table-content-main-sales">$38k</td>
-      <td>
-        <div className="actions dashboard-table-content-main-actions">
-          <Button className="secondary" color="secondary">
-            <FaEye />
-          </Button>
-          <Button className="success" color="success">
-            <IoPencil />
-          </Button>
-          <Button className="error" color="error">
-            <RiDeleteBin6Fill />
-          </Button>
-        </div>
-      </td>
-    </tr>
-  );
+          </td>
+          <td className="dashboard-table-content-main-category">
+            {item.categoryId.name}
+          </td>
+          <td className="dashboard-table-content-main-brand">{item.brand}</td>
+          <td className="dashboard-table-content-main-prices">
+            <del className="dashboard-table-content-main-prices-old">
+              {item.price}
+            </del>
+            <br />
+            <span className="dashboard-table-content-main-prices-new">
+              {getDiscountPrice(item.price, item.discount).toFixed(2)}
+            </span>
+          </td>
+          <td className="dashboard-table-content-main-stock">{item.countInStock}</td>
+          <td className="dashboard-table-content-main-rating">4.9({item.numReviews})</td>
+          <td className="dashboard-table-content-main-order">380</td>
+          <td className="dashboard-table-content-main-sales">$38k</td>
+          <td>
+            <div className="actions dashboard-table-content-main-actions">
+              <Button className="secondary" color="secondary">
+                <FaEye />
+              </Button>
+              <Button className="success" color="success">
+                <IoPencil />
+              </Button>
+              <Button className="error" color="error">
+                <RiDeleteBin6Fill />
+              </Button>
+            </div>
+          </td>
+        </tr>
+      ));
+
+      setProducts(result)
+    };
+
+    getData();
+  }, []);
 
   useEffect(() => {
     context.setIsHideSidebarAndHeader(false);
@@ -272,8 +286,7 @@ const Dashboard = () => {
             <p>
               Showing <b>12</b> of <b>60</b> results
             </p>
-            <div className="dashboard-table-content-footer-pagination"
->
+            <div className="dashboard-table-content-footer-pagination">
               <Pagination
                 count={10}
                 color="primary"

@@ -30,3 +30,5 @@ const createProduct = async (values) => {
     console.error(error);
   }
 };
+
+export { getProductList, getProductById, createProduct };
