@@ -79,11 +79,6 @@ const Dashboard = () => {
             <span className="dashboard-table-content-main-name-head">
               {item.name}
             </span>
-            <br />
-            <span>
-              Women's exclusive summer Tops and skirt set for Female Tops and
-              skirt set
-            </span>
           </td>
           <td className="dashboard-table-content-main-category">
             {item.categoryId.name}
