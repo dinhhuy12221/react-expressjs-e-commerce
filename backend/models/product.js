@@ -26,10 +26,18 @@ const productSchema = Schema(
       type: String,
       required: true,
     },
-    images: {
-      type: Object,
-      required: true,
-    },
+    images: [
+      {
+        url: {
+          type: String,
+          require: true,
+        },
+        public_id: {
+          type: String,
+          require: true,
+        }
+      }
+    ],
     brand: {
       type: String,
       default: "",
@@ -42,11 +50,11 @@ const productSchema = Schema(
       type: Number,
       default: 0,
     },
-    // category: {
-    //   type: mongoose.Schema.Types.Int32,
-    //   ref: "Category",
-    //   required: true,
-    // },
+    category: {
+      type: mongoose.Schema.Types.Int32,
+      ref: "Category",
+      required: true,
+    },
     countInStock: {
       type: Number,
       required: true,
@@ -62,10 +70,6 @@ const productSchema = Schema(
     isFeatured: {
       type: Boolean,
       default: false,
-    },
-    categoryId: {
-      type: Schema.Types.Int32,
-      ref: "Category",
     },
     slug: {
       type: String,
