@@ -1,0 +1,71 @@
+.signup-page {
+  display: flex;
+  flex-direction: column;
+}
+.signup-page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup-page-content {
+position: relative;
+width: 100%;
+padding: var(--space-30);
+border: none;
+}
+body.dark .signup-page-content {
+  background: #f1f1f1;
+  color: #08143c !important;
+}
+
+/* 
+.signUpSection .part1 {
+  padding-left: 100px;
+  padding-right: 10px;
+}
+
+.signUpSection .part1 h1 {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.signUpSection .part1 p {
+  font-size: 18px;
+  font-weight: 500;
+} */
+
+.signup-page-content-form-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.signup-page-content-form-item-icon {
+    position: absolute;
+    top: var(--space-12);
+    left: var(--space-18);
+    color: #08143c !important;
+}
+
+.signup-page-content-form-item-google img {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+.signup-page-content-form-item.signUpWithGoogle .logo img {
+  width: 22px;
+  height: 22px;
+}
+.signup-page-content-form-item.signUpWithGoogle button {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.signup-page-content .MuiFormControlLabel-label {
+  color: #000;
+}
+
+body.dark .signup-page-content .MuiFormControlLabel-label {
+  color: #fff;
+}

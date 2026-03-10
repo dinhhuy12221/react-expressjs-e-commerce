@@ -12,27 +12,22 @@ import { Link } from "react-router-dom";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
+import "./index.css"
+
 export default function SignUp() {
   const [inputIndex, setInputIndex] = useState(null);
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmedPassword, setIsShowConfirmedPassword] = useState(false);
-  const context = useContext(AdminContext);
-
-  useEffect(() => {
-    context.setIsHideSidebarAndHeader(true);
-    window.scrollTo(0, 0);
-  }, []);
 
   const focusInput = (index) => {
     setInputIndex(index);
   };
   return (
-    <section className="loginSection signUpSection">
-      <div className="row">
-        <div className="col-md-8 d-flex align-items-center justify-content-center flex-column part1">
+    <section className="signup-page">
+        {/* <div className="col-md-8 d-flex align-items-center justify-content-center flex-column part1">
           <h1>
-            BEST UX/UI FASHION{" "}
-            <span className="text-sky">ECOMMERCE DASHBOARD</span> & ADMIN PANEL
+            BEST UX/UI FASHION
+            <span className="text-sky">E-COMMERCE DASHBOARD</span> & ADMIN PANEL
           </h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -50,32 +45,30 @@ export default function SignUp() {
               </Button>
             </Link>
           </div>
-        </div>
-        <div className="col-md-4">
-          <div className="box">
-            <div className="logo text-center">
+        </div> */}
+            <div className="signup-page-header">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/906/906343.png"
                 width={100}
               />
               <h5 className="font-weight-bolder mt-3">
-                Register a new account
+                Register
               </h5>
             </div>
 
-            <div className="wrapper mt-3 card">
-              <form>
+            <div className="signup-page-content">
+              <form className="signup-page-content-form">
                 <div
-                  className={`form-group position-relative ${
+                  className={`signup-page-content-form-item ${
                     inputIndex === 0 && "focus"
                   }`}
                 >
-                  <span className="icon d-flex align-items-center">
+                  <span className="signup-page-content-form-item-icon">
                     <FaUserCircle />
                   </span>
                   <input
                     type="text"
-                    className="form-control"
+                    className="signup-page-content-form-item-control"
                     placeholder="Enter your name"
                     onFocus={() => focusInput(0)}
                     onBlur={() => focusInput(null)}
@@ -83,62 +76,62 @@ export default function SignUp() {
                   />
                 </div>
                 <div
-                  className={`form-group position-relative ${
+                  className={`signup-page-content-form-item ${
                     inputIndex === 1 && "focus"
                   }`}
                 >
-                  <span className="icon d-flex align-items-center">
+                  <span className="signup-page-content-form-item-icon">
                     <MdEmail />
                   </span>
                   <input
                     type="text"
-                    className="form-control"
+                    className="signup-page-content-form-item-control"
                     placeholder="Enter your email"
                     onFocus={() => focusInput(1)}
                     onBlur={() => focusInput(null)}
                   />
                 </div>
                 <div
-                  className={`form-group position-relative ${
+                  className={`signup-page-content-form-item ${
                     inputIndex === 2 && "focus"
                   }`}
                 >
-                  <span className="icon d-flex align-items-center">
+                  <span className="signup-page-content-form-item-icon">
                     <RiLockPasswordFill />
                   </span>
                   <input
                     type={`${isShowPassword === true ? "text" : "password"}`}
-                    className="form-control"
+                    className="signup-page-content-form-item-control"
                     placeholder="Enter your password"
                     onFocus={() => focusInput(2)}
                     onBlur={() => focusInput(null)}
                   />
                   <span
-                    className="toggleShowPassword d-flex align-items-center"
+                    className="signup-page-content-form-item-pass"
                     onClick={() => setIsShowPassword(!isShowPassword)}
                   >
                     {isShowPassword === true ? <IoMdEye /> : <BiSolidHide />}
                   </span>
                 </div>
                 <div
-                  className={`form-group position-relative ${
+                  className={`signup-page-content-form-item ${
                     inputIndex === 3 && "focus"
                   }`}
                 >
-                  <span className="icon d-flex align-items-center">
+                  <span className="signup-page-content-form-item-icon">
                     <IoShieldCheckmark />
                   </span>
                   <input
                     type={`${
                       isShowConfirmedPassword === true ? "text" : "password"
                     }`}
-                    className="form-control"
+                    className="signup-page-content-form-item-control"
                     placeholder="Confirm your password"
                     onFocus={() => focusInput(3)}
                     onBlur={() => focusInput(null)}
                   />
                   <span
-                    className="toggleShowPassword d-flex align-items-center"
+                    className="signup-page-content-form-item-pass-confirm"
                     onClick={() =>
                       setIsShowConfirmedPassword(!isShowConfirmedPassword)
                     }
@@ -157,14 +150,14 @@ export default function SignUp() {
                   className="mb-3"
                 />
 
-                <div className="form-group">
-                  <Button className="btn-blue btn-lg btn-big w-100">
+                <div className="signup-page-content-form-item">
+                  <Button className="signup-page-content-form-item-signup">
                     Sign Up
                   </Button>
                 </div>
 
-                <div className="form-group text-center">
-                  <Link to={"/forgot-password"} className="link">
+                <div className="signup-page-content-form-item">
+                  <Link to={"/forgot-password"} className="signup-page-content-form-item-forgot">
                     FORGOT PASSWORD
                   </Link>
                 </div>
@@ -173,10 +166,8 @@ export default function SignUp() {
                   <div className="line"></div>
                   <span className="txt">or</span>
                 </div>
-                <div className="form-group signUpWithGoogle position-relative">
-                  <div className="logo">
+                <div className="signup-page-content-form-item-google">
                     <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
-                  </div>
                   <Button
                     variant="outlined"
                     color="error"
@@ -193,9 +184,6 @@ export default function SignUp() {
                 </Link>
               </span>
             </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
