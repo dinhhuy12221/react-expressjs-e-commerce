@@ -371,10 +371,9 @@ export default function ProductView() {
                   <div className="userInfo d-flex flex-column justify-content-center mb-1">
                     <div className="d-flex mb-2">
                       <UserAvatarImg
-                        imgUrl={
+                        url={
                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s"
                         }
-                        lg="true"
                       />
                       <div className="info ms-3">
                         <h5>Alue</h5>
@@ -410,10 +409,9 @@ export default function ProductView() {
                   <div className="userInfo d-flex flex-column justify-content-center mb-1">
                     <div className="d-flex mb-2">
                       <UserAvatarImg
-                        imgUrl={
+                        url={
                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s"
                         }
-                        lg="true"
                       />
                       <div className="info ms-3">
                         <h5>Alue</h5>
@@ -448,10 +446,9 @@ export default function ProductView() {
                   <div className="userInfo d-flex flex-column justify-content-center mb-1">
                     <div className="d-flex mb-2">
                       <UserAvatarImg
-                        imgUrl={
+                        url={
                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s"
                         }
-                        lg="true"
                       />
                       <div className="info ms-3">
                         <h5>Alue</h5>
@@ -487,10 +484,9 @@ export default function ProductView() {
                   <div className="userInfo d-flex flex-column justify-content-center mb-1">
                     <div className="d-flex mb-2">
                       <UserAvatarImg
-                        imgUrl={
+                        url={
                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s"
                         }
-                        lg="true"
                       />
                       <div className="info ms-3">
                         <h5>Alue</h5>

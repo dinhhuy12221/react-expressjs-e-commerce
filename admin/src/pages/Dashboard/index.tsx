@@ -22,6 +22,7 @@ import { AdminContext } from "../../App";
 import "./index.css";
 import { getProductList } from "../../api/product";
 import getDiscountPrice from "../../utils/getDiscountPrice";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   ["Year", "Sales", "Expenses"],
@@ -58,6 +59,7 @@ const Dashboard = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [showBy, setShowBy] = useState("");
   const [showByCat, setShowByCat] = useState("");
+  const navigate = useNavigate();
 
   const options1 = ["Last Day", "Last Week", "Last Month", "Last Year"];
   const ITEM_HEIGHT = 48;
@@ -65,40 +67,43 @@ const Dashboard = () => {
 
   const context = useContext(AdminContext);
 
+  const handleNavigate = (slug: string) => {
+    navigate(`/product/${slug}`);
+  }
+
   useEffect(() => {
     const getData = async () => {
       const data = await getProductList();
 
       const result = data.map((item) => (
-        <tr>
+        <tr className="dashboard-table-content-main-item" onClick={() => handleNavigate(item.slug)}>
           <td>#{item._id}</td>
-          <td className="dashboard-table-content-main-image">
-            {/* {item.images.map(i => <img src={i.url} />)} */}
+          <td className="dashboard-table-content-main-item-image">
             <img src={item.images[0].url} />
           </td>
-          <td className="dashboard-table-content-main-name">
-            <span className="dashboard-table-content-main-name-head">
+          <td className="dashboard-table-content-main-item-name">
+            <span className="dashboard-table-content-main-item-name-head">
               {item.name}
             </span>
           </td>
-          <td className="dashboard-table-content-main-category">
+          <td className="dashboard-table-content-main-item-category">
             {item.categoryId.name}
           </td>
-          <td className="dashboard-table-content-main-brand">{item.brandId ? item.brandId.name : ""}</td>
-          <td className="dashboard-table-content-main-prices">
-            <del className="dashboard-table-content-main-prices-old">
+          <td className="dashboard-table-content-main-item-brand">{item.brandId ? item.brandId.name : ""}</td>
+          <td className="dashboard-table-content-main-item-prices">
+            <del className="dashboard-table-content-main-item-prices-old">
               ${item.price}
             </del>
             <br />
-            <span className="dashboard-table-content-main-prices-new">
+            <span className="dashboard-table-content-main-item-prices-new">
               ${getDiscountPrice(item.price, item.discount).toFixed(2)}
             </span>
           </td>
-          <td className="dashboard-table-content-main-stock">{item.countInStock}</td>
-          <td className="dashboard-table-content-main-rating">4.9({item.numReviews})</td>
-          <td className="dashboard-table-content-main-order">380</td>
-          <td className="dashboard-table-content-main-sales">$38k</td>
-          <td>
+          <td className="dashboard-table-content-main-item-stock">{item.countInStock}</td>
+          <td className="dashboard-table-content-main-item-rating">4.9({item.numReviews})</td>
+          <td className="dashboard-table-content-main-item-order">380</td>
+          <td className="dashboard-table-content-main-item-sales">$38k</td>
+          {/* <td>
             <div className="actions dashboard-table-content-main-actions">
               <Button className="secondary" color="secondary">
                 <FaEye />
@@ -110,7 +115,7 @@ const Dashboard = () => {
                 <RiDeleteBin6Fill />
               </Button>
             </div>
-          </td>
+          </td> */}
         </tr>
       ));
 
@@ -278,14 +283,14 @@ const Dashboard = () => {
                 <th>RATING</th>
                 <th>ORDER</th>
                 <th>SALES</th>
-                <th>ACTION</th>
+                {/* <th>ACTION</th> */}
               </tr>
             </thead>
             <tbody>{products.map((item) => item)}</tbody>
           </table>
           <div className="dashboard-table-content-footer">
             <p>
-              Showing <b>12</b> of <b>60</b> results
+              Showing <b>{products.length}</b> of <b>{products.length}</b> results
             </p>
             <div className="dashboard-table-content-footer-pagination">
               <Pagination
