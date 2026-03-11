@@ -4,6 +4,8 @@ import Brand from "../models/brand.js";
 import verifyJWT from "../middlewares/verifyJWT.js";
 import cloudinary from "../config/cloudinary.js";
 
+import mongoose from "mongoose";
+
 class productController {
   // GET product list
   async getProductList(req, res, next) {
@@ -49,15 +51,23 @@ class productController {
   // POST create product
   async createProduct(req, res) {
     try {
-      const imagesToUpload = await Promise.all(req.files.map(async (image, index) => {
-        const result = await cloudinary.v2.uploader.upload(image.path, {
-          folder: `ecommerce/products/${index}`,
-        });
-        return {
-          url: result.secure_url,
-          public_id: result.public_id,
-        };
-      }))
+      const counterDoc = await mongoose.connection
+        .collection("counters")
+        .findOne({ _id: "product_id_counter" });
+
+      const counter = (counterDoc?.seq || 0) + 1;
+
+      const imagesToUpload = await Promise.all(
+        req.files.map(async (image, index) => {
+          const result = await cloudinary.v2.uploader.upload(image.path, {
+            folder: `ecommerce/products/${counter}`,
+          });
+          return {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        })
+      );
 
       // const uploadStatus = await Promise.all(imagesToUpload);
 
