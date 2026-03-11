@@ -19,117 +19,106 @@ import { useEffect, useRef, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { getProductBySlug } from "../../api/product";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./index.css";
+import { PiCameraRotate } from "react-icons/pi";
 
-import "./index.css"
-
-function handleClick(event) {
-  event.preventDefault();
-  console.info("You clicked a breadcrumb.");
-}
+// function handleClick(event) {
+//   event.preventDefault();
+//   console.info("You clicked a breadcrumb.");
+// }
 
 export default function ProductView() {
   const { slug } = useParams();
-  const [product, setProduct] = useState<any>(null)
+  const [product, setProduct] = useState<any>(null);
   const mainImagesSlider = useRef<Slider | null>(null);
   const sideImagesSlider = useRef<Slider | null>(null);
 
-  var productSliderOptions = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-  };
-  var productSliderSmallOptions = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: false,
-  };
+  // var productSliderOptions = {
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   arrows: false,
+  // };
+  // var productSliderSmallOptions = {
+  //   dots: false,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  //   arrows: false,
+  // };
 
-  const goToSlide = (index) => {
-    // if (mainImagesSlider.current !== null && sideImagesSlider.current !== null) {
-      mainImagesSlider.current?.slickGoTo(index);
-      sideImagesSlider.current?.slickGoTo(index);
-    // }
-  };
+  // const goToSlide = (index) => {
+  //   // if (mainImagesSlider.current !== null && sideImagesSlider.current !== null) {
+  //     mainImagesSlider.current?.slickGoTo(index);
+  //     sideImagesSlider.current?.slickGoTo(index);
+  //   // }
+  // };
 
   useEffect(() => {
     const getProduct = async () => {
-      const result = await getProductBySlug(slug)
-      setProduct(result.data[0])
-    }
-  
-    getProduct()
-  })
+      const result = await getProductBySlug(slug);
+      setProduct(result.data[0]);
+    };
+
+    getProduct();
+  });
 
   if (product === null) return;
-  
+
   return (
     <div className="product-view">
-        <Breadcrumb
-          title="Product View"
-          path={[
-            {
-              name: "Dashboard",
-              to: "/dashboard",
-            },
-            {
-              name: "Product View",
-              to: `/product/${slug}`,
-            },
-          ]}
-        />
+      <Breadcrumb
+        title="Product View"
+        path={[
+          {
+            name: "Dashboard",
+            to: "/dashboard",
+          },
+          {
+            name: "Product View",
+            to: `/product/${slug}`,
+          },
+        ]}
+      />
 
       <div className="product-view-content">
         <div className="product-view-content-first">
           <div className="product-view-content-first-images">
-              {/* <h6 className="mb-4">Product Gallery</h6> */}
-              <Slider
+            {/* <h6 className="mb-4">Product Gallery</h6> */}
+            {/* <Slider
                 {...productSliderOptions}
                 ref={mainImagesSlider}
                 className="product-view-content-first-images-slider-main"
               >
-                <div className="product-view-content-first-images-slider-main-item">
+                {product.images.map(item => <div className="product-view-content-first-images-slider-main-item">
                   <img
-                    src={product.images[0].url}
+                    src={item.url}
                   />
-                </div>
-                <div className="product-view-content-first-images-slider-main-item">
-                  <img
-                    src={product.images[1].url}
-                  />
-                </div>
-                <div className="product-view-content-first-images-slider-main-item">
-                  <img
-                    src={product.images[2].url}
-                  />
-                </div>
+                </div>)}
               </Slider>
               <Slider
                 {...productSliderSmallOptions}
                 ref={sideImagesSlider}
                 className="product-view-content-first-images-slider-side"
               >
-                <div className="item" onClick={() => goToSlide(0)}>
+                {product.images.map(item => <div className="product-view-content-first-images-slider-side-item">
                   <img
-                    src={product.images[0].url}
+                    src={item.url}
                   />
-                </div>
-                <div className="item" onClick={() => goToSlide(1)}>
-                  <img
-                    src={product.images[1].url}
-                  />
-                </div>
-                <div className="item" onClick={() => goToSlide(2)}>
-                  <img
-                    src={product.images[2].url}
-                  />
-                </div>
-              </Slider>
+                </div>)}
+              </Slider> */}
+            {product.images.map((item, index) => (
+              <div className="product-view-content-first-images-item" key={index}>
+                <img src={item.url} alt="product" width="120" />
+                <PiCameraRotate />
+                <input type="file" />
+              </div>
+            ))}
           </div>
           <div className="col-md-7">
             <div className="pt-3 pb-3 ps-4 pe-4">
