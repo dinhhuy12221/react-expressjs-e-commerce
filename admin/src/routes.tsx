@@ -38,7 +38,7 @@ const routes = [
     element: <ProductUpload />,
   },
   {
-    path: "/product/view",
+    path: "/product/:slug",
     exact: true,
     element: <ProductView />,
   },

@@ -12,10 +12,20 @@ const getProductList = async () => {
 }
 const getProductById = async (id) => {
   try {
-    const productList = await fetch(BASE_URL + "/product/" + id).then((result) =>
+    const product = await fetch(BASE_URL + "/product/" + id).then((result) =>
       result.json()
     );
-    return productList;
+    return product;
+  } catch (error) {
+    console.error(error);
+  }
+};
+const getProductBySlug = async (slug) => {
+  try {
+    const product = await fetch(BASE_URL + "/product/" + slug).then((result) =>
+      result.json()
+    );
+    return product;
   } catch (error) {
     console.error(error);
   }
@@ -31,4 +41,4 @@ const createProduct = async (values) => {
   }
 };
 
-export { getProductList, getProductById, createProduct };
+export { getProductList, getProductById, getProductBySlug, createProduct };
