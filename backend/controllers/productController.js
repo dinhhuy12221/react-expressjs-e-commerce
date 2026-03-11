@@ -48,7 +48,7 @@ class productController {
   // POST create product
   async createProduct(req, res) {
     try {
-      const imagesToUpload = req.files.map(async (image, index) => {
+      const imagesToUpload = await Promise.all(req.files.map(async (image, index) => {
         const result = await cloudinary.v2.uploader.upload(image.path, {
           folder: `ecommerce/products/${index}`,
         });
@@ -56,7 +56,10 @@ class productController {
           url: result.secure_url,
           public_id: result.public_id,
         };
-      });
+      }))
+
+      console.log(imagesToUpload);
+      
 
       // const uploadStatus = await Promise.all(imagesToUpload);
 
