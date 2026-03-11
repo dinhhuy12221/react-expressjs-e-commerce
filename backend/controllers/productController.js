@@ -87,11 +87,6 @@ class productController {
       if (!category) {
         res.status(404).json({ message: "Category is not found" });
       }
-      const brand = await Brand.findById(req.body.brandId);
-
-      if (!brand) {
-        res.status(404).json({ message: "Brand is not found" });
-      }
 
       if (imagesToUpload) {
         const payload = {
@@ -100,7 +95,7 @@ class productController {
           images: imagesToUpload,
           price: req.body.price,
           discount: req.body.discount,
-          brandId: req.body.brandId,
+          brandId: req.body.brandId || null,
           categoryId: req.body.categoryId,
           countInStock: req.body.countInStock,
           rating: req.body.rating,
