@@ -1,6 +1,7 @@
 import Product from "../models/product.js";
 import Category from "../models/category.js";
 import verifyJWT from "../middlewares/verifyJWT.js";
+import cloudinary from "../config/cloudinary.js";
 
 class productController {
   // GET product list
@@ -49,8 +50,8 @@ class productController {
     try {
       const imagesToUpload = req.body.images.map((image) => {
         return async () => {
-          const result = await cloudinary.uploader.upload(image, {
-            upload_preset: 'e-commerce',
+          const result = await cloudinary.v2.uploader.upload(image, {
+            upload_preset: `ecommerce/products/${image._id}`,
           });
           return result;
         };
