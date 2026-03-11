@@ -1,7 +1,9 @@
 import express from 'express'
-const router = express.Router();
-
+import multer from 'multer';
 import productController from '../controllers/productController.js';
+
+const router = express.Router();
+const upload = multer({ dest: "uploads/" });
 
 router.post("/create", upload.array("image_file", 3), productController.createProduct);
 router.get("/id/:id", productController.getProductById);

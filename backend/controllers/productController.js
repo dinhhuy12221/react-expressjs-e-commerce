@@ -48,10 +48,10 @@ class productController {
   // POST create product
   async createProduct(req, res) {
     try {
-      const imagesToUpload = req.body.images.map((image) => {
+      const imagesToUpload = req.files.map((image, index) => {
         return async () => {
           const result = await cloudinary.v2.uploader.upload(image, {
-            upload_preset: `ecommerce/products/${image._id}`,
+            folder: `ecommerce/products/${index}`,
           });
           return result;
         };
@@ -69,15 +69,14 @@ class productController {
       //     status: false,
       //   });
       // }
+      
+      const category = await Category.findById(req.body.category);
 
+      if (!category) {
+        res.status(404).json({ message: "Category is not found" });
+      }
       if (imagesToUpload) {
-        const category = await Category.findById(req.body.category);
-  
-        if (!category) {
-          return res.status(400).send("Invalid Category!");
-        }
-  
-        let product = new Product({
+        const payload = {
           name: req.body.name,
           description: req.body.description,
           images: imagesToUpload,
@@ -89,27 +88,22 @@ class productController {
           rating: req.body.rating,
           numReviews: req.body.numReviews,
           isFeatured: req.body.isFeatured,
-        });
+        };
   
-        product = await product.save();
+        const product = await Product.create(payload)
 
-        return res.status(200).send(product);
-      }
-
-
-      // if (!product) {
-      //   res.status(500).join({
-      //     error: error,
-      //     success: false,
-      //   });
-      // }
+        res.status(201).json({
+        message: "Product created successfully",
+        data: product,
+      });
+    }
 
     } catch (error) {
       console.log(error);
 
-      return res.status(404).send({
-        success: false,
-        message: JSON.stringify(error),
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
       });
     }
   }
