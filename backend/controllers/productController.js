@@ -53,7 +53,10 @@ class productController {
           const result = await cloudinary.v2.uploader.upload(image, {
             folder: `ecommerce/products/${index}`,
           });
-          return result;
+          return {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
         };
       });
 
