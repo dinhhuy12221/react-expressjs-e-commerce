@@ -48,15 +48,13 @@ class productController {
   // POST create product
   async createProduct(req, res) {
     try {
-      const imagesToUpload = req.files.map((image, index) => {
-        return async () => {
-          const result = await cloudinary.v2.uploader.upload(image, {
-            folder: `ecommerce/products/${index}`,
-          });
-          return {
-            url: result.secure_url,
-            public_id: result.public_id,
-          };
+      const imagesToUpload = req.files.map(async (image, index) => {
+        const result = await cloudinary.v2.uploader.upload(image.path, {
+          folder: `ecommerce/products/${index}`,
+        });
+        return {
+          url: result.secure_url,
+          public_id: result.public_id,
         };
       });
 
@@ -72,8 +70,8 @@ class productController {
       //     status: false,
       //   });
       // }
-      
-      const category = await Category.findById(req.body.category);
+
+      const category = await Category.findById(req.body.categoryId);
 
       if (!category) {
         res.status(404).json({ message: "Category is not found" });
@@ -92,15 +90,14 @@ class productController {
           numReviews: req.body.numReviews,
           isFeatured: req.body.isFeatured,
         };
-  
-        const product = await Product.create(payload)
+
+        const product = await Product.create(payload);
 
         res.status(201).json({
-        message: "Product created successfully",
-        data: product,
-      });
-    }
-
+          message: "Product created successfully",
+          data: product,
+        });
+      }
     } catch (error) {
       console.log(error);
 

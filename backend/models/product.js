@@ -30,11 +30,11 @@ const productSchema = Schema(
       {
         url: {
           type: String,
-          require: true,
+          required: true,
         },
         public_id: {
           type: String,
-          require: true,
+          required: true,
         }
       }
     ],
