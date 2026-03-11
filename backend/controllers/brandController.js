@@ -24,8 +24,11 @@ class brandController {
 
   getBrandById = async (req, res) => {
     try {
-      const brand = await Brand.findOneById(req.params.id);
-
+      const brand = await Brand.findById(req.params.id);
+    
+      if (!brand) {
+        return res.status(400).json({ message: "Brand is not found" });
+      }
       res
         .status(201)
         .json({ message: "Brand found successfully", data: brand });
