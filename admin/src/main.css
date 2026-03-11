@@ -867,3 +867,30 @@ body.dark .tableFooter .pagination button:hover {
   margin-bottom: 0px;
 }
 
+.slick-slide .item {
+  outline: none;
+  border: 2px dashed #cccccc;
+}
+
+.sliderSmall .slick-current .item {
+  border: 2px solid #333333;
+}
+
+.sliderSmall .slick-slide {
+  padding-right: 5px;
+}
+
+.sliderSmall .slick-slide .item {
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.sliderSmall *,
+.sliderBig * {
+  transition: all 0.2s;
+}
+
+.sliderBig .item {
+  overflow: hidden;
+  border-radius: 10px;
+}

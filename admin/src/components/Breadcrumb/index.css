@@ -1,5 +1,7 @@
-
-.path ol li div {
+.breadcrumb {
+  padding: var(--space-16);
+}
+/* .path ol li div {
     color: #616161 !important;
     background: #fafafa !important;
   }
@@ -15,4 +17,4 @@
   
   body.dark .path ol li svg {
     color: #b8bdc8 !important;
-  }
+  } */

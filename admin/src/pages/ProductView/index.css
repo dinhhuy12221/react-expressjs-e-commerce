@@ -1,73 +1,45 @@
-
-/* -------------- Product Details -------------- */
-
-.slick-slide .item {
-  outline: none;
-  border: 2px dashed #cccccc;
+.product-view {
+    width: 100%;
 }
-
-.sliderSmall .slick-current .item {
-  border: 2px solid #333333;
-}
-
-.sliderSmall .slick-slide {
-  padding-right: 5px;
-}
-
-.sliderSmall .slick-slide .item {
-  border-radius: 7px;
-  overflow: hidden;
-}
-
-.sliderSmall *,
-.sliderBig * {
-  transition: all 0.2s;
-}
-
-.sliderBig .item {
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.productDetailsSection .productInfo span {
+.product-view-content .productInfo span {
   color: #67677a;
 }
 
-.productDetailsSection .productInfo .title .icon {
+.product-view-content .productInfo .title .icon {
   width: 18%;
   flex: 0 0 18%;
   margin-right: 7px;
 }
 
-.productDetailsSection .productInfo .title .icon svg {
+.product-view-content .productInfo .title .icon svg {
   font-size: 20px;
 }
 
-.productDetailsSection .productInfo .title .name {
+.product-view-content .productInfo .title .name {
   width: 82%;
   flex: 0 0 82%;
 }
 
-body.dark .productDetailsSection .productInfo .title span {
+body.dark .product-view-content .productInfo .title span {
   color: #b3b8c4;
   font-weight: bold;
 }
 
-body.dark .productDetailsSection .productInfo .productContent span {
+body.dark .product-view-content .productInfo .productContent span {
   color: #99a0af;
 }
 
-.productDetailsSection .productInfo .productContent #oldPrice {
+.product-view-content .productInfo .productContent #oldPrice {
   color: rgba(240, 51, 51, 0.8);
   font-size: 14px;
   text-decoration: line-through;
 }
 
-.productDetailsSection .productInfo .productContent .tags {
+.product-view-content .productInfo .productContent .tags {
   margin-bottom: 0px;
 }
 
-.productDetailsSection .productInfo .productContent .tags li span {
+.product-view-content .productInfo .productContent .tags li span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +50,7 @@ body.dark .productDetailsSection .productInfo .productContent span {
   font-size: 13px;
 }
 
-body.dark .productDetailsSection .productInfo .productContent .tags li span {
+body.dark .product-view-content .productInfo .productContent .tags li span {
   background: #15223f;
 }
 

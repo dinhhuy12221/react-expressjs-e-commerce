@@ -64,13 +64,10 @@ export default function ProductView() {
     }
 
     getProduct()
-  }, [location])
-
-  console.log(product);
+  }, [slug])
   
   return (
     <div className="product-view">
-      <div className="product-view-breadcrumb">
         <Breadcrumb
           title="Product View"
           path={[
@@ -84,9 +81,8 @@ export default function ProductView() {
             },
           ]}
         />
-      </div>
 
-      <div className="card productDetailsSection">
+      <div className="product-view-content">
         <div className="row">
           <div className="col-md-5">
             <div className="sliderWrapper pt-3 pb-3 ps-4 pe-4">
