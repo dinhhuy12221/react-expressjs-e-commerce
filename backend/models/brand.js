@@ -3,7 +3,7 @@ import mongooseDelete from "mongoose-delete";
 import Inc from "mongoose-sequence";
 import slug from "mongoose-slug-updater"
 
-const AutoIncrement = mongoose(Inc)
+const AutoIncrement = Inc(mongoose)
 mongoose.plugin(slug)
 
 const brandSchema = mongoose.Schema({

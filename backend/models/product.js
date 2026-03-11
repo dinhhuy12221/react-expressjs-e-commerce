@@ -38,10 +38,6 @@ const productSchema = Schema(
         }
       }
     ],
-    brand: {
-      type: String,
-      default: "",
-    },
     price: {
       type: Number,
       default: 0,
@@ -49,6 +45,11 @@ const productSchema = Schema(
     discount: {
       type: Number,
       default: 0,
+    },
+    brandId: {
+      type: mongoose.Schema.Types.Int32,
+      ref: "Brand",
+      required: true,
     },
     categoryId: {
       type: mongoose.Schema.Types.Int32,

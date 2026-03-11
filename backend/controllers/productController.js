@@ -1,5 +1,6 @@
 import Product from "../models/product.js";
 import Category from "../models/category.js";
+import Brand from "../models/brand.js";
 import verifyJWT from "../middlewares/verifyJWT.js";
 import cloudinary from "../config/cloudinary.js";
 
@@ -58,9 +59,6 @@ class productController {
         };
       }))
 
-      console.log(imagesToUpload);
-      
-
       // const uploadStatus = await Promise.all(imagesToUpload);
 
       // const imgurl = uploadStatus.map((item) => {
@@ -79,14 +77,20 @@ class productController {
       if (!category) {
         res.status(404).json({ message: "Category is not found" });
       }
+      const brand = await Brand.findById(req.body.brandId);
+
+      if (!brand) {
+        res.status(404).json({ message: "Brand is not found" });
+      }
+
       if (imagesToUpload) {
         const payload = {
           name: req.body.name,
           description: req.body.description,
           images: imagesToUpload,
-          brand: req.body.brand,
           price: req.body.price,
           discount: req.body.discount,
+          brandId: req.body.brandId,
           categoryId: req.body.categoryId,
           countInStock: req.body.countInStock,
           rating: req.body.rating,
