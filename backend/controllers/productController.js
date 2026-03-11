@@ -26,12 +26,10 @@ class productController {
     try {
       const product = await Product.find({ slug: req.params.slug });
 
-      return res.status(200).send(product);
+      res.status(201).json({ message: "Product is found", data: product });
     } catch (error) {
-      return res.status(404).json({
-        success: false,
-        message: JSON.stringify(error),
-      });
+      console.log(error);
+      res.status(500).json({ message: "Internal server error", error: error.message });
     }
   }
   // GET product by id
