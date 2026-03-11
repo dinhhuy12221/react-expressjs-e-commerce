@@ -15,8 +15,12 @@ import { TiArrowBack } from "react-icons/ti";
 
 import UserAvatarImg from "../../components/UserAvatarImg";
 import Button from "@mui/material/Button";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
+import { useParams } from "react-router-dom";
+import { getProductBySlug } from "../../api/product";
+
+import "./index.css"
 
 function handleClick(event) {
   event.preventDefault();
@@ -24,6 +28,8 @@ function handleClick(event) {
 }
 
 export default function ProductView() {
+  const { slug } = useParams();
+  const [product, setProduct] = useState(null)
   const productSliderBig = useRef<Slider | null>(null);
   const productSliderSmall = useRef<Slider | null>(null);
 
@@ -50,9 +56,21 @@ export default function ProductView() {
       productSliderSmall.current?.slickGoTo(index);
     // }
   };
+
+  useEffect(() => {
+    const getProduct = async () => {
+      const result = await getProductBySlug(slug)
+      setProduct(result.data[0])
+    }
+
+    getProduct()
+  }, [location])
+
+  console.log(product);
+  
   return (
-    <>
-      <div className="right-content w-100">
+    <div className="product-view">
+      <div className="product-view-breadcrumb">
         <Breadcrumb
           title="Product View"
           path={[
@@ -62,7 +80,7 @@ export default function ProductView() {
             },
             {
               name: "Product View",
-              to: "/product/view",
+              to: `/product/${slug}`,
             },
           ]}
         />
@@ -92,13 +110,7 @@ export default function ProductView() {
                 </div>
                 <div className="item">
                   <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/03.webp"
-                    className="w-100"
-                  />
-                </div>
-                <div className="item">
-                  <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/04.webp"
+                    src="https://mironcoder-hotash.netlify.app/images/product/single/02.webp"
                     className="w-100"
                   />
                 </div>
@@ -528,6 +540,6 @@ export default function ProductView() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
