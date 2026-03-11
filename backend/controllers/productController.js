@@ -11,7 +11,7 @@ class productController {
   async getProductList(req, res, next) {
     try {
       // verifyJWT(req, res, next)
-      const productList = await Product.find({}).populate("categoryId");
+      const productList = await Product.find({}).populate(["categoryId", "brandId"]);
       res.status(200).send(productList);
     } catch (error) {
       res.status(404).json({
