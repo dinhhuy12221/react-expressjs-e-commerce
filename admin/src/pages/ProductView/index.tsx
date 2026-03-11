@@ -29,9 +29,9 @@ function handleClick(event) {
 
 export default function ProductView() {
   const { slug } = useParams();
-  const [product, setProduct] = useState(null)
-  const productSliderBig = useRef<Slider | null>(null);
-  const productSliderSmall = useRef<Slider | null>(null);
+  const [product, setProduct] = useState<any>(null)
+  const mainImagesSlider = useRef<Slider | null>(null);
+  const sideImagesSlider = useRef<Slider | null>(null);
 
   var productSliderOptions = {
     dots: false,
@@ -51,9 +51,9 @@ export default function ProductView() {
   };
 
   const goToSlide = (index) => {
-    // if (productSliderBig.current !== null && productSliderSmall.current !== null) {
-      productSliderBig.current?.slickGoTo(index);
-      productSliderSmall.current?.slickGoTo(index);
+    // if (mainImagesSlider.current !== null && sideImagesSlider.current !== null) {
+      mainImagesSlider.current?.slickGoTo(index);
+      sideImagesSlider.current?.slickGoTo(index);
     // }
   };
 
@@ -62,9 +62,11 @@ export default function ProductView() {
       const result = await getProductBySlug(slug)
       setProduct(result.data[0])
     }
-
+  
     getProduct()
-  }, [slug])
+  })
+
+  if (product === null) return;
   
   return (
     <div className="product-view">
@@ -83,65 +85,51 @@ export default function ProductView() {
         />
 
       <div className="product-view-content">
-        <div className="row">
-          <div className="col-md-5">
-            <div className="sliderWrapper pt-3 pb-3 ps-4 pe-4">
-              <h6 className="mb-4">Product Gallery</h6>
+        <div className="product-view-content-first">
+          <div className="product-view-content-first-images">
+              {/* <h6 className="mb-4">Product Gallery</h6> */}
               <Slider
                 {...productSliderOptions}
-                ref={productSliderBig}
-                className="sliderBig"
+                ref={mainImagesSlider}
+                className="product-view-content-first-images-slider-main"
               >
-                <div className="item">
+                <div className="product-view-content-first-images-slider-main-item">
                   <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/01.webp"
-                    className="w-100"
+                    src={product.images[0].url}
                   />
                 </div>
-                <div className="item">
+                <div className="product-view-content-first-images-slider-main-item">
                   <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/02.webp"
-                    className="w-100"
+                    src={product.images[1].url}
                   />
                 </div>
-                <div className="item">
+                <div className="product-view-content-first-images-slider-main-item">
                   <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/02.webp"
-                    className="w-100"
+                    src={product.images[2].url}
                   />
                 </div>
               </Slider>
               <Slider
                 {...productSliderSmallOptions}
-                ref={productSliderSmall}
-                className="sliderSmall"
+                ref={sideImagesSlider}
+                className="product-view-content-first-images-slider-side"
               >
                 <div className="item" onClick={() => goToSlide(0)}>
                   <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/01.webp"
-                    className="w-100"
+                    src={product.images[0].url}
                   />
                 </div>
                 <div className="item" onClick={() => goToSlide(1)}>
                   <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/02.webp"
-                    className="w-100"
+                    src={product.images[1].url}
                   />
                 </div>
                 <div className="item" onClick={() => goToSlide(2)}>
                   <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/03.webp"
-                    className="w-100"
-                  />
-                </div>
-                <div className="item" onClick={() => goToSlide(3)}>
-                  <img
-                    src="https://mironcoder-hotash.netlify.app/images/product/single/04.webp"
-                    className="w-100"
+                    src={product.images[2].url}
                   />
                 </div>
               </Slider>
-            </div>
           </div>
           <div className="col-md-7">
             <div className="pt-3 pb-3 ps-4 pe-4">
