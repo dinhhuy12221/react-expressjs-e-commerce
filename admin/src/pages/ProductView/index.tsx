@@ -22,6 +22,7 @@ import { getProductBySlug } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
+import { PiCameraRotate } from "react-icons/pi";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -114,6 +115,7 @@ export default function ProductView() {
             {product.images.map((item, index) => (
               <div className="product-view-content-first-images-item" key={index}>
                 <img src={item.url} alt="product" width="120" />
+                <PiCameraRotate />
                 <input type="file" />
               </div>
             ))}
