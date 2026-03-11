@@ -53,7 +53,7 @@ class productController {
     try {
       const counterDoc = await mongoose.connection
         .collection("counters")
-        .findOne({ _id: "product_id_counter" });
+        .findOne({ id: "product_id_counter" });
 
       const counter = (counterDoc?.seq || 0) + 1;
 
