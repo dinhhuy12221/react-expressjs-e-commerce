@@ -1,4 +1,3 @@
-import { log } from "console";
 import Category from "../models/category.js";
 
 class categoryController {

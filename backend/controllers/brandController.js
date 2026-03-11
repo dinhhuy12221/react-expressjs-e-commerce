@@ -1,16 +1,19 @@
-import Brand from "../models/brand";
+import Brand from "../models/brand.js";
 
 class brandController {
   createBrand = async (req, res) => {
     try {
-      const payload = {
-        name: req.body.name,
-      };
-      const brand = await Brand.create(payload);
+      const { name } = req.body;
+
+      if (!name) {
+        return res.status(400).json({ message: "Brand name is required" });
+      }
+      
+      const brand = await Brand.create({ name });
 
       res
         .status(201)
-        .status({ message: "Brand created successfully", data: brand });
+        .json({ message: "Brand created successfully", data: brand });
     } catch (error) {
       console.log(error);
       res
@@ -21,11 +24,11 @@ class brandController {
 
   getBrandById = async (req, res) => {
     try {
-      const brand = await Brand.findOneById(req.body._id);
+      const brand = await Brand.findOneById(req.params.id);
 
       res
         .status(201)
-        .status({ message: "Brand found successfully", data: brand });
+        .json({ message: "Brand found successfully", data: brand });
     } catch (error) {
       console.log(error);
       res
@@ -35,4 +38,4 @@ class brandController {
   };
 }
 
-export default brandController()
+export default new brandController();
