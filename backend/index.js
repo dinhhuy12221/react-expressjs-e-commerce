@@ -20,11 +20,7 @@ app.use(credentials);
 
 app.use(cors(corsOptions));
 
-app.use(express.json());
-
 app.use(cookieParser());
-
-app.use(express.urlencoded({ extended: true }));
 
 app.use(morgan("dev"))
 

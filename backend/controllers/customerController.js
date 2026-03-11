@@ -7,10 +7,6 @@ class customerController {
       const imageResult = await cloudinary.v2.uploader.upload(req.file.path, {
         folder: `ecommerce/customers/${req.body._id}`,
       });
-      // res.json({
-      //   url: imageResult.secure_url,
-      //   public_id: imageResult.public_id,
-      // });
 
       const payload = {
         fullname: req.body.fullname,

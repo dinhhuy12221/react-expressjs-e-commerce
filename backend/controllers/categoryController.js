@@ -1,4 +1,3 @@
-import { log } from "console";
 import Category from "../models/category.js";
 
 class categoryController {
@@ -9,30 +8,25 @@ class categoryController {
       res.status(200).send(categoryList);
     } catch (error) {
       console.log(error);
-      
-      res
-        .status(404)
-        .json({
-          success: false,
-          message: JSON.stringify(error),
-        });
+
+      res.status(404).json({
+        success: false,
+        message: JSON.stringify(error),
+      });
     }
   }
 
   // Get category by slug
   async getCategoryBySlug(req, res) {
     try {
-      
       const category = await Category.findOne({ slug: req.params.slug });
 
       res.status(200).send(category);
     } catch (error) {
-      res
-        .status(404)
-        .json({
-          success: false,
-          message: JSON.stringify(error),
-        });
+      res.status(404).json({
+        success: false,
+        message: JSON.stringify(error),
+      });
     }
   }
 
@@ -43,47 +37,43 @@ class categoryController {
 
       res.status(200).send(category);
     } catch (error) {
-      res
-        .status(404)
-        .json({
-          success: false,
-          message: JSON.stringify(error),
-        });
+      res.status(404).json({
+        success: false,
+        message: JSON.stringify(error),
+      });
     }
   }
 
   // POST create category
   async createCategory(req, res) {
-
     try {
-      let category = new Category({
-        name: req.body.name,
-      });
-  
-      category = await category.save();
-      res.status(202).send(category);
-      
-    } catch (error) {
-      res
-        .status(404)
-        .join({
-          success: false,
-          message: JSON.stringify(error),
-        });
-    }
+      const { name } = req.body;
 
+      if (!name) {
+        return res.status(400).json({ message: "Category name is required" });
+      }
+
+      const category = await Category.create({ name });
+      res
+        .status(201)
+        .json({ message: "Category created successfully", data: category });
+    } catch (error) {
+      console.log(error);
+      res
+        .status(500)
+        .json({ message: "Internal server error", error: error.message });
+    }
   }
 
   // Delete category by id
   async deleteCategory(req, res) {
     try {
       const deletedCategory = await Category.delete({ _id: req.params.id });
-  
+
       res.status(200).json({
         message: "Category Deleted!",
         success: true,
       });
-      
     } catch (error) {
       res.status(404).json({
         success: false,
@@ -94,14 +84,13 @@ class categoryController {
 
   // Update category
   async updateCategory(req, res) {
-    
     try {
       const category = await Category.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         images: req.body.images,
         color: req.body.color,
       });
-  
+
       res.status(200).json({
         message: "Category Updated",
         success: true,
@@ -113,8 +102,6 @@ class categoryController {
       });
     }
   }
-
-  
 }
 
 export default new categoryController();

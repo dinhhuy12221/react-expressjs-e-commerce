@@ -73,7 +73,8 @@ const Dashboard = () => {
         <tr>
           <td>#{item._id}</td>
           <td className="dashboard-table-content-main-image">
-            <img src={item.image} />
+            {/* {item.images.map(i => <img src={i.url} />)} */}
+            <img src={item.images[0].url} />
           </td>
           <td className="dashboard-table-content-main-name">
             <span className="dashboard-table-content-main-name-head">
@@ -83,14 +84,14 @@ const Dashboard = () => {
           <td className="dashboard-table-content-main-category">
             {item.categoryId.name}
           </td>
-          <td className="dashboard-table-content-main-brand">{item.brand}</td>
+          <td className="dashboard-table-content-main-brand">{item.brandId ? item.brandId.name : ""}</td>
           <td className="dashboard-table-content-main-prices">
             <del className="dashboard-table-content-main-prices-old">
-              {item.price}
+              ${item.price}
             </del>
             <br />
             <span className="dashboard-table-content-main-prices-new">
-              {getDiscountPrice(item.price, item.discount).toFixed(2)}
+              ${getDiscountPrice(item.price, item.discount).toFixed(2)}
             </span>
           </td>
           <td className="dashboard-table-content-main-stock">{item.countInStock}</td>

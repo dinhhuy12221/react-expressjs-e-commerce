@@ -1,14 +1,17 @@
 import Product from "../models/product.js";
 import Category from "../models/category.js";
+import Brand from "../models/brand.js";
 import verifyJWT from "../middlewares/verifyJWT.js";
 import cloudinary from "../config/cloudinary.js";
+
+import mongoose from "mongoose";
 
 class productController {
   // GET product list
   async getProductList(req, res, next) {
     try {
       // verifyJWT(req, res, next)
-      const productList = await Product.find({}).populate("categoryId");
+      const productList = await Product.find({}).populate(["categoryId", "brandId"]);
       res.status(200).send(productList);
     } catch (error) {
       res.status(404).json({
@@ -48,17 +51,23 @@ class productController {
   // POST create product
   async createProduct(req, res) {
     try {
-      const imagesToUpload = req.files.map((image, index) => {
-        return async () => {
-          const result = await cloudinary.v2.uploader.upload(image, {
-            folder: `ecommerce/products/${index}`,
+      const counterDoc = await mongoose.connection
+        .collection("counters")
+        .findOne({ id: "product_id_counter" });
+
+      const counter = (counterDoc?.seq || 0) + 1;
+
+      const imagesToUpload = await Promise.all(
+        req.files.map(async (image, index) => {
+          const result = await cloudinary.v2.uploader.upload(image.path, {
+            folder: `ecommerce/products/${counter}`,
           });
           return {
             url: result.secure_url,
             public_id: result.public_id,
           };
-        };
-      });
+        })
+      );
 
       // const uploadStatus = await Promise.all(imagesToUpload);
 
@@ -72,35 +81,35 @@ class productController {
       //     status: false,
       //   });
       // }
-      
-      const category = await Category.findById(req.body.category);
+
+      const category = await Category.findById(req.body.categoryId);
 
       if (!category) {
         res.status(404).json({ message: "Category is not found" });
       }
+
       if (imagesToUpload) {
         const payload = {
           name: req.body.name,
           description: req.body.description,
           images: imagesToUpload,
-          brand: req.body.brand,
           price: req.body.price,
           discount: req.body.discount,
+          brandId: req.body.brandId || null,
           categoryId: req.body.categoryId,
           countInStock: req.body.countInStock,
           rating: req.body.rating,
           numReviews: req.body.numReviews,
           isFeatured: req.body.isFeatured,
         };
-  
-        const product = await Product.create(payload)
+
+        const product = await Product.create(payload);
 
         res.status(201).json({
-        message: "Product created successfully",
-        data: product,
-      });
-    }
-
+          message: "Product created successfully",
+          data: product,
+        });
+      }
     } catch (error) {
       console.log(error);
 
