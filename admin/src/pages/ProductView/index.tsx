@@ -198,6 +198,7 @@ export default function ProductView() {
         </form>
 
         <div className="product-view-rating">
+          <h3>Rating</h3>
           <Rating
             value={product.rating}
             precision={0.5}
@@ -206,21 +207,16 @@ export default function ProductView() {
               color: "#faaf00",
             }}
           />
-        </div>
-
-        <div className="p-4">
-          <h6 className="mt-4 mb-3">Rating Analytics</h6>
-          <div className="ratingSection">
-            <div className="ratingRow d-flex align-items-center">
+          <h3>Rating Analytics</h3>
+          <div className="product-view-rating-section">
+            <div className="product-view-rating-section-item">
               <span className="col1">5 Star</span>
               <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "100%" }}></div>
-                </div>
+                  <div className="product-view-rating-section-item-progress" style={{ width: "100%" }}></div>
               </div>
               <span className="col3">(22)</span>
             </div>
-            <div className="ratingRow d-flex align-items-center">
+            <div className="product-view-rating-section-item">
               <span className="col1">4 Star</span>
               <div className="col2">
                 <div className="progress">
@@ -229,7 +225,7 @@ export default function ProductView() {
               </div>
               <span className="col3">(12)</span>
             </div>
-            <div className="ratingRow d-flex align-items-center">
+            <div className="product-view-rating-section-item">
               <span className="col1">3 Star</span>
               <div className="col2">
                 <div className="progress">
@@ -238,7 +234,7 @@ export default function ProductView() {
               </div>
               <span className="col3">(32)</span>
             </div>
-            <div className="ratingRow d-flex align-items-center">
+            <div className="product-view-rating-section-item">
               <span className="col1">2 Star</span>
               <div className="col2">
                 <div className="progress">
@@ -247,7 +243,7 @@ export default function ProductView() {
               </div>
               <span className="col3">(2)</span>
             </div>
-            <div className="ratingRow d-flex align-items-center">
+            <div className="product-view-rating-section-item">
               <span className="col1">1 Star</span>
               <div className="col2">
                 <div className="progress">
@@ -257,6 +253,10 @@ export default function ProductView() {
               <span className="col3">(8)</span>
             </div>
           </div>
+        </div>
+
+        <div className="p-4">
+          
 
           <br />
 
