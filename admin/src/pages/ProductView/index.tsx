@@ -65,8 +65,10 @@ export default function ProductView() {
       setProduct(result.data[0]);
     };
 
+    console.log(product);
+
     getProduct();
-  });
+  }, [slug]);
 
   if (product === null) return;
 
@@ -87,15 +89,15 @@ export default function ProductView() {
       />
 
       <div className="product-view-content">
-        <div className="product-view-content-first">
-          <div className="product-view-content-first-images">
+        <div className="product-view-content">
+          <div className="product-view-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
             {/* <Slider
                 {...productSliderOptions}
                 ref={mainImagesSlider}
-                className="product-view-content-first-images-slider-main"
+                className="product-view-content-images-slider-main"
               >
-                {product.images.map(item => <div className="product-view-content-first-images-slider-main-item">
+                {product.images.map(item => <div className="product-view-content-images-slider-main-item">
                   <img
                     src={item.url}
                   />
@@ -104,199 +106,104 @@ export default function ProductView() {
               <Slider
                 {...productSliderSmallOptions}
                 ref={sideImagesSlider}
-                className="product-view-content-first-images-slider-side"
+                className="product-view-content-images-slider-side"
               >
-                {product.images.map(item => <div className="product-view-content-first-images-slider-side-item">
+                {product.images.map(item => <div className="product-view-content-images-slider-side-item">
                   <img
                     src={item.url}
                   />
                 </div>)}
               </Slider> */}
             {product.images.map((item, index) => (
-              <div className="product-view-content-first-images-item" key={index}>
+              <div className="product-view-content-images-item" key={index}>
                 <img src={item.url} alt="product" width="120" />
                 <PiCameraRotate />
                 <input type="file" />
               </div>
             ))}
           </div>
-          <div className="col-md-7">
-            <div className="pt-3 pb-3 ps-4 pe-4">
-              <h6 className="mb-3">Product Details</h6>
-              <h4>
-                Formal suits for men wedding slim fit 3 piece dress business
-                party jacket
-              </h4>
-
-              <div className="productInfo mt-3">
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <MdBrandingWatermark />
-                    </span>
-                    <span className="name">Brand</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>Ecstasy</span>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <BiSolidCategoryAlt />
-                    </span>
-                    <span className="name">Category</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>Man's</span>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <MdFilterVintage />
-                    </span>
-                    <span className="name">Tags</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <ul className="list list-inline tags sml">
-                      <li className="list-inline-item">
-                        <span>SUITE</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>PARTY</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>DRESS</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>SMART</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>MAN</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <IoColorPaletteSharp />
-                    </span>
-                    <span className="name">Color</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <ul className="list list-inline tags sml">
-                      <li className="list-inline-item">
-                        <span>RED</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>BLUE</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>WHITE</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <IoResize />
-                    </span>
-                    <span className="name">Size</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <ul className="list list-inline tags sml">
-                      <li className="list-inline-item">
-                        <span>SM</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>MD</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>LG</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>XL</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>XXL</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <IoPricetagsSharp />
-                    </span>
-                    <span className="name">Price</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>$37.00 &nbsp;</span>
-                    <span id="oldPrice">$42.00</span>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <FaShoppingCart />
-                    </span>
-                    <span className="name">Stock</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>(68) Piece</span>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <MdOutlineRateReview />
-                    </span>
-                    <span className="name">Review</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>(03) Review</span>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <SiTicktick />
-                    </span>
-                    <span className="name">Published</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>02 Feb 2020</span>
-                  </div>
-                </div>
+          <div className="product-view-content-main">
+            <div>
+              <div className="product-view-content-main-item">
+                <h4>Name</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  spellCheck="false"
+                  placeholder="Enter the name"
+                  value={product.name}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Description</h4>
+                <textarea
+                  className="product-view-content-main-item-textarea"
+                  spellCheck="false"
+                  placeholder="Enter the description"
+                  value={product.description}
+                  />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Category</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  spellCheck="false"
+                  placeholder="Enter the category"
+                  value={product.categoryId.name}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Brand</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  placeholder="Enter the brand"
+                  value={product.brandId?.name}
+                />
+              </div>
+            </div>
+            <div>
+              <div className="product-view-content-main-item">
+                <h4>Name</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  spellCheck="false"
+                  value={product.name}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Description</h4>
+                <textarea
+                  className="product-view-content-main-item-textarea"
+                  spellCheck="false"
+                  value={product.description}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Category</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  spellCheck="false"
+                  value={product.categoryId.name}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Brand</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  value={product.brandId?.name}
+                />
               </div>
             </div>
           </div>
         </div>
 
         <div className="p-4">
-          <h5 className="mt-4 mb-3">Product Description</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-            reprehenderit repellendus expedita esse cupiditate quos doloremque
-            rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit
-            voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam
-            debitis amet natus doloremque laudantium? Repudiandae, consequuntur,
-            officiis quidem quo deleniti, autem non laudantium sequi error
-            molestiae ducimus accusamus facere velit consectetur vero dolore
-            natus nihil temporibus aspernatur quia consequatur? Consequuntur
-            voluptate deserunt repellat tenetur debitis molestiae doloribus
-            dicta. In rem illum dolorem atque ratione voluptates asperiores
-            maxime doloremque laudantium magni neque ad quae quos quidem,
-            quaerat rerum ducimus blanditiis reiciendis
-          </p>
-
-          <br />
-
           <h6 className="mt-4 mb-3">Rating Analytics</h6>
-
           <div className="ratingSection">
             <div className="ratingRow d-flex align-items-center">
               <span className="col1">5 Star</span>
