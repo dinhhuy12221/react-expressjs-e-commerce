@@ -124,76 +124,89 @@ export default function ProductView() {
             ))}
           </div>
           <div className="product-view-content-main">
-              <div className="product-view-content-main-item">
-                <h4>Name</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="text"
-                  spellCheck="false"
-                  placeholder="Enter the name"
-                  value={product.name}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Description</h4>
-                <textarea
-                  className="product-view-content-main-item-textarea"
-                  spellCheck="false"
-                  placeholder="Enter the description"
-                  value={product.description}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Category</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="text"
-                  spellCheck="false"
-                  placeholder="Enter the category"
-                  value={product.categoryId.name}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Brand</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="text"
-                  placeholder="Enter the brand"
-                  value={product.brandId?.name}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Price</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="number"
-                  spellCheck="false"
-                  value={product.price}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Discount (%)</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="number"
-                  spellCheck="false"
-                  value={product.discount}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Stock</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="number"
-                  value={product.countInStock}
-                />
-              </div>
+            <div className="product-view-content-main-item">
+              <h4>Name</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="text"
+                spellCheck="false"
+                placeholder="Enter the name"
+                value={product.name}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Description</h4>
+              <textarea
+                className="product-view-content-main-item-textarea"
+                spellCheck="false"
+                placeholder="Enter the description"
+                value={product.description}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Category</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="text"
+                spellCheck="false"
+                placeholder="Enter the category"
+                value={product.categoryId.name}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Brand</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="text"
+                placeholder="Enter the brand"
+                value={product.brandId?.name}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Price</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="number"
+                spellCheck="false"
+                value={product.price}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Discount (%)</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="number"
+                spellCheck="false"
+                value={product.discount}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Stock</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="number"
+                value={product.countInStock}
+              />
+            </div>
           </div>
           <div className="product-view-content-button">
-            <button className="product-view-content-button-cancel">Cancel</button>
+            <button className="product-view-content-button-cancel">
+              Cancel
+            </button>
             <button className="product-view-content-button-save">Save</button>
-            </div>
+          </div>
         </form>
+
+        <div className="product-view-rating">
+          <Rating
+            value={product.rating}
+            precision={0.5}
+            readOnly
+            sx={{
+              color: "#faaf00",
+            }}
+          />
+        </div>
 
         <div className="p-4">
           <h6 className="mt-4 mb-3">Rating Analytics</h6>
