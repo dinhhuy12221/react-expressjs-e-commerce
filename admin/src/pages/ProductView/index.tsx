@@ -66,7 +66,7 @@ export default function ProductView() {
     };
 
     getProduct();
-  });
+  }, [slug]);
 
   if (product === null) return;
 
@@ -87,15 +87,15 @@ export default function ProductView() {
       />
 
       <div className="product-view-content">
-        <div className="product-view-content-first">
-          <div className="product-view-content-first-images">
+        <div className="product-view-content">
+          <div className="product-view-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
             {/* <Slider
                 {...productSliderOptions}
                 ref={mainImagesSlider}
-                className="product-view-content-first-images-slider-main"
+                className="product-view-content-images-slider-main"
               >
-                {product.images.map(item => <div className="product-view-content-first-images-slider-main-item">
+                {product.images.map(item => <div className="product-view-content-images-slider-main-item">
                   <img
                     src={item.url}
                   />
@@ -104,172 +104,181 @@ export default function ProductView() {
               <Slider
                 {...productSliderSmallOptions}
                 ref={sideImagesSlider}
-                className="product-view-content-first-images-slider-side"
+                className="product-view-content-images-slider-side"
               >
-                {product.images.map(item => <div className="product-view-content-first-images-slider-side-item">
+                {product.images.map(item => <div className="product-view-content-images-slider-side-item">
                   <img
                     src={item.url}
                   />
                 </div>)}
               </Slider> */}
             {product.images.map((item, index) => (
-              <div className="product-view-content-first-images-item" key={index}>
+              <div className="product-view-content-images-item" key={index}>
                 <img src={item.url} alt="product" width="120" />
                 <PiCameraRotate />
                 <input type="file" />
               </div>
             ))}
           </div>
-          <div className="col-md-7">
-            <div className="pt-3 pb-3 ps-4 pe-4">
-              <h6 className="mb-3">Product Details</h6>
-              <h4>
-                Formal suits for men wedding slim fit 3 piece dress business
-                party jacket
-              </h4>
+          <div className="product-view-content-main">
+            <div className="product-view-content-main-item">
+              <h4>Name</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="text"
+                value={product.name}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Description</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="text"
+                value={product.description}
+              />
+            </div>
 
-              <div className="productInfo mt-3">
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <MdBrandingWatermark />
-                    </span>
-                    <span className="name">Brand</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>Ecstasy</span>
-                  </div>
+            <div className="productInfo mt-3">
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <MdBrandingWatermark />
+                  </span>
+                  <span className="name">Brand</span>
                 </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <BiSolidCategoryAlt />
-                    </span>
-                    <span className="name">Category</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>Man's</span>
-                  </div>
+                <div className="col-sm-9 productContent">
+                  <span>Ecstasy</span>
                 </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <MdFilterVintage />
-                    </span>
-                    <span className="name">Tags</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <ul className="list list-inline tags sml">
-                      <li className="list-inline-item">
-                        <span>SUITE</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>PARTY</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>DRESS</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>SMART</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>MAN</span>
-                      </li>
-                    </ul>
-                  </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <BiSolidCategoryAlt />
+                  </span>
+                  <span className="name">Category</span>
                 </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <IoColorPaletteSharp />
-                    </span>
-                    <span className="name">Color</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <ul className="list list-inline tags sml">
-                      <li className="list-inline-item">
-                        <span>RED</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>BLUE</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>WHITE</span>
-                      </li>
-                    </ul>
-                  </div>
+                <div className="col-sm-9 productContent">
+                  <span>Man's</span>
                 </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <IoResize />
-                    </span>
-                    <span className="name">Size</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <ul className="list list-inline tags sml">
-                      <li className="list-inline-item">
-                        <span>SM</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>MD</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>LG</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>XL</span>
-                      </li>
-                      <li className="list-inline-item">
-                        <span>XXL</span>
-                      </li>
-                    </ul>
-                  </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <MdFilterVintage />
+                  </span>
+                  <span className="name">Tags</span>
                 </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <IoPricetagsSharp />
-                    </span>
-                    <span className="name">Price</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>$37.00 &nbsp;</span>
-                    <span id="oldPrice">$42.00</span>
-                  </div>
+                <div className="col-sm-9 productContent">
+                  <ul className="list list-inline tags sml">
+                    <li className="list-inline-item">
+                      <span>SUITE</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>PARTY</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>DRESS</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>SMART</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>MAN</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <FaShoppingCart />
-                    </span>
-                    <span className="name">Stock</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>(68) Piece</span>
-                  </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <IoColorPaletteSharp />
+                  </span>
+                  <span className="name">Color</span>
                 </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <MdOutlineRateReview />
-                    </span>
-                    <span className="name">Review</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>(03) Review</span>
-                  </div>
+                <div className="col-sm-9 productContent">
+                  <ul className="list list-inline tags sml">
+                    <li className="list-inline-item">
+                      <span>RED</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>BLUE</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>WHITE</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="row mb-3">
-                  <div className="col-sm-3 d-flex align-items-center title">
-                    <span className="icon d-flex align-items-center">
-                      <SiTicktick />
-                    </span>
-                    <span className="name">Published</span>
-                  </div>
-                  <div className="col-sm-9 productContent">
-                    <span>02 Feb 2020</span>
-                  </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <IoResize />
+                  </span>
+                  <span className="name">Size</span>
+                </div>
+                <div className="col-sm-9 productContent">
+                  <ul className="list list-inline tags sml">
+                    <li className="list-inline-item">
+                      <span>SM</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>MD</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>LG</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>XL</span>
+                    </li>
+                    <li className="list-inline-item">
+                      <span>XXL</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <IoPricetagsSharp />
+                  </span>
+                  <span className="name">Price</span>
+                </div>
+                <div className="col-sm-9 productContent">
+                  <span>$37.00 &nbsp;</span>
+                  <span id="oldPrice">$42.00</span>
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <FaShoppingCart />
+                  </span>
+                  <span className="name">Stock</span>
+                </div>
+                <div className="col-sm-9 productContent">
+                  <span>(68) Piece</span>
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <MdOutlineRateReview />
+                  </span>
+                  <span className="name">Review</span>
+                </div>
+                <div className="col-sm-9 productContent">
+                  <span>(03) Review</span>
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-3 d-flex align-items-center title">
+                  <span className="icon d-flex align-items-center">
+                    <SiTicktick />
+                  </span>
+                  <span className="name">Published</span>
+                </div>
+                <div className="col-sm-9 productContent">
+                  <span>02 Feb 2020</span>
                 </div>
               </div>
             </div>
