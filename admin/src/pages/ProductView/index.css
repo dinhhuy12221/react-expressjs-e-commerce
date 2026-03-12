@@ -23,6 +23,28 @@
   justify-content: end;
   gap: var(--space-12);
 }
+.product-view-content-button button {
+  padding: var(--space-12);
+  border-radius: var(--radius-5);
+  border: none;
+  width: 100px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.product-view-content-button-cancel {
+  background: #324063;
+  color: var(--color-bg-gray-1);
+}
+.product-view-content-button-cancel:hover {
+  background: #3a4a74;
+}
+.product-view-content-button-save {
+  background: var(--color-bg-success);
+  color: var(--color-text-white);
+}
+.product-view-content-button-save:hover {
+  background: #149e4b;
+}
 .product-view-content-images {
   display: flex;
   justify-content: center;
