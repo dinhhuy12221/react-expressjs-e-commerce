@@ -3,6 +3,7 @@
 }
 .product-view-content {
   padding: 0px var(--space-16);
+  padding-bottom: var(--space-50);
 }
 .product-view-content form {
   display: flex;
@@ -170,7 +171,7 @@
 .product-view-review {
   display: flex;
   flex-direction: column;
-  gap: var(--space-10);
+  gap: var(--space-18);
 }
 .product-view-review-item {
   display: flex;
