@@ -210,11 +210,11 @@ export default function ProductView() {
           <h3>Rating Analytics</h3>
           <div className="product-view-rating-section">
             <div className="product-view-rating-section-item">
-              <span className="col1">5 Star</span>
-              <div className="col2">
-                  <div className="product-view-rating-section-item-progress" style={{ width: "100%" }}></div>
-              </div>
-              <span className="col3">(22)</span>
+              <div className="product-view-rating-section-item-label">5 Star (22)</div>
+                <div
+                  className="product-view-rating-section-item-progress"
+                  style={{ width: "100%" }}
+                ></div>
             </div>
             <div className="product-view-rating-section-item">
               <span className="col1">4 Star</span>
@@ -256,8 +256,6 @@ export default function ProductView() {
         </div>
 
         <div className="p-4">
-          
-
           <br />
 
           <h6 className="mt-4 mb-4">Customer_Reviews</h6>

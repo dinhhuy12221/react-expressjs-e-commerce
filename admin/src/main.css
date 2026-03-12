@@ -111,7 +111,7 @@ a {
   text-decoration: none;
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -120,21 +120,13 @@ h6,
 p,
 em {
   color: #403e57;
-}
+} */
 .rounded-circle {
     width: 35px;
     height: 35px;
     min-width: 35px;
   }
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark h4,
-body.dark h5,
-body.dark h6,
-body.dark p,
-body.dark em,
-body.dark span {
+body.dark {
   color: rgba(255, 255, 255, 0.8);
 }
 
