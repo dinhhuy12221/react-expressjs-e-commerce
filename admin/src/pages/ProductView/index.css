@@ -55,7 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: var(--radius-20);
+  border-radius: var(--radius-10);
   width: 200px;
   height: 200px;
   overflow: hidden;
@@ -137,6 +137,40 @@
   border: var(--border-width-1) #3a60b3;
   outline: var(--border-width-2) #3a60b3;
 }
+
+.product-view-rating-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  width: 700px;
+}
+.product-view-rating-section-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-10);
+}
+.product-view-rating-section-item-label {
+  flex-shrink: 0;
+}
+
+.product-view-rating-section-item-progress {
+  height: var(--space-6);
+  background: #cccccc;
+}
+.product-view-rating-section-item-progress div {
+  height: var(--space-6);
+  background: #ebd213;
+}
+
+.ratingSection .ratingRow .col3 {
+  width: 25%;
+  flex: 0 0 25%;
+  display: flex;
+  padding-left: 20px;
+}
+
+
 .product-view-content .productInfo span {
   color: #67677a;
 }
@@ -188,45 +222,6 @@ body.dark .product-view-content .productInfo .productContent span {
 
 body.dark .product-view-content .productInfo .productContent .tags li span {
   background: #15223f;
-}
-
-.ratingSection {
-  width: 500px;
-}
-
-.ratingSection .ratingRow {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.ratingSection .ratingRow .col1 {
-  width: 15%;
-  flex: 0 0 15%;
-  display: flex;
-}
-.ratingSection .ratingRow .col2 {
-  width: 50%;
-  flex: 0 0 50%;
-}
-
-.ratingSection .ratingRow .col2 .progress {
-  height: 5px;
-  background: #cccccc;
-}
-
-body.dark .ratingSection .ratingRow .col2 .progress {
-  background: #000;
-}
-
-.ratingSection .ratingRow .col2 .progress .progress-bar {
-  background: #ebd213;
-}
-
-.ratingSection .ratingRow .col3 {
-  width: 25%;
-  flex: 0 0 25%;
-  display: flex;
-  padding-left: 20px;
 }
 
 .reviewsSection {

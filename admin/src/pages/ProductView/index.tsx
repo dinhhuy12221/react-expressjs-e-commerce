@@ -124,127 +124,142 @@ export default function ProductView() {
             ))}
           </div>
           <div className="product-view-content-main">
-              <div className="product-view-content-main-item">
-                <h4>Name</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="text"
-                  spellCheck="false"
-                  placeholder="Enter the name"
-                  value={product.name}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Description</h4>
-                <textarea
-                  className="product-view-content-main-item-textarea"
-                  spellCheck="false"
-                  placeholder="Enter the description"
-                  value={product.description}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Category</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="text"
-                  spellCheck="false"
-                  placeholder="Enter the category"
-                  value={product.categoryId.name}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Brand</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="text"
-                  placeholder="Enter the brand"
-                  value={product.brandId?.name}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Price</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="number"
-                  spellCheck="false"
-                  value={product.price}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Discount (%)</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="number"
-                  spellCheck="false"
-                  value={product.discount}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Stock</h4>
-                <input
-                  className="product-view-content-main-item-input"
-                  type="number"
-                  value={product.countInStock}
-                />
-              </div>
+            <div className="product-view-content-main-item">
+              <h4>Name</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="text"
+                spellCheck="false"
+                placeholder="Enter the name"
+                value={product.name}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Description</h4>
+              <textarea
+                className="product-view-content-main-item-textarea"
+                spellCheck="false"
+                placeholder="Enter the description"
+                value={product.description}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Category</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="text"
+                spellCheck="false"
+                placeholder="Enter the category"
+                value={product.categoryId.name}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Brand</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="text"
+                placeholder="Enter the brand"
+                value={product.brandId?.name}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Price</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="number"
+                spellCheck="false"
+                value={product.price}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Discount (%)</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="number"
+                spellCheck="false"
+                value={product.discount}
+              />
+            </div>
+            <div className="product-view-content-main-item">
+              <h4>Stock</h4>
+              <input
+                className="product-view-content-main-item-input"
+                type="number"
+                value={product.countInStock}
+              />
+            </div>
           </div>
           <div className="product-view-content-button">
-            <button className="product-view-content-button-cancel">Cancel</button>
+            <button className="product-view-content-button-cancel">
+              Cancel
+            </button>
             <button className="product-view-content-button-save">Save</button>
-            </div>
+          </div>
         </form>
 
-        <div className="p-4">
-          <h6 className="mt-4 mb-3">Rating Analytics</h6>
-          <div className="ratingSection">
-            <div className="ratingRow d-flex align-items-center">
-              <span className="col1">5 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "100%" }}></div>
-                </div>
+        <div className="product-view-rating">
+          <h3>Rating</h3>
+          <Rating
+            value={product.rating}
+            precision={0.5}
+            readOnly
+            sx={{
+              color: "#faaf00",
+            }}
+          />
+          <h3>Rating Analytics</h3>
+          <div className="product-view-rating-section">
+            <div className="product-view-rating-section-item">
+              <div className="product-view-rating-section-item-label">
+                5 Star (22)
               </div>
-              <span className="col3">(22)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              >
+                <div style={{ width: "80%" }}></div>
+              </div>
             </div>
-            <div className="ratingRow d-flex align-items-center">
-              <span className="col1">4 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "80%" }}></div>
-                </div>
+            <div className="product-view-rating-section-item">
+              <div className="product-view-rating-section-item-label">
+                4 Star (22)
               </div>
-              <span className="col3">(12)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              ><div style={{ width: "60%" }}></div></div>
             </div>
-            <div className="ratingRow d-flex align-items-center">
-              <span className="col1">3 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "60%" }}></div>
-                </div>
+            <div className="product-view-rating-section-item">
+              <div className="product-view-rating-section-item-label">
+                3 Star (22)
               </div>
-              <span className="col3">(32)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              ><div style={{ width: "40%" }}></div></div>
             </div>
-            <div className="ratingRow d-flex align-items-center">
-              <span className="col1">2 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "40%" }}></div>
-                </div>
+            <div className="product-view-rating-section-item">
+              <div className="product-view-rating-section-item-label">
+                2 Star (22)
               </div>
-              <span className="col3">(2)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              ><div style={{ width: "20%" }}></div></div>
             </div>
-            <div className="ratingRow d-flex align-items-center">
-              <span className="col1">1 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "20%" }}></div>
-                </div>
+            <div className="product-view-rating-section-item">
+              <div className="product-view-rating-section-item-label">
+                1 Star (22)
               </div>
-              <span className="col3">(8)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              ><div style={{ width: "10%" }}></div></div>
             </div>
           </div>
+        </div>
 
+        <div className="p-4">
           <br />
 
           <h6 className="mt-4 mb-4">Customer_Reviews</h6>
