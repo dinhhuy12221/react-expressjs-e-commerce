@@ -210,47 +210,51 @@ export default function ProductView() {
           <h3>Rating Analytics</h3>
           <div className="product-view-rating-section">
             <div className="product-view-rating-section-item">
-              <div className="product-view-rating-section-item-label">5 Star (22)</div>
-                <div
-                  className="product-view-rating-section-item-progress"
-                  style={{ width: "100%" }}
-                ></div>
+              <div className="product-view-rating-section-item-label">
+                5 Star (22)
+              </div>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              >
+                <div style={{ width: "80%" }}></div>
+              </div>
             </div>
             <div className="product-view-rating-section-item">
-              <span className="col1">4 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "80%" }}></div>
-                </div>
+              <div className="product-view-rating-section-item-label">
+                4 Star (22)
               </div>
-              <span className="col3">(12)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              ><div style={{ width: "60%" }}></div></div>
             </div>
             <div className="product-view-rating-section-item">
-              <span className="col1">3 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "60%" }}></div>
-                </div>
+              <div className="product-view-rating-section-item-label">
+                3 Star (22)
               </div>
-              <span className="col3">(32)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              ><div style={{ width: "40%" }}></div></div>
             </div>
             <div className="product-view-rating-section-item">
-              <span className="col1">2 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "40%" }}></div>
-                </div>
+              <div className="product-view-rating-section-item-label">
+                2 Star (22)
               </div>
-              <span className="col3">(2)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              ><div style={{ width: "20%" }}></div></div>
             </div>
             <div className="product-view-rating-section-item">
-              <span className="col1">1 Star</span>
-              <div className="col2">
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "20%" }}></div>
-                </div>
+              <div className="product-view-rating-section-item-label">
+                1 Star (22)
               </div>
-              <span className="col3">(8)</span>
+              <div
+                className="product-view-rating-section-item-progress"
+                style={{ width: "100%" }}
+              ><div style={{ width: "10%" }}></div></div>
             </div>
           </div>
         </div>

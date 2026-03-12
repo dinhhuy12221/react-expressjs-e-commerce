@@ -55,7 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: var(--radius-20);
+  border-radius: var(--radius-10);
   width: 200px;
   height: 200px;
   overflow: hidden;
@@ -142,24 +142,24 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
-  width: 500px;
+  width: 700px;
 }
 .product-view-rating-section-item {
   display: flex;
-
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-10);
+}
+.product-view-rating-section-item-label {
+  flex-shrink: 0;
 }
 
-
 .product-view-rating-section-item-progress {
-  height: 5px;
+  height: var(--space-6);
   background: #cccccc;
 }
-
-body.dark .product-view-rating-section-item-progress {
-  background: #000;
-}
-
-.product-view-rating-section-item-progress {
+.product-view-rating-section-item-progress div {
+  height: var(--space-6);
   background: #ebd213;
 }
 
