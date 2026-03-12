@@ -1,21 +1,5 @@
 import Rating from "@mui/material/Rating";
-
-import Slider from "react-slick";
-
-import { BiSolidCategoryAlt } from "react-icons/bi";
-import { MdBrandingWatermark } from "react-icons/md";
-import { MdFilterVintage } from "react-icons/md";
-import { IoColorPaletteSharp } from "react-icons/io5";
-import { IoResize } from "react-icons/io5";
-import { MdOutlineRateReview } from "react-icons/md";
-import { SiTicktick } from "react-icons/si";
-import { IoPricetagsSharp } from "react-icons/io5";
-import { FaShoppingCart } from "react-icons/fa";
-import { TiArrowBack } from "react-icons/ti";
-
-import UserAvatarImg from "../../components/UserAvatarImg";
-import Button from "@mui/material/Button";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { getProductBySlug } from "../../api/product";
@@ -23,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 import { PiCameraRotate } from "react-icons/pi";
+import { getReviewByProductId } from "../../api/review";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -32,31 +17,30 @@ import { PiCameraRotate } from "react-icons/pi";
 export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
-  const mainImagesSlider = useRef<Slider | null>(null);
-  const sideImagesSlider = useRef<Slider | null>(null);
+  const [reviews, setReviews] = useState<any>(null);
 
-  const reviews = new Array(8).fill(
-    <div className="product-view-review-item">
-      <div className="product-view-review-item-header">
-        <div>
-          <h4 className="product-view-review-item-header-name">Alue</h4>
-          <span className="product-view-review-item-header-time">
-            25 minutes ago
-          </span>
-        </div>
-        <Rating name="read-only" value={4.5} precision={0.5} readOnly />
-      </div>
-      {/* <Button className="btn-blue btn-lg btn-big ms-auto">
-                <TiArrowBack className="me-2" />
-                Reply
-              </Button> */}
-      <p className="product-view-review-item-content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quo
-        nostrum dolore fugiat ducimus labore debitis unde autem recusandae? Eius
-        harum tempora quis minima, adipisci natus quod magni omnis quas.
-      </p>
-    </div>
-  );
+  // const reviews = new Array(8).fill(
+  //   <div className="product-view-review-item">
+  //     <div className="product-view-review-item-header">
+  //       <div>
+  //         <h4 className="product-view-review-item-header-name">Alue</h4>
+  //         <span className="product-view-review-item-header-time">
+  //           25 minutes ago
+  //         </span>
+  //       </div>
+  //       <Rating name="read-only" value={4.5} precision={0.5} readOnly />
+  //     </div>
+  //     {/* <Button className="btn-blue btn-lg btn-big ms-auto">
+  //               <TiArrowBack className="me-2" />
+  //               Reply
+  //             </Button> */}
+  //     <p className="product-view-review-item-content">
+  //       Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quo
+  //       nostrum dolore fugiat ducimus labore debitis unde autem recusandae? Eius
+  //       harum tempora quis minima, adipisci natus quod magni omnis quas.
+  //     </p>
+  //   </div>
+  // );
 
   // var productSliderOptions = {
   //   dots: false,
@@ -92,6 +76,15 @@ export default function ProductView() {
 
     getProduct();
   }, [slug]);
+
+  useEffect(() => {
+    const getReviews = async () => {
+      const result = await getReviewByProductId(product._id);
+      setReviews(result);
+    };
+
+    getReviews();
+  }, [product]);
 
   if (product === null) return;
 
@@ -293,8 +286,27 @@ export default function ProductView() {
         <div className="product-view-review">
           <h3>Reviews</h3>
 
-          {reviews.map(item => item)}
-{/* 
+          {reviews && reviews.map((item) => (
+            <div className="product-view-review-item">
+              <div className="product-view-review-item-header">
+                <div>
+                  <h4 className="product-view-review-item-header-name">{item.customerId.fullname}</h4>
+                  <span className="product-view-review-item-header-time">
+                    25 minutes ago
+                  </span>
+                </div>
+                <Rating name="read-only" value={item.rating} readOnly />
+              </div>
+              {/* <Button className="btn-blue btn-lg btn-big ms-auto">
+                <TiArrowBack className="me-2" />
+                Reply
+              </Button> */}
+              <p className="product-view-review-item-content">
+                {item.content}
+              </p>
+            </div>
+          ))}
+          {/* 
           <h6 className="mt-4 mb-4">Review Reply Form</h6>
           <form className="reviewForm">
             <textarea placeholder="Write here"></textarea>
