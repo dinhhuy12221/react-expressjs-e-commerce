@@ -21,7 +21,7 @@ class reviewController {
 
     getReviewsByProductId = async (req, res) => {
         try {
-            const reviews = await Review.find({ productId: req.params.id })
+            const reviews = await Review.find({ productId: req.params.id }).populate("customerId")
 
             res.status(201).json({ message: "Reviews found", data: reviews })
         } catch (error) {
@@ -32,7 +32,7 @@ class reviewController {
 
     getReviewsByCustomerId = async (req, res) => {
         try {
-            const reviews = await Review.find({ customerId: req.params.id })
+            const reviews = await Review.find({ customerId: req.params.id }).populate("customerId")
 
             res.status(201).json({ message: "Reviews found", data: reviews })
         } catch (error) {
