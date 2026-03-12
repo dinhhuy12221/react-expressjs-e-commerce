@@ -35,6 +35,29 @@ export default function ProductView() {
   const mainImagesSlider = useRef<Slider | null>(null);
   const sideImagesSlider = useRef<Slider | null>(null);
 
+  const reviews = new Array(8).fill(
+    <div className="product-view-review-item">
+      <div className="product-view-review-item-header">
+        <div>
+          <h4 className="product-view-review-item-header-name">Alue</h4>
+          <span className="product-view-review-item-header-time">
+            25 minutes ago
+          </span>
+        </div>
+        <Rating name="read-only" value={4.5} precision={0.5} readOnly />
+      </div>
+      {/* <Button className="btn-blue btn-lg btn-big ms-auto">
+                <TiArrowBack className="me-2" />
+                Reply
+              </Button> */}
+      <p className="product-view-review-item-content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quo
+        nostrum dolore fugiat ducimus labore debitis unde autem recusandae? Eius
+        harum tempora quis minima, adipisci natus quod magni omnis quas.
+      </p>
+    </div>
+  );
+
   // var productSliderOptions = {
   //   dots: false,
   //   infinite: true,
@@ -227,7 +250,9 @@ export default function ProductView() {
               <div
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
-              ><div style={{ width: "60%" }}></div></div>
+              >
+                <div style={{ width: "60%" }}></div>
+              </div>
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
@@ -236,7 +261,9 @@ export default function ProductView() {
               <div
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
-              ><div style={{ width: "40%" }}></div></div>
+              >
+                <div style={{ width: "40%" }}></div>
+              </div>
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
@@ -245,7 +272,9 @@ export default function ProductView() {
               <div
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
-              ><div style={{ width: "20%" }}></div></div>
+              >
+                <div style={{ width: "20%" }}></div>
+              </div>
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
@@ -254,87 +283,25 @@ export default function ProductView() {
               <div
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
-              ><div style={{ width: "10%" }}></div></div>
+              >
+                <div style={{ width: "10%" }}></div>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="product-view-review">
-          <h3 className="mt-4 mb-4">Reviews</h3>
+          <h3>Reviews</h3>
 
-          <div className="reviewsSection">
-            <div className="reviewsRow">
-              <div className="row">
-                <div className="col-sm-7">
-                  <div className="userInfo d-flex flex-column justify-content-center mb-1">
-                      <div className="info ms-3">
-                        <h4>Alue</h4>
-                        <span>25 minutes ago</span>
-                    </div>
-                    <Rating
-                      name="read-only"
-                      value={4.5}
-                      precision={0.5}
-                      readOnly
-                    />
-                  </div>
-                </div>
-                <div className="col-sm-5 d-flex align-items-center">
-                  <Button className="btn-blue btn-lg btn-big ms-auto">
-                    <TiArrowBack className="me-2" />
-                    Reply
-                  </Button>
-                </div>
-                <p className="mt-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                  quo nostrum dolore fugiat ducimus labore debitis unde autem
-                  recusandae? Eius harum tempora quis minima, adipisci natus
-                  quod magni omnis quas.
-                </p>
-              </div>
-            </div>
-
-            <div className="reviewsRow">
-              <div className="row">
-                <div className="col-sm-7">
-                  <div className="userInfo d-flex flex-column justify-content-center mb-1">
-                      <div className="info ms-3">
-                        <h4>Alue</h4>
-                        <span>25 minutes ago</span>
-                      </div>
-                    <Rating
-                      name="read-only"
-                      value={4.5}
-                      precision={0.5}
-                      readOnly
-                    />
-                  </div>
-                </div>
-                <div className="col-sm-5 d-flex align-items-center">
-                  <Button className="btn-blue btn-lg btn-big ms-auto">
-                    <TiArrowBack className="me-2" />
-                    Reply
-                  </Button>
-                </div>
-                <p className="mt-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                  quo nostrum dolore fugiat ducimus labore debitis unde autem
-                  recusandae? Eius harum tempora quis minima, adipisci natus
-                  quod magni omnis quas.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <br />
-
+          {reviews.map(item => item)}
+{/* 
           <h6 className="mt-4 mb-4">Review Reply Form</h6>
           <form className="reviewForm">
             <textarea placeholder="Write here"></textarea>
             <Button className="btn-blue btn-big btn-lg w-100 mt-3">
               DROP YOUR REPLIES
             </Button>
-          </form>
+          </form> */}
         </div>
       </div>
     </div>
