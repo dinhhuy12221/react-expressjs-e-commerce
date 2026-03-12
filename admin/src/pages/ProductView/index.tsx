@@ -221,13 +221,16 @@ export default function ProductView() {
             readOnly
             sx={{
               color: "#faaf00",
+              "& .MuiRating-iconEmpty": {
+                color: "#cccccc",
+              },
             }}
           />
           <h3>Rating Analytics</h3>
           <div className="product-view-rating-section">
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                5 Star (22)
+                5 Star ({reviews.reduce((acc, item) => acc + (item.rating === 5 ? 1 : 0), 0)})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
@@ -238,7 +241,7 @@ export default function ProductView() {
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                4 Star (22)
+                4 Star ({reviews.reduce((acc, item) => acc + (item.rating === 4 && 1), 0)})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
@@ -249,7 +252,7 @@ export default function ProductView() {
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                3 Star (22)
+                3 Star ({reviews.reduce((acc, item) => acc + (item.rating === 3 && 1), 0)})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
@@ -260,7 +263,7 @@ export default function ProductView() {
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                2 Star (22)
+                2 Star ({reviews.reduce((acc, item) => acc + (item.rating === 2 && 1), 0)})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
@@ -271,7 +274,7 @@ export default function ProductView() {
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                1 Star (22)
+                1 Star ({reviews.reduce((acc, item) => acc + (item.rating === 1 && 1), 0)})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
@@ -286,26 +289,38 @@ export default function ProductView() {
         <div className="product-view-review">
           <h3>Reviews</h3>
 
-          {reviews && reviews.map((item) => (
-            <div className="product-view-review-item">
-              <div className="product-view-review-item-header">
-                <div>
-                  <h4 className="product-view-review-item-header-name">{item.customerId.fullname}</h4>
-                  <span className="product-view-review-item-header-time">
-                    25 minutes ago
-                  </span>
+          {reviews &&
+            reviews.map((item) => (
+              <div className="product-view-review-item">
+                <div className="product-view-review-item-header">
+                  <div>
+                    <h4 className="product-view-review-item-header-name">
+                      {item.customerId.fullname}
+                    </h4>
+                    <span className="product-view-review-item-header-time">
+                      25 minutes ago
+                    </span>
+                  </div>
+                  <Rating
+                    name="read-only"
+                    value={item.rating}
+                    sx={{
+                      "& .MuiRating-iconEmpty": {
+                        color: "#cccccc",
+                      },
+                    }}
+                    readOnly
+                  />
                 </div>
-                <Rating name="read-only" value={item.rating} readOnly />
-              </div>
-              {/* <Button className="btn-blue btn-lg btn-big ms-auto">
+                {/* <Button className="btn-blue btn-lg btn-big ms-auto">
                 <TiArrowBack className="me-2" />
                 Reply
               </Button> */}
-              <p className="product-view-review-item-content">
-                {item.content}
-              </p>
-            </div>
-          ))}
+                <p className="product-view-review-item-content">
+                  {item.content}
+                </p>
+              </div>
+            ))}
           {/* 
           <h6 className="mt-4 mb-4">Review Reply Form</h6>
           <form className="reviewForm">
