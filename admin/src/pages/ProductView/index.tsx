@@ -259,101 +259,17 @@ export default function ProductView() {
           </div>
         </div>
 
-        <div className="p-4">
-          <br />
-
-          <h6 className="mt-4 mb-4">Customer_Reviews</h6>
+        <div className="product-view-review">
+          <h3 className="mt-4 mb-4">Reviews</h3>
 
           <div className="reviewsSection">
             <div className="reviewsRow">
               <div className="row">
                 <div className="col-sm-7">
                   <div className="userInfo d-flex flex-column justify-content-center mb-1">
-                    <div className="d-flex mb-2">
-                      <UserAvatarImg
-                        url={
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s"
-                        }
-                      />
                       <div className="info ms-3">
-                        <h5>Alue</h5>
+                        <h4>Alue</h4>
                         <span>25 minutes ago</span>
-                      </div>
-                    </div>
-                    <Rating
-                      name="read-only"
-                      value={4.5}
-                      precision={0.5}
-                      readOnly
-                    />
-                  </div>
-                </div>
-                <div className="col-sm-5 d-flex align-items-center">
-                  <Button className="btn-blue btn-lg btn-big ms-auto">
-                    <TiArrowBack className="me-2" />
-                    Reply
-                  </Button>
-                </div>
-                <p className="mt-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                  quo nostrum dolore fugiat ducimus labore debitis unde autem
-                  recusandae? Eius harum tempora quis minima, adipisci natus
-                  quod magni omnis quas.
-                </p>
-              </div>
-            </div>
-
-            <div className="reviewsRow reply">
-              <div className="row">
-                <div className="col-sm-7">
-                  <div className="userInfo d-flex flex-column justify-content-center mb-1">
-                    <div className="d-flex mb-2">
-                      <UserAvatarImg
-                        url={
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s"
-                        }
-                      />
-                      <div className="info ms-3">
-                        <h5>Alue</h5>
-                        <span>25 minutes ago</span>
-                      </div>
-                    </div>
-                    <Rating
-                      name="read-only"
-                      value={4.5}
-                      precision={0.5}
-                      readOnly
-                    />
-                  </div>
-                </div>
-                <div className="col-sm-5 d-flex align-items-center">
-                  <Button className="btn-blue btn-lg btn-big ms-auto">
-                    <TiArrowBack className="me-2" />
-                    Reply
-                  </Button>
-                </div>
-                <p className="mt-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                  quo nostrum dolore fugiat ducimus labore debitis unde autem
-                  recusandae? Eius harum tempora quis minima, adipisci natus
-                  quod magni omnis quas.
-                </p>
-              </div>
-            </div>
-            <div className="reviewsRow reply">
-              <div className="row">
-                <div className="col-sm-7">
-                  <div className="userInfo d-flex flex-column justify-content-center mb-1">
-                    <div className="d-flex mb-2">
-                      <UserAvatarImg
-                        url={
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s"
-                        }
-                      />
-                      <div className="info ms-3">
-                        <h5>Alue</h5>
-                        <span>25 minutes ago</span>
-                      </div>
                     </div>
                     <Rating
                       name="read-only"
@@ -382,17 +298,10 @@ export default function ProductView() {
               <div className="row">
                 <div className="col-sm-7">
                   <div className="userInfo d-flex flex-column justify-content-center mb-1">
-                    <div className="d-flex mb-2">
-                      <UserAvatarImg
-                        url={
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCd1UseTiu5jdfYlwj_wovw4r7TtuWONyLBQ&s"
-                        }
-                      />
                       <div className="info ms-3">
-                        <h5>Alue</h5>
+                        <h4>Alue</h4>
                         <span>25 minutes ago</span>
                       </div>
-                    </div>
                     <Rating
                       name="read-only"
                       value={4.5}
