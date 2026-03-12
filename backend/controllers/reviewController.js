@@ -41,3 +41,5 @@ class reviewController {
         }
     }
 }
+
+export default new reviewController()
