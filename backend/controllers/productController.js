@@ -24,7 +24,7 @@ class productController {
   // GET product by slug
   async getProductBySlug(req, res) {
     try {
-      const product = await Product.find({ slug: req.params.slug });
+      const product = await Product.find({ slug: req.params.slug }).populate(["categoryId", "brandId"]);
 
       res.status(201).json({ message: "Product is found", data: product });
     } catch (error) {
