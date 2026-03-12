@@ -19,9 +19,22 @@ class reviewController {
         }
     }
 
-    getReviewByProductId = async (req, res) => {
+    getReviewsByProductId = async (req, res) => {
         try {
-            
+            const reviews = await Review.findBy({ productId: req.params.id })
+
+            res.status(201).json({ message: "Reviews found", data: reviews })
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: "Internal server error", error: error.message })
+        }
+    }
+
+    getReviewsByCustomerId = async (req, res) => {
+        try {
+            const reviews = await Review.findBy({ customerId: req.params.id })
+
+            res.status(201).json({ message: "Reviews found", data: reviews })
         } catch (error) {
             console.log(error);
             res.status(500).json({ message: "Internal server error", error: error.message })
