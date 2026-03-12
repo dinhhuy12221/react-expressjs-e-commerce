@@ -89,31 +89,32 @@ export default function ProductView() {
       />
 
       <div className="product-view-content">
-        <div className="product-view-content">
+        <h2>Product ID: #{product._id}</h2>
+        <form method="POST">
           <div className="product-view-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
             {/* <Slider
-                {...productSliderOptions}
-                ref={mainImagesSlider}
-                className="product-view-content-images-slider-main"
-              >
-                {product.images.map(item => <div className="product-view-content-images-slider-main-item">
-                  <img
-                    src={item.url}
-                  />
-                </div>)}
-              </Slider>
-              <Slider
-                {...productSliderSmallOptions}
-                ref={sideImagesSlider}
-                className="product-view-content-images-slider-side"
-              >
-                {product.images.map(item => <div className="product-view-content-images-slider-side-item">
-                  <img
-                    src={item.url}
-                  />
-                </div>)}
-              </Slider> */}
+                  {...productSliderOptions}
+                  ref={mainImagesSlider}
+                  className="product-view-content-images-slider-main"
+                >
+                  {product.images.map(item => <div className="product-view-content-images-slider-main-item">
+                    <img
+                      src={item.url}
+                    />
+                  </div>)}
+                </Slider>
+                <Slider
+                  {...productSliderSmallOptions}
+                  ref={sideImagesSlider}
+                  className="product-view-content-images-slider-side"
+                >
+                  {product.images.map(item => <div className="product-view-content-images-slider-side-item">
+                    <img
+                      src={item.url}
+                    />
+                  </div>)}
+                </Slider> */}
             {product.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
                 <img src={item.url} alt="product" width="120" />
@@ -123,7 +124,6 @@ export default function ProductView() {
             ))}
           </div>
           <div className="product-view-content-main">
-            <div>
               <div className="product-view-content-main-item">
                 <h4>Name</h4>
                 <input
@@ -141,7 +141,7 @@ export default function ProductView() {
                   spellCheck="false"
                   placeholder="Enter the description"
                   value={product.description}
-                  />
+                />
               </div>
               <div className="product-view-content-main-item">
                 <h4>Category</h4>
@@ -162,45 +162,38 @@ export default function ProductView() {
                   value={product.brandId?.name}
                 />
               </div>
-            </div>
-            <div>
               <div className="product-view-content-main-item">
-                <h4>Name</h4>
+                <h4>Price</h4>
                 <input
                   className="product-view-content-main-item-input"
-                  type="text"
+                  type="number"
                   spellCheck="false"
-                  value={product.name}
+                  value={product.price}
                 />
               </div>
               <div className="product-view-content-main-item">
-                <h4>Description</h4>
-                <textarea
-                  className="product-view-content-main-item-textarea"
-                  spellCheck="false"
-                  value={product.description}
-                />
-              </div>
-              <div className="product-view-content-main-item">
-                <h4>Category</h4>
+                <h4>Discount (%)</h4>
                 <input
                   className="product-view-content-main-item-input"
-                  type="text"
+                  type="number"
                   spellCheck="false"
-                  value={product.categoryId.name}
+                  value={product.discount}
                 />
               </div>
               <div className="product-view-content-main-item">
-                <h4>Brand</h4>
+                <h4>Stock</h4>
                 <input
                   className="product-view-content-main-item-input"
-                  type="text"
-                  value={product.brandId?.name}
+                  type="number"
+                  value={product.countInStock}
                 />
               </div>
-            </div>
           </div>
-        </div>
+          <div className="product-view-content-button">
+            <button className="product-view-content-button-cancel">Cancel</button>
+            <button className="product-view-content-button-save">Save</button>
+            </div>
+        </form>
 
         <div className="p-4">
           <h6 className="mt-4 mb-3">Rating Analytics</h6>
