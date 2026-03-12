@@ -65,6 +65,9 @@ export default function ProductView() {
       setProduct(result.data[0]);
     };
 
+    console.log(product);
+    
+
     getProduct();
   }, [slug]);
 
@@ -121,191 +124,84 @@ export default function ProductView() {
             ))}
           </div>
           <div className="product-view-content-main">
-            <div className="product-view-content-main-item">
-              <h4>Name</h4>
-              <input
-                className="product-view-content-main-item-input"
-                type="text"
-                value={product.name}
-              />
+            <div>
+              <div className="product-view-content-main-item">
+                <h4>Name</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  placeholder="Enter the name"
+                  value={product.name}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Description</h4>
+                <textarea
+                  className="product-view-content-main-item-textarea"                  placeholder="Enter the description"
+
+                  value={product.description}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Category</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                                    placeholder="Enter the category"
+
+                  value={product.categoryId.name}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Brand</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                                    placeholder="Enter the brand"
+
+                  value={product.brandId?.name}
+                />
+              </div>
             </div>
-            <div className="product-view-content-main-item">
-              <h4>Description</h4>
-              <input
-                className="product-view-content-main-item-input"
-                type="text"
-                value={product.description}
-              />
+            <div>
+              <div className="product-view-content-main-item">
+                <h4>Name</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  value={product.name}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Description</h4>
+                <textarea
+                  className="product-view-content-main-item-textarea"
+                  value={product.description}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Category</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  value={product.categoryId.name}
+                />
+              </div>
+              <div className="product-view-content-main-item">
+                <h4>Brand</h4>
+                <input
+                  className="product-view-content-main-item-input"
+                  type="text"
+                  value={product.brandId?.name}
+                />
+              </div>
             </div>
 
-            <div className="productInfo mt-3">
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <MdBrandingWatermark />
-                  </span>
-                  <span className="name">Brand</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <span>Ecstasy</span>
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <BiSolidCategoryAlt />
-                  </span>
-                  <span className="name">Category</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <span>Man's</span>
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <MdFilterVintage />
-                  </span>
-                  <span className="name">Tags</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <ul className="list list-inline tags sml">
-                    <li className="list-inline-item">
-                      <span>SUITE</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>PARTY</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>DRESS</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>SMART</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>MAN</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <IoColorPaletteSharp />
-                  </span>
-                  <span className="name">Color</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <ul className="list list-inline tags sml">
-                    <li className="list-inline-item">
-                      <span>RED</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>BLUE</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>WHITE</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <IoResize />
-                  </span>
-                  <span className="name">Size</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <ul className="list list-inline tags sml">
-                    <li className="list-inline-item">
-                      <span>SM</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>MD</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>LG</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>XL</span>
-                    </li>
-                    <li className="list-inline-item">
-                      <span>XXL</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <IoPricetagsSharp />
-                  </span>
-                  <span className="name">Price</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <span>$37.00 &nbsp;</span>
-                  <span id="oldPrice">$42.00</span>
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <FaShoppingCart />
-                  </span>
-                  <span className="name">Stock</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <span>(68) Piece</span>
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <MdOutlineRateReview />
-                  </span>
-                  <span className="name">Review</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <span>(03) Review</span>
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-sm-3 d-flex align-items-center title">
-                  <span className="icon d-flex align-items-center">
-                    <SiTicktick />
-                  </span>
-                  <span className="name">Published</span>
-                </div>
-                <div className="col-sm-9 productContent">
-                  <span>02 Feb 2020</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
         <div className="p-4">
-          <h5 className="mt-4 mb-3">Product Description</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-            reprehenderit repellendus expedita esse cupiditate quos doloremque
-            rerum, corrupti ab illum est nihil, voluptate ex dignissimos! Sit
-            voluptatem delectus nam, molestiae, repellendus ab sint quo aliquam
-            debitis amet natus doloremque laudantium? Repudiandae, consequuntur,
-            officiis quidem quo deleniti, autem non laudantium sequi error
-            molestiae ducimus accusamus facere velit consectetur vero dolore
-            natus nihil temporibus aspernatur quia consequatur? Consequuntur
-            voluptate deserunt repellat tenetur debitis molestiae doloribus
-            dicta. In rem illum dolorem atque ratione voluptates asperiores
-            maxime doloremque laudantium magni neque ad quae quos quidem,
-            quaerat rerum ducimus blanditiis reiciendis
-          </p>
-
-          <br />
-
           <h6 className="mt-4 mb-3">Rating Analytics</h6>
-
           <div className="ratingSection">
             <div className="ratingRow d-flex align-items-center">
               <span className="col1">5 Star</span>
