@@ -90,6 +90,9 @@
   border: var(--border-width-1) #3a60b3;
   outline: var(--border-width-2) #3a60b3;
 }
+.product-view-content-main-item-textarea:invalid {
+  outline: none;
+}
 .product-view-content .productInfo span {
   color: #67677a;
 }

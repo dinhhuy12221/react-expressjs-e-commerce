@@ -66,7 +66,6 @@ export default function ProductView() {
     };
 
     console.log(product);
-    
 
     getProduct();
   }, [slug]);
@@ -130,6 +129,7 @@ export default function ProductView() {
                 <input
                   className="product-view-content-main-item-input"
                   type="text"
+                  spellCheck="false"
                   placeholder="Enter the name"
                   value={product.name}
                 />
@@ -137,18 +137,19 @@ export default function ProductView() {
               <div className="product-view-content-main-item">
                 <h4>Description</h4>
                 <textarea
-                  className="product-view-content-main-item-textarea"                  placeholder="Enter the description"
-
+                  className="product-view-content-main-item-textarea"
+                  spellCheck="false"
+                  placeholder="Enter the description"
                   value={product.description}
-                />
+                  />
               </div>
               <div className="product-view-content-main-item">
                 <h4>Category</h4>
                 <input
                   className="product-view-content-main-item-input"
                   type="text"
-                                    placeholder="Enter the category"
-
+                  spellCheck="false"
+                  placeholder="Enter the category"
                   value={product.categoryId.name}
                 />
               </div>
@@ -157,8 +158,7 @@ export default function ProductView() {
                 <input
                   className="product-view-content-main-item-input"
                   type="text"
-                                    placeholder="Enter the brand"
-
+                  placeholder="Enter the brand"
                   value={product.brandId?.name}
                 />
               </div>
@@ -169,6 +169,7 @@ export default function ProductView() {
                 <input
                   className="product-view-content-main-item-input"
                   type="text"
+                  spellCheck="false"
                   value={product.name}
                 />
               </div>
@@ -176,6 +177,7 @@ export default function ProductView() {
                 <h4>Description</h4>
                 <textarea
                   className="product-view-content-main-item-textarea"
+                  spellCheck="false"
                   value={product.description}
                 />
               </div>
@@ -184,6 +186,7 @@ export default function ProductView() {
                 <input
                   className="product-view-content-main-item-input"
                   type="text"
+                  spellCheck="false"
                   value={product.categoryId.name}
                 />
               </div>
@@ -196,7 +199,6 @@ export default function ProductView() {
                 />
               </div>
             </div>
-
           </div>
         </div>
 
