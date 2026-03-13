@@ -1,19 +1,21 @@
 import bcrypt from "bcrypt";
 import CustomerAccount from "../../models/account/customerAccount.js";
-import Customer from '../../models/customer.js'
 
 class customerAccountController {
-  async create(req, res) {
+  async create(req, res, next) {
     try {
-      const { fullname, username, password } = req.body;
+      const { username, password } = req.body;
+
+      console.log(username);
+      
 
       if (!username || !password) {
         return res.status(400).json({ message: "All fields are required!" });
       }
 
-      const existedUsername = await CustomerAccount.find({ username });
+      const existedUsername = await CustomerAccount.find({ username: username });
 
-      if (existedUsername) {
+      if (existedUsername.length) {
         return res.status(409).json({ message: "Username is already existed!"})
       }
 
@@ -26,17 +28,18 @@ class customerAccountController {
 
       const customerAccount = await accountObject.save();
       if (customerAccount) {
-        const customer = new Customer({
-          username,
-          fullname,
-        });
+        // const customer = new Customer({
+        //   username,
+        //   fullname,
+        // });
         
-        const response = await customer.save();
+        // const response = await customer.save();
         
-        if(response) {
-          return res.status(201).json({ messgae: `New user ${username}, fullname: ${fullname} created` });
-        }
-
+        // if(response) {
+        //   return res.status(201).json({ message: `New user ${username}, fullname: ${fullname} created` });
+        // }
+        // res.status(201).json({ message: "Account created successfully", data: customerAccount })
+        next()
       } else {
         return res.status(400).json({ message: "Invalid user data received" });
       }

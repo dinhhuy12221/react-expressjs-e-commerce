@@ -11,6 +11,7 @@ const brandSchema = mongoose.Schema(
     },
     customerId: {
       type: Schema.Types.Int32,
+      ref: "Customer",
       required: true,
     },
     productId: {
