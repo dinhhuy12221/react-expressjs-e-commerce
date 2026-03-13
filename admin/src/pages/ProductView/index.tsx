@@ -87,11 +87,14 @@ export default function ProductView() {
       const result = await getReviewByProductId(product._id);
       setReviews(result);
 
-      setOneStar(() => result.reduce((acc, item) => acc + (item === 1 && 1), 0))
-      setTwoStar(() => result.reduce((acc, item) => acc + (item === 2 && 1), 0))
-      setThreeStar(() => result.reduce((acc, item) => acc + (item === 3 && 1), 0))
-      setFourStar(() => result.reduce((acc, item) => acc + (item === 4 && 1), 0))
-      setFiveStar(() => result.reduce((acc, item) => acc + (item === 5 && 1), 0))
+      console.log(result);
+      
+
+      setOneStar(() => result.reduce((acc, item) => acc + (item.rating === 1 && 1), 0))
+      setTwoStar(() => result.reduce((acc, item) => acc + (item.rating === 2 && 1), 0))
+      setThreeStar(() => result.reduce((acc, item) => acc + (item.rating === 3 && 1), 0))
+      setFourStar(() => result.reduce((acc, item) => acc + (item.rating === 4 && 1), 0))
+      setFiveStar(() => result.reduce((acc, item) => acc + (item.rating === 5 && 1), 0))
     };
 
     getReviews();
@@ -258,7 +261,7 @@ export default function ProductView() {
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: "60%" }}></div>
+                <div style={{ width: `${fourStar * 100 / reviews?.length}%` }}></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">
@@ -269,7 +272,7 @@ export default function ProductView() {
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: "40%" }}></div>
+                <div style={{ width: `${threeStar * 100 / reviews?.length}%` }}></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">
@@ -280,18 +283,18 @@ export default function ProductView() {
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: "20%" }}></div>
+                <div style={{ width: `${twoStar * 100 / reviews?.length}%` }}></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                1 Star ({reviews?.reduce((acc, item) => acc + (item.rating === 1 && 1), 0)})
+                1 Star ({oneStar})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: "10%" }}></div>
+                <div style={{ width: `${oneStar * 100 / reviews?.length}%` }}></div>
               </div>
             </div>
           </div>
