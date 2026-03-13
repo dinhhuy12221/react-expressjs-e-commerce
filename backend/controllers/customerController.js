@@ -8,12 +8,13 @@ const filePath = path.resolve("./assets/default_customer_image.jpg");
 class customerController {
   createCustomer = async (req, res) => {
     try {
-      const counter = getSequence("customer")
+      const counter = await getSequence("customer")
       const imageResult = await cloudinary.v2.uploader.upload(filePath, {
         folder: `ecommerce/customers/${counter}`,
       });
 
       const payload = {
+        username: req.body.username,
         fullname: req.body.fullname,
         image: {
           url: imageResult.secure_url,

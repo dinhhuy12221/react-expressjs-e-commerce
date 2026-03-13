@@ -21,7 +21,6 @@ const customerAccountSchema = Schema(
     },
     refreshToken: {
       type: String,
-      required: true,
       default: "",
     },
   },
