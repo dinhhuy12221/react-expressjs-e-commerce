@@ -6,8 +6,9 @@ const upload = multer({ dest: "uploads/" })
 
 const router = express.Router();
 
+router.get('/get/:id', customerController.getCustomerById);
 router.put('/update', upload.single("image_file"), customerController.updateCustomer);
 router.post('/create', customerController.createCustomer);
-router.get('/get/:id', customerController.getCustomer);
+router.get('/', customerController.getCustomer);
 
 export default router;

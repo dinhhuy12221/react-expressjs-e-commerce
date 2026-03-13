@@ -1,10 +1,13 @@
 import Customer from "../models/customer.js";
 import cloudinary from "../config/cloudinary.js";
+import path from "path";
+
+const filePath = path.resolve("../assets/default_customer_image.png");
 
 class customerController {
   createCustomer = async (req, res) => {
     try {
-      const imageResult = await cloudinary.v2.uploader.upload(req.file.path, {
+      const imageResult = await cloudinary.v2.uploader.upload(filePath, {
         folder: `ecommerce/customers/${req.body._id}`,
       });
 
@@ -33,9 +36,18 @@ class customerController {
 
   };
 
-  getCustomer = async (req, res) => {
+  getCustomerById = async (req, res) => {
     try {
       const customer = await Customer.findOne({ _id: req.params.id });
+      return res.status(200).json(customer);
+    } catch (error) {
+      return res.status(400).json(error);
+    }
+  };
+
+  getCustomer = async (req, res) => {
+    try {
+      const customer = await Customer.find({});
       return res.status(200).json(customer);
     } catch (error) {
       return res.status(400).json(error);

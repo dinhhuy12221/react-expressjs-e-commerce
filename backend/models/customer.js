@@ -30,7 +30,6 @@ const customerSchema = Schema(
     },
     phone_number: {
       type: Number,
-      // required: true,
     },
     address: {
       type: String,
