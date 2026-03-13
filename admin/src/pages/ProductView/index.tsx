@@ -1,7 +1,7 @@
 import Rating from "@mui/material/Rating";
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { useParams } from "react-router-dom";
+import { useAsyncError, useParams } from "react-router-dom";
 import { getProductBySlug } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,6 +18,11 @@ export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
   const [reviews, setReviews] = useState<any>(null);
+  const [oneStar, setOneStar] = useState(0)
+  const [twoStar, setTwoStar] = useState(0)
+  const [threeStar, setThreeStar] = useState(0)
+  const [fourStar, setFourStar] = useState(0)
+  const [fiveStar, setFiveStar] = useState(0)
 
   // const reviews = new Array(8).fill(
   //   <div className="product-view-review-item">
@@ -81,6 +86,12 @@ export default function ProductView() {
     const getReviews = async () => {
       const result = await getReviewByProductId(product._id);
       setReviews(result);
+
+      setOneStar(() => result.reduce((acc, item) => acc + (item === 1 && 1), 0))
+      setTwoStar(() => result.reduce((acc, item) => acc + (item === 2 && 1), 0))
+      setThreeStar(() => result.reduce((acc, item) => acc + (item === 3 && 1), 0))
+      setFourStar(() => result.reduce((acc, item) => acc + (item === 4 && 1), 0))
+      setFiveStar(() => result.reduce((acc, item) => acc + (item === 5 && 1), 0))
     };
 
     getReviews();
@@ -230,18 +241,18 @@ export default function ProductView() {
           <div className="product-view-rating-section">
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                5 Star ({reviews.reduce((acc, item) => acc + (item.rating === 5 ? 1 : 0), 0)})
+                5 Star ({oneStar})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: "80%" }}></div>
+                <div style={{ width: `${oneStar * 100 / reviews?.length}%` }}></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                4 Star ({reviews.reduce((acc, item) => acc + (item.rating === 4 && 1), 0)})
+                4 Star ({fourStar})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
@@ -252,7 +263,7 @@ export default function ProductView() {
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                3 Star ({reviews.reduce((acc, item) => acc + (item.rating === 3 && 1), 0)})
+                3 Star ({threeStar})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
@@ -263,7 +274,7 @@ export default function ProductView() {
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                2 Star ({reviews.reduce((acc, item) => acc + (item.rating === 2 && 1), 0)})
+                2 Star ({twoStar})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
@@ -274,7 +285,7 @@ export default function ProductView() {
             </div>
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                1 Star ({reviews.reduce((acc, item) => acc + (item.rating === 1 && 1), 0)})
+                1 Star ({reviews?.reduce((acc, item) => acc + (item.rating === 1 && 1), 0)})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
