@@ -47,7 +47,6 @@ export default function Category() {
             <tr>
               <th>ID</th>
               <th>Category</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -59,17 +58,13 @@ export default function Category() {
                       {category._id}
                     </td>
                     <td className="category-form-table-item-name">
-                      {category.name}
-                    </td>
-                    <td>
-                      <div className="actions d-flex align-items-center justify-content-center">
-                        <Button className="success" color="success">
+                    <input value={category.name} onChange={() => {}} />
+                        <Button className="category-form-table-item-name-save" color="success">
                           <IoPencil />
                         </Button>
-                        <Button className="error" color="error">
+                        <Button className="category-form-table-item-name-cancel" color="error">
                           <RiDeleteBin6Fill />
                         </Button>
-                      </div>
                     </td>
                   </tr>
                 );

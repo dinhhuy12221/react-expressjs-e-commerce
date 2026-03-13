@@ -2,6 +2,18 @@
   width: 100%;
   height: 100%;
 }
+.category-form-table-item-name {
+  display: flex;
+}
+.category-form-table-item-name input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text-white);
+  padding: var(--space-12);
+}
 /* .category-form {
   .form-group {
     margin-bottom: 25px;
