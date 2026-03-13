@@ -1,10 +1,7 @@
 import Product from "../models/product.js";
 import Category from "../models/category.js";
-import Brand from "../models/brand.js";
-import verifyJWT from "../middlewares/verifyJWT.js";
 import cloudinary from "../config/cloudinary.js";
-
-import mongoose from "mongoose";
+import getSequence from "../utils/getSequence.js";
 
 class productController {
   // GET product list
@@ -49,11 +46,7 @@ class productController {
   // POST create product
   async createProduct(req, res) {
     try {
-      const counterDoc = await mongoose.connection
-        .collection("counters")
-        .findOne({ id: "product_id_counter" });
-
-      const counter = (counterDoc?.seq || 0) + 1;
+      const counter = await getSequence("product");
 
       const imagesToUpload = await Promise.all(
         req.files.map(async (image, index) => {
