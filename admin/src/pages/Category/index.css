@@ -4,6 +4,9 @@
 }
 .category-form-table-item-name {
   display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8);
 }
 .category-form-table-item-name input {
   height: 100%;
@@ -12,7 +15,28 @@
   outline: none;
   background: transparent;
   color: var(--color-text-white);
+  font-size: var(--font-16);
   padding: var(--space-12);
+}
+.category-form-table-item-name button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-4);
+  margin-left: auto;
+  width: 30px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.category-form-table-item-name-save {
+  background: #14f04b;
+  color: #08992c;
+}
+.category-form-table-item-name-cancel {
+  background: #c0c0be;
+  color: #696967;
 }
 /* .category-form {
   .form-group {

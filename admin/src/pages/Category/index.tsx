@@ -59,12 +59,12 @@ export default function Category() {
                     </td>
                     <td className="category-form-table-item-name">
                     <input value={category.name} onChange={() => {}} />
-                        <Button className="category-form-table-item-name-save" color="success">
+                        <button className="category-form-table-item-name-save" color="success">
                           <IoPencil />
-                        </Button>
-                        <Button className="category-form-table-item-name-cancel" color="error">
-                          <RiDeleteBin6Fill />
-                        </Button>
+                        </button>
+                        <button className="category-form-table-item-name-cancel" color="error">
+                          x
+                        </button>
                     </td>
                   </tr>
                 );
