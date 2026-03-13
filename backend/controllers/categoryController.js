@@ -2,16 +2,16 @@ import Category from "../models/category.js";
 
 class categoryController {
   // Get category list
-  async getCategoryList(req, res) {
+  async getCategories(req, res) {
     try {
-      const categoryList = await Category.find({});
-      res.status(200).send(categoryList);
+      const categories = await Category.find({});
+      res.status(200).json({ message: "Categories are found", data: categories });
     } catch (error) {
       console.log(error);
 
-      res.status(404).json({
-        success: false,
-        message: JSON.stringify(error),
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
       });
     }
   }

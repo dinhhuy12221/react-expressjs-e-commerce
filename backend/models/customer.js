@@ -32,12 +32,10 @@ const customerSchema = Schema(
     },
     phone_number: {
       type: Number,
-      required: true,
       default: ""
     },
     address: {
       type: String,
-      required: true,
       default: ""
     },
   },

@@ -30,7 +30,7 @@ const userAccountSchema = Schema(
   }
 );
 
-userAccountSchema.plugin(AutoIncrement, { id: "user_account_counter" });
+userAccountSchema.plugin(AutoIncrement, { id: "user_account_id_counter" });
 
 userAccountSchema.plugin(mongooseDelete, {
   deletedAt: true,

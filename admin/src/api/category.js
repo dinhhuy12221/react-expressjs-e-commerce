@@ -1,6 +1,8 @@
-const getCategoryList = async () => {
+import BASE_URL from ".";
+
+const getCategories = async () => {
     try {
-        const categoryList = await fetch('http://localhost:4002/api/category');
+        const categoryList = await fetch(`${BASE_URL}/category`);
 
         return await categoryList.json();
     } catch (error) {
@@ -8,4 +10,4 @@ const getCategoryList = async () => {
     }
 }
 
-export { getCategoryList }
+export { getCategories }
