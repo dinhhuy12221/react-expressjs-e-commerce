@@ -2,7 +2,7 @@ import Customer from "../models/customer.js";
 import cloudinary from "../config/cloudinary.js";
 import path from "path";
 
-const filePath = path.resolve("../assets/default_customer_image.png");
+const filePath = path.resolve("./assets/default_customer_image.jpg");
 
 class customerController {
   createCustomer = async (req, res) => {

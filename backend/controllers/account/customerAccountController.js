@@ -6,13 +6,16 @@ class customerAccountController {
     try {
       const { username, password } = req.body;
 
+      console.log(username);
+      
+
       if (!username || !password) {
         return res.status(400).json({ message: "All fields are required!" });
       }
 
-      const existedUsername = await CustomerAccount.find({ username });
+      const existedUsername = await CustomerAccount.find({ username: username });
 
-      if (existedUsername) {
+      if (existedUsername.length) {
         return res.status(409).json({ message: "Username is already existed!"})
       }
 
@@ -35,7 +38,7 @@ class customerAccountController {
         // if(response) {
         //   return res.status(201).json({ message: `New user ${username}, fullname: ${fullname} created` });
         // }
-        res.status(201).json({ message: "Account created successfully", data: customerAccount })
+        // res.status(201).json({ message: "Account created successfully", data: customerAccount })
         next()
       } else {
         return res.status(400).json({ message: "Invalid user data received" });
