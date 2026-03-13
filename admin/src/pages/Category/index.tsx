@@ -24,59 +24,59 @@ export default function Category() {
 
   useEffect(() => {
     const asyncHandle = async () => {
-      const result = await getCategories()
-      setCategories(result.data)
-    }
-  }, [])
+      const result = await getCategories();
+      setCategories(result.data);
+    };
+    asyncHandle();
+  }, []);
 
   return (
-      <div className="category">
-        <Breadcrumb
-          path={[
-            { name: "Dashboard", to: "/dashboard" },
-            { name: "Categories", to: "/categories" },
-          ]}
-        />
-        <form className="form"
+    <div className="category">
+      <Breadcrumb
+        path={[
+          { name: "Dashboard", to: "/dashboard" },
+          { name: "Categories", to: "/categories" },
+        ]}
+      />
+      <form
+        className="category-form"
         // onSubmit={handleSubmit}
-        >
-          <div className="row">
-              <div className="card p-3 mt-0">
-                <h5 className="mb-4">Information</h5>
-
-                <div className="form-group">
-                  <table className="table table-bordered table-hover v-align">
-                    <thead className="table-dark">
-                      <tr>
-                        <th>CATEGORY</th>
-                        <th>ACTION</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {categories &&
-                        categories.map((category, index) => {
-                          return (
-                            <tr key={index}>
-                              <td className="text-center">{category.name}</td>
-                              <td>
-                                <div className="actions d-flex align-items-center justify-content-center">
-                                  <Button className="success" color="success">
-                                    <IoPencil />
-                                  </Button>
-                                  <Button className="error" color="error">
-                                    <RiDeleteBin6Fill />
-                                  </Button>
-                                </div>
-                              </td>
-                            </tr>
-                          );
-                        })}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-          </div>
-        </form>
-      </div>
+      >
+        <table className="table table-bordered table-hover v-align">
+          <thead className="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {categories &&
+              categories.map((category, index) => {
+                return (
+                  <tr key={index}>
+                    <td className="category-form-table-item-id">
+                      {category._id}
+                    </td>
+                    <td className="category-form-table-item-name">
+                      {category.name}
+                    </td>
+                    <td>
+                      <div className="actions d-flex align-items-center justify-content-center">
+                        <Button className="success" color="success">
+                          <IoPencil />
+                        </Button>
+                        <Button className="error" color="error">
+                          <RiDeleteBin6Fill />
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </form>
+    </div>
   );
 }
