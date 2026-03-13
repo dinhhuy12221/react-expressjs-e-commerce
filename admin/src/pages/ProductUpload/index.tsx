@@ -6,11 +6,11 @@ import { IoCloseSharp } from "react-icons/io5";
 import { FaRegImage } from "react-icons/fa6";
 import Breadcrumb from "../../components/Breadcrumb";
 import Menu from "../../utils/Menu";
-import { getCategoryList } from "../../api/category";
+import { getCategories } from "../../api/category";
 
 import "./index.css";
 
-const categoryList = await getCategoryList();
+const categoryList = await getCategories();
 
 export default function ProductUpload() {
   const [name, setName] = useState("");
@@ -78,7 +78,6 @@ export default function ProductUpload() {
   return (
     <div className="right-content w-100">
       <Breadcrumb
-        title="Product Upload"
         path={[
           {
             name: "Dashboard",

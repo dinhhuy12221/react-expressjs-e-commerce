@@ -10,9 +10,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { Chart } from "react-google-charts";
-import { FaEye } from "react-icons/fa";
-import { IoPencil } from "react-icons/io5";
-import { RiDeleteBin6Fill } from "react-icons/ri";
 
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";

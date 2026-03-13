@@ -32,7 +32,7 @@ const StyledBreadcrumb = styled(Chip)(({ theme }) => {
 //   },
 // };
 
-function Breadcrumb({ title, path }) {
+function Breadcrumb({ path }) {
   return (
     <div className="breadcrumb">
       {/* <h3 className="breadcrumb-title">{title}</h3> */}

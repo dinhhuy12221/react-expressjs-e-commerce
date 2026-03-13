@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { MdCloudUpload } from "react-icons/md";
 import { IoPencil } from "react-icons/io5";
@@ -6,12 +6,10 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 
 import "./index.css";
 import Breadcrumb from "../../components/Breadcrumb";
-import { getCategoryList } from "../../api/category";
+import { getCategories } from "../../api/category";
 
-const categories = await getCategoryList();
-
-export default function CategoryView() {
-  const [category, setCategory] = useState();
+export default function Category() {
+  const [categories, setCategories] = useState<any>(null);
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -24,21 +22,25 @@ export default function CategoryView() {
   //   alert(JSON.stringify(category));
   // };
 
+  useEffect(() => {
+    const asyncHandle = async () => {
+      const result = await getCategories()
+      setCategories(result.data)
+    }
+  }, [])
+
   return (
-    <>
-      <div className="right-content product-upload">
+      <div className="category">
         <Breadcrumb
-          title="Categories"
           path={[
             { name: "Dashboard", to: "/dashboard" },
             { name: "Categories", to: "/categories" },
           ]}
         />
-        <form className="form" 
+        <form className="form"
         // onSubmit={handleSubmit}
         >
           <div className="row">
-            <div className="col-md-12">
               <div className="card p-3 mt-0">
                 <h5 className="mb-4">Information</h5>
 
@@ -73,10 +75,8 @@ export default function CategoryView() {
                   </table>
                 </div>
               </div>
-            </div>
           </div>
         </form>
       </div>
-    </>
   );
 }
