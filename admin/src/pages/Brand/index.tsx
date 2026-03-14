@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
-import { MdCloudUpload, MdDeleteForever } from "react-icons/md";
-import { IoPencil } from "react-icons/io5";
-import { RiDeleteBin6Fill } from "react-icons/ri";
+import React, { useEffect, useState } from 'react'
+import { IoPencil } from 'react-icons/io5';
+import { MdDeleteForever } from 'react-icons/md';
+import { getBrands } from '../../api/brand';
 
-import "./index.css";
-import Breadcrumb from "../../components/Breadcrumb";
-import { getCategories } from "../../api/category";
-
-export default function Category() {
+const Brand = () => {
   const [categories, setCategories] = useState<any>(null);
 
   // const handleSubmit = (e) => {
@@ -24,7 +19,7 @@ export default function Category() {
 
   useEffect(() => {
     const asyncHandle = async () => {
-      const result = await getCategories();
+      const result = await getBrands();
       setCategories(result.data);
     };
     asyncHandle();
@@ -73,5 +68,7 @@ export default function Category() {
         </table>
       </form>
     </div>
-  );
+  )
 }
+
+export default Brand
