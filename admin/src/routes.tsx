@@ -6,6 +6,7 @@ import ProductView from "./pages/ProductView";
 import ProductUpload from "./pages/ProductUpload";
 import Category from "./pages/Category";
 import Brand from "./pages/Brand";
+import Order from "./pages/Order";
 
 const routes = [
   {
@@ -52,6 +53,11 @@ const routes = [
     path: "/brands",
     exact: true,
     element: <Brand />,
+  },
+  {
+    path: "/orders",
+    exact: true,
+    element: <Order />,
   },
 ];
 

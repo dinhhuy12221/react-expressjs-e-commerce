@@ -104,7 +104,7 @@ export default function Sidebar() {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/orders">
             <button
               className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}
               onClick={() => isOpenSubmenu(4)}
