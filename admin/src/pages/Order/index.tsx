@@ -19,7 +19,6 @@ const Order = () => {
 
     handleAsync();
   }, []);
-  console.log(orders);
 
   if (orders === null) return
   
@@ -43,7 +42,8 @@ const Order = () => {
           </select>
         </div>
         <div className="order-stat-content">
-            Number of orders: {orders.length}
+            <div className="order-stat-content-number">Number of orders: {orders.length}</div>
+            <div className="order-stat-content-avenue">Avenue of orders: ${orders.reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)}</div>
         </div>
       </div>
       <div className="order-content">Content</div>
