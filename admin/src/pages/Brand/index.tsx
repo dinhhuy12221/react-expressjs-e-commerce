@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { IoPencil } from 'react-icons/io5';
 import { MdDeleteForever } from 'react-icons/md';
 import { getBrands } from '../../api/brand';
+import Breadcrumb from '../../components/Breadcrumb';
 
 const Brand = () => {
   const [categories, setCategories] = useState<any>(null);
