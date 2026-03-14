@@ -243,13 +243,13 @@ export default function ProductView() {
           <div className="product-view-rating-section">
             <div className="product-view-rating-section-item">
               <div className="product-view-rating-section-item-label">
-                5 Star ({oneStar})
+                5 Star ({fiveStar})
               </div>
               <div
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: `${oneStar * 100 / reviews?.length}%` }}></div>
+                <div style={{ width: `${fiveStar * 100 / reviews?.length}%` }}></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">

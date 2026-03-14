@@ -99,7 +99,6 @@ export default function Products() {
               />
             </Breadcrumbs> */}
             <Breadcrumb
-              title="Product List"
               path={[
                 {
                   name: "Dashboard",
