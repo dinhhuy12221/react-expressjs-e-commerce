@@ -39,6 +39,20 @@ class brandController {
         .json({ message: "Internal server error", error: error.message });
     }
   };
+
+  getBrands = async (req, res) => {
+    try {
+      const brands = await Brand.find({});
+      res
+        .status(201)
+        .json({ message: "Brand found successfully", data: brands });
+    } catch (error) {
+      console.log(error);
+      res
+        .status(500)
+        .json({ message: "Internal server error", error: error.message });
+    }
+  };
 }
 
 export default new brandController();
