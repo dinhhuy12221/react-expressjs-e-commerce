@@ -5,7 +5,7 @@ import { getBrands } from '../../api/brand';
 import Breadcrumb from '../../components/Breadcrumb';
 
 const Brand = () => {
-  const [categories, setCategories] = useState<any>(null);
+  const [brands, setBrands] = useState<any>(null);
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -21,17 +21,18 @@ const Brand = () => {
   useEffect(() => {
     const asyncHandle = async () => {
       const result = await getBrands();
-      setCategories(result.data);
+      setBrands(result.data);
     };
     asyncHandle();
   }, []);
+  console.log(brands);
 
   return (
     <div className="category">
       <Breadcrumb
         path={[
           { name: "Dashboard", to: "/dashboard" },
-          { name: "Categories", to: "/categories" },
+          { name: "Categories", to: "/brands" },
         ]}
       />
       <form
@@ -46,15 +47,15 @@ const Brand = () => {
             </tr>
           </thead>
           <tbody>
-            {categories &&
-              categories.map((category, index) => {
+            {brands &&
+              brands.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td className="category-form-table-item-id">
-                      {category._id}
+                      {item._id}
                     </td>
                     <td className="category-form-table-item-name">
-                    <input value={category.name} onChange={() => {}} />
+                    <input value={item.name} onChange={() => {}} />
                         <button className="category-form-table-item-name-save" color="success">
                           <IoPencil />
                         </button>

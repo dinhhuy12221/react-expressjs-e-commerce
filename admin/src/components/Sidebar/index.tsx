@@ -107,6 +107,7 @@ export default function Sidebar() {
           <Link to="/">
             <button
               className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(4)}
             >
               <IoCartSharp />
               Orders
@@ -118,6 +119,7 @@ export default function Sidebar() {
           <Link to="/">
             <button
               className={`sidebar-item ${activeTab === 5 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(5)}
             >
               <RiMessage2Fill />
               Messages
@@ -129,6 +131,7 @@ export default function Sidebar() {
           <Link to="/">
             <button
               className={`sidebar-item ${activeTab === 6 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(6)}
             >
               <IoMdNotifications />
               Notifications
@@ -140,6 +143,7 @@ export default function Sidebar() {
           <Link to="/">
             <button
               className={`sidebar-item ${activeTab === 7 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(7)}
             >
               <IoMdSettings />
               Settings
@@ -148,7 +152,7 @@ export default function Sidebar() {
           </Link>
         </li>
       </ul>
-      
+
       <button className="sidebar-logout">
         <IoLogOutOutline />
         Logout

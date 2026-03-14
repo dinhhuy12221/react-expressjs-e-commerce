@@ -28,7 +28,7 @@ export default function Category() {
       setCategories(result.data);
     };
     asyncHandle();
-  }, []);
+  }, []);  
 
   return (
     <div className="category">
@@ -51,14 +51,14 @@ export default function Category() {
           </thead>
           <tbody>
             {categories &&
-              categories.map((category, index) => {
+              categories.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td className="category-form-table-item-id">
-                      {category._id}
+                      {item._id}
                     </td>
                     <td className="category-form-table-item-name">
-                    <input value={category.name} onChange={() => {}} />
+                    <input value={item.name} onChange={() => {}} />
                         <button className="category-form-table-item-name-save" color="success">
                           <IoPencil />
                         </button>
