@@ -1,0 +1,40 @@
+.brand {
+  width: 100%;
+  height: 100%;
+}
+.brand-form-table-item-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8);
+}
+.brand-form-table-item-name input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text-white);
+  font-size: var(--font-16);
+  padding: var(--space-12);
+}
+.brand-form-table-item-name button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-4);
+  margin-left: auto;
+  width: 30px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.brand-form-table-item-name-save {
+  background: #10c93e;
+  color: #ffffff;
+}
+.brand-form-table-item-name-cancel {
+  background: #cf2222;
+  color: #ffffff;
+}
