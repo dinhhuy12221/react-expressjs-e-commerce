@@ -11,7 +11,7 @@
   gap: var(--space-16);
 }
 .order-stat-filter select {
-  color: var(--color-text-white);
+  color: #B8B5AA;
   background: #12254e;
   padding: var(--space-4) var(--space-8);
   border-radius: var(--radius-20);
