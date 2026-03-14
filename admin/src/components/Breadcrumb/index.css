@@ -1,8 +1,6 @@
 .breadcrumb {
-  padding: var(--space-16);
+  padding: var(--space-16) 0px;
 }
-
-
 /* .path ol li div {
     color: #616161 !important;
     background: #fafafa !important;

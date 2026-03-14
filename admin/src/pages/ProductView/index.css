@@ -161,11 +161,13 @@
 
 .product-view-rating-section-item-progress {
   height: var(--space-6);
-  background: #cccccc;
+  border-radius: var(--radius-5);
+  background: #a8a8a8;
 }
 .product-view-rating-section-item-progress div {
   height: var(--space-6);
-  background: #ebd213;
+  border-radius: var(--radius-5);
+  background: #ffe100;
 }
 
 .product-view-review {
@@ -192,7 +194,7 @@
   font-size: var(--font-14);
   font-weight: 300;
 }
-.product-view-content .productInfo span {
+/* .product-view-content .productInfo span {
   color: #67677a;
 }
 
@@ -299,4 +301,4 @@ body.dark .reviewForm textarea {
   background-color: #132345;
   color: rgba(255, 255, 255, 0.6);
   border: 1px solid #0b1a3a;
-}
+} */
