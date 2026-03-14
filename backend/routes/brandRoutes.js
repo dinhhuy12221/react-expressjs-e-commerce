@@ -5,5 +5,6 @@ const router = express.Router()
 
 router.post("/create", brandController.createBrand);
 router.get("/:id", brandController.getBrandById);
+router.get("/", brandController.getBrands);
 
 export default router

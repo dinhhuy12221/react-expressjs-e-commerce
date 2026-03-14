@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
-import { MdCloudUpload, MdDeleteForever } from "react-icons/md";
-import { IoPencil } from "react-icons/io5";
-import { RiDeleteBin6Fill } from "react-icons/ri";
+import React, { useEffect, useState } from 'react'
+import { IoPencil } from 'react-icons/io5';
+import { MdDeleteForever } from 'react-icons/md';
+import { getBrands } from '../../api/brand';
+import Breadcrumb from '../../components/Breadcrumb';
+import "./index.css"
 
-import "./index.css";
-import Breadcrumb from "../../components/Breadcrumb";
-import { getCategories } from "../../api/category";
-
-export default function Category() {
-  const [categories, setCategories] = useState<any>(null);
+const Brand = () => {
+  const [brands, setBrands] = useState<any>(null);
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -19,50 +16,50 @@ export default function Category() {
   //     color: e.target.color.value,
   //   });
 
-  //   alert(JSON.stringify(category));
+  //   alert(JSON.stringify(brand));
   // };
 
   useEffect(() => {
     const asyncHandle = async () => {
-      const result = await getCategories();
-      setCategories(result.data);
+      const result = await getBrands();
+      setBrands(result.data);
     };
     asyncHandle();
-  }, []);  
+  }, []);
 
   return (
-    <div className="category">
+    <div className="brand">
       <Breadcrumb
         path={[
           { name: "Dashboard", to: "/dashboard" },
-          { name: "Categories", to: "/categories" },
+          { name: "Categories", to: "/brands" },
         ]}
       />
       <form
-        className="category-form"
+        className="brand-form"
         // onSubmit={handleSubmit}
       >
         <table className="table table-bordered table-hover v-align">
           <thead className="table-dark">
             <tr>
               <th>ID</th>
-              <th>Category</th>
+              <th>Brand</th>
             </tr>
           </thead>
           <tbody>
-            {categories &&
-              categories.map((item, index) => {
+            {brands &&
+              brands.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td className="category-form-table-item-id">
+                    <td className="brand-form-table-item-id">
                       {item._id}
                     </td>
-                    <td className="category-form-table-item-name">
+                    <td className="brand-form-table-item-name">
                     <input value={item.name} onChange={() => {}} />
-                        <button className="category-form-table-item-name-save" color="success">
+                        <button className="brand-form-table-item-name-save" color="success">
                           <IoPencil />
                         </button>
-                        <button className="category-form-table-item-name-cancel" color="error">
+                        <button className="brand-form-table-item-name-cancel" color="error">
                           <MdDeleteForever />
                         </button>
                     </td>
@@ -73,5 +70,7 @@ export default function Category() {
         </table>
       </form>
     </div>
-  );
+  )
 }
+
+export default Brand

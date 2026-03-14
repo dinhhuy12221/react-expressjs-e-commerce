@@ -92,9 +92,22 @@ export default function Sidebar() {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/brands">
             <button
               className={`sidebar-item ${activeTab === 3 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(3)}
+            >
+              <BiSolidCategory />
+              Brands
+              <IoIosArrowForward className="sidebar-item-arrow" />
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/">
+            <button
+              className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(4)}
             >
               <IoCartSharp />
               Orders
@@ -105,7 +118,8 @@ export default function Sidebar() {
         <li>
           <Link to="/">
             <button
-              className={`sidebar-item ${activeTab === 4 ? "active" : ""}`}
+              className={`sidebar-item ${activeTab === 5 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(5)}
             >
               <RiMessage2Fill />
               Messages
@@ -116,7 +130,8 @@ export default function Sidebar() {
         <li>
           <Link to="/">
             <button
-              className={`sidebar-item ${activeTab === 5 ? "active" : ""}`}
+              className={`sidebar-item ${activeTab === 6 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(6)}
             >
               <IoMdNotifications />
               Notifications
@@ -127,7 +142,8 @@ export default function Sidebar() {
         <li>
           <Link to="/">
             <button
-              className={`sidebar-item ${activeTab === 6 ? "active" : ""}`}
+              className={`sidebar-item ${activeTab === 7 ? "active" : ""}`}
+              onClick={() => isOpenSubmenu(7)}
             >
               <IoMdSettings />
               Settings
@@ -136,7 +152,7 @@ export default function Sidebar() {
           </Link>
         </li>
       </ul>
-      
+
       <button className="sidebar-logout">
         <IoLogOutOutline />
         Logout

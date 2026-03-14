@@ -5,6 +5,7 @@ import Products from "./pages/Products";
 import ProductView from "./pages/ProductView";
 import ProductUpload from "./pages/ProductUpload";
 import Category from "./pages/Category";
+import Brand from "./pages/Brand";
 
 const routes = [
   {
@@ -46,6 +47,11 @@ const routes = [
     path: "/categories",
     exact: true,
     element: <Category />,
+  },
+  {
+    path: "/brands",
+    exact: true,
+    element: <Brand />,
   },
 ];
 

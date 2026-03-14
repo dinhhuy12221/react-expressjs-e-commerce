@@ -31,12 +31,12 @@
   cursor: pointer;
 }
 .category-form-table-item-name-save {
-  background: #14f04b;
-  color: #08992c;
+  background: #10c93e;
+  color: #ffffff;
 }
 .category-form-table-item-name-cancel {
-  background: #c0c0be;
-  color: #696967;
+  background: #cf2222;
+  color: #ffffff;
 }
 /* .category-form {
   .form-group {
