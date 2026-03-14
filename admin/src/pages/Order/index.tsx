@@ -4,6 +4,10 @@ import { getOrders } from "../../api/order";
 import "./index.css";
 import Breadcrumb from "../../components/Breadcrumb";
 
+// Statistic (Date, Month, Year)
+// Revenue
+// Orders count
+// 
 const Order = () => {
   const [orders, setOrders] = useState<any>(null);
 
@@ -25,6 +29,12 @@ const Order = () => {
           },
         ]}
       />
+      <div className="order-stat">
+        Stat
+      </div>
+      <div className="order-content">
+        Content
+      </div>
     </div>
   );
 };

@@ -27,8 +27,6 @@
     margin-left: auto;
     gap: var(--space-8);
 }
-.header-notification-dropdown {
-}
 .header-notification-header {
     position: sticky;
     top: 0;
