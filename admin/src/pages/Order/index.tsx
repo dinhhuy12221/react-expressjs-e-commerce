@@ -19,6 +19,10 @@ const Order = () => {
 
     handleAsync();
   }, []);
+  console.log(orders);
+
+  if (orders === null) return
+  
   return (
     <div className="order">
       <Breadcrumb
@@ -39,7 +43,7 @@ const Order = () => {
           </select>
         </div>
         <div className="order-stat-content">
-            
+            Number of orders: {orders.length}
         </div>
       </div>
       <div className="order-content">Content</div>
