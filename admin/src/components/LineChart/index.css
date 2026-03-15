@@ -13,3 +13,6 @@
 .MuiChartsAxis-tick {
     stroke: var(--color-text-white) !important;
 }
+.MuiChartsLabel-root {
+    color: var(--color-text-white) !important;
+}

@@ -18,7 +18,10 @@ const BasicArea = ({ data }) => {
       ]}
       series={[
         {
+          type: "line",
           data: data.map((item) => item.price),
+          valueFormatter: (value) => `$${value}`,
+          label: "Revenue",
         },
       ]}
       height={300}

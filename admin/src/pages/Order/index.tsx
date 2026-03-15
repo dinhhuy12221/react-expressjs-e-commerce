@@ -12,13 +12,7 @@ import dateFormatter from "../../utils/dateFormatter";
 // -
 const Order = () => {
   const [orders, setOrders] = useState<any>([]);
-  const [prices, setPrices] = useState<any>([]);
-  const data = [
-    { date: "2001-01-01", price: 10 },
-    { date: "2001-01-02", price: 20 },
-    { date: "2001-01-03", price: 15 },
-  ];
-
+  const [data, setData] = useState<any>([]);
   useEffect(() => {
     const handleAsync = async () => {
       const result = await getOrders();
@@ -46,7 +40,7 @@ const Order = () => {
       price,
     }));
 
-    setPrices(result);
+    setData(result);
   }, [orders]);
 
   if (orders === null) return;
@@ -78,7 +72,7 @@ const Order = () => {
             Avenue of orders: $
             {orders.reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)}
           </div>
-          <BasicArea data={prices} />
+          <BasicArea data={data} />
         </div>
       </div>
       <div className="order-content">
