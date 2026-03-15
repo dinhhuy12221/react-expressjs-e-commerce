@@ -12,6 +12,11 @@ import BasicArea from "../../components/LineChart";
 const Order = () => {
   const [orders, setOrders] = useState<any>([]);
   const [prices, setPrices] = useState<any>([])
+  const data = [
+  { date: "2001-01-01", price: 10 },
+  { date: "2001-01-02", price: 20 },
+  { date: "2001-01-03", price: 15 },
+];
 
   useEffect(() => {
     const handleAsync = async () => {
@@ -51,7 +56,7 @@ const Order = () => {
         <div className="order-stat-content">
             <div className="order-stat-content-number">Number of orders: {orders.length}</div>
             <div className="order-stat-content-avenue">Avenue of orders: ${orders.reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)}</div>
-            <BasicArea prices={prices}/>
+            <BasicArea data={data}/>
         </div>
       </div>
       <div className="order-content">
