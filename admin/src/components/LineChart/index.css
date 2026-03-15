@@ -1,0 +1,15 @@
+.MuiChartsAxis-line {
+    stroke: var(--color-text-white) !important;
+}
+.MuiChartsAxis-directionX tspan {
+    fill: var(--color-text-white) !important;
+}
+.MuiChartsAxis-directionY tspan {
+    fill: var(--color-text-white) !important;
+}
+.MuiChartsAxisHighlight-root {
+    stroke: var(--color-text-white) !important;
+}
+.MuiChartsAxis-tick {
+    stroke: var(--color-text-white) !important;
+}
