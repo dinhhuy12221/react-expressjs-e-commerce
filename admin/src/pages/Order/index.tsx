@@ -27,19 +27,17 @@ const Order = () => {
       const date = dateFormatter(new Date(item.orderedAt));
 
       if (!acc[date]) {
-        acc[date] = { revenue: 0, orders: 0 };
+        acc[date] = 0;
       }
 
-      acc[date].revenue += item.totalPrice;
-      acc[date].orders += 1;
+      acc[date] += item.totalPrice;
 
       return acc;
     }, {});
 
-    const result = Object.entries(grouped as Record<string, any>).map(([date, value]) => ({
+    const result = Object.entries(grouped).map(([date, price]) => ({
       date,
-      revenue: value.revenue,
-      orders: value.orders,
+      price,
     }));
 
     setData(result);

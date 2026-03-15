@@ -1,19 +1,12 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import "./index.css";
-import {
-  BarPlot,
-  ChartContainer,
-  ChartsXAxis,
-  ChartsYAxis,
-  LinePlot,
-} from "@mui/x-charts";
 const BasicArea = ({ data }) => {
   return (
-    <ChartContainer
+    <LineChart
       xAxis={[
         {
           data: data.map((item) => item.date),
-          scaleType: "band",
+          scaleType: "point",
           //   valueFormatter: (value) =>
           //     `${value.getDate()}-${value.getMonth()+1}-${value.getFullYear()}`
         },
@@ -25,23 +18,14 @@ const BasicArea = ({ data }) => {
       ]}
       series={[
         {
-          type: "bar",
-          data: data.map((item) => item.orders),
-          label: "Orders",
-        },
-        {
           type: "line",
-          data: data.map((item) => item.revenue),
+          data: data.map((item) => item.price),
+          valueFormatter: (value) => `$${value}`,
           label: "Revenue",
         },
       ]}
       height={300}
-    >
-      <BarPlot />
-      <LinePlot />
-      <ChartsXAxis />
-      <ChartsYAxis />
-    </ChartContainer>
+    />
   );
 };
 
