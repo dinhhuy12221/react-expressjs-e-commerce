@@ -1,24 +1,24 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import "./index.css";
 const BasicArea = ({ data }) => {
-  const dates = [
-    new Date("2025-01-01"),
-    new Date("2025-01-02"),
-    new Date("2025-01-03"),
-  ];
   return (
     <LineChart
       xAxis={[
         {
-          data: data.map(d => new Date(d.date)),
-          scaleType: "time",
-          valueFormatter: (value) =>
-            `${value.getDate()}-${value.getMonth()+1}-${value.getFullYear()}`
+          data: data.map((item) => item.date),
+          scaleType: "point",
+          //   valueFormatter: (value) =>
+          //     `${value.getDate()}-${value.getMonth()+1}-${value.getFullYear()}`
+        },
+      ]}
+      yAxis={[
+        {
+          valueFormatter: (value) => `$${value}`,
         },
       ]}
       series={[
         {
-          data: data.map(d => d.price),
+          data: data.map((item) => item.price),
         },
       ]}
       height={300}
