@@ -3,6 +3,7 @@ import { getOrders } from "../../api/order";
 
 import Breadcrumb from "../../components/Breadcrumb";
 import "./index.css";
+import BasicArea from "../../components/LineChart";
 
 // Statistic (Date, Month, Year)
 // - Revenue
@@ -44,6 +45,7 @@ const Order = () => {
         <div className="order-stat-content">
             <div className="order-stat-content-number">Number of orders: {orders.length}</div>
             <div className="order-stat-content-avenue">Avenue of orders: ${orders.reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)}</div>
+            <BasicArea />
         </div>
       </div>
       <div className="order-content">
