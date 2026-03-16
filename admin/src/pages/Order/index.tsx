@@ -28,7 +28,7 @@ const Order = () => {
 
   useEffect(() => {
     const grouped = orders?.reduce((acc, item) => {
-      const date = dateFormatter(new Date(item.orderedAt));
+      const date = dateFormatter(new Date(item.deliveredAt));
 
       if (!acc[date]) {
         acc[date] = 0;
@@ -122,6 +122,7 @@ const Order = () => {
             <th>ID</th>
             <th>Ordered Date</th>
             <th>Delivered Date</th>
+            <th>Price</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -133,6 +134,7 @@ const Order = () => {
                   <td>#{item._id}</td>
                   <td>{dateTimeFormatter(new Date(item.orderedAt))}</td>
                   <td>{dateTimeFormatter(new Date(item.deliveredAt))}</td>
+                  <td>${item.totalPrice.toFixed(2)}</td>
                   <td>{new Date(item.deliveredAt).getDate() > Date.now() ? "In Progress" : "Completed"}</td>
                 </tr>
               )
