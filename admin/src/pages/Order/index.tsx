@@ -6,6 +6,9 @@ import "./index.css";
 import BasicArea from "../../components/LineChart";
 import dateFormatter from "../../utils/dateFormatter";
 import { RiBox2Fill } from "react-icons/ri";
+import { SiTicktick } from "react-icons/si";
+import { BiDollarCircle } from "react-icons/bi";
+import dateTimeFormatter from "../../utils/dateTImeFormatter";
 
 // Statistic (Date, Month, Year)
 // - Revenue
@@ -67,19 +70,27 @@ const Order = () => {
         </div>
         <div className="order-stat-content">
           <div className="order-stat-content-box">
-            <div className="order-stat-content-box-item">
+            <div className="order-stat-content-box-item in-progress">
               <h3 className="order-stat-content-box-item-title">
-                <RiBox2Fill /> Order
+                <RiBox2Fill /> In Progress
               </h3>
               <span className="order-stat-content-box-item-content">
-                {orders.length} Orders
+                {orders.reduce((acc, item) => acc + (new Date(item.deliveredAt).getDate() > Date.now() ? 1 : 0), 0)} Orders
               </span>
             </div>
-            <div className="order-stat-content-box-item">
-              <h3 className="order-stat-content-box-item-title">$ Revenue</h3>
+            <div className="order-stat-content-box-item completed">
+              <h3 className="order-stat-content-box-item-title">
+                <SiTicktick /> Completed
+              </h3>
               <span className="order-stat-content-box-item-content">
-                $
-                {orders
+                {orders.reduce((acc, item) => acc + (new Date(item.deliveredAt).getDate() <= Date.now() ? 1 : 0), 0)} Orders
+              </span>
+            </div>
+            <div className="order-stat-content-box-item revenue">
+              <h3 className="order-stat-content-box-item-title">
+                <BiDollarCircle /> Revenue</h3>
+              <span className="order-stat-content-box-item-content">
+                ${orders
                   .reduce((acc, item) => acc + item.totalPrice, 0)
                   .toFixed(2)}
               </span>
@@ -88,8 +99,9 @@ const Order = () => {
         </div>
         <BasicArea data={data} />
       </div>
-      <table className="table-bordered table-hover v-align order-table">
-          {/* <div className="order-content-item-products">
+      <h3>List of orders</h3>
+      <table className="table table-bordered table-hover v-align order-table">
+        {/* <div className="order-content-item-products">
               {item.products.map((i) => (
                 <div className="order-content-item-products-item">
                   <img src={i.id.images[0].url} />
@@ -105,20 +117,27 @@ const Order = () => {
                 </div>
               ))}
             </div> */}
-          <thead className="table-dark">
-            <tr>
-              <th>ID</th>
-              <th>Ordered</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((item) => (
-              <tr>
-                <td>#{item._id}</td>
-                <td>{item.orderedAt}</td>
-              </tr>
-            ))}
-          </tbody>
+        <thead className="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Ordered Date</th>
+            <th>Delivered Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map(
+            (item) =>
+              (
+                <tr>
+                  <td>#{item._id}</td>
+                  <td>{dateTimeFormatter(new Date(item.orderedAt))}</td>
+                  <td>{dateTimeFormatter(new Date(item.deliveredAt))}</td>
+                  <td>{new Date(item.deliveredAt).getDate() > Date.now() ? "In Progress" : "Completed"}</td>
+                </tr>
+              )
+          )}
+        </tbody>
       </table>
     </div>
   );
