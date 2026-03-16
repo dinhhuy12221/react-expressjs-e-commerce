@@ -86,6 +86,20 @@ class orderController {
     }
   };
 
+  getOrderById = async (req, res) => {
+    try {
+      const result = await Order.findById(req.params.id).populate("products.id");
+
+      return res
+        .status(200)
+        .json({ message: "Get order successfully", data: result });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        message: "Internal server error",
+      });
+    }
+  };
   getOrders = async (req, res) => {
     try {
       const result = await Order.find({}).populate("products.id");

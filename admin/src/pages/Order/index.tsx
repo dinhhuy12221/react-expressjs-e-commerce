@@ -9,6 +9,7 @@ import { RiBox2Fill } from "react-icons/ri";
 import { SiTicktick } from "react-icons/si";
 import { BiDollarCircle } from "react-icons/bi";
 import dateTimeFormatter from "../../utils/dateTImeFormatter";
+import { useNavigate } from "react-router-dom";
 
 // Statistic (Date, Month, Year)
 // - Revenue
@@ -17,6 +18,8 @@ import dateTimeFormatter from "../../utils/dateTImeFormatter";
 const Order = () => {
   const [orders, setOrders] = useState<any>([]);
   const [data, setData] = useState<any>([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleAsync = async () => {
       const result = await getOrders();
@@ -28,7 +31,7 @@ const Order = () => {
 
   useEffect(() => {
     const grouped = orders?.reduce((acc, item) => {
-      const date = dateFormatter(new Date(item.orderedAt));
+      const date = dateFormatter(new Date(item.deliveredAt));
 
       if (!acc[date]) {
         acc[date] = 0;
@@ -101,27 +104,12 @@ const Order = () => {
       </div>
       <h3>List of orders</h3>
       <table className="table table-bordered table-hover v-align order-table">
-        {/* <div className="order-content-item-products">
-              {item.products.map((i) => (
-                <div className="order-content-item-products-item">
-                  <img src={i.id.images[0].url} />
-                  <h3 className="order-content-item-products-item-name">
-                    Name: {i.id.name}
-                  </h3>
-                  <h3 className="order-content-item-products-item-count">
-                    Numbers: {i.count}
-                  </h3>
-                  <h3 className="order-content-item-products-item-discount">
-                    Discount: {i.discount}%
-                  </h3>
-                </div>
-              ))}
-            </div> */}
         <thead className="table-dark">
           <tr>
             <th>ID</th>
             <th>Ordered Date</th>
             <th>Delivered Date</th>
+            <th>Price</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -129,10 +117,11 @@ const Order = () => {
           {orders.map(
             (item) =>
               (
-                <tr>
+                <tr onClick={() => navigate(`${item._id}`)}>
                   <td>#{item._id}</td>
                   <td>{dateTimeFormatter(new Date(item.orderedAt))}</td>
                   <td>{dateTimeFormatter(new Date(item.deliveredAt))}</td>
+                  <td>${item.totalPrice.toFixed(2)}</td>
                   <td>{new Date(item.deliveredAt).getDate() > Date.now() ? "In Progress" : "Completed"}</td>
                 </tr>
               )

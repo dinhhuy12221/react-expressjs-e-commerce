@@ -8,5 +8,13 @@ const getOrders = async () => {
         console.log(error);
     }
 }
+const getOrderById = async (id) => {
+    try {
+        const result = await fetch(`${BASE_URL}/order/${id}`).then((result) => result.json()).then((result) => result.data)
+        return result
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-export { getOrders }
+export { getOrders, getOrderById }
