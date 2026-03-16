@@ -38,4 +38,19 @@
 }
 .order-stat-content-box-item {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(30deg, rgb(111, 226, 168), rgb(70, 219, 245));
+  color: rgb(0, 112, 146);
+  padding: var(--space-10);
+  border-radius: var(--space-10);
+  width: 200px;
+  height: 100px;
+}
+.order-stat-content-box-item-title {
+  display: flex;
+  align-items: center;
+}
+.order-stat-content-box-item-content {
+  margin-left: auto;
 }
