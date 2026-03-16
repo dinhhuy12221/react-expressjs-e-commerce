@@ -8,6 +8,7 @@ import dateFormatter from "../../utils/dateFormatter";
 import { RiBox2Fill } from "react-icons/ri";
 import { SiTicktick } from "react-icons/si";
 import { BiDollarCircle } from "react-icons/bi";
+import dateTimeFormatter from "../../utils/dateTImeFormatter";
 
 // Statistic (Date, Month, Year)
 // - Revenue
@@ -98,8 +99,8 @@ const Order = () => {
         </div>
         <BasicArea data={data} />
       </div>
-      <h3># In Progress</h3>
-      <table className="table-bordered table-hover v-align order-table">
+      <h3>List of orders</h3>
+      <table className="table table-bordered table-hover v-align order-table">
         {/* <div className="order-content-item-products">
               {item.products.map((i) => (
                 <div className="order-content-item-products-item">
@@ -119,36 +120,20 @@ const Order = () => {
         <thead className="table-dark">
           <tr>
             <th>ID</th>
-            <th>Ordered</th>
+            <th>Ordered Date</th>
+            <th>Delivered Date</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           {orders.map(
             (item) =>
-              new Date(item.deliveredAt).getDate() > Date.now() && (
+              (
                 <tr>
                   <td>#{item._id}</td>
-                  <td>{item.orderedAt}</td>
-                </tr>
-              )
-          )}
-        </tbody>
-      </table>
-      <h3># Complete</h3>
-      <table className="table-bordered table-hover v-align order-table">
-        <thead className="table-dark">
-          <tr>
-            <th>ID</th>
-            <th>Ordered</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map(
-            (item) =>
-              new Date(item.deliveredAt).getDate() <= Date.now() && (
-                <tr>
-                  <td>#{item._id}</td>
-                  <td>{item.orderedAt}</td>
+                  <td>{dateTimeFormatter(new Date(item.orderedAt))}</td>
+                  <td>{dateTimeFormatter(new Date(item.deliveredAt))}</td>
+                  <td>{new Date(item.deliveredAt).getDate() > Date.now() ? "In Progress" : "Completed"}</td>
                 </tr>
               )
           )}
