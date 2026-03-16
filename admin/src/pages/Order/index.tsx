@@ -69,10 +69,18 @@ const Order = () => {
           <div className="order-stat-content-box">
             <div className="order-stat-content-box-item">
               <h3 className="order-stat-content-box-item-title">
-                <RiBox2Fill /> Order
+                <RiBox2Fill /> In Progress
               </h3>
               <span className="order-stat-content-box-item-content">
-                {orders.length} Orders
+                {orders.reduce((acc, item) => acc + (new Date(item.deliveredAt).getDate() > Date.now() ? 1 : 0), 0)} Orders
+              </span>
+            </div>
+            <div className="order-stat-content-box-item">
+              <h3 className="order-stat-content-box-item-title">
+                <RiBox2Fill /> Completed
+              </h3>
+              <span className="order-stat-content-box-item-content">
+                {orders.reduce((acc, item) => acc + (new Date(item.deliveredAt).getDate() <= Date.now() ? 1 : 0), 0)} Orders
               </span>
             </div>
             <div className="order-stat-content-box-item">
