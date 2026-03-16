@@ -6,6 +6,8 @@ import "./index.css";
 import BasicArea from "../../components/LineChart";
 import dateFormatter from "../../utils/dateFormatter";
 import { RiBox2Fill } from "react-icons/ri";
+import { SiTicktick } from "react-icons/si";
+import { BiDollarCircle } from "react-icons/bi";
 
 // Statistic (Date, Month, Year)
 // - Revenue
@@ -67,7 +69,7 @@ const Order = () => {
         </div>
         <div className="order-stat-content">
           <div className="order-stat-content-box">
-            <div className="order-stat-content-box-item">
+            <div className="order-stat-content-box-item in-progress">
               <h3 className="order-stat-content-box-item-title">
                 <RiBox2Fill /> In Progress
               </h3>
@@ -75,19 +77,19 @@ const Order = () => {
                 {orders.reduce((acc, item) => acc + (new Date(item.deliveredAt).getDate() > Date.now() ? 1 : 0), 0)} Orders
               </span>
             </div>
-            <div className="order-stat-content-box-item">
+            <div className="order-stat-content-box-item completed">
               <h3 className="order-stat-content-box-item-title">
-                <RiBox2Fill /> Completed
+                <SiTicktick /> Completed
               </h3>
               <span className="order-stat-content-box-item-content">
                 {orders.reduce((acc, item) => acc + (new Date(item.deliveredAt).getDate() <= Date.now() ? 1 : 0), 0)} Orders
               </span>
             </div>
-            <div className="order-stat-content-box-item">
-              <h3 className="order-stat-content-box-item-title">$ Revenue</h3>
+            <div className="order-stat-content-box-item revenue">
+              <h3 className="order-stat-content-box-item-title">
+                <BiDollarCircle /> Revenue</h3>
               <span className="order-stat-content-box-item-content">
-                $
-                {orders
+                ${orders
                   .reduce((acc, item) => acc + item.totalPrice, 0)
                   .toFixed(2)}
               </span>
