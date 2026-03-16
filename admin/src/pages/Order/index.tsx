@@ -9,6 +9,7 @@ import { RiBox2Fill } from "react-icons/ri";
 import { SiTicktick } from "react-icons/si";
 import { BiDollarCircle } from "react-icons/bi";
 import dateTimeFormatter from "../../utils/dateTImeFormatter";
+import { useNavigate } from "react-router-dom";
 
 // Statistic (Date, Month, Year)
 // - Revenue
@@ -17,6 +18,8 @@ import dateTimeFormatter from "../../utils/dateTImeFormatter";
 const Order = () => {
   const [orders, setOrders] = useState<any>([]);
   const [data, setData] = useState<any>([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleAsync = async () => {
       const result = await getOrders();
@@ -130,7 +133,7 @@ const Order = () => {
           {orders.map(
             (item) =>
               (
-                <tr>
+                <tr onClick={() => navigate(`${item._id}`)}>
                   <td>#{item._id}</td>
                   <td>{dateTimeFormatter(new Date(item.orderedAt))}</td>
                   <td>{dateTimeFormatter(new Date(item.deliveredAt))}</td>

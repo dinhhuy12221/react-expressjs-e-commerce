@@ -6,6 +6,7 @@ import ProductView from "./pages/ProductView";
 import ProductUpload from "./pages/ProductUpload";
 import Category from "./pages/CategoryBrand";
 import Order from "./pages/Order";
+import OrderDetail from "./pages/Order/OrderDetail";
 
 const routes = [
   {
@@ -52,6 +53,11 @@ const routes = [
     path: "/orders",
     exact: true,
     element: <Order />,
+  },
+  {
+    path: "/orders/:id",
+    exact: true,
+    element: <OrderDetail />,
   },
 ];
 
