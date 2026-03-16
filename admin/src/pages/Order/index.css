@@ -40,8 +40,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(30deg, rgb(111, 226, 168), rgb(70, 219, 245));
-  color: rgb(0, 112, 146);
+  background: linear-gradient(120deg, rgb(111, 226, 168), rgb(70, 219, 245));
   padding: var(--space-10);
   border-radius: var(--space-10);
   width: 200px;
@@ -50,7 +49,10 @@
 .order-stat-content-box-item-title {
   display: flex;
   align-items: center;
+  color: rgb(0, 126, 143);
 }
 .order-stat-content-box-item-content {
   margin-left: auto;
+  font-size: var(--font-20);
+  color: rgb(0, 51, 109);
 }
