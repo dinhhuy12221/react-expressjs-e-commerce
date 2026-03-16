@@ -80,25 +80,13 @@ export default function Sidebar() {
           </ul>
         </li>
         <li>
-          <Link to="/categories">
+          <Link to="/categories-brands">
             <button
               className={`sidebar-item ${activeTab === 2 ? "active" : ""}`}
               onClick={() => isOpenSubmenu(2)}
             >
               <BiSolidCategory />
               Categories & Brands
-              <IoIosArrowForward className="sidebar-item-arrow" />
-            </button>
-          </Link>
-        </li>
-        <li>
-          <Link to="/brands">
-            <button
-              className={`sidebar-item ${activeTab === 3 ? "active" : ""}`}
-              onClick={() => isOpenSubmenu(3)}
-            >
-              <BiSolidCategory />
-              Brands
               <IoIosArrowForward className="sidebar-item-arrow" />
             </button>
           </Link>

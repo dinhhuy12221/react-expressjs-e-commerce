@@ -4,8 +4,7 @@ import SignUp from "./pages/SignUp";
 import Products from "./pages/Products";
 import ProductView from "./pages/ProductView";
 import ProductUpload from "./pages/ProductUpload";
-import Category from "./pages/Category";
-import Brand from "./pages/Brand";
+import Category from "./pages/CategoryBrand";
 import Order from "./pages/Order";
 
 const routes = [
@@ -45,14 +44,9 @@ const routes = [
     element: <ProductView />,
   },
   {
-    path: "/categories",
+    path: "/categories-brands",
     exact: true,
     element: <Category />,
-  },
-  {
-    path: "/brands",
-    exact: true,
-    element: <Brand />,
   },
   {
     path: "/orders",

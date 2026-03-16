@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import "./index.css";
 import BasicArea from "../../components/LineChart";
 import dateFormatter from "../../utils/dateFormatter";
+import { RiBox2Fill } from "react-icons/ri";
 
 // Statistic (Date, Month, Year)
 // - Revenue
@@ -67,21 +68,28 @@ const Order = () => {
         <div className="order-stat-content">
           <div className="order-stat-content-box">
             <div className="order-stat-content-box-item">
-              <h3 className="order-stat-content-box-item-title">Order</h3>
-              <span>{orders.length} Orders</span>
+              <h3 className="order-stat-content-box-item-title">
+                <RiBox2Fill /> Order
+              </h3>
+              <span className="order-stat-content-box-item-content">
+                {orders.length} Orders
+              </span>
             </div>
             <div className="order-stat-content-box-item">
-              <h3 className="order-stat-content-box-item-title">Revenue</h3>
-              <span>${orders.reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)}</span>
+              <h3 className="order-stat-content-box-item-title">$ Revenue</h3>
+              <span className="order-stat-content-box-item-content">
+                $
+                {orders
+                  .reduce((acc, item) => acc + item.totalPrice, 0)
+                  .toFixed(2)}
+              </span>
             </div>
           </div>
         </div>
-          <BasicArea data={data} />
+        <BasicArea data={data} />
       </div>
-      <div className="order-content">
-        {orders.map((item) => (
-          <div className="order-content-item">
-            <div className="order-content-item-products">
+      <table className="table-bordered table-hover v-align order-table">
+          {/* <div className="order-content-item-products">
               {item.products.map((i) => (
                 <div className="order-content-item-products-item">
                   <img src={i.id.images[0].url} />
@@ -96,10 +104,22 @@ const Order = () => {
                   </h3>
                 </div>
               ))}
-            </div>
-          </div>
-        ))}
-      </div>
+            </div> */}
+          <thead className="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Ordered</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map((item) => (
+              <tr>
+                <td>#{item._id}</td>
+                <td>{item.orderedAt}</td>
+              </tr>
+            ))}
+          </tbody>
+      </table>
     </div>
   );
 };
