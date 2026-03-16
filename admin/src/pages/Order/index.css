@@ -26,3 +26,16 @@
 .order-stat-filter option {
   background: rgb(18, 37, 78);
 }
+
+.order-stat-content {
+  display: flex;
+  flex-direction: column;
+}
+.order-stat-content-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.order-stat-content-box-item {
+  display: flex;
+}
