@@ -88,8 +88,9 @@ const Order = () => {
         </div>
         <BasicArea data={data} />
       </div>
+      <h3># In Progress</h3>
       <table className="table-bordered table-hover v-align order-table">
-          {/* <div className="order-content-item-products">
+        {/* <div className="order-content-item-products">
               {item.products.map((i) => (
                 <div className="order-content-item-products-item">
                   <img src={i.id.images[0].url} />
@@ -105,20 +106,43 @@ const Order = () => {
                 </div>
               ))}
             </div> */}
-          <thead className="table-dark">
-            <tr>
-              <th>ID</th>
-              <th>Ordered</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((item) => (
-              <tr>
-                <td>#{item._id}</td>
-                <td>{item.orderedAt}</td>
-              </tr>
-            ))}
-          </tbody>
+        <thead className="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Ordered</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map(
+            (item) =>
+              new Date(item.deliveredAt).getDate() > Date.now() && (
+                <tr>
+                  <td>#{item._id}</td>
+                  <td>{item.orderedAt}</td>
+                </tr>
+              )
+          )}
+        </tbody>
+      </table>
+      <h3># Complete</h3>
+      <table className="table-bordered table-hover v-align order-table">
+        <thead className="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Ordered</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map(
+            (item) =>
+              new Date(item.deliveredAt).getDate() <= Date.now() && (
+                <tr>
+                  <td>#{item._id}</td>
+                  <td>{item.orderedAt}</td>
+                </tr>
+              )
+          )}
+        </tbody>
       </table>
     </div>
   );
