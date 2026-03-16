@@ -35,6 +35,23 @@ const OrderDetail = () => {
             to: `/${order._id}`,
           },
         ]} />
+
+        <div className="order-content-item-products">
+              {order.products.map((i) => (
+                <div className="order-content-item-products-item">
+                  <img src={i.id.images[0].url} />
+                  <h3 className="order-content-item-products-item-name">
+                    Name: {i.id.name}
+                  </h3>
+                  <h3 className="order-content-item-products-item-count">
+                    Numbers: {i.count}
+                  </h3>
+                  <h3 className="order-content-item-products-item-discount">
+                    Discount: {i.discount}%
+                  </h3>
+                </div>
+              ))}
+            </div>
     </div>
   )
 }
