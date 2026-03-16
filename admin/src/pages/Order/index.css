@@ -43,16 +43,21 @@
   background: linear-gradient(120deg, rgb(111, 226, 168), rgb(70, 219, 245));
   padding: var(--space-10);
   border-radius: var(--space-10);
-  width: 200px;
-  height: 100px;
+  width: 220px;
+  height: 120px;
 }
 .order-stat-content-box-item-title {
   display: flex;
   align-items: center;
-  color: rgb(0, 126, 143);
+  color: rgb(2, 110, 124);
 }
 .order-stat-content-box-item-content {
   margin-left: auto;
-  font-size: var(--font-20);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: var(--font-28);
   color: rgb(0, 51, 109);
+}
+.order-table {
+  width: 100%;
+  text-align: center;
 }
