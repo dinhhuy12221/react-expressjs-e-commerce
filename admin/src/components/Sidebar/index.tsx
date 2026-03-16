@@ -86,7 +86,7 @@ export default function Sidebar() {
               onClick={() => isOpenSubmenu(2)}
             >
               <BiSolidCategory />
-              Categories
+              Categories & Brands
               <IoIosArrowForward className="sidebar-item-arrow" />
             </button>
           </Link>

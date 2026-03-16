@@ -65,15 +65,18 @@ const Order = () => {
           </select>
         </div>
         <div className="order-stat-content">
-          <div className="order-stat-content-number">
-            Number of orders: {orders.length}
+          <div className="order-stat-content-box">
+            <div className="order-stat-content-box-item">
+              <h3 className="order-stat-content-box-item-title">Order</h3>
+              <span>{orders.length} Orders</span>
+            </div>
+            <div className="order-stat-content-box-item">
+              <h3 className="order-stat-content-box-item-title">Revenue</h3>
+              <span>${orders.reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)}</span>
+            </div>
           </div>
-          <div className="order-stat-content-avenue">
-            Avenue of orders: $
-            {orders.reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)}
-          </div>
-          <BasicArea data={data} />
         </div>
+          <BasicArea data={data} />
       </div>
       <div className="order-content">
         {orders.map((item) => (
