@@ -20,13 +20,13 @@ export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
   const [reviews, setReviews] = useState<any>(null);
-  const [brands, setBrands] = useState<any>(null)
-  const [categories, setCategories] = useState<any>(null)
-  const [oneStar, setOneStar] = useState(0)
-  const [twoStar, setTwoStar] = useState(0)
-  const [threeStar, setThreeStar] = useState(0)
-  const [fourStar, setFourStar] = useState(0)
-  const [fiveStar, setFiveStar] = useState(0)
+  const [brands, setBrands] = useState<any>(null);
+  const [categories, setCategories] = useState<any>(null);
+  const [oneStar, setOneStar] = useState(0);
+  const [twoStar, setTwoStar] = useState(0);
+  const [threeStar, setThreeStar] = useState(0);
+  const [fourStar, setFourStar] = useState(0);
+  const [fiveStar, setFiveStar] = useState(0);
 
   // const reviews = new Array(8).fill(
   //   <div className="product-view-review-item">
@@ -94,14 +94,21 @@ export default function ProductView() {
       const result = await getReviewByProductId(product._id);
       setReviews(result);
 
-      console.log(result);
-      
-
-      setOneStar(() => result.reduce((acc, item) => acc + (item.rating === 1 && 1), 0))
-      setTwoStar(() => result.reduce((acc, item) => acc + (item.rating === 2 && 1), 0))
-      setThreeStar(() => result.reduce((acc, item) => acc + (item.rating === 3 && 1), 0))
-      setFourStar(() => result.reduce((acc, item) => acc + (item.rating === 4 && 1), 0))
-      setFiveStar(() => result.reduce((acc, item) => acc + (item.rating === 5 && 1), 0))
+      setOneStar(() =>
+        result.reduce((acc, item) => acc + (item.rating === 1 ? 1 : 0), 0)
+      );
+      setTwoStar(() =>
+        result.reduce((acc, item) => acc + (item.rating === 2 ? 1 : 0), 0)
+      );
+      setThreeStar(() =>
+        result.reduce((acc, item) => acc + (item.rating === 3 ? 1 : 0), 0)
+      );
+      setFourStar(() =>
+        result.reduce((acc, item) => acc + (item.rating === 4 ? 1 : 0), 0)
+      );
+      setFiveStar(() =>
+        result.reduce((acc, item) => acc + (item.rating === 5 ? 1 : 0), 0)
+      );
     };
 
     getReviews();
@@ -181,25 +188,38 @@ export default function ProductView() {
             </div>
             <div className="product-view-content-main-item">
               <h4>Category</h4>
-              <input
+              {/* <input
                 className="product-view-content-main-item-input"
                 type="text"
                 spellCheck="false"
                 placeholder="Enter the category"
                 value={product.categoryId.name}
-              />
+              /> */}
+              <select
+                className="product-view-content-main-item-input"
+                value={product.categoryId?._id}
+              >
+                {categories.map((item) => (
+                  <option value={item._id}>{item.name}</option>
+                ))}
+              </select>
             </div>
             <div className="product-view-content-main-item">
               <h4>Brand</h4>
-              <input
+              {/* <input
                 className="product-view-content-main-item-input"
                 type="text"
                 placeholder="Enter the brand"
                 value={product.brandId?.name}
-              />
-                <select value={product.brandId?.name}>
-                  {brands.map(item => <option value={item._id}>{item.name}</option>)}
-                </select>
+              /> */}
+              <select
+                className="product-view-content-main-item-input"
+                value={product.brandId?._id}
+              >
+                {brands.map((item) => (
+                  <option value={item._id}>{item.name}</option>
+                ))}
+              </select>
             </div>
             <div className="product-view-content-main-item">
               <h4>Price</h4>
@@ -259,7 +279,9 @@ export default function ProductView() {
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: `${fiveStar * 100 / reviews?.length}%` }}></div>
+                <div
+                  style={{ width: `${fiveStar === 0 ? fiveStar : (fiveStar * 100) / reviews?.length}%` }}
+                ></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">
@@ -270,7 +292,9 @@ export default function ProductView() {
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: `${fourStar * 100 / reviews?.length}%` }}></div>
+                <div
+                  style={{ width: `${fourStar === 0 ? fourStar : (fourStar * 100) / reviews?.length}%` }}
+                ></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">
@@ -281,7 +305,9 @@ export default function ProductView() {
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: `${threeStar * 100 / reviews?.length}%` }}></div>
+                <div
+                  style={{ width: `${threeStar === 0 ? threeStar : (threeStar * 100) / reviews?.length}%` }}
+                ></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">
@@ -292,7 +318,9 @@ export default function ProductView() {
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: `${twoStar * 100 / reviews?.length}%` }}></div>
+                <div
+                  style={{ width: `${twoStar === 0 ? twoStar : (twoStar * 100) / reviews?.length}%` }}
+                ></div>
               </div>
             </div>
             <div className="product-view-rating-section-item">
@@ -303,7 +331,9 @@ export default function ProductView() {
                 className="product-view-rating-section-item-progress"
                 style={{ width: "100%" }}
               >
-                <div style={{ width: `${oneStar * 100 / reviews?.length}%` }}></div>
+                <div
+                  style={{ width: `${oneStar === 0 ? oneStar : (oneStar * 100) / reviews?.length}%` }}
+                ></div>
               </div>
             </div>
           </div>
