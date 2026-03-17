@@ -199,6 +199,7 @@ export default function ProductView() {
                 className="product-view-content-main-item-input"
                 value={product.categoryId?._id}
               >
+                <option value={""} >Choose a category ...</option>
                 {categories.map((item) => (
                   <option value={item._id}>{item.name}</option>
                 ))}
@@ -216,6 +217,7 @@ export default function ProductView() {
                 className="product-view-content-main-item-input"
                 value={product.brandId?._id}
               >
+                <option value={""} >Choose a brand...</option>
                 {brands.map((item) => (
                   <option value={item._id}>{item.name}</option>
                 ))}
