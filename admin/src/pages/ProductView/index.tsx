@@ -2,7 +2,7 @@ import Rating from "@mui/material/Rating";
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import { useAsyncError, useParams } from "react-router-dom";
-import { getProductBySlug } from "../../api/product";
+import { getProductBySlug, updateProduct } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
@@ -85,6 +85,11 @@ export default function ProductView() {
     }))
   }
 
+  const handleSave = async () => {
+    const result = await updateProduct(draft)
+    setProduct(result)
+  }
+
   const handleCancel = () => {
     setDraft(product);
   };
@@ -151,7 +156,7 @@ export default function ProductView() {
 
       <div className="product-view-content">
         <h2>Product ID: #{product._id}</h2>
-        <form method="POST">
+        <form method="PUT">
           <div className="product-view-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
             {/* <Slider
@@ -283,10 +288,10 @@ export default function ProductView() {
             </div>
           </div>
           <div className="product-view-content-button">
-            <button className="product-view-content-button-cancel" onClick={handleCancel}>
+            <button type="button" className="product-view-content-button-cancel" onClick={handleCancel}>
               Cancel
             </button>
-            <button className="product-view-content-button-save">Save</button>
+            <button className="product-view-content-button-save" onClick={handleSave}>Save</button>
           </div>
         </form>
 
