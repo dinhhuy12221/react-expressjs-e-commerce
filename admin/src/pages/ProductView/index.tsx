@@ -2,7 +2,7 @@ import Rating from "@mui/material/Rating";
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import { useAsyncError, useParams } from "react-router-dom";
-import { getProductBySlug } from "../../api/product";
+import { getProductBySlug, updateProduct } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
@@ -19,6 +19,7 @@ import { getCategories } from "../../api/category";
 export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
+  const [draft, setDraft] = useState<any>(null)
   const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
@@ -75,6 +76,27 @@ export default function ProductView() {
   //   // }
   // };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setDraft(prev => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const result = await updateProduct(draft)
+    console.log(result);
+    
+    // setProduct(result)
+  }
+
+  const handleCancel = () => {
+    setDraft(product);
+  };
+
   useEffect(() => {
     const handleAsync = async () => {
       const result1 = await getProductBySlug(slug);
@@ -82,6 +104,7 @@ export default function ProductView() {
       const result3 = await getCategories();
 
       setProduct(result1.data[0]);
+      setDraft(result1.data[0]);
       setBrands(result2.data);
       setCategories(result3.data);
     };
@@ -114,7 +137,11 @@ export default function ProductView() {
     getReviews();
   }, [product]);
 
-  if (product === null && brands === null && categories === null) return;
+  console.log(1, draft.categoryId);
+  console.log(2, categories[0]);
+  
+
+  if (product === null || draft === null || brands === null || categories === null) return;
 
   return (
     <div className="product-view">
@@ -133,7 +160,7 @@ export default function ProductView() {
 
       <div className="product-view-content">
         <h2>Product ID: #{product._id}</h2>
-        <form method="POST">
+        <form method="PUT" onSubmit={handleSubmit}>
           <div className="product-view-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
             {/* <Slider
@@ -174,7 +201,9 @@ export default function ProductView() {
                 type="text"
                 spellCheck="false"
                 placeholder="Enter the name"
-                value={product.name}
+                name="name"
+                value={draft.name}
+                onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
@@ -183,7 +212,9 @@ export default function ProductView() {
                 className="product-view-content-main-item-textarea"
                 spellCheck="false"
                 placeholder="Enter the description"
-                value={product.description}
+                name="description"
+                value={draft.description}
+                onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
@@ -197,11 +228,13 @@ export default function ProductView() {
               /> */}
               <select
                 className="product-view-content-main-item-input"
-                value={product.categoryId?._id}
+                name="categoryId"
+                value={draft.categoryId}
+                onChange={handleChange}
               >
                 <option value={""} >Choose a category ...</option>
                 {categories.map((item) => (
-                  <option value={item._id}>{item.name}</option>
+                  <option value={item}>{item.name}</option>
                 ))}
               </select>
             </div>
@@ -215,11 +248,13 @@ export default function ProductView() {
               /> */}
               <select
                 className="product-view-content-main-item-input"
-                value={product.brandId?._id}
+                name="brandId"
+                value={draft.brandId}
+                onChange={handleChange}
               >
                 <option value={""} >Choose a brand...</option>
                 {brands.map((item) => (
-                  <option value={item._id}>{item.name}</option>
+                  <option value={item}>{item.name}</option>
                 ))}
               </select>
             </div>
@@ -229,7 +264,9 @@ export default function ProductView() {
                 className="product-view-content-main-item-input"
                 type="number"
                 spellCheck="false"
-                value={product.price}
+                name="price"
+                value={draft.price}
+                onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
@@ -238,7 +275,9 @@ export default function ProductView() {
                 className="product-view-content-main-item-input"
                 type="number"
                 spellCheck="false"
-                value={product.discount}
+                name="discount"
+                value={draft.discount}
+                onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
@@ -246,15 +285,17 @@ export default function ProductView() {
               <input
                 className="product-view-content-main-item-input"
                 type="number"
-                value={product.countInStock}
+                name="countInStock"
+                value={draft.countInStock}
+                onChange={handleChange}
               />
             </div>
           </div>
           <div className="product-view-content-button">
-            <button className="product-view-content-button-cancel">
+            <button type="button" className="product-view-content-button-cancel" onClick={handleCancel}>
               Cancel
             </button>
-            <button className="product-view-content-button-save">Save</button>
+            <button type="submit" className="product-view-content-button-save">Save</button>
           </div>
         </form>
 
