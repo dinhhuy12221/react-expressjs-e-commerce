@@ -18,6 +18,8 @@ export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
   const [reviews, setReviews] = useState<any>(null);
+  const [brands, setBrands] = useState<any>(null)
+  const [categories, setCategories] = useState<any>(null)
   const [oneStar, setOneStar] = useState(0)
   const [twoStar, setTwoStar] = useState(0)
   const [threeStar, setThreeStar] = useState(0)
@@ -190,6 +192,9 @@ export default function ProductView() {
                 placeholder="Enter the brand"
                 value={product.brandId?.name}
               />
+                <select value={product.brandId?.name}>
+                  <option value={1}>1</option>
+                </select>
             </div>
             <div className="product-view-content-main-item">
               <h4>Price</h4>

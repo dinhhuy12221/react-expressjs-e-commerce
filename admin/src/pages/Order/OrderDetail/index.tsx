@@ -40,7 +40,7 @@ const OrderDetail = () => {
             to: `/orders`,
           },
           {
-            name: `${order._id}`,
+            name: `#${order._id}`,
             to: `/${order._id}`,
           },
         ]}
