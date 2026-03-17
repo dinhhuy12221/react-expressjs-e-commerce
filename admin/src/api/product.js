@@ -42,7 +42,7 @@ const createProduct = async (values) => {
 };
 const updateProduct = async (values) => {
   try {
-    const productList = await fetch(BASE_URL + "/product/" + id, {
+    const productList = await fetch(BASE_URL + "/product/" + values._id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

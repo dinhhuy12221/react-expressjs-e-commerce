@@ -85,9 +85,12 @@ export default function ProductView() {
     }))
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const result = await updateProduct(draft)
-    setProduct(result)
+    console.log(result);
+    
+    // setProduct(result)
   }
 
   const handleCancel = () => {
@@ -134,7 +137,8 @@ export default function ProductView() {
     getReviews();
   }, [product]);
 
-  console.log(draft);
+  console.log(1, draft.categoryId);
+  console.log(2, categories[0]);
   
 
   if (product === null || draft === null || brands === null || categories === null) return;
