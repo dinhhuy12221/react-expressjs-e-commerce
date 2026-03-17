@@ -32,22 +32,20 @@
 }
 .order-content-products-item-count {
     width: 100px;
+    text-align: center;
     margin-left: auto;
     font-size: var(--font-14);
     font-weight: 400;
 }
 .order-content-products-item-price {
-    width: 150px;
     display: flex;
     justify-content: center;
     gap: var(--space-6);
-    margin-left: auto;
     font-family: var(--font-dosis);
     font-size: var(--font-18);
-    text-overflow: ellipsis;
-    overflow: hidden;
 }
 .order-content-products-item-price span {
+    width: 80px;
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -57,4 +55,32 @@
 }
 .order-content-products-item-price-net {
     color: var(--color-text-success);
+}
+
+.order-summary {
+  width: 250px;
+  margin-left: auto;
+  padding: 16px;
+  border-radius: 12px;
+  background: #0f1c3f;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #cfd8ff;
+  font-size: 14px;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 10px 0;
+}
+
+.total {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
 }
