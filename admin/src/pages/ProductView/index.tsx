@@ -19,7 +19,7 @@ import { getCategories } from "../../api/category";
 export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
-  const [draft, setDraft] = useState<any>(product)
+  const [draft, setDraft] = useState<any>(null)
   const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
@@ -96,6 +96,7 @@ export default function ProductView() {
       const result3 = await getCategories();
 
       setProduct(result1.data[0]);
+      setDraft(result1.data[0]);
       setBrands(result2.data);
       setCategories(result3.data);
     };
@@ -127,6 +128,9 @@ export default function ProductView() {
 
     getReviews();
   }, [product]);
+
+  console.log(draft);
+  
 
   if (product === null || draft === null || brands === null || categories === null) return;
 
