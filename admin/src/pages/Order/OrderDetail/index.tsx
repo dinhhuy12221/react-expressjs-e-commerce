@@ -49,7 +49,7 @@ const OrderDetail = () => {
                         x{i.count}
                       </h3>
                     <div className="order-content-products-item-price">
-                      <span className="order-content-products-item-price-old">${i.price}</span>
+                      <span className="order-content-products-item-price-old">${i.price}aaaaaaaaaaaaaa</span>
                       <span className="order-content-products-item-price-net">${getDiscountPrice(i.price, i.discount).toFixed(2)}</span>
                     </div>
                   </div>
