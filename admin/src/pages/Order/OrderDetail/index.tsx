@@ -37,25 +37,25 @@ const OrderDetail = () => {
           },
         ]} />
 
-        <div className="order-content-item-products">
-              {order.products.map((i) => (
-                <div className="order-content-item-products-item">
-                  <img src={i.id.images[0].url} />
-                  <div className='order-content-item-products-item-main'>
-                    <h3 className="order-content-item-products-item-main-name">
-                      {i.id.name}
-                    </h3>
-                    <h3 className="order-content-item-products-item-main-count">
-                      Numbers: {i.count}
-                    </h3>
+        <div className='order-content'>
+          <div className="order-content-products">
+                {order.products.map((i) => (
+                  <div className="order-content-products-item">
+                    <img src={i.id.images[0].url} />
+                      <h3 className="order-content-products-item-name">
+                        {i.id.name}
+                      </h3>
+                      <h3 className="order-content-products-item-count">
+                        x{i.count}
+                      </h3>
+                    <div className="order-content-products-item-price">
+                      <span className="order-content-products-item-price-old">${i.price}</span>
+                      <span className="order-content-products-item-price-net">${getDiscountPrice(i.price, i.discount).toFixed(2)}</span>
+                    </div>
                   </div>
-                  <div className="order-content-item-products-item-price">
-                    <span className="order-content-item-products-item-price-old">${i.price}</span>
-                    <span className="order-content-item-products-item-price-net">${getDiscountPrice(i.price, i.discount).toFixed(2)}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+        </div>
     </div>
   )
 }
