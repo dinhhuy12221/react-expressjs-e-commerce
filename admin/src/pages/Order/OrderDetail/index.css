@@ -9,7 +9,24 @@
     box-shadow: -4px -4px 8px rgb(16, 50, 122),
                 12px 12px 14px rgb(16, 50, 122);
 }
+.order-content-item-products-item {
+    display: flex;
+}
 .order-content-item-products-item img {
     width: 120px;
     height: 120px;
+}
+.order-content-item-products-item-price {
+    display: flex;
+    gap: var(--space-6);
+    margin-left: auto;
+    font-family: var(--font-dosis);
+    font-size: var(--font-18);
+}
+.order-content-item-products-item-price-old {
+    color: var(--color-text-red-1);
+    text-decoration: line-through;
+}
+.order-content-item-products-item-price-net {
+    color: var(--color-text-success);
 }

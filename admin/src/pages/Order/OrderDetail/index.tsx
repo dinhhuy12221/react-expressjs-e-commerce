@@ -4,6 +4,7 @@ import "./index.css"
 import Breadcrumb from '../../../components/Breadcrumb'
 import { useParams } from 'react-router-dom'
 import { getOrderById } from '../../../api/order'
+import getDiscountPrice from '../../../utils/getDiscountPrice';
 
 const OrderDetail = () => {
   const [order, setOrder] = useState<any>(null)
@@ -40,15 +41,18 @@ const OrderDetail = () => {
               {order.products.map((i) => (
                 <div className="order-content-item-products-item">
                   <img src={i.id.images[0].url} />
-                  <h3 className="order-content-item-products-item-name">
-                    Name: {i.id.name}
-                  </h3>
-                  <h3 className="order-content-item-products-item-count">
-                    Numbers: {i.count}
-                  </h3>
-                  <h3 className="order-content-item-products-item-discount">
-                    Discount: {i.discount}%
-                  </h3>
+                  <div className='order-content-item-products-item-main'>
+                    <h3 className="order-content-item-products-item-main-name">
+                      {i.id.name}
+                    </h3>
+                    <h3 className="order-content-item-products-item-main-count">
+                      Numbers: {i.count}
+                    </h3>
+                  </div>
+                  <div className="order-content-item-products-item-price">
+                    <span className="order-content-item-products-item-price-old">${i.price}</span>
+                    <span className="order-content-item-products-item-price-net">${getDiscountPrice(i.price, i.discount).toFixed(2)}</span>
+                  </div>
                 </div>
               ))}
             </div>
