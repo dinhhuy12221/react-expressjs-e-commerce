@@ -85,7 +85,7 @@ export default function ProductView() {
     }))
   }
 
-  const handleSave = async () => {
+  const handleSubmit = async () => {
     const result = await updateProduct(draft)
     setProduct(result)
   }
@@ -148,7 +148,7 @@ export default function ProductView() {
             to: "/dashboard",
           },
           {
-            name: `${product.name}`,
+            name: `${product?.name}`,
             to: `/product/${slug}`,
           },
         ]}
@@ -156,7 +156,7 @@ export default function ProductView() {
 
       <div className="product-view-content">
         <h2>Product ID: #{product._id}</h2>
-        <form method="PUT">
+        <form method="PUT" onSubmit={handleSubmit}>
           <div className="product-view-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
             {/* <Slider
@@ -291,7 +291,7 @@ export default function ProductView() {
             <button type="button" className="product-view-content-button-cancel" onClick={handleCancel}>
               Cancel
             </button>
-            <button className="product-view-content-button-save" onClick={handleSave}>Save</button>
+            <button type="submit" className="product-view-content-button-save">Save</button>
           </div>
         </form>
 
