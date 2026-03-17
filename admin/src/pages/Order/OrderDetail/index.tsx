@@ -47,7 +47,7 @@ const OrderDetail = () => {
               <h3 className="order-content-products-item-count">x{i.count}</h3>
               <div className="order-content-products-item-price">
                 <span className="order-content-products-item-price-old">
-                  ${i.price}aaaaaaaaaaaaaa
+                  ${i.price}
                 </span>
                 <span className="order-content-products-item-price-net">
                   ${getDiscountPrice(i.price, i.discount).toFixed(2)}
@@ -57,24 +57,24 @@ const OrderDetail = () => {
           ))}
         </div>
         <div className="order-summary">
-          <div className="row">
+          <div className="order-summary-row">
             <span>Subtotal</span>
             <span>${(1.1111).toFixed(2)}</span>
           </div>
 
-          <div className="row">
+          <div className="order-summary-row">
             <span>Shipping</span>
             <span>$2.00</span>
           </div>
 
-          <div className="row">
+          <div className="order-summary-row">
             <span>Tax</span>
             <span>$0.50</span>
           </div>
 
-          <div className="divider"></div>
+          <div className="order-summary-divider"></div>
 
-          <div className="row total">
+          <div className="order-summary-row total">
             <span>Total</span>
             <span>${(1.1111).toFixed(2)}</span>
           </div>
