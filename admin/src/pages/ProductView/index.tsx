@@ -19,6 +19,7 @@ import { getCategories } from "../../api/category";
 export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
+  const [draft, setDraft] = useState<any>(product)
   const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
@@ -75,6 +76,19 @@ export default function ProductView() {
   //   // }
   // };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setDraft(prev => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleCancel = () => {
+    setDraft(product);
+  };
+
   useEffect(() => {
     const handleAsync = async () => {
       const result1 = await getProductBySlug(slug);
@@ -114,7 +128,7 @@ export default function ProductView() {
     getReviews();
   }, [product]);
 
-  if (product === null && brands === null && categories === null) return;
+  if (product === null || draft === null || brands === null || categories === null) return;
 
   return (
     <div className="product-view">
@@ -174,7 +188,9 @@ export default function ProductView() {
                 type="text"
                 spellCheck="false"
                 placeholder="Enter the name"
-                value={product.name}
+                name="name"
+                value={draft.name}
+                onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
@@ -183,7 +199,9 @@ export default function ProductView() {
                 className="product-view-content-main-item-textarea"
                 spellCheck="false"
                 placeholder="Enter the description"
-                value={product.description}
+                name="description"
+                value={draft.description}
+                onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
@@ -197,11 +215,13 @@ export default function ProductView() {
               /> */}
               <select
                 className="product-view-content-main-item-input"
-                value={product.categoryId?._id}
+                name="categoryId"
+                value={draft.categoryId}
+                onChange={handleChange}
               >
                 <option value={""} >Choose a category ...</option>
                 {categories.map((item) => (
-                  <option value={item._id}>{item.name}</option>
+                  <option value={item}>{item.name}</option>
                 ))}
               </select>
             </div>
@@ -215,11 +235,13 @@ export default function ProductView() {
               /> */}
               <select
                 className="product-view-content-main-item-input"
-                value={product.brandId?._id}
+                name="brandId"
+                value={draft.brandId}
+                onChange={handleChange}
               >
                 <option value={""} >Choose a brand...</option>
                 {brands.map((item) => (
-                  <option value={item._id}>{item.name}</option>
+                  <option value={item}>{item.name}</option>
                 ))}
               </select>
             </div>
@@ -229,7 +251,9 @@ export default function ProductView() {
                 className="product-view-content-main-item-input"
                 type="number"
                 spellCheck="false"
-                value={product.price}
+                name="price"
+                value={draft.price}
+                onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
@@ -238,7 +262,9 @@ export default function ProductView() {
                 className="product-view-content-main-item-input"
                 type="number"
                 spellCheck="false"
-                value={product.discount}
+                name="discount"
+                value={draft.discount}
+                onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
@@ -246,12 +272,14 @@ export default function ProductView() {
               <input
                 className="product-view-content-main-item-input"
                 type="number"
-                value={product.countInStock}
+                name="countInStock"
+                value={draft.countInStock}
+                onChange={handleChange}
               />
             </div>
           </div>
           <div className="product-view-content-button">
-            <button className="product-view-content-button-cancel">
+            <button className="product-view-content-button-cancel" onClick={handleCancel}>
               Cancel
             </button>
             <button className="product-view-content-button-save">Save</button>
