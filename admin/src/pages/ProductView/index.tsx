@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 import { PiCameraRotate } from "react-icons/pi";
 import { getReviewByProductId } from "../../api/review";
+import { getBrands } from "../../api/brand";
+import { getCategories } from "../../api/category";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -74,14 +76,17 @@ export default function ProductView() {
   // };
 
   useEffect(() => {
-    const getProduct = async () => {
-      const result = await getProductBySlug(slug);
-      setProduct(result.data[0]);
+    const handleAsync = async () => {
+      const result1 = await getProductBySlug(slug);
+      const result2 = await getBrands();
+      const result3 = await getCategories();
+
+      setProduct(result1.data[0]);
+      setBrands(result2.data);
+      setCategories(result3.data);
     };
 
-    console.log(product);
-
-    getProduct();
+    handleAsync();
   }, [slug]);
 
   useEffect(() => {
@@ -102,7 +107,7 @@ export default function ProductView() {
     getReviews();
   }, [product]);
 
-  if (product === null) return;
+  if (product === null && brands === null && categories === null) return;
 
   return (
     <div className="product-view">
@@ -193,7 +198,7 @@ export default function ProductView() {
                 value={product.brandId?.name}
               />
                 <select value={product.brandId?.name}>
-                  <option value={1}>1</option>
+                  {brands.map(item => <option value={item._id}>{item.name}</option>)}
                 </select>
             </div>
             <div className="product-view-content-main-item">
