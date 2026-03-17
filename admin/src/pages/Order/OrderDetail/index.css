@@ -6,6 +6,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    gap: var(--space-30);
 }
 .order-content-products {
     display: flex;
@@ -59,7 +60,6 @@
 
 .order-summary {
   width: 250px;
-  margin-left: auto;
   padding: 16px;
   border-radius: 12px;
   background: #0f1c3f;

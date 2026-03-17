@@ -56,30 +56,30 @@ const OrderDetail = () => {
             </div>
           ))}
         </div>
+        <div className="order-summary">
+          <div className="row">
+            <span>Subtotal</span>
+            <span>${(1.1111).toFixed(2)}</span>
+          </div>
+
+          <div className="row">
+            <span>Shipping</span>
+            <span>$2.00</span>
+          </div>
+
+          <div className="row">
+            <span>Tax</span>
+            <span>$0.50</span>
+          </div>
+
+          <div className="divider"></div>
+
+          <div className="row total">
+            <span>Total</span>
+            <span>${(1.1111).toFixed(2)}</span>
+          </div>
+        </div>
       </div>
-      <div className="order-summary">
-  <div className="row">
-    <span>Subtotal</span>
-    <span>${1.1111.toFixed(2)}</span>
-  </div>
-
-  <div className="row">
-    <span>Shipping</span>
-    <span>$2.00</span>
-  </div>
-
-  <div className="row">
-    <span>Tax</span>
-    <span>$0.50</span>
-  </div>
-
-  <div className="divider"></div>
-
-  <div className="row total">
-    <span>Total</span>
-    <span>${1.1111.toFixed(2)}</span>
-  </div>
-</div>
     </div>
   );
 };
