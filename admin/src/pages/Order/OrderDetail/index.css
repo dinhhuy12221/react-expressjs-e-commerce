@@ -41,12 +41,12 @@
 .order-content-products-item-price {
     display: flex;
     justify-content: center;
-    gap: var(--space-6);
     font-family: var(--font-dosis);
     font-size: var(--font-18);
 }
 .order-content-products-item-price span {
     width: 80px;
+    text-align: right;
     text-overflow: ellipsis;
     overflow: hidden;
 }

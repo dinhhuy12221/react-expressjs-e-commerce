@@ -8,6 +8,7 @@ import getDiscountPrice from "../../../utils/getDiscountPrice";
 
 const OrderDetail = () => {
   const [order, setOrder] = useState<any>(null);
+  const [subtotal, setSubtotal] = useState<Number>(0);
   const { id } = useParams();
 
   useEffect(() => {
@@ -20,6 +21,13 @@ const OrderDetail = () => {
 
     handleAsync();
   }, [id]);
+
+  // useEffect(() => {
+  //   if (order) {
+  //     const result = order.reduce((acc, item) => acc + item.finalPrice, 0);
+  //     setSubtotal(result);
+  //   }
+  // }, [order]);
 
   if (order === null) return;
 
@@ -59,12 +67,12 @@ const OrderDetail = () => {
         <div className="order-summary">
           <div className="order-summary-row">
             <span>Subtotal</span>
-            <span>${(1.1111).toFixed(2)}</span>
+            <span>${order.totalPrice.toFixed(2)}</span>
           </div>
 
           <div className="order-summary-row">
             <span>Shipping</span>
-            <span>$2.00</span>
+            <span>${order.delivery.toFixed(2)}</span>
           </div>
 
           <div className="order-summary-row">
@@ -76,7 +84,7 @@ const OrderDetail = () => {
 
           <div className="order-summary-row total">
             <span>Total</span>
-            <span>${(1.1111).toFixed(2)}</span>
+            <span>${(order.totalPrice + order.delivery + 0.5).toFixed(2)}</span>
           </div>
         </div>
       </div>
