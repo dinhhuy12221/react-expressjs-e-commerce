@@ -148,7 +148,7 @@ export default function ProductView() {
             to: "/dashboard",
           },
           {
-            name: `${product?.name}`,
+            name: `${product.name}`,
             to: `/product/${slug}`,
           },
         ]}
