@@ -144,6 +144,9 @@ class productController {
       const mappedFiles = fileFields.map((field) => {
         return req.files?.[field]?.[0] || null;
       });
+
+      console.log(mappedFiles);
+      
       const imagesToUpdate = await Promise.all(
         mappedFiles.map(async (file, index) => {
           const existing = images[index];
