@@ -5,6 +5,7 @@ import { createContext, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
+import Loading from "./components/Loading";
 
 const AdminContext = createContext<any>(null);
 
@@ -44,9 +45,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const ok = locList.some(item => item.endsWith(location.pathname))
+    const ok = locList.some((item) => item.endsWith(location.pathname));
     setIsHideSidebarAndHeader(!ok);
-  }, [location])
+  }, [location]);
 
   const openNav = () => {
     setIsOpenNav(!isOpenNav);
@@ -74,23 +75,20 @@ const App = () => {
 
   return (
     <AdminContext.Provider value={values}>
-       {isHideSidebarAndHeader && <Header />}
-      <div className="content">
-        {isHideSidebarAndHeader && <Sidebar />}
-            <div className="content-main">
-          <Routes>
-            {routes &&
-              routes.map((route, index) => {
-                return (
-                    <Route
-                      path={route.path}
-                      element={route.element}
-                    />
-                  );
+      <>
+        {isHideSidebarAndHeader && <Header />}
+        <div className="content">
+          {isHideSidebarAndHeader && <Sidebar />}
+          <div className="content-main">
+            <Routes>
+              {routes &&
+                routes.map((route, index) => {
+                  return <Route path={route.path} element={route.element} />;
                 })}
-          </Routes>
-                </div>
-      </div>
+            </Routes>
+          </div>
+        </div>
+      </>
       {/* </div> */}
     </AdminContext.Provider>
   );

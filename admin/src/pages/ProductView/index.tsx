@@ -1,5 +1,5 @@
 import Rating from "@mui/material/Rating";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import { useAsyncError, useParams } from "react-router-dom";
 import { getProductBySlug, updateProduct } from "../../api/product";
@@ -10,6 +10,7 @@ import { PiCameraRotate } from "react-icons/pi";
 import { getReviewByProductId } from "../../api/review";
 import { getBrands } from "../../api/brand";
 import { getCategories } from "../../api/category";
+import { AdminContext } from "../../App";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -28,6 +29,7 @@ export default function ProductView() {
   const [threeStar, setThreeStar] = useState(0);
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
+  const { setIsLoading } = useContext(AdminContext)
 
   // const reviews = new Array(8).fill(
   //   <div className="product-view-review-item">
@@ -77,12 +79,14 @@ export default function ProductView() {
   // };
 
   const handleChange = (e) => {
+    setIsLoading(true)
     const { name, value } = e.target;
-
+    
     setDraft(prev => ({
       ...prev,
       [name]: value,
     }))
+    setIsLoading(false)
   }
 
   const handleSubmit = async (e) => {
@@ -108,36 +112,45 @@ export default function ProductView() {
       setBrands(result2.data);
       setCategories(result3.data);
     };
+    setIsLoading(true)
 
     handleAsync();
+    setIsLoading(false)
+
   }, [slug]);
 
   useEffect(() => {
     const getReviews = async () => {
-      const result = await getReviewByProductId(product._id);
-      setReviews(result);
-
-      setOneStar(() =>
-        result.reduce((acc, item) => acc + (item.rating === 1 ? 1 : 0), 0)
-      );
-      setTwoStar(() =>
-        result.reduce((acc, item) => acc + (item.rating === 2 ? 1 : 0), 0)
-      );
-      setThreeStar(() =>
-        result.reduce((acc, item) => acc + (item.rating === 3 ? 1 : 0), 0)
-      );
-      setFourStar(() =>
-        result.reduce((acc, item) => acc + (item.rating === 4 ? 1 : 0), 0)
-      );
-      setFiveStar(() =>
-        result.reduce((acc, item) => acc + (item.rating === 5 ? 1 : 0), 0)
-      );
+      if (product !== null) {
+        const result = await getReviewByProductId(product?._id);
+        setReviews(result);
+  
+        setOneStar(() =>
+          result.reduce((acc, item) => acc + (item.rating === 1 ? 1 : 0), 0)
+        );
+        setTwoStar(() =>
+          result.reduce((acc, item) => acc + (item.rating === 2 ? 1 : 0), 0)
+        );
+        setThreeStar(() =>
+          result.reduce((acc, item) => acc + (item.rating === 3 ? 1 : 0), 0)
+        );
+        setFourStar(() =>
+          result.reduce((acc, item) => acc + (item.rating === 4 ? 1 : 0), 0)
+        );
+        setFiveStar(() =>
+          result.reduce((acc, item) => acc + (item.rating === 5 ? 1 : 0), 0)
+        );
+      }
     };
-
+    setIsLoading(true)
     getReviews();
+    setIsLoading(false)
   }, [product]);
 
-  if (product === null || draft === null || brands === null || categories === null) return;
+  if (product === null || draft === null || brands === null || categories === null) {
+    // setIsLoading(true)
+    return
+  }
 
   return (
     <div className="product-view">
@@ -148,14 +161,14 @@ export default function ProductView() {
             to: "/dashboard",
           },
           {
-            name: `${product.name}`,
+            name: `${product?.name}`,
             to: `/product/${slug}`,
           },
         ]}
       />
 
       <div className="product-view-content">
-        <h2>Product ID: #{product._id}</h2>
+        <h2>Product ID: #{product?._id}</h2>
         <form method="PUT" onSubmit={handleSubmit}>
           <div className="product-view-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
@@ -164,7 +177,7 @@ export default function ProductView() {
                   ref={mainImagesSlider}
                   className="product-view-content-images-slider-main"
                 >
-                  {product.images.map(item => <div className="product-view-content-images-slider-main-item">
+                  {product?.images.map(item => <div className="product-view-content-images-slider-main-item">
                     <img
                       src={item.url}
                     />
@@ -175,13 +188,13 @@ export default function ProductView() {
                   ref={sideImagesSlider}
                   className="product-view-content-images-slider-side"
                 >
-                  {product.images.map(item => <div className="product-view-content-images-slider-side-item">
+                  {product?.images.map(item => <div className="product-view-content-images-slider-side-item">
                     <img
                       src={item.url}
                     />
                   </div>)}
                 </Slider> */}
-            {product.images.map((item, index) => (
+            {product?.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
                 <img src={item.url} alt="product" width="120" />
                 <PiCameraRotate />
@@ -198,7 +211,7 @@ export default function ProductView() {
                 spellCheck="false"
                 placeholder="Enter the name"
                 name="name"
-                value={draft.name}
+                value={draft?.name}
                 onChange={handleChange}
               />
             </div>
@@ -209,7 +222,7 @@ export default function ProductView() {
                 spellCheck="false"
                 placeholder="Enter the description"
                 name="description"
-                value={draft.description}
+                value={draft?.description}
                 onChange={handleChange}
               />
             </div>
@@ -220,12 +233,12 @@ export default function ProductView() {
                 type="text"
                 spellCheck="false"
                 placeholder="Enter the category"
-                value={product.categoryId.name}
+                value={product?.categoryId.name}
               /> */}
               <select
                 className="product-view-content-main-item-input"
                 name="categoryId"
-                value={draft.categoryId}
+                value={draft?.categoryId}
                 onChange={handleChange}
               >
                 <option value={""} >Choose a category ...</option>
@@ -240,12 +253,12 @@ export default function ProductView() {
                 className="product-view-content-main-item-input"
                 type="text"
                 placeholder="Enter the brand"
-                value={product.brandId?.name}
+                value={product?.brandId?.name}
               /> */}
               <select
                 className="product-view-content-main-item-input"
                 name="brandId"
-                value={draft.brandId}
+                value={draft?.brandId}
                 onChange={handleChange}
               >
                 <option value={""} >Choose a brand...</option>
@@ -261,7 +274,7 @@ export default function ProductView() {
                 type="number"
                 spellCheck="false"
                 name="price"
-                value={draft.price}
+                value={draft?.price}
                 onChange={handleChange}
               />
             </div>
@@ -272,7 +285,7 @@ export default function ProductView() {
                 type="number"
                 spellCheck="false"
                 name="discount"
-                value={draft.discount}
+                value={draft?.discount}
                 onChange={handleChange}
               />
             </div>
@@ -282,7 +295,7 @@ export default function ProductView() {
                 className="product-view-content-main-item-input"
                 type="number"
                 name="countInStock"
-                value={draft.countInStock}
+                value={draft?.countInStock}
                 onChange={handleChange}
               />
             </div>
@@ -298,7 +311,7 @@ export default function ProductView() {
         <div className="product-view-rating">
           <h3>Rating</h3>
           <Rating
-            value={product.rating}
+            value={product?.rating}
             precision={0.5}
             readOnly
             sx={{
