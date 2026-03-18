@@ -138,60 +138,60 @@ class productController {
 
   async updateProduct(req, res) {
     try {
-      // const imagesToUpload = await Promise.all(
-      //   req.files.map(async (image, index) => {
-      //     const result = await cloudinary.v2.uploader.upload(image.path, {
-      //       folder: `ecommerce/products/${counter}`,
-      //     });
-      //     return {
-      //       url: result.secure_url,
-      //       public_id: result.public_id,
-      //     };
-      //   })
-      // );
-      // const product = await Product.findByIdAndUpdate(req.params.id, {
-      //   name: req.body.name,
-      //   description: req.body.description,
-      //   images: req.body.images,
-      //   brand: req.body.brand,
-      //   price: req.body.price,
-      //   category: req.body.category,
-      //   countInStock: req.body.countInStock,
-      //   rating: req.body.rating,
-      //   numReviews: req.body.numReviews,
-      //   isFeatured: req.body.isFeatured,
-      // });
+      const imagesToUpload = await Promise.all(
+        req.files.map(async (image, index) => {
+          const result = await cloudinary.v2.uploader.upload(image.path, {
+            folder: `ecommerce/products/${counter}`,
+          });
+          return {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        })
+      );
+      const product = await Product.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        description: req.body.description,
+        images: req.body.images,
+        brand: req.body.brand,
+        price: req.body.price,
+        category: req.body.category,
+        countInStock: req.body.countInStock,
+        rating: req.body.rating,
+        numReviews: req.body.numReviews,
+        isFeatured: req.body.isFeatured,
+      });
 
-      // if (!product) {
-      //   return res.status(404).json({
-      //     message: "The product can not be updated!",
-      //   });
-      // }
-
-      // 1. find product
-      const product = await Product.findById(req.params.id);
-
-      // 2. delete ALL old images
-      for (const img of product.images) {
-        await cloudinary.v2.uploader.destroy(img.public_id);
-      }
-
-      // 3. upload new images
-      const newImages = [];
-      for (const file of req.files || []) {
-        const result = await cloudinary.v2.uploader.upload(file.path);
-
-        newImages.push({
-          url: result.secure_url,
-          public_id: result.public_id,
+      if (!product) {
+        return res.status(404).json({
+          message: "The product can not be updated!",
         });
       }
 
-      // 4. update product
-      product.images = newImages;
-      Object.assign(product, req.body);
+      // // 1. find product
+      // const product = await Product.findById(req.params.id);
 
-      await product.save();
+      // // 2. delete ALL old images
+      // for (const img of product.images) {
+      //   await cloudinary.v2.uploader.destroy(img.public_id);
+      // }
+
+      // // 3. upload new images
+      // const newImages = [];
+      // for (const file of req.files || []) {
+      //   const result = await cloudinary.v2.uploader.upload(file.path);
+
+      //   newImages.push({
+      //     url: result.secure_url,
+      //     public_id: result.public_id,
+      //   });
+      // }
+
+      // // 4. update product
+      // product.images = newImages;
+      // Object.assign(product, req.body);
+
+      // await product.save();
 
       res.status(201).json({
         message: "The product is updated!",
