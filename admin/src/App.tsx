@@ -5,6 +5,7 @@ import { createContext, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
+import Loading from "./components/Loading";
 
 const AdminContext = createContext<any>(null);
 
@@ -14,6 +15,7 @@ const App = () => {
   const [isHideSidebarAndHeader, setIsHideSidebarAndHeader] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [themeMode, setThemeMode] = useState(false);
   const location = useLocation();
   const locList = ["/login", "/signup"];
@@ -43,9 +45,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const ok = locList.some(item => item.endsWith(location.pathname))
+    const ok = locList.some((item) => item.endsWith(location.pathname));
     setIsHideSidebarAndHeader(!ok);
-  }, [location])
+  }, [location]);
 
   const openNav = () => {
     setIsOpenNav(!isOpenNav);
@@ -65,34 +67,29 @@ const App = () => {
     openNav,
     isOpenNav,
     setIsOpenNav,
+    isLoading,
+    setIsLoading,
   };
 
   useEffect(() => {}, [isToggleSidebar]);
 
   return (
     <AdminContext.Provider value={values}>
-       {isHideSidebarAndHeader && <Header />}
-      <div className="content">
-        {isHideSidebarAndHeader && <Sidebar />}
-        {/* <div
-          className={`sidebar-content ${
-            isHideSidebarAndHeader === true && "full"
-          } ${isToggleSidebar === true ? "toggle" : ""}`}
-        > */}
-            <div className="content-main">
-          <Routes>
-            {routes &&
-              routes.map((route, index) => {
-                return (
-                    <Route
-                      path={route.path}
-                      element={route.element}
-                    />
-                  );
+      <>
+        {isHideSidebarAndHeader && <Header />}
+        <div className="content">
+          {isHideSidebarAndHeader && <Sidebar />}
+          {isLoading && <Loading />}
+          <div className="content-main">
+            <Routes>
+              {routes &&
+                routes.map((route, index) => {
+                  return <Route path={route.path} element={route.element} />;
                 })}
-          </Routes>
-                </div>
-      </div>
+            </Routes>
+          </div>
+        </div>
+      </>
       {/* </div> */}
     </AdminContext.Provider>
   );
