@@ -20,7 +20,7 @@ import { AdminContext } from "../../App";
 export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
-  const [draft, setDraft] = useState<any>(null)
+  const [draft, setDraft] = useState<any>(null);
   const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
@@ -29,8 +29,8 @@ export default function ProductView() {
   const [threeStar, setThreeStar] = useState(0);
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
-  const { setIsLoading } = useContext(AdminContext)
-  
+  const { setIsLoading } = useContext(AdminContext);
+
   // const reviews = new Array(8).fill(
   //   <div className="product-view-review-item">
   //     <div className="product-view-review-item-header">
@@ -80,43 +80,57 @@ export default function ProductView() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
-    setDraft(prev => ({
+
+    setDraft((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    setDraft(prev => ({
+      ...prev,
+      image: file
+    }));
+  };
+
+  const handleAsync = async () => {
+    setIsLoading(true);
+    const result1 = await getProductBySlug(slug);
+    const result2 = await getBrands();
+    const result3 = await getCategories();
+    setIsLoading(false);
+
+    setProduct(result1.data[0]);
+    setDraft(result1.data[0]);
+    setBrands(result2.data);
+    setCategories(result3.data);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await updateProduct(draft)
-  }
+    await updateProduct(draft);
+    await handleAsync()
+  };
 
   const handleCancel = () => {
     setDraft(product);
   };
 
   useEffect(() => {
-    const handleAsync = async () => {
-      const result1 = await getProductBySlug(slug);
-      const result2 = await getBrands();
-      const result3 = await getCategories();
-
-      setProduct(result1.data[0]);
-      setDraft(result1.data[0]);
-      setBrands(result2.data);
-      setCategories(result3.data);
-    };
     handleAsync();
-
   }, [slug]);
 
   useEffect(() => {
     const getReviews = async () => {
       if (product !== null) {
+        setIsLoading(true);
+
         const result = await getReviewByProductId(product?._id);
         setReviews(result);
-  
+
         setOneStar(() =>
           result.reduce((acc, item) => acc + (item.rating === 1 ? 1 : 0), 0)
         );
@@ -132,16 +146,19 @@ export default function ProductView() {
         setFiveStar(() =>
           result.reduce((acc, item) => acc + (item.rating === 5 ? 1 : 0), 0)
         );
+        setIsLoading(false);
       }
     };
     getReviews();
   }, [product]);
 
-  if (product === null || draft === null || brands === null || categories === null) {
-    setIsLoading(true)
-    return
-  } else {
-    setIsLoading(false)
+  if (
+    product === null ||
+    draft === null ||
+    brands === null ||
+    categories === null
+  ) {
+    return;
   }
 
   return (
@@ -186,9 +203,9 @@ export default function ProductView() {
                     />
                   </div>)}
                 </Slider> */}
-            {product?.images.map((item, index) => (
+            {draft?.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
-                <img src={item.url} alt="product" width="120" />
+                <img src={item.url} alt="product" width="120" onChange={} />
                 <PiCameraRotate />
                 <input type="file" />
               </div>
@@ -233,7 +250,7 @@ export default function ProductView() {
                 value={draft?.categoryId}
                 onChange={handleChange}
               >
-                <option value={""} >Choose a category ...</option>
+                <option value={""}>Choose a category ...</option>
                 {categories.map((item) => (
                   <option value={item}>{item.name}</option>
                 ))}
@@ -253,7 +270,7 @@ export default function ProductView() {
                 value={draft?.brandId}
                 onChange={handleChange}
               >
-                <option value={""} >Choose a brand...</option>
+                <option value={""}>Choose a brand...</option>
                 {brands.map((item) => (
                   <option value={item}>{item.name}</option>
                 ))}
@@ -293,10 +310,16 @@ export default function ProductView() {
             </div>
           </div>
           <div className="product-view-content-button">
-            <button type="button" className="product-view-content-button-cancel" onClick={handleCancel}>
+            <button
+              type="button"
+              className="product-view-content-button-cancel"
+              onClick={handleCancel}
+            >
               Cancel
             </button>
-            <button type="submit" className="product-view-content-button-save">Save</button>
+            <button type="submit" className="product-view-content-button-save">
+              Save
+            </button>
           </div>
         </form>
 
@@ -324,7 +347,13 @@ export default function ProductView() {
                 style={{ width: "100%" }}
               >
                 <div
-                  style={{ width: `${fiveStar === 0 ? fiveStar : (fiveStar * 100) / reviews?.length}%` }}
+                  style={{
+                    width: `${
+                      fiveStar === 0
+                        ? fiveStar
+                        : (fiveStar * 100) / reviews?.length
+                    }%`,
+                  }}
                 ></div>
               </div>
             </div>
@@ -337,7 +366,13 @@ export default function ProductView() {
                 style={{ width: "100%" }}
               >
                 <div
-                  style={{ width: `${fourStar === 0 ? fourStar : (fourStar * 100) / reviews?.length}%` }}
+                  style={{
+                    width: `${
+                      fourStar === 0
+                        ? fourStar
+                        : (fourStar * 100) / reviews?.length
+                    }%`,
+                  }}
                 ></div>
               </div>
             </div>
@@ -350,7 +385,13 @@ export default function ProductView() {
                 style={{ width: "100%" }}
               >
                 <div
-                  style={{ width: `${threeStar === 0 ? threeStar : (threeStar * 100) / reviews?.length}%` }}
+                  style={{
+                    width: `${
+                      threeStar === 0
+                        ? threeStar
+                        : (threeStar * 100) / reviews?.length
+                    }%`,
+                  }}
                 ></div>
               </div>
             </div>
@@ -363,7 +404,13 @@ export default function ProductView() {
                 style={{ width: "100%" }}
               >
                 <div
-                  style={{ width: `${twoStar === 0 ? twoStar : (twoStar * 100) / reviews?.length}%` }}
+                  style={{
+                    width: `${
+                      twoStar === 0
+                        ? twoStar
+                        : (twoStar * 100) / reviews?.length
+                    }%`,
+                  }}
                 ></div>
               </div>
             </div>
@@ -376,7 +423,13 @@ export default function ProductView() {
                 style={{ width: "100%" }}
               >
                 <div
-                  style={{ width: `${oneStar === 0 ? oneStar : (oneStar * 100) / reviews?.length}%` }}
+                  style={{
+                    width: `${
+                      oneStar === 0
+                        ? oneStar
+                        : (oneStar * 100) / reviews?.length
+                    }%`,
+                  }}
                 ></div>
               </div>
             </div>
