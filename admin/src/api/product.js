@@ -42,12 +42,23 @@ const createProduct = async (values) => {
 };
 const updateProduct = async (values) => {
   try {
+    const formData = new FormData()
+    
+    Object.keys(values).forEach(key => {
+      console.log(key);
+      
+      if (key !== "imageFiles") {
+        formData.append(key, values[key])
+      }
+    })
+
+    values.imageFiles.map((item, index) => {
+      formData.append(`image_file_${index}`, item || "")
+    })
+
     const productList = await fetch(BASE_URL + "/product/" + values._id, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
+      body: formData,
     }).then((result) => result.json());
     return productList;
   } catch (error) {

@@ -138,65 +138,83 @@ class productController {
 
   async updateProduct(req, res) {
     try {
-      // const imagesToUpload = await Promise.all(
-      //   req.files.map(async (image, index) => {
-      //     const result = await cloudinary.v2.uploader.upload(image.path, {
-      //       folder: `ecommerce/products/${counter}`,
-      //     });
-      //     return {
-      //       url: result.secure_url,
-      //       public_id: result.public_id,
-      //     };
-      //   })
-      // );
-      // const product = await Product.findByIdAndUpdate(req.params.id, {
-      //   name: req.body.name,
-      //   description: req.body.description,
-      //   images: req.body.images,
-      //   brand: req.body.brand,
-      //   price: req.body.price,
-      //   category: req.body.category,
-      //   countInStock: req.body.countInStock,
-      //   rating: req.body.rating,
-      //   numReviews: req.body.numReviews,
-      //   isFeatured: req.body.isFeatured,
-      // });
+      const { images } = req.body;
+      const fileFields = ["image_file_0", "image_file_1", "image_file_2"];
 
-      // if (!product) {
-      //   return res.status(404).json({
-      //     message: "The product can not be updated!",
-      //   });
-      // }
+      const mappedFiles = fileFields.map((field) => {
+        return req.files?.[field]?.[0] || null;
+      });
+      const imagesToUpdate = await Promise.all(
+        mappedFiles.map(async (file, index) => {
+          const existing = images[index];
+          console.log(file);
 
-      // 1. find product
-      const product = await Product.findById(req.params.id);
+          if (file) {
+            const result = await cloudinary.v2.uploader.upload(file.path, {
+              public_id: existing?.public_id,
+              overwrite: true,
+            });
+            return {
+              url: result.secure_url,
+              public_id: result.public_id,
+            };
+          }
 
-      // 2. delete ALL old images
-      for (const img of product.images) {
-        await cloudinary.v2.uploader.destroy(img.public_id);
-      }
+          return existing
+        })
+      );
 
-      // 3. upload new images
-      const newImages = [];
-      for (const file of req.files || []) {
-        const result = await cloudinary.v2.uploader.upload(file.path);
+      console.log(imagesToUpdate);
 
-        newImages.push({
-          url: result.secure_url,
-          public_id: result.public_id,
+      if (imagesToUpdate) {
+        const product = await Product.findByIdAndUpdate(req.params.id, {
+          name: req.body.name,
+          description: req.body.description,
+          images: imagesToUpdate,
+          brand: req.body.brand,
+          price: req.body.price,
+          category: req.body.category,
+          countInStock: req.body.countInStock,
+          rating: req.body.rating,
+          numReviews: req.body.numReviews,
+          isFeatured: req.body.isFeatured,
+        });
+
+        if (!product) {
+          return res.status(404).json({
+            message: "The product can not be updated!",
+          });
+        }
+        res.status(201).json({
+          message: "The product is updated!",
+          data: product,
         });
       }
 
-      // 4. update product
-      product.images = newImages;
-      Object.assign(product, req.body);
+      // // 1. find product
+      // const product = await Product.findById(req.params.id);
 
-      await product.save();
+      // // 2. delete ALL old images
+      // for (const img of product.images) {
+      //   await cloudinary.v2.uploader.destroy(img.public_id);
+      // }
 
-      res.status(201).json({
-        message: "The product is updated!",
-        data: product,
-      });
+      // // 3. upload new images
+      // const newImages = [];
+      // for (const file of req.files || []) {
+      //   const result = await cloudinary.v2.uploader.upload(file.path);
+
+      //   newImages.push({
+      //     url: result.secure_url,
+      //     public_id: result.public_id,
+      //   });
+      // }
+
+      // // 4. update product
+      // product.images = newImages;
+      // Object.assign(product, req.body);
+
+      // await product.save();
     } catch (error) {
       res.status(500).json({
         message: "Internal server error",

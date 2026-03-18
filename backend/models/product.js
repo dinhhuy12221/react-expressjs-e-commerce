@@ -28,6 +28,10 @@ const productSchema = Schema(
     },
     images: [
       {
+        // index: {
+        //   type: number,
+        //   required: true,
+        // },
         url: {
           type: String,
           required: true,
@@ -60,10 +64,6 @@ const productSchema = Schema(
       required: true,
     },
     rating: {
-      type: Number,
-      default: 0,
-    },
-    numReviews: {
       type: Number,
       default: 0,
     },

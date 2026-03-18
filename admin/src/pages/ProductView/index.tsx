@@ -21,6 +21,7 @@ export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
   const [draft, setDraft] = useState<any>(null);
+  const [imageFiles, setImageFiles] = useState<any>(new Array(3).fill(null));
   const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
@@ -87,14 +88,31 @@ export default function ProductView() {
     }));
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = (e, index) => {
     const file = e.target.files[0];
+    const preview = URL.createObjectURL(file);
 
-    setDraft(prev => ({
-      ...prev,
-      image: file
-    }));
+    setImageFiles((prev) => {
+      const newImageFiles = [...prev];
+      newImageFiles[index] = file;
+      return newImageFiles;
+    });
+
+    setDraft((prev) => {
+      const newImages = prev.images;
+
+      newImages[index] = {
+        ...newImages[index],
+        url: preview,
+      };
+
+      return {
+        ...prev,
+        newImages,
+      };
+    });
   };
+console.log(imageFiles);
 
   const handleAsync = async () => {
     setIsLoading(true);
@@ -111,8 +129,15 @@ export default function ProductView() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateProduct(draft);
-    await handleAsync()
+
+    console.log(draft);
+    
+    const payload = {
+      ...draft,
+      imageFiles,
+    };
+    await updateProduct(payload);
+    await handleAsync();
   };
 
   const handleCancel = () => {
@@ -205,9 +230,12 @@ export default function ProductView() {
                 </Slider> */}
             {draft?.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
-                <img src={item.url} alt="product" width="120" onChange={} />
+                <img src={item.url} alt="product" width="120" />
                 <PiCameraRotate />
-                <input type="file" />
+                <input
+                  type="file"
+                  onChange={(e) => handleImageChange(e, index)}
+                />
               </div>
             ))}
           </div>
