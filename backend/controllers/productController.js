@@ -138,12 +138,13 @@ class productController {
 
   async updateProduct(req, res) {
     try {
+      const { images } = req.body
       const imagesToUpdate = await Promise.all(
         req.files.map(async (image, index) => {
-          const { images } = req.body
-          if (image !== null) {
+          const existing = images[index]
+          if (image) {
             const result = await cloudinary.v2.uploader.upload(image.path, {
-              public_id: images[index].public_id,
+              public_id: existing?.public_id,
               overwrite: true,
             });
             return {
@@ -153,11 +154,14 @@ class productController {
           }
 
           return {
-            url: images[index].url,
-            public_id: images[index].public_id,
+            url: existing?.url,
+            public_id: existing?.public_id,
           }
         })
       );
+
+      console.log(imagesToUpdate);
+      
 
       if (imagesToUpdate) {
         const product = await Product.findByIdAndUpdate(req.params.id, {
@@ -178,6 +182,10 @@ class productController {
             message: "The product can not be updated!",
           });
         }
+         res.status(201).json({
+        message: "The product is updated!",
+        data: product,
+      });
       }
 
       // // 1. find product
@@ -205,10 +213,7 @@ class productController {
 
       // await product.save();
 
-      res.status(201).json({
-        message: "The product is updated!",
-        data: product,
-      });
+     
     } catch (error) {
       res.status(500).json({
         message: "Internal server error",
