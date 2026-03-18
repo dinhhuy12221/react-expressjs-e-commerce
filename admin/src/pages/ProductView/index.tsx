@@ -29,8 +29,7 @@ export default function ProductView() {
   const [threeStar, setThreeStar] = useState(0);
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
-  const { isLoading, setIsLoading } = useContext(AdminContext)
-  console.log(isLoading);
+  const { setIsLoading } = useContext(AdminContext)
   
   // const reviews = new Array(8).fill(
   //   <div className="product-view-review-item">
