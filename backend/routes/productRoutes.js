@@ -14,7 +14,7 @@ router.get("/id/:id", productController.getProductById);
 router.get("/:slug", productController.getProductBySlug);
 router.put(
   "/:id",
-  upload.array([
+  upload.fields([
     { name: "image_file_0", maxCount: 1 },
     { name: "image_file_1", maxCount: 1 },
     { name: "image_file_2", maxCount: 1 },

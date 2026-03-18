@@ -160,7 +160,7 @@ class productController {
             };
           }
 
-          return existing
+          return { url: existing.url, public_id: existing.public_id };
         })
       );
 
@@ -216,6 +216,8 @@ class productController {
 
       // await product.save();
     } catch (error) {
+      console.log(error);
+
       res.status(500).json({
         message: "Internal server error",
         error: error.message,
