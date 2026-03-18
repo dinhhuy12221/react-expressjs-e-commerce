@@ -86,6 +86,16 @@ export default function ProductView() {
       [name]: value,
     }));
   };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    setDraft(prev => ({
+      ...prev,
+      image: file
+    }));
+  };
+
   const handleAsync = async () => {
     setIsLoading(true);
     const result1 = await getProductBySlug(slug);
@@ -193,9 +203,9 @@ export default function ProductView() {
                     />
                   </div>)}
                 </Slider> */}
-            {product?.images.map((item, index) => (
+            {draft?.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
-                <img src={item.url} alt="product" width="120" />
+                <img src={item.url} alt="product" width="120" onChange={} />
                 <PiCameraRotate />
                 <input type="file" />
               </div>
