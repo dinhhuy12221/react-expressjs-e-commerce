@@ -8,7 +8,10 @@ class productController {
   async getProductList(req, res, next) {
     try {
       // verifyJWT(req, res, next)
-      const productList = await Product.find({}).populate(["categoryId", "brandId"]);
+      const productList = await Product.find({}).populate([
+        "categoryId",
+        "brandId",
+      ]);
       res.status(200).send(productList);
     } catch (error) {
       res.status(404).json({
@@ -21,12 +24,17 @@ class productController {
   // GET product by slug
   async getProductBySlug(req, res) {
     try {
-      const product = await Product.find({ slug: req.params.slug }).populate(["categoryId", "brandId"]);
+      const product = await Product.find({ slug: req.params.slug }).populate([
+        "categoryId",
+        "brandId",
+      ]);
 
       res.status(201).json({ message: "Product is found", data: product });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Internal server error", error: error.message });
+      res
+        .status(500)
+        .json({ message: "Internal server error", error: error.message });
     }
   }
   // GET product by id
@@ -129,30 +137,72 @@ class productController {
   }
 
   async updateProduct(req, res) {
-    const product = await Product.findByIdAndUpdate(req.params.id, {
-      name: req.body.name,
-      description: req.body.description,
-      images: req.body.images,
-      brand: req.body.brand,
-      price: req.body.price,
-      category: req.body.category,
-      countInStock: req.body.countInStock,
-      rating: req.body.rating,
-      numReivews: req.body.numReivews,
-      isFeatured: req.body.isFeatured,
-    });
+    try {
+      // const imagesToUpload = await Promise.all(
+      //   req.files.map(async (image, index) => {
+      //     const result = await cloudinary.v2.uploader.upload(image.path, {
+      //       folder: `ecommerce/products/${counter}`,
+      //     });
+      //     return {
+      //       url: result.secure_url,
+      //       public_id: result.public_id,
+      //     };
+      //   })
+      // );
+      // const product = await Product.findByIdAndUpdate(req.params.id, {
+      //   name: req.body.name,
+      //   description: req.body.description,
+      //   images: req.body.images,
+      //   brand: req.body.brand,
+      //   price: req.body.price,
+      //   category: req.body.category,
+      //   countInStock: req.body.countInStock,
+      //   rating: req.body.rating,
+      //   numReviews: req.body.numReviews,
+      //   isFeatured: req.body.isFeatured,
+      // });
 
-    if (!product) {
-      res.status(404).json({
-        message: "The product can not be updated!",
-        status: false,
+      // if (!product) {
+      //   return res.status(404).json({
+      //     message: "The product can not be updated!",
+      //   });
+      // }
+
+      // 1. find product
+      const product = await Product.findById(req.params.id);
+
+      // 2. delete ALL old images
+      for (const img of product.images) {
+        await cloudinary.v2.uploader.destroy(img.public_id);
+      }
+
+      // 3. upload new images
+      const newImages = [];
+      for (const file of req.files || []) {
+        const result = await cloudinary.v2.uploader.upload(file.path);
+
+        newImages.push({
+          url: result.secure_url,
+          public_id: result.public_id,
+        });
+      }
+
+      // 4. update product
+      product.images = newImages;
+      Object.assign(product, req.body);
+
+      await product.save();
+
+      res.status(201).json({
+        message: "The product is updated!",
+        data: product,
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
       });
     }
-
-    return res.status(200).json({
-      message: "The product is updated!",
-      status: true,
-    });
   }
 }
 
