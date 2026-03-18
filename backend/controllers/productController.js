@@ -138,34 +138,46 @@ class productController {
 
   async updateProduct(req, res) {
     try {
-      const imagesToUpload = await Promise.all(
+      const imagesToUpdate = await Promise.all(
         req.files.map(async (image, index) => {
-          const result = await cloudinary.v2.uploader.upload(image.path, {
-            folder: `ecommerce/products/${counter}`,
-          });
+          const { images } = req.body
+          if (image !== null) {
+            const result = await cloudinary.v2.uploader.upload(image.path, {
+              public_id: images[index].public_id,
+              overwrite: true,
+            });
+            return {
+              url: result.secure_url,
+              public_id: result.public_id,
+            };
+          }
+
           return {
-            url: result.secure_url,
-            public_id: result.public_id,
-          };
+            url: images[index].url,
+            public_id: images[index].public_id,
+          }
         })
       );
-      const product = await Product.findByIdAndUpdate(req.params.id, {
-        name: req.body.name,
-        description: req.body.description,
-        images: req.body.images,
-        brand: req.body.brand,
-        price: req.body.price,
-        category: req.body.category,
-        countInStock: req.body.countInStock,
-        rating: req.body.rating,
-        numReviews: req.body.numReviews,
-        isFeatured: req.body.isFeatured,
-      });
 
-      if (!product) {
-        return res.status(404).json({
-          message: "The product can not be updated!",
+      if (imagesToUpdate) {
+        const product = await Product.findByIdAndUpdate(req.params.id, {
+          name: req.body.name,
+          description: req.body.description,
+          images: imagesToUpdate,
+          brand: req.body.brand,
+          price: req.body.price,
+          category: req.body.category,
+          countInStock: req.body.countInStock,
+          rating: req.body.rating,
+          numReviews: req.body.numReviews,
+          isFeatured: req.body.isFeatured,
         });
+
+        if (!product) {
+          return res.status(404).json({
+            message: "The product can not be updated!",
+          });
+        }
       }
 
       // // 1. find product
