@@ -92,11 +92,11 @@ export default function ProductView() {
     const file = e.target.files[0];
     const preview = URL.createObjectURL(file);
 
-    setImages(prev => {
-      const newImages = [...prev]
-      newImages[index] = file
-      return newImages
-    })
+    setImages((prev) => {
+      const newImages = [...prev];
+      newImages[index] = file;
+      return newImages;
+    });
 
     setDraft((prev) => {
       const newImages = prev.images;
@@ -115,7 +115,7 @@ export default function ProductView() {
 
   console.log(draft);
   console.log(images);
-  
+
   const handleAsync = async () => {
     setIsLoading(true);
     const result1 = await getProductBySlug(slug);
@@ -131,11 +131,11 @@ export default function ProductView() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const payload = {
       ...draft,
-      images: images.map(item => ({ image_file: item }))
-    }
+      images: images.map((item) => ({ image_file: item })),
+    };
     await updateProduct(payload);
     await handleAsync();
   };
