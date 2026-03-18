@@ -45,16 +45,19 @@ const updateProduct = async (values) => {
     const formData = new FormData()
     
     Object.keys(values).forEach(key => {
-      if (key !== "images") {
+      if (key !== "imageFiles") {
         formData.append(key, values[key])
       }
     })
 
-    values.images.map(item => {
-      formData.append("image_file", item ?? null)
+    values.imageFiles.map(item => {
+      formData.append("image_file", item)
+      console.log(item);
     })
+    
 
     const productList = await fetch(BASE_URL + "/product/" + values._id, {
+      method: "PUT",
       body: formData,
     }).then((result) => result.json());
     return productList;

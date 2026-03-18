@@ -21,7 +21,7 @@ export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
   const [draft, setDraft] = useState<any>(null);
-  const [images, setImages] = useState<any>(new Array(3).fill(null));
+  const [imageFiles, setImageFiles] = useState<any>(new Array(3).fill(null));
   const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
@@ -92,10 +92,10 @@ export default function ProductView() {
     const file = e.target.files[0];
     const preview = URL.createObjectURL(file);
 
-    setImages((prev) => {
-      const newImages = [...prev];
-      newImages[index] = file;
-      return newImages;
+    setImageFiles((prev) => {
+      const newImageFiles = [...prev];
+      newImageFiles[index] = file;
+      return newImageFiles;
     });
 
     setDraft((prev) => {
@@ -112,9 +112,6 @@ export default function ProductView() {
       };
     });
   };
-
-  console.log(draft);
-  console.log(images);
 
   const handleAsync = async () => {
     setIsLoading(true);
@@ -134,7 +131,7 @@ export default function ProductView() {
 
     const payload = {
       ...draft,
-      images: images.map((item) => ({ image_file: item })),
+      imageFiles: imageFiles.map((item) => item),
     };
     await updateProduct(payload);
     await handleAsync();
