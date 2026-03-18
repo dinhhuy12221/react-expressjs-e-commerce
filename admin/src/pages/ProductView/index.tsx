@@ -29,8 +29,9 @@ export default function ProductView() {
   const [threeStar, setThreeStar] = useState(0);
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
-  const { setIsLoading } = useContext(AdminContext)
-
+  const { isLoading, setIsLoading } = useContext(AdminContext)
+  console.log(isLoading);
+  
   // const reviews = new Array(8).fill(
   //   <div className="product-view-review-item">
   //     <div className="product-view-review-item-header">
@@ -79,22 +80,17 @@ export default function ProductView() {
   // };
 
   const handleChange = (e) => {
-    setIsLoading(true)
     const { name, value } = e.target;
     
     setDraft(prev => ({
       ...prev,
       [name]: value,
     }))
-    setIsLoading(false)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result = await updateProduct(draft)
-    console.log(result);
-    
-    // setProduct(result)
   }
 
   const handleCancel = () => {
@@ -112,10 +108,7 @@ export default function ProductView() {
       setBrands(result2.data);
       setCategories(result3.data);
     };
-    setIsLoading(true)
-
     handleAsync();
-    setIsLoading(false)
 
   }, [slug]);
 
@@ -142,14 +135,14 @@ export default function ProductView() {
         );
       }
     };
-    setIsLoading(true)
     getReviews();
-    setIsLoading(false)
   }, [product]);
 
   if (product === null || draft === null || brands === null || categories === null) {
-    // setIsLoading(true)
+    setIsLoading(true)
     return
+  } else {
+    setIsLoading(false)
   }
 
   return (

@@ -4,6 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(240, 240, 240, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1000;
 }

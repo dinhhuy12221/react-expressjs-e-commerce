@@ -79,6 +79,7 @@ const App = () => {
         {isHideSidebarAndHeader && <Header />}
         <div className="content">
           {isHideSidebarAndHeader && <Sidebar />}
+          {isLoading && <Loading />}
           <div className="content-main">
             <Routes>
               {routes &&
