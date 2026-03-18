@@ -137,10 +137,6 @@ export default function ProductView() {
     getReviews();
   }, [product]);
 
-  console.log(1, draft.categoryId);
-  console.log(2, categories[0]);
-  
-
   if (product === null || draft === null || brands === null || categories === null) return;
 
   return (

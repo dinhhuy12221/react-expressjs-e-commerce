@@ -14,6 +14,7 @@ const App = () => {
   const [isHideSidebarAndHeader, setIsHideSidebarAndHeader] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [themeMode, setThemeMode] = useState(false);
   const location = useLocation();
   const locList = ["/login", "/signup"];
@@ -65,6 +66,8 @@ const App = () => {
     openNav,
     isOpenNav,
     setIsOpenNav,
+    isLoading,
+    setIsLoading,
   };
 
   useEffect(() => {}, [isToggleSidebar]);
@@ -74,11 +77,6 @@ const App = () => {
        {isHideSidebarAndHeader && <Header />}
       <div className="content">
         {isHideSidebarAndHeader && <Sidebar />}
-        {/* <div
-          className={`sidebar-content ${
-            isHideSidebarAndHeader === true && "full"
-          } ${isToggleSidebar === true ? "toggle" : ""}`}
-        > */}
             <div className="content-main">
           <Routes>
             {routes &&

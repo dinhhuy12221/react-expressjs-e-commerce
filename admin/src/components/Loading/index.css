@@ -1,0 +1,9 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(240, 240, 240, 0.7);
+  z-index: 1000;
+}
