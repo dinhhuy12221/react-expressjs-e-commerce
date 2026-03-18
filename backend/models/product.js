@@ -28,10 +28,10 @@ const productSchema = Schema(
     },
     images: [
       {
-        index: {
-          type: number,
-          required: true,
-        },
+        // index: {
+        //   type: number,
+        //   required: true,
+        // },
         url: {
           type: String,
           required: true,

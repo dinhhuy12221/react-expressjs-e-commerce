@@ -138,14 +138,19 @@ class productController {
 
   async updateProduct(req, res) {
     try {
-      const { images } = req.body
+      const { images } = req.body;
+      const fileFields = ["image_file_0", "image_file_1", "image_file_2"];
+
+      const mappedFiles = fileFields.map((field) => {
+        return req.files?.[field]?.[0] || null;
+      });
       const imagesToUpdate = await Promise.all(
-        req.files.map(async (image, index) => {
-          const existing = images[index]
-          console.log(image);
-          
-          if (image !== null) {
-            const result = await cloudinary.v2.uploader.upload(image.path, {
+        mappedFiles.map(async (file, index) => {
+          const existing = images[index];
+          console.log(file);
+
+          if (file) {
+            const result = await cloudinary.v2.uploader.upload(file.path, {
               public_id: existing?.public_id,
               overwrite: true,
             });
@@ -155,15 +160,11 @@ class productController {
             };
           }
 
-          return {
-            url: existing?.url,
-            public_id: existing?.public_id,
-          }
+          return existing
         })
       );
 
       console.log(imagesToUpdate);
-      
 
       if (imagesToUpdate) {
         const product = await Product.findByIdAndUpdate(req.params.id, {
@@ -184,10 +185,10 @@ class productController {
             message: "The product can not be updated!",
           });
         }
-         res.status(201).json({
-        message: "The product is updated!",
-        data: product,
-      });
+        res.status(201).json({
+          message: "The product is updated!",
+          data: product,
+        });
       }
 
       // // 1. find product
@@ -214,8 +215,6 @@ class productController {
       // Object.assign(product, req.body);
 
       // await product.save();
-
-     
     } catch (error) {
       res.status(500).json({
         message: "Internal server error",
