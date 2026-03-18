@@ -112,6 +112,7 @@ export default function ProductView() {
       };
     });
   };
+console.log(imageFiles);
 
   const handleAsync = async () => {
     setIsLoading(true);
@@ -129,9 +130,11 @@ export default function ProductView() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log(draft);
+    
     const payload = {
       ...draft,
-      imageFiles: imageFiles.map((item) => item),
+      imageFiles,
     };
     await updateProduct(payload);
     await handleAsync();
