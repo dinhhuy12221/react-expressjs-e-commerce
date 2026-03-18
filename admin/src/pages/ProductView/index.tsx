@@ -116,7 +116,6 @@ export default function ProductView() {
   console.log(draft);
   console.log(images);
   
-
   const handleAsync = async () => {
     setIsLoading(true);
     const result1 = await getProductBySlug(slug);
@@ -132,7 +131,12 @@ export default function ProductView() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateProduct(draft);
+    
+    const payload = {
+      ...draft,
+      images: images.map(item => ({ image_file: item }))
+    }
+    await updateProduct(payload);
     await handleAsync();
   };
 
