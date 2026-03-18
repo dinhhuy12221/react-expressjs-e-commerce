@@ -21,7 +21,7 @@ export default function ProductView() {
   const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
   const [draft, setDraft] = useState<any>(null);
-  const [images, setImages] = useState<any>(new Array(3).fill(null))
+  const [images, setImages] = useState<any>(new Array(3).fill(null));
   const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
@@ -89,20 +89,31 @@ export default function ProductView() {
   };
 
   const handleImageChange = (e, index) => {
-    console.log(e);
-    
     const file = e.target.files[0];
+    const preview = URL.createObjectURL(file);
 
     setImages(prev => {
       const newImages = [...prev]
       newImages[index] = file
       return newImages
     })
-    // setDraft(prev => ({
-    //   ...prev,
-    //   image: file
-    // }));
+
+    setDraft((prev) => {
+      const newImages = prev.images;
+
+      newImages[index] = {
+        ...newImages[index],
+        url: preview,
+      };
+
+      return {
+        ...prev,
+        newImages,
+      };
+    });
   };
+
+  console.log(draft);
   console.log(images);
   
 
@@ -122,7 +133,7 @@ export default function ProductView() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateProduct(draft);
-    await handleAsync()
+    await handleAsync();
   };
 
   const handleCancel = () => {
@@ -217,7 +228,10 @@ export default function ProductView() {
               <div className="product-view-content-images-item" key={index}>
                 <img src={item.url} alt="product" width="120" />
                 <PiCameraRotate />
-                <input type="file" onChange={(e) => handleImageChange(e, index)} />
+                <input
+                  type="file"
+                  onChange={(e) => handleImageChange(e, index)}
+                />
               </div>
             ))}
           </div>
