@@ -142,7 +142,9 @@ class productController {
       const imagesToUpdate = await Promise.all(
         req.files.map(async (image, index) => {
           const existing = images[index]
-          if (image) {
+          console.log(image);
+          
+          if (image !== null) {
             const result = await cloudinary.v2.uploader.upload(image.path, {
               public_id: existing?.public_id,
               overwrite: true,
