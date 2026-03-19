@@ -157,7 +157,7 @@ class productController {
           if (file) {
             console.log(parsedImages[index].public_id);
 
-            if (parsedImages[index].public_id === "") {
+            if (parsedImages[index].public_id) {
               console.log("yes");
 
               const result = await cloudinary.v2.uploader.upload(file.path, {
