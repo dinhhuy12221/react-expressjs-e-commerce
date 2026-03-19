@@ -1,7 +1,7 @@
 import Rating from "@mui/material/Rating";
 import { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { useAsyncError, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getProductBySlug, updateProduct } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
