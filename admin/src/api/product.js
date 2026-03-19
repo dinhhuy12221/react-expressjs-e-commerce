@@ -45,10 +45,8 @@ const updateProduct = async (values) => {
     const formData = new FormData()
     
     Object.keys(values).forEach(key => {
-      console.log(key);
-      
       if (key !== "imageFiles") {
-        formData.append(key, values[key])
+        formData.append(key, JSON.stringify(values[key]))
       }
     })
 
