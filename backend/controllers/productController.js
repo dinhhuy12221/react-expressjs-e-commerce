@@ -145,14 +145,17 @@ class productController {
         return req.files?.[field]?.[0] || null;
       });
 
-      console.log(mappedFiles);
+      // console.log(mappedFiles);
+      // console.log("Images:", images);
 
       const imagesToUpdate = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          console.log(file);
+          console.log(images);
+          console.log(req.body.name);
+          
 
           if (file) {
-            console.log(images[index].public_id);
+            // console.log(images[index].public_id);
             if (images[index].public_id === "") {
               const result = await cloudinary.v2.uploader.upload(file.path, {
                 folder: `ecommerce/products/${index}`,
@@ -180,32 +183,32 @@ class productController {
         })
       );
 
-      console.log(imagesToUpdate);
+      // console.log(imagesToUpdate);
 
-      if (imagesToUpdate) {
-        const product = await Product.findByIdAndUpdate(req.params.id, {
-          name: req.body?.name || "",
-          description: req.body?.description || "",
-          images: imagesToUpdate,
-          brand: req.body?.brand || "",
-          price: req.body?.price || 0,
-          discount: req.body?.discount || 0,
-          category: req.body?.category || "",
-          countInStock: req.body?.countInStock || "",
-          rating: req.body?.rating || "",
-          isFeatured: req.body?.isFeatured,
-        });
+      // if (imagesToUpdate) {
+      const product = await Product.findByIdAndUpdate(req.params.id, {
+        name: req.body?.name || "",
+        description: req.body?.description || "",
+        images: imagesToUpdate,
+        brand: req.body?.brand || "",
+        price: req.body?.price || 0,
+        discount: req.body?.discount || 0,
+        category: req.body?.category || "",
+        countInStock: req.body?.countInStock || "",
+        rating: req.body?.rating || "",
+        isFeatured: req.body?.isFeatured,
+      });
 
-        if (!product) {
-          return res.status(404).json({
-            message: "The product can not be updated!",
-          });
-        }
-        res.status(201).json({
-          message: "The product is updated!",
-          data: product,
+      if (!product) {
+        return res.status(404).json({
+          message: "The product can not be updated!",
         });
       }
+      res.status(201).json({
+        message: "The product is updated!",
+        data: product,
+      });
+      // }
 
       // // 1. find product
       // const product = await Product.findById(req.params.id);
