@@ -139,64 +139,83 @@ class productController {
   async updateProduct(req, res) {
     try {
       const { images } = req.body;
+      const parsedImages = JSON.parse(images);
       const fileFields = ["image_file_0", "image_file_1", "image_file_2"];
 
       const mappedFiles = fileFields.map((field) => {
         return req.files?.[field]?.[0] || null;
       });
 
-      console.log(mappedFiles);
-
-      const imagesToUpdate = await Promise.all(
+      // console.log(mappedFiles);
+      
+      const images1 = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          console.log(file);
-
+          console.log("Images:", parsedImages[index].public_id);
+          // console.log(file);
+          console.log(typeof parsedImages);
+          
           if (file) {
-            console.log(existing.public_id);
-            
-            const result = await cloudinary.v2.uploader.upload(file.path, {
-              public_id: images[index]?.public_id,
-              overwrite: true,
-            });
+            console.log(parsedImages[index].public_id);
+
+            if (parsedImages[index].public_id === "") {
+              console.log("yes");
+
+              const result = await cloudinary.v2.uploader.upload(file.path, {
+                folder: `ecommerce/products/${req.body._id}`,
+              });
+
+              return {
+                url: result.secure_url,
+                public_id: result.public_id,
+              };
+            } else {
+              const result = await cloudinary.v2.uploader.upload(file.path, {
+                public_id: parsedImages[index]?.public_id,
+                overwrite: true,
+              });
+
+              return {
+                url: result.secure_url || "",
+                public_id: result.public_id || "",
+              };
+            }
+          } else {
             return {
-              url: result.secure_url || "",
-              public_id: result.public_id || "",
+              url: parsedImages[index].url || "",
+              public_id: parsedImages[index].public_id || "",
             };
           }
-
-          return {
-            url: images[index].url || "",
-            public_id: images[index].public_id || "",
-          };
         })
       );
 
-      console.log(imagesToUpdate);
+      const imagesToUpdate = images1
 
-      if (imagesToUpdate) {
-        const product = await Product.findByIdAndUpdate(req.params.id, {
-          name: req.body?.name || "",
-          description: req.body?.description || "",
-          images: imagesToUpdate,
-          brand: req.body?.brand || "",
-          price: req.body?.price || 0,
-          discount: req.body?.discount || 0,
-          category: req.body?.category || "",
-          countInStock: req.body?.countInStock || "",
-          rating: req.body?.rating || "",
-          isFeatured: req.body?.isFeatured,
-        });
+      // console.log(imagesToUpdate);
 
-        if (!product) {
-          return res.status(404).json({
-            message: "The product can not be updated!",
-          });
-        }
-        res.status(201).json({
-          message: "The product is updated!",
-          data: product,
+      // if (imagesToUpdate) {
+      const product = await Product.findByIdAndUpdate(req.params.id, {
+        name: req.body?.name || "",
+        description: req.body?.description || "",
+        images: imagesToUpdate,
+        brand: req.body?.brand || "",
+        price: req.body?.price || 0,
+        discount: req.body?.discount || 0,
+        category: req.body?.category || "",
+        countInStock: req.body?.countInStock || 0,
+        rating: req.body?.rating || 0,
+        isFeatured: req.body?.isFeatured,
+      });
+
+      if (!product) {
+        return res.status(404).json({
+          message: "The product can not be updated!",
         });
       }
+      res.status(201).json({
+        message: "The product is updated!",
+        data: product,
+      });
+      // }
 
       // // 1. find product
       // const product = await Product.findById(req.params.id);
