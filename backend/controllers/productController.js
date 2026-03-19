@@ -146,21 +146,20 @@ class productController {
       });
 
       // console.log(mappedFiles);
-      // console.log("Images:", images);
-
-      const imagesToUpdate = await Promise.all(
+      
+      const images1 = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          // console.log(images);
-          // console.log(req.body.name);
-
+          console.log("Images:", images[index].public_id);
           if (file) {
             console.log(images[index]);
-            if (images[index].public_id === "") {
+
+            if (images[index].public_id === undefined) {
               console.log("yes");
 
               const result = await cloudinary.v2.uploader.upload(file.path, {
-                folder: `ecommerce/products/${index}`,
+                folder: `ecommerce/products/${req.body._id}`,
               });
+
               return {
                 url: result.secure_url,
                 public_id: result.public_id,
@@ -170,33 +169,37 @@ class productController {
                 public_id: images[index]?.public_id,
                 overwrite: true,
               });
+
               return {
                 url: result.secure_url || "",
                 public_id: result.public_id || "",
               };
             }
-          } else
+          } else {
             return {
               url: images[index].url || "",
               public_id: images[index].public_id || "",
             };
+          }
         })
       );
+
+      const imagesToUpdate = images1
 
       // console.log(imagesToUpdate);
 
       // if (imagesToUpdate) {
       const product = await Product.findByIdAndUpdate(req.params.id, {
-        name: JSON.parse(req.body?.name),
-        description: JSON.parse(req.body?.description),
-        images: JSON.parse(imagesToUpdate),
-        brand: JSON.parse(req.body?.brand),
-        price: JSON.parse(req.body?.price),
-        discount: JSON.parse(req.body?.discount),
-        category: JSON.parse(req.body?.category),
-        countInStock: JSON.parse(req.body?.countInStock),
-        rating: JSON.parse(req.body?.rating),
-        isFeatured: JSON.parse(req.body?.isFeatured),
+        name: req.body?.name || "",
+        description: req.body?.description || "",
+        images: imagesToUpdate,
+        brand: req.body?.brand || "",
+        price: req.body?.price || 0,
+        discount: req.body?.discount || 0,
+        category: req.body?.category || "",
+        countInStock: req.body?.countInStock || 0,
+        rating: req.body?.rating || 0,
+        isFeatured: req.body?.isFeatured,
       });
 
       if (!product) {
