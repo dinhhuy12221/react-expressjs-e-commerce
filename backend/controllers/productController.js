@@ -152,16 +152,25 @@ class productController {
           console.log(file);
 
           if (file) {
-            console.log(existing.public_id);
-            
-            const result = await cloudinary.v2.uploader.upload(file.path, {
-              public_id: images[index]?.public_id,
-              overwrite: true,
-            });
-            return {
-              url: result.secure_url || "",
-              public_id: result.public_id || "",
-            };
+            console.log(images[index].public_id);
+            if (images[index].public_id === "") {
+              const result = await cloudinary.v2.uploader.upload(file.path, {
+                folder: `ecommerce/products/${index}`,
+              });
+              return {
+                url: result.secure_url,
+                public_id: result.public_id,
+              };
+            } else {
+              const result = await cloudinary.v2.uploader.upload(file.path, {
+                public_id: images[index]?.public_id,
+                overwrite: true,
+              });
+              return {
+                url: result.secure_url || "",
+                public_id: result.public_id || "",
+              };
+            }
           }
 
           return {
