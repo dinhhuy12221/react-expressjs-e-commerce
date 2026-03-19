@@ -158,8 +158,16 @@ class productController {
             console.log(parsedImages[index].public_id);
 
             if (parsedImages[index].public_id) {
-              console.log("yes");
-
+              const result = await cloudinary.v2.uploader.upload(file.path, {
+                public_id: parsedImages[index]?.public_id,
+                overwrite: true,
+              });
+              
+              return {
+                url: result.secure_url || "",
+                public_id: result.public_id || "",
+              };
+            } else {
               const result = await cloudinary.v2.uploader.upload(file.path, {
                 folder: `ecommerce/products/${req.body._id}`,
               });
@@ -167,16 +175,6 @@ class productController {
               return {
                 url: result.secure_url,
                 public_id: result.public_id,
-              };
-            } else {
-              const result = await cloudinary.v2.uploader.upload(file.path, {
-                public_id: parsedImages[index]?.public_id,
-                overwrite: true,
-              });
-
-              return {
-                url: result.secure_url || "",
-                public_id: result.public_id || "",
               };
             }
           } else {
