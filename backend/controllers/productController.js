@@ -150,13 +150,14 @@ class productController {
 
       const imagesToUpdate = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          console.log(images);
-          console.log(req.body.name);
-          
+          // console.log(images);
+          // console.log(req.body.name);
 
           if (file) {
-            // console.log(images[index].public_id);
+            console.log(images[index]);
             if (images[index].public_id === "") {
+              console.log("yes");
+
               const result = await cloudinary.v2.uploader.upload(file.path, {
                 folder: `ecommerce/products/${index}`,
               });
@@ -174,12 +175,11 @@ class productController {
                 public_id: result.public_id || "",
               };
             }
-          }
-
-          return {
-            url: images[index].url || "",
-            public_id: images[index].public_id || "",
-          };
+          } else
+            return {
+              url: images[index].url || "",
+              public_id: images[index].public_id || "",
+            };
         })
       );
 
@@ -187,16 +187,16 @@ class productController {
 
       // if (imagesToUpdate) {
       const product = await Product.findByIdAndUpdate(req.params.id, {
-        name: req.body?.name || "",
-        description: req.body?.description || "",
-        images: imagesToUpdate,
-        brand: req.body?.brand || "",
-        price: req.body?.price || 0,
-        discount: req.body?.discount || 0,
-        category: req.body?.category || "",
-        countInStock: req.body?.countInStock || "",
-        rating: req.body?.rating || "",
-        isFeatured: req.body?.isFeatured,
+        name: JSON.parse(req.body?.name),
+        description: JSON.parse(req.body?.description),
+        images: JSON.parse(imagesToUpdate),
+        brand: JSON.parse(req.body?.brand),
+        price: JSON.parse(req.body?.price),
+        discount: JSON.parse(req.body?.discount),
+        category: JSON.parse(req.body?.category),
+        countInStock: JSON.parse(req.body?.countInStock),
+        rating: JSON.parse(req.body?.rating),
+        isFeatured: JSON.parse(req.body?.isFeatured),
       });
 
       if (!product) {
