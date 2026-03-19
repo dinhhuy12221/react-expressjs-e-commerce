@@ -139,6 +139,7 @@ class productController {
   async updateProduct(req, res) {
     try {
       const { images } = req.body;
+      const parsedImages = JSON.parse(images);
       const fileFields = ["image_file_0", "image_file_1", "image_file_2"];
 
       const mappedFiles = fileFields.map((field) => {
@@ -149,11 +150,14 @@ class productController {
       
       const images1 = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          console.log("Images:", images[index].public_id);
+          console.log("Images:", parsedImages[index].public_id);
+          // console.log(file);
+          console.log(typeof parsedImages);
+          
           if (file) {
-            console.log(images[index]);
+            console.log(parsedImages[index].public_id);
 
-            if (images[index].public_id === undefined) {
+            if (parsedImages[index].public_id === "") {
               console.log("yes");
 
               const result = await cloudinary.v2.uploader.upload(file.path, {
@@ -166,7 +170,7 @@ class productController {
               };
             } else {
               const result = await cloudinary.v2.uploader.upload(file.path, {
-                public_id: images[index]?.public_id,
+                public_id: parsedImages[index]?.public_id,
                 overwrite: true,
               });
 
@@ -177,8 +181,8 @@ class productController {
             }
           } else {
             return {
-              url: images[index].url || "",
-              public_id: images[index].public_id || "",
+              url: parsedImages[index].url || "",
+              public_id: parsedImages[index].public_id || "",
             };
           }
         })
