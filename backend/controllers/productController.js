@@ -146,24 +146,28 @@ class productController {
       });
 
       console.log(mappedFiles);
-      
+
       const imagesToUpdate = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          const existing = images[index];
           console.log(file);
 
           if (file) {
+            console.log(existing.public_id);
+            
             const result = await cloudinary.v2.uploader.upload(file.path, {
-              public_id: existing?.public_id,
+              public_id: images[index]?.public_id,
               overwrite: true,
             });
             return {
-              url: result.secure_url,
-              public_id: result.public_id,
+              url: result.secure_url || "",
+              public_id: result.public_id || "",
             };
           }
 
-          return { url: existing.url, public_id: existing.public_id };
+          return {
+            url: images[index].url || "",
+            public_id: images[index].public_id || "",
+          };
         })
       );
 
@@ -171,16 +175,16 @@ class productController {
 
       if (imagesToUpdate) {
         const product = await Product.findByIdAndUpdate(req.params.id, {
-          name: req.body.name,
-          description: req.body.description,
+          name: req.body?.name || "",
+          description: req.body?.description || "",
           images: imagesToUpdate,
-          brand: req.body.brand,
-          price: req.body.price,
-          category: req.body.category,
-          countInStock: req.body.countInStock,
-          rating: req.body.rating,
-          numReviews: req.body.numReviews,
-          isFeatured: req.body.isFeatured,
+          brand: req.body?.brand || "",
+          price: req.body?.price || 0,
+          discount: req.body?.discount || 0,
+          category: req.body?.category || "",
+          countInStock: req.body?.countInStock || "",
+          rating: req.body?.rating || "",
+          isFeatured: req.body?.isFeatured,
         });
 
         if (!product) {
