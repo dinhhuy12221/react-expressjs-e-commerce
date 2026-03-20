@@ -32,6 +32,8 @@ const getProductBySlug = async (slug) => {
 };
 const createProduct = async (values) => {
   try {
+    console.log(values);
+    
     const formData = new FormData();
     Object.keys(values).forEach(key => {
       if (key !== "imagesFiles") {
@@ -42,8 +44,8 @@ const createProduct = async (values) => {
     values.imageFiles.map((item, index) => {
       formData.append(`image_file_${index}`, item || "")
     })
-    
-    const product = await fetch(BASE_URL + "/product/", {
+
+    const product = await fetch(BASE_URL + "/product/create", {
       method: "POST",
       body: values,
     }).then(

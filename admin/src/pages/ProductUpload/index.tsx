@@ -12,6 +12,7 @@ import { getBrands } from "../../api/brand";
 import { getCategories } from "../../api/category";
 import { AdminContext } from "../../App";
 import { MdAddCircleOutline } from "react-icons/md";
+import Product from "../../types/Product";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -19,7 +20,7 @@ import { MdAddCircleOutline } from "react-icons/md";
 // }
 
 export default function ProductUpload() {
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [imageFiles, setImageFiles] = useState<any>(new Array(3).fill(null));
   // const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
@@ -39,6 +40,9 @@ export default function ProductUpload() {
       [name]: value,
     }));
   };
+
+  console.log(product);
+  
 
   const handleImageChange = (e, index) => {
     const file = e.target.files[0];
