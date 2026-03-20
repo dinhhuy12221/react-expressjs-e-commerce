@@ -1,10 +1,7 @@
 type Product = {
   name: string;
   description: string;
-  images: {
-    url: string;
-    public_id: string;
-  }[];
+  images: Image[];
   price: number;
   discount: number;
   brandId: string;
@@ -14,4 +11,9 @@ type Product = {
   isFeatured: boolean;
 };
 
-export default Product
+type Image = {
+    url: string,
+    public_id: string,
+}
+
+export { Product, Image }
