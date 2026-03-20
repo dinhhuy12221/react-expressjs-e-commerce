@@ -2,7 +2,7 @@ import Product from "../models/product.js";
 import Category from "../models/category.js";
 import cloudinary from "../config/cloudinary.js";
 import getSequence from "../utils/getSequence.js";
-import fs from "fs/promises"
+import fs from "fs/promises";
 
 class productController {
   // GET product list
@@ -64,13 +64,23 @@ class productController {
 
       const imagesToUpload = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          const result = await cloudinary.v2.uploader.upload(file.path, {
-            folder: `ecommerce/products/${counter}`,
-          });
+          if (file) {
+            const result = await cloudinary.v2.uploader.upload(file.path, {
+              folder: `ecommerce/products/${counter}`,
+            });
+            if (file?.path) {
+              await fs.unlink(file.path).catch(() => {});
+            }
+            return {
+              url: result.secure_url,
+              public_id: result.public_id,
+            };
+          }
+
           return {
-            url: result.secure_url,
-            public_id: result.public_id,
-          };
+              url: '',
+              public_id: '',
+            };
         })
       );
 
@@ -109,10 +119,6 @@ class productController {
         message: "Internal server error",
         error: error.message,
       });
-    } finally {
-      if (file?.path) {
-        await fs.unlink(file.path).catch(() => {});
-      }
     }
   }
 
@@ -130,9 +136,9 @@ class productController {
 
       const imagesToUpdate = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          console.log("Images:", parsedImages[index].public_id);
+          // console.log("Images:", parsedImages[index].public_id);
           // console.log(file);
-          console.log(typeof parsedImages);
+          // console.log(typeof parsedImages);
 
           if (file) {
             console.log(parsedImages[index].public_id);
@@ -151,6 +157,10 @@ class productController {
               const result = await cloudinary.v2.uploader.upload(file.path, {
                 folder: `ecommerce/products/${req.body._id}`,
               });
+
+              if (file?.path) {
+                await fs.unlink(file.path).catch(() => {});
+              }
 
               return {
                 url: result.secure_url,
@@ -195,10 +205,6 @@ class productController {
         message: "Internal server error",
         error: error.message,
       });
-    } finally {
-      if (file?.path) {
-        await fs.unlink(file.path).catch(() => {});
-      }
     }
   }
   //[DELETE] delete product
