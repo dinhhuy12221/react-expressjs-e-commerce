@@ -84,6 +84,9 @@ class productController {
         })
       );
 
+      console.log(req.body);
+      
+
       const category = await Category.findById(req.body.categoryId);
 
       if (!category) {
