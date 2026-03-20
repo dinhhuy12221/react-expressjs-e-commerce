@@ -77,13 +77,16 @@ class productController {
             };
           }
 
-          return {
+          else return {
             url: "",
             public_id: "",
           };
         })
       );
       const category = await Category.findById(req.body.categoryId);
+
+      console.log(imagesToUpload);
+      
 
       if (!category) {
         res.status(404).json({ message: "Category is not found" });
