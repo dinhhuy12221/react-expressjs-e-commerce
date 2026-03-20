@@ -32,10 +32,13 @@ const getProductBySlug = async (slug) => {
 };
 const createProduct = async (values) => {
   try {
-    const productList = await fetch(BASE_URL + "/product/" + id).then(
+    const product = await fetch(BASE_URL + "/product/", {
+      method: "POST",
+      body: values,
+    }).then(
       (result) => result.json()
     );
-    return productList;
+    return product;
   } catch (error) {
     console.error(error);
   }

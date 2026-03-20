@@ -2,7 +2,7 @@ import Rating from "@mui/material/Rating";
 import { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import { useParams } from "react-router-dom";
-import { getProductBySlug, updateProduct } from "../../api/product";
+import { createProduct, getProductBySlug, updateProduct } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
@@ -84,7 +84,7 @@ export default function ProductUpload() {
       ...product,
       imageFiles,
     };
-    await updateProduct(payload);
+    await createProduct(payload);
     await handleAsync();
   };
 
@@ -149,7 +149,6 @@ export default function ProductUpload() {
       />
 
       <div className="product-upload-content">
-        <h2>Product ID: #{product?._id}</h2>
         <form method="PUT" onSubmit={handleSubmit}>
           <div className="product-upload-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
