@@ -11,6 +11,7 @@ import { getReviewByProductId } from "../../api/review";
 import { getBrands } from "../../api/brand";
 import { getCategories } from "../../api/category";
 import { AdminContext } from "../../App";
+import { MdOutlineAddCircleOutline } from "react-icons/md";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -230,7 +231,7 @@ console.log(imageFiles);
                 </Slider> */}
             {draft?.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
-                <img src={item.url} alt="product" width="120" />
+                {item.url ? <img src={item.url} alt="product" width="120" /> : <MdOutlineAddCircleOutline />}
                 <PiCameraRotate />
                 <input
                   type="file"
