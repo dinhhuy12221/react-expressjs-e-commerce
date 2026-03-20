@@ -18,7 +18,6 @@ import { AdminContext } from "../../App";
 // }
 
 export default function ProductUpload() {
-  const { slug } = useParams();
   const [product, setProduct] = useState<any>(null);
   const [draft, setDraft] = useState<any>(null);
   const [imageFiles, setImageFiles] = useState<any>(new Array(3).fill(null));
@@ -31,53 +30,6 @@ export default function ProductUpload() {
   const [fourStar, setFourStar] = useState(0);
   const [fiveStar, setFiveStar] = useState(0);
   const { setIsLoading } = useContext(AdminContext);
-
-  // const reviews = new Array(8).fill(
-  //   <div className="product-upload-review-item">
-  //     <div className="product-upload-review-item-header">
-  //       <div>
-  //         <h4 className="product-upload-review-item-header-name">Alue</h4>
-  //         <span className="product-upload-review-item-header-time">
-  //           25 minutes ago
-  //         </span>
-  //       </div>
-  //       <Rating name="read-only" value={4.5} precision={0.5} readOnly />
-  //     </div>
-  //     {/* <Button className="btn-blue btn-lg btn-big ms-auto">
-  //               <TiArrowBack className="me-2" />
-  //               Reply
-  //             </Button> */}
-  //     <p className="product-upload-review-item-content">
-  //       Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quo
-  //       nostrum dolore fugiat ducimus labore debitis unde autem recusandae? Eius
-  //       harum tempora quis minima, adipisci natus quod magni omnis quas.
-  //     </p>
-  //   </div>
-  // );
-
-  // var productSliderOptions = {
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   arrows: false,
-  // };
-  // var productSliderSmallOptions = {
-  //   dots: false,
-  //   infinite: false,
-  //   speed: 500,
-  //   slidesToShow: 4,
-  //   slidesToScroll: 1,
-  //   arrows: false,
-  // };
-
-  // const goToSlide = (index) => {
-  //   // if (mainImagesSlider.current !== null && sideImagesSlider.current !== null) {
-  //     mainImagesSlider.current?.slickGoTo(index);
-  //     sideImagesSlider.current?.slickGoTo(index);
-  //   // }
-  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -112,17 +64,16 @@ export default function ProductUpload() {
       };
     });
   };
-console.log(imageFiles);
 
   const handleAsync = async () => {
     setIsLoading(true);
-    const result1 = await getProductBySlug(slug);
+    // const result1 = await getProductBySlug(slug);
     const result2 = await getBrands();
     const result3 = await getCategories();
     setIsLoading(false);
 
-    setProduct(result1.data[0]);
-    setDraft(result1.data[0]);
+    // setProduct(result1.data[0]);
+    // setDraft(result1.data[0]);
     setBrands(result2.data);
     setCategories(result3.data);
   };
@@ -130,8 +81,6 @@ console.log(imageFiles);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(draft);
-    
     const payload = {
       ...draft,
       imageFiles,
@@ -146,45 +95,45 @@ console.log(imageFiles);
 
   useEffect(() => {
     handleAsync();
-  }, [slug]);
+  }, []);
 
-  useEffect(() => {
-    const getReviews = async () => {
-      if (product !== null) {
-        setIsLoading(true);
+  // useEffect(() => {
+  //   const getReviews = async () => {
+  //     if (product !== null) {
+  //       setIsLoading(true);
 
-        const result = await getReviewByProductId(product?._id);
-        setReviews(result);
+  //       const result = await getReviewByProductId(product?._id);
+  //       setReviews(result);
 
-        setOneStar(() =>
-          result.reduce((acc, item) => acc + (item.rating === 1 ? 1 : 0), 0)
-        );
-        setTwoStar(() =>
-          result.reduce((acc, item) => acc + (item.rating === 2 ? 1 : 0), 0)
-        );
-        setThreeStar(() =>
-          result.reduce((acc, item) => acc + (item.rating === 3 ? 1 : 0), 0)
-        );
-        setFourStar(() =>
-          result.reduce((acc, item) => acc + (item.rating === 4 ? 1 : 0), 0)
-        );
-        setFiveStar(() =>
-          result.reduce((acc, item) => acc + (item.rating === 5 ? 1 : 0), 0)
-        );
-        setIsLoading(false);
-      }
-    };
-    getReviews();
-  }, [product]);
+  //       setOneStar(() =>
+  //         result.reduce((acc, item) => acc + (item.rating === 1 ? 1 : 0), 0)
+  //       );
+  //       setTwoStar(() =>
+  //         result.reduce((acc, item) => acc + (item.rating === 2 ? 1 : 0), 0)
+  //       );
+  //       setThreeStar(() =>
+  //         result.reduce((acc, item) => acc + (item.rating === 3 ? 1 : 0), 0)
+  //       );
+  //       setFourStar(() =>
+  //         result.reduce((acc, item) => acc + (item.rating === 4 ? 1 : 0), 0)
+  //       );
+  //       setFiveStar(() =>
+  //         result.reduce((acc, item) => acc + (item.rating === 5 ? 1 : 0), 0)
+  //       );
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   getReviews();
+  // }, [product]);
 
-  if (
-    product === null ||
-    draft === null ||
-    brands === null ||
-    categories === null
-  ) {
-    return;
-  }
+  // if (
+  //   product === null ||
+  //   draft === null ||
+  //   brands === null ||
+  //   categories === null
+  // ) {
+  //   return;
+  // }
 
   return (
     <div className="product-upload">
@@ -195,8 +144,8 @@ console.log(imageFiles);
             to: "/dashboard",
           },
           {
-            name: `${product?.name}`,
-            to: `/product/${slug}`,
+            name: "Upload",
+            to: `/product/upload`,
           },
         ]}
       />
@@ -345,13 +294,16 @@ console.log(imageFiles);
             >
               Cancel
             </button>
-            <button type="submit" className="product-upload-content-button-save">
+            <button
+              type="submit"
+              className="product-upload-content-button-save"
+            >
               Save
             </button>
           </div>
         </form>
 
-        <div className="product-upload-rating">
+        {/* <div className="product-upload-rating">
           <h3>Rating</h3>
           <Rating
             value={product?.rating}
@@ -462,9 +414,9 @@ console.log(imageFiles);
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="product-upload-review">
+        {/* <div className="product-upload-review">
           <h3>Reviews</h3>
 
           {reviews &&
@@ -490,34 +442,16 @@ console.log(imageFiles);
                     readOnly
                   />
                 </div>
-                {/* <Button className="btn-blue btn-lg btn-big ms-auto">
-                <TiArrowBack className="me-2" />
-                Reply
-              </Button> */}
                 <p className="product-upload-review-item-content">
                   {item.content}
                 </p>
               </div>
             ))}
-          {/* 
-          <h6 className="mt-4 mb-4">Review Reply Form</h6>
-          <form className="reviewForm">
-            <textarea placeholder="Write here"></textarea>
-            <Button className="btn-blue btn-big btn-lg w-100 mt-3">
-              DROP YOUR REPLIES
-            </Button>
-          </form> */}
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
-
-
-
-
-
-
 
 // import { useState } from "react";
 // import { Button } from "@mui/material";
