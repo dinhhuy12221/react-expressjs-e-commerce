@@ -174,16 +174,30 @@ export default function ProductUpload() {
                     />
                   </div>)}
                 </Slider> */}
-            {product?.images?.map((item, index) => (
-              <div className="product-upload-content-images-item" key={index}>
-                <img src={item.url} alt="product" width="120" />
+              <div className="product-upload-content-images-item">
+                <img src={product?.images[0].url} alt="product" width="120" />
                 <PiCameraRotate />
                 <input
                   type="file"
-                  onChange={(e) => handleImageChange(e, index)}
+                  onChange={(e) => handleImageChange(e, 0)}
                 />
               </div>
-            ))}
+              <div className="product-upload-content-images-item">
+                <img src={product?.images[0].url} alt="product" width="120" />
+                <PiCameraRotate />
+                <input
+                  type="file"
+                  onChange={(e) => handleImageChange(e, 1)}
+                />
+              </div>
+              <div className="product-upload-content-images-item">
+                <img src={product?.images[0].url} alt="product" width="120" />
+                <PiCameraRotate />
+                <input
+                  type="file"
+                  onChange={(e) => handleImageChange(e, 2)}
+                />
+              </div>
           </div>
           <div className="product-upload-content-main">
             <div className="product-upload-content-main-item">
