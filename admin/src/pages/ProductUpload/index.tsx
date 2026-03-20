@@ -19,22 +19,21 @@ import { AdminContext } from "../../App";
 
 export default function ProductUpload() {
   const [product, setProduct] = useState<any>(null);
-  const [draft, setDraft] = useState<any>(null);
   const [imageFiles, setImageFiles] = useState<any>(new Array(3).fill(null));
-  const [reviews, setReviews] = useState<any>(null);
+  // const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
-  const [oneStar, setOneStar] = useState(0);
-  const [twoStar, setTwoStar] = useState(0);
-  const [threeStar, setThreeStar] = useState(0);
-  const [fourStar, setFourStar] = useState(0);
-  const [fiveStar, setFiveStar] = useState(0);
+  // const [oneStar, setOneStar] = useState(0);
+  // const [twoStar, setTwoStar] = useState(0);
+  // const [threeStar, setThreeStar] = useState(0);
+  // const [fourStar, setFourStar] = useState(0);
+  // const [fiveStar, setFiveStar] = useState(0);
   const { setIsLoading } = useContext(AdminContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setDraft((prev) => ({
+    setProduct((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -50,7 +49,7 @@ export default function ProductUpload() {
       return newImageFiles;
     });
 
-    setDraft((prev) => {
+    setProduct((prev) => {
       const newImages = prev.images;
 
       newImages[index] = {
@@ -73,7 +72,6 @@ export default function ProductUpload() {
     setIsLoading(false);
 
     // setProduct(result1.data[0]);
-    // setDraft(result1.data[0]);
     setBrands(result2.data);
     setCategories(result3.data);
   };
@@ -82,7 +80,7 @@ export default function ProductUpload() {
     e.preventDefault();
 
     const payload = {
-      ...draft,
+      ...product,
       imageFiles,
     };
     await updateProduct(payload);
@@ -90,7 +88,7 @@ export default function ProductUpload() {
   };
 
   const handleCancel = () => {
-    setDraft(product);
+    setProduct(null);
   };
 
   useEffect(() => {
@@ -126,14 +124,13 @@ export default function ProductUpload() {
   //   getReviews();
   // }, [product]);
 
-  // if (
-  //   product === null ||
-  //   draft === null ||
-  //   brands === null ||
-  //   categories === null
-  // ) {
-  //   return;
-  // }
+  if (
+    // product === null ||
+    brands === null ||
+    categories === null
+  ) {
+    return;
+  }
 
   return (
     <div className="product-upload">
@@ -177,7 +174,7 @@ export default function ProductUpload() {
                     />
                   </div>)}
                 </Slider> */}
-            {draft?.images.map((item, index) => (
+            {product?.images?.map((item, index) => (
               <div className="product-upload-content-images-item" key={index}>
                 <img src={item.url} alt="product" width="120" />
                 <PiCameraRotate />
@@ -197,7 +194,7 @@ export default function ProductUpload() {
                 spellCheck="false"
                 placeholder="Enter the name"
                 name="name"
-                value={draft?.name}
+                value={product?.name}
                 onChange={handleChange}
               />
             </div>
@@ -208,7 +205,7 @@ export default function ProductUpload() {
                 spellCheck="false"
                 placeholder="Enter the description"
                 name="description"
-                value={draft?.description}
+                value={product?.description}
                 onChange={handleChange}
               />
             </div>
@@ -224,7 +221,7 @@ export default function ProductUpload() {
               <select
                 className="product-upload-content-main-item-input"
                 name="categoryId"
-                value={draft?.categoryId}
+                value={product?.categoryId}
                 onChange={handleChange}
               >
                 <option value={""}>Choose a category ...</option>
@@ -244,7 +241,7 @@ export default function ProductUpload() {
               <select
                 className="product-upload-content-main-item-input"
                 name="brandId"
-                value={draft?.brandId}
+                value={product?.brandId}
                 onChange={handleChange}
               >
                 <option value={""}>Choose a brand...</option>
@@ -260,7 +257,7 @@ export default function ProductUpload() {
                 type="number"
                 spellCheck="false"
                 name="price"
-                value={draft?.price}
+                value={product?.price}
                 onChange={handleChange}
               />
             </div>
@@ -271,7 +268,7 @@ export default function ProductUpload() {
                 type="number"
                 spellCheck="false"
                 name="discount"
-                value={draft?.discount}
+                value={product?.discount}
                 onChange={handleChange}
               />
             </div>
@@ -281,7 +278,7 @@ export default function ProductUpload() {
                 className="product-upload-content-main-item-input"
                 type="number"
                 name="countInStock"
-                value={draft?.countInStock}
+                value={product?.countInStock}
                 onChange={handleChange}
               />
             </div>
