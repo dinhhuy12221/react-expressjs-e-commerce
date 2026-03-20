@@ -4,8 +4,8 @@ type Product = {
   images: Image[];
   price: number;
   discount: number;
-  brandId: string;
-  categoryId: string;
+  brandId: number;
+  categoryId: number;
   countInStock: number;
   rating: number;
   isFeatured: boolean;

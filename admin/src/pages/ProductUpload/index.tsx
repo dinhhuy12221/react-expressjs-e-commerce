@@ -1,17 +1,12 @@
-import Rating from "@mui/material/Rating";
 import { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { useParams } from "react-router-dom";
 import {
   createProduct,
-  getProductBySlug,
-  updateProduct,
 } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 import { PiCameraRotate } from "react-icons/pi";
-import { getReviewByProductId } from "../../api/review";
 import { getBrands } from "../../api/brand";
 import { getCategories } from "../../api/category";
 import { AdminContext } from "../../App";
@@ -30,8 +25,8 @@ export default function ProductUpload() {
     images: new Array<Image>(3).fill({ url: "", public_id: "" }),
     price: 0,
     discount: 0,
-    brandId: "",
-    categoryId: "",
+    brandId: 0,
+    categoryId: 0,
     countInStock: 0,
     rating: 0,
     isFeatured: false,
@@ -54,16 +49,25 @@ export default function ProductUpload() {
       let newValue: any = value;
 
       // ✅ handle number fields
-      if (["price", "discount", "countInStock", "rating"].includes(name)) {
+      if (
+        [
+          "price",
+          "discount",
+          "countInStock",
+          "rating",
+          "brandId",
+          "categoryId",
+        ].includes(name)
+      ) {
         newValue = Number(value);
       }
-
+      
       // ✅ handle checkbox (boolean)
       if (
         e.target instanceof HTMLInputElement &&
         e.target.type === "checkbox"
       ) {
-        newValue = e.target.value;
+        newValue = e.target.checked;
       }
 
       return {
@@ -122,6 +126,8 @@ export default function ProductUpload() {
       ...product,
       imageFiles,
     };
+    console.log(payload);
+    
     await createProduct(payload);
     await handleAsync();
   };
@@ -288,7 +294,7 @@ export default function ProductUpload() {
               >
                 <option value={""}>Choose a category ...</option>
                 {categories.map((item) => (
-                  <option value={item}>{item.name}</option>
+                  <option value={item._id}>{item.name}</option>
                 ))}
               </select>
             </div>
@@ -308,7 +314,7 @@ export default function ProductUpload() {
               >
                 <option value={""}>Choose a brand...</option>
                 {brands.map((item) => (
-                  <option value={item}>{item.name}</option>
+                  <option value={item._id}>{item.name}</option>
                 ))}
               </select>
             </div>

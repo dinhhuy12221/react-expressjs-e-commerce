@@ -47,7 +47,7 @@ const createProduct = async (values) => {
 
     const product = await fetch(BASE_URL + "/product/create", {
       method: "POST",
-      body: values,
+      body: formData,
     }).then(
       (result) => result.json()
     );
