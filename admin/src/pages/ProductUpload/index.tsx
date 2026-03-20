@@ -44,24 +44,24 @@ export default function ProductUpload() {
     const file = e.target.files[0];
     const preview = URL.createObjectURL(file);
 
-    setImageFiles((prev) => {
-      const newImageFiles = [...prev];
-      newImageFiles[index] = file;
-      return newImageFiles;
-    });
-
     setProduct((prev) => {
-      const newImages = prev.images;
-
+      const newImages = prev?.images || new Array(3).fill({ url: "", public_id: "" });
+      
       newImages[index] = {
         ...newImages[index],
         url: preview,
       };
-
+      
       return {
         ...prev,
-        newImages,
+        images: newImages,
       };
+    });
+
+    setImageFiles((prev) => {
+      const newImageFiles = [...prev];
+      newImageFiles[index] = file;
+      return newImageFiles;
     });
   };
 
@@ -177,29 +177,36 @@ export default function ProductUpload() {
                 </Slider> */}
             <div className="product-upload-content-images-item">
               {product?.images[0].url ? (
-                <img src={product?.images[0].url} alt="product" width="120" />
+                <>
+                  <PiCameraRotate />
+                  <img src={product?.images[0].url} alt="product" width="120" />
+                </>
               ) : (
                 <MdAddCircleOutline />
               )}
-              <PiCameraRotate />
+
               <input type="file" onChange={(e) => handleImageChange(e, 0)} />
             </div>
             <div className="product-upload-content-images-item">
               {product?.images[1].url ? (
-                <img src={product?.images[1].url} alt="product" width="120" />
+                <>
+                  <PiCameraRotate />
+                  <img src={product?.images[1].url} alt="product" width="120" />
+                </>
               ) : (
                 <MdAddCircleOutline />
-              )}{" "}
-              <PiCameraRotate />
+              )}
               <input type="file" onChange={(e) => handleImageChange(e, 1)} />
             </div>
             <div className="product-upload-content-images-item">
               {product?.images[2].url ? (
-                <img src={product?.images[2].url} alt="product" width="120" />
+                <>
+                  <PiCameraRotate />
+                  <img src={product?.images[2].url} alt="product" width="120" />
+                </>
               ) : (
                 <MdAddCircleOutline />
-              )}{" "}
-              <PiCameraRotate />
+              )}
               <input type="file" onChange={(e) => handleImageChange(e, 2)} />
             </div>
           </div>
