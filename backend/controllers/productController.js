@@ -92,17 +92,16 @@ class productController {
 
       if (imagesToUpload) {
         const payload = {
-          name: req.body.name,
-          description: req.body.description,
+          name: req.body?.name,
+          description: req.body?.description,
           images: imagesToUpload,
-          price: req.body.price,
-          discount: req.body.discount,
-          brandId: req.body.brandId || null,
-          categoryId: req.body.categoryId,
-          countInStock: req.body.countInStock,
-          rating: req.body.rating,
-          numReviews: req.body.numReviews,
-          isFeatured: req.body.isFeatured,
+          price: req.body?.price,
+          discount: req.body?.discount,
+          brandId: req.body?.brandId,
+          categoryId: req.body?.categoryId,
+          countInStock: req.body?.countInStock,
+          rating: req.body?.rating,
+          isFeatured: req.body?.isFeatured,
         };
 
         const product = await Product.create(payload);

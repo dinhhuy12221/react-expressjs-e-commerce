@@ -51,11 +51,11 @@ const productSchema = Schema(
       default: 0,
     },
     brandId: {
-      type: mongoose.Schema.Types.Int32,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Brand",
     },
     categoryId: {
-      type: mongoose.Schema.Types.Int32,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Category",
       required: true,
     },
