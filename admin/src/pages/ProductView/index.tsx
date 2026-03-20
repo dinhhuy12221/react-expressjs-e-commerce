@@ -113,7 +113,7 @@ export default function ProductView() {
       };
     });
   };
-console.log(imageFiles);
+  console.log(imageFiles);
 
   const handleAsync = async () => {
     setIsLoading(true);
@@ -132,7 +132,7 @@ console.log(imageFiles);
     e.preventDefault();
 
     console.log(draft);
-    
+
     const payload = {
       ...draft,
       imageFiles,
@@ -231,8 +231,15 @@ console.log(imageFiles);
                 </Slider> */}
             {draft?.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
-                {item.url ? <img src={item.url} alt="product" width="120" /> : <MdOutlineAddCircleOutline />}
-                <PiCameraRotate />
+                {item.url ? (
+                  <>
+                    <img src={item.url} alt="product" width="120" />
+                    <PiCameraRotate />
+                  </>
+                ) : (
+                  <MdOutlineAddCircleOutline />
+                )}
+
                 <input
                   type="file"
                   onChange={(e) => handleImageChange(e, index)}
