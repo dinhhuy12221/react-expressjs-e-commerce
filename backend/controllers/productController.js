@@ -78,15 +78,11 @@ class productController {
           }
 
           return {
-              url: '',
-              public_id: '',
-            };
+            url: "",
+            public_id: "",
+          };
         })
       );
-
-      console.log(req.body);
-      
-
       const category = await Category.findById(req.body.categoryId);
 
       if (!category) {
