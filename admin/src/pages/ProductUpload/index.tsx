@@ -11,6 +11,7 @@ import { getReviewByProductId } from "../../api/review";
 import { getBrands } from "../../api/brand";
 import { getCategories } from "../../api/category";
 import { AdminContext } from "../../App";
+import { MdAddCircleOutline } from "react-icons/md";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -174,30 +175,33 @@ export default function ProductUpload() {
                     />
                   </div>)}
                 </Slider> */}
-              <div className="product-upload-content-images-item">
+            <div className="product-upload-content-images-item">
+              {product?.images[0].url ? (
                 <img src={product?.images[0].url} alt="product" width="120" />
-                <PiCameraRotate />
-                <input
-                  type="file"
-                  onChange={(e) => handleImageChange(e, 0)}
-                />
-              </div>
-              <div className="product-upload-content-images-item">
-                <img src={product?.images[0].url} alt="product" width="120" />
-                <PiCameraRotate />
-                <input
-                  type="file"
-                  onChange={(e) => handleImageChange(e, 1)}
-                />
-              </div>
-              <div className="product-upload-content-images-item">
-                <img src={product?.images[0].url} alt="product" width="120" />
-                <PiCameraRotate />
-                <input
-                  type="file"
-                  onChange={(e) => handleImageChange(e, 2)}
-                />
-              </div>
+              ) : (
+                <MdAddCircleOutline />
+              )}
+              <PiCameraRotate />
+              <input type="file" onChange={(e) => handleImageChange(e, 0)} />
+            </div>
+            <div className="product-upload-content-images-item">
+              {product?.images[1].url ? (
+                <img src={product?.images[1].url} alt="product" width="120" />
+              ) : (
+                <MdAddCircleOutline />
+              )}{" "}
+              <PiCameraRotate />
+              <input type="file" onChange={(e) => handleImageChange(e, 1)} />
+            </div>
+            <div className="product-upload-content-images-item">
+              {product?.images[2].url ? (
+                <img src={product?.images[2].url} alt="product" width="120" />
+              ) : (
+                <MdAddCircleOutline />
+              )}{" "}
+              <PiCameraRotate />
+              <input type="file" onChange={(e) => handleImageChange(e, 2)} />
+            </div>
           </div>
           <div className="product-upload-content-main">
             <div className="product-upload-content-main-item">
