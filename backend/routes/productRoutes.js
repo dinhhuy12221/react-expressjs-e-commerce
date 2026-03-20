@@ -7,7 +7,11 @@ const upload = multer({ dest: "uploads/" });
 
 router.post(
   "/create",
-  upload.array("image_file", 3),
+  upload.fields([
+    { name: "image_file_0", maxCount: 1 },
+    { name: "image_file_1", maxCount: 1 },
+    { name: "image_file_2", maxCount: 1 },
+  ]),
   productController.createProduct
 );
 router.get("/id/:id", productController.getProductById);
