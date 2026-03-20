@@ -2,6 +2,7 @@ import Product from "../models/product.js";
 import Category from "../models/category.js";
 import cloudinary from "../config/cloudinary.js";
 import getSequence from "../utils/getSequence.js";
+import fs from "fs/promises";
 
 class productController {
   // GET product list
@@ -55,33 +56,37 @@ class productController {
   async createProduct(req, res) {
     try {
       const counter = await getSequence("product");
+      const fileFields = ["image_file_0", "image_file_1", "image_file_2"];
+
+      const mappedFiles = fileFields.map((field) => {
+        return req.files?.[field]?.[0] || null;
+      });
 
       const imagesToUpload = await Promise.all(
-        req.files.map(async (image, index) => {
-          const result = await cloudinary.v2.uploader.upload(image.path, {
-            folder: `ecommerce/products/${counter}`,
-          });
-          return {
-            url: result.secure_url,
-            public_id: result.public_id,
+        mappedFiles.map(async (file, index) => {
+          if (file) {
+            const result = await cloudinary.v2.uploader.upload(file.path, {
+              folder: `ecommerce/products/${counter}`,
+            });
+            if (file?.path) {
+              await fs.unlink(file.path).catch(() => {});
+            }
+            return {
+              url: result.secure_url,
+              public_id: result.public_id,
+            };
+          }
+
+          else return {
+            url: "",
+            public_id: "",
           };
         })
       );
-
-      // const uploadStatus = await Promise.all(imagesToUpload);
-
-      // const imgurl = uploadStatus.map((item) => {
-      //   return item.secure_url;
-      // });
-
-      // if (!uploadStatus) {
-      //   return res.status(500).json({
-      //     error: "images cannot upload",
-      //     status: false,
-      //   });
-      // }
-
       const category = await Category.findById(req.body.categoryId);
+
+      console.log(imagesToUpload);
+      
 
       if (!category) {
         res.status(404).json({ message: "Category is not found" });
@@ -89,17 +94,16 @@ class productController {
 
       if (imagesToUpload) {
         const payload = {
-          name: req.body.name,
-          description: req.body.description,
+          name: req.body?.name,
+          description: req.body?.description,
           images: imagesToUpload,
-          price: req.body.price,
-          discount: req.body.discount,
-          brandId: req.body.brandId || null,
-          categoryId: req.body.categoryId,
-          countInStock: req.body.countInStock,
-          rating: req.body.rating,
-          numReviews: req.body.numReviews,
-          isFeatured: req.body.isFeatured,
+          price: req.body?.price,
+          discount: req.body?.discount,
+          brandId: req.body?.brandId,
+          categoryId: req.body?.categoryId,
+          countInStock: req.body?.countInStock,
+          rating: req.body?.rating,
+          isFeatured: req.body?.isFeatured,
         };
 
         const product = await Product.create(payload);
@@ -119,23 +123,6 @@ class productController {
     }
   }
 
-  //[DELETE] delete product
-  async deleteProduct(req, res) {
-    try {
-      const deleteProduct = await Product.delete({ _id: req.params.id });
-
-      res.status(200).send({
-        message: "The product is deleted!",
-        status: true,
-      });
-    } catch (error) {
-      res.status(404).json({
-        success: false,
-        message: JSON.stringify(error),
-      });
-    }
-  }
-
   async updateProduct(req, res) {
     try {
       const { images } = req.body;
@@ -147,13 +134,13 @@ class productController {
       });
 
       // console.log(mappedFiles);
-      
-      const images1 = await Promise.all(
+
+      const imagesToUpdate = await Promise.all(
         mappedFiles.map(async (file, index) => {
-          console.log("Images:", parsedImages[index].public_id);
+          // console.log("Images:", parsedImages[index].public_id);
           // console.log(file);
-          console.log(typeof parsedImages);
-          
+          // console.log(typeof parsedImages);
+
           if (file) {
             console.log(parsedImages[index].public_id);
 
@@ -162,7 +149,7 @@ class productController {
                 public_id: parsedImages[index]?.public_id,
                 overwrite: true,
               });
-              
+
               return {
                 url: result.secure_url || "",
                 public_id: result.public_id || "",
@@ -171,6 +158,10 @@ class productController {
               const result = await cloudinary.v2.uploader.upload(file.path, {
                 folder: `ecommerce/products/${req.body._id}`,
               });
+
+              if (file?.path) {
+                await fs.unlink(file.path).catch(() => {});
+              }
 
               return {
                 url: result.secure_url,
@@ -186,11 +177,6 @@ class productController {
         })
       );
 
-      const imagesToUpdate = images1
-
-      // console.log(imagesToUpdate);
-
-      // if (imagesToUpdate) {
       const product = await Product.findByIdAndUpdate(req.params.id, {
         name: req.body?.name || "",
         description: req.body?.description || "",
@@ -213,38 +199,28 @@ class productController {
         message: "The product is updated!",
         data: product,
       });
-      // }
-
-      // // 1. find product
-      // const product = await Product.findById(req.params.id);
-
-      // // 2. delete ALL old images
-      // for (const img of product.images) {
-      //   await cloudinary.v2.uploader.destroy(img.public_id);
-      // }
-
-      // // 3. upload new images
-      // const newImages = [];
-      // for (const file of req.files || []) {
-      //   const result = await cloudinary.v2.uploader.upload(file.path);
-
-      //   newImages.push({
-      //     url: result.secure_url,
-      //     public_id: result.public_id,
-      //   });
-      // }
-
-      // // 4. update product
-      // product.images = newImages;
-      // Object.assign(product, req.body);
-
-      // await product.save();
     } catch (error) {
       console.log(error);
 
       res.status(500).json({
         message: "Internal server error",
         error: error.message,
+      });
+    }
+  }
+  //[DELETE] delete product
+  async deleteProduct(req, res) {
+    try {
+      const deleteProduct = await Product.delete({ _id: req.params.id });
+
+      res.status(200).send({
+        message: "The product is deleted!",
+        status: true,
+      });
+    } catch (error) {
+      res.status(404).json({
+        success: false,
+        message: JSON.stringify(error),
       });
     }
   }

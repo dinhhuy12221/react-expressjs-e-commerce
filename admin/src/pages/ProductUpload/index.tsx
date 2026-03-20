@@ -1,17 +1,17 @@
-import Rating from "@mui/material/Rating";
 import { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { useParams } from "react-router-dom";
-import { getProductBySlug, updateProduct } from "../../api/product";
+import {
+  createProduct,
+} from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 import { PiCameraRotate } from "react-icons/pi";
-import { getReviewByProductId } from "../../api/review";
 import { getBrands } from "../../api/brand";
 import { getCategories } from "../../api/category";
 import { AdminContext } from "../../App";
 import { MdAddCircleOutline } from "react-icons/md";
+import { Product, Image } from "../../types/Product";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -19,39 +19,81 @@ import { MdAddCircleOutline } from "react-icons/md";
 // }
 
 export default function ProductUpload() {
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product | null>({
+    name: "",
+    description: "",
+    images: new Array<Image>(3).fill({ url: "", public_id: "" }),
+    price: 0,
+    discount: 0,
+    brandId: 0,
+    categoryId: 0,
+    countInStock: 0,
+    rating: 0,
+    isFeatured: false,
+  });
   const [imageFiles, setImageFiles] = useState<any>(new Array(3).fill(null));
-  // const [reviews, setReviews] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
-  // const [oneStar, setOneStar] = useState(0);
-  // const [twoStar, setTwoStar] = useState(0);
-  // const [threeStar, setThreeStar] = useState(0);
-  // const [fourStar, setFourStar] = useState(0);
-  // const [fiveStar, setFiveStar] = useState(0);
   const { setIsLoading } = useContext(AdminContext);
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     const { name, value } = e.target;
 
-    setProduct((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setProduct((prev) => {
+      if (!prev) return prev;
+
+      let newValue: any = value;
+
+      // ✅ handle number fields
+      if (
+        [
+          "price",
+          "discount",
+          "countInStock",
+          "rating",
+          "brandId",
+          "categoryId",
+        ].includes(name)
+      ) {
+        newValue = Number(value);
+      }
+      
+      // ✅ handle checkbox (boolean)
+      if (
+        e.target instanceof HTMLInputElement &&
+        e.target.type === "checkbox"
+      ) {
+        newValue = e.target.checked;
+      }
+
+      return {
+        ...prev,
+        [name]: newValue,
+      };
+    });
   };
+
+  console.log(product);
 
   const handleImageChange = (e, index) => {
     const file = e.target.files[0];
     const preview = URL.createObjectURL(file);
 
     setProduct((prev) => {
-      const newImages = prev?.images || new Array(3).fill({ url: "", public_id: "" });
-      
+      if (!prev) return prev;
+
+      const newImages =
+        prev?.images || new Array(3).fill({ url: "", public_id: "" });
+
       newImages[index] = {
         ...newImages[index],
         url: preview,
       };
-      
+
       return {
         ...prev,
         images: newImages,
@@ -84,7 +126,9 @@ export default function ProductUpload() {
       ...product,
       imageFiles,
     };
-    await updateProduct(payload);
+    console.log(payload);
+    
+    await createProduct(payload);
     await handleAsync();
   };
 
@@ -149,7 +193,6 @@ export default function ProductUpload() {
       />
 
       <div className="product-upload-content">
-        <h2>Product ID: #{product?._id}</h2>
         <form method="PUT" onSubmit={handleSubmit}>
           <div className="product-upload-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
@@ -251,7 +294,7 @@ export default function ProductUpload() {
               >
                 <option value={""}>Choose a category ...</option>
                 {categories.map((item) => (
-                  <option value={item}>{item.name}</option>
+                  <option value={item._id}>{item.name}</option>
                 ))}
               </select>
             </div>
@@ -271,7 +314,7 @@ export default function ProductUpload() {
               >
                 <option value={""}>Choose a brand...</option>
                 {brands.map((item) => (
-                  <option value={item}>{item.name}</option>
+                  <option value={item._id}>{item.name}</option>
                 ))}
               </select>
             </div>
