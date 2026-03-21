@@ -132,9 +132,9 @@ export default function ProductUpload() {
     await handleAsync();
   };
 
-  const handleCancel = () => {
-    setProduct(null);
-  };
+  // const handleCancel = () => {
+  //   setProduct(null);
+  // };
 
   useEffect(() => {
     handleAsync();
@@ -352,13 +352,13 @@ export default function ProductUpload() {
             </div>
           </div>
           <div className="product-upload-content-button">
-            <button
+            {/* <button
               type="button"
               className="product-upload-content-button-cancel"
               onClick={handleCancel}
             >
               Cancel
-            </button>
+            </button> */}
             <button
               type="submit"
               className="product-upload-content-button-save"

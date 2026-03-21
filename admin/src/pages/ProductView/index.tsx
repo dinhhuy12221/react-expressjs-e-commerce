@@ -12,6 +12,7 @@ import { getBrands } from "../../api/brand";
 import { getCategories } from "../../api/category";
 import { AdminContext } from "../../App";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
+import { TiDelete } from "react-icons/ti";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -113,7 +114,22 @@ export default function ProductView() {
       };
     });
   };
-  console.log(imageFiles);
+  
+  const handleDeleteImage = (index) => {
+    setDraft((prev) => {
+      const newImages = prev.images;
+
+      newImages[index] = {
+        ...newImages[index],
+        url: "",
+      };
+
+      return {
+        ...prev,
+        newImages,
+      };
+    });
+  }
 
   const handleAsync = async () => {
     setIsLoading(true);
@@ -130,9 +146,7 @@ export default function ProductView() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(draft);
-
+    
     const payload = {
       ...draft,
       imageFiles,
@@ -231,19 +245,19 @@ export default function ProductView() {
                 </Slider> */}
             {draft?.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
+                <input
+                  type="file"
+                  onChange={(e) => handleImageChange(e, index)}
+                />
                 {item.url ? (
                   <>
                     <img src={item.url} alt="product" width="120" />
+                    <TiDelete className="product-view-content-images-item-delete" onClick={() => handleDeleteImage(index)}/>
                     <PiCameraRotate />
                   </>
                 ) : (
                   <MdOutlineAddCircleOutline />
                 )}
-
-                <input
-                  type="file"
-                  onChange={(e) => handleImageChange(e, index)}
-                />
               </div>
             ))}
           </div>
