@@ -1,40 +1,59 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { getCategories } from "../../api/category";
-import { getBrands } from "../../api/brand";
+import { getCategories, updateCategory } from "../../api/category";
+import { getBrands, updateBrand } from "../../api/brand";
 import "./index.css";
 
 export default function CategoryBrand() {
   const [categories, setCategories] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
+  const [category, setCategory] = useState<any>({ name: "" });
+  const [brand, setBrand] = useState<any>({ name: "" });
 
-  const handleChange = (e, index) => {
-    const { name, value } = e.target
+  const handleChange = (e, index?) => {
+    const { name, value } = e.target;
 
-    if (name === "Category") {
-      setCategories(prev => {
-        const newCategories = [...categories]
-        newCategories[index].name = value
-        return newCategories
-      })
-    } else {
-      setBrands(prev => {
-        const newBrands = [...brands]
-        newBrands[index].name = value
-        return newBrands
-      })
+    if (name === "categories") {
+      setCategories((prev) => {
+        if (!prev) return null;
+        const newCategories = [...prev];
+        newCategories[index].name = value;
+        return newCategories;
+      });
+    } else if (name === "brands") {
+      setBrands((prev) => {
+        if (!prev) return null;
+        const newBrands = [...prev];
+        newBrands[index].name = value;
+        return newBrands;
+      });
+    } else if (name === "category") {
+      setCategory(value);
+    } else if (name === "brand") {
+      setBrand(value);
     }
-  }
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // setCategory({
-    //   name: e.target.name.value,
-    //   imgUrl: e.target.imgUrl.value,
-    //   color: e.target.color.value,
-    // });
+  const handleUpdate = async (id, index, name) => {
+    if (name === "categories") {
+      const result = await updateCategory(categories[index].name, id);
 
-    // alert(JSON.stringify(brand));
+      // setCategories((prev) => {
+      //   if (!prev) return null;
+      //   const newCategories = [...prev];
+      //   newCategories[index].name = result;
+      //   return newCategories;
+      // });
+    } else if (name === "brands") {
+      const result = await updateBrand(categories[index].name, id);
+
+      // setBrands((prev) => {
+      //   if (!prev) return null;
+      //   const newBrands = [...prev];
+      //   newBrands[index].name = result;
+      //   return newBrands;
+      // });
+    }
   };
 
   useEffect(() => {
@@ -61,7 +80,7 @@ export default function CategoryBrand() {
           { name: "Categories & Brands", to: "/categories-brands" },
         ]}
       />
-      <form
+      <div
         className="category-brand-form"
         // onSubmit={handleSubmit}
       >
@@ -77,14 +96,21 @@ export default function CategoryBrand() {
               categories.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td className="category-brand-form-table-item-id">{item._id}</td>
+                    <td className="category-brand-form-table-item-id">
+                      {item._id}
+                    </td>
                     <td className="category-brand-form-table-item-name">
-                      <input name="category" value={item.name} onChange={(e) => {
-                        handleChange(e, index)
-                      }} />
+                      <input
+                        name="categories"
+                        value={item.name}
+                        onChange={(e) => {
+                          handleChange(e, index);
+                        }}
+                      />
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
+                        onClick={() => handleUpdate(item._id, index, "categories")}
                       >
                         Save
                       </button>
@@ -98,9 +124,29 @@ export default function CategoryBrand() {
                   </tr>
                 );
               })}
+            <tr>
+              <td className="category-brand-form-table-item-id">
+                {categories?.length + 1}
+              </td>
+              <td className="category-brand-form-table-item-name">
+                <input
+                  name="category"
+                  value={category.name}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                />
+                <button
+                  className="category-brand-form-table-item-name-save"
+                  color="success"
+                >
+                  Create
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
-      </form>
+      </div>
       <form
         className="category-brand-form"
         // onSubmit={handleSubmit}
@@ -116,15 +162,22 @@ export default function CategoryBrand() {
             {brands &&
               brands.map((item, index) => {
                 return (
-                  <tr key={index}>
-                    <td className="category-brand-form-table-item-id">{item._id}</td>
+                  <tr>
+                    <td className="category-brand-form-table-item-id">
+                      {item._id}
+                    </td>
                     <td className="category-brand-form-table-item-name">
-                      <input name="brand" value={item.name} onChange={(e) => {
-                        handleChange(e, index)
-                      }} />
+                      <input
+                        name="brands"
+                        value={item.name}
+                        onChange={(e) => {
+                          handleChange(e, index);
+                        }}
+                      />
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
+                        onClick={() => handleUpdate(item._id, index, "brands")}
                       >
                         Save
                       </button>
@@ -138,6 +191,26 @@ export default function CategoryBrand() {
                   </tr>
                 );
               })}
+            <tr>
+              <td className="category-brand-form-table-item-id">
+                {brands?.length + 1}
+              </td>
+              <td className="category-brand-form-table-item-name">
+                <input
+                  name="brand"
+                  value={brand.name}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                />
+                <button
+                  className="category-brand-form-table-item-name-save"
+                  color="success"
+                >
+                  Create
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </form>

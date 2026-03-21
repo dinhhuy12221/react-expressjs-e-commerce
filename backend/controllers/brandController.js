@@ -22,6 +22,36 @@ class brandController {
     }
   };
 
+  async updateBrand(req, res) {
+      try {
+        const { name } = req.body;
+  
+        if (!name) {
+          return res.status(400).json({
+            message: "Name is required",
+          });
+        }
+        const brand = await Brand.findByIdAndUpdate(
+          req.params.id,
+          {
+            name: name,
+            slug: slugify(name, { lower: true, strict: true }),
+          },
+          { new: true }
+        );
+  
+        res.status(200).json({
+          message: "Brand Updated",
+          data: brand,
+        });
+      } catch (error) {
+        res.status(500).json({
+          message: "Internal server error",
+          error: error.message,
+        });
+      }
+    }
+
   getBrandById = async (req, res) => {
     try {
       const brand = await Brand.findById(req.params.id);
