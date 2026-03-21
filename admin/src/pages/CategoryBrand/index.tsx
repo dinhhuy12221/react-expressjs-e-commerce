@@ -36,7 +36,7 @@ export default function CategoryBrand() {
 
   const handleUpdate = async (e, index, name) => {
     if (name === "categories") {
-      const result = await updateCategory(categories[index], index);
+      const result = await updateCategory(categories[index].name, index);
 
       setCategories((prev) => {
         if (!prev) return null;
@@ -45,7 +45,7 @@ export default function CategoryBrand() {
         return newCategories;
       });
     } else if (name === "brands") {
-      const result = await updateBrand(categories[index], index);
+      const result = await updateBrand(categories[index].name, index);
 
       setBrands((prev) => {
         if (!prev) return null;
@@ -110,7 +110,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={(e) => handleUpdate(e, index, "categories")}
+                        onClick={(e) => handleUpdate(e, item._id, "categories")}
                       >
                         Save
                       </button>
@@ -177,7 +177,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={(e) => handleUpdate(e, index, "brands")}
+                        onClick={(e) => handleUpdate(e, item._id, "brands")}
                       >
                         Save
                       </button>
