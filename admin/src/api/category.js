@@ -9,12 +9,23 @@ const getCategories = async () => {
         console.error(error);
     }
 }
-const updateCategory = async (values) => {
+const createCategory = async (values) => {
     try {
         
     } catch (error) {
         console.log(error);
     }
 }
+const updateCategory = async (values, id) => {
+    try {
+        const result = await fetch(`${BASE_URL}/category/${id}`, {
+            method: "PUT",
+            body: values
+        })
+        return result
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-export { getCategories }
+export { getCategories, createCategory, updateCategory }

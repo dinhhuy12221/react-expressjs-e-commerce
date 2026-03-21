@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { getCategories } from "../../api/category";
+import { getCategories, updateCategory } from "../../api/category";
 import { getBrands } from "../../api/brand";
 import "./index.css";
 
@@ -34,8 +34,11 @@ export default function CategoryBrand() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleUpdate = async (e, index) => {
+    const { name } = e.target
+    if (name === "categories") {
+
+    }
   };
 
   useEffect(() => {
@@ -62,7 +65,7 @@ export default function CategoryBrand() {
           { name: "Categories & Brands", to: "/categories-brands" },
         ]}
       />
-      <form
+      <div
         className="category-brand-form"
         // onSubmit={handleSubmit}
       >
@@ -92,6 +95,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
+                        onClick={e => handleUpdate(e, index)}
                       >
                         Save
                       </button>
@@ -107,7 +111,7 @@ export default function CategoryBrand() {
               })}
             <tr>
               <td className="category-brand-form-table-item-id">
-                {categories.length + 1}
+                {categories?.length + 1}
               </td>
               <td className="category-brand-form-table-item-name">
                 <input
@@ -127,7 +131,7 @@ export default function CategoryBrand() {
             </tr>
           </tbody>
         </table>
-      </form>
+      </div>
       <form
         className="category-brand-form"
         // onSubmit={handleSubmit}
@@ -173,7 +177,7 @@ export default function CategoryBrand() {
               })}
             <tr>
               <td className="category-brand-form-table-item-id">
-                {brands.length + 1}
+                {brands?.length + 1}
               </td>
               <td className="category-brand-form-table-item-name">
                 <input
