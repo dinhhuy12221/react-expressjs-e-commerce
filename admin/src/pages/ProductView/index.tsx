@@ -114,7 +114,10 @@ export default function ProductView() {
       };
     });
   };
-  console.log(imageFiles);
+  
+  const handleDeleteImage = (index) => {
+
+  }
 
   const handleAsync = async () => {
     setIsLoading(true);
@@ -232,22 +235,19 @@ export default function ProductView() {
                 </Slider> */}
             {draft?.images.map((item, index) => (
               <div className="product-view-content-images-item" key={index}>
+                <input
+                  type="file"
+                  onChange={(e) => handleImageChange(e, index)}
+                />
                 {item.url ? (
                   <>
                     <img src={item.url} alt="product" width="120" />
-                    {/* <button className="product-view-content-images-item-delete"> */}
-                      <TiDelete  className="product-view-content-images-item-delete"/>
-                    {/* </button> */}
+                    <TiDelete className="product-view-content-images-item-delete" onClick={() => handleDeleteImage(index)}/>
                     <PiCameraRotate />
                   </>
                 ) : (
                   <MdOutlineAddCircleOutline />
                 )}
-
-                <input
-                  type="file"
-                  onChange={(e) => handleImageChange(e, index)}
-                />
               </div>
             ))}
           </div>
