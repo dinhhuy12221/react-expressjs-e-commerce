@@ -123,6 +123,12 @@ export default function ProductUpload() {
         newImages,
       };
     });
+
+    setImageFiles((prev) => {
+      const newImageFiles = [...prev];
+      newImageFiles[index] = null;
+      return newImageFiles;
+    });
   };
 
   const handleAsync = async () => {
