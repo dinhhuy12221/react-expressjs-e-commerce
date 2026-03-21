@@ -34,25 +34,25 @@ export default function CategoryBrand() {
     }
   };
 
-  const handleUpdate = async (e, index, name) => {
+  const handleUpdate = async (id, index, name) => {
     if (name === "categories") {
-      const result = await updateCategory(categories[index].name, index);
+      const result = await updateCategory(categories[index].name, id);
 
-      setCategories((prev) => {
-        if (!prev) return null;
-        const newCategories = [...prev];
-        newCategories[index].name = result;
-        return newCategories;
-      });
+      // setCategories((prev) => {
+      //   if (!prev) return null;
+      //   const newCategories = [...prev];
+      //   newCategories[index].name = result;
+      //   return newCategories;
+      // });
     } else if (name === "brands") {
-      const result = await updateBrand(categories[index].name, index);
+      const result = await updateBrand(categories[index].name, id);
 
-      setBrands((prev) => {
-        if (!prev) return null;
-        const newBrands = [...prev];
-        newBrands[index].name = result;
-        return newBrands;
-      });
+      // setBrands((prev) => {
+      //   if (!prev) return null;
+      //   const newBrands = [...prev];
+      //   newBrands[index].name = result;
+      //   return newBrands;
+      // });
     }
   };
 
@@ -110,7 +110,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={(e) => handleUpdate(e, item._id, "categories")}
+                        onClick={() => handleUpdate(item._id, index, "categories")}
                       >
                         Save
                       </button>
@@ -177,7 +177,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={(e) => handleUpdate(e, item._id, "brands")}
+                        onClick={() => handleUpdate(item._id, index, "brands")}
                       >
                         Save
                       </button>
