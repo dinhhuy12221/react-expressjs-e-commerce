@@ -75,18 +75,16 @@ class productController {
               url: result.secure_url,
               public_id: result.public_id,
             };
-          }
-
-          else return {
-            url: "",
-            public_id: "",
-          };
+          } else
+            return {
+              url: "",
+              public_id: "",
+            };
         })
       );
       const category = await Category.findById(req.body.categoryId);
 
       console.log(imagesToUpload);
-      
 
       if (!category) {
         res.status(404).json({ message: "Category is not found" });
@@ -142,8 +140,6 @@ class productController {
           // console.log(typeof parsedImages);
 
           if (file) {
-            console.log(parsedImages[index].public_id);
-
             if (parsedImages[index].public_id) {
               const result = await cloudinary.v2.uploader.upload(file.path, {
                 public_id: parsedImages[index]?.public_id,
@@ -168,6 +164,17 @@ class productController {
                 public_id: result.public_id,
               };
             }
+          } else if (parsedImages[index].deleted) {
+            cloudinary.v2.uploader.destroy(
+              parsedImages[index].public_id,
+              function (result) {
+                console.log(result);
+              }
+            );
+            return {
+              url: "",
+              public_id: "",
+            };
           } else {
             return {
               url: parsedImages[index].url || "",
