@@ -7,32 +7,35 @@ import "./index.css";
 export default function CategoryBrand() {
   const [categories, setCategories] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
-  const [category, setCategory] = useState<any>({ name: "" })
-  const [brand, setBrand] = useState<any>({ name: "" })
+  const [category, setCategory] = useState<any>({ name: "" });
+  const [brand, setBrand] = useState<any>({ name: "" });
 
-  const handleChange = (e, index) => {
-    const { name, value } = e.target
+  const handleChange = (e, index?) => {
+    const { name, value } = e.target;
 
-    if (name === "category") {
-      setCategories(prev => {
-        if (!prev) return null
-        const newCategories = [...categories]
-        newCategories[index].name = value
-        return newCategories
-      })
-    } else {
-      setBrands(prev => {
-        if (!prev) return null
-        const newBrands = [...brands]
-        newBrands[index].name = value
-        return newBrands
-      })
+    if (name === "categories") {
+      setCategories((prev) => {
+        if (!prev) return null;
+        const newCategories = [...categories];
+        newCategories[index].name = value;
+        return newCategories;
+      });
+    } else if (name === "brands") {
+      setBrands((prev) => {
+        if (!prev) return null;
+        const newBrands = [...brands];
+        newBrands[index].name = value;
+        return newBrands;
+      });
+    } else if (name === "category") {
+      setCategory(value);
+    } else if (name === "brand") {
+      setBrand(value);
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
   };
 
   useEffect(() => {
@@ -75,11 +78,17 @@ export default function CategoryBrand() {
               categories.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td className="category-brand-form-table-item-id">{item._id}</td>
+                    <td className="category-brand-form-table-item-id">
+                      {item._id}
+                    </td>
                     <td className="category-brand-form-table-item-name">
-                      <input name="category" value={item.name} onChange={(e) => {
-                        handleChange(e, index)
-                      }} />
+                      <input
+                        name="categories"
+                        value={item.name}
+                        onChange={(e) => {
+                          handleChange(e, index);
+                        }}
+                      />
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
@@ -93,20 +102,29 @@ export default function CategoryBrand() {
                         Delete
                       </button>
                     </td>
-                    <td className="category-brand-form-table-item-name">
-                      <input name="category" value={category.name} onChange={(e) => {
-                        handleChange(e, index)
-                      }} />
-                      <button
-                        className="category-brand-form-table-item-name-save"
-                        color="success"
-                      >
-                        Create
-                      </button>
-                    </td>
                   </tr>
                 );
               })}
+            <tr>
+              <td className="category-brand-form-table-item-id">
+                {categories.length + 1}
+              </td>
+              <td className="category-brand-form-table-item-name">
+                <input
+                  name="category"
+                  value={category.name}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                />
+                <button
+                  className="category-brand-form-table-item-name-save"
+                  color="success"
+                >
+                  Create
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </form>
@@ -125,12 +143,18 @@ export default function CategoryBrand() {
             {brands &&
               brands.map((item, index) => {
                 return (
-                  <tr key={index}>
-                    <td className="category-brand-form-table-item-id">{item._id}</td>
+                  <tr>
+                    <td className="category-brand-form-table-item-id">
+                      {item._id}
+                    </td>
                     <td className="category-brand-form-table-item-name">
-                      <input name="brand" value={item.name} onChange={(e) => {
-                        handleChange(e, index)
-                      }} />
+                      <input
+                        name="brands"
+                        value={item.name}
+                        onChange={(e) => {
+                          handleChange(e, index);
+                        }}
+                      />
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
@@ -147,6 +171,26 @@ export default function CategoryBrand() {
                   </tr>
                 );
               })}
+            <tr>
+              <td className="category-brand-form-table-item-id">
+                {brands.length + 1}
+              </td>
+              <td className="category-brand-form-table-item-name">
+                <input
+                  name="brand"
+                  value={brand.name}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                />
+                <button
+                  className="category-brand-form-table-item-name-save"
+                  color="success"
+                >
+                  Create
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </form>
