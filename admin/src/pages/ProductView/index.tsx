@@ -116,7 +116,19 @@ export default function ProductView() {
   };
   
   const handleDeleteImage = (index) => {
+    setDraft((prev) => {
+      const newImages = prev.images;
 
+      newImages[index] = {
+        ...newImages[index],
+        url: "",
+      };
+
+      return {
+        ...prev,
+        newImages,
+      };
+    });
   }
 
   const handleAsync = async () => {
@@ -134,9 +146,7 @@ export default function ProductView() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(draft);
-
+    
     const payload = {
       ...draft,
       imageFiles,
