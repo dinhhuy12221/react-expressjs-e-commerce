@@ -106,6 +106,7 @@ export default function ProductView() {
       newImages[index] = {
         ...newImages[index],
         url: preview,
+        deleted: false,
       };
 
       return {
@@ -122,6 +123,7 @@ export default function ProductView() {
       newImages[index] = {
         ...newImages[index],
         url: "",
+        deleted: true,
       };
 
       return {
@@ -249,9 +251,9 @@ export default function ProductView() {
                   type="file"
                   onChange={(e) => handleImageChange(e, index)}
                 />
-                {item.url ? (
+                {item?.url ? (
                   <>
-                    <img src={item.url} alt="product" width="120" />
+                    <img src={item?.url} alt="product" width="120" />
                     <TiDelete className="product-view-content-images-item-delete" onClick={() => handleDeleteImage(index)}/>
                     <PiCameraRotate />
                   </>
