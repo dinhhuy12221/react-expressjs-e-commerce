@@ -1,26 +1,41 @@
 import { useEffect, useState } from "react";
-import { MdDeleteForever } from "react-icons/md";
-import { IoPencil } from "react-icons/io5";
-
-import "./index.css";
 import Breadcrumb from "../../components/Breadcrumb";
 import { getCategories } from "../../api/category";
 import { getBrands } from "../../api/brand";
+import "./index.css";
 
 export default function CategoryBrand() {
   const [categories, setCategories] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setCategory({
-  //     name: e.target.name.value,
-  //     imgUrl: e.target.imgUrl.value,
-  //     color: e.target.color.value,
-  //   });
+  const handleChange = (e, index) => {
+    const { name, value } = e.target
 
-  //   alert(JSON.stringify(brand));
-  // };
+    if (name === "Category") {
+      setCategories(prev => {
+        const newCategories = [...categories]
+        newCategories[index].name = value
+        return newCategories
+      })
+    } else {
+      setBrands(prev => {
+        const newBrands = [...brands]
+        newBrands[index].name = value
+        return newBrands
+      })
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setCategory({
+    //   name: e.target.name.value,
+    //   imgUrl: e.target.imgUrl.value,
+    //   color: e.target.color.value,
+    // });
+
+    // alert(JSON.stringify(brand));
+  };
 
   useEffect(() => {
     const asyncHandle = async () => {
@@ -29,16 +44,6 @@ export default function CategoryBrand() {
     };
     asyncHandle();
   }, []);
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setCategory({
-  //     name: e.target.name.value,
-  //     imgUrl: e.target.imgUrl.value,
-  //     color: e.target.color.value,
-  //   });
-
-  //   alert(JSON.stringify(category));
-  // };
 
   useEffect(() => {
     const asyncHandle = async () => {
@@ -49,7 +54,7 @@ export default function CategoryBrand() {
   }, []);
 
   return (
-    <div className="category">
+    <div className="category-brand">
       <Breadcrumb
         path={[
           { name: "Dashboard", to: "/dashboard" },
@@ -57,7 +62,7 @@ export default function CategoryBrand() {
         ]}
       />
       <form
-        className="category-form"
+        className="category-brand-form"
         // onSubmit={handleSubmit}
       >
         <table className="table table-bordered table-hover v-align">
@@ -72,20 +77,22 @@ export default function CategoryBrand() {
               categories.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td className="category-form-table-item-id">{item._id}</td>
-                    <td className="category-form-table-item-name">
-                      <input value={item.name} onChange={() => {}} />
+                    <td className="category-brand-form-table-item-id">{item._id}</td>
+                    <td className="category-brand-form-table-item-name">
+                      <input name="category" value={item.name} onChange={(e) => {
+                        handleChange(e, index)
+                      }} />
                       <button
-                        className="category-form-table-item-name-save"
+                        className="category-brand-form-table-item-name-save"
                         color="success"
                       >
-                        <IoPencil />
+                        Save
                       </button>
                       <button
-                        className="category-form-table-item-name-cancel"
+                        className="category-brand-form-table-item-name-cancel"
                         color="error"
                       >
-                        <MdDeleteForever />
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -95,7 +102,7 @@ export default function CategoryBrand() {
         </table>
       </form>
       <form
-        className="brand-form"
+        className="category-brand-form"
         // onSubmit={handleSubmit}
       >
         <table className="table table-bordered table-hover v-align">
@@ -110,20 +117,22 @@ export default function CategoryBrand() {
               brands.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td className="brand-form-table-item-id">{item._id}</td>
-                    <td className="brand-form-table-item-name">
-                      <input value={item.name} onChange={() => {}} />
+                    <td className="category-brand-form-table-item-id">{item._id}</td>
+                    <td className="category-brand-form-table-item-name">
+                      <input name="brand" value={item.name} onChange={(e) => {
+                        handleChange(e, index)
+                      }} />
                       <button
-                        className="brand-form-table-item-name-save"
+                        className="category-brand-form-table-item-name-save"
                         color="success"
                       >
-                        <IoPencil />
+                        Save
                       </button>
                       <button
-                        className="brand-form-table-item-name-cancel"
+                        className="category-brand-form-table-item-name-cancel"
                         color="error"
                       >
-                        <MdDeleteForever />
+                        Delete
                       </button>
                     </td>
                   </tr>
