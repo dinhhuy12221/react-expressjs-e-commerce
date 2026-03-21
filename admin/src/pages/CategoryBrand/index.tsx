@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import { getCategories, updateCategory } from "../../api/category";
-import { getBrands } from "../../api/brand";
+import { getBrands, updateBrand } from "../../api/brand";
 import "./index.css";
 
 export default function CategoryBrand() {
@@ -16,14 +16,14 @@ export default function CategoryBrand() {
     if (name === "categories") {
       setCategories((prev) => {
         if (!prev) return null;
-        const newCategories = [...categories];
+        const newCategories = [...prev];
         newCategories[index].name = value;
         return newCategories;
       });
     } else if (name === "brands") {
       setBrands((prev) => {
         if (!prev) return null;
-        const newBrands = [...brands];
+        const newBrands = [...prev];
         newBrands[index].name = value;
         return newBrands;
       });
@@ -34,10 +34,25 @@ export default function CategoryBrand() {
     }
   };
 
-  const handleUpdate = async (e, index) => {
-    const { name } = e.target
+  const handleUpdate = async (e, index, name) => {
     if (name === "categories") {
+      const result = await updateCategory(categories[index], index);
 
+      setCategories((prev) => {
+        if (!prev) return null;
+        const newCategories = [...prev];
+        newCategories[index].name = result;
+        return newCategories;
+      });
+    } else if (name === "brands") {
+      const result = await updateBrand(categories[index], index);
+
+      setBrands((prev) => {
+        if (!prev) return null;
+        const newBrands = [...prev];
+        newBrands[index].name = result;
+        return newBrands;
+      });
     }
   };
 
@@ -95,7 +110,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={e => handleUpdate(e, index)}
+                        onClick={(e) => handleUpdate(e, index, "categories")}
                       >
                         Save
                       </button>
@@ -162,6 +177,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
+                        onClick={(e) => handleUpdate(e, index, "brands")}
                       >
                         Save
                       </button>
