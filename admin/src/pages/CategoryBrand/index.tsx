@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import { MdDeleteForever } from "react-icons/md";
-import { IoPencil } from "react-icons/io5";
-
 import Breadcrumb from "../../components/Breadcrumb";
 import { getCategories } from "../../api/category";
 import { getBrands } from "../../api/brand";
@@ -122,7 +119,9 @@ export default function CategoryBrand() {
                   <tr key={index}>
                     <td className="category-brand-form-table-item-id">{item._id}</td>
                     <td className="category-brand-form-table-item-name">
-                      <input value={item.name} onChange={() => {}} />
+                      <input name="brand" value={item.name} onChange={(e) => {
+                        handleChange(e, index)
+                      }} />
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
