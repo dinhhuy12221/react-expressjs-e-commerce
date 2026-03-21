@@ -11,16 +11,34 @@ export default function CategoryBrand() {
   const [categories, setCategories] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setCategory({
-  //     name: e.target.name.value,
-  //     imgUrl: e.target.imgUrl.value,
-  //     color: e.target.color.value,
-  //   });
+  const handleChange = (e, index) => {
+    const { name, value } = e.target
 
-  //   alert(JSON.stringify(brand));
-  // };
+    if (name === "Category") {
+      setCategories(prev => {
+        const newCategories = [...categories]
+        newCategories[index].name = value
+        return newCategories
+      })
+    } else {
+      setBrands(prev => {
+        const newBrands = [...brands]
+        newBrands[index].name = value
+        return newBrands
+      })
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setCategory({
+    //   name: e.target.name.value,
+    //   imgUrl: e.target.imgUrl.value,
+    //   color: e.target.color.value,
+    // });
+
+    // alert(JSON.stringify(brand));
+  };
 
   useEffect(() => {
     const asyncHandle = async () => {
@@ -29,16 +47,6 @@ export default function CategoryBrand() {
     };
     asyncHandle();
   }, []);
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setCategory({
-  //     name: e.target.name.value,
-  //     imgUrl: e.target.imgUrl.value,
-  //     color: e.target.color.value,
-  //   });
-
-  //   alert(JSON.stringify(category-brand));
-  // };
 
   useEffect(() => {
     const asyncHandle = async () => {
@@ -74,7 +82,9 @@ export default function CategoryBrand() {
                   <tr key={index}>
                     <td className="category-brand-form-table-item-id">{item._id}</td>
                     <td className="category-brand-form-table-item-name">
-                      <input value={`${item.name}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`} onChange={() => {}} />
+                      <input name="category" value={item.name} onChange={(e) => {
+                        handleChange(e, index)
+                      }} />
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
