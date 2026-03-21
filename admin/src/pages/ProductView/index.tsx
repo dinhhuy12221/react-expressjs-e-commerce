@@ -12,6 +12,7 @@ import { getBrands } from "../../api/brand";
 import { getCategories } from "../../api/category";
 import { AdminContext } from "../../App";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
+import { TiDelete } from "react-icons/ti";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -234,6 +235,9 @@ export default function ProductView() {
                 {item.url ? (
                   <>
                     <img src={item.url} alt="product" width="120" />
+                    <button className="product-view-content-images-item-delete">
+                      <TiDelete />
+                    </button>
                     <PiCameraRotate />
                   </>
                 ) : (
