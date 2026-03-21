@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import {
-  createProduct,
-} from "../../api/product";
+import { createProduct } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
@@ -12,6 +10,7 @@ import { getCategories } from "../../api/category";
 import { AdminContext } from "../../App";
 import { MdAddCircleOutline } from "react-icons/md";
 import { Product, Image } from "../../types/Product";
+import { TiDelete } from "react-icons/ti";
 
 // function handleClick(event) {
 //   event.preventDefault();
@@ -61,7 +60,7 @@ export default function ProductUpload() {
       ) {
         newValue = Number(value);
       }
-      
+
       // ✅ handle checkbox (boolean)
       if (
         e.target instanceof HTMLInputElement &&
@@ -107,6 +106,31 @@ export default function ProductUpload() {
     });
   };
 
+  const handleDeleteImage = (index) => {
+    setProduct((prev) => {
+      if (!prev) return;
+
+      const newImages = prev.images;
+
+      newImages[index] = {
+        ...newImages[index],
+        url: "",
+        deleted: true,
+      };
+
+      return {
+        ...prev,
+        newImages,
+      };
+    });
+
+    setImageFiles((prev) => {
+      const newImageFiles = [...prev];
+      newImageFiles[index] = null;
+      return newImageFiles;
+    });
+  };
+
   const handleAsync = async () => {
     setIsLoading(true);
     // const result1 = await getProductBySlug(slug);
@@ -127,7 +151,7 @@ export default function ProductUpload() {
       imageFiles,
     };
     console.log(payload);
-    
+
     await createProduct(payload);
     await handleAsync();
   };
@@ -221,8 +245,12 @@ export default function ProductUpload() {
             <div className="product-upload-content-images-item">
               {product?.images[0].url ? (
                 <>
-                  <PiCameraRotate />
                   <img src={product?.images[0].url} alt="product" width="120" />
+                  <TiDelete
+                    className="product-upload-content-images-item-delete"
+                    onClick={() => handleDeleteImage(0)}
+                  />
+                  <PiCameraRotate />
                 </>
               ) : (
                 <MdAddCircleOutline />
@@ -233,8 +261,12 @@ export default function ProductUpload() {
             <div className="product-upload-content-images-item">
               {product?.images[1].url ? (
                 <>
-                  <PiCameraRotate />
                   <img src={product?.images[1].url} alt="product" width="120" />
+                  <TiDelete
+                    className="product-upload-content-images-item-delete"
+                    onClick={() => handleDeleteImage(1)}
+                  />
+                  <PiCameraRotate />
                 </>
               ) : (
                 <MdAddCircleOutline />
@@ -244,8 +276,12 @@ export default function ProductUpload() {
             <div className="product-upload-content-images-item">
               {product?.images[2].url ? (
                 <>
-                  <PiCameraRotate />
                   <img src={product?.images[2].url} alt="product" width="120" />
+                  <TiDelete
+                    className="product-upload-content-images-item-delete"
+                    onClick={() => handleDeleteImage(2)}
+                  />
+                  <PiCameraRotate />
                 </>
               ) : (
                 <MdAddCircleOutline />

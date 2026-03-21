@@ -14,6 +14,7 @@ type Product = {
 type Image = {
     url: string,
     public_id: string,
+    deleted?: boolean
 }
 
 export { Product, Image }
