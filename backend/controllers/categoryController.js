@@ -113,6 +113,7 @@ class categoryController {
         message: "Internal server error",
         error: error.message,
       });
+      console.log(error);
     }
   }
 }
