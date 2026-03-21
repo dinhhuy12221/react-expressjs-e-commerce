@@ -72,9 +72,6 @@ export default function Sidebar() {
               <Link to="/products">Product List</Link>
             </li>
             <li>
-              <Link to="/product/view">Product View</Link>
-            </li>
-            <li>
               <Link to="/product/upload">Product Upload</Link>
             </li>
           </ul>
