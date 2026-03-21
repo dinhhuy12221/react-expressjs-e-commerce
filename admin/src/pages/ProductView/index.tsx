@@ -234,11 +234,11 @@ export default function ProductView() {
               <div className="product-view-content-images-item" key={index}>
                 {item.url ? (
                   <>
-                    <TiDelete className="product-view-content-images-item-delete" />
-                    <div className="product-view-content-images-item-content">
-                      <img src={item.url} alt="product" width="120" />
-                      <PiCameraRotate />
-                    </div>
+                    <img src={item.url} alt="product" width="120" />
+                    {/* <button className="product-view-content-images-item-delete"> */}
+                      <TiDelete  className="product-view-content-images-item-delete"/>
+                    {/* </button> */}
+                    <PiCameraRotate />
                   </>
                 ) : (
                   <MdOutlineAddCircleOutline />
