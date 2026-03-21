@@ -1,3 +1,6 @@
+.products {
+    width: 100%;
+}
 .products-table {
   display: flex;
   flex-direction: column;

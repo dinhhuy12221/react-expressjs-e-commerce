@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { IoPencil } from "react-icons/io5";
 
-import "./index.css";
 import Breadcrumb from "../../components/Breadcrumb";
 import { getCategories } from "../../api/category";
 import { getBrands } from "../../api/brand";
+import "./index.css";
 
 export default function CategoryBrand() {
   const [categories, setCategories] = useState<any>(null);
@@ -37,7 +37,7 @@ export default function CategoryBrand() {
   //     color: e.target.color.value,
   //   });
 
-  //   alert(JSON.stringify(category));
+  //   alert(JSON.stringify(category-brand));
   // };
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function CategoryBrand() {
   }, []);
 
   return (
-    <div className="category">
+    <div className="category-brand">
       <Breadcrumb
         path={[
           { name: "Dashboard", to: "/dashboard" },
@@ -57,7 +57,7 @@ export default function CategoryBrand() {
         ]}
       />
       <form
-        className="category-form"
+        className="category-brand-form"
         // onSubmit={handleSubmit}
       >
         <table className="table table-bordered table-hover v-align">
@@ -72,20 +72,20 @@ export default function CategoryBrand() {
               categories.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td className="category-form-table-item-id">{item._id}</td>
-                    <td className="category-form-table-item-name">
-                      <input value={item.name} onChange={() => {}} />
+                    <td className="category-brand-form-table-item-id">{item._id}</td>
+                    <td className="category-brand-form-table-item-name">
+                      <input value={`${item.name}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`} onChange={() => {}} />
                       <button
-                        className="category-form-table-item-name-save"
+                        className="category-brand-form-table-item-name-save"
                         color="success"
                       >
-                        <IoPencil />
+                        Save
                       </button>
                       <button
-                        className="category-form-table-item-name-cancel"
+                        className="category-brand-form-table-item-name-cancel"
                         color="error"
                       >
-                        <MdDeleteForever />
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -95,7 +95,7 @@ export default function CategoryBrand() {
         </table>
       </form>
       <form
-        className="brand-form"
+        className="category-brand-form"
         // onSubmit={handleSubmit}
       >
         <table className="table table-bordered table-hover v-align">
@@ -110,20 +110,20 @@ export default function CategoryBrand() {
               brands.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td className="brand-form-table-item-id">{item._id}</td>
-                    <td className="brand-form-table-item-name">
+                    <td className="category-brand-form-table-item-id">{item._id}</td>
+                    <td className="category-brand-form-table-item-name">
                       <input value={item.name} onChange={() => {}} />
                       <button
-                        className="brand-form-table-item-name-save"
+                        className="category-brand-form-table-item-name-save"
                         color="success"
                       >
-                        <IoPencil />
+                        Save
                       </button>
                       <button
-                        className="brand-form-table-item-name-cancel"
+                        className="category-brand-form-table-item-name-cancel"
                         color="error"
                       >
-                        <MdDeleteForever />
+                        Delete
                       </button>
                     </td>
                   </tr>
