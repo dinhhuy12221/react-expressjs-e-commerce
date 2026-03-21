@@ -11,14 +11,16 @@ export default function CategoryBrand() {
   const handleChange = (e, index) => {
     const { name, value } = e.target
 
-    if (name === "Category") {
+    if (name === "category") {
       setCategories(prev => {
+        if (!prev) return null
         const newCategories = [...categories]
         newCategories[index].name = value
         return newCategories
       })
     } else {
       setBrands(prev => {
+        if (!prev) return null
         const newBrands = [...brands]
         newBrands[index].name = value
         return newBrands
