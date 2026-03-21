@@ -7,6 +7,8 @@ import "./index.css";
 export default function CategoryBrand() {
   const [categories, setCategories] = useState<any>(null);
   const [brands, setBrands] = useState<any>(null);
+  const [category, setCategory] = useState<any>({ name: "" })
+  const [brand, setBrand] = useState<any>({ name: "" })
 
   const handleChange = (e, index) => {
     const { name, value } = e.target
@@ -30,13 +32,7 @@ export default function CategoryBrand() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setCategory({
-    //   name: e.target.name.value,
-    //   imgUrl: e.target.imgUrl.value,
-    //   color: e.target.color.value,
-    // });
 
-    // alert(JSON.stringify(brand));
   };
 
   useEffect(() => {
@@ -95,6 +91,17 @@ export default function CategoryBrand() {
                         color="error"
                       >
                         Delete
+                      </button>
+                    </td>
+                    <td className="category-brand-form-table-item-name">
+                      <input name="category" value={category.name} onChange={(e) => {
+                        handleChange(e, index)
+                      }} />
+                      <button
+                        className="category-brand-form-table-item-name-save"
+                        color="success"
+                      >
+                        Create
                       </button>
                     </td>
                   </tr>

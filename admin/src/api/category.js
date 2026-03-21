@@ -9,5 +9,12 @@ const getCategories = async () => {
         console.error(error);
     }
 }
+const updateCategory = async (values) => {
+    try {
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export { getCategories }
