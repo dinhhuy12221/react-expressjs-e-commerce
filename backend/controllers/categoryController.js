@@ -1,11 +1,14 @@
 import Category from "../models/category.js";
+import slugify from "slugify";
 
 class categoryController {
   // Get category list
   async getCategories(req, res) {
     try {
       const categories = await Category.find({});
-      res.status(200).json({ message: "Categories are found", data: categories });
+      res
+        .status(200)
+        .json({ message: "Categories are found", data: categories });
     } catch (error) {
       console.log(error);
 
@@ -85,20 +88,30 @@ class categoryController {
   // Update category
   async updateCategory(req, res) {
     try {
-      const category = await Category.findByIdAndUpdate(req.params.id, {
-        name: req.body.name,
-        images: req.body.images,
-        color: req.body.color,
-      });
+      const { name } = req.body;
+
+      if (!name) {
+        return res.status(400).json({
+          message: "Name is required",
+        });
+      }
+      const category = await Category.findByIdAndUpdate(
+        req.params.id,
+        {
+          name: name,
+          slug: slugify(name, { lower: true, strict: true }),
+        },
+        { new: true }
+      );
 
       res.status(200).json({
         message: "Category Updated",
-        success: true,
+        data: category,
       });
     } catch (error) {
-      res.status(404).json({
-        success: false,
-        message: JSON.stringify(error),
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
       });
     }
   }
