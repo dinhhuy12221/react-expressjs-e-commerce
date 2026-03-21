@@ -45,7 +45,7 @@ export default function CategoryBrand() {
       //   return newCategories;
       // });
     } else if (name === "brands") {
-      const result = await updateBrand(categories[index].name, id);
+      const result = await updateBrand(brands[index].name, id);
 
       // setBrands((prev) => {
       //   if (!prev) return null;
@@ -147,7 +147,7 @@ export default function CategoryBrand() {
           </tbody>
         </table>
       </div>
-      <form
+      <div
         className="category-brand-form"
         // onSubmit={handleSubmit}
       >
@@ -213,7 +213,7 @@ export default function CategoryBrand() {
             </tr>
           </tbody>
         </table>
-      </form>
+      </div>
     </div>
   );
 }
