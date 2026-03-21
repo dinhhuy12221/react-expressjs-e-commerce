@@ -92,7 +92,17 @@
   input[type="file"]::-webkit-file-upload-button {
   display: none;
 }
-
+.product-upload-content-images-item-delete {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--color-bg-red-2) !important;
+  font-size: var(--font-40);
+  top: -16px;
+  right: -16px;
+  cursor: pointer;
+  z-index: 999 !important;
+}
 .product-upload-content-main {
   width: 100%;
   display: flex;
