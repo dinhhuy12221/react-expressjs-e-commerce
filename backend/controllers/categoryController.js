@@ -71,17 +71,16 @@ class categoryController {
   // Delete category by id
   async deleteCategory(req, res) {
     try {
-      const deletedCategory = await Category.delete({ _id: req.params.id });
+      await Category.delete({ _id: req.params.id });
 
       res.status(200).json({
         message: "Category Deleted!",
-        success: true,
       });
     } catch (error) {
-      res.status(404).json({
-        success: false,
-        message: JSON.stringify(error),
-      });
+      console.log(error);
+      res
+        .status(500)
+        .json({ message: "Internal server error", error: error.message });
     }
   }
 

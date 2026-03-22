@@ -1,4 +1,5 @@
 import Brand from "../models/brand.js";
+import slugify from "slugify"
 
 class brandController {
   createBrand = async (req, res) => {
