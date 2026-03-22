@@ -62,14 +62,14 @@ export default function CategoryBrand() {
       
       setCategories(prev => ([
         ...prev,
-        { name: result?.name }
+        result
       ]))
     } else if (name === "brand") {
       const result = await createBrand(brand.name)
       
       setBrands(prev => ([
         ...prev,
-        { name: result?.name }
+        result
       ]))
     }
   }
@@ -178,7 +178,7 @@ export default function CategoryBrand() {
                 <button
                   className="category-brand-form-table-item-name-save"
                   color="success"
-                  onClick={handleCreate}
+                  onClick={() => handleCreate("category")}
                 >
                   Create
                 </button>
@@ -246,6 +246,7 @@ export default function CategoryBrand() {
                 <button
                   className="category-brand-form-table-item-name-save"
                   color="success"
+                  onClick={() => handleCreate("brand")}
                 >
                   Create
                 </button>

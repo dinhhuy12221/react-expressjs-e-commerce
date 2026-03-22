@@ -18,7 +18,7 @@ const createCategory = async (values) => {
       },
       body: JSON.stringify({ name: values}),
     })
-    return result
+    return result.data
   } catch (error) {
     console.log(error);
   }
