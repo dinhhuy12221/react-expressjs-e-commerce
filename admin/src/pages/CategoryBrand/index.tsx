@@ -28,9 +28,9 @@ export default function CategoryBrand() {
         return newBrands;
       });
     } else if (name === "category") {
-      setCategory(value);
+      setCategory({ name: value });
     } else if (name === "brand") {
-      setBrand(value);
+      setBrand({ name: value });
     }
   };
 
@@ -64,13 +64,15 @@ export default function CategoryBrand() {
         ...prev,
         result
       ]))
+      setCategory({ name: "" })
     } else if (name === "brand") {
       const result = await createBrand(brand.name)
-      
+
       setBrands(prev => ([
         ...prev,
         result
       ]))
+      setBrand({ name: "" })
     }
   }
 
@@ -78,19 +80,11 @@ export default function CategoryBrand() {
     if (name === "categories") {
       await deleteCategory(id)
       
-      setCategories(prev => {
-        const newCategories = [...prev]
-        newCategories[index] = { name: "" }
-        return newCategories
-      })
+      setCategories(prev => prev.filter((_, i) => i !== index));
     } else if (name === "brands") {
       await deleteBrand(id)
       
-      setBrands(prev => {
-        const newBrands = [...prev]
-        newBrands[index] = { name: "" }
-        return newBrands
-      })
+      setBrands(prev => prev.filter((_, i) => i !== index));
     }
   }
 
@@ -224,6 +218,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-cancel"
                         color="error"
+                        onClick={() => handleDelete(item?._id, index, "brands")}
                       >
                         Delete
                       </button>
