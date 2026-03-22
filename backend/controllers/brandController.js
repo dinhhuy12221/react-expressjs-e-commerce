@@ -1,5 +1,5 @@
 import Brand from "../models/brand.js";
-import slugify from "slugify"
+import slugify from "slugify";
 
 class brandController {
   createBrand = async (req, res) => {
@@ -9,7 +9,7 @@ class brandController {
       if (!name) {
         return res.status(400).json({ message: "Brand name is required" });
       }
-      
+
       const brand = await Brand.create({ name });
 
       res
@@ -24,39 +24,54 @@ class brandController {
   };
 
   async updateBrand(req, res) {
-      try {
-        const { name } = req.body;
-  
-        if (!name) {
-          return res.status(400).json({
-            message: "Name is required",
-          });
-        }
-        const brand = await Brand.findByIdAndUpdate(
-          req.params.id,
-          {
-            name: name,
-            slug: slugify(name, { lower: true, strict: true }),
-          },
-          { new: true }
-        );
-  
-        res.status(200).json({
-          message: "Brand Updated",
-          data: brand,
-        });
-      } catch (error) {
-        res.status(500).json({
-          message: "Internal server error",
-          error: error.message,
+    try {
+      const { name } = req.body;
+
+      if (!name) {
+        return res.status(400).json({
+          message: "Name is required",
         });
       }
+      const brand = await Brand.findByIdAndUpdate(
+        req.params.id,
+        {
+          name: name,
+          slug: slugify(name, { lower: true, strict: true }),
+        },
+        { new: true }
+      );
+
+      res.status(200).json({
+        message: "Brand Updated",
+        data: brand,
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
+      });
     }
+  }
+
+  async deleteBrand(req, res) {
+    try {
+      await Brand.delete({ _id: req.params.id });
+
+      res.status(200).json({
+        message: "Brand Deleted!",
+      });
+    } catch (error) {
+      console.log(error);
+      res
+        .status(500)
+        .json({ message: "Internal server error", error: error.message });
+    }
+  }
 
   getBrandById = async (req, res) => {
     try {
       const brand = await Brand.findById(req.params.id);
-    
+
       if (!brand) {
         return res.status(400).json({ message: "Brand is not found" });
       }
