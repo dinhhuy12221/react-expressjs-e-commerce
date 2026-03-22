@@ -135,12 +135,12 @@ export default function CategoryBrand() {
                 return (
                   <tr key={index}>
                     <td className="category-brand-form-table-item-id">
-                      {item._id}
+                      {item?._id}
                     </td>
                     <td className="category-brand-form-table-item-name">
                       <input
                         name="categories"
-                        value={item.name}
+                        value={item?.name}
                         onChange={(e) => {
                           handleChange(e, index);
                         }}
@@ -148,14 +148,14 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={() => handleUpdate(item._id, index, "categories")}
+                        onClick={() => handleUpdate(item?._id, index, "categories")}
                       >
                         Save
                       </button>
                       <button
                         className="category-brand-form-table-item-name-cancel"
                         color="error"
-                        onClick={() => handleDelete(item._id, index, "categories")}
+                        onClick={() => handleDelete(item?._id, index, "categories")}
                       >
                         Delete
                       </button>
@@ -204,12 +204,12 @@ export default function CategoryBrand() {
                 return (
                   <tr>
                     <td className="category-brand-form-table-item-id">
-                      {item._id}
+                      {item?._id}
                     </td>
                     <td className="category-brand-form-table-item-name">
                       <input
                         name="brands"
-                        value={item.name}
+                        value={item?.name}
                         onChange={(e) => {
                           handleChange(e, index);
                         }}
@@ -217,7 +217,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={() => handleUpdate(item._id, index, "brands")}
+                        onClick={() => handleUpdate(item?._id, index, "brands")}
                       >
                         Save
                       </button>

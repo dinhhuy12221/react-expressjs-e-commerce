@@ -12,7 +12,7 @@ const getBrands = async () => {
 };
 const createBrand = async (values) => {
   try {
-    const result = await fetch(`${BASE_URL}/brand/${create}`, {
+    const result = await fetch(`${BASE_URL}/brand/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

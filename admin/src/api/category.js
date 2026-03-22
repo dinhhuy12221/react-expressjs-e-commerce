@@ -11,7 +11,7 @@ const getCategories = async () => {
 };
 const createCategory = async (values) => {
   try {
-    const result = await fetch(`${BASE_URL}/category/${create}`, {
+    const result = await fetch(`${BASE_URL}/category/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
