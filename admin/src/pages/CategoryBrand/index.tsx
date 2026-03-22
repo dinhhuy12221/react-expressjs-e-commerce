@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { createCategory, getCategories, updateCategory } from "../../api/category";
-import { getBrands, updateBrand } from "../../api/brand";
+import { createCategory, deleteCategory, getCategories, updateCategory } from "../../api/category";
+import { createBrand, deleteBrand, getBrands, updateBrand } from "../../api/brand";
 import "./index.css";
 
 export default function CategoryBrand() {
@@ -56,12 +56,42 @@ export default function CategoryBrand() {
     }
   };
 
-  const handleCreate = async () => {
-    await createCategory(category.name)
+  const handleCreate = async (name) => {
+    if (name === "category") {
+      const result = await createCategory(category.name)
+      
+      setCategories(prev => ([
+        ...prev,
+        { name: result?.name }
+      ]))
+    } else if (name === "brand") {
+      const result = await createBrand(brand.name)
+      
+      setBrands(prev => ([
+        ...prev,
+        { name: result?.name }
+      ]))
+    }
   }
 
-  const handleDelete = async () => {
-    await createCategory(category.name)
+  const handleDelete = async (id, index, name) => {
+    if (name === "categories") {
+      await deleteCategory(id)
+      
+      setCategories(prev => {
+        const newCategories = [...prev]
+        newCategories[index] = { name: "" }
+        return newCategories
+      })
+    } else if (name === "brands") {
+      await deleteBrand(id)
+      
+      setBrands(prev => {
+        const newBrands = [...prev]
+        newBrands[index] = { name: "" }
+        return newBrands
+      })
+    }
   }
 
   useEffect(() => {
@@ -125,6 +155,7 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-cancel"
                         color="error"
+                        onClick={() => handleDelete(item._id, index, "categories")}
                       >
                         Delete
                       </button>
@@ -147,6 +178,7 @@ export default function CategoryBrand() {
                 <button
                   className="category-brand-form-table-item-name-save"
                   color="success"
+                  onClick={handleCreate}
                 >
                   Create
                 </button>

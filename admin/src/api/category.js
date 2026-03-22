@@ -37,7 +37,7 @@ const updateCategory = async (values, id) => {
     console.log(error);
   }
 };
-const deleteCategory = async (values, id) => {
+const deleteCategory = async (id) => {
   try {
     const result = await fetch(`${BASE_URL}/category/${id}`, {
       method: "DELETE",
