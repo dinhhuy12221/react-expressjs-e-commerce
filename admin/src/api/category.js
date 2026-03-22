@@ -37,5 +37,18 @@ const updateCategory = async (values, id) => {
     console.log(error);
   }
 };
+const deleteCategory = async (values, id) => {
+  try {
+    const result = await fetch(`${BASE_URL}/category/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export { getCategories, createCategory, updateCategory };
+export { getCategories, createCategory, updateCategory, deleteCategory };
