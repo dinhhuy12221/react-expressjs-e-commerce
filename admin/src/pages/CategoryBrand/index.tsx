@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { getCategories, updateCategory } from "../../api/category";
+import { createCategory, getCategories, updateCategory } from "../../api/category";
 import { getBrands, updateBrand } from "../../api/brand";
 import "./index.css";
 
@@ -55,6 +55,14 @@ export default function CategoryBrand() {
       // });
     }
   };
+
+  const handleCreate = async () => {
+    await createCategory(category.name)
+  }
+
+  const handleDelete = async () => {
+    await createCategory(category.name)
+  }
 
   useEffect(() => {
     const asyncHandle = async () => {
