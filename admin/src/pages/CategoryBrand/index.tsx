@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { getCategories, updateCategory } from "../../api/category";
-import { getBrands, updateBrand } from "../../api/brand";
+import { createCategory, deleteCategory, getCategories, updateCategory } from "../../api/category";
+import { createBrand, deleteBrand, getBrands, updateBrand } from "../../api/brand";
 import "./index.css";
 
 export default function CategoryBrand() {
@@ -28,9 +28,9 @@ export default function CategoryBrand() {
         return newBrands;
       });
     } else if (name === "category") {
-      setCategory(value);
+      setCategory({ name: value });
     } else if (name === "brand") {
-      setBrand(value);
+      setBrand({ name: value });
     }
   };
 
@@ -55,6 +55,38 @@ export default function CategoryBrand() {
       // });
     }
   };
+
+  const handleCreate = async (name) => {
+    if (name === "category") {
+      const result = await createCategory(category.name)
+      
+      setCategories(prev => ([
+        ...prev,
+        result
+      ]))
+      setCategory({ name: "" })
+    } else if (name === "brand") {
+      const result = await createBrand(brand.name)
+
+      setBrands(prev => ([
+        ...prev,
+        result
+      ]))
+      setBrand({ name: "" })
+    }
+  }
+
+  const handleDelete = async (id, index, name) => {
+    if (name === "categories") {
+      await deleteCategory(id)
+      
+      setCategories(prev => prev.filter((_, i) => i !== index));
+    } else if (name === "brands") {
+      await deleteBrand(id)
+      
+      setBrands(prev => prev.filter((_, i) => i !== index));
+    }
+  }
 
   useEffect(() => {
     const asyncHandle = async () => {
@@ -97,12 +129,12 @@ export default function CategoryBrand() {
                 return (
                   <tr key={index}>
                     <td className="category-brand-form-table-item-id">
-                      {item._id}
+                      {item?._id}
                     </td>
                     <td className="category-brand-form-table-item-name">
                       <input
                         name="categories"
-                        value={item.name}
+                        value={item?.name}
                         onChange={(e) => {
                           handleChange(e, index);
                         }}
@@ -110,13 +142,14 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={() => handleUpdate(item._id, index, "categories")}
+                        onClick={() => handleUpdate(item?._id, index, "categories")}
                       >
                         Save
                       </button>
                       <button
                         className="category-brand-form-table-item-name-cancel"
                         color="error"
+                        onClick={() => handleDelete(item?._id, index, "categories")}
                       >
                         Delete
                       </button>
@@ -139,6 +172,7 @@ export default function CategoryBrand() {
                 <button
                   className="category-brand-form-table-item-name-save"
                   color="success"
+                  onClick={() => handleCreate("category")}
                 >
                   Create
                 </button>
@@ -164,12 +198,12 @@ export default function CategoryBrand() {
                 return (
                   <tr>
                     <td className="category-brand-form-table-item-id">
-                      {item._id}
+                      {item?._id}
                     </td>
                     <td className="category-brand-form-table-item-name">
                       <input
                         name="brands"
-                        value={item.name}
+                        value={item?.name}
                         onChange={(e) => {
                           handleChange(e, index);
                         }}
@@ -177,13 +211,14 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={() => handleUpdate(item._id, index, "brands")}
+                        onClick={() => handleUpdate(item?._id, index, "brands")}
                       >
                         Save
                       </button>
                       <button
                         className="category-brand-form-table-item-name-cancel"
                         color="error"
+                        onClick={() => handleDelete(item?._id, index, "brands")}
                       >
                         Delete
                       </button>
@@ -206,6 +241,7 @@ export default function CategoryBrand() {
                 <button
                   className="category-brand-form-table-item-name-save"
                   color="success"
+                  onClick={() => handleCreate("brand")}
                 >
                   Create
                 </button>
