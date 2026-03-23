@@ -62,7 +62,7 @@
 }
 
 .login-page-content-item-control:focus {
-    border: 1px solid #0858f7;
+    border: 2px solid #0858f7;
 }
 
 .login-page-content-item .icon svg {

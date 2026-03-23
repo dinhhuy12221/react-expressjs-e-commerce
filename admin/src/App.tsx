@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
 import Loading from "./components/Loading";
+import RequireAuth from "./components/Auth/RequireAuth";
 
 const AdminContext = createContext<any>(null);
 
@@ -82,10 +83,12 @@ const App = () => {
           {isLoading && <Loading />}
           <div className="content-main">
             <Routes>
-              {routes &&
-                routes.map((route, index) => {
-                  return <Route path={route.path} element={route.element} />;
-                })}
+              <Route element={<RequireAuth />}>
+                {routes &&
+                  routes.map((route, index) => {
+                    return <Route path={route.path} element={route.element} />;
+                  })}
+              </Route>
             </Routes>
           </div>
         </div>
