@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AdminContext } from "../../App";
+import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
@@ -37,7 +36,7 @@ export default function AdminLogin() {
               <input
                 type="text"
                 className="login-page-content-item-control"
-                placeholder="Enter your email"
+                placeholder="Enter your username"
                 onFocus={() => focusInput(0)}
                 onBlur={() => focusInput(null)}
                 autoFocus

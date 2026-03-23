@@ -53,7 +53,7 @@ body.dark .signup-page-content {
 }
 
 .signup-page-content-form-item-control:focus {
-  border: 1px solid #0858f7;
+  border: 2px solid #0858f7;
 }
 
 .signup-page-content-form-item-pass,

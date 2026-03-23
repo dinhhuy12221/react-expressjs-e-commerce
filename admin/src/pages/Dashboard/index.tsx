@@ -155,29 +155,6 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-table">
-        <h3>Best Selling Products</h3>
-
-        <div className="dashboard-table-filter">
-          <div className="dashboard-table-filter-number">
-            <h4>Show by</h4>
-            <FormControl size="small">
-              <Select
-                value={showBy}
-                onChange={(e) => setShowBy(e.target.value)}
-                displayEmpty
-                inputProps={{ "aria-label": "Without label" }}
-                labelId="demo-simple-select-helper-label"
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-        </div>
         <Products />
       </div>
     </div>
