@@ -1,16 +1,35 @@
 import BASE_URL from ".";
 
+const login = async (username, password) => {
+  try {
+    const result = await fetch(`${BASE_URL}/auth/user/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    });
+
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const verify = async () => {
-    try {
-        const result = await fetch(`${BASE_URL}/auth/verify`, {
-            method: "POST",
-            body: {}
-        })
+  try {
+    const result = await fetch(`${BASE_URL}/auth/verify`, {
+      method: "POST",
+      body: {},
+    });
 
-        return result
-    } catch (error) {
-        console.log(error);
-    }
-}
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export { verify }
+export { verify };
