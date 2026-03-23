@@ -14,8 +14,6 @@ router.post(
   ]),
   productController.createProduct
 );
-router.get("/id/:id", productController.getProductById);
-router.get("/:slug", productController.getProductBySlug);
 router.put(
   "/:id",
   upload.fields([
@@ -26,6 +24,6 @@ router.put(
   productController.updateProduct
 );
 router.delete("/:id", productController.deleteProduct);
-router.get("/", productController.getProductList);
+router.get("/", productController.getProduct);
 
 export default router;
