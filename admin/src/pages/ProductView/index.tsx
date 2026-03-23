@@ -309,7 +309,7 @@ export default function ProductView() {
               >
                 <option value={""}>Choose a category ...</option>
                 {categories.map((item) => (
-                  <option value={item}>{item.name}</option>
+                  <option value={item._id}>{item.name}</option>
                 ))}
               </select>
             </div>
@@ -329,7 +329,7 @@ export default function ProductView() {
               >
                 <option value={""}>Choose a brand...</option>
                 {brands.map((item) => (
-                  <option value={item}>{item.name}</option>
+                  <option value={item._id}>{item.name}</option>
                 ))}
               </select>
             </div>
