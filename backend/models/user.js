@@ -13,13 +13,29 @@ const userSchema = Schema(
     username: {
       type: String,
       required: true,
-      trim: true,
-      unique: true,
-      sparse: true,
     },
-    password: {
+    image: {
+      url: {
+        type: String,
+        required: true,
+      },
+      public_id: {
+        type: String,
+        required: true,
+      },
+    },
+    fullname: {
       type: String,
       required: true,
+      default: ""
+    },
+    phone_number: {
+      type: Number,
+      default: ""
+    },
+    address: {
+      type: String,
+      default: ""
     },
   },
   {
