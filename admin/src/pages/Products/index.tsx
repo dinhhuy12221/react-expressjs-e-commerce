@@ -41,7 +41,7 @@ const options2 = {
   backgroundColor: "transparent",
 };
 
-const Dashboard = () => {
+const Products = () => {
   const [products, setProducts] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [showBy, setShowBy] = useState("");
@@ -89,7 +89,6 @@ const Dashboard = () => {
           <td className="products-table-content-main-item-stock">{item.countInStock}</td>
           <td className="products-table-content-main-item-rating">4.9({item.numReviews})</td>
           <td className="products-table-content-main-item-order">380</td>
-          <td className="products-table-content-main-item-sales">$38k</td>
           {/* <td>
             <div className="actions products-table-content-main-actions">
               <Button className="secondary" color="secondary">
@@ -166,7 +165,7 @@ const Dashboard = () => {
             </FormControl>
           </div>
           <div className="products-table-filter-category">
-            <h4>Categorie by</h4>
+            <h4>Category by</h4>
             <FormControl size="small">
               <Select
                 value={showByCat}
@@ -200,7 +199,6 @@ const Dashboard = () => {
                 <th>STOCK</th>
                 <th>RATING</th>
                 <th>ORDER</th>
-                <th>SALES</th>
                 {/* <th>ACTION</th> */}
               </tr>
             </thead>
@@ -226,4 +224,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Products;
