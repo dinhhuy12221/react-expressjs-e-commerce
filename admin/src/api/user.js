@@ -32,4 +32,4 @@ const verify = async () => {
   }
 };
 
-export { verify };
+export { login, verify };
