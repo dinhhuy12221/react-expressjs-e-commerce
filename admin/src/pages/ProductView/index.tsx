@@ -1,8 +1,8 @@
 import Rating from "@mui/material/Rating";
 import { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { useParams } from "react-router-dom";
-import { getProductBySlug, updateProduct } from "../../api/product";
+import { useParams, useSearchParams } from "react-router-dom";
+import { getProductById, updateProduct } from "../../api/product";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
@@ -20,7 +20,8 @@ import { TiDelete } from "react-icons/ti";
 // }
 
 export default function ProductView() {
-  const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
   const [product, setProduct] = useState<any>(null);
   const [draft, setDraft] = useState<any>(null);
   const [imageFiles, setImageFiles] = useState<any>(new Array(3).fill(null));
@@ -115,7 +116,7 @@ export default function ProductView() {
       };
     });
   };
-  
+
   const handleDeleteImage = (index) => {
     setDraft((prev) => {
       const newImages = prev.images;
@@ -131,11 +132,11 @@ export default function ProductView() {
         newImages,
       };
     });
-  }
+  };
 
   const handleAsync = async () => {
     setIsLoading(true);
-    const result1 = await getProductBySlug(slug);
+    const result1 = await getProductById(id);
     const result2 = await getBrands();
     const result3 = await getCategories();
     setIsLoading(false);
@@ -148,7 +149,7 @@ export default function ProductView() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const payload = {
       ...draft,
       imageFiles,
@@ -163,7 +164,7 @@ export default function ProductView() {
 
   useEffect(() => {
     handleAsync();
-  }, [slug]);
+  }, [id]);
 
   useEffect(() => {
     const getReviews = async () => {
@@ -213,7 +214,7 @@ export default function ProductView() {
           },
           {
             name: `${product?.name}`,
-            to: `/product/${slug}`,
+            to: `/product?id=${id}`,
           },
         ]}
       />
@@ -254,7 +255,10 @@ export default function ProductView() {
                 {item?.url ? (
                   <>
                     <img src={item?.url} alt="product" width="120" />
-                    <TiDelete className="product-view-content-images-item-delete" onClick={() => handleDeleteImage(index)}/>
+                    <TiDelete
+                      className="product-view-content-images-item-delete"
+                      onClick={() => handleDeleteImage(index)}
+                    />
                     <PiCameraRotate />
                   </>
                 ) : (
