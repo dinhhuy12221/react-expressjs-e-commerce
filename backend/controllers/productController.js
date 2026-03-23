@@ -3,54 +3,77 @@ import Category from "../models/category.js";
 import cloudinary from "../config/cloudinary.js";
 import getSequence from "../utils/getSequence.js";
 import fs from "fs/promises";
+import slugify from "slugify";
+import { log } from "console";
 
 class productController {
   // GET product list
-  async getProductList(req, res, next) {
+  async getProduct(req, res, next) {
     try {
       // verifyJWT(req, res, next)
-      const productList = await Product.find({}).populate([
+      console.log(req.query);
+      
+      const { id, slug } = req.query;
+
+      if (id) {
+        const product = await Product.find({ _id: id });
+        return res
+          .status(201)
+          .json({ message: "Product found", data: product });
+      }
+      if (slug) {
+        const product = await Product.find({ slug });
+        return res
+          .status(201)
+          .json({ message: "Product found", data: product });
+      }
+
+      const products = await Product.find({}).populate([
         "categoryId",
         "brandId",
       ]);
-      res.status(200).send(productList);
-    } catch (error) {
-      res.status(404).json({
-        success: false,
-        message: JSON.stringify(error),
-      });
-    }
-  }
-
-  // GET product by slug
-  async getProductBySlug(req, res) {
-    try {
-      const product = await Product.find({ slug: req.params.slug }).populate([
-        "categoryId",
-        "brandId",
-      ]);
-
-      res.status(201).json({ message: "Product is found", data: product });
+      return res
+        .status(201)
+        .json({ message: "Products found", data: products });
     } catch (error) {
       console.log(error);
-      res
-        .status(500)
-        .json({ message: "Internal server error", error: error.message });
-    }
-  }
-  // GET product by id
-  async getProductById(req, res) {
-    try {
-      const product = await Product.find({ _id: req.params.id });
 
-      return res.status(200).send(product);
-    } catch (error) {
-      return res.status(404).json({
-        success: false,
-        message: JSON.stringify(error),
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
       });
     }
   }
+
+  // // GET product by slug
+  // async getProductBySlug(req, res) {
+  //   try {
+  //     const product = await Product.find({ slug: req.params.slug }).populate([
+  //       "categoryId",
+  //       "brandId",
+  //     ]);
+
+  //     res.status(201).json({ message: "Product is found", data: product });
+  //   } catch (error) {
+  //     console.log(error);
+  //     res
+  //       .status(500)
+  //       .json({ message: "Internal server error", error: error.message });
+  //   }
+  // }
+  // // GET product by id
+  // async getProductById(req, res) {
+  //   try {
+  //     const product = await Product.find({ _id: req.params.id });
+
+  //     return res.status(200).send(product);
+  //   } catch (error) {
+  //     return res.status(404).json({
+  //       success: false,
+  //       message: JSON.stringify(error),
+  //     });
+  //   }
+  // }
 
   // POST create product
   async createProduct(req, res) {
@@ -194,6 +217,7 @@ class productController {
         category: req.body?.category || "",
         countInStock: req.body?.countInStock || 0,
         rating: req.body?.rating || 0,
+        slug: slugify(req.body?.name || "", { lower: true, strict: true }),
         isFeatured: req.body?.isFeatured,
       });
 

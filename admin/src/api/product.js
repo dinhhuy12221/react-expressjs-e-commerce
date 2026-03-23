@@ -5,27 +5,27 @@ const getProductList = async () => {
     const productList = await fetch(BASE_URL + "/product").then((result) =>
       result.json()
     );
-    return productList;
+    return productList.data;
   } catch (error) {
     console.error(error);
   }
 };
 const getProductById = async (id) => {
   try {
-    const product = await fetch(BASE_URL + "/product/" + id).then((result) =>
+    const product = await fetch(`${BASE_URL}/product?id=${id}`).then((result) =>
       result.json()
     );
-    return product;
+    return product.data;
   } catch (error) {
     console.error(error);
   }
 };
 const getProductBySlug = async (slug) => {
   try {
-    const product = await fetch(BASE_URL + "/product/" + slug).then((result) =>
+    const product = await fetch(`${BASE_URL}/product?slug=${slug}`).then((result) =>
       result.json()
     );
-    return product;
+    return product.data;
   } catch (error) {
     console.error(error);
   }
