@@ -22,6 +22,7 @@ import { TiDelete } from "react-icons/ti";
 export default function ProductView() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
+  
   const [product, setProduct] = useState<any>(null);
   const [draft, setDraft] = useState<any>(null);
   const [imageFiles, setImageFiles] = useState<any>(new Array(3).fill(null));
@@ -141,8 +142,8 @@ export default function ProductView() {
     const result3 = await getCategories();
     setIsLoading(false);
 
-    setProduct(result1.data[0]);
-    setDraft(result1.data[0]);
+    setProduct(result1[0]);
+    setDraft(result1[0]);
     setBrands(result2.data);
     setCategories(result3.data);
   };

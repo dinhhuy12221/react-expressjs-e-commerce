@@ -40,7 +40,7 @@ const routes = [
     element: <ProductUpload />,
   },
   {
-    path: "/product/:slug",
+    path: "/product",
     exact: true,
     element: <ProductView />,
   },

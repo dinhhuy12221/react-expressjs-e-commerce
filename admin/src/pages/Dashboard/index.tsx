@@ -64,8 +64,8 @@ const Dashboard = () => {
 
   const context = useContext(AdminContext);
 
-  const handleNavigate = (slug: string) => {
-    navigate(`/product/${slug}`);
+  const handleNavigate = (id) => {
+    navigate(`/product?id=${id}`);
   }
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Dashboard = () => {
       const data = await getProductList();
 
       const result = data.map((item) => (
-        <tr className="dashboard-table-content-main-item" onClick={() => handleNavigate(item.slug)}>
+        <tr className="dashboard-table-content-main-item" onClick={() => handleNavigate(item._id)}>
           <td>#{item._id}</td>
           <td className="dashboard-table-content-main-item-image">
             <img src={item.images[0].url} />
@@ -245,7 +245,7 @@ const Dashboard = () => {
             </FormControl>
           </div>
           <div className="dashboard-table-filter-category">
-            <h4>Categorie by</h4>
+            <h4>Category by</h4>
             <FormControl size="small">
               <Select
                 value={showByCat}
