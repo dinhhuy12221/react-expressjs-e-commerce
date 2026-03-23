@@ -12,7 +12,7 @@ const verifyJWT = (req, res, next) => {
       if (err) return res.sendStatus(403);
       req.username = decoded.username;
       // next();
-      return res.status(200).json({ status: 200, message: "Success", "username": req.username || "" });
+      return res.status(200).json({ message: "Success", username: req.username || "" });
     });
   } catch (error) {
     console.log(error);
