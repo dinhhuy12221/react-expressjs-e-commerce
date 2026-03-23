@@ -4,23 +4,26 @@ import cloudinary from "../config/cloudinary.js";
 import getSequence from "../utils/getSequence.js";
 import fs from "fs/promises";
 import slugify from "slugify";
+import { log } from "console";
 
 class productController {
   // GET product list
   async getProduct(req, res, next) {
     try {
       // verifyJWT(req, res, next)
-      const { id, slug } = req.params;
+      console.log(req.query);
+      
+      const { id, slug } = req.query;
 
       if (id) {
         const product = await Product.find({ _id: id });
-        return json
+        return res
           .status(201)
           .json({ message: "Product found", data: product });
       }
       if (slug) {
         const product = await Product.find({ slug });
-        return json
+        return res
           .status(201)
           .json({ message: "Product found", data: product });
       }
@@ -29,7 +32,7 @@ class productController {
         "categoryId",
         "brandId",
       ]);
-      return json
+      return res
         .status(201)
         .json({ message: "Products found", data: products });
     } catch (error) {
