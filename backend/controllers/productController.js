@@ -3,6 +3,7 @@ import Category from "../models/category.js";
 import cloudinary from "../config/cloudinary.js";
 import getSequence from "../utils/getSequence.js";
 import fs from "fs/promises";
+import slugify from "slugify";
 
 class productController {
   // GET product list
@@ -194,6 +195,7 @@ class productController {
         category: req.body?.category || "",
         countInStock: req.body?.countInStock || 0,
         rating: req.body?.rating || 0,
+        slug: slugify(req.body?.name || "", { lower: true, strict: true }),
         isFeatured: req.body?.isFeatured,
       });
 
