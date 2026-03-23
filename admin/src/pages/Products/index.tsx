@@ -165,7 +165,7 @@ const Products = () => {
             </FormControl>
           </div>
           <div className="products-table-filter-category">
-            <h4>Categorie by</h4>
+            <h4>Category by</h4>
             <FormControl size="small">
               <Select
                 value={showByCat}

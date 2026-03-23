@@ -13,14 +13,10 @@ import { Chart } from "react-google-charts";
 
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Pagination from "@mui/material/Pagination";
 import { AdminContext } from "../../App";
 
-import "./index.css";
-import { getProductList } from "../../api/product";
-import getDiscountPrice from "../../utils/getDiscountPrice";
-import { useNavigate } from "react-router-dom";
 import Products from "../Products";
+import "./index.css";
 
 const data = [
   ["Year", "Sales", "Expenses"],
@@ -56,17 +52,12 @@ const Dashboard = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [showBy, setShowBy] = useState("");
   const [showByCat, setShowByCat] = useState("");
-  const navigate = useNavigate();
 
   const options1 = ["Last Day", "Last Week", "Last Month", "Last Year"];
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
 
   const context = useContext(AdminContext);
-
-  const handleNavigate = (id) => {
-    navigate(`/product?id=${id}`);
-  }
 
   useEffect(() => {
     context.setIsHideSidebarAndHeader(false);
@@ -78,10 +69,6 @@ const Dashboard = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
-  };
-
-  const handleChange = (event) => {
-    setShowBy(event.target.value);
   };
 
   return (
@@ -180,26 +167,6 @@ const Dashboard = () => {
                 displayEmpty
                 inputProps={{ "aria-label": "Without label" }}
                 labelId="demo-simple-select-helper-label"
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-          <div className="dashboard-table-filter-category">
-            <h4>Category by</h4>
-            <FormControl size="small">
-              <Select
-                value={showByCat}
-                onChange={(e) => setShowByCat(e.target.value)}
-                displayEmpty
-                inputProps={{ "aria-label": "Without label" }}
-                labelId="demo-simple-select-helper-label"
-                className="w-100"
               >
                 <MenuItem value="">
                   <em>None</em>
