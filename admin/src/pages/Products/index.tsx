@@ -1,15 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
-import { RiShoppingCart2Fill } from "react-icons/ri";
-import { IoBagHandleSharp } from "react-icons/io5";
-import { MdOutlineStar } from "react-icons/md";
-import { IoTimerOutline } from "react-icons/io5";
-import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Button from "@mui/material/Button";
-import { HiOutlineDotsVertical } from "react-icons/hi";
-import { Chart } from "react-google-charts";
-
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
@@ -64,8 +54,8 @@ const Dashboard = () => {
 
   const context = useContext(AdminContext);
 
-  const handleNavigate = (slug: string) => {
-    navigate(`/product/${slug}`);
+  const handleNavigate = (id) => {
+    navigate(`/product?id=${id}`);
   }
 
   useEffect(() => {
@@ -73,7 +63,7 @@ const Dashboard = () => {
       const data = await getProductList();
 
       const result = data.map((item) => (
-        <tr className="products-table-content-main-item" onClick={() => handleNavigate(item.slug)}>
+        <tr className="products-table-content-main-item" onClick={() => handleNavigate(item._id)}>
           <td>#{item._id}</td>
           <td className="products-table-content-main-item-image">
             <img src={item.images[0].url} />
