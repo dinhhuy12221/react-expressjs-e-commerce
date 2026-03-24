@@ -14,14 +14,14 @@ class userController {
       });
 
       const payload = {
+        fullname: req.body?.fullname || "",
         username: req.body.username,
-        fullname: req.body.fullname,
         image: {
-          url: imageResult.secure_url,
-          public_id: imageResult.public_id,
+          url: imageResult?.secure_url || "",
+          public_id: imageResult?.public_id || "",
         },
-        phone_number: req.body.phone_number,
-        address: req.body.address,
+        phone_number: req.body?.phone_number || "",
+        address: req.body?.address || "",
       };
       await User.create(payload)
 
