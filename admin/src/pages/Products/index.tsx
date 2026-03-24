@@ -112,7 +112,7 @@ const Products = () => {
   }, []);
 
   useEffect(() => {
-    context.setIsHideSidebarAndHeader(false);
+    context.setIsLayoutVisible(false);
     window.scrollTo(0, 0);
   }, []);
 

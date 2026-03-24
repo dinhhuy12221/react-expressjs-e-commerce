@@ -25,7 +25,7 @@ export default function Sidebar() {
   };
   return (
     // <div className="sidebar">
-    //   {/* {context.isHideSidebarAndHeader === false && ( */}
+    //   {/* {context.IsLayoutVisible === false && ( */}
     //   <button
     //         className={`sidebar-overlay ${
     //           context.isOpenNav === true && "show"
