@@ -10,8 +10,8 @@ const RequireAuth = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await verify();
-        setIsAuthenticated(true);
+        const success = await verify();
+        if (success) setIsAuthenticated(true);
       } catch (error) {
         setIsAuthenticated(false);
       }
@@ -20,9 +20,12 @@ const RequireAuth = () => {
     checkAuth();
   }, [verify]);
 
-  if (isAuthenticated === false) {
-    return <div>Checking authentication...</div>;
-  }
+  // if (isAuthenticated === false) {
+  //   return <div>Checking authentication...</div>;
+  // }
+
+  console.log(isAuthenticated);
+  
 
   return isAuthenticated ? (
     <Outlet />

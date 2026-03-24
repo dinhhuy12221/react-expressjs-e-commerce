@@ -11,8 +11,6 @@ import Button from "@mui/material/Button";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { Chart } from "react-google-charts";
 
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import { AdminContext } from "../../App";
 
 import Products from "../Products";
@@ -60,7 +58,7 @@ const Dashboard = () => {
   const context = useContext(AdminContext);
 
   useEffect(() => {
-    context.setIsHideSidebarAndHeader(false);
+    context.setIsLayoutVisible(false);
     window.scrollTo(0, 0);
   }, []);
 

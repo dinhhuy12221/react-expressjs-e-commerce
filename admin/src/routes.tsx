@@ -19,16 +19,16 @@ const routes = [
     exact: true,
     element: <Dashboard />,
   },
-  {
-    path: "/login",
-    exact: true,
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    exact: true,
-    element: <SignUp />,
-  },
+  // {
+  //   path: "/login",
+  //   exact: true,
+  //   element: <Login />,
+  // },
+  // {
+  //   path: "/signup",
+  //   exact: true,
+  //   element: <SignUp />,
+  // },
   {
     path: "/products",
     exact: true,

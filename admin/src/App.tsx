@@ -7,6 +7,8 @@ import Sidebar from "./components/Sidebar";
 import routes from "./routes";
 import Loading from "./components/Loading";
 import RequireAuth from "./components/Auth/RequireAuth";
+import Login from "./pages/Login";
+import Signup from "./pages/SignUp";
 
 const AdminContext = createContext<any>(null);
 
@@ -94,6 +96,8 @@ const App = () => {
             />
           ))}
         </Route>
+        <Route path={"/login"} element={<Login />} />
+        <Route path={"/signup"} element={<Signup />} />
       </Routes>
     </div>
   </div>

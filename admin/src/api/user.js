@@ -46,7 +46,7 @@ const verify = async () => {
       body: {},
     });
 
-    return result;
+    return result.success;
   } catch (error) {
     console.log(error);
   }
