@@ -26,7 +26,7 @@ const signup = async (values) => {
       password: values.password,
     }
 
-    const result = await fetch(`${BASE_URL}/auth/user/create`, {
+    const result = await fetch(`${BASE_URL}/account/user/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
