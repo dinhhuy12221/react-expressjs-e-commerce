@@ -20,11 +20,8 @@ export default function SignUp() {
   const [confirmedPassword, setConfirmedPassword] = useState("")
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmedPassword, setIsShowConfirmedPassword] = useState(false);
-  const [inputIndex, setInputIndex] = useState(null);
+  const [inputIndex, setInputIndex] = useState<any>(null);
 
-  const focusInput = (index) => {
-    setInputIndex(index);
-  };
   return (
     <section className="signup-page">
       <div className="signup-page-header">
@@ -36,7 +33,7 @@ export default function SignUp() {
       </div>
 
       <div className="signup-page-content">
-        <form className="signup-page-content-form">
+        <form className="signup-page-content-form" method="POST">
           {/* <div
             className={`signup-page-content-form-item ${
               inputIndex === 0 && "focus"
@@ -68,8 +65,8 @@ export default function SignUp() {
               placeholder="Enter your username"
               value={username}
               onChange={e => setUsername(e.target.value)}
-              onFocus={() => focusInput(1)}
-              onBlur={() => focusInput(null)}
+              onFocus={() => setInputIndex(1)}
+              onBlur={() => setInputIndex(null)}
             />
           </div>
           <div
@@ -86,8 +83,8 @@ export default function SignUp() {
               placeholder="Enter your password"
               value={password}
               onChange={e => setPassword(e.target.value)}
-              onFocus={() => focusInput(2)}
-              onBlur={() => focusInput(null)}
+              onFocus={() => setInputIndex(2)}
+              onBlur={() => setInputIndex(null)}
             />
             <span
               className="signup-page-content-form-item-pass"
@@ -110,8 +107,8 @@ export default function SignUp() {
               placeholder="Confirm your password"
               value={confirmedPassword}
               onChange={e => setConfirmedPassword(e.target.value)}
-              onFocus={() => focusInput(3)}
-              onBlur={() => focusInput(null)}
+              onFocus={() => setInputIndex(3)}
+              onBlur={() => setInputIndex(null)}
             />
             <span
               className="signup-page-content-form-item-pass-confirm"
@@ -133,6 +130,7 @@ export default function SignUp() {
             <Button
               className="signup-page-content-form-item-signup"
               variant="outlined"
+              type="submit"
             >
               Sign Up
             </Button>
