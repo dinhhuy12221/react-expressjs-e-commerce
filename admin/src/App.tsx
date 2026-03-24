@@ -13,7 +13,7 @@ const AdminContext = createContext<any>(null);
 const App = () => {
   const [isToggleSidebar, setIsToggleSidebar] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
-  const [isHideSidebarAndHeader, setIsHideSidebarAndHeader] = useState(false);
+  const [isLayoutVisible, setIsLayoutVisible] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +47,7 @@ const App = () => {
 
   useEffect(() => {
     const ok = locList.some((item) => item.endsWith(location.pathname));
-    setIsHideSidebarAndHeader(!ok);
+    setIsLayoutVisible(!ok);
   }, [location]);
 
   const openNav = () => {
@@ -59,8 +59,8 @@ const App = () => {
     setIsToggleSidebar,
     isLogin,
     setIsLogin,
-    isHideSidebarAndHeader,
-    setIsHideSidebarAndHeader,
+    isLayoutVisible,
+    setIsLayoutVisible,
     themeMode,
     setThemeMode,
     windowWidth,
@@ -76,25 +76,28 @@ const App = () => {
 
   return (
     <AdminContext.Provider value={values}>
-      <>
-        {isHideSidebarAndHeader && <Header />}
-        <div className="content">
-          {isHideSidebarAndHeader && <Sidebar />}
-          {isLoading && <Loading />}
-          <div className="content-main">
-            <Routes>
-              <Route element={<RequireAuth />}>
-                {routes &&
-                  routes.map((route, index) => {
-                    return <Route path={route.path} element={route.element} />;
-                  })}
-              </Route>
-            </Routes>
-          </div>
-        </div>
-      </>
-      {/* </div> */}
-    </AdminContext.Provider>
+  {isLayoutVisible && <Header />}
+
+  <div className="content">
+    {isLayoutVisible && <Sidebar />}
+
+    {isLoading && <Loading />}
+
+    <div className="content-main">
+      <Routes>
+        <Route element={<RequireAuth />}>
+          {routes.map((route, index) => (
+            <Route
+              key={route.path || index}
+              path={route.path}
+              element={route.element}
+            />
+          ))}
+        </Route>
+      </Routes>
+    </div>
+  </div>
+</AdminContext.Provider>
   );
 };
 

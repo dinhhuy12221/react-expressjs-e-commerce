@@ -5,26 +5,26 @@ import { verify } from "../../api/user";
 const RequireAuth = () => {
   const location = useLocation();
 
-  const [allowed, setAllowed] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
         await verify();
-        setAllowed(true);
+        setIsAuthenticated(true);
       } catch (error) {
-        setAllowed(false);
+        setIsAuthenticated(false);
       }
     };
 
     checkAuth();
   }, [verify]);
 
-  if (allowed === false) {
+  if (isAuthenticated === false) {
     return <div>Checking authentication...</div>;
   }
 
-  return allowed ? (
+  return isAuthenticated ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />
