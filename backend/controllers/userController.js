@@ -23,17 +23,18 @@ class userController {
         phone_number: req.body.phone_number,
         address: req.body.address,
       };
-      const user = await User.create(payload)
+      await User.create(payload)
 
       res.status(201).json({
         message: "User created successfully",
-        data: user,
+        success: true,
       })
     } catch (error) {
       console.log(error);
       res.status(500).json({
         message: "Internal server error",
         error: error.message,
+        success: false,
       })
     }
 
