@@ -8,16 +8,21 @@ import authCustomerRoutes from "./auth/authCustomerRoutes.js";
 import customerAccountRoutes from "./account/customerAccountRoutes.js";
 import customerRoutes from "./customerRoutes.js";
 import userAccountRoutes from "./account/customerAccountRoutes.js";
+import authUserRoutes from "./auth/authUserRoutes.js";
 import userRoutes from "./userRoutes.js";
 import verifyRoutes from "./verifyRoutes.js";
 
 const route = (app) => {
   app.use("/api/auth/verify", verifyRoutes);
+
   app.use("/api/auth/customer", authCustomerRoutes);
   app.use("/api/account/customer", customerAccountRoutes);
-  app.use("/api/auth/user", userAccountRoutes);
-  app.use("/api/account/user", userRoutes);
   app.use("/api/customer", customerRoutes);
+
+  app.use("/api/auth/user", authUserRoutes);
+  app.use("/api/account/user", userAccountRoutes);
+  app.use("/api/user", userRoutes);
+  
   app.use("/api/category", categoryRouter);
   app.use("/api/brand", brandRouter);
   app.use("/api/product", productRouter);
