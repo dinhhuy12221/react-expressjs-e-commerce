@@ -10,9 +10,9 @@ class customerAccountController {
         return res.status(400).json({ message: "All fields are required!" });
       }
 
-      const existedUsername = await UserAccount.find({ username: username });
+      const existedUsername = await UserAccount.findOne({ username: username });
 
-      if (existedUsername.length) {
+      if (existedUsername) {
         return res.status(409).json({ message: "Username is already existed!"})
       }
 
