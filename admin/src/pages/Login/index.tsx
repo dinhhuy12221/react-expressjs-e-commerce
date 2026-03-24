@@ -22,7 +22,19 @@ export default function AdminLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const result = await login();
+    try {
+      const result = await login(username, password);
+
+      if (result.success) {
+        alert("Login successfully")
+        navigate("/")
+        return
+      }
+      alert(result.message || "Something went wrong")
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong")
+    }
   };
 
   return (
