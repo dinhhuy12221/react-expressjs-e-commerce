@@ -8,7 +8,7 @@ import authCustomerRoutes from "./auth/authCustomerRoutes.js";
 import customerAccountRoutes from "./account/customerAccountRoutes.js";
 import customerRoutes from "./customerRoutes.js";
 import userAccountRoutes from "./account/customerAccountRoutes.js";
-import userRoutes from "./customerRoutes.js";
+import userRoutes from "./userRoutes.js";
 import verifyRoutes from "./verifyRoutes.js";
 
 const route = (app) => {
