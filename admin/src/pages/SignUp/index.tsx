@@ -1,26 +1,55 @@
-import { useContext, useEffect, useState } from "react";
-import { AdminContext } from "../../App";
+import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
 import { BiSolidHide } from "react-icons/bi";
-import { FaUserCircle } from "react-icons/fa";
 import { IoShieldCheckmark } from "react-icons/io5";
-import { IoMdHome } from "react-icons/io";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
 import "./index.css";
+import { isValidPassword, isValidUsername } from "../../utils/isInputValid";
+import { signup } from "../../api/user";
 
 export default function SignUp() {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmedPassword, setConfirmedPassword] = useState("")
+  const navigate = useNavigate()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmedPassword, setIsShowConfirmedPassword] = useState(false);
   const [inputIndex, setInputIndex] = useState<any>(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!isValidUsername(username)) {
+      alert(
+        "Username must be 3–20 characters and contain only letters, numbers, _ or ."
+      );
+      return;
+    }
+
+    if (!isValidPassword(password)) {
+      alert(
+        "Password must be at least 6 characters, include uppercase, lowercase, and a number"
+      );
+      return;
+    }
+
+    if (password !== confirmedPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    const result = await signup({ username, password })
+    if (result) {
+      navigate('/login', { })
+      return
+    }
+    alert("Something went wrong")
+  };
 
   return (
     <section className="signup-page">
@@ -33,7 +62,7 @@ export default function SignUp() {
       </div>
 
       <div className="signup-page-content">
-        <form className="signup-page-content-form" method="POST">
+        <form className="signup-page-content-form" method="POST" onSubmit={handleSubmit}>
           {/* <div
             className={`signup-page-content-form-item ${
               inputIndex === 0 && "focus"
@@ -64,7 +93,7 @@ export default function SignUp() {
               className="signup-page-content-form-item-control"
               placeholder="Enter your username"
               value={username}
-              onChange={e => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
               onFocus={() => setInputIndex(1)}
               onBlur={() => setInputIndex(null)}
             />
@@ -82,7 +111,7 @@ export default function SignUp() {
               className="signup-page-content-form-item-control"
               placeholder="Enter your password"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               onFocus={() => setInputIndex(2)}
               onBlur={() => setInputIndex(null)}
             />
@@ -106,7 +135,7 @@ export default function SignUp() {
               className="signup-page-content-form-item-control"
               placeholder="Confirm your password"
               value={confirmedPassword}
-              onChange={e => setConfirmedPassword(e.target.value)}
+              onChange={(e) => setConfirmedPassword(e.target.value)}
               onFocus={() => setInputIndex(3)}
               onBlur={() => setInputIndex(null)}
             />

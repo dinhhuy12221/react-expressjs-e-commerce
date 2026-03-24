@@ -22,7 +22,6 @@ const login = async (username, password) => {
 const signup = async (values) => {
   try {
     const payload = {
-      fullname: values.fullname,
       username: values.username,
       password: values.password,
     }
@@ -34,6 +33,7 @@ const signup = async (values) => {
       },
       body: JSON.stringify(payload)
     })
+    return result.success
   } catch (error) {
     console.log(error);
   }
@@ -52,4 +52,4 @@ const verify = async () => {
   }
 };
 
-export { login, verify };
+export { login, signup, verify };
