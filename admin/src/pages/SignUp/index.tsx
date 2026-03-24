@@ -5,7 +5,7 @@ import { IoMdEye } from "react-icons/io";
 import { BiSolidHide } from "react-icons/bi";
 import { IoShieldCheckmark } from "react-icons/io5";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
@@ -14,6 +14,7 @@ import { isValidPassword, isValidUsername } from "../../utils/isInputValid";
 import { signup } from "../../api/user";
 
 export default function SignUp() {
+  const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
@@ -44,8 +45,10 @@ export default function SignUp() {
 
     const result = await signup({ username, password })
     if (result) {
-      
+      navigate('/login', { })
+      return
     }
+    alert("Something went wrong")
   };
 
   return (
