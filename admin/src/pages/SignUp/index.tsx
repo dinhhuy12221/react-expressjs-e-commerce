@@ -48,6 +48,7 @@ export default function SignUp() {
       });
 
       if (result?.success) {
+        alert("User created successfully")
         navigate("/login");
         return;
       }

@@ -11,7 +11,7 @@ const login = async (username, password) => {
         username,
         password,
       }),
-    });
+    }).then(res => res.json());
 
     return result;
   } catch (error) {
@@ -24,20 +24,20 @@ const signup = async (values) => {
     const payload = {
       username: values.username,
       password: values.password,
-    }
+    };
 
     const result = await fetch(`${BASE_URL}/account/user/create`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload)
-    })
-    return result.success
+      body: JSON.stringify(payload),
+    }).then((res) => res.json());
+    return result;
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const verify = async () => {
   try {
