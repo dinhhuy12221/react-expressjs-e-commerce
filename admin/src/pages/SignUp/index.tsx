@@ -12,177 +12,159 @@ import { Link } from "react-router-dom";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-import "./index.css"
+import "./index.css";
 
 export default function SignUp() {
-  const [inputIndex, setInputIndex] = useState(null);
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmedPassword, setConfirmedPassword] = useState("")
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmedPassword, setIsShowConfirmedPassword] = useState(false);
+  const [inputIndex, setInputIndex] = useState(null);
 
   const focusInput = (index) => {
     setInputIndex(index);
   };
   return (
     <section className="signup-page">
-        {/* <div className="col-md-8 d-flex align-items-center justify-content-center flex-column part1">
-          <h1>
-            BEST UX/UI FASHION
-            <span className="text-sky">E-COMMERCE DASHBOARD</span> & ADMIN PANEL
-          </h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries
-          </p>
+      <div className="signup-page-header">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/906/906343.png"
+          width={80}
+        />
+        <h2 className="font-weight-bolder mt-3">Register</h2>
+      </div>
 
-          <div className="w-100 mt-4">
-            <Link to={"/"}>
-              <Button className="btn-blue btn-log btn-big">
-                <IoMdHome />
-                Go To Home
-              </Button>
+      <div className="signup-page-content">
+        <form className="signup-page-content-form">
+          {/* <div
+            className={`signup-page-content-form-item ${
+              inputIndex === 0 && "focus"
+            }`}
+          >
+            <span className="signup-page-content-form-item-icon">
+              <FaUserCircle />
+            </span>
+            <input
+              type="text"
+              className="signup-page-content-form-item-control"
+              placeholder="Enter your name"
+              onFocus={() => focusInput(0)}
+              onBlur={() => focusInput(null)}
+              autoFocus
+            />
+          </div> */}
+          <div
+            className={`signup-page-content-form-item ${
+              inputIndex === 1 && "focus"
+            }`}
+          >
+            <span className="signup-page-content-form-item-icon">
+              <MdEmail />
+            </span>
+            <input
+              type="text"
+              className="signup-page-content-form-item-control"
+              placeholder="Enter your username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              onFocus={() => focusInput(1)}
+              onBlur={() => focusInput(null)}
+            />
+          </div>
+          <div
+            className={`signup-page-content-form-item ${
+              inputIndex === 2 && "focus"
+            }`}
+          >
+            <span className="signup-page-content-form-item-icon">
+              <RiLockPasswordFill />
+            </span>
+            <input
+              type={`${isShowPassword === true ? "text" : "password"}`}
+              className="signup-page-content-form-item-control"
+              placeholder="Enter your password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              onFocus={() => focusInput(2)}
+              onBlur={() => focusInput(null)}
+            />
+            <span
+              className="signup-page-content-form-item-pass"
+              onClick={() => setIsShowPassword(!isShowPassword)}
+            >
+              {isShowPassword === true ? <IoMdEye /> : <BiSolidHide />}
+            </span>
+          </div>
+          <div
+            className={`signup-page-content-form-item ${
+              inputIndex === 3 && "focus"
+            }`}
+          >
+            <span className="signup-page-content-form-item-icon">
+              <IoShieldCheckmark />
+            </span>
+            <input
+              type={`${isShowConfirmedPassword === true ? "text" : "password"}`}
+              className="signup-page-content-form-item-control"
+              placeholder="Confirm your password"
+              value={confirmedPassword}
+              onChange={e => setConfirmedPassword(e.target.value)}
+              onFocus={() => focusInput(3)}
+              onBlur={() => focusInput(null)}
+            />
+            <span
+              className="signup-page-content-form-item-pass-confirm"
+              onClick={() =>
+                setIsShowConfirmedPassword(!isShowConfirmedPassword)
+              }
+            >
+              {isShowConfirmedPassword === true ? <IoMdEye /> : <BiSolidHide />}
+            </span>
+          </div>
+          <FormControlLabel
+            required
+            control={<Checkbox />}
+            label="I agree to the all Terms & Conditions"
+            className="signup-page-content-form-item-terms"
+          />
+
+          <div className="signup-page-content-form-item">
+            <Button
+              className="signup-page-content-form-item-signup"
+              variant="outlined"
+            >
+              Sign Up
+            </Button>
+          </div>
+
+          <div className="signup-page-content-form-item">
+            <Link
+              to={"/forgot-password"}
+              className="signup-page-content-form-item-forgot"
+            >
+              Forgot password
             </Link>
           </div>
-        </div> */}
-            <div className="signup-page-header">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/906/906343.png"
-                width={80}
-              />
-              <h2 className="font-weight-bolder mt-3">
-                Register
-              </h2>
-            </div>
 
-            <div className="signup-page-content">
-              <form className="signup-page-content-form">
-                <div
-                  className={`signup-page-content-form-item ${
-                    inputIndex === 0 && "focus"
-                  }`}
-                >
-                  <span className="signup-page-content-form-item-icon">
-                    <FaUserCircle />
-                  </span>
-                  <input
-                    type="text"
-                    className="signup-page-content-form-item-control"
-                    placeholder="Enter your name"
-                    onFocus={() => focusInput(0)}
-                    onBlur={() => focusInput(null)}
-                    autoFocus
-                  />
-                </div>
-                <div
-                  className={`signup-page-content-form-item ${
-                    inputIndex === 1 && "focus"
-                  }`}
-                >
-                  <span className="signup-page-content-form-item-icon">
-                    <MdEmail />
-                  </span>
-                  <input
-                    type="text"
-                    className="signup-page-content-form-item-control"
-                    placeholder="Enter your email"
-                    onFocus={() => focusInput(1)}
-                    onBlur={() => focusInput(null)}
-                  />
-                </div>
-                <div
-                  className={`signup-page-content-form-item ${
-                    inputIndex === 2 && "focus"
-                  }`}
-                >
-                  <span className="signup-page-content-form-item-icon">
-                    <RiLockPasswordFill />
-                  </span>
-                  <input
-                    type={`${isShowPassword === true ? "text" : "password"}`}
-                    className="signup-page-content-form-item-control"
-                    placeholder="Enter your password"
-                    onFocus={() => focusInput(2)}
-                    onBlur={() => focusInput(null)}
-                  />
-                  <span
-                    className="signup-page-content-form-item-pass"
-                    onClick={() => setIsShowPassword(!isShowPassword)}
-                  >
-                    {isShowPassword === true ? <IoMdEye /> : <BiSolidHide />}
-                  </span>
-                </div>
-                <div
-                  className={`signup-page-content-form-item ${
-                    inputIndex === 3 && "focus"
-                  }`}
-                >
-                  <span className="signup-page-content-form-item-icon">
-                    <IoShieldCheckmark />
-                  </span>
-                  <input
-                    type={`${
-                      isShowConfirmedPassword === true ? "text" : "password"
-                    }`}
-                    className="signup-page-content-form-item-control"
-                    placeholder="Confirm your password"
-                    onFocus={() => focusInput(3)}
-                    onBlur={() => focusInput(null)}
-                  />
-                  <span
-                    className="signup-page-content-form-item-pass-confirm"
-                    onClick={() =>
-                      setIsShowConfirmedPassword(!isShowConfirmedPassword)
-                    }
-                  >
-                    {isShowConfirmedPassword === true ? (
-                      <IoMdEye />
-                    ) : (
-                      <BiSolidHide />
-                    )}
-                  </span>
-                </div>
-                <FormControlLabel
-                  required
-                  control={<Checkbox />}
-                  label="I agree to the all Terms & Conditions"
-                  className="signup-page-content-form-item-terms"
-                />
-
-                <div className="signup-page-content-form-item">
-                  <Button className="signup-page-content-form-item-signup" variant="outlined">
-                    Sign Up
-                  </Button>
-                </div>
-
-                <div className="signup-page-content-form-item">
-                  <Link to={"/forgot-password"} className="signup-page-content-form-item-forgot">
-                    Forgot password
-                  </Link>
-                </div>
-
-                <div className="signup-page-content-form-divide">
-                  <div className="signup-page-content-form-divide-border"></div>
-                  <span className="signup-page-content-form-divide-label">or</span>
-                </div>
-                <div className="signup-page-content-form-item-google">
-                    <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
-                  <Button
-                    variant="outlined"
-                    color="error"
-                  >
-                    Sign Up with Google
-                  </Button>
-                </div>
-              </form>
-              <span className="signup-page-content-login">
-                Already have an account?&nbsp;
-                <Link to={"/login"} className="link color">
-                  Sign In
-                </Link>
-              </span>
-            </div>
+          <div className="signup-page-content-form-divide">
+            <div className="signup-page-content-form-divide-border"></div>
+            <span className="signup-page-content-form-divide-label">or</span>
+          </div>
+          <div className="signup-page-content-form-item-google">
+            <img src="https://www.cdnlogo.com/logos/g/35/google-icon.svg" />
+            <Button variant="outlined" color="error">
+              Sign Up with Google
+            </Button>
+          </div>
+        </form>
+        <span className="signup-page-content-login">
+          Already have an account?&nbsp;
+          <Link to={"/login"} className="link color">
+            Sign In
+          </Link>
+        </span>
+      </div>
     </section>
   );
 }
