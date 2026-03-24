@@ -14,20 +14,18 @@ import { isValidPassword, isValidUsername } from "../../utils/isInputValid";
 import { signup } from "../../api/user";
 
 export default function SignUp() {
-  const navigate = useNavigate()
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmedPassword, setConfirmedPassword] = useState("");
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("admin1");
+  const [password, setPassword] = useState("Admin1@");
+  const [confirmedPassword, setConfirmedPassword] = useState("Admin1@");
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmedPassword, setIsShowConfirmedPassword] = useState(false);
   const [inputIndex, setInputIndex] = useState<any>(null);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!isValidUsername(username)) {
-      alert(
-        "Username must be 3–20 characters and contain only letters, numbers, _ or ."
-      );
+      alert("Username cannot contain spaces and must be 3–20 valid characters");
       return;
     }
 
@@ -43,12 +41,21 @@ export default function SignUp() {
       return;
     }
 
-    const result = await signup({ username, password })
-    if (result) {
-      navigate('/login', { })
-      return
+    try {
+      const result = await signup({
+        username,
+        password,
+      });
+
+      if (result?.success) {
+        navigate("/login");
+        return;
+      }
+
+      alert(result?.message || "Something went wrong");
+    } catch (error) {
+      alert("Server error. Please try again.");
     }
-    alert("Something went wrong")
   };
 
   return (
@@ -62,7 +69,11 @@ export default function SignUp() {
       </div>
 
       <div className="signup-page-content">
-        <form className="signup-page-content-form" method="POST" onSubmit={handleSubmit}>
+        <form
+          className="signup-page-content-form"
+          method="POST"
+          onSubmit={handleSubmit}
+        >
           {/* <div
             className={`signup-page-content-form-item ${
               inputIndex === 0 && "focus"

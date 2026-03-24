@@ -1,10 +1,10 @@
 const isValidUsername = (input: string): boolean => {
-  const value = input.trim();
+  if (!input) return false;
 
-  if (!value) return false;
+  // ❌ reject if it contains ANY whitespace
+  if (/\s/.test(input)) return false;
 
-  const usernameRegex = /^[a-zA-Z0-9_.]{3,20}$/;
-  return usernameRegex.test(value);
+  return /^[a-zA-Z0-9_.]{3,20}$/.test(input);
 };
 
 const isValidPassword = (input: string): boolean => {
