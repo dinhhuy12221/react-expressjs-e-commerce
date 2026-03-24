@@ -3,14 +3,14 @@ import cloudinary from "../config/cloudinary.js";
 import path from "path";
 import getSequence from "../utils/getSequence.js";
 
-const filePath = path.resolve("./assets/default_customer_image.jpg");
+const filePath = path.resolve("./assets/default_pfp.jpg");
 
 class userController {
   createUser = async (req, res) => {
     try {
       const counter = await getSequence("user")
       const imageResult = await cloudinary.v2.uploader.upload(filePath, {
-        folder: `ecommerce/customers/${counter}`,
+        folder: `ecommerce/users/${counter}`,
       });
 
       const payload = {

@@ -26,16 +26,17 @@ const userSchema = Schema(
     },
     fullname: {
       type: String,
-      required: true,
-      default: ""
+      default: () => {
+        return `User_${this._id}`;
+      },
     },
     phone_number: {
       type: Number,
-      default: ""
+      default: "",
     },
     address: {
       type: String,
-      default: ""
+      default: "",
     },
   },
   {
@@ -43,7 +44,6 @@ const userSchema = Schema(
     timestamp: true,
   }
 );
-
 
 userSchema.plugin(AutoIncrement, { id: "user_id_counter" });
 

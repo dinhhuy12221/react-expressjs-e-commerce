@@ -3,7 +3,7 @@ import cloudinary from "../config/cloudinary.js";
 import path from "path";
 import getSequence from "../utils/getSequence.js";
 
-const filePath = path.resolve("./assets/default_customer_image.jpg");
+const filePath = path.resolve("./assets/default_pfp.jpg");
 
 class customerController {
   createCustomer = async (req, res) => {
