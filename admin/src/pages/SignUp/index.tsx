@@ -1,12 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { AdminContext } from "../../App";
+import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
 import { BiSolidHide } from "react-icons/bi";
-import { FaUserCircle } from "react-icons/fa";
 import { IoShieldCheckmark } from "react-icons/io5";
-import { IoMdHome } from "react-icons/io";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -14,6 +11,7 @@ import Checkbox from "@mui/material/Checkbox";
 
 import "./index.css";
 import { isValidPassword, isValidUsername } from "../../utils/isInputValid";
+import { signup } from "../../api/user";
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
@@ -23,7 +21,8 @@ export default function SignUp() {
   const [isShowConfirmedPassword, setIsShowConfirmedPassword] = useState(false);
   const [inputIndex, setInputIndex] = useState<any>(null);
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     if (!isValidUsername(username)) {
       alert(
         "Username must be 3–20 characters and contain only letters, numbers, _ or ."
@@ -42,6 +41,11 @@ export default function SignUp() {
       alert("Passwords do not match");
       return;
     }
+
+    const result = await signup({ username, password })
+    if (result) {
+      
+    }
   };
 
   return (
@@ -55,7 +59,7 @@ export default function SignUp() {
       </div>
 
       <div className="signup-page-content">
-        <form className="signup-page-content-form" method="POST">
+        <form className="signup-page-content-form" method="POST" onSubmit={handleSubmit}>
           {/* <div
             className={`signup-page-content-form-item ${
               inputIndex === 0 && "focus"
