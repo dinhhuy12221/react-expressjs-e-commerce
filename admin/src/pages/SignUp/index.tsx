@@ -13,14 +13,36 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
 import "./index.css";
+import { isValidPassword, isValidUsername } from "../../utils/isInputValid";
 
 export default function SignUp() {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmedPassword, setConfirmedPassword] = useState("")
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmedPassword, setIsShowConfirmedPassword] = useState(false);
   const [inputIndex, setInputIndex] = useState<any>(null);
+
+  const handleSubmit = () => {
+    if (!isValidUsername(username)) {
+      alert(
+        "Username must be 3–20 characters and contain only letters, numbers, _ or ."
+      );
+      return;
+    }
+
+    if (!isValidPassword(password)) {
+      alert(
+        "Password must be at least 6 characters, include uppercase, lowercase, and a number"
+      );
+      return;
+    }
+
+    if (password !== confirmedPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+  };
 
   return (
     <section className="signup-page">
@@ -64,7 +86,7 @@ export default function SignUp() {
               className="signup-page-content-form-item-control"
               placeholder="Enter your username"
               value={username}
-              onChange={e => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
               onFocus={() => setInputIndex(1)}
               onBlur={() => setInputIndex(null)}
             />
@@ -82,7 +104,7 @@ export default function SignUp() {
               className="signup-page-content-form-item-control"
               placeholder="Enter your password"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               onFocus={() => setInputIndex(2)}
               onBlur={() => setInputIndex(null)}
             />
@@ -106,7 +128,7 @@ export default function SignUp() {
               className="signup-page-content-form-item-control"
               placeholder="Confirm your password"
               value={confirmedPassword}
-              onChange={e => setConfirmedPassword(e.target.value)}
+              onChange={(e) => setConfirmedPassword(e.target.value)}
               onFocus={() => setInputIndex(3)}
               onBlur={() => setInputIndex(null)}
             />
