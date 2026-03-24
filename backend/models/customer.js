@@ -27,8 +27,9 @@ const customerSchema = Schema(
     },
     fullname: {
       type: String,
-      required: true,
-      default: ""
+      default: () => {
+        return `Customer_${this._id}`;
+      },
     },
     phone_number: {
       type: Number,
