@@ -28,6 +28,7 @@ import "./index.css";
 import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
+  const { user } = useContext(AdminContext)
   const [anchorEl, setAnchorEl] = useState(null);
   const [isOpenNotificationDrop, setIsOpenNotificationDrop] = useState(null);
   const openMyAcc = Boolean(anchorEl);

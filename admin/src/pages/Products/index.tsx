@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
-import { AdminContext } from "../../App";
 
 import "./index.css";
 import { getProductList } from "../../api/product";
@@ -51,8 +50,6 @@ const Products = () => {
   const options1 = ["Last Day", "Last Week", "Last Month", "Last Year"];
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
-
-  const context = useContext(AdminContext);
 
   const handleNavigate = (id) => {
     navigate(`/product?id=${id}`);
@@ -109,11 +106,6 @@ const Products = () => {
     };
 
     getData();
-  }, []);
-
-  useEffect(() => {
-    context.setIsLayoutVisible(false);
-    window.scrollTo(0, 0);
   }, []);
 
   const handleClick = (event) => {

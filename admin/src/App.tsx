@@ -13,10 +13,10 @@ import Signup from "./pages/SignUp";
 const AdminContext = createContext<any>(null);
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
   const [isToggleSidebar, setIsToggleSidebar] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
-  const [isLayoutVisible, setIsLayoutVisible] = useState(true);
+  const [isLayoutVisible, setIsLayoutVisible] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -77,7 +77,7 @@ const App = () => {
     setIsLoading,
   };
 
-  console.log(isLayoutVisible);
+  console.log("user", user);
 
   useEffect(() => {}, [isToggleSidebar]);
 
