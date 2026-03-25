@@ -7,7 +7,7 @@ router.post("/verify", verifyJWT);
 router.post("/me", verifyJWT, async (req, res) => {
   try {
     const user = await User.findOne({
-    username: req.body.username,
+    username: req.username,
   });
 
   if (!user) {
