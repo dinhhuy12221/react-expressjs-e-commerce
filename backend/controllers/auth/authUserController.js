@@ -112,7 +112,7 @@ class authCustomerController {
         path: "/",
       });
 
-      res.status(200).json({ user: user, message: "Login successfully", ok: true });
+      res.status(200).json({ message: "Login successfully", user: user, ok: true });
     } catch (error) {
       console.log(error);
       res
