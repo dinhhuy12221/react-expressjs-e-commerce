@@ -15,7 +15,7 @@ class authCustomerController {
       if (!username || !password) {
         return res
           .status(400)
-          .json({ message: "All fields are required", success: false });
+          .json({ message: "All fields are required", ok: false });
       }
 
       const account = await UserAccount.findOne({
@@ -27,7 +27,7 @@ class authCustomerController {
           .status(401)
           .json({
             message: "Unauthorized (Account not found)",
-            success: false,
+            ok: false,
           });
       }
 
@@ -38,7 +38,7 @@ class authCustomerController {
           .status(401)
           .json({
             message: "Unauthorized (Password is incorrect)",
-            success: false,
+            ok: false,
           });
       }
 
@@ -49,7 +49,7 @@ class authCustomerController {
       if (!user) {
         return res
           .status(401)
-          .json({ message: "Unauthorized (User not found)", success: false });
+          .json({ message: "Unauthorized (User not found)", ok: false });
       }
 
       const accessToken = jwt.sign(
@@ -94,7 +94,7 @@ class authCustomerController {
         path: "/",
       });
 
-      res.status(200).json({ user: user, success: true });
+      res.status(200).json({ user: user, ok: true });
     } catch (error) {
       console.log(error);
       res
@@ -102,7 +102,7 @@ class authCustomerController {
         .json({
           message: "Internal server error",
           error: error.message,
-          success: true,
+          ok: true,
         });
     }
   };

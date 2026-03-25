@@ -12,8 +12,8 @@ const verifyJWT = (req, res, next) => {
       (err, decoded) => {
         if (err) return res.sendStatus(403);
 
-        req.username = decoded.username;
-
+        req.user = decoded.user;
+        
         next();
       }
     );
@@ -22,7 +22,7 @@ const verifyJWT = (req, res, next) => {
     res.status(500).json({
       message: "Internal server error",
       error: error.message,
-      success: false,
+      ok: false,
     });
   }
 };

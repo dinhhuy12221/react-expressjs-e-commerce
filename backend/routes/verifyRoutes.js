@@ -1,8 +1,14 @@
-import express from 'express'
+import express from "express";
 const router = express.Router();
 
-import verifyJWT from '../middlewares/verifyJWT.js';
+import verifyJWT from "../middlewares/verifyJWT.js";
 
-router.post('', verifyJWT);
+router.post("/verify", verifyJWT);
+router.post("/me", verifyJWT, (req, res) => {
+  res.json({
+    ok: true,
+    user: req.user,
+  });
+});
 
-export default router
+export default router;
