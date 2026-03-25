@@ -32,8 +32,6 @@ const RequireAuth = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
-  console.log(isAuthenticated);
   
   return isAuthenticated ? (
     <Outlet />

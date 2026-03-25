@@ -16,7 +16,7 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [isToggleSidebar, setIsToggleSidebar] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
-  const [isLayoutVisible, setIsLayoutVisible] = useState(true);
+  const [isLayoutVisible, setIsLayoutVisible] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -50,6 +50,8 @@ const App = () => {
 
   useEffect(() => {
     const ok = locList.some((item) => item === location.pathname);
+    console.log("ok", !ok);
+    
     setIsLayoutVisible(!ok);
   }, [location]);
 
