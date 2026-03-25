@@ -13,6 +13,7 @@ import Signup from "./pages/SignUp";
 const AdminContext = createContext<any>(null);
 
 const App = () => {
+  const [user, setUser] = useState(null)
   const [isToggleSidebar, setIsToggleSidebar] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
   const [isLayoutVisible, setIsLayoutVisible] = useState(false);
@@ -57,6 +58,8 @@ const App = () => {
   };
 
   const values = {
+    user,
+    setUser,
     isToggleSidebar,
     setIsToggleSidebar,
     isLogin,

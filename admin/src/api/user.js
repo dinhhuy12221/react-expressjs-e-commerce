@@ -42,7 +42,7 @@ const signup = async (values) => {
 
 const verify = async () => {
   try {
-    const result = await fetch(`${BASE_URL}/auth/verify`, {
+    const result = await fetch(`${BASE_URL}/auth/me`, {
       method: "POST",
       credentials: "include",
     }).then(result => result.json());

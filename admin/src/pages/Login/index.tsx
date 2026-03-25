@@ -25,7 +25,7 @@ export default function AdminLogin() {
     try {
       const result = await login(username, password);
 
-      if (result.success) {
+      if (result.ok) {
         alert("Login successfully")
         navigate("/")
         return

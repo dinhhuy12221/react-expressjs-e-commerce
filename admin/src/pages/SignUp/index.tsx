@@ -47,7 +47,7 @@ export default function SignUp() {
         password,
       });
 
-      if (result?.success) {
+      if (result?.ok) {
         alert("User created successfully")
         navigate("/login");
         return;
