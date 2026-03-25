@@ -53,10 +53,6 @@ const Dashboard = () => {
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
