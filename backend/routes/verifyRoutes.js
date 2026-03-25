@@ -7,7 +7,7 @@ router.post("/verify", verifyJWT);
 router.post("/me", verifyJWT, (req, res) => {
   res.json({
     ok: true,
-    username: req.username,
+    user: req.user,
   });
 });
 
