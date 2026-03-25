@@ -3,6 +3,8 @@ import { AdminContext } from "../../App";
 import "./index.css";
 import Breadcrumb from "../../components/Breadcrumb";
 import { TiDelete } from "react-icons/ti";
+import { PiCameraRotate } from "react-icons/pi";
+import { MdOutlineAddCircleOutline } from "react-icons/md";
 
 const Profile = () => {
   const { user } = useContext(AdminContext);
@@ -13,6 +15,12 @@ const Profile = () => {
   }, [user])
 
   const handleSubmit = () => {
+
+  }
+  const handleChange = () => {
+
+  }
+  const handleCancel = () => {
 
   }
   const handleImageChange = () => {
@@ -67,14 +75,14 @@ const Profile = () => {
               <div className="product-view-content-images-item" key={index}>
                 <input
                   type="file"
-                  onChange={(e) => handleImageChange(e, index)}
+                  onChange={(e) => handleImageChange()}
                 />
                 {item?.url ? (
                   <>
                     <img src={item?.url} alt="product" width="120" />
                     <TiDelete
                       className="product-view-content-images-item-delete"
-                      onClick={() => handleDeleteImage(index)}
+                      onClick={() => handleImageDelete()}
                     />
                     <PiCameraRotate />
                   </>
@@ -107,47 +115,6 @@ const Profile = () => {
                 value={draft?.description}
                 onChange={handleChange}
               />
-            </div>
-            <div className="product-view-content-main-item">
-              <h4>Category</h4>
-              {/* <input
-                className="product-view-content-main-item-input"
-                type="text"
-                spellCheck="false"
-                placeholder="Enter the category"
-                value={product?.categoryId.name}
-              /> */}
-              <select
-                className="product-view-content-main-item-input"
-                name="categoryId"
-                value={draft?.categoryId}
-                onChange={handleChange}
-              >
-                <option value={""}>Choose a category ...</option>
-                {categories.map((item) => (
-                  <option value={item._id}>{item.name}</option>
-                ))}
-              </select>
-            </div>
-            <div className="product-view-content-main-item">
-              <h4>Brand</h4>
-              {/* <input
-                className="product-view-content-main-item-input"
-                type="text"
-                placeholder="Enter the brand"
-                value={product?.brandId?.name}
-              /> */}
-              <select
-                className="product-view-content-main-item-input"
-                name="brandId"
-                value={draft?.brandId}
-                onChange={handleChange}
-              >
-                <option value={""}>Choose a brand...</option>
-                {brands.map((item) => (
-                  <option value={item._id}>{item.name}</option>
-                ))}
-              </select>
             </div>
             <div className="product-view-content-main-item">
               <h4>Price</h4>
