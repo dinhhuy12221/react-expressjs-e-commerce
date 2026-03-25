@@ -44,10 +44,10 @@ const verify = async () => {
   try {
     const result = await fetch(`${BASE_URL}/auth/verify`, {
       method: "POST",
-      body: {},
-    });
+      credentials: "include",
+    }).then(result => result.json());
 
-    return result.success;
+    return result;
   } catch (error) {
     console.log(error);
   }
