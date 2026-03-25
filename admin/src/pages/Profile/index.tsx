@@ -79,57 +79,47 @@ const Profile = () => {
           </div>
           <div className="product-view-content-main">
             <div className="product-view-content-main-item">
-              <h4>Name</h4>
+              <h4>Username</h4>
               <input
                 className="product-view-content-main-item-input"
                 type="text"
                 spellCheck="false"
                 placeholder="Enter the name"
                 name="name"
-                value={draft?.name}
+                value={draft?.username}
                 onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
-              <h4>Description</h4>
+              <h4>Fullname</h4>
               <textarea
                 className="product-view-content-main-item-textarea"
                 spellCheck="false"
                 placeholder="Enter the description"
                 name="description"
-                value={draft?.description}
+                value={draft?.fullname}
                 onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
-              <h4>Price</h4>
+              <h4>Phone number</h4>
               <input
                 className="product-view-content-main-item-input"
                 type="number"
                 spellCheck="false"
                 name="price"
-                value={draft?.price}
+                value={draft?.phone_number}
                 onChange={handleChange}
               />
             </div>
             <div className="product-view-content-main-item">
-              <h4>Discount (%)</h4>
+              <h4>Address</h4>
               <input
                 className="product-view-content-main-item-input"
                 type="number"
                 spellCheck="false"
                 name="discount"
-                value={draft?.discount}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="product-view-content-main-item">
-              <h4>Stock</h4>
-              <input
-                className="product-view-content-main-item-input"
-                type="number"
-                name="countInStock"
-                value={draft?.countInStock}
+                value={draft?.address}
                 onChange={handleChange}
               />
             </div>
