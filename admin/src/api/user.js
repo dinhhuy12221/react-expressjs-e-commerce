@@ -4,6 +4,7 @@ const login = async (username, password) => {
   try {
     const result = await fetch(`${BASE_URL}/auth/user/login`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -11,7 +12,7 @@ const login = async (username, password) => {
         username,
         password,
       }),
-    }).then(res => res.json());
+    }).then((res) => res.json());
 
     return result;
   } catch (error) {
@@ -41,12 +42,12 @@ const signup = async (values) => {
 
 const verify = async () => {
   try {
-    const result = await fetch(`${BASE_URL}/auth/verify`, {
+    const result = await fetch(`${BASE_URL}/auth/me`, {
       method: "POST",
-      body: {},
-    });
+      credentials: "include",
+    }).then(result => result.json());
 
-    return result.success;
+    return result;
   } catch (error) {
     console.log(error);
   }

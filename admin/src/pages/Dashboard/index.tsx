@@ -11,8 +11,6 @@ import Button from "@mui/material/Button";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { Chart } from "react-google-charts";
 
-import { AdminContext } from "../../App";
-
 import Products from "../Products";
 import "./index.css";
 
@@ -55,12 +53,9 @@ const Dashboard = () => {
   const ITEM_HEIGHT = 48;
   const open = Boolean(anchorEl);
 
-  const context = useContext(AdminContext);
-
-  useEffect(() => {
-    context.setIsLayoutVisible(false);
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

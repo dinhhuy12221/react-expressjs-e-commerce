@@ -1,32 +1,40 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { verify } from "../../api/user";
+import { AdminContext } from "../../App";
 
 const RequireAuth = () => {
+  const { setUser } = useContext(AdminContext)
   const location = useLocation();
-
+  const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const success = await verify();
-        if (success) setIsAuthenticated(true);
+        const result = await verify();
+        if (result.ok) {
+          setIsAuthenticated(true);
+          setUser(result.user)
+        }
+        else setIsAuthenticated(false)
       } catch (error) {
+        console.log(error);
         setIsAuthenticated(false);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     checkAuth();
-  }, [verify]);
+  }, []);
 
-  // if (isAuthenticated === false) {
-  //   return <div>Checking authentication...</div>;
-  // }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   console.log(isAuthenticated);
   
-
   return isAuthenticated ? (
     <Outlet />
   ) : (

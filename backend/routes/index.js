@@ -16,7 +16,7 @@ import userRoutes from "./userRoutes.js";
 import verifyRoutes from "./verifyRoutes.js";
 
 const route = (app) => {
-  app.use("/api/auth/verify", verifyRoutes);
+  app.use("/api/auth/", verifyRoutes);
 
   app.use("/api/auth/customer", authCustomerRoutes);
   app.use("/api/account/customer", customerAccountRoutes);

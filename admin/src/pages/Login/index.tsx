@@ -9,8 +9,8 @@ import "./index.css";
 import { login } from "../../api/user";
 
 export default function AdminLogin() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("admin1");
+  const [password, setPassword] = useState("Admin1@");
   const [inputIndex, setInputIndex] = useState(null);
   const [isShowPassword, setIsShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function AdminLogin() {
     try {
       const result = await login(username, password);
 
-      if (result.success) {
+      if (result.ok) {
         alert("Login successfully")
         navigate("/")
         return

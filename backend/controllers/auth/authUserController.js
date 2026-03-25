@@ -13,7 +13,9 @@ class authCustomerController {
       // console.log(username, password);
 
       if (!username || !password) {
-        return res.status(400).json({ message: "All fields are required" });
+        return res
+          .status(400)
+          .json({ message: "All fields are required", ok: false });
       }
 
       const account = await UserAccount.findOne({
@@ -23,7 +25,10 @@ class authCustomerController {
       if (!account) {
         return res
           .status(401)
-          .json({ message: "Unauthorized (Account not found)" });
+          .json({
+            message: "Unauthorized (Account not found)",
+            ok: false,
+          });
       }
 
       const match = await bcrypt.compare(password, account.password);
@@ -31,7 +36,10 @@ class authCustomerController {
       if (!match) {
         return res
           .status(401)
-          .json({ message: "Unauthorized (Password is incorrect)" });
+          .json({
+            message: "Unauthorized (Password is incorrect)",
+            ok: false,
+          });
       }
 
       const user = await User.findOne({
@@ -41,7 +49,7 @@ class authCustomerController {
       if (!user) {
         return res
           .status(401)
-          .json({ message: "Unauthorized (User not found)" });
+          .json({ message: "Unauthorized (User not found)", ok: false });
       }
 
       const accessToken = jwt.sign(
@@ -67,17 +75,35 @@ class authCustomerController {
       account.refreshToken = refreshToken;
       const result = await account.save();
 
-      res.cookie("jwt", refreshToken, {
+
+      const isProd = process.env.NODE_ENV === "production";
+
+      res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
-        secure: true,
-        sameSite: "None",
+        secure: isProd,
+        sameSite: isProd ? "None" : "Lax",
         // maxAge: 7 * 24 * 60 * 60 * 1000,
         maxAge: 60 * 60 * 1000,
       });
 
-      res.status(200).json({ accessToken: accessToken, user: user });
+      res.cookie("accessToken", accessToken, {
+        httpOnly: true,
+        secure: isProd,
+        sameSite: isProd ? "None" : "Lax",
+        maxAge: 15 * 60 * 1000,
+        path: "/",
+      });
+
+      res.status(200).json({ user: user, ok: true });
     } catch (error) {
       console.log(error);
+      res
+        .status(200)
+        .json({
+          message: "Internal server error",
+          error: error.message,
+          ok: true,
+        });
     }
   };
 
@@ -127,7 +153,7 @@ class authCustomerController {
       const cookies = req.cookies;
       if (!cookies?.jwt) return res.sendStatus(204);
 
-    //   const refreshToken = cookies.jwt;
+      //   const refreshToken = cookies.jwt;
       const account = await UserAccount.findOneAndUpdate(
         // { refreshToken: refreshToken },
         { refreshToken: "" }
@@ -148,7 +174,9 @@ class authCustomerController {
       res.status(200).json({ message: "Cookies cleared successfully" });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Internal server error", error: error.message });
+      res
+        .status(500)
+        .json({ message: "Internal server error", error: error.message });
     }
   };
 }

@@ -13,9 +13,10 @@ import Signup from "./pages/SignUp";
 const AdminContext = createContext<any>(null);
 
 const App = () => {
+  const [user, setUser] = useState(null);
   const [isToggleSidebar, setIsToggleSidebar] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
-  const [isLayoutVisible, setIsLayoutVisible] = useState(false);
+  const [isLayoutVisible, setIsLayoutVisible] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isOpenNav, setIsOpenNav] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -48,7 +49,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const ok = locList.some((item) => item.endsWith(location.pathname));
+    const ok = locList.some((item) => item === location.pathname);
     setIsLayoutVisible(!ok);
   }, [location]);
 
@@ -57,6 +58,8 @@ const App = () => {
   };
 
   const values = {
+    user,
+    setUser,
     isToggleSidebar,
     setIsToggleSidebar,
     isLogin,
@@ -74,34 +77,36 @@ const App = () => {
     setIsLoading,
   };
 
+  console.log(isLayoutVisible);
+
   useEffect(() => {}, [isToggleSidebar]);
 
   return (
     <AdminContext.Provider value={values}>
-  {isLayoutVisible && <Header />}
+      {isLayoutVisible && <Header />}
 
-  <div className="content">
-    {isLayoutVisible && <Sidebar />}
+      <div className="content">
+        {isLayoutVisible && <Sidebar />}
 
-    {isLoading && <Loading />}
+        {isLoading && <Loading />}
 
-    <div className="content-main">
-      <Routes>
-        <Route element={<RequireAuth />}>
-          {routes.map((route, index) => (
-            <Route
-              key={route.path || index}
-              path={route.path}
-              element={route.element}
-            />
-          ))}
-        </Route>
-        <Route path={"/login"} element={<Login />} />
-        <Route path={"/signup"} element={<Signup />} />
-      </Routes>
-    </div>
-  </div>
-</AdminContext.Provider>
+        <div className="content-main">
+          <Routes>
+            <Route element={<RequireAuth />}>
+              {routes.map((route, index) => (
+                <Route
+                  key={route.path || index}
+                  path={route.path}
+                  element={route.element}
+                />
+              ))}
+            </Route>
+            <Route path={"/login"} element={<Login />} />
+            <Route path={"/signup"} element={<Signup />} />
+          </Routes>
+        </div>
+      </div>
+    </AdminContext.Provider>
   );
 };
 
