@@ -50,8 +50,6 @@ const App = () => {
 
   useEffect(() => {
     const ok = locList.some((item) => item === location.pathname);
-    console.log("ok", !ok);
-    
     setIsLayoutVisible(!ok);
   }, [location]);
 

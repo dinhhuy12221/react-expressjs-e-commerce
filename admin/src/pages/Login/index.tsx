@@ -7,8 +7,10 @@ import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 import { login } from "../../api/user";
+import { AdminContext } from "../../App";
 
 export default function AdminLogin() {
+  const { setUser } = useContext(AdminContext)
   const [username, setUsername] = useState("admin1");
   const [password, setPassword] = useState("Admin1@");
   const [inputIndex, setInputIndex] = useState(null);
@@ -26,6 +28,7 @@ export default function AdminLogin() {
       const result = await login(username, password);
 
       if (result.ok) {
+        setUser(result.user)
         alert(result.message)
         navigate("/")
         return

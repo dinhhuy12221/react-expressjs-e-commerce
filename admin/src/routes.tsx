@@ -7,6 +7,7 @@ import ProductUpload from "./pages/ProductUpload";
 import Category from "./pages/CategoryBrand";
 import Order from "./pages/Order";
 import OrderDetail from "./pages/Order/OrderDetail";
+import Profile from "./pages/Profile";
 
 const routes = [
   {
@@ -58,6 +59,11 @@ const routes = [
     path: "/orders/:id",
     exact: true,
     element: <OrderDetail />,
+  },
+  {
+    path: "profile",
+    exact: true,
+    element: <Profile />,
   },
 ];
 

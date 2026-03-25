@@ -1,10 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { verify } from "../../api/user";
-import { AdminContext } from "../../App";
 
 const RequireAuth = () => {
-  const { setUser } = useContext(AdminContext)
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,10 +24,10 @@ const RequireAuth = () => {
     };
 
     checkAuth();
-  }, [location.pathname]);
+  }, [location.pathname, isAuthenticated]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
   
   return isAuthenticated ? (
