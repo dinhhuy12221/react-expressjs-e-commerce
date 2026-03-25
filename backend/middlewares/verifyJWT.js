@@ -2,17 +2,17 @@ import jwt from "jsonwebtoken";
 
 const verifyJWT = (req, res, next) => {
   try {
-    const accessToken = req.cookies?.accessToken;
+    const { accessToken } = req.cookies;
 
-    if (!accessToken) return res.sendStatus(401);
+    if (!accessToken) return res.status(401);
 
     jwt.verify(
       accessToken,
       process.env.ACCESS_TOKEN_SECRET,
       (err, decoded) => {
-        if (err) return res.sendStatus(403);
+        if (err) return res.status(403);
 
-        req.user = decoded.user;
+        req.username = decoded.username;
         
         next();
       }

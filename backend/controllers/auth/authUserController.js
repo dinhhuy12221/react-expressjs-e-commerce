@@ -7,6 +7,25 @@ const REFRESH_TOKEN_EXPIRATION = "1h";
 const ACCESS_TOKEN_EXPIRATION = "30m";
 
 class authCustomerController {
+  me = async (req, res) => {
+    try {
+      const user = await User.findOne({
+        username: req.body.username,
+      });
+
+      if (!user) {
+        return res
+          .status(401)
+          .json({ message: "Unauthorized (User not found)", ok: false });
+      }
+
+      res.status(200).json({ message: "User found", data: user, ok: true })
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "Internal server error", error: error.message, ok: false })
+    }
+  }
+
   login = async (req, res) => {
     try {
       const { username, password } = req.body;
@@ -75,7 +94,6 @@ class authCustomerController {
       account.refreshToken = refreshToken;
       const result = await account.save();
 
-
       const isProd = process.env.NODE_ENV === "production";
 
       res.cookie("refreshToken", refreshToken, {
@@ -94,7 +112,7 @@ class authCustomerController {
         path: "/",
       });
 
-      res.status(200).json({ user: user, ok: true });
+      res.status(200).json({ message: "Login successfully", ok: true });
     } catch (error) {
       console.log(error);
       res
