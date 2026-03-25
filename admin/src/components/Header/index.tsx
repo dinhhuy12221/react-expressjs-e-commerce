@@ -10,13 +10,11 @@ import { IoGlobeOutline } from "react-icons/io5";
 import { LuShoppingCart } from "react-icons/lu";
 import { MdMailOutline } from "react-icons/md";
 import { GoBell } from "react-icons/go";
-import { MdDarkMode } from "react-icons/md";
 import { MdLockReset } from "react-icons/md";
 
 // import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 // import Iconbutton from "@mui/material/Iconbutton";
 // import Typography from "@mui/material/Typography";
