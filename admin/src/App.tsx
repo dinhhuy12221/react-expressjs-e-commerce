@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./index.css";
 import "./responsive.css";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
@@ -57,7 +57,7 @@ const App = () => {
     setIsOpenNav(!isOpenNav);
   };
 
-  const values = {
+  const values = useMemo(() => ({
     user,
     setUser,
     isToggleSidebar,
@@ -75,7 +75,7 @@ const App = () => {
     setIsOpenNav,
     isLoading,
     setIsLoading,
-  };
+  }), [user])
 
   console.log("user", user);
 

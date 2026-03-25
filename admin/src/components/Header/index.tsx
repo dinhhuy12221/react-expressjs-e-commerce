@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import button from "@mui/material/button";
 import { MdExitToApp, MdMenu } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
@@ -28,11 +28,11 @@ import "./index.css";
 import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
-  const { user } = useContext(AdminContext)
   const [anchorEl, setAnchorEl] = useState(null);
   const [isOpenNotificationDrop, setIsOpenNotificationDrop] = useState(null);
   const openMyAcc = Boolean(anchorEl);
   const openNotifications = Boolean(isOpenNotificationDrop);
+  const navigate = useNavigate()
 
   const context = useContext(AdminContext);
 
@@ -190,15 +190,15 @@ export default function Header() {
               className="header-profile-info"
               onClick={handleOpenMyAccDrop}
             >
-              <UserAvatarImg url={"/public/logo192.png"} />
+              <UserAvatarImg url={context.user?.image.url} />
             </button>
             <Menu
               className="header-profile-dropdown"
               anchorEl={anchorEl}
               id="account-menu"
               open={openMyAcc}
+              onClick={() => navigate("/profile")}
               onClose={handleCloseMyAccDrop}
-              //   onClick={handleCloseMyAccDrop}
               slotProps={{
                 paper: {
                   elevation: 0,
