@@ -84,13 +84,13 @@ class authCustomerController {
   refresh = async (req, res) => {
     const cookies = req.cookies;
 
-    if (!cookies?.jwt) {
+    if (!cookies?.refreshToken) {
       return res
         .status(401)
-        .json({ message: "Unauthorized (jwt not existed)" });
+        .json({ message: "Unauthorized (refreshToken not existed)" });
     }
 
-    const refreshToken = cookies.jwt;
+    const refreshToken = cookies.refreshToken;
 
     jwt.verify(
       refreshToken,
