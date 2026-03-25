@@ -15,7 +15,6 @@ const RequireAuth = () => {
         const result = await verify();
         if (result.ok) {
           setIsAuthenticated(true);
-          setUser(result.user)
         }
         else setIsAuthenticated(false)
       } catch (error) {

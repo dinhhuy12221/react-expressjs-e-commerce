@@ -13,7 +13,7 @@ import Signup from "./pages/SignUp";
 const AdminContext = createContext<any>(null);
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
   const [isToggleSidebar, setIsToggleSidebar] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
   const [isLayoutVisible, setIsLayoutVisible] = useState(false);
@@ -79,7 +79,7 @@ const App = () => {
     setIsLoading,
   };
 
-  console.log(isLayoutVisible);
+  console.log("user", user);
 
   useEffect(() => {}, [isToggleSidebar]);
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
@@ -26,7 +26,7 @@ export default function AdminLogin() {
       const result = await login(username, password);
 
       if (result.ok) {
-        alert("Login successfully")
+        alert(result.message)
         navigate("/")
         return
       }
