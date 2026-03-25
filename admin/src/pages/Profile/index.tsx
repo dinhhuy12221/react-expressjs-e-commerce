@@ -8,27 +8,17 @@ import { MdOutlineAddCircleOutline } from "react-icons/md";
 
 const Profile = () => {
   const { user } = useContext(AdminContext);
-  const [draft, setDraft] = useState<any>(null)
+  const [draft, setDraft] = useState<any>(null);
 
   useEffect(() => {
-    setDraft(user)
-  }, [user])
+    setDraft(user);
+  }, [user]);
 
-  const handleSubmit = () => {
-
-  }
-  const handleChange = () => {
-
-  }
-  const handleCancel = () => {
-
-  }
-  const handleImageChange = () => {
-
-  }
-  const handleImageDelete = () => {
-
-  }
+  const handleSubmit = () => {};
+  const handleChange = () => {};
+  const handleCancel = () => {};
+  const handleImageChange = () => {};
+  const handleImageDelete = () => {};
   return (
     <div className="profile">
       <Breadcrumb
@@ -71,26 +61,21 @@ const Profile = () => {
                     />
                   </div>)}
                 </Slider> */}
-            {draft?.images.map((item, index) => (
-              <div className="product-view-content-images-item" key={index}>
-                <input
-                  type="file"
-                  onChange={(e) => handleImageChange()}
-                />
-                {item?.url ? (
-                  <>
-                    <img src={item?.url} alt="product" width="120" />
-                    <TiDelete
-                      className="product-view-content-images-item-delete"
-                      onClick={() => handleImageDelete()}
-                    />
-                    <PiCameraRotate />
-                  </>
-                ) : (
-                  <MdOutlineAddCircleOutline />
-                )}
-              </div>
-            ))}
+            <div className="product-view-content-images-item">
+              <input type="file" onChange={(e) => handleImageChange()} />
+              {draft?.image.url ? (
+                <>
+                  <img src={draft?.image.url} alt="product" width="120" />
+                  <TiDelete
+                    className="product-view-content-images-item-delete"
+                    onClick={() => handleImageDelete()}
+                  />
+                  <PiCameraRotate />
+                </>
+              ) : (
+                <MdOutlineAddCircleOutline />
+              )}
+            </div>
           </div>
           <div className="product-view-content-main">
             <div className="product-view-content-main-item">
