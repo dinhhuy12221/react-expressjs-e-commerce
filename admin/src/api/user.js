@@ -57,11 +57,12 @@ const updateUser = async (payload) => {
   try {
     const formData = new FormData()
     Object.keys(payload).forEach(key => {
-      if (key !== "image") {
+      if (key !== "image" && key !== "imageFile") {
         formData.append(key, payload[key])
       }
     })
     formData.append("image", JSON.stringify(payload["image"]))
+    formData.append("image_file", payload["imageFile"] || "")
 
     const result = await fetch(`${BASE_URL}/user/update`, {
       method: "PUT",
