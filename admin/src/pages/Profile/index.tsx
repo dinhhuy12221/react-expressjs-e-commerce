@@ -39,19 +39,26 @@ const Profile = () => {
     setDraft(prev => ({
       ...prev,
       image: {
-        ...prev.image,
-        url: preview
+        url: preview,
+        public_id: prev.image.public_id,
       }
     }))
   };
 
+  const handleImageDelete = () => {
+    setImageFile(null)
+    setDraft(prev => ({
+      ...prev,
+      image: {
+        url: "",
+        public_id: ""
+      }
+    }))
+  }
   useEffect(() => {
     setDraft(user);
   }, [user]);
-
-  console.log(draft);
   
-  const handleImageDelete = () => {};
 
   return (
     <div className="profile">
