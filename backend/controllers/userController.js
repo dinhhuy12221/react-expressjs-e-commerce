@@ -63,35 +63,60 @@ class userController {
       const { image } = req.body;
       const file = req.file;
 
+      const parsedImage = image ? JSON.parse(image) : null;
+
+      console.log(parsedImage);
+
       let image_result = {
-        url: image.url,
-        public_id: image.public_id,
+        url: parsedImage.url,
+        public_id: parsedImage.public_id,
       };
 
       if (file) {
-        const result = await cloudinary.v2.uploader.upload(file.path, {
-          public_id: image.public_id,
-          overwrite: true,
-        });
+        if (parsedImage.public_id) {
+          const result = await cloudinary.v2.uploader.upload(file.path, {
+            public_id: parsedImage.public_id,
+            overwrite: true,
+          });
 
-        image_result = {
-          url: result.secure_url,
-          public_id: result.public_id,
-        };
-      } else if (image.public_id === undefined) {
-        const result = await cloudinary.v2.uploader.upload(filePath, {
-          folder: `ecommerce/users/${req.body._id}`,
-        });
+          image_result = {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        } else {
+          const result = await cloudinary.v2.uploader.upload(file.path, {
+            folder: `ecommerce/users/${req.body._id}`,
+          });
 
-        image_result = {
-          url: result.secure_url,
-          public_id: result.public_id,
-        };
+          image_result = {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        }
+      } else {
+        if (parsedImage.public_id) {
+          const result = await cloudinary.v2.uploader.upload(filePath, {
+            public_id: parsedImage.public_id,
+            overwrite: true,
+          });
+
+          image_result = {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        } else {
+          const result = await cloudinary.v2.uploader.upload(filePath, {
+            folder: `ecommerce/users/${req.body._id}`,
+          });
+
+          image_result = {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        }
       }
 
-      if (file?.path) {
-        await fs.unlink(file.path).catch(() => {});
-      }
+      await fs.unlink(file?.path).catch(() => {});
 
       const result = await User.findOneAndUpdate(
         {
@@ -114,7 +139,7 @@ class userController {
     } catch (error) {
       console.log(error);
       res
-        .status(400)
+        .status(500)
         .json({ message: "Unauthorized", error: error.message, ok: true });
     }
   };

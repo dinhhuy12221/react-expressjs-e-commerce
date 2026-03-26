@@ -54,8 +54,8 @@ const Profile = () => {
     setDraft(prev => ({
       ...prev,
       image: {
-        url: "",
-        public_id: ""
+        ...prev.image,
+        url: ""
       }
     }))
   }
