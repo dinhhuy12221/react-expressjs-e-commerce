@@ -17,11 +17,11 @@ const userSchema = Schema(
     image: {
       url: {
         type: String,
-        required: true,
+        default: ""
       },
       public_id: {
         type: String,
-        required: true,
+        default: ""
       },
     },
     fullname: {
@@ -31,7 +31,7 @@ const userSchema = Schema(
       },
     },
     phone_number: {
-      type: Number,
+      type: String,
       default: "",
     },
     address: {

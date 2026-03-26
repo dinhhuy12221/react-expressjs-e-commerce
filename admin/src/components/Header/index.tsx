@@ -190,7 +190,7 @@ export default function Header() {
               className="header-profile-info"
               onClick={handleOpenMyAccDrop}
             >
-              <UserAvatarImg url={context.user?.image.url} />
+              <UserAvatarImg url={context.user?.image?.url} />
             </button>
             <Menu
               className="header-profile-dropdown"

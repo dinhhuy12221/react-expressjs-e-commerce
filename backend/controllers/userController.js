@@ -27,14 +27,14 @@ class userController {
 
       res.status(201).json({
         message: "User created successfully",
-        success: true,
+        ok: true,
       });
     } catch (error) {
       console.log(error);
       res.status(500).json({
         message: "Internal server error",
         error: error.message,
-        success: false,
+        ok: false,
       });
     }
   };
@@ -77,18 +77,19 @@ class userController {
             public_id: result.public_id,
           };
         } else {
-          if (image.public_id) {
-            const result = await cloudinary.v2.uploader.upload(filePath, {
-              folder: `ecommerce/users/${req.body._id}`,
-            });
+          const result = await cloudinary.v2.uploader.upload(filePath, {
+            folder: `ecommerce/users/${req.body._id}`,
+          });
 
-            image_result = {
-              url: result.secure_url,
-              public_id: result.public_id,
-            };
-          }
+          image_result = {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
         }
       }
+
+      console.log(image_result);
+      
 
       const result = await User.findOneAndUpdate(
         {
@@ -97,8 +98,8 @@ class userController {
         {
           fullname: req.body.fullname,
           image: {
-            url: image_result.url,
-            public_id: image_result.public_id,
+            url: image_result?.url || "",
+            public_id: image_result?.public_id || "",
           },
           phone_number: req.body?.phone_number || "",
           address: req.body?.address || "",
@@ -107,10 +108,12 @@ class userController {
 
       res
         .status(200)
-        .json({ message: "User updated successfully", user: result });
+        .json({ message: "User updated successfully", user: result, ok: true });
     } catch (error) {
       console.log(error);
-      res.status(400).json({ message: "Unauthorized", error: error.message });
+      res
+        .status(400)
+        .json({ message: "Unauthorized", error: error.message, ok: true });
     }
   };
 }

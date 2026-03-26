@@ -66,6 +66,7 @@ const updateUser = async (payload) => {
 
     const result = await fetch(`${BASE_URL}/user/update`, {
       method: "PUT",
+      credentials: "include",
       body: formData
     }).then(result => result.json())
 
