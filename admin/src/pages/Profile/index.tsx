@@ -100,7 +100,7 @@ const Profile = () => {
             <div className="profile-content-main-item">
               <h4>Username</h4>
               <input
-                className="profile-content-main-item-input"
+                className="profile-content-main-item-input not-allowed-cursor"
                 type="text"
                 spellCheck="false"
                 value={draft?.username}

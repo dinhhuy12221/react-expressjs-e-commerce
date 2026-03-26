@@ -888,3 +888,7 @@ body.dark .tableFooter .pagination button:hover {
   overflow: hidden;
   border-radius: 10px;
 }
+
+.not-allowed-cursor {
+  cursor: not-allowed;
+}
