@@ -65,22 +65,35 @@ class userController {
 
       const parsedImage = image ? JSON.parse(image) : null;
 
+      console.log(parsedImage);
+
       let image_result = {
         url: parsedImage.url,
         public_id: parsedImage.public_id,
       };
 
       if (file) {
-        const result = await cloudinary.v2.uploader.upload(file.path, {
-          public_id: parsedImage.public_id,
-          overwrite: true,
-        });
+        if (parsedImage.public_id) {
+          const result = await cloudinary.v2.uploader.upload(file.path, {
+            public_id: parsedImage.public_id,
+            overwrite: true,
+          });
 
-        image_result = {
-          url: result.secure_url,
-          public_id: result.public_id,
-        };
-      } else if (parsedImage.public_id === undefined) {
+          image_result = {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        } else {
+          const result = await cloudinary.v2.uploader.upload(file.path, {
+            folder: `ecommerce/users/${req.body._id}`,
+          });
+
+          image_result = {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        }
+      } else if (parsedImage.public_id) {
         const result = await cloudinary.v2.uploader.upload(filePath, {
           folder: `ecommerce/users/${req.body._id}`,
         });
@@ -91,9 +104,7 @@ class userController {
         };
       }
 
-      if (file?.path) {
-        await fs.unlink(file.path).catch(() => {});
-      }
+      await fs.unlink(file?.path).catch(() => {});
 
       const result = await User.findOneAndUpdate(
         {
@@ -116,7 +127,7 @@ class userController {
     } catch (error) {
       console.log(error);
       res
-        .status(400)
+        .status(500)
         .json({ message: "Unauthorized", error: error.message, ok: true });
     }
   };
