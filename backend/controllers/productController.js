@@ -4,8 +4,6 @@ import cloudinary from "../config/cloudinary.js";
 import getSequence from "../utils/getSequence.js";
 import fs from "fs/promises";
 import slugify from "slugify";
-import { log } from "console";
-
 class productController {
   // GET product list
   async getProduct(req, res, next) {

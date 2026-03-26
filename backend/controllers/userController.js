@@ -2,6 +2,7 @@ import User from "../models/user.js";
 import cloudinary from "../config/cloudinary.js";
 import path from "path";
 import getSequence from "../utils/getSequence.js";
+import fs from "fs/promises";
 
 const filePath = path.resolve("./assets/default_pfp.jpg");
 
@@ -60,36 +61,40 @@ class userController {
   updateUser = async (req, res) => {
     try {
       const { file, image } = req.body;
+
+      console.log(req.body.image);
+
       let image_result = {
         url: image.url,
         public_id: image.public_id,
       };
 
       if (file) {
-        if (image.public_id) {
-          const result = await cloudinary.v2.uploader.upload(file.path, {
-            public_id: image.public_id,
-            overwrite: true,
-          });
+        const result = await cloudinary.v2.uploader.upload(file.path, {
+          public_id: image.public_id,
+          overwrite: true,
+        });
 
-          image_result = {
-            url: result.secure_url,
-            public_id: result.public_id,
-          };
-        } else {
-          const result = await cloudinary.v2.uploader.upload(filePath, {
-            folder: `ecommerce/users/${req.body._id}`,
-          });
+        image_result = {
+          url: result.secure_url,
+          public_id: result.public_id,
+        };
+      } else if (image.public_id === "") {
+        const result = await cloudinary.v2.uploader.upload(filePath, {
+          folder: `ecommerce/users/${req.body._id}`,
+        });
 
-          image_result = {
-            url: result.secure_url,
-            public_id: result.public_id,
-          };
-        }
+        image_result = {
+          url: result.secure_url,
+          public_id: result.public_id,
+        };
       }
 
       console.log(image_result);
-      
+
+      if (file?.path) {
+        await fs.unlink(file.path).catch(() => {});
+      }
 
       const result = await User.findOneAndUpdate(
         {
