@@ -5,13 +5,23 @@ import { TiDelete } from "react-icons/ti";
 import { PiCameraRotate } from "react-icons/pi";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 import "./index.css";
+import { updateUser } from "../../api/user";
 
 const Profile = () => {
   const { user } = useContext(AdminContext);
   const [draft, setDraft] = useState<any>(null);
   const [imageFile, setImageFile] = useState<any>(null)
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const payload = {
+      ...draft,
+      imageFile
+    }
+    const result = await updateUser(payload)
+
+    if (result.ok) alert("User updated successfully")
+  };
   const handleChange = (e) => {
     const { name, value } = e.target
 
@@ -42,6 +52,7 @@ const Profile = () => {
   console.log(draft);
   
   const handleImageDelete = () => {};
+
   return (
     <div className="profile">
       <Breadcrumb
@@ -54,14 +65,14 @@ const Profile = () => {
       />
 
       <div className="profile-content">
-        <h2>user ID: #{user?._id}</h2>
+        <h2>User ID: #{user?._id}</h2>
         <form method="PUT" onSubmit={handleSubmit}>
           <div className="profile-content-images">
             <div className="profile-content-images-item">
               <input type="file" onChange={handleImageChange} />
-              {draft?.image.url ? (
+              {draft?.image?.url ? (
                 <>
-                  <img src={draft?.image.url} alt="product" width="120" />
+                  <img src={draft?.image?.url} alt="product" width="120" />
                   <TiDelete
                     className="profile-content-images-item-delete"
                     onClick={() => handleImageDelete()}
