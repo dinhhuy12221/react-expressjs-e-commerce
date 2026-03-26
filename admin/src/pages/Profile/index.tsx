@@ -34,17 +34,17 @@ const Profile = () => {
         ]}
       />
 
-      <div className="product-view-content">
+      <div className="profile-content">
         <h2>user ID: #{user?._id}</h2>
         <form method="PUT" onSubmit={handleSubmit}>
-          <div className="product-view-content-images">
+          <div className="profile-content-images">
             {/* <h6 className="mb-4">Product Gallery</h6> */}
             {/* <Slider
                   {...productSliderOptions}
                   ref={mainImagesSlider}
-                  className="product-view-content-images-slider-main"
+                  className="profile-content-images-slider-main"
                 >
-                  {product?.images.map(item => <div className="product-view-content-images-slider-main-item">
+                  {product?.images.map(item => <div className="profile-content-images-slider-main-item">
                     <img
                       src={item.url}
                     />
@@ -53,21 +53,21 @@ const Profile = () => {
                 <Slider
                   {...productSliderSmallOptions}
                   ref={sideImagesSlider}
-                  className="product-view-content-images-slider-side"
+                  className="profile-content-images-slider-side"
                 >
-                  {product?.images.map(item => <div className="product-view-content-images-slider-side-item">
+                  {product?.images.map(item => <div className="profile-content-images-slider-side-item">
                     <img
                       src={item.url}
                     />
                   </div>)}
                 </Slider> */}
-            <div className="product-view-content-images-item">
+            <div className="profile-content-images-item">
               <input type="file" onChange={(e) => handleImageChange()} />
               {draft?.image.url ? (
                 <>
                   <img src={draft?.image.url} alt="product" width="120" />
                   <TiDelete
-                    className="product-view-content-images-item-delete"
+                    className="profile-content-images-item-delete"
                     onClick={() => handleImageDelete()}
                   />
                   <PiCameraRotate />
@@ -77,11 +77,11 @@ const Profile = () => {
               )}
             </div>
           </div>
-          <div className="product-view-content-main">
-            <div className="product-view-content-main-item">
+          <div className="profile-content-main">
+            <div className="profile-content-main-item">
               <h4>Username</h4>
               <input
-                className="product-view-content-main-item-input"
+                className="profile-content-main-item-input"
                 type="text"
                 spellCheck="false"
                 placeholder="Enter the name"
@@ -90,10 +90,10 @@ const Profile = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="product-view-content-main-item">
+            <div className="profile-content-main-item">
               <h4>Fullname</h4>
               <textarea
-                className="product-view-content-main-item-textarea"
+                className="profile-content-main-item-textarea"
                 spellCheck="false"
                 placeholder="Enter the description"
                 name="description"
@@ -101,10 +101,10 @@ const Profile = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="product-view-content-main-item">
+            <div className="profile-content-main-item">
               <h4>Phone number</h4>
               <input
-                className="product-view-content-main-item-input"
+                className="profile-content-main-item-input"
                 type="number"
                 spellCheck="false"
                 name="price"
@@ -112,10 +112,10 @@ const Profile = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="product-view-content-main-item">
+            <div className="profile-content-main-item">
               <h4>Address</h4>
               <input
-                className="product-view-content-main-item-input"
+                className="profile-content-main-item-input"
                 type="number"
                 spellCheck="false"
                 name="discount"
@@ -124,15 +124,15 @@ const Profile = () => {
               />
             </div>
           </div>
-          <div className="product-view-content-button">
+          <div className="profile-content-button">
             <button
               type="button"
-              className="product-view-content-button-cancel"
+              className="profile-content-button-cancel"
               onClick={handleCancel}
             >
               Cancel
             </button>
-            <button type="submit" className="product-view-content-button-save">
+            <button type="submit" className="profile-content-button-save">
               Save
             </button>
           </div>
