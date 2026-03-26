@@ -63,14 +63,16 @@ class userController {
       const { image } = req.body;
       const file = req.file;
 
+      const parsedImage = image ? JSON.parse(image) : null;
+
       let image_result = {
-        url: image.url,
-        public_id: image.public_id,
+        url: parsedImage.url,
+        public_id: parsedImage.public_id,
       };
 
       if (file) {
         const result = await cloudinary.v2.uploader.upload(file.path, {
-          public_id: image.public_id,
+          public_id: parsedImage.public_id,
           overwrite: true,
         });
 
@@ -78,7 +80,7 @@ class userController {
           url: result.secure_url,
           public_id: result.public_id,
         };
-      } else if (image.public_id === undefined) {
+      } else if (parsedImage.public_id === undefined) {
         const result = await cloudinary.v2.uploader.upload(filePath, {
           folder: `ecommerce/users/${req.body._id}`,
         });
