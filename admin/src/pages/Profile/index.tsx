@@ -48,6 +48,7 @@ const Profile = () => {
       image: {
         url: preview,
         public_id: prev.image.public_id,
+        deleted: false,
       }
     }))
   };
@@ -58,7 +59,8 @@ const Profile = () => {
       ...prev,
       image: {
         ...prev.image,
-        url: ""
+        url: "",
+        deleted: true,
       }
     }))
   }
