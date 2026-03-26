@@ -60,9 +60,9 @@ class userController {
 
   updateUser = async (req, res) => {
     try {
-      const { image_file, image } = req.body;
-
-      console.log(req.body.image_file);
+      const { image } = req.body;
+      const { image_file } = req.files;
+      console.log(image_file);
 
       let image_result = {
         url: image.url,
