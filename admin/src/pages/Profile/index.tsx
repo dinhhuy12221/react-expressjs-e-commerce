@@ -9,6 +9,7 @@ import { updateUser } from "../../api/user";
 
 const Profile = () => {
   const { user } = useContext(AdminContext);
+  const [profile, setProfile] = useState<any>(null)
   const [draft, setDraft] = useState<any>(null);
   const [imageFile, setImageFile] = useState<any>(null)
 
@@ -30,7 +31,10 @@ const Profile = () => {
       [name]: value
     }))
   };
-  const handleCancel = () => {};
+  const handleCancel = () => {
+    setDraft(profile)
+  };
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const preview = URL.createObjectURL(file)
@@ -39,19 +43,27 @@ const Profile = () => {
     setDraft(prev => ({
       ...prev,
       image: {
-        ...prev.image,
-        url: preview
+        url: preview,
+        public_id: prev.image.public_id,
       }
     }))
   };
 
+  const handleImageDelete = () => {
+    setImageFile(null)
+    setDraft(prev => ({
+      ...prev,
+      image: {
+        url: "",
+        public_id: ""
+      }
+    }))
+  }
   useEffect(() => {
     setDraft(user);
+    setProfile(user)
   }, [user]);
-
-  console.log(draft);
   
-  const handleImageDelete = () => {};
 
   return (
     <div className="profile">
@@ -113,7 +125,7 @@ const Profile = () => {
                 type="number"
                 spellCheck="false"
                 placeholder="Enter your phone number"
-                name="phoneNumber"
+                name="phone_number"
                 value={draft?.phone_number}
                 onChange={handleChange}
                 />
