@@ -12,7 +12,14 @@ const Profile = () => {
   const [imageFile, setImageFile] = useState<any>(null)
 
   const handleSubmit = () => {};
-  const handleChange = () => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setDraft(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  };
   const handleCancel = () => {};
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -32,7 +39,7 @@ const Profile = () => {
     setDraft(user);
   }, [user]);
 
-  console.log(imageFile);
+  console.log(draft);
   
   const handleImageDelete = () => {};
   return (
@@ -86,7 +93,7 @@ const Profile = () => {
                 name="fullname"
                 value={draft?.fullname}
                 onChange={handleChange}
-              />
+                />
             </div>
             <div className="profile-content-main-item">
               <h4>Phone number</h4>
@@ -94,10 +101,11 @@ const Profile = () => {
                 className="profile-content-main-item-input"
                 type="number"
                 spellCheck="false"
+                placeholder="Enter your phone number"
                 name="phoneNumber"
                 value={draft?.phone_number}
                 onChange={handleChange}
-              />
+                />
             </div>
             <div className="profile-content-main-item">
               <h4>Address</h4>
@@ -105,10 +113,11 @@ const Profile = () => {
                 className="profile-content-main-item-input"
                 type="text"
                 spellCheck="false"
+                placeholder="Enter your address"
                 name="address"
                 value={draft?.address}
                 onChange={handleChange}
-              />
+                />
             </div>
           </div>
           <div className="profile-content-button">
