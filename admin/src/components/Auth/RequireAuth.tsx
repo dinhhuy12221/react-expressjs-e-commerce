@@ -4,7 +4,7 @@ import { verify } from "../../api/user";
 import { AdminContext } from "../../App";
 
 const RequireAuth = () => {
-  const { setUser } = useContext(AdminContext)
+  const { user, setUser } = useContext(AdminContext)
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -27,7 +27,7 @@ const RequireAuth = () => {
     };
 
     checkAuth();
-  }, [location, isAuthenticated]);
+  }, [location, user?._id]);
 
   if (isLoading) {
     return <div>Loading...</div>
