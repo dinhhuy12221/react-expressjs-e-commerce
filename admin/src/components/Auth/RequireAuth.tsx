@@ -27,7 +27,7 @@ const RequireAuth = () => {
     };
 
     checkAuth();
-  }, [location, user?._id]);
+  }, [location.pathname]);
 
   if (isLoading) {
     return <div>Loading...</div>
