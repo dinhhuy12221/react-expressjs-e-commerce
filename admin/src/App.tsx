@@ -9,8 +9,7 @@ import Loading from "./components/Loading";
 import RequireAuth from "./components/Auth/RequireAuth";
 import Login from "./pages/Login";
 import Signup from "./pages/SignUp";
-
-const AdminContext = createContext<any>(null);
+import AdminContext from "./context/AdminContext";
 
 const App = () => {
   const [user, setUser] = useState<any>(null);

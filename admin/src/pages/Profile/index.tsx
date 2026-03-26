@@ -40,12 +40,8 @@ const Profile = () => {
       <Breadcrumb
         path={[
           {
-            name: "Dashboard",
-            to: "/dashboard",
-          },
-          {
-            name: `${user?.name}`,
-            to: `/product?id=${user._id}`,
+            name: "Profile",
+            to: `/profile`,
           },
         ]}
       />
