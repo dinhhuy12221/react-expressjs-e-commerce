@@ -53,4 +53,26 @@ const verify = async () => {
   }
 };
 
-export { login, signup, verify };
+const updateUser = async (payload) => {
+  try {
+    const formData = new FormData()
+    Object.keys(payload).forEach(key => {
+      if (key !== "image" && key !== "imageFile") {
+        formData.append(key, payload[key])
+      }
+    })
+    formData.append("image", JSON.stringify(payload["image"]))
+    formData.append("image_file", payload["imageFile"] || "")
+
+    const result = await fetch(`${BASE_URL}/user/update`, {
+      method: "PUT",
+      body: formData
+    }).then(result => result.json())
+
+    return result
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { login, signup, verify, updateUser };

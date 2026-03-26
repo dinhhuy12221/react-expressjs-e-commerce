@@ -27,7 +27,7 @@ const RequireAuth = () => {
     };
 
     checkAuth();
-  }, [location.pathname, isAuthenticated]);
+  }, [location, isAuthenticated]);
 
   if (isLoading) {
     return <div>Loading...</div>

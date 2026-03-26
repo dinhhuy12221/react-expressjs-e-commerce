@@ -1,73 +1,69 @@
 import { useContext, useEffect, useState } from "react";
 import { AdminContext } from "../../App";
-import "./index.css";
 import Breadcrumb from "../../components/Breadcrumb";
 import { TiDelete } from "react-icons/ti";
 import { PiCameraRotate } from "react-icons/pi";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
+import "./index.css";
 
 const Profile = () => {
   const { user } = useContext(AdminContext);
   const [draft, setDraft] = useState<any>(null);
+  const [imageFile, setImageFile] = useState<any>(null)
+
+  const handleSubmit = () => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setDraft(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  };
+  const handleCancel = () => {};
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const preview = URL.createObjectURL(file)
+    
+    setImageFile(file)
+    setDraft(prev => ({
+      ...prev,
+      image: {
+        ...prev.image,
+        url: preview
+      }
+    }))
+  };
 
   useEffect(() => {
     setDraft(user);
   }, [user]);
 
-  const handleSubmit = () => {};
-  const handleChange = () => {};
-  const handleCancel = () => {};
-  const handleImageChange = () => {};
+  console.log(draft);
+  
   const handleImageDelete = () => {};
   return (
     <div className="profile">
       <Breadcrumb
         path={[
           {
-            name: "Dashboard",
-            to: "/dashboard",
-          },
-          {
-            name: `${user?.name}`,
-            to: `/product?id=${user._id}`,
+            name: "Profile",
+            to: `/profile`,
           },
         ]}
       />
 
-      <div className="product-view-content">
+      <div className="profile-content">
         <h2>user ID: #{user?._id}</h2>
         <form method="PUT" onSubmit={handleSubmit}>
-          <div className="product-view-content-images">
-            {/* <h6 className="mb-4">Product Gallery</h6> */}
-            {/* <Slider
-                  {...productSliderOptions}
-                  ref={mainImagesSlider}
-                  className="product-view-content-images-slider-main"
-                >
-                  {product?.images.map(item => <div className="product-view-content-images-slider-main-item">
-                    <img
-                      src={item.url}
-                    />
-                  </div>)}
-                </Slider>
-                <Slider
-                  {...productSliderSmallOptions}
-                  ref={sideImagesSlider}
-                  className="product-view-content-images-slider-side"
-                >
-                  {product?.images.map(item => <div className="product-view-content-images-slider-side-item">
-                    <img
-                      src={item.url}
-                    />
-                  </div>)}
-                </Slider> */}
-            <div className="product-view-content-images-item">
-              <input type="file" onChange={(e) => handleImageChange()} />
+          <div className="profile-content-images">
+            <div className="profile-content-images-item">
+              <input type="file" onChange={handleImageChange} />
               {draft?.image.url ? (
                 <>
                   <img src={draft?.image.url} alt="product" width="120" />
                   <TiDelete
-                    className="product-view-content-images-item-delete"
+                    className="profile-content-images-item-delete"
                     onClick={() => handleImageDelete()}
                   />
                   <PiCameraRotate />
@@ -77,62 +73,62 @@ const Profile = () => {
               )}
             </div>
           </div>
-          <div className="product-view-content-main">
-            <div className="product-view-content-main-item">
+          <div className="profile-content-main">
+            <div className="profile-content-main-item">
               <h4>Username</h4>
               <input
-                className="product-view-content-main-item-input"
+                className="profile-content-main-item-input"
                 type="text"
                 spellCheck="false"
-                placeholder="Enter the name"
-                name="name"
                 value={draft?.username}
-                onChange={handleChange}
+                disabled
               />
             </div>
-            <div className="product-view-content-main-item">
+            <div className="profile-content-main-item">
               <h4>Fullname</h4>
-              <textarea
-                className="product-view-content-main-item-textarea"
+              <input
+                className="profile-content-main-item-input"
                 spellCheck="false"
-                placeholder="Enter the description"
-                name="description"
+                placeholder="Enter your fullname"
+                name="fullname"
                 value={draft?.fullname}
                 onChange={handleChange}
-              />
+                />
             </div>
-            <div className="product-view-content-main-item">
+            <div className="profile-content-main-item">
               <h4>Phone number</h4>
               <input
-                className="product-view-content-main-item-input"
+                className="profile-content-main-item-input"
                 type="number"
                 spellCheck="false"
-                name="price"
+                placeholder="Enter your phone number"
+                name="phoneNumber"
                 value={draft?.phone_number}
                 onChange={handleChange}
-              />
+                />
             </div>
-            <div className="product-view-content-main-item">
+            <div className="profile-content-main-item">
               <h4>Address</h4>
               <input
-                className="product-view-content-main-item-input"
-                type="number"
+                className="profile-content-main-item-input"
+                type="text"
                 spellCheck="false"
-                name="discount"
+                placeholder="Enter your address"
+                name="address"
                 value={draft?.address}
                 onChange={handleChange}
-              />
+                />
             </div>
           </div>
-          <div className="product-view-content-button">
+          <div className="profile-content-button">
             <button
               type="button"
-              className="product-view-content-button-cancel"
+              className="profile-content-button-cancel"
               onClick={handleCancel}
             >
               Cancel
             </button>
-            <button type="submit" className="product-view-content-button-save">
+            <button type="submit" className="profile-content-button-save">
               Save
             </button>
           </div>

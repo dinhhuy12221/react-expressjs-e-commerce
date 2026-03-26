@@ -197,7 +197,6 @@ export default function Header() {
               anchorEl={anchorEl}
               id="account-menu"
               open={openMyAcc}
-              onClick={() => navigate("/profile")}
               onClose={handleCloseMyAccDrop}
               slotProps={{
                 paper: {
@@ -232,7 +231,10 @@ export default function Header() {
             >
               <MenuItem
                 className="header-profile-dropdown-item"
-                onClick={handleCloseMyAccDrop}
+                onClick={() => {
+                  handleCloseMyAccDrop()
+                  navigate("/profile")
+                }}
               >
                 <CgProfile />
                 My Account
