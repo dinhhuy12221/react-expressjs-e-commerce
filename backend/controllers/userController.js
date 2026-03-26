@@ -61,16 +61,15 @@ class userController {
   updateUser = async (req, res) => {
     try {
       const { image } = req.body;
-      const { image_file } = req.files;
-      console.log(image_file);
+      const file = req.file;
 
       let image_result = {
         url: image.url,
         public_id: image.public_id,
       };
 
-      if (image_file) {
-        const result = await cloudinary.v2.uploader.upload(image_file.path, {
+      if (file) {
+        const result = await cloudinary.v2.uploader.upload(file.path, {
           public_id: image.public_id,
           overwrite: true,
         });
@@ -90,9 +89,7 @@ class userController {
         };
       }
 
-      console.log(image_result);
-
-      if (image_file?.path) {
+      if (file?.path) {
         await fs.unlink(file.path).catch(() => {});
       }
 
