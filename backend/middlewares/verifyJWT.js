@@ -4,7 +4,10 @@ const verifyJWT = async (req, res, next) => {
   try {
     const { accessToken } = req.cookies;
 
-    if (!accessToken) return res.status(401);
+    if (!accessToken) return res.status(401).json({
+      message: "Access token not found",
+      ok: false,
+    });
 
     jwt.verify(
       accessToken,

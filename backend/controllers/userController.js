@@ -60,10 +60,20 @@ class userController {
 
   updateUser = async (req, res) => {
     try {
-      const imageResult = await cloudinary.v2.uploader.upload(req.body.image_file, {
-        public_id: req.body.image_public_id,
-        overwrite: true,
-      });
+      const { file, image } = req.body
+      let image_result;
+
+      if (file) {
+        const result = await cloudinary.v2.uploader.upload(file.path, {
+          public_id: image.public_id,
+          overwrite: true,
+        });
+
+        image_result = {
+          url: result.secure_url,
+          public_id: result.public_id
+        }
+      }
 
       const result = await User.findOneAndUpdate(
         {
@@ -72,8 +82,8 @@ class userController {
         {
           fullname: req.body.fullname,
           image: {
-            url: imageResult.secure_url,
-            public_id: imageResult.public_id,
+            url: image_result.url,
+            public_id: image_result.public_id,
           },
           phone_number: req.body.phone_number,
           address: req.body.address,
