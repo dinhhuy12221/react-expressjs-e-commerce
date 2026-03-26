@@ -21,7 +21,10 @@ const Profile = () => {
     }
     const result = await updateUser(payload)
 
-    if (result.ok) alert("User updated successfully")
+    if (result.ok) {
+      alert("User updated successfully")
+      setImageFile(null)
+    }
   };
   const handleChange = (e) => {
     const { name, value } = e.target
