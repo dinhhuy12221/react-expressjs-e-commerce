@@ -8,7 +8,7 @@ const filePath = path.resolve("./assets/default_pfp.jpg");
 class userController {
   createUser = async (req, res) => {
     try {
-      const counter = await getSequence("user")
+      const counter = await getSequence("user");
       const imageResult = await cloudinary.v2.uploader.upload(filePath, {
         folder: `ecommerce/users/${counter}`,
       });
@@ -23,21 +23,20 @@ class userController {
         phone_number: req.body?.phone_number || "",
         address: req.body?.address || "",
       };
-      await User.create(payload)
+      await User.create(payload);
 
       res.status(201).json({
         message: "User created successfully",
         success: true,
-      })
+      });
     } catch (error) {
       console.log(error);
       res.status(500).json({
         message: "Internal server error",
         error: error.message,
         success: false,
-      })
+      });
     }
-
   };
 
   getUserById = async (req, res) => {
@@ -60,10 +59,36 @@ class userController {
 
   updateUser = async (req, res) => {
     try {
-      const imageResult = await cloudinary.v2.uploader.upload(req.body.image_file, {
-        public_id: req.body.image_public_id,
-        overwrite: true,
-      });
+      const { file, image } = req.body;
+      let image_result = {
+        url: image.url,
+        public_id: image.public_id,
+      };
+
+      if (file) {
+        if (image.public_id) {
+          const result = await cloudinary.v2.uploader.upload(file.path, {
+            public_id: image.public_id,
+            overwrite: true,
+          });
+
+          image_result = {
+            url: result.secure_url,
+            public_id: result.public_id,
+          };
+        } else {
+          if (image.public_id) {
+            const result = await cloudinary.v2.uploader.upload(filePath, {
+              folder: `ecommerce/users/${req.body._id}`,
+            });
+
+            image_result = {
+              url: result.secure_url,
+              public_id: result.public_id,
+            };
+          }
+        }
+      }
 
       const result = await User.findOneAndUpdate(
         {
@@ -72,15 +97,17 @@ class userController {
         {
           fullname: req.body.fullname,
           image: {
-            url: imageResult.secure_url,
-            public_id: imageResult.public_id,
+            url: image_result.url,
+            public_id: image_result.public_id,
           },
-          phone_number: req.body.phone_number,
-          address: req.body.address,
+          phone_number: req.body?.phone_number || "",
+          address: req.body?.address || "",
         }
       );
 
-      res.status(200).json({ message: "User updated successfully", user: result });
+      res
+        .status(200)
+        .json({ message: "User updated successfully", user: result });
     } catch (error) {
       console.log(error);
       res.status(400).json({ message: "Unauthorized", error: error.message });
