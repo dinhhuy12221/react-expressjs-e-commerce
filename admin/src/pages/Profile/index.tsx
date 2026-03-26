@@ -21,7 +21,10 @@ const Profile = () => {
     }
     const result = await updateUser(payload)
 
-    if (result.ok) alert("User updated successfully")
+    if (result.ok) {
+      alert("User updated successfully")
+      setImageFile(null)
+    }
   };
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -100,7 +103,7 @@ const Profile = () => {
             <div className="profile-content-main-item">
               <h4>Username</h4>
               <input
-                className="profile-content-main-item-input"
+                className="profile-content-main-item-input not-allowed-cursor"
                 type="text"
                 spellCheck="false"
                 value={draft?.username}
