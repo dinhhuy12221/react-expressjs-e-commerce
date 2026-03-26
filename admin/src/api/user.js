@@ -59,7 +59,7 @@ const updateUser = async (payload) => {
 
     const formData = new FormData();
     Object.keys(payload).forEach((key) => {
-      if (key !== "imageFile" && ket !== "image") {
+      if (key !== "imageFile" && key !== "image") {
         formData.append(key, payload[key]);
       }
     });
