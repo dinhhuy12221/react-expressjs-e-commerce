@@ -95,15 +95,17 @@ class userController {
         }
       } else {
         if (parsedImage.public_id) {
-          const result = await cloudinary.v2.uploader.upload(filePath, {
-            public_id: parsedImage.public_id,
-            overwrite: true,
-          });
-
-          image_result = {
-            url: result.secure_url,
-            public_id: result.public_id,
-          };
+          if (parsedImage.deleted) {
+            const result = await cloudinary.v2.uploader.upload(filePath, {
+              public_id: parsedImage.public_id,
+              overwrite: true,
+            });
+  
+            image_result = {
+              url: result.secure_url,
+              public_id: result.public_id,
+            };
+          }
         } else {
           const result = await cloudinary.v2.uploader.upload(filePath, {
             folder: `ecommerce/users/${req.body._id}`,
