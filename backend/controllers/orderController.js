@@ -63,7 +63,7 @@ class orderController {
         .json({ message: "Create order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
-      return res.status(404).json({
+      return res.status(500).json({
         message: "Internal server error",
         error: error.message,
         ok: false
