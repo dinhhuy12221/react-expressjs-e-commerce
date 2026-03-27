@@ -60,11 +60,13 @@ class orderController {
 
       return res
         .status(200)
-        .json({ message: "Create order successfully", data: result });
+        .json({ message: "Create order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
       return res.status(404).json({
         message: "Internal server error",
+        error: error.message,
+        ok: false
       });
     }
   };
@@ -77,11 +79,13 @@ class orderController {
 
       return res
         .status(200)
-        .json({ message: "Get order successfully", data: result });
+        .json({ message: "Get order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
       return res.status(500).json({
         message: "Internal server error",
+        error: error.message,
+        ok: false
       });
     }
   };
@@ -92,11 +96,13 @@ class orderController {
 
       return res
         .status(200)
-        .json({ message: "Get order successfully", data: result });
+        .json({ message: "Get order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
       return res.status(500).json({
         message: "Internal server error",
+        error: error.message,
+        ok: false
       });
     }
   };
@@ -106,11 +112,12 @@ class orderController {
 
       return res
         .status(200)
-        .json({ message: "Get order successfully", data: result });
+        .json({ message: "Get order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
       return res.status(500).json({
         message: "Internal server error",
+        ok: false
       });
     }
   };
