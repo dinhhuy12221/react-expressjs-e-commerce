@@ -26,6 +26,7 @@ import { AdminContext } from "../../App";
 import UserAvatarImg from "../UserAvatarImg";
 import "./index.css";
 import { CgProfile } from "react-icons/cg";
+import { logout } from "../../api/user";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -48,6 +49,17 @@ export default function Header() {
   const handleCloseNotificationsDrop = () => {
     setIsOpenNotificationDrop(null);
   };
+
+  const handleLogout = async () => {
+    const result = await logout();
+    if (result.ok) {
+      alert("Logout successfully!")
+      navigate("/login")
+      return
+    } else {
+      alert(result?.error || "Something went wrong")
+    }
+  }
 
   const getNotificationItems = () => {
     return new Array(10).fill(
@@ -248,7 +260,10 @@ export default function Header() {
               </MenuItem>
               <MenuItem
                 className="header-profile-dropdown-item"
-                onClick={handleCloseMyAccDrop}
+                onClick={() => {
+                  handleCloseMyAccDrop()
+                  handleLogout()
+                }}
               >
                 <MdExitToApp />
                 Logout

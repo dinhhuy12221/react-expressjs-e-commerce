@@ -40,6 +40,18 @@ const signup = async (values) => {
   }
 };
 
+const logout = async () => {
+  try {
+    const result = await fetch(`${BASE_URL}/auth/user/logout`, {
+      method: "POST",
+      credentials: "include"
+    }).then(result => result.json())
+    return result
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const verify = async () => {
   try {
     const result = await fetch(`${BASE_URL}/auth/me`, {
@@ -79,4 +91,4 @@ const updateUser = async (payload) => {
   }
 };
 
-export { login, signup, verify, updateUser };
+export { login, signup, logout, verify, updateUser };
