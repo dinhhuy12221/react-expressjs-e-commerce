@@ -10,10 +10,14 @@ class customerAccountController {
         return res.status(400).json({ message: "All fields are required!" });
       }
 
-      const existedUsername = await CustomerAccount.find({ username: username });
+      const existedUsername = await CustomerAccount.find({
+        username: username,
+      });
 
       if (existedUsername.length) {
-        return res.status(409).json({ message: "Username is already existed!"})
+        return res
+          .status(409)
+          .json({ message: "Username is already existed!" });
       }
 
       const hashedPwd = await bcrypt.hash(password, 10);
@@ -29,34 +33,42 @@ class customerAccountController {
         //   username,
         //   fullname,
         // });
-        
+
         // const response = await customer.save();
-        
+
         // if(response) {
         //   return res.status(201).json({ message: `New user ${username}, fullname: ${fullname} created` });
         // }
         // res.status(201).json({ message: "Account created successfully", data: customerAccount })
-        next()
+        next();
       } else {
-        return res.status(400).json({ message: "Invalid user data received" });
+        res.status(400).json({ message: "Invalid user data received" });
       }
     } catch (error) {
-      return res.json(error);
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
+        ok: false,
+      });
     }
   }
-  
+
   async get(req, res) {
     try {
       const { id } = req.params.id;
       const account = await CustomerAccount.find({ _id: id });
-      
+
       if (account) {
-        res.status(201).json(account)
+        res.status(201).json(account);
       } else {
-        res.status(400).json({ message: "Account is not found "})
+        res.status(400).json({ message: "Account is not found " });
       }
     } catch (error) {
-      return res.json(error);
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
+        ok: false,
+      });
     }
   }
 }

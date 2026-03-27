@@ -58,12 +58,12 @@ class orderController {
         totalPrice,
       });
 
-      return res
+      res
         .status(200)
         .json({ message: "Create order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
         error: error.message,
         ok: false
@@ -77,12 +77,12 @@ class orderController {
         customerId: req.params.id,
       }).populate("products.id");
 
-      return res
+      res
         .status(200)
         .json({ message: "Get order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
         error: error.message,
         ok: false
@@ -94,12 +94,12 @@ class orderController {
     try {
       const result = await Order.findById(req.params.id).populate("products.id");
 
-      return res
+      res
         .status(200)
         .json({ message: "Get order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
         error: error.message,
         ok: false
@@ -115,8 +115,9 @@ class orderController {
         .json({ message: "Get order successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
+        error: error.message,
         ok: false
       });
     }

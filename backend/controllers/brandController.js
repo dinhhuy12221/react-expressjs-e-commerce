@@ -7,19 +7,19 @@ class brandController {
       const { name } = req.body;
 
       if (!name) {
-        return res.status(400).json({ message: "Brand name is required" });
+        return res.status(400).json({ message: "Brand name is required", ok: false });
       }
 
       const brand = await Brand.create({ name });
 
       res
         .status(201)
-        .json({ message: "Brand created successfully", data: brand });
+        .json({ message: "Brand created successfully", data: brand, ok: true });
     } catch (error) {
       console.log(error);
       res
         .status(500)
-        .json({ message: "Internal server error", error: error.message });
+        .json({ message: "Internal server error", error: error.message, ok: false });
     }
   };
 
@@ -29,7 +29,7 @@ class brandController {
 
       if (!name) {
         return res.status(400).json({
-          message: "Name is required",
+          message: "Name is required", ok: false
         });
       }
       const brand = await Brand.findByIdAndUpdate(
@@ -43,12 +43,12 @@ class brandController {
 
       res.status(200).json({
         message: "Brand Updated",
-        data: brand,
+        data: brand, ok: true
       });
     } catch (error) {
       res.status(500).json({
         message: "Internal server error",
-        error: error.message,
+        error: error.message, ok: false
       });
     }
   }
@@ -58,13 +58,13 @@ class brandController {
       await Brand.delete({ _id: req.params.id });
 
       res.status(200).json({
-        message: "Brand Deleted!",
+        message: "Brand Deleted!", ok: true
       });
     } catch (error) {
       console.log(error);
       res
         .status(500)
-        .json({ message: "Internal server error", error: error.message });
+        .json({ message: "Internal server error", error: error.message, ok: false });
     }
   }
 
@@ -73,16 +73,16 @@ class brandController {
       const brand = await Brand.findById(req.params.id);
 
       if (!brand) {
-        return res.status(400).json({ message: "Brand is not found" });
+        return res.status(400).json({ message: "Brand is not found", ok: false });
       }
       res
-        .status(201)
-        .json({ message: "Brand found successfully", data: brand });
+        .status(200)
+        .json({ message: "Brand found successfully", data: brand, ok: true });
     } catch (error) {
       console.log(error);
       res
         .status(500)
-        .json({ message: "Internal server error", error: error.message });
+        .json({ message: "Internal server error", error: error.message, ok: false });
     }
   };
 
@@ -91,12 +91,12 @@ class brandController {
       const brands = await Brand.find({});
       res
         .status(201)
-        .json({ message: "Brand found successfully", data: brands });
+        .json({ message: "Brand found successfully", data: brands, ok: true });
     } catch (error) {
       console.log(error);
       res
         .status(500)
-        .json({ message: "Internal server error", error: error.message });
+        .json({ message: "Internal server error", error: error.message, ok: false });
     }
   };
 }

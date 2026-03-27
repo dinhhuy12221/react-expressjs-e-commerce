@@ -142,7 +142,7 @@ class userController {
       console.log(error);
       res
         .status(500)
-        .json({ message: "Unauthorized", error: error.message, ok: true });
+        .json({ message: "Internal server error", error: error.message, ok: true });
     }
   };
 }
