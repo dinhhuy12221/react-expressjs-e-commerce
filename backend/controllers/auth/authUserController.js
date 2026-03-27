@@ -19,12 +19,16 @@ class authCustomerController {
           .json({ message: "Unauthorized (User not found)", ok: false });
       }
 
-      res.status(200).json({ message: "User found", data: user, ok: true })
+      res.status(200).json({ message: "User found", data: user, ok: true });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Internal server error", error: error.message, ok: false })
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
+        ok: false,
+      });
     }
-  }
+  };
 
   login = async (req, res) => {
     try {
@@ -42,23 +46,19 @@ class authCustomerController {
       });
 
       if (!account) {
-        return res
-          .status(401)
-          .json({
-            message: "Unauthorized (Account not found)",
-            ok: false,
-          });
+        return res.status(401).json({
+          message: "Unauthorized (Account not found)",
+          ok: false,
+        });
       }
 
       const match = await bcrypt.compare(password, account.password);
 
       if (!match) {
-        return res
-          .status(401)
-          .json({
-            message: "Unauthorized (Password is incorrect)",
-            ok: false,
-          });
+        return res.status(401).json({
+          message: "Unauthorized (Password is incorrect)",
+          ok: false,
+        });
       }
 
       const user = await User.findOne({
@@ -112,16 +112,16 @@ class authCustomerController {
         path: "/",
       });
 
-      res.status(200).json({ message: "Login successfully", user: user, ok: true });
-    } catch (error) {
-      console.log(error);
       res
         .status(200)
-        .json({
-          message: "Internal server error",
-          error: error.message,
-          ok: true,
-        });
+        .json({ message: "Login successfully", user: user, ok: true });
+    } catch (error) {
+      console.log(error);
+      res.status(200).json({
+        message: "Internal server error",
+        error: error.message,
+        ok: true,
+      });
     }
   };
 
@@ -140,16 +140,20 @@ class authCustomerController {
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET,
       async (err, decoded) => {
-        if (err) return res.status(403).json({ message: "Forbidden (error)", ok: false });
+        if (err)
+          return res
+            .status(403)
+            .json({ message: "Forbidden (error)", ok: false });
 
         const account = await UserAccount.findOne({
           username: decoded.username,
         }).exec();
 
         if (!account)
-          return res
-            .status(401)
-            .json({ message: "Unauthorized (Account is not existed)", ok: false });
+          return res.status(401).json({
+            message: "Unauthorized (Account is not existed)",
+            ok: false,
+          });
 
         const accessToken = jwt.sign(
           {
@@ -168,33 +172,40 @@ class authCustomerController {
 
   logout = async (req, res) => {
     try {
-      const cookies = req.cookies;
-      if (!cookies?.jwt) return res.sendStatus(204);
+      const { refreshToken } = req.cookies;
+      const isProd = process.env.NODE_ENV === "production";
 
-      //   const refreshToken = cookies.jwt;
+      if (refreshToken)
+        return res
+          .status(404)
+          .json({ message: "You already logged out", ok: false });
+
       const account = await UserAccount.findOneAndUpdate(
-        // { refreshToken: refreshToken },
+        { refreshToken },
         { refreshToken: "" }
       );
       if (!account) {
-        res.clearCookie("jwt", {
+        res.clearCookie("refreshToken", {
           httpOnly: true,
-          sameSite: "None",
-          secure: true,
+          secure: isProd,
+          sameSite: isProd ? "None" : "Lax",
         });
+        res.clearCookie("accessToken", {
+          httpOnly: true,
+          secure: isProd,
+          sameSite: isProd ? "None" : "Lax",
+        });
+        res
+          .status(200)
+          .json({ message: "Cookies cleared successfully", ok: true });
       }
-
-      res.clearCookie("jwt", {
-        httpOnly: true,
-        sameSite: "None",
-        secure: true,
-      });
-      res.status(200).json({ message: "Cookies cleared successfully", ok: true });
     } catch (error) {
       console.log(error);
-      res
-        .status(500)
-        .json({ message: "Internal server error", error: error.message, ok: false });
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
+        ok: false,
+      });
     }
   };
 }

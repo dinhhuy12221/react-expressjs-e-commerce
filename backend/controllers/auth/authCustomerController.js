@@ -5,6 +5,7 @@ import Customer from "../../models/customer.js";
 
 const REFRESH_TOKEN_EXPIRATION = "1h";
 const ACCESS_TOKEN_EXPIRATION = "30m";
+const isProd = process.env.NODE_ENV === "production";
 
 class authCustomerController {
   login = async (req, res) => {
@@ -13,7 +14,9 @@ class authCustomerController {
       // console.log(username, password);
 
       if (!username || !password) {
-        return res.status(400).json({ message: "All fields are required", ok: false });
+        return res
+          .status(400)
+          .json({ message: "All fields are required", ok: false });
       }
 
       const account = await CustomerAccount.findOne({
@@ -67,15 +70,23 @@ class authCustomerController {
       account.refreshToken = refreshToken;
       const result = await account.save();
 
-      res.cookie("jwt", refreshToken, {
+      res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
-        secure: true,
-        sameSite: "None",
+        secure: isProd,
+        sameSite: isProd ? "None" : "Lax",
         // maxAge: 7 * 24 * 60 * 60 * 1000,
         maxAge: 60 * 60 * 1000,
       });
 
-      res.status(200).json({ accessToken: accessToken, customer: customer, ok: true });
+      res.cookie("accessToken", accessToken, {
+        httpOnly: true,
+        secure: isProd,
+        sameSite: isProd ? "None" : "Lax",
+        maxAge: 60 * 60 * 1000,
+        path: "/",
+      });
+
+      res.status(200).json({ customer: customer, ok: true });
     } catch (error) {
       console.log(error);
     }
@@ -87,7 +98,10 @@ class authCustomerController {
     if (!cookies?.refreshToken) {
       return res
         .status(401)
-        .json({ message: "Unauthorized (refreshToken not existed)", ok: false });
+        .json({
+          message: "Unauthorized (refreshToken not existed)",
+          ok: false,
+        });
     }
 
     const refreshToken = cookies.refreshToken;
@@ -96,7 +110,10 @@ class authCustomerController {
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET,
       async (err, decoded) => {
-        if (err) return res.status(403).json({ message: "Forbidden (error)", ok: false });
+        if (err)
+          return res
+            .status(403)
+            .json({ message: "Forbidden (error)", ok: false });
 
         const account = await CustomerAccount.findOne({
           username: decoded.username,
@@ -105,7 +122,10 @@ class authCustomerController {
         if (!account)
           return res
             .status(401)
-            .json({ message: "Unauthorized (account is not existed)", ok: false });
+            .json({
+              message: "Unauthorized (account is not existed)",
+              ok: false,
+            });
 
         const accessToken = jwt.sign(
           {
@@ -125,28 +145,38 @@ class authCustomerController {
   logout = async (req, res) => {
     try {
       const { refreshToken } = req.cookies;
-      if (!refreshToken) return res.status(404).json({ message: "Refresh Token not found", ok: false});
+      if (!refreshToken)
+        return res
+          .status(404)
+          .json({ message: "Refresh Token not found", ok: false });
       const account = await CustomerAccount.findOneAndUpdate(
         { refreshToken },
         { refreshToken: "" }
       );
       if (!account) {
-        res.clearCookie("jwt", {
+        res.clearCookie("refreshToken", {
           httpOnly: true,
-          sameSite: "None",
-          secure: true,
-        });;
+          secure: isProd,
+          sameSite: isProd ? "None" : "Lax",
+        });
+        res.clearCookie("accessToken", {
+          httpOnly: true,
+          secure: isProd,
+          sameSite: isProd ? "None" : "Lax",
+        });
+        res
+          .status(200)
+          .json({ message: "Cookies cleared successfully", ok: true });
       }
-
-      res.clearCookie("jwt", {
-        httpOnly: true,
-        sameSite: "none",
-        secure: true,
-      });
-      res.status(200).json({ message: "Cookies cleared successfully", ok: true });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Internal server error", error: error.message, ok: false });
+      res
+        .status(500)
+        .json({
+          message: "Internal server error",
+          error: error.message,
+          ok: false,
+        });
     }
   };
 }
