@@ -23,7 +23,8 @@ const Order = () => {
   useEffect(() => {
     const handleAsync = async () => {
       const result = await getOrders();
-      setOrders(result);
+      
+      setOrders(result.data);
     };
 
     handleAsync();

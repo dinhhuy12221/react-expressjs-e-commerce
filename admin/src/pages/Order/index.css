@@ -50,7 +50,7 @@
   background: linear-gradient(120deg, rgb(255, 177, 9), rgb(228, 245, 70));
 }
 .order-stat-content-box-item.completed {
-  background: linear-gradient(120deg, rgb(70, 219, 245), rgb(111, 113, 226));
+  background: linear-gradient(120deg, rgb(111, 113, 226), rgb(70, 219, 245));
 }
 .order-stat-content-box-item.revenue {
   background: linear-gradient(120deg, rgb(111, 226, 168), rgb(70, 219, 245));
@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-6);
-  color: rgb(2, 110, 124);
+  color: rgb(2, 72, 82);
 }
 .order-stat-content-box-item-content {
   margin-left: auto;

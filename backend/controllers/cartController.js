@@ -18,13 +18,15 @@ class cartController {
         });
       }
 
-      return res
+      res
         .status(200)
-        .json({ message: "Add cart successfully", data: result });
+        .json({ message: "Add cart successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
+        error: error.message,
+        ok: false,
       });
     }
   };
@@ -40,28 +42,32 @@ class cartController {
         result = await cart.save();
       }
 
-      return res
+      res
         .status(200)
-        .json({ message: "Update cart successfully", data: result });
+        .json({ message: "Update cart successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
+        error: error.message,
+        ok: false,
       });
     }
   };
 
   deleteCart = async (req, res) => {
     try {
-      const result = await Cart.deleteOne({ _id: req.params.id })
+      const result = await Cart.deleteOne({ _id: req.params.id });
 
-      return res
+      res
         .status(200)
-        .json({ message: "Delete cart successfully", data: result });
+        .json({ message: "Delete cart successfully", data: result, ok: true });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
+        error: error.message,
+        ok: false,
       });
     }
   };
@@ -72,29 +78,41 @@ class cartController {
         customerId: req.params.id,
       });
 
-      return res.status(200).json(cart);
+      res.status(200).json({
+        message: "Cart found successfully",
+        data: cart,
+        ok: true,
+      });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
+        error: error.message,
+        ok: false,
       });
     }
   };
 
-  getProductsByCustomer = async(req, res) => {
+  getProductsByCustomer = async (req, res) => {
     try {
       const products = await Cart.find({
         customerId: req.params.id,
       }).populate("productId");
 
-      return res.status(200).json(products);
+      res.status(200).json({
+        message: "Products found successfully",
+        data: products,
+        ok: true,
+      });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
+      res.status(500).json({
         message: "Internal server error",
+        error: error.message,
+        ok: false,
       });
     }
-  }
+  };
 }
 
 export default new cartController();

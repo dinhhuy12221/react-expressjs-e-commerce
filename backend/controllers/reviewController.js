@@ -12,10 +12,10 @@ class reviewController {
             }
             const review = await Review.create(payload);
 
-            res.status(201).json({ message: "Review created successfully", data: review })
+            res.status(201).json({ message: "Review created successfully", data: review, ok: true })
         } catch (error) {
             console.log(error);
-            res.status(500).json({ message: "Internal server error", error: error.message })
+            res.status(500).json({ message: "Internal server error", error: error.message, ok: false })
         }
     }
 
@@ -23,10 +23,10 @@ class reviewController {
         try {
             const reviews = await Review.find({ productId: req.params.id }).populate("customerId")
 
-            res.status(201).json({ message: "Reviews found", data: reviews })
+            res.status(201).json({ message: "Reviews found", data: reviews, ok: true })
         } catch (error) {
             console.log(error);
-            res.status(500).json({ message: "Internal server error", error: error.message })
+            res.status(500).json({ message: "Internal server error", error: error.message, ok: false })
         }
     }
 
@@ -34,10 +34,10 @@ class reviewController {
         try {
             const reviews = await Review.find({ customerId: req.params.id }).populate("customerId")
 
-            res.status(201).json({ message: "Reviews found", data: reviews })
+            res.status(201).json({ message: "Reviews found", data: reviews, ok: true })
         } catch (error) {
             console.log(error);
-            res.status(500).json({ message: "Internal server error", error: error.message })
+            res.status(500).json({ message: "Internal server error", error: error.message, ok: false })
         }
     }
 }

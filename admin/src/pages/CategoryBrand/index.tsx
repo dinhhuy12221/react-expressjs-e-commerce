@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
-import { createCategory, deleteCategory, getCategories, updateCategory } from "../../api/category";
-import { createBrand, deleteBrand, getBrands, updateBrand } from "../../api/brand";
+import {
+  createCategory,
+  deleteCategory,
+  getCategories,
+  updateCategory,
+} from "../../api/category";
+import {
+  createBrand,
+  deleteBrand,
+  getBrands,
+  updateBrand,
+} from "../../api/brand";
 import "./index.css";
 
 export default function CategoryBrand() {
@@ -58,35 +68,41 @@ export default function CategoryBrand() {
 
   const handleCreate = async (name) => {
     if (name === "category") {
-      const result = await createCategory(category.name)
-      
-      setCategories(prev => ([
-        ...prev,
-        result
-      ]))
-      setCategory({ name: "" })
-    } else if (name === "brand") {
-      const result = await createBrand(brand.name)
+      if (category.name.trim() === "") {
+        alert("Category name required!");
+        return;
+      }
+      const result = await createCategory(category.name);
 
-      setBrands(prev => ([
-        ...prev,
-        result
-      ]))
-      setBrand({ name: "" })
+      setCategories((prev) => [...prev, result]);
+      setCategory({ name: "" });
+      alert("Category created successfully!");
+    } else if (name === "brand") {
+      if (category.name.trim() === "") {
+        alert("Brand name required!");
+        return;
+      }
+      const result = await createBrand(brand.name);
+
+      setBrands((prev) => [...prev, result]);
+      setBrand({ name: "" });
+      alert("Brand created successfully!");
     }
-  }
+  };
 
   const handleDelete = async (id, index, name) => {
     if (name === "categories") {
-      await deleteCategory(id)
-      
-      setCategories(prev => prev.filter((_, i) => i !== index));
+      await deleteCategory(id);
+
+      setCategories((prev) => prev.filter((_, i) => i !== index));
+      alert("Category deleted successfully!");
     } else if (name === "brands") {
-      await deleteBrand(id)
-      
-      setBrands(prev => prev.filter((_, i) => i !== index));
+      await deleteBrand(id);
+
+      setBrands((prev) => prev.filter((_, i) => i !== index));
+      alert("Brand deleted successfully!");
     }
-  }
+  };
 
   useEffect(() => {
     const asyncHandle = async () => {
@@ -142,14 +158,18 @@ export default function CategoryBrand() {
                       <button
                         className="category-brand-form-table-item-name-save"
                         color="success"
-                        onClick={() => handleUpdate(item?._id, index, "categories")}
+                        onClick={() =>
+                          handleUpdate(item?._id, index, "categories")
+                        }
                       >
                         Save
                       </button>
                       <button
                         className="category-brand-form-table-item-name-cancel"
                         color="error"
-                        onClick={() => handleDelete(item?._id, index, "categories")}
+                        onClick={() =>
+                          handleDelete(item?._id, index, "categories")
+                        }
                       >
                         Delete
                       </button>

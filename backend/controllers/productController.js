@@ -10,20 +10,20 @@ class productController {
     try {
       // verifyJWT(req, res, next)
       console.log(req.query);
-      
+
       const { id, slug } = req.query;
 
       if (id) {
         const product = await Product.find({ _id: id });
         return res
           .status(201)
-          .json({ message: "Product found", data: product });
+          .json({ message: "Product found", data: product, ok: true });
       }
       if (slug) {
         const product = await Product.find({ slug });
         return res
           .status(201)
-          .json({ message: "Product found", data: product });
+          .json({ message: "Product found", data: product, ok: true });
       }
 
       const products = await Product.find({}).populate([
@@ -32,13 +32,14 @@ class productController {
       ]);
       return res
         .status(201)
-        .json({ message: "Products found", data: products });
+        .json({ message: "Products found", data: products, ok: true });
     } catch (error) {
       console.log(error);
 
       res.status(500).json({
         message: "Internal server error",
         error: error.message,
+        ok: false,
       });
     }
   }
@@ -108,7 +109,7 @@ class productController {
       console.log(imagesToUpload);
 
       if (!category) {
-        res.status(404).json({ message: "Category is not found" });
+        res.status(404).json({ message: "Category is not found", ok: false });
       }
 
       if (imagesToUpload) {
@@ -130,14 +131,15 @@ class productController {
         res.status(201).json({
           message: "Product created successfully",
           data: product,
+          ok: true,
         });
       }
     } catch (error) {
       console.log(error);
-
       res.status(500).json({
         message: "Internal server error",
         error: error.message,
+        ok: false,
       });
     }
   }
@@ -222,11 +224,13 @@ class productController {
       if (!product) {
         return res.status(404).json({
           message: "The product can not be updated!",
+          ok: false,
         });
       }
       res.status(201).json({
         message: "The product is updated!",
         data: product,
+        ok: true,
       });
     } catch (error) {
       console.log(error);
@@ -234,6 +238,7 @@ class productController {
       res.status(500).json({
         message: "Internal server error",
         error: error.message,
+        ok: false,
       });
     }
   }
@@ -242,14 +247,15 @@ class productController {
     try {
       const deleteProduct = await Product.delete({ _id: req.params.id });
 
-      res.status(200).send({
+      res.status(200).json({
         message: "The product is deleted!",
-        status: true,
+        ok: true,
       });
     } catch (error) {
-      res.status(404).json({
-        success: false,
-        message: JSON.stringify(error),
+      res.status(500).json({
+        message: "Internal server error",
+        error: error.message,
+        ok: false,
       });
     }
   }
