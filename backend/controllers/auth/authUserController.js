@@ -131,7 +131,7 @@ class authCustomerController {
     if (!cookies?.jwt) {
       return res
         .status(401)
-        .json({ message: "Unauthorized (jwt not existed)" });
+        .json({ message: "Unauthorized (jwt not existed)", ok: false });
     }
 
     const refreshToken = cookies.jwt;
@@ -140,7 +140,7 @@ class authCustomerController {
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET,
       async (err, decoded) => {
-        if (err) return res.status(403).json({ message: "Forbidden (error)" });
+        if (err) return res.status(403).json({ message: "Forbidden (error)", ok: false });
 
         const account = await UserAccount.findOne({
           username: decoded.username,
@@ -149,7 +149,7 @@ class authCustomerController {
         if (!account)
           return res
             .status(401)
-            .json({ message: "Unauthorized (Account is not existed)" });
+            .json({ message: "Unauthorized (Account is not existed)", ok: false });
 
         const accessToken = jwt.sign(
           {
@@ -189,12 +189,12 @@ class authCustomerController {
         sameSite: "None",
         secure: true,
       });
-      res.status(200).json({ message: "Cookies cleared successfully" });
+      res.status(200).json({ message: "Cookies cleared successfully", ok: true });
     } catch (error) {
       console.log(error);
       res
         .status(500)
-        .json({ message: "Internal server error", error: error.message });
+        .json({ message: "Internal server error", error: error.message, ok: false });
     }
   };
 }

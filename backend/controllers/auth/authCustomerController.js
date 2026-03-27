@@ -13,7 +13,7 @@ class authCustomerController {
       // console.log(username, password);
 
       if (!username || !password) {
-        return res.status(400).json({ message: "All fields are required" });
+        return res.status(400).json({ message: "All fields are required", ok: false });
       }
 
       const account = await CustomerAccount.findOne({
@@ -23,7 +23,7 @@ class authCustomerController {
       if (!account) {
         return res
           .status(401)
-          .json({ message: "Unauthorized (Account not found)" });
+          .json({ message: "Unauthorized (Account not found)", ok: false });
       }
 
       const match = await bcrypt.compare(password, account.password);
@@ -31,7 +31,7 @@ class authCustomerController {
       if (!match) {
         return res
           .status(401)
-          .json({ message: "Unauthorized (Password is incorrect)" });
+          .json({ message: "Unauthorized (Password is incorrect)", ok: false });
       }
 
       const customer = await Customer.findOne({
@@ -41,7 +41,7 @@ class authCustomerController {
       if (!customer) {
         return res
           .status(401)
-          .json({ message: "Unauthorized (Customer not found)" });
+          .json({ message: "Unauthorized (Customer not found)", ok: false });
       }
 
       const accessToken = jwt.sign(
@@ -75,7 +75,7 @@ class authCustomerController {
         maxAge: 60 * 60 * 1000,
       });
 
-      res.status(200).json({ accessToken: accessToken, customer: customer });
+      res.status(200).json({ accessToken: accessToken, customer: customer, ok: true });
     } catch (error) {
       console.log(error);
     }
@@ -87,7 +87,7 @@ class authCustomerController {
     if (!cookies?.refreshToken) {
       return res
         .status(401)
-        .json({ message: "Unauthorized (refreshToken not existed)" });
+        .json({ message: "Unauthorized (refreshToken not existed)", ok: false });
     }
 
     const refreshToken = cookies.refreshToken;
@@ -96,7 +96,7 @@ class authCustomerController {
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET,
       async (err, decoded) => {
-        if (err) return res.status(403).json({ message: "Forbidden (error)" });
+        if (err) return res.status(403).json({ message: "Forbidden (error)", ok: false });
 
         const account = await CustomerAccount.findOne({
           username: decoded.username,
@@ -105,7 +105,7 @@ class authCustomerController {
         if (!account)
           return res
             .status(401)
-            .json({ message: "Unauthorized (account is not existed)" });
+            .json({ message: "Unauthorized (account is not existed)", ok: false });
 
         const accessToken = jwt.sign(
           {
@@ -124,12 +124,10 @@ class authCustomerController {
 
   logout = async (req, res) => {
     try {
-      const cookies = req.cookies;
-      if (!cookies?.jwt) return res.sendStatus(204);
-
-      const refreshToken = cookies.jwt;
+      const { refreshToken } = req.cookies;
+      if (!refreshToken) return res.status(404).json({ message: "Refresh Token not found", ok: false});
       const account = await CustomerAccount.findOneAndUpdate(
-        { refreshToken: refreshToken },
+        { refreshToken },
         { refreshToken: "" }
       );
       if (!account) {
@@ -145,10 +143,10 @@ class authCustomerController {
         sameSite: "none",
         secure: true,
       });
-      res.status(200).json({ message: "Cookies cleared successfully" });
+      res.status(200).json({ message: "Cookies cleared successfully", ok: true });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Internal server error", error: error.message });
+      res.status(500).json({ message: "Internal server error", error: error.message, ok: false });
     }
   };
 }
